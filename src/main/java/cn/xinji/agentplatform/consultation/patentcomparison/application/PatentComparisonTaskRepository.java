@@ -8,5 +8,5 @@ public interface PatentComparisonTaskRepository {
     Optional<PatentComparisonTask> findById(String taskId);
     Optional<PatentComparisonTask> findByIdempotency(String requester, String key);
     List<PatentComparisonTask> findByRequester(String requester);
-    void save(PatentComparisonTask task);
+    PatentComparisonTask saveIfAbsent(PatentComparisonTask task);
 }

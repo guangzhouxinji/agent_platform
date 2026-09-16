@@ -1,0 +1,627 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-10",
+  "title": "侵权行为分析规则配置",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/10-侵权行为分析规则配置需求文档.md",
+    "sha256": "680768968af5d322881dcf72ba944bcd719370ad938eab33d9d0b274ba8eb2e4",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "rules"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付范围",
+        "2. 数据、身份、权限与审计",
+        "3. 时间、版本与变更",
+        "4. 服务、任务与错误契约",
+        "5. AI、规则与人工边界",
+        "6. 页面验证",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-10-MUST-001",
+      "type": "MUST",
+      "statement": "按中心确认的疑似行为类型配置分析标准、权利基础、行为事实、逐项证据需求、排除抗辩、适用地区职权和程序。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖",
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "系统或模型不得自行发明侵权要件、证据标准、抗辩、职权程序、严重程度或通用规则。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST-002",
+      "type": "MUST",
+      "statement": "规则保存唯一编号、名称、行为类型、标准来源、构成要件、排除抗辩、适用范围、不可变发布版本、机构和审计。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST-003",
+      "type": "MUST",
+      "statement": "法律依据、证据字典、专家标准和案例样例均固定来源与版本并校验关联权限；缺失与源调用失败分开。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "来源依据和事实字段不得由模型生成替换，允许为空的抗辩列表也必须有业务确认而非默认无抗辩。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST-004",
+      "type": "MUST",
+      "statement": "每项要件明确需要的事实、证据、需核实条件、支持关系和缺失处理，避免仅凭语义相似度下结论。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST-005",
+      "type": "MUST",
+      "statement": "专利侵权规则要求权利要求逐项比对输入；商标规则要求实际标识及商品服务关系；假冒专利与专利侵权使用不同规则。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "语义相似、文本相似、同类别或权利存在不得直接等同侵权成立。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST-006",
+      "type": "MUST",
+      "statement": "疑似行为到处置程序的映射必须按行为类型、地区、职权和程序配置并带依据。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "不得把所有知识产权纠纷、侵权争议或辅助分析自动映射为行政处罚程序。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST-007",
+      "type": "MUST",
+      "statement": "如输出严重程度，规则必须定义因素、取值、证据、计算或映射和依据版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "缺少严重程度标准或证据时不得生成等级、分数或模型概率，只描述有来源的已知情节。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST-008",
+      "type": "MUST",
+      "statement": "样例试运行固定规则和输入版本，输出逐要件结果、缺失输入、排除抗辩、严重程度缺口和适用性提示。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST-009",
+      "type": "MUST",
+      "statement": "发布校验行为类型、要件、证据、依据、排除抗辩确认、适用范围和程序完整有效；失效或范围冲突规则不得发布。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST-010",
+      "type": "MUST",
+      "statement": "发布版本不可原地修改，编辑创建新草稿，停用限制新分析，历史分析继续引用旧规则和依据。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-10-MUST-014",
+      "type": "MUST",
+      "statement": "仅中心确认行为类型、职权程序和严重程度标准可进入真实使用；固定样例记录规则、证据、预期实际、版本和问题。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-10-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "ruleDraft",
+      "required": true,
+      "rules": [
+        "行为类型、标准依据、要件证据、抗辩、范围程序和可选严重程度"
+      ]
+    },
+    {
+      "name": "analysisSample",
+      "required": "试运行时",
+      "rules": [
+        "权利基础、行为事实、证据、抗辩和版本"
+      ]
+    },
+    {
+      "name": "lifecycleAction",
+      "required": "发布停用时",
+      "rules": [
+        "规则版本、动作、意见、可信身份和并发版本"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "ruleVersion",
+      "fields": [
+        "ruleId",
+        "version",
+        "behaviorType",
+        "standards",
+        "elements",
+        "evidenceRequirements",
+        "defenses",
+        "scope",
+        "procedure",
+        "severityRule",
+        "status",
+        "audit"
+      ]
+    },
+    {
+      "name": "dryRunResult",
+      "fields": [
+        "elementResults",
+        "missingInputs",
+        "defenseResults",
+        "severityOrKnownCircumstances",
+        "applicability",
+        "ruleVersion"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "create_or_edit",
+      "enforcement": "规则配置角色、行为范围和依据证据字典权限"
+    },
+    {
+      "action": "dry_run",
+      "enforcement": "规则及案例证据样例权限"
+    },
+    {
+      "action": "publish_or_disable",
+      "enforcement": "专业确认角色、依赖有效性和当前版本"
+    },
+    {
+      "action": "read_history",
+      "enforcement": "机构、行为类型、依据和历史版本权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "rule",
+      "allowedNext": [
+        "已发布",
+        "已停用"
+      ]
+    },
+    {
+      "name": "已发布",
+      "kind": "rule",
+      "allowedNext": [
+        "已停用"
+      ],
+      "invariant": "不可原地修改"
+    },
+    {
+      "name": "已停用",
+      "kind": "rule",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "固定行为类型、要件证据、抗辩、范围程序、严重程度和依据版本。",
+    "发布版本不可变，历史分析使用原规则。",
+    "不同知识产权行为规则不得互换。",
+    "样例输入、规则、输出和人工预期分别版本化。",
+    "模拟规则案例数据库与真实验收隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "rights_basis_missing",
+      "result": "逐项要件不足，不生成侵权结论"
+    },
+    {
+      "case": "rule_scope_mismatch",
+      "result": "返回不适用，不切换到其他程序"
+    },
+    {
+      "case": "severity_standard_missing",
+      "result": "只描述已知情节，不输出等级"
+    },
+    {
+      "case": "basis_expired_or_missing",
+      "result": "阻止发布或标规则待复核"
+    },
+    {
+      "case": "partial_dry_run",
+      "result": "列出未处理要件和输入，不标完整成功"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露规则、依据或案例证据"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-10-DEC-001",
+      "owner": "AI",
+      "description": "可辅助解释要件与样例缺口；不得创建侵权标准、认定侵权、生成严重等级或映射处罚程序。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-10-DEC-002",
+      "owner": "RULE",
+      "description": "执行要件证据、排除抗辩、范围程序、严重程度映射、版本、权限和发布校验。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-10-DEC-003",
+      "owner": "HUMAN",
+      "description": "中心专家提供确认标准和样例，授权人员确认空抗辩、发布停用及专业预期。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-10-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供法律依据、证据类型、行为程序字典、角色和规则确认。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-10-AC-001",
+      "given": [
+        "确认和未确认行为类型"
+      ],
+      "when": "配置规则",
+      "then": [
+        "只用中心标准",
+        "行为范围明确",
+        "模型不发明通用规则"
+      ],
+      "sourceClauseIds": [
+        "ENF-10-MUST-001",
+        "ENF-10-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-10-AC-002",
+      "given": [
+        "依据证据字典和空抗辩列表"
+      ],
+      "when": "保存规则",
+      "then": [
+        "版本关联权限完整",
+        "空列表有业务确认",
+        "模型不补来源"
+      ],
+      "sourceClauseIds": [
+        "ENF-10-MUST-002",
+        "ENF-10-MUST-003",
+        "ENF-10-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-10-AC-003",
+      "given": [
+        "专利侵权、假冒专利和商标样例"
+      ],
+      "when": "配置要件",
+      "then": [
+        "行为规则输入分开",
+        "逐项证据缺口可追踪",
+        "相似或同类不直接等于侵权"
+      ],
+      "sourceClauseIds": [
+        "ENF-10-MUST-004",
+        "ENF-10-MUST-005",
+        "ENF-10-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ENF-10-AC-004",
+      "given": [
+        "纠纷和不同职权程序"
+      ],
+      "when": "配置程序映射",
+      "then": [
+        "依据范围明确",
+        "不自动映射所有纠纷为处罚"
+      ],
+      "sourceClauseIds": [
+        "ENF-10-MUST-006",
+        "ENF-10-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ENF-10-AC-005",
+      "given": [
+        "有无严重程度标准和证据"
+      ],
+      "when": "试算严重程度",
+      "then": [
+        "完整标准才输出等级",
+        "否则只描述已知情节"
+      ],
+      "sourceClauseIds": [
+        "ENF-10-MUST-007",
+        "ENF-10-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ENF-10-AC-006",
+      "given": [
+        "固定专业样例"
+      ],
+      "when": "试运行",
+      "then": [
+        "逐要件抗辩缺失适用性完整",
+        "不作正式侵权结论"
+      ],
+      "sourceClauseIds": [
+        "ENF-10-MUST-008"
+      ]
+    },
+    {
+      "id": "ENF-10-AC-007",
+      "given": [
+        "缺要件、失效依据、范围冲突和发布规则修改"
+      ],
+      "when": "发布变更",
+      "then": [
+        "非法规则阻止",
+        "新草稿不覆盖旧版",
+        "历史分析保留"
+      ],
+      "sourceClauseIds": [
+        "ENF-10-MUST-009",
+        "ENF-10-MUST-010"
+      ]
+    },
+    {
+      "id": "ENF-10-AC-011",
+      "given": [
+        "中心固定专利假冒商标样例"
+      ],
+      "when": "业务验收",
+      "then": [
+        "规则证据预期实际版本问题齐全",
+        "未确认类型严重程度不标通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-10-MUST-014"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-10-OQ-001",
+      "type": "business_semantics",
+      "question": "首版行为类型、构成要件、证据、排除抗辩、职权程序和严重程度标准是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "规则实现"
+      ]
+    },
+    {
+      "id": "ENF-10-OQ-002",
+      "type": "authority_api",
+      "question": "法律依据、证据字典、行为程序和案例样例接口及版本是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03"
+      ]
+    },
+    {
+      "id": "ENF-10-OQ-003",
+      "type": "authorization",
+      "question": "配置试运行审核发布停用角色是什么？",
+      "blocks": [
+        "ARC-06",
+        "权限实现"
+      ]
+    },
+    {
+      "id": "ENF-10-OQ-004",
+      "type": "acceptance_data",
+      "question": "专家案例样例、逐要件预期和严重程度结果如何冻结？",
+      "blocks": [
+        "SPK-10",
+        "验收"
+      ]
+    },
+    {
+      "id": "ENF-10-OQ-005",
+      "type": "environment",
+      "question": "DM8、规则运行和国产环境参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-10-DD-001",
+      "decision": "Enforcement Rule 领域拥有侵权分析规则，Legal/Evidence 提供依据字典，Review 管理发布确认；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-10-DD-002",
+      "decision": "不同行为类型采用独立规则集合，严重程度作为可选且需完整标准的子规则。",
+      "basis": "原文明确行为和严重程度边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-10-DD-003",
+      "decision": "具体 API、规则 DSL、行为标准、角色和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心规则接口人员环境未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Behavior types, infringement elements, defenses, jurisdiction, procedure and severity remain explicit center-confirmed rules.",
+      "Similarity and dispute classification cannot become infringement or administrative punishment conclusions.",
+      "No element, defense, procedure, severity factor, role, sample expectation or environment was guessed."
+    ]
+  }
+}

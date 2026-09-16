@@ -1,0 +1,851 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-03",
+  "title": "案例库管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权咨询助手/案例库管理需求文档.md",
+    "sha256": "f6932bc13e986ba6343b46cccda6a21b58892820f1182535ca9786d6a916620e",
+    "sections": [
+      {
+        "anchor": "国产化与达梦 DM8 适配要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "1. 功能概述与范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与治理",
+        "purpose": "source_governance"
+      },
+      {
+        "anchor": "3. 字段设计",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与业务规则",
+        "purpose": "query_annotation_review"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖、交付与确认项",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sections": [
+        "1. 项目定位与交付口径",
+        "3. 共用业务规则",
+        "4. 共用支撑能力与估工方式",
+        "5. 建议开发与集成顺序",
+        "6. 验收资料与共同口径",
+        "7. 评审状态记录"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-03-MUST-001",
+      "type": "MUST",
+      "statement": "通过中心 API 接入商标、专利和行政裁决案例，提供分类查询、原文附件查看、结构化提取、标注校核与版本管理。",
+      "sourceAnchors": [
+        "1. 功能概述与范围"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-001"
+      ]
+    },
+    {
+      "id": "CON-03-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "中心原文不得编辑覆盖或由派生内容回写，相似案例排序和咨询答复不得混入本模块。",
+      "sourceAnchors": [
+        "1. 功能概述与范围"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-001"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-002",
+      "type": "MUST",
+      "statement": "保留数据源、源记录 ID、原文版本或内容摘要、源更新时间和本次获取时间，并分别保存案例编号、案号和标题。",
+      "sourceAnchors": [
+        "2. 数据来源与治理",
+        "3. 字段设计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-002"
+      ]
+    },
+    {
+      "id": "CON-03-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "同一纠纷的不同程序或文书不得因案号、标题或内容相近自动合并；无案号不得编造。",
+      "sourceAnchors": [
+        "2. 数据来源与治理",
+        "3. 字段设计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-002"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-003",
+      "type": "MUST",
+      "statement": "原文解析保留页码、段落和文书结构，扫描件记录 OCR 状态及质量异常；解析失败不得标记完成。",
+      "sourceAnchors": [
+        "2. 数据来源与治理",
+        "3. 字段设计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-003"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-004",
+      "type": "MUST",
+      "statement": "模型提取的事实、争议焦点、裁判要点和法条关联必须有原文证据定位；无法定位标为待核实。",
+      "sourceAnchors": [
+        "1. 功能概述与范围",
+        "2. 数据来源与治理",
+        "3. 字段设计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-003"
+      ]
+    },
+    {
+      "id": "CON-03-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "无法定位、草稿、退回或待复核的派生内容不得作为确定事实、已校核要点或当前发布信息输出。",
+      "sourceAnchors": [
+        "2. 数据来源与治理",
+        "4.2 提取、编辑与审核",
+        "4.3 原文与派生内容的关系"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-003",
+        "CON-03-AC-006"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-005",
+      "type": "MUST",
+      "statement": "字段区分案件类型、知识产权类型、处理机构、程序审级、审理时间、决定日期、原文摘录结果和结构化标签，不把所有机构称为法院。",
+      "sourceAnchors": [
+        "3. 字段设计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-002"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-006",
+      "type": "MUST",
+      "statement": "查询支持案例编号案号精确、名称包含、类型机构程序日期和标注状态筛选；同字段多选为或、不同字段为且、日期含端点。",
+      "sourceAnchors": [
+        "4.1 查询及详情"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-004"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-007",
+      "type": "MUST",
+      "statement": "分页默认 20、可选 10/20/50，默认决定日期倒序再按稳定 ID，缺失日期置后；上游不足不得当前页过滤排序冒充全库。",
+      "sourceAnchors": [
+        "4.1 查询及详情"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-004"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-008",
+      "type": "MUST",
+      "statement": "详情完整展示原文、附件、派生标注和关联法条；引用定位到真实页码或段落，无定位能力时明确说明并保留文献引用。",
+      "sourceAnchors": [
+        "4.1 查询及详情"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-005"
+      ]
+    },
+    {
+      "id": "CON-03-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "不得伪造页码段落定位，法条历史版本不确定时不得自动关联为现行版本。",
+      "sourceAnchors": [
+        "4.1 查询及详情",
+        "4.3 原文与派生内容的关系"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-005"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-009",
+      "type": "MUST",
+      "statement": "提取针对固定原文和配置创建异步任务；结果进入待审核，人工修订保存人员、时间、原因和新标注版本。",
+      "sourceAnchors": [
+        "4.2 提取、编辑与审核",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-006"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-010",
+      "type": "MUST",
+      "statement": "审核发布与标注修改分步骤留痕；退回须理由，发布版本才供后续使用，修改发布内容创建新版本。",
+      "sourceAnchors": [
+        "4.2 提取、编辑与审核"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-006"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-011",
+      "type": "MUST",
+      "statement": "首版可允许同人标注审核但权限和两步动作分开；人员安排及后续职责分离以中心确认制度为准。",
+      "sourceAnchors": [
+        "4.2 提取、编辑与审核",
+        "8. 依赖、交付与确认项"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-006"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-012",
+      "type": "MUST",
+      "statement": "已发布派生标注可撤回且后续检索停止使用该版本，历史审计仍保留。",
+      "sourceAnchors": [
+        "4.2 提取、编辑与审核"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-007"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-013",
+      "type": "MUST",
+      "statement": "源内容更新创建新原文关联版本，旧标注保留，受影响发布标注转待复核并停止作为当前有效输出。",
+      "sourceAnchors": [
+        "2. 数据来源与治理",
+        "4.3 原文与派生内容的关系"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-007"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-014",
+      "type": "MUST",
+      "statement": "提取任务采用排队、处理中、成功、失败、取消；同原文版本与配置重复提交提示已有任务，失败重试不清空成功结果。",
+      "sourceAnchors": [
+        "4.2 提取、编辑与审核",
+        "总目录/3.3 异步任务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-008"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-016",
+      "type": "MUST",
+      "statement": "原文附件、提取、标注、审核、发布与索引在后端继承中心权限并可进一步收紧；源撤回或权限收紧后停止向失权用户输出。",
+      "sourceAnchors": [
+        "2. 数据来源与治理",
+        "4.3 原文与派生内容的关系",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-010"
+      ]
+    },
+    {
+      "id": "CON-03-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "页面隐藏禁用按钮不能替代后端权限，原文无编辑删除入口，模拟页面不得作为对外交付或真实验收。",
+      "sourceAnchors": [
+        "5. 内部验证页面",
+        "文首交付边界"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-011"
+      ]
+    },
+    {
+      "id": "CON-03-MUST-019",
+      "type": "MUST",
+      "statement": "案例覆盖、格式、程序关系、授权、历史法条、审核人员、持久化索引和效果性能未确认时相应能力保持待补齐，不升级验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖、交付与确认项",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-03-AC-013"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "caseQuery",
+      "required": false,
+      "rules": [
+        "编号案号、名称、类型机构程序日期和标注状态"
+      ]
+    },
+    {
+      "name": "caseVersion",
+      "required": "提取时",
+      "rules": [
+        "数据源、稳定记录 ID、原文版本或摘要"
+      ]
+    },
+    {
+      "name": "extractionConfig",
+      "required": "提取时",
+      "rules": [
+        "批准模型、结构、版本和允许字段"
+      ]
+    },
+    {
+      "name": "annotationRevision",
+      "required": "编辑时",
+      "rules": [
+        "当前标注版本、内容、证据定位、原因和可信身份"
+      ]
+    },
+    {
+      "name": "reviewAction",
+      "required": "审核撤回时",
+      "rules": [
+        "固定标注版本、动作、意见和当前对象版本"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "caseRecord",
+      "fields": [
+        "sourceId",
+        "sourceRecordId",
+        "sourceVersion",
+        "caseNumber",
+        "docketNumber",
+        "title",
+        "types",
+        "institution",
+        "procedure",
+        "dates",
+        "fullTextRef",
+        "attachments",
+        "permissions"
+      ]
+    },
+    {
+      "name": "extractionTask",
+      "fields": [
+        "taskId",
+        "status",
+        "inputManifest",
+        "attempts",
+        "errors",
+        "requestId"
+      ]
+    },
+    {
+      "name": "annotationVersion",
+      "fields": [
+        "annotationId",
+        "version",
+        "facts",
+        "issues",
+        "holdings",
+        "lawRefs",
+        "evidenceLocations",
+        "status",
+        "authors",
+        "audit"
+      ]
+    },
+    {
+      "name": "publishedAnnotation",
+      "fields": [
+        "caseVersion",
+        "annotationVersion",
+        "reviewRecord",
+        "evidence",
+        "availabilityState"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "query_or_read_source",
+      "enforcement": "中心案例、原文和附件权限"
+    },
+    {
+      "action": "extract_or_edit",
+      "enforcement": "案例版本、模型通道和标注角色权限"
+    },
+    {
+      "action": "review_or_publish",
+      "enforcement": "审核角色、标注版本和证据读取权限"
+    },
+    {
+      "action": "read_published",
+      "enforcement": "当前调用方、源案例、证据和发布版本权限"
+    },
+    {
+      "action": "persist_or_index",
+      "enforcement": "仅限中心批准范围并随撤回权限传播"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "annotation",
+      "allowedNext": [
+        "待审核",
+        "撤回"
+      ]
+    },
+    {
+      "name": "待审核",
+      "kind": "annotation",
+      "allowedNext": [
+        "已发布",
+        "退回",
+        "撤回"
+      ]
+    },
+    {
+      "name": "退回",
+      "kind": "annotation",
+      "allowedNext": [
+        "草稿",
+        "撤回"
+      ],
+      "invariant": "退回理由保留"
+    },
+    {
+      "name": "已发布",
+      "kind": "annotation",
+      "allowedNext": [
+        "待复核",
+        "撤回"
+      ],
+      "invariant": "仅固定原文和标注版本有效"
+    },
+    {
+      "name": "待复核",
+      "kind": "annotation",
+      "allowedNext": [
+        "待审核",
+        "撤回"
+      ]
+    },
+    {
+      "name": "撤回",
+      "kind": "annotation",
+      "allowedNext": []
+    },
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "中心原文和附件只读，源版本缺失时以内容摘要固定快照。",
+    "不同程序和文书保持独立记录，通过明确关系连接。",
+    "原文、OCR/解析、模型输出、人工修订和审核发布分别版本化。",
+    "每项派生内容关联真实原文位置，历史法条版本缺失标待核实。",
+    "源更新或权限撤回传播待复核及不可用，不覆盖历史审计。",
+    "模拟数据、模型、数据库和真实验收证据隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "source_text_or_attachment_missing",
+      "result": "分别显示缺失，不生成完成的解析或提取"
+    },
+    {
+      "case": "ocr_or_parse_failure",
+      "result": "记录质量和失败状态，不伪造原文位置"
+    },
+    {
+      "case": "unsupported_filter_or_sort",
+      "result": "披露实际范围，禁止当前页冒充全库"
+    },
+    {
+      "case": "extraction_without_evidence",
+      "result": "标记待核实并阻止发布"
+    },
+    {
+      "case": "annotation_version_conflict",
+      "result": "拒绝覆盖并返回当前版本"
+    },
+    {
+      "case": "source_changed_or_withdrawn",
+      "result": "发布标注待复核或不可用，历史保留"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不从索引、附件、标注或历史泄露"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "CON-03-DEC-001",
+      "owner": "AI",
+      "description": "从固定原文提取候选事实、争议焦点、要点和法条关联并给出证据定位；不得改写原文、补事实或发布。",
+      "sourceAnchors": [
+        "1. 功能概述与范围",
+        "2. 数据来源与治理",
+        "4.2 提取、编辑与审核"
+      ]
+    },
+    {
+      "id": "CON-03-DEC-002",
+      "owner": "RULE",
+      "description": "执行身份关联、查询分页、原文版本、任务幂等、证据完整性、状态、权限和更新失效传播。",
+      "sourceAnchors": [
+        "2. 数据来源与治理",
+        "4. 功能与业务规则",
+        "6. 服务契约"
+      ]
+    },
+    {
+      "id": "CON-03-DEC-003",
+      "owner": "HUMAN",
+      "description": "标注人员修订并说明原因，审核人员核对证据后发布退回或撤回；中心确认人员制度和专业样本。",
+      "sourceAnchors": [
+        "4.2 提取、编辑与审核",
+        "8. 依赖、交付与确认项"
+      ]
+    },
+    {
+      "id": "CON-03-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供权威案例原文附件、程序关系、版本、数据覆盖和访问权限。",
+      "sourceAnchors": [
+        "1. 功能概述与范围",
+        "2. 数据来源与治理"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-03-AC-001",
+      "given": [
+        "中心案例 API 和本地派生能力"
+      ],
+      "when": "接入案例库",
+      "then": [
+        "中心原文只读",
+        "派生信息本地维护",
+        "不执行案例排序或咨询回答"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST-001",
+        "CON-03-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "CON-03-AC-002",
+      "given": [
+        "同一纠纷多程序文书、相近案号标题和缺失案号"
+      ],
+      "when": "映射记录",
+      "then": [
+        "文书独立并显式关联",
+        "编号案号标题分开",
+        "不误合并或编造"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST-002",
+        "CON-03-MUST_NOT-002",
+        "CON-03-MUST-005"
+      ]
+    },
+    {
+      "id": "CON-03-AC-003",
+      "given": [
+        "扫描原文、OCR 异常和无证据模型提取"
+      ],
+      "when": "解析并提取",
+      "then": [
+        "真实位置和质量可追踪",
+        "失败不标完成",
+        "无定位内容待核实且不发布"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST-003",
+        "CON-03-MUST-004",
+        "CON-03-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "CON-03-AC-004",
+      "given": [
+        "组合筛选、日期边界和上游有限分页"
+      ],
+      "when": "查询案例",
+      "then": [
+        "且或和日期规则正确",
+        "分页排序稳定",
+        "当前页不冒充全库"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST-006",
+        "CON-03-MUST-007"
+      ]
+    },
+    {
+      "id": "CON-03-AC-005",
+      "given": [
+        "可定位、不可定位引用和历史法条版本缺失"
+      ],
+      "when": "查看详情",
+      "then": [
+        "原文附件完整",
+        "真实页段可跳转",
+        "不可定位和版本待核实明确且不伪造"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST-008",
+        "CON-03-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "CON-03-AC-006",
+      "given": [
+        "模型结果、人工修订、同人两步审核和退回"
+      ],
+      "when": "完成标注发布流程",
+      "then": [
+        "每步人员时间原因版本留痕",
+        "只有发布版本对后续可用",
+        "草稿退回待复核不输出"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST_NOT-003",
+        "CON-03-MUST-009",
+        "CON-03-MUST-010",
+        "CON-03-MUST-011"
+      ]
+    },
+    {
+      "id": "CON-03-AC-007",
+      "given": [
+        "已发布标注、源更新和人工撤回"
+      ],
+      "when": "更新可用性",
+      "then": [
+        "撤回停止后续使用",
+        "源更新使旧标注待复核",
+        "历史版本和审核链保留"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST-012",
+        "CON-03-MUST-013"
+      ]
+    },
+    {
+      "id": "CON-03-AC-008",
+      "given": [
+        "同原文配置重复提交和失败后重试"
+      ],
+      "when": "创建提取任务",
+      "then": [
+        "返回已有任务或关联尝试",
+        "状态准确",
+        "失败不清空成功结果"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST-014"
+      ]
+    },
+    {
+      "id": "CON-03-AC-010",
+      "given": [
+        "内部案例及权限撤回"
+      ],
+      "when": "从查询详情附件索引或发布信息读取",
+      "then": [
+        "所有入口实时鉴权",
+        "提取索引不扩大公开范围"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST-016"
+      ]
+    },
+    {
+      "id": "CON-03-AC-011",
+      "given": [
+        "内部页面和直接 API 客户端"
+      ],
+      "when": "查询提取编辑审核撤回",
+      "then": [
+        "页面与服务一致且各失败分开",
+        "原文无修改入口",
+        "无页面仍可完成流程"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "CON-03-AC-013",
+      "given": [
+        "固定真实案例和完整交付检查"
+      ],
+      "when": "联调与验收",
+      "then": [
+        "程序、原文、附件、标注、权限和异常均有预期实际证据",
+        "未确认人员能力环境不标通过"
+      ],
+      "sourceClauseIds": [
+        "CON-03-MUST-019"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CON-03-OQ-001",
+      "type": "authority_api",
+      "question": "案例元数据、原文附件、程序关系、版本、变更和权限 API 的实际契约是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "真实联调"
+      ]
+    },
+    {
+      "id": "CON-03-OQ-002",
+      "type": "business_semantics",
+      "question": "案例分类、程序关系、派生字段、发布/撤回/失效和历史法条适用规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "标注规则实现"
+      ]
+    },
+    {
+      "id": "CON-03-OQ-003",
+      "type": "authorization",
+      "question": "原文附件、标注、审核、发布、撤回和索引的角色、职责分离及持久化授权是什么？",
+      "blocks": [
+        "ARC-06",
+        "数据与审核设计"
+      ]
+    },
+    {
+      "id": "CON-03-OQ-004",
+      "type": "model_boundary",
+      "question": "原文/OCR 格式、批准解析模型、提取 schema、数据出域和专家样本是什么？",
+      "blocks": [
+        "ARC-07",
+        "ARC-11",
+        "SPK-10"
+      ]
+    },
+    {
+      "id": "CON-03-OQ-005",
+      "type": "environment",
+      "question": "DM8、文件解析存储、检索、模型和国产环境版本及性能目标是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "SPK-16"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "CON-03-DD-001",
+      "decision": "Case Knowledge 拥有本地派生标注和版本，Authority Adapter 提供中心原文，Review 管理审核，Citation 管理原文定位；Agent 仅编排提取。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-03-DD-002",
+      "decision": "原文版本与标注版本分离，提取任务和标注生命周期使用独立状态，发布查询只读取审核通过且当前可用版本。",
+      "basis": "原文明确原文独立可用、派生标注需审核发布及更新失效。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-03-DD-003",
+      "decision": "具体 REST 路径、OCR/解析器、标注 schema、审核角色、索引和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心 API、人员、模型、授权和环境尚未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Center source documents, OCR/parse output, model annotations, human revisions and published annotations remain separate artifacts.",
+      "Different proceedings are not deduplicated by similar numbers or titles, and historical law is not defaulted to current law.",
+      "No API, case relation, role, publication rule, model, persistence authorization or performance target was guessed."
+    ]
+  }
+}

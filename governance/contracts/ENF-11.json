@@ -1,0 +1,814 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-11",
+  "title": "侵权行为分析",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/11-侵权行为分析需求文档.md",
+    "sha256": "5823ecfd71581d83d62c624f280bafbee9e6f0a7b542d3596de7d01b34ec9f44",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope_and_delivery"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "source_and_dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "analysis_rules"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付口径",
+        "1.1 已确认的国产化与数据库要求",
+        "3. 通用接口约定",
+        "4. 信息字段说明",
+        "5. 审核与版本通用要求",
+        "6. 内部前端通用要求",
+        "7. API 与业务材料依赖清单",
+        "9. 验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-11-MUST-001",
+      "type": "MUST",
+      "statement": "综合固定版本的线索解析、证据、证据链和已发布分析规则形成逐要件辅助分析报告，供执法人员复核。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-001",
+        "ENF-11-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "辅助报告不得自动立案、正式认定侵权、决定适用程序、确认处罚或执行任何处罚。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST-003",
+      "type": "MUST",
+      "statement": "分析前校验案件、线索、证据、证据链、规则和权利信息的稳定编号、关联、固定版本与当前权限。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-001",
+        "ENF-11-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "来源、输入事实、证据、权利状态、规则或缺失信息不得由模型生成或替换。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "总览/4. 信息字段说明"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-004",
+        "ENF-11-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST-005",
+      "type": "MUST",
+      "statement": "先按固定规则检查适用范围，再对每个要件分别记录事实、证据、法律或规则依据、支持或排除关系、缺口和不确定性。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-002",
+        "ENF-11-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST-006",
+      "type": "MUST",
+      "statement": "报告明确区分已确认事实、当事人陈述和模型推断，每项模型推断必须给出具体证据与不确定性。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "当事人陈述或模型推断不得被提升为已确认事实，也不得省略反对、冲突或排除依据。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST-007",
+      "type": "MUST",
+      "statement": "辅助结论限定为支持疑似成立、存在排除依据或材料不足无法判断，并逐要件解释形成原因。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-003",
+        "ENF-11-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST-008",
+      "type": "MUST",
+      "statement": "侵权严重程度只有在中心确认的适用规则存在且所需数据充分时才输出，否则返回无法评估及缺口。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "输入不足时不得补造行为、金额、权利有效性、严重程度、适用程序或其他事实。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST-009",
+      "type": "MUST",
+      "statement": "权利状态记录来源、版本、状态时间和查询时间，并按行为发生时点检查历史适用性。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "当前权利状态不得直接替代行为发生时的历史状态；历史状态缺失时不得宣称当时权利有效或无效。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST-010",
+      "type": "MUST",
+      "statement": "材料不足时仍返回有依据的部分分析、具体补证事项和未处理项，不能将源失败、规则不适用和资料不足混同。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-004",
+        "ENF-11-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "部分结果、资料不足或接口失败不得伪装为完整分析、侵权不成立或成功无缺口。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-004",
+        "ENF-11-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST-011",
+      "type": "MUST",
+      "statement": "审核状态为待审核、已确认和退回；授权人员可修订、提交、确认或退回，保留前后值、理由、人员、时间及机器原始结果。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST-012",
+      "type": "MUST",
+      "statement": "新增材料、规则或权利状态后重跑生成新报告版本，旧报告、人工修订和审核记录保持不变并按影响标记需复核。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "重跑或模型更新不得覆盖已人工确认报告、修改历史引用或改变正式案件状态。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-006",
+        "ENF-11-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST-017",
+      "type": "MUST",
+      "statement": "模型质量使用中心标注案件独立评估，记录逐要件、来源正确性、缺失处理、辅助结论、分母、模型/规则版本和专家复核。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-11-MUST_NOT-009",
+      "type": "MUST_NOT",
+      "statement": "模型置信度、自评分、模拟案件或静态页面不得替代业务准确率、真实联调或专家验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件",
+        "总览/6. 内部前端通用要求",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-11-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "caseReference",
+      "required": true,
+      "rules": [
+        "中心案件稳定编号和固定快照"
+      ]
+    },
+    {
+      "name": "behaviorAndClueVersion",
+      "required": true,
+      "rules": [
+        "事实描述或已确认线索版本"
+      ]
+    },
+    {
+      "name": "evidenceAndChainVersions",
+      "required": true,
+      "rules": [
+        "允许为空但必须产生材料不足状态"
+      ]
+    },
+    {
+      "name": "analysisRuleVersion",
+      "required": true,
+      "rules": [
+        "已发布、适用且中心确认"
+      ]
+    },
+    {
+      "name": "historicalRightsContext",
+      "required": false,
+      "rules": [
+        "来源、版本、行为时点状态；缺失必须披露"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定主体、操作和完整输入"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "analysisTask",
+      "fields": [
+        "taskId",
+        "status",
+        "requestId",
+        "inputManifest",
+        "attempts",
+        "unprocessedItems"
+      ]
+    },
+    {
+      "name": "elementAnalysis",
+      "fields": [
+        "elementId",
+        "applicability",
+        "confirmedFacts",
+        "statements",
+        "inferences",
+        "evidenceRefs",
+        "authorityRefs",
+        "gaps",
+        "uncertainty"
+      ]
+    },
+    {
+      "name": "auxiliaryConclusion",
+      "fields": [
+        "status",
+        "reason",
+        "severityOrUnavailable",
+        "candidateProcedure",
+        "itemsToConfirm",
+        "notOfficialDecision"
+      ]
+    },
+    {
+      "name": "report",
+      "fields": [
+        "reportId",
+        "version",
+        "reviewStatus",
+        "ruleVersion",
+        "modelVersion",
+        "rightsVersions",
+        "needsReview",
+        "audit"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "submit_analysis",
+      "enforcement": "校验案件、事实、全部证据链、规则和权利信息权限"
+    },
+    {
+      "action": "read_report_or_source",
+      "enforcement": "每次读取重新校验案件、证据、法条和报告权限"
+    },
+    {
+      "action": "revise",
+      "enforcement": "授权执法人员和预期报告版本校验"
+    },
+    {
+      "action": "confirm_or_return",
+      "enforcement": "中心授权审核角色；AI、Agent 和模型不得执行"
+    },
+    {
+      "action": "official_case_or_penalty_state",
+      "enforcement": "仅权威案件系统或真实授权人员可改变，本服务禁止写入"
+    }
+  ],
+  "states": [
+    {
+      "name": "queued",
+      "kind": "task",
+      "allowedNext": [
+        "running",
+        "failed",
+        "cancelled"
+      ]
+    },
+    {
+      "name": "running",
+      "kind": "task",
+      "allowedNext": [
+        "succeeded",
+        "partial_failed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    {
+      "name": "succeeded",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "partial_failed",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "列出未处理要件或来源"
+    },
+    {
+      "name": "failed",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "cancelled",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "待审核",
+      "kind": "review",
+      "allowedNext": [
+        "已确认",
+        "退回"
+      ]
+    },
+    {
+      "name": "退回",
+      "kind": "review",
+      "allowedNext": [
+        "待审核"
+      ],
+      "invariant": "重新提交形成新报告版本"
+    },
+    {
+      "name": "已确认",
+      "kind": "review",
+      "allowedNext": [],
+      "invariant": "不等于正式执法决定，重跑不得覆盖"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "任务固定案件、事实、线索、证据、证据链、规则、权利、法条和模型版本。",
+    "每个要件的事实、陈述、推断、证据、依据和缺口分别记录并定位来源。",
+    "权利状态保存行为时点、状态时点、查询时间、来源和版本。",
+    "机器结果、人工修订和审核记录独立版本化，重跑不覆盖。",
+    "输入或依据变化使旧结果标记需复核，不重写历史报告。",
+    "模拟、真实和部分失败证据分别标记并隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "input_resource_unauthorized",
+      "result": "拒绝分析且不泄露材料"
+    },
+    {
+      "case": "rule_not_applicable",
+      "result": "返回不适用及依据，不继续生成侵权结论"
+    },
+    {
+      "case": "materials_insufficient",
+      "result": "返回无法判断、部分分析及具体补证事项"
+    },
+    {
+      "case": "historical_right_status_missing",
+      "result": "标记待核实，不使用当前状态替代"
+    },
+    {
+      "case": "source_or_model_failure",
+      "result": "返回失败或部分失败和未处理项"
+    },
+    {
+      "case": "version_or_review_state_conflict",
+      "result": "拒绝覆盖并返回当前状态与版本"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-11-DEC-001",
+      "owner": "AI",
+      "description": "生成逐要件推断、候选辅助结论、缺口和程序候选；必须引用证据并披露不确定性，不得作正式认定。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-11-DEC-002",
+      "owner": "RULE",
+      "description": "执行适用范围、要件结构、数据充分性、严重程度前提、状态、权限、版本和需复核传播。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-11-DEC-003",
+      "owner": "HUMAN",
+      "description": "执法人员区分和确认事实、修订报告、选择程序、确认或退回；中心专家确认规则和评测预期。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-11-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心案件、证据、权利和法规系统提供真实版本、历史状态、权限及正式业务状态。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-11-AC-001",
+      "given": [
+        "固定案件、线索、证据链和已发布规则"
+      ],
+      "when": "提交分析任务",
+      "then": [
+        "所有输入和权限校验",
+        "版本清单冻结",
+        "报告和任务可追踪"
+      ],
+      "sourceClauseIds": [
+        "ENF-11-MUST-001",
+        "ENF-11-MUST-003"
+      ]
+    },
+    {
+      "id": "ENF-11-AC-002",
+      "given": [
+        "已确认事实、当事人陈述、模型推断和冲突证据"
+      ],
+      "when": "生成逐要件分析",
+      "then": [
+        "三类内容分开",
+        "每项推断引用证据并披露不确定性",
+        "冲突或排除依据不被省略"
+      ],
+      "sourceClauseIds": [
+        "ENF-11-MUST-005",
+        "ENF-11-MUST-006",
+        "ENF-11-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ENF-11-AC-003",
+      "given": [
+        "规则适用和不适用、存在支持与排除依据的样例"
+      ],
+      "when": "分析各要件",
+      "then": [
+        "先检查适用范围",
+        "辅助状态限于来源规定值",
+        "逐要件原因完整"
+      ],
+      "sourceClauseIds": [
+        "ENF-11-MUST-005",
+        "ENF-11-MUST-007"
+      ]
+    },
+    {
+      "id": "ENF-11-AC-004",
+      "given": [
+        "证据为空或行为、金额、权利、严重程度材料不足"
+      ],
+      "when": "执行分析",
+      "then": [
+        "返回无法判断、部分分析和补证事项",
+        "不补造数据或严重程度",
+        "不由模型替换来源"
+      ],
+      "sourceClauseIds": [
+        "ENF-11-MUST_NOT-003",
+        "ENF-11-MUST-007",
+        "ENF-11-MUST-008",
+        "ENF-11-MUST_NOT-005",
+        "ENF-11-MUST-010",
+        "ENF-11-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ENF-11-AC-005",
+      "given": [
+        "当前权利有效但行为时点历史状态缺失或不同"
+      ],
+      "when": "分析权利基础",
+      "then": [
+        "记录来源和各时间",
+        "不套用当前状态",
+        "历史不明时标记待核实"
+      ],
+      "sourceClauseIds": [
+        "ENF-11-MUST-009",
+        "ENF-11-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ENF-11-AC-006",
+      "given": [
+        "已有人工审核报告和新增材料或规则"
+      ],
+      "when": "重新运行分析",
+      "then": [
+        "生成新报告版本",
+        "旧修订、审核和引用不覆盖",
+        "受影响旧结果标记需复核"
+      ],
+      "sourceClauseIds": [
+        "ENF-11-MUST-012",
+        "ENF-11-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "ENF-11-AC-007",
+      "given": [
+        "待审核辅助报告"
+      ],
+      "when": "授权人员修订、确认或退回",
+      "then": [
+        "状态和审计完整",
+        "机器原始结果保留",
+        "确认仍不自动立案、认定或处罚"
+      ],
+      "sourceClauseIds": [
+        "ENF-11-MUST-001",
+        "ENF-11-MUST_NOT-001",
+        "ENF-11-MUST-011",
+        "ENF-11-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "ENF-11-AC-008",
+      "given": [
+        "正式案件和处罚状态"
+      ],
+      "when": "检查分析服务可写能力",
+      "then": [
+        "不存在模型或 Agent 直接写正式状态的路径"
+      ],
+      "sourceClauseIds": [
+        "ENF-11-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-11-AC-009",
+      "given": [
+        "无权限、源失败、规则不适用、历史状态缺失和部分失败"
+      ],
+      "when": "调用任务和报告服务",
+      "then": [
+        "错误、缺失和不适用可区分",
+        "未处理项和 request_id 完整",
+        "失败不伪装结论或成功"
+      ],
+      "sourceClauseIds": [
+        "ENF-11-MUST-003",
+        "ENF-11-MUST_NOT-003",
+        "ENF-11-MUST-010",
+        "ENF-11-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ENF-11-AC-011",
+      "given": [
+        "中心专家独立标注案件及固定版本"
+      ],
+      "when": "评测模型分析",
+      "then": [
+        "逐要件、来源、缺失、分母和复核指标完整",
+        "模型自评分和模拟案件不替代业务验收"
+      ],
+      "sourceClauseIds": [
+        "ENF-11-MUST-017",
+        "ENF-11-MUST_NOT-009"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-11-DD-001",
+      "decision": "侵权逐要件分析与报告归属 Enforcement；Evidence/Citation/Review 提供可信链与审核；Rule Runtime 执行确定性适用条件；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-11-DD-002",
+      "decision": "具体 REST 路径、要件模型、严重程度规则、模型、权利 API 映射和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "业务规则、权利接口和专家样例尚待中心确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-11-OQ-001",
+      "type": "business_semantics",
+      "question": "ENF-10 中心确认的侵权类型、适用范围、逐要件、排除依据、严重程度和程序规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "逐要件实现"
+      ]
+    },
+    {
+      "id": "ENF-11-OQ-002",
+      "type": "external_integration",
+      "question": "案件、权利状态和历史状态 API 的标识、版本、时间语义、认证和错误契约是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "历史权利验证"
+      ]
+    },
+    {
+      "id": "ENF-11-OQ-003",
+      "type": "acceptance_data",
+      "question": "中心标注案件如何定义逐要件、来源、缺失、结论和专家复核标准？",
+      "blocks": [
+        "SPK-10",
+        "模型效果验收"
+      ]
+    },
+    {
+      "id": "ENF-11-OQ-004",
+      "type": "authorization",
+      "question": "发起、查看、修订、提交、确认、退回和程序选择分别由哪些角色执行？",
+      "blocks": [
+        "ARC-06",
+        "审核和正式边界"
+      ]
+    },
+    {
+      "id": "ENF-11-OQ-005",
+      "type": "model_boundary",
+      "question": "批准模型、允许输入、输出结构、数据出域和性能目标是什么？",
+      "blocks": [
+        "ARC-07",
+        "ARC-11",
+        "SPK-10"
+      ]
+    },
+    {
+      "id": "ENF-11-OQ-006",
+      "type": "environment",
+      "question": "DM8、文件、检索、模型、JDK/驱动及国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Confirmed facts, party statements and model inferences remain distinct, with element-level evidence and uncertainty.",
+      "Current rights status cannot replace historical status, and all conclusions remain auxiliary even after report review.",
+      "No infringement elements, severity rule, procedure, model, role, metric or rights-API behavior was guessed."
+    ]
+  }
+}

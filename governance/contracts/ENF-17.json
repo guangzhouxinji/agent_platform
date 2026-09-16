@@ -1,0 +1,824 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-17",
+  "title": "法律依据引用",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/17-法律依据引用需求文档.md",
+    "sha256": "499e938a36e1d72404e8d624d5154bb5a43410226e06c92b61b098a7f1616e69",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope_and_delivery"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "source_and_dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "citation_rules"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付口径",
+        "1.1 已确认的国产化与数据库要求",
+        "3. 通用接口约定",
+        "4. 信息字段说明",
+        "5. 审核与版本通用要求",
+        "6. 内部前端通用要求",
+        "7. API 与业务材料依赖清单",
+        "9. 验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-17-MUST-001",
+      "type": "MUST",
+      "statement": "为分析、处罚建议和文书提供可追溯的法律规范候选匹配、版本校验、业务位置绑定和规范引用。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-001",
+        "ENF-17-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-003",
+      "type": "MUST",
+      "statement": "法条仅来自中心法律规范 API、已授权法规库或经字段核验后复用的项目法规能力，并支持原文、层级、版本、效力和地区。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-001",
+        "ENF-17-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-004",
+      "type": "MUST",
+      "statement": "接入、检索和绑定时校验法规、条文、业务目标和案件的稳定编号、关联、版本与当前权限，并分开表示源缺失和调用失败。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "法规来源、条文标识、版本、效力、地区、原文和缺失信息不得由模型生成、改写或替换。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则",
+        "总览/4. 信息字段说明"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-002",
+        "ENF-17-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-005",
+      "type": "MUST",
+      "statement": "案件场景记录中心案件编号；每个引用记录稳定条文编号与版本、正式法规名称和层级、原文、可核验来源、引用时间、适用时间、用途和地区。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-001",
+        "ENF-17-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-006",
+      "type": "MUST",
+      "statement": "引用位置必须锁定业务报告或文书的稳定编号、版本以及字段、段落或等效锚点。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-007",
+      "type": "MUST",
+      "statement": "候选检索使用行为、程序、适用地区、具体事件时间和用途，区分实体处理与程序事项所需的时间依据。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-008",
+      "type": "MUST",
+      "statement": "法条原文直接读取固定来源版本并逐字保持一致；模型生成的引用理由或解释与原文分字段返回。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "模型不得改写、摘要替换或拼接伪造法条原文，也不得把解释展示为原文。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-009",
+      "type": "MUST",
+      "statement": "历史适用性按照事件时间、地区、用途、条文版本、效力期间和过渡规则核验。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-003",
+        "ENF-17-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "不得仅按当前现行有效状态判断历史案件适用性，当前版本不得直接替代事件时点版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-010",
+      "type": "MUST",
+      "statement": "条文版本、效力期间或过渡规则不明时返回待人工核实及缺失项，限制自动确认。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-004",
+        "ENF-17-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-011",
+      "type": "MUST",
+      "statement": "没有可靠匹配时返回未找到可靠依据和实际检索范围，允许授权人员选择候选并记录选择人、理由、时间和版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "无可靠匹配、源失败或信息不足时不得生成虚构法规名称、条号、原文、效力或适用结论。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/7. API 与业务材料依赖清单"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-006",
+        "ENF-17-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-012",
+      "type": "MUST",
+      "statement": "引用绑定固定条文版本与业务位置；法规更新后历史引用和旧业务内容不覆盖，受影响结果标记需复核。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-013",
+      "type": "MUST",
+      "statement": "解绑引用保留历史绑定和审计，不得删除条文快照或改写引用过的报告、建议和文书版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-005",
+        "ENF-17-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-014",
+      "type": "MUST",
+      "statement": "审核状态为待审核、已确认和退回；授权人员执行选择、绑定、确认或退回并保留前后状态、理由、人员和时间。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "候选匹配或模型解释不得自动变成已确认法律依据，AI 和 Agent 不得执行人工审核动作。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-006",
+        "ENF-17-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "部分来源成功不得伪装完整检索或可靠匹配，上游失败不得伪装未找到法条。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-018",
+      "type": "MUST",
+      "statement": "内部页面覆盖检索、候选与原文、适用时间提示、业务位置、人工确认、引用历史、加载、空、失败、无权限和 request_id。",
+      "sourceAnchors": [
+        "6. 内部验证页面",
+        "总览/6. 内部前端通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST-019",
+      "type": "MUST",
+      "statement": "效果验收使用中心确认的事实、用途、地区、时间、法规版本和预期依据，逐项检查原文、版本、适用性、引用位置和人工复核。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-17-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "模型置信度、自评分、模拟法规或静态页面不得替代法律适用正确性、真实联调或业务验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件",
+        "总览/6. 内部前端通用要求",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-17-AC-010",
+        "ENF-17-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "citationQuery",
+      "required": true,
+      "rules": [
+        "事实或行为、用途、适用地区、具体事件时间"
+      ]
+    },
+    {
+      "name": "targetLocation",
+      "required": "绑定时",
+      "rules": [
+        "报告或文书稳定编号、固定版本和字段或段落锚点"
+      ]
+    },
+    {
+      "name": "caseReference",
+      "required": "案件场景时",
+      "rules": [
+        "中心案件稳定编号和当前权限"
+      ]
+    },
+    {
+      "name": "candidateSelection",
+      "required": "人工选择时",
+      "rules": [
+        "具体条文版本、选择理由、预期引用版本和可信身份"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "articleCandidate",
+      "fields": [
+        "articleId",
+        "articleVersion",
+        "lawName",
+        "hierarchy",
+        "verbatimText",
+        "region",
+        "effectivePeriod",
+        "sourceReference",
+        "applicability",
+        "reason"
+      ]
+    },
+    {
+      "name": "citation",
+      "fields": [
+        "citationId",
+        "version",
+        "targetId",
+        "targetVersion",
+        "targetAnchor",
+        "articleVersion",
+        "applicableTime",
+        "purpose",
+        "reviewStatus",
+        "needsReview"
+      ]
+    },
+    {
+      "name": "searchDisclosure",
+      "fields": [
+        "actualSources",
+        "actualScope",
+        "missingVersionData",
+        "unprocessedItems",
+        "requestId"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "search_candidates",
+      "enforcement": "校验事实、案件、法规源和地区数据权限"
+    },
+    {
+      "action": "read_article_or_citation",
+      "enforcement": "每次读取重新校验法规与目标业务对象权限"
+    },
+    {
+      "action": "bind_or_unbind",
+      "enforcement": "授权业务人员、目标版本和状态校验"
+    },
+    {
+      "action": "confirm_or_return",
+      "enforcement": "中心授权审核角色；AI 和 Agent 禁止执行"
+    }
+  ],
+  "states": [
+    {
+      "name": "待审核",
+      "kind": "review",
+      "allowedNext": [
+        "已确认",
+        "退回"
+      ]
+    },
+    {
+      "name": "退回",
+      "kind": "review",
+      "allowedNext": [
+        "待审核"
+      ],
+      "invariant": "重新选择或绑定形成新版本"
+    },
+    {
+      "name": "已确认",
+      "kind": "review",
+      "allowedNext": [],
+      "invariant": "仅确认该引用版本，不改变法规或正式业务状态"
+    },
+    {
+      "name": "有效引用",
+      "kind": "citation",
+      "allowedNext": [
+        "已解绑",
+        "需复核"
+      ]
+    },
+    {
+      "name": "已解绑",
+      "kind": "citation",
+      "allowedNext": [],
+      "invariant": "历史绑定和快照保留"
+    },
+    {
+      "name": "需复核",
+      "kind": "citation",
+      "allowedNext": [
+        "有效引用",
+        "已解绑"
+      ],
+      "invariant": "法规或目标变化后限制自动采用"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "法条原文锁定权威资源、稳定条文 ID、法规版本、效力期间、地区和内容摘要。",
+    "解释或匹配理由与逐字原文分开存储并标明生成者和版本。",
+    "引用锁定目标业务对象版本与字段或段落锚点，不随目标新版漂移。",
+    "法规更新不覆盖历史快照，受影响引用和业务结果标记需复核。",
+    "人工选择、绑定、解绑和审核形成独立版本与审计。",
+    "模拟法规、真实法规及不完整历史信息分别标记并隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "no_reliable_match",
+      "result": "返回未找到可靠依据及实际范围，不生成条号"
+    },
+    {
+      "case": "historical_version_or_transition_missing",
+      "result": "返回待人工核实并限制自动确认"
+    },
+    {
+      "case": "source_unavailable",
+      "result": "返回上游失败，不伪装无匹配"
+    },
+    {
+      "case": "target_or_article_unauthorized",
+      "result": "拒绝读取或绑定且不泄露内容"
+    },
+    {
+      "case": "target_version_or_anchor_invalid",
+      "result": "拒绝绑定并返回定位错误"
+    },
+    {
+      "case": "version_or_review_state_conflict",
+      "result": "拒绝覆盖并返回当前状态和版本"
+    },
+    {
+      "case": "partial_search",
+      "result": "列出完成来源、失败来源和实际检索范围"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-17-DEC-001",
+      "owner": "AI",
+      "description": "生成候选匹配与事实条文关联解释；不得生成条文原文、版本、效力或最终适用决定。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-17-DEC-002",
+      "owner": "RULE",
+      "description": "执行时间、地区、用途、版本、效力、目标位置、权限、状态和法规变化需复核校验。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-17-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权人员核实历史适用性、选择候选、绑定位置、确认或退回，并由业务专家确认验收预期。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-17-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "权威法规系统提供逐字原文、版本、效力、地区及历史信息；身份和业务系统提供权限及目标版本。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-17-AC-001",
+      "given": [
+        "权威法规来源和完整事实、时间、地区、用途"
+      ],
+      "when": "检索候选",
+      "then": [
+        "返回稳定条文与版本、正式名称层级、原文、来源和适用性",
+        "输入及实际范围可追踪"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST-001",
+        "ENF-17-MUST-003",
+        "ENF-17-MUST-005"
+      ]
+    },
+    {
+      "id": "ENF-17-AC-002",
+      "given": [
+        "固定权威条文版本和模型解释"
+      ],
+      "when": "查看候选与引用",
+      "then": [
+        "原文与来源逐字一致",
+        "解释单独展示",
+        "模型未改写或替换原文"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST_NOT-002",
+        "ENF-17-MUST-008",
+        "ENF-17-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ENF-17-AC-003",
+      "given": [
+        "实体处理和程序事项及不同事件时间地区"
+      ],
+      "when": "检索和校验",
+      "then": [
+        "时间依据和用途分开",
+        "地区、版本、效力期间均参与核验"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST-005",
+        "ENF-17-MUST-007",
+        "ENF-17-MUST-009"
+      ]
+    },
+    {
+      "id": "ENF-17-AC-004",
+      "given": [
+        "当前有效版本与事件时点版本不同或过渡规则缺失"
+      ],
+      "when": "校验历史适用性",
+      "then": [
+        "不套用当前版本",
+        "缺失信息显式列出",
+        "进入人工核实且不自动确认"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST-009",
+        "ENF-17-MUST_NOT-004",
+        "ENF-17-MUST-010"
+      ]
+    },
+    {
+      "id": "ENF-17-AC-005",
+      "given": [
+        "旧文书已绑定旧条文快照且法规发布新版"
+      ],
+      "when": "查看历史和受影响结果",
+      "then": [
+        "旧原文与引用位置保持",
+        "标记需复核",
+        "解绑也保留历史审计"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST-012",
+        "ENF-17-MUST-013"
+      ]
+    },
+    {
+      "id": "ENF-17-AC-006",
+      "given": [
+        "无可靠匹配和源信息不足样例"
+      ],
+      "when": "检索候选",
+      "then": [
+        "返回未找到可靠依据和实际范围",
+        "不生成虚构条号",
+        "候选不自动成为确认依据"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST_NOT-002",
+        "ENF-17-MUST-011",
+        "ENF-17-MUST_NOT-005",
+        "ENF-17-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ENF-17-AC-007",
+      "given": [
+        "固定报告或文书版本及候选条文"
+      ],
+      "when": "授权人员选择、绑定、确认、退回或解绑",
+      "then": [
+        "目标锚点、条文版本和审计完整",
+        "审核合法",
+        "不改写历史业务内容"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST-001",
+        "ENF-17-MUST-006",
+        "ENF-17-MUST-013",
+        "ENF-17-MUST-014",
+        "ENF-17-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ENF-17-AC-008",
+      "given": [
+        "无权限、源失败、部分来源成功、解析失败和版本不明"
+      ],
+      "when": "调用检索或绑定服务",
+      "then": [
+        "错误、request_id、重试性和未处理项可区分",
+        "失败不伪装无匹配或完整检索",
+        "不生成来源"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST-004",
+        "ENF-17-MUST_NOT-005",
+        "ENF-17-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ENF-17-AC-009",
+      "given": [
+        "内部页面和直接 API 客户端",
+        "不同权限用户"
+      ],
+      "when": "检索、查看原文、绑定和审核",
+      "then": [
+        "服务行为一致",
+        "页面可核验版本与位置且不承载法律规则",
+        "页面不作为外部交付"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST-018"
+      ]
+    },
+    {
+      "id": "ENF-17-AC-010",
+      "given": [
+        "历史版本、条文 ID 或过渡规则不完整以及未经核验既有资源"
+      ],
+      "when": "检查自动确认和联调状态",
+      "then": [
+        "限制自动确认",
+        "保持待核实",
+        "模拟或未核验资源不冒充真实通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST-003",
+        "ENF-17-MUST-010",
+        "ENF-17-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "ENF-17-AC-011",
+      "given": [
+        "中心确认的历史与当前法规适用样例"
+      ],
+      "when": "评测固定版本",
+      "then": [
+        "逐字原文、版本、时间、地区、位置和复核结果完整",
+        "模型自评分不替代业务正确性"
+      ],
+      "sourceClauseIds": [
+        "ENF-17-MUST-019",
+        "ENF-17-MUST_NOT-008"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-17-DD-001",
+      "decision": "法律引用业务用法归属 Enforcement，法规资源由 Legal Knowledge 端口提供，Citation/SourceSnapshot/Review 保存不可变引用和人工确认；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-17-DD-002",
+      "decision": "具体 REST 路径、检索算法、条文锚点格式、法规适用规则和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "历史版本、条款标识和过渡信息尚待核验。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-17-OQ-001",
+      "type": "external_integration",
+      "question": "法规 API 的稳定法规/条文 ID、版本、原文、效力、地区、历史和过渡规则字段及错误契约是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-09",
+        "真实法规接入"
+      ]
+    },
+    {
+      "id": "ENF-17-OQ-002",
+      "type": "business_semantics",
+      "question": "实体与程序事项的适用时间、地区、用途和过渡规则如何由业务确认？",
+      "blocks": [
+        "ARC-05",
+        "适用性校验"
+      ]
+    },
+    {
+      "id": "ENF-17-OQ-003",
+      "type": "authorization",
+      "question": "检索、查看原文、选择、绑定、解绑、确认和退回分别由哪些角色及案件范围控制？",
+      "blocks": [
+        "ARC-06",
+        "正式引用状态"
+      ]
+    },
+    {
+      "id": "ENF-17-OQ-004",
+      "type": "acceptance_data",
+      "question": "历史版本、过渡规则、无可靠匹配和法规更新样例如何由中心确认并冻结？",
+      "blocks": [
+        "SPK-09",
+        "法律适用验收"
+      ]
+    },
+    {
+      "id": "ENF-17-OQ-005",
+      "type": "dependency",
+      "question": "既有法规和条文能力经哪些字段、版本、权限和原文一致性检查后可复用？",
+      "blocks": [
+        "Legal Knowledge 端口",
+        "真实接入"
+      ]
+    },
+    {
+      "id": "ENF-17-OQ-006",
+      "type": "environment",
+      "question": "DM8、法规检索、JDK/驱动及国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Verbatim authoritative text and generated explanation are separate; citations bind both article and target business versions.",
+      "Historical applicability cannot be inferred from current effectiveness, and missing transition data forces human verification.",
+      "No article ID scheme, applicability rule, transition interpretation, retrieval algorithm, review role or API behavior was guessed."
+    ]
+  }
+}

@@ -1,0 +1,884 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-05",
+  "title": "法律条文匹配",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/05-法律条文匹配需求文档.md",
+    "sha256": "34268b74307ce6ae27e5ed1722b2024bd268b6d0f84e228f44387c2351411b70",
+    "sections": [
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 输入输出字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 匹配流程与规则",
+        "purpose": "matching_and_review"
+      },
+      {
+        "anchor": "4. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "5. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 国产化与 DM8 要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 建设与交付范围",
+        "4. 行政裁决业务边界",
+        "5. 数据、版本与变更规则",
+        "6. 通用服务与内部页面",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-05-MUST-001",
+      "type": "MUST",
+      "statement": "根据固定案件核心事实、争议焦点、程序、地域和相关时间召回并解释可能适用的法律条文，供裁决人员调整确认。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 输入输出字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-001",
+        "ADJ-05-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "检索相关度、排序或模型分值不得表述为条文已适用、法律适用概率或正式裁决依据。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 输入输出字段",
+        "3. 匹配流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-002",
+      "type": "MUST",
+      "statement": "系统候选与人工确认记录分开；只有人工确认的具体条文版本可交给 ADJ-06 准备引用。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 匹配流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "系统候选不得自动成为已确认法律依据或直接进入待签发报告。",
+      "sourceAnchors": [
+        "3. 匹配流程与规则",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-003",
+      "type": "MUST",
+      "statement": "匹配输入锁定案件编号与资料版本，并保留事实状态、来源、人工确认值、程序、管辖地域和相关日期。",
+      "sourceAnchors": [
+        "2. 输入输出字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "不得从当前案情之外补造事实，也不得因描述相似而忽略权限、地域、时效、程序或例外条件。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-002",
+        "ADJ-05-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-004",
+      "type": "MUST",
+      "statement": "匹配准备先检查程序、地域和时间是否足以限定候选范围；不足时返回需补充字段及原因。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "时间、程序或地域缺失时不得默认当前日期、现行法、当前地区或常见程序。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-005",
+      "type": "MUST",
+      "statement": "模型可提取法律问题和关键词并允许人工修正，实际匹配使用确认值且保留原始案情与修正记录。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-006",
+      "type": "MUST",
+      "statement": "召回可使用条文逐字原文、已审核解析和可用要点，但候选保存稳定法规与条文 ID、具体版本、原文和来源。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "未审核解析、要点或模型生成内容不得替代法条原文和权威版本。",
+      "sourceAnchors": [
+        "3. 匹配流程与规则",
+        "总览/5.1 身份和来源"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-007",
+      "type": "MUST",
+      "statement": "历史案件在授权法规版本内召回当时可能适用版本并保留过渡规则核实项，不只检索现行有效法。",
+      "sourceAnchors": [
+        "3. 匹配流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-008",
+      "type": "MUST",
+      "statement": "每个候选逐项列出对应事实、构成要件、已满足条件、尚缺条件、不适用风险，以及实体、程序等用途。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-009",
+      "type": "MUST",
+      "statement": "匹配原因和要件对应必须引用固定案件来源和条文版本；无法定位时明确缺口，不伪造来源。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则",
+        "总览/5.1 身份和来源"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-010",
+      "type": "MUST",
+      "statement": "人工可确认、移除或新增条文，必须选择具体版本并填写理由、人员和时间，形成新的匹配结果版本。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-011",
+      "type": "MUST",
+      "statement": "中心检索或混合检索的实际数据源、覆盖、筛选、召回和排序能力可核验；只在有限候选内重排时披露范围和候选数。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "有限候选重排不得宣称全库或完整法律检索，上游失败不得伪装无匹配。",
+      "sourceAnchors": [
+        "3. 匹配流程与规则",
+        "5. 服务契约",
+        "总览/6.1 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-005",
+        "ADJ-05-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-012",
+      "type": "MUST",
+      "statement": "数值相关度只有在确定算法与映射存在时输出并绑定排序版本；未标定时只输出稳定排序和标签，数值能力标记待补齐。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "不得由大模型编造精确相关度或用模型置信分替代检索指标和人工评测。",
+      "sourceAnchors": [
+        "3. 匹配流程与规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-005",
+        "ADJ-05-AC-010"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-013",
+      "type": "MUST",
+      "statement": "重新匹配创建新任务和结果版本，不覆盖人工调整；案件资料或法规变化使受影响结果待复核，旧人工确认不得自动继承。",
+      "sourceAnchors": [
+        "3. 匹配流程与规则",
+        "总览/5.2 资料变化影响"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "法规中的处罚内容不得因关键词命中自动纳入行政裁决理由，行政处罚和行政裁决程序不得混用。",
+      "sourceAnchors": [
+        "3. 匹配流程与规则",
+        "7. 验收要求",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-015",
+      "type": "MUST",
+      "statement": "案件和法规权限在召回、原文查看、调整及引用候选读取时由后端实时检查；权限撤回后不从缓存或历史结果泄露内容。",
+      "sourceAnchors": [
+        "5. 服务契约",
+        "总览/5.1 身份和来源"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-019",
+      "type": "MUST",
+      "statement": "专家样本评测 Recall@K、排序质量和适用解释支持度，冻结案件、法规、检索、模型与排序版本，阈值经试测和中心确认。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付",
+        "总览/9. 开发与验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-010"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST_NOT-011",
+      "type": "MUST_NOT",
+      "statement": "不得自行设定效果或性能阈值，也不得只取成功样本计算结果。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付",
+        "总览/8. 依赖与待落实材料",
+        "总览/9. 开发与验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-010"
+      ]
+    },
+    {
+      "id": "ADJ-05-MUST-020",
+      "type": "MUST",
+      "statement": "历史版本、法域、检索覆盖、模型、专家样本和性能目标未确认时，受影响能力保持待核实或模拟状态，不升级为真实验收。",
+      "sourceAnchors": [
+        "8. 依赖与交付",
+        "总览/8. 依赖与待落实材料"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-AC-013"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "caseSnapshot",
+      "required": true,
+      "rules": [
+        "案件稳定 ID、资料版本、事实状态和来源"
+      ]
+    },
+    {
+      "name": "scope",
+      "required": true,
+      "rules": [
+        "程序、地域、相关日期和法律问题用途"
+      ]
+    },
+    {
+      "name": "confirmedQuery",
+      "required": true,
+      "rules": [
+        "模型建议关键词和问题可人工修正并冻结"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定调用方、操作及完整输入"
+      ]
+    },
+    {
+      "name": "humanAdjustment",
+      "required": "调整时",
+      "rules": [
+        "结果版本、具体条文版本、动作、理由和可信身份"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "matchTask",
+      "fields": [
+        "taskId",
+        "status",
+        "requestId",
+        "inputManifest",
+        "actualScope",
+        "failedSources"
+      ]
+    },
+    {
+      "name": "candidate",
+      "fields": [
+        "articleId",
+        "articleVersion",
+        "verbatimText",
+        "rank",
+        "scoreOrLabel",
+        "rankingVersion",
+        "factRefs",
+        "elementMapping",
+        "missingConditions",
+        "inapplicabilityRisks",
+        "purpose"
+      ]
+    },
+    {
+      "name": "matchResult",
+      "fields": [
+        "resultId",
+        "version",
+        "systemCandidates",
+        "humanConfirmedItems",
+        "adjustmentHistory",
+        "needsReview"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "prepare_or_match",
+      "enforcement": "案件、事实、法规、解析要点及检索范围权限"
+    },
+    {
+      "action": "read_candidate_or_source",
+      "enforcement": "实时检查案件、法规原文和历史结果权限"
+    },
+    {
+      "action": "adjust_or_confirm",
+      "enforcement": "授权裁决人员、结果版本和具体条文版本校验"
+    },
+    {
+      "action": "prepare_citation",
+      "enforcement": "仅输出人工确认项，ADJ-06 再次校验"
+    }
+  ],
+  "states": [
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "列出失败来源或未处理步骤"
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "系统候选",
+      "kind": "match_item",
+      "allowedNext": [
+        "人工确认",
+        "已移除"
+      ]
+    },
+    {
+      "name": "人工确认",
+      "kind": "match_item",
+      "allowedNext": [
+        "待复核",
+        "已移除"
+      ],
+      "invariant": "只适用于固定案件和法规版本"
+    },
+    {
+      "name": "待复核",
+      "kind": "match_item",
+      "allowedNext": [
+        "人工确认",
+        "已移除"
+      ]
+    },
+    {
+      "name": "已移除",
+      "kind": "match_item",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "任务固定案件事实、程序、地域、时间、法规、解析、要点、模型和排序版本。",
+    "每个匹配原因引用案件来源和具体条文版本，原文不可由解释替换。",
+    "系统候选与人工调整形成分离、不可覆盖的结果版本。",
+    "案件或法规变化标记旧结果待复核，人工确认不跨输入版本继承。",
+    "有限候选、失败来源、实际范围和无结果分别披露。",
+    "模拟与真实数据、检索和评测证据隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "scope_information_missing",
+      "result": "返回程序、地域或时间补充要求，不默认现行法"
+    },
+    {
+      "case": "article_source_unreadable",
+      "result": "返回原文不可读，不使用解析或要点冒充原文"
+    },
+    {
+      "case": "search_dependency_failure",
+      "result": "返回失败或部分成功，不伪装无匹配"
+    },
+    {
+      "case": "case_or_regulation_unauthorized",
+      "result": "拒绝且不泄露内容"
+    },
+    {
+      "case": "no_match",
+      "result": "返回实际检索范围和无结果，不形成确认依据"
+    },
+    {
+      "case": "version_or_state_conflict",
+      "result": "拒绝覆盖并返回当前结果版本或状态"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-05-DEC-001",
+      "owner": "AI",
+      "description": "提取法律问题、生成候选排序和要件解释；不得补造案情、改写原文或确认法律适用。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 匹配流程与规则"
+      ]
+    },
+    {
+      "id": "ADJ-05-DEC-002",
+      "owner": "RULE",
+      "description": "执行输入充分性、权限、时间地域程序、版本、评分映射、任务、调整状态和需复核传播。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则",
+        "5. 服务契约"
+      ]
+    },
+    {
+      "id": "ADJ-05-DEC-003",
+      "owner": "HUMAN",
+      "description": "裁决人员补充范围、修正关键词、确认移除新增条文并填写理由；专家确认评测预期和阈值。",
+      "sourceAnchors": [
+        "3. 匹配流程与规则",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "ADJ-05-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "案件和法规系统提供权威事实状态、原文、版本、效力、地区和权限。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 匹配流程与规则"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-05-AC-001",
+      "given": [
+        "固定案件事实、来源、程序、地域和时间"
+      ],
+      "when": "准备并创建匹配",
+      "then": [
+        "输入版本冻结",
+        "模型关键词可修正",
+        "候选和任务可追踪"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST-001",
+        "ADJ-05-MUST-003",
+        "ADJ-05-MUST-005"
+      ]
+    },
+    {
+      "id": "ADJ-05-AC-002",
+      "given": [
+        "时间、程序或地域缺失的案件"
+      ],
+      "when": "准备匹配",
+      "then": [
+        "返回逐项补充要求",
+        "不补造案情或默认现行法、地区和程序"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST_NOT-003",
+        "ADJ-05-MUST-004",
+        "ADJ-05-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ADJ-05-AC-003",
+      "given": [
+        "历史案件、现行及历史法规、已审核与未审核解析"
+      ],
+      "when": "召回候选",
+      "then": [
+        "使用权威原文和审核内容",
+        "保留事件时点版本和过渡缺口",
+        "未审核内容不替代原文"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST-006",
+        "ADJ-05-MUST_NOT-005",
+        "ADJ-05-MUST-007"
+      ]
+    },
+    {
+      "id": "ADJ-05-AC-004",
+      "given": [
+        "实体、程序、处罚条款及要件缺口样例"
+      ],
+      "when": "生成匹配解释",
+      "then": [
+        "用途和要件逐项分开",
+        "案情与条文来源可定位",
+        "处罚不自动成为裁决理由",
+        "不补造条件"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST_NOT-003",
+        "ADJ-05-MUST-008",
+        "ADJ-05-MUST-009",
+        "ADJ-05-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "ADJ-05-AC-005",
+      "given": [
+        "全库能力、有限候选和无稳定评分三种配置"
+      ],
+      "when": "返回候选",
+      "then": [
+        "实际覆盖和范围披露",
+        "有限重排不冒充全库",
+        "未标定只返回排序标签",
+        "分值不表示法律适用"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST_NOT-001",
+        "ADJ-05-MUST-011",
+        "ADJ-05-MUST_NOT-006",
+        "ADJ-05-MUST-012",
+        "ADJ-05-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ADJ-05-AC-006",
+      "given": [
+        "系统候选和授权人员新增移除确认操作"
+      ],
+      "when": "调整结果并准备引用",
+      "then": [
+        "候选与确认分开",
+        "具体条文版本、理由、人员时间完整",
+        "只输出人工确认项给引用模块"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST-002",
+        "ADJ-05-MUST_NOT-002",
+        "ADJ-05-MUST-010"
+      ]
+    },
+    {
+      "id": "ADJ-05-AC-007",
+      "given": [
+        "无权案件或法规和权限撤回"
+      ],
+      "when": "匹配、查看原文、调整或读取引用候选",
+      "then": [
+        "各入口实时鉴权并阻断",
+        "缓存与历史不泄露"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST-001",
+        "ADJ-05-MUST-015"
+      ]
+    },
+    {
+      "id": "ADJ-05-AC-008",
+      "given": [
+        "已人工确认匹配和变化后的案件或法规"
+      ],
+      "when": "重新匹配",
+      "then": [
+        "创建新任务与版本",
+        "旧调整不覆盖",
+        "旧确认待复核且不自动继承"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST-013"
+      ]
+    },
+    {
+      "id": "ADJ-05-AC-009",
+      "given": [
+        "源失败、部分成功、原文不可读、无结果和版本冲突"
+      ],
+      "when": "调用服务",
+      "then": [
+        "状态、request_id、实际范围和未处理项可区分",
+        "失败不伪装无匹配或完整成功"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ADJ-05-AC-010",
+      "given": [
+        "冻结专家样本和固定检索模型版本"
+      ],
+      "when": "评测匹配",
+      "then": [
+        "Recall@K、排序、解释支持度、分母和失败均记录",
+        "阈值经试测确认",
+        "模型置信度不冒充指标"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST_NOT-007",
+        "ADJ-05-MUST-019",
+        "ADJ-05-MUST_NOT-011"
+      ]
+    },
+    {
+      "id": "ADJ-05-AC-013",
+      "given": [
+        "历史版本、法域、覆盖、模型或样例未确认"
+      ],
+      "when": "检查状态",
+      "then": [
+        "受影响能力保持待核实或模拟",
+        "不升级为真实验收"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-MUST-020"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-05-DD-001",
+      "decision": "匹配结果与人工调整归属 Adjudication；Legal Knowledge 提供版本化原文，Search 提供召回，Review/Citation 管理确认与后续引用；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-05-DD-002",
+      "decision": "具体 REST 路径、检索产品、算法、评分映射、要件模型和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "历史版本、法域、检索覆盖、模型和样例未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-05-OQ-001",
+      "type": "business_semantics",
+      "question": "各裁决场景的程序、地域、时间、构成要件、例外及实体/程序用途规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "匹配解释"
+      ]
+    },
+    {
+      "id": "ADJ-05-OQ-002",
+      "type": "search_capability",
+      "question": "中心或授权索引的法规范围、历史版本、查询筛选、全文、召回、排序和分页能力是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-11",
+        "真实检索"
+      ]
+    },
+    {
+      "id": "ADJ-05-OQ-003",
+      "type": "acceptance_data",
+      "question": "专家样本、候选集合、人工适用条文和解释支持度如何标注冻结？",
+      "blocks": [
+        "SPK-10",
+        "效果验收"
+      ]
+    },
+    {
+      "id": "ADJ-05-OQ-004",
+      "type": "authorization",
+      "question": "准备、匹配、查看原文、调整、确认和准备引用分别由哪些角色执行？",
+      "blocks": [
+        "ARC-06",
+        "正式权限设计"
+      ]
+    },
+    {
+      "id": "ADJ-05-OQ-005",
+      "type": "model_boundary",
+      "question": "批准模型、输入数据、输出结构、评分能力和出域范围是什么？",
+      "blocks": [
+        "ARC-07",
+        "ARC-11",
+        "SPK-10"
+      ]
+    },
+    {
+      "id": "ADJ-05-OQ-006",
+      "type": "environment",
+      "question": "DM8、检索、模型、JDK/驱动和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "SPK-11",
+        "真实验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable adjudication overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Retrieval relevance, system candidates, human-confirmed matches and formal citations remain separate states.",
+      "Historical law, jurisdiction, procedure and exceptions cannot be defaulted; punishment provisions cannot silently become adjudication reasons.",
+      "No legal elements, jurisdiction, search product, score mapping, model, threshold or review role was guessed."
+    ]
+  }
+}

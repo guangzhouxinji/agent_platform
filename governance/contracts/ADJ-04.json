@@ -1,0 +1,935 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-04",
+  "title": "裁决任务管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/04-裁决任务管理需求文档.md",
+    "sha256": "3821e08f6afdfef8818a1a2c626f4c943072b8f9ede1552541a938c9350b43a2",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与范围",
+        "purpose": "scope_and_authority"
+      },
+      {
+        "anchor": "2. 案件字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 生命周期与业务操作",
+        "purpose": "lifecycle"
+      },
+      {
+        "anchor": "4. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "5. 服务契约与异常",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 国产化与 DM8 要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 建设与交付范围",
+        "4. 行政裁决业务边界",
+        "5. 数据、版本与变更规则",
+        "6. 通用服务与内部页面",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-04-MUST-001",
+      "type": "MUST",
+      "statement": "管理知识产权行政裁决案件录入、同步、受理记录、承办分配、进度事件、办结确认和归档，为分析与报告提供统一案件标识及材料版本。",
+      "sourceAnchors": [
+        "1. 功能概述与范围"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-001",
+        "ADJ-04-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-002",
+      "type": "MUST",
+      "statement": "案件业务状态、案件流程事件、分析任务状态、报告审核状态、签发状态和中心同步状态分别维护。",
+      "sourceAnchors": [
+        "1. 功能概述与范围",
+        "总览/6.1 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "不得使用单一 status 混合案件、任务、审核、签发、归档和同步含义。",
+      "sourceAnchors": [
+        "1. 功能概述与范围",
+        "总览/6.1 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-003",
+      "type": "MUST",
+      "statement": "案件主档优先来自中心案件 API；本地录入只用于中心授权范围内的服务工作任务，并明确来源与同步状态。",
+      "sourceAnchors": [
+        "1. 功能概述与范围"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "本地临时号、工作记录或页面操作不得冒充中心正式案件编号、正式受理、送达、办结或归档。",
+      "sourceAnchors": [
+        "1. 功能概述与范围",
+        "2. 案件字段",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-001",
+        "ADJ-04-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-004",
+      "type": "MUST",
+      "statement": "接入权威办案系统时以其稳定案件 ID、源案件 ID、源版本、正式编号和真实回执为准；外部写接口未接通时只保存本地记录。",
+      "sourceAnchors": [
+        "1. 功能概述与范围",
+        "2. 案件字段",
+        "5. 服务契约与异常"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-001",
+        "ADJ-04-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-005",
+      "type": "MUST",
+      "statement": "案件记录申请人、被申请人稳定主体标识及受控联系方式和代表信息，并按案件权限查看。",
+      "sourceAnchors": [
+        "2. 案件字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-002",
+        "ADJ-04-AC-010"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-006",
+      "type": "MUST",
+      "statement": "案件类型、程序和管辖信息使用中心业务目录，是否属于本机关行政裁决范围由中心规则和授权人员确认。",
+      "sourceAnchors": [
+        "2. 案件字段",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "不得因知识产权案件标签、模型分类或本地录入自动确认管辖、受理或行政裁决范围。",
+      "sourceAnchors": [
+        "2. 案件字段",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-007",
+      "type": "MUST",
+      "statement": "涉案专利或商标支持多项并关联具体权利资料版本；核心事实与争议焦点区分当事人主张、待核实事实和人工确认事实。",
+      "sourceAnchors": [
+        "2. 案件字段",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "模型提取、材料反映或当事人主张不得自动转成已确认案件事实。",
+      "sourceAnchors": [
+        "2. 案件字段",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-008",
+      "type": "MUST",
+      "statement": "收件时间、受理时间、承办人、流程事件和归档时间仅记录实际事件、真实人员或权威回执。",
+      "sourceAnchors": [
+        "2. 案件字段",
+        "3. 生命周期与业务操作",
+        "总览/5.1 身份和来源"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-004",
+        "ADJ-04-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "不得推测生成受理时间、承办人、调查质证、签发、送达、办结或归档事件；未分配案件不得默认归属当前用户。",
+      "sourceAnchors": [
+        "2. 案件字段",
+        "3. 生命周期与业务操作",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-009",
+      "type": "MUST",
+      "statement": "当前环节和进度由确认的流程事件驱动，进度不得使用模型百分数表示。",
+      "sourceAnchors": [
+        "2. 案件字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-010",
+      "type": "MUST",
+      "statement": "预计完成时间作为工作计划；法定期限、调整和逾期必须依据中心确认的规则及中止、恢复、延期等真实事件。",
+      "sourceAnchors": [
+        "2. 案件字段",
+        "3. 生命周期与业务操作"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "人工计划日期不得冒充法定期限，无确认规则时不得计算或宣称法定逾期。",
+      "sourceAnchors": [
+        "3. 生命周期与业务操作",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-011",
+      "type": "MUST",
+      "statement": "本地状态建议仅作为待中心确认的软件模型；草稿可不完整，提交受理确认前按中心规则校验双方主体、类型、材料和必填项。",
+      "sourceAnchors": [
+        "3. 生命周期与业务操作"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "建议状态机和不予受理、撤回、终止、中止等分支不得被解释为已确认法定程序、条件或期限。",
+      "sourceAnchors": [
+        "3. 生命周期与业务操作"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-002",
+        "ADJ-04-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-012",
+      "type": "MUST",
+      "statement": "受理或不予受理由授权人员确认并记录时间、依据和原因；权威系统模式必须取得真实回执后同步正式状态。",
+      "sourceAnchors": [
+        "3. 生命周期与业务操作"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-013",
+      "type": "MUST",
+      "statement": "分配和转派保留前后承办人、原因、时间、操作者和状态版本；非法或并发冲突操作由后端拒绝。",
+      "sourceAnchors": [
+        "3. 生命周期与业务操作",
+        "5. 服务契约与异常"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-014",
+      "type": "MUST",
+      "statement": "案情补充或更正生成新资料版本，标记依赖的匹配、分析和报告待更新，旧结果、人工确认和引用不直接改写。",
+      "sourceAnchors": [
+        "3. 生命周期与业务操作",
+        "总览/5.2 资料变化影响"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-015",
+      "type": "MUST",
+      "statement": "办结确认检查报告和中心要求的签发或办理材料；归档检查材料清单及未完成任务，缺项时阻止并返回原因。",
+      "sourceAnchors": [
+        "3. 生命周期与业务操作"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-016",
+      "type": "MUST",
+      "statement": "已归档案件只读；补正或重新开启必须执行授权动作并保留归档快照。",
+      "sourceAnchors": [
+        "3. 生命周期与业务操作",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "已归档案件不得普通编辑或删除，补正不得覆盖归档快照。",
+      "sourceAnchors": [
+        "3. 生命周期与业务操作"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-018",
+      "type": "MUST",
+      "statement": "外部状态同步使用按调用方、操作和内容绑定的幂等键及对账，超时不得默认成功，源失败不得覆盖已确认信息。",
+      "sourceAnchors": [
+        "5. 服务契约与异常",
+        "总览/6.1 服务契约",
+        "总览/6.2 耗时任务"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-04-MUST-022",
+      "type": "MUST",
+      "statement": "权威系统、受理、期限、办结、归档、材料清单、写回范围、回执和角色须由中心确认；首版不默认自动通知当事人。",
+      "sourceAnchors": [
+        "8. 依赖与交付",
+        "总览/4. 行政裁决业务边界",
+        "总览/8. 依赖与待落实材料"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-04-AC-012"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "caseMaster",
+      "required": "创建或同步时",
+      "rules": [
+        "来源、稳定 ID、源版本、主体、类型、材料和幂等键"
+      ]
+    },
+    {
+      "name": "caseRevision",
+      "required": "资料修改时",
+      "rules": [
+        "当前版本、变更项、理由和可信身份"
+      ]
+    },
+    {
+      "name": "workflowAction",
+      "required": "流程或分配时",
+      "rules": [
+        "当前状态版本、动作、人员、依据和幂等键"
+      ]
+    },
+    {
+      "name": "archiveAction",
+      "required": "办结归档或补正时",
+      "rules": [
+        "案件版本、材料清单、动作原因和权威回执"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "case",
+      "fields": [
+        "caseId",
+        "officialNumber",
+        "temporaryNumber",
+        "sourceSystem",
+        "sourceCaseId",
+        "sourceVersion",
+        "businessStatus",
+        "syncStatus",
+        "dataVersion",
+        "permissionScope"
+      ]
+    },
+    {
+      "name": "workflowEvent",
+      "fields": [
+        "eventId",
+        "type",
+        "oldState",
+        "newState",
+        "actor",
+        "occurredAt",
+        "basis",
+        "authorityReceipt"
+      ]
+    },
+    {
+      "name": "assignment",
+      "fields": [
+        "previousAssignee",
+        "newAssignee",
+        "reason",
+        "actor",
+        "time"
+      ]
+    },
+    {
+      "name": "changeImpact",
+      "fields": [
+        "affectedMatches",
+        "affectedAnalyses",
+        "affectedReports",
+        "requiresUpdate"
+      ]
+    },
+    {
+      "name": "archiveSnapshot",
+      "fields": [
+        "caseVersion",
+        "materialChecklist",
+        "openTasks",
+        "archiveStatus",
+        "authoritySyncStatus"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "create_or_sync",
+      "enforcement": "中心授权范围、来源和稳定身份校验"
+    },
+    {
+      "action": "read_case_or_material",
+      "enforcement": "案件、机构、人员职责和当前权限实时校验"
+    },
+    {
+      "action": "accept_or_reject",
+      "enforcement": "中心授权受理角色及权威回执规则"
+    },
+    {
+      "action": "assign_or_transfer",
+      "enforcement": "分配权限、候选人员和状态版本校验"
+    },
+    {
+      "action": "complete_archive_or_reopen",
+      "enforcement": "独立授权角色、材料清单、状态和回执校验"
+    },
+    {
+      "action": "official_state_write",
+      "enforcement": "仅权威系统写接口或真实授权人员确认，本服务不得模拟"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "suggested_business",
+      "allowedNext": [
+        "待受理确认"
+      ],
+      "invariant": "可不完整且不等于正式案件"
+    },
+    {
+      "name": "待受理确认",
+      "kind": "suggested_business",
+      "allowedNext": [
+        "办理中",
+        "不予受理",
+        "撤回",
+        "终止"
+      ]
+    },
+    {
+      "name": "办理中",
+      "kind": "suggested_business",
+      "allowedNext": [
+        "待报告复核",
+        "中止",
+        "撤回",
+        "终止"
+      ]
+    },
+    {
+      "name": "中止",
+      "kind": "suggested_business",
+      "allowedNext": [
+        "办理中",
+        "终止"
+      ]
+    },
+    {
+      "name": "待报告复核",
+      "kind": "suggested_business",
+      "allowedNext": [
+        "待签发/办结确认",
+        "办理中"
+      ]
+    },
+    {
+      "name": "待签发/办结确认",
+      "kind": "suggested_business",
+      "allowedNext": [
+        "已办结",
+        "办理中"
+      ]
+    },
+    {
+      "name": "已办结",
+      "kind": "suggested_business",
+      "allowedNext": [
+        "已归档"
+      ]
+    },
+    {
+      "name": "已归档",
+      "kind": "suggested_business",
+      "allowedNext": [],
+      "invariant": "只读，补正或重开使用独立授权动作"
+    },
+    {
+      "name": "不予受理",
+      "kind": "suggested_business",
+      "allowedNext": []
+    },
+    {
+      "name": "撤回",
+      "kind": "suggested_business",
+      "allowedNext": []
+    },
+    {
+      "name": "终止",
+      "kind": "suggested_business",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "中心案件和本地工作任务分开标识，权威系统记录优先。",
+    "案件主档、主体、权利资料、事实、材料、流程事件和归档快照分别版本化。",
+    "机器提取、当事人主张、待核实和人工确认事实分别保存。",
+    "资料变化生成新版本并传播下游待更新，不覆盖历史结果。",
+    "外部写回保存请求、幂等键、回执、对账状态和时间，不以超时推断成功。",
+    "归档快照不可变，补正或重开形成新事件和版本。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "duplicate_official_number_or_sync",
+      "result": "幂等返回既有案件或冲突，不重复建案"
+    },
+    {
+      "case": "incomplete_draft",
+      "result": "允许保存草稿；提交受理时逐项返回缺失"
+    },
+    {
+      "case": "illegal_transition_or_version_conflict",
+      "result": "后端拒绝并返回当前状态与版本"
+    },
+    {
+      "case": "authority_write_timeout",
+      "result": "保持待对账或失败，不默认正式成功"
+    },
+    {
+      "case": "deadline_rule_missing",
+      "result": "只展示人工计划日期，不计算法定逾期"
+    },
+    {
+      "case": "archive_material_missing",
+      "result": "阻止归档并返回缺项"
+    },
+    {
+      "case": "case_or_material_unauthorized",
+      "result": "拒绝且不泄露案件信息"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-04-DEC-001",
+      "owner": "AI",
+      "description": "可提取候选事实、争议焦点和材料摘要，但不得确认管辖、受理、流程事件、承办人、期限或正式状态。",
+      "sourceAnchors": [
+        "2. 案件字段",
+        "总览/4. 行政裁决业务边界"
+      ]
+    },
+    {
+      "id": "ADJ-04-DEC-002",
+      "owner": "RULE",
+      "description": "执行必填、状态版本、非法跳转、分配、期限事件、材料清单、权限、幂等和下游影响传播。",
+      "sourceAnchors": [
+        "3. 生命周期与业务操作",
+        "5. 服务契约与异常"
+      ]
+    },
+    {
+      "id": "ADJ-04-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权人员确认管辖与受理、分配转派、事实、期限调整、办结、归档和补正。",
+      "sourceAnchors": [
+        "2. 案件字段",
+        "3. 生命周期与业务操作"
+      ]
+    },
+    {
+      "id": "ADJ-04-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心案件、流程、人员和签发系统提供正式编号、状态、权限和真实回执。",
+      "sourceAnchors": [
+        "1. 功能概述与范围",
+        "5. 服务契约与异常"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-04-AC-001",
+      "given": [
+        "中心同步案件、本地授权任务和重复同步"
+      ],
+      "when": "创建或同步",
+      "then": [
+        "来源、正式号与临时号分开",
+        "重复不建案",
+        "本地记录不冒充正式状态"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST-001",
+        "ADJ-04-MUST-003",
+        "ADJ-04-MUST_NOT-002",
+        "ADJ-04-MUST-004"
+      ]
+    },
+    {
+      "id": "ADJ-04-AC-002",
+      "given": [
+        "完整和不完整草稿及知识产权标签案件"
+      ],
+      "when": "保存并提交受理确认",
+      "then": [
+        "草稿可保存",
+        "提交时校验中心必填和权限",
+        "不自动确认管辖或受理",
+        "建议分支不冒充法定程序"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST-005",
+        "ADJ-04-MUST-006",
+        "ADJ-04-MUST_NOT-003",
+        "ADJ-04-MUST-011",
+        "ADJ-04-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ADJ-04-AC-003",
+      "given": [
+        "当事人主张、机器提取、待核实和人工确认事实及多个权利版本"
+      ],
+      "when": "查看案件资料",
+      "then": [
+        "事实状态和来源分开",
+        "权利关联到具体版本",
+        "模型内容不自动确认"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST-007",
+        "ADJ-04-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ADJ-04-AC-004",
+      "given": [
+        "并发转派、中止恢复和未分配案件"
+      ],
+      "when": "执行流程操作",
+      "then": [
+        "非法或冲突跳转拒绝",
+        "事件依据与前后人员完整",
+        "未分配不归当前用户",
+        "各类状态分离"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST-002",
+        "ADJ-04-MUST_NOT-001",
+        "ADJ-04-MUST-008",
+        "ADJ-04-MUST_NOT-005",
+        "ADJ-04-MUST-009",
+        "ADJ-04-MUST-013"
+      ]
+    },
+    {
+      "id": "ADJ-04-AC-005",
+      "given": [
+        "仅有计划日期且无已确认期限规则"
+      ],
+      "when": "查看期限和中止延期",
+      "then": [
+        "只显示工作计划",
+        "不计算法定逾期",
+        "建议状态分支不声明法定含义"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST-010",
+        "ADJ-04-MUST_NOT-006",
+        "ADJ-04-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ADJ-04-AC-006",
+      "given": [
+        "外部写接口未接通、超时和真实回执三种情况"
+      ],
+      "when": "确认受理、办结或归档",
+      "then": [
+        "未接通仅本地记录",
+        "超时待对账不默认成功",
+        "正式状态仅由真实回执推进",
+        "源失败不覆盖确认信息"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST_NOT-002",
+        "ADJ-04-MUST-004",
+        "ADJ-04-MUST-008",
+        "ADJ-04-MUST-012",
+        "ADJ-04-MUST-018"
+      ]
+    },
+    {
+      "id": "ADJ-04-AC-007",
+      "given": [
+        "已有匹配、分析和报告的案件"
+      ],
+      "when": "补充或更正案情",
+      "then": [
+        "生成新资料版本",
+        "受影响结果待更新",
+        "旧结果和引用不覆盖"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST-014"
+      ]
+    },
+    {
+      "id": "ADJ-04-AC-008",
+      "given": [
+        "材料缺项和完整案件以及已归档案件"
+      ],
+      "when": "办结、归档、普通编辑或授权补正",
+      "then": [
+        "缺项阻断",
+        "归档形成快照",
+        "普通编辑删除拒绝",
+        "授权补正保留归档历史"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST-015",
+        "ADJ-04-MUST-016",
+        "ADJ-04-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "ADJ-04-AC-009",
+      "given": [
+        "内部页面和直接 API 客户端"
+      ],
+      "when": "执行案件全生命周期操作",
+      "then": [
+        "服务行为一致",
+        "本地和正式标记清楚",
+        "页面不承载权限状态或作为外部交付"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST-001"
+      ]
+    },
+    {
+      "id": "ADJ-04-AC-010",
+      "given": [
+        "跨案件、跨机构和无权限用户"
+      ],
+      "when": "查询详情、材料或执行操作",
+      "then": [
+        "隔离生效",
+        "联系方式受控",
+        "错误和 request_id 可区分"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST-005"
+      ]
+    },
+    {
+      "id": "ADJ-04-AC-012",
+      "given": [
+        "权威系统、规则、材料清单或回执未确认"
+      ],
+      "when": "检查设计与验收状态",
+      "then": [
+        "受影响能力保持待确认",
+        "不模拟正式流程",
+        "不默认通知当事人"
+      ],
+      "sourceClauseIds": [
+        "ADJ-04-MUST-022"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-04-DD-001",
+      "decision": "裁决案件和业务事件归属 Adjudication；通用 Task 仅管理技术执行，外部 Adapter 对接权威办案系统，Review 与报告状态独立。",
+      "basis": "ARC-03 与原文状态分离要求",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-04-DD-002",
+      "decision": "来源中的本地状态机仅保留为待中心确认的设计候选，D 门不得在未确认时固化法定语义。",
+      "basis": "原文明示状态模型为软件建议",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-04-DD-003",
+      "decision": "具体 REST 路径、状态代码、期限算法、DM8 类型和中心写回策略延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心流程与写回范围未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-04-OQ-001",
+      "type": "authority",
+      "question": "案件、人员、流程、受理、签发、办结和归档分别以哪个中心系统为权威，允许写回哪些动作？",
+      "blocks": [
+        "ARC-04",
+        "ARC-09",
+        "正式状态同步"
+      ]
+    },
+    {
+      "id": "ADJ-04-OQ-002",
+      "type": "business_semantics",
+      "question": "管辖、受理、不予受理、撤回、中止、恢复、终止、办结、归档和补正的条件及材料清单是什么？",
+      "blocks": [
+        "ARC-05",
+        "正式状态机"
+      ]
+    },
+    {
+      "id": "ADJ-04-OQ-003",
+      "type": "deadline_rule",
+      "question": "法定期限、起算、暂停、恢复、延期和逾期规则及边界样例是什么？",
+      "blocks": [
+        "期限设计",
+        "法定逾期功能"
+      ]
+    },
+    {
+      "id": "ADJ-04-OQ-004",
+      "type": "authorization",
+      "question": "录入、同步、受理、分配、事实确认、办结、归档和补正分别由哪些角色和职责分离控制？",
+      "blocks": [
+        "ARC-06",
+        "正式权限设计"
+      ]
+    },
+    {
+      "id": "ADJ-04-OQ-005",
+      "type": "data_authorization",
+      "question": "主体联系方式、案件材料、历史版本、缓存和模型处理范围及保留期是什么？",
+      "blocks": [
+        "ARC-10",
+        "ARC-11"
+      ]
+    },
+    {
+      "id": "ADJ-04-OQ-006",
+      "type": "environment",
+      "question": "DM8、案件 API、网络、JDK/驱动和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "SPK-03",
+        "真实验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable adjudication overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Local work records and suggested workflow states remain distinct from authoritative acceptance, completion, issuance and archive states.",
+      "Case, technical task, report review, issuance and synchronization states are explicitly separate; planned dates cannot become statutory deadlines.",
+      "No jurisdiction, statutory workflow, deadline, material checklist, role, write-back scope or notification behavior was guessed."
+    ]
+  }
+}

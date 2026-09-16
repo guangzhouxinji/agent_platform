@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-00",
+  "title": "Replace with the original requirement title",
+  "status": "draft",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/replace-with-source.md",
+    "sha256": "replace-with-baseline-sha256",
+    "sections": [
+      {
+        "anchor": "section heading or stable line locator",
+        "purpose": "scope"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/replace-with-overview-or-existing-requirement.md",
+      "sha256": "replace-with-baseline-sha256",
+      "sections": [
+        "applicable section heading"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-00-MUST-001",
+      "type": "MUST",
+      "statement": "One atomic requirement derived from the cited source",
+      "sourceAnchors": [
+        "section heading or stable line locator"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-00-AC-001"
+      ]
+    },
+    {
+      "id": "CON-00-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "One prohibited behavior derived from the cited source",
+      "sourceAnchors": [
+        "section heading or stable line locator"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-00-AC-002"
+      ]
+    }
+  ],
+  "inputs": [],
+  "outputs": [],
+  "permissions": [],
+  "states": [],
+  "sourceAndVersionRules": [],
+  "errorsAndExceptions": [],
+  "decisionPoints": [
+    {
+      "id": "CON-00-DEC-001",
+      "owner": "AI",
+      "description": "Allowed values: AI, RULE, HUMAN, AUTHORITY_SYSTEM",
+      "sourceAnchors": []
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-00-AC-001",
+      "given": [],
+      "when": "",
+      "then": [],
+      "sourceClauseIds": [
+        "CON-00-MUST-001"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [],
+  "openQuestions": [],
+  "independentReview": {
+    "status": "not_run",
+    "reviewedBaselineId": null,
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": []
+  }
+}

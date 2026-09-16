@@ -1,0 +1,937 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-05",
+  "title": "违法证据管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/05-违法证据管理需求文档.md",
+    "sha256": "3c819aa9a3c75f7c8bc44a299198b2c50ea8512483dd7fd91cd2962a6194b463",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope_and_trust_boundary"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "source_and_dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "evidence_integrity"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付口径",
+        "1.1 已确认的国产化与数据库要求",
+        "3. 通用接口约定",
+        "4. 信息字段说明",
+        "5. 审核与版本通用要求",
+        "6. 内部前端通用要求",
+        "7. API 与业务材料依赖清单",
+        "9. 验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-05-MUST-001",
+      "type": "MUST",
+      "statement": "接收和管理案件或线索相关证据材料及其来源、版本和访问权限，并向后续分析提供受控引用。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-001",
+        "ENF-05-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-002",
+      "type": "MUST",
+      "statement": "系统记录文件字节与元数据完整性信息；证据合法性和真实性只能由授权业务人员审核确认。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "文件摘要、上传成功、OCR 成功或模型分析不得自动确认法律上的合法性、真实性或证明力。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-004",
+        "ENF-05-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-004",
+      "type": "MUST",
+      "statement": "证据仅从中心证据 API 或授权人员上传接入，并依赖中心案件或线索稳定标识及可信账号权限。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-001",
+        "ENF-05-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "本功能不得扩展为完整案件办理系统，也不得自行创建权威案件、线索或人员身份。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-005",
+      "type": "MUST",
+      "statement": "接入时校验证据、案件或线索编号、关联关系、源版本和当前访问权限，并分开记录源数据缺失和调用失败。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "来源系统、上传渠道、收集信息、关联关系及源版本不得由模型生成或替换。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "总览/4. 信息字段说明"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-001",
+        "ENF-05-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-006",
+      "type": "MUST",
+      "statement": "证据记录唯一编号、名称、类型、文件或中心受控资源引用、来源、机构、存储资源标识、状态、原件及派生版本关系和审计字段。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-007",
+      "type": "MUST",
+      "statement": "每份证据至少关联案件或线索之一；关联资源不存在或无权限时拒绝登记和访问。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-001",
+        "ENF-05-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-008",
+      "type": "MUST",
+      "statement": "收集人和收集时间在已知时记录真实值，未知时记录原因；创建人或上传人不得自动替代收集人。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "不得为满足必填或形成完整证据链而编造收集人、收集时间、来源或关联事实。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "总览/4. 信息字段说明"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-009",
+      "type": "MUST",
+      "statement": "存储位置对外仅返回内部受控资源标识，不暴露真实磁盘路径；文件链接具有有效期并在访问时鉴权。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-010",
+      "type": "MUST",
+      "statement": "证据状态为待核验、已核验、已排除、已归档，状态变更由授权人员执行并保留前后状态、理由、人员和时间。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "5. 服务接口需求",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-011",
+      "type": "MUST",
+      "statement": "支持 API 接入、授权上传、列表、详情、元数据维护、案件或线索关联、受控预览下载和核验状态变更；文件类型和大小限额可配置。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-009",
+        "ENF-05-AC-012"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-012",
+      "type": "MUST",
+      "statement": "物证仅管理描述、照片和保管信息，并明确其物理实物状态。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "电子附件、照片或描述不得被表述为已经替代实物管理、保管或核验。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-013",
+      "type": "MUST",
+      "statement": "原始文件字节不可变保存；OCR 文本、转码件和摘要作为关联原件的派生版本，元数据修改保留审计。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-002",
+        "ENF-05-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "更新、重新上传、OCR、转码或摘要不得覆盖已有原件字节、历史版本或既有引用。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-002",
+        "ENF-05-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-014",
+      "type": "MUST",
+      "statement": "取得实际文件字节后计算文件摘要，并将摘要算法、值和对应文件版本记录为完整性校验信息。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-015",
+      "type": "MUST",
+      "statement": "相同摘要只可提示可能重复，不自动合并不同来源、收集过程或案件关联。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "文件摘要不得用作证据真实性、合法性、同一收集行为或内容法律含义的证明。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-004",
+        "ENF-05-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-016",
+      "type": "MUST",
+      "statement": "案件和线索权限在列表、详情、预览、下载、派生件、历史及下游引用读取时由后端重新检查；访问日志记录操作者和时间。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-017",
+      "type": "MUST",
+      "statement": "已被分析结果或其他业务对象引用的证据禁止物理删除，只能按授权状态机标记排除或归档并保留引用完整性。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-018",
+      "type": "MUST",
+      "statement": "无法预览的格式在授权和安全策略允许时仍可下载，并返回无法预览的明确原因。",
+      "sourceAnchors": [
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-019",
+      "type": "MUST",
+      "statement": "服务写入返回证据编号、版本和完整性校验结果；列表支持案件、线索、类型、状态、分页和更新时间排序；详情返回完整来源及历史版本。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "6. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST_NOT-009",
+      "type": "MUST_NOT",
+      "statement": "部分接入或解析不得伪装完整成功，源故障不得伪装为无证据或空材料。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "总览/3. 通用接口约定",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-023",
+      "type": "MUST",
+      "statement": "文件类型、大小、保留期限、中心资源链接有效期及原件存储位置须在接入时由中心确认并配置。",
+      "sourceAnchors": [
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-012"
+      ]
+    },
+    {
+      "id": "ENF-05-MUST-024",
+      "type": "MUST",
+      "statement": "未确认外部条件时只允许显式模拟且隔离的可逆开发，不能升级为真实联调、完整实现或业务验收。",
+      "sourceAnchors": [
+        "8. 联调前需确认的条件",
+        "总览/3. 通用接口约定",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-05-AC-012"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "evidenceRegistration",
+      "required": true,
+      "rules": [
+        "名称、类型、来源、案件或线索至少一项、文件或受控资源引用、可信身份"
+      ]
+    },
+    {
+      "name": "collectionMetadata",
+      "required": false,
+      "rules": [
+        "真实收集人和时间；未知时分别记录原因"
+      ]
+    },
+    {
+      "name": "fileUpload",
+      "required": "上传模式时",
+      "rules": [
+        "文件类型与大小按配置、幂等键、原件标识"
+      ]
+    },
+    {
+      "name": "metadataRevision",
+      "required": "修改时",
+      "rules": [
+        "预期版本、前后值、理由和操作者"
+      ]
+    },
+    {
+      "name": "statusAction",
+      "required": "核验、排除或归档时",
+      "rules": [
+        "预期状态、理由和授权身份"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "evidence",
+      "fields": [
+        "evidenceId",
+        "version",
+        "name",
+        "type",
+        "caseId",
+        "clueId",
+        "source",
+        "collectionMetadata",
+        "status",
+        "storageReference",
+        "audit"
+      ]
+    },
+    {
+      "name": "contentVersion",
+      "fields": [
+        "versionId",
+        "kind",
+        "originalVersionId",
+        "digestAlgorithm",
+        "digest",
+        "createdAt",
+        "processingStatus"
+      ]
+    },
+    {
+      "name": "accessResult",
+      "fields": [
+        "previewStatus",
+        "downloadReference",
+        "expiresAt",
+        "failureReason",
+        "requestId"
+      ]
+    },
+    {
+      "name": "integrity",
+      "fields": [
+        "bytesReceived",
+        "digestVerified",
+        "duplicateCandidates",
+        "notAuthenticityDecision"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "register_or_upload",
+      "enforcement": "服务端校验可信身份、机构、案件或线索及上传权限"
+    },
+    {
+      "action": "read_metadata_or_history",
+      "enforcement": "按案件、线索、机构和证据状态实时授权"
+    },
+    {
+      "action": "preview_or_download",
+      "enforcement": "每次访问重新鉴权并签发短期受控引用"
+    },
+    {
+      "action": "revise_metadata",
+      "enforcement": "授权人员及预期版本校验"
+    },
+    {
+      "action": "verify_exclude_archive",
+      "enforcement": "中心授权审核角色；不得由 AI 或 Agent 触发"
+    },
+    {
+      "action": "physical_delete",
+      "enforcement": "被引用证据绝对禁止；其他情况仍依中心保留和删除策略"
+    }
+  ],
+  "states": [
+    {
+      "name": "待核验",
+      "kind": "evidence",
+      "allowedNext": [
+        "已核验",
+        "已排除",
+        "已归档"
+      ]
+    },
+    {
+      "name": "已核验",
+      "kind": "evidence",
+      "allowedNext": [
+        "已排除",
+        "已归档"
+      ]
+    },
+    {
+      "name": "已排除",
+      "kind": "evidence",
+      "allowedNext": [
+        "已归档"
+      ],
+      "invariant": "保留记录、版本和既有引用"
+    },
+    {
+      "name": "已归档",
+      "kind": "evidence",
+      "allowedNext": [],
+      "invariant": "按保留策略限制新使用但保持审计"
+    },
+    {
+      "name": "原件",
+      "kind": "content_version",
+      "allowedNext": [],
+      "invariant": "字节不可被派生处理覆盖"
+    },
+    {
+      "name": "派生件",
+      "kind": "content_version",
+      "allowedNext": [],
+      "invariant": "必须关联具体原件版本并标明 OCR、转码或摘要类型"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "中心资源或上传原件保留来源渠道、源标识、源版本、获取或上传时间和内容摘要。",
+    "原件字节不可变；OCR、转码和摘要形成显式派生版本并引用原件。",
+    "元数据修改形成版本与审计，不重写原件、来源或历史业务引用。",
+    "收集人与上传人、收集时间与上传时间分别记录，不互相替代。",
+    "同摘要只产生重复候选提示，保留各自收集过程、来源和关联。",
+    "权限收紧或源撤回后阻止新内容访问，受控审计与历史引用仍保留。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "case_or_clue_missing_or_unauthorized",
+      "result": "拒绝登记或访问且不泄露材料"
+    },
+    {
+      "case": "source_unavailable",
+      "result": "返回上游失败，不表示无证据"
+    },
+    {
+      "case": "file_type_or_size_rejected",
+      "result": "按已确认配置拒绝并返回限制"
+    },
+    {
+      "case": "preview_unsupported",
+      "result": "返回不可预览原因；授权时仍可下载"
+    },
+    {
+      "case": "digest_duplicate",
+      "result": "返回候选提示，不自动合并"
+    },
+    {
+      "case": "referenced_evidence_delete",
+      "result": "拒绝物理删除，允许按权限标记排除"
+    },
+    {
+      "case": "version_or_state_conflict",
+      "result": "拒绝覆盖并返回当前版本或状态"
+    },
+    {
+      "case": "partial_ingestion_or_derivation",
+      "result": "列出已处理及未处理项，不伪装完整成功"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-05-DEC-001",
+      "owner": "AI",
+      "description": "可生成 OCR、摘要或结构化候选派生内容，但不能生成来源、确认真实性合法性、改变状态或删除证据。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-05-DEC-002",
+      "owner": "RULE",
+      "description": "执行文件限制、摘要计算、版本关联、权限、状态、并发、引用保护和访问有效期。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-05-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权人员上传或登记、补充真实收集信息、核验合法性真实性、排除或归档，并确认相关验收预期。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "ENF-05-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心案件、线索、证据和身份系统提供权威编号、源材料、权限与资源撤回状态。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-05-AC-001",
+      "given": [
+        "中心 API 材料和授权上传材料",
+        "已知及未知收集信息"
+      ],
+      "when": "登记证据",
+      "then": [
+        "至少关联案件或线索",
+        "来源与类型完整",
+        "未知收集信息记录原因",
+        "上传人不冒充收集人",
+        "模型不补造"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-001",
+        "ENF-05-MUST-004",
+        "ENF-05-MUST_NOT-004",
+        "ENF-05-MUST-006",
+        "ENF-05-MUST-007",
+        "ENF-05-MUST-008",
+        "ENF-05-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-002",
+      "given": [
+        "已存在且被引用的原件"
+      ],
+      "when": "上传更新文件",
+      "then": [
+        "原字节和历史引用不变",
+        "新内容形成独立版本并保持来源"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-013",
+        "ENF-05-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-003",
+      "given": [
+        "原件及 OCR、转码和摘要处理"
+      ],
+      "when": "查看版本关系",
+      "then": [
+        "每个派生件指向具体原件版本",
+        "处理不覆盖原件",
+        "元数据修改有审计"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-013",
+        "ENF-05-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-004",
+      "given": [
+        "字节相同但收集过程、来源或案件不同的文件"
+      ],
+      "when": "计算摘要并登记",
+      "then": [
+        "显示重复候选",
+        "不自动合并",
+        "摘要只证明字节一致而不确认真实性合法性"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST_NOT-001",
+        "ENF-05-MUST-014",
+        "ENF-05-MUST-015",
+        "ENF-05-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-005",
+      "given": [
+        "物证描述、照片和保管信息"
+      ],
+      "when": "登记和查看",
+      "then": [
+        "明确仅为实物的电子记录",
+        "不显示为已替代实物管理"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-012",
+        "ENF-05-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-006",
+      "given": [
+        "待核验证据及完整性校验结果"
+      ],
+      "when": "授权人员核验、排除或归档",
+      "then": [
+        "合法状态转换和审计完整",
+        "系统完整性不自动等于真实性合法性"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-002",
+        "ENF-05-MUST_NOT-001",
+        "ENF-05-MUST-010",
+        "ENF-05-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-007",
+      "given": [
+        "有权和无权账号",
+        "可预览与不可预览格式"
+      ],
+      "when": "直接调用详情、预览和下载",
+      "then": [
+        "所有入口实时鉴权并记录访问",
+        "无权请求拒绝",
+        "不暴露磁盘路径",
+        "不可预览时显示原因且按授权下载"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-007",
+        "ENF-05-MUST-009",
+        "ENF-05-MUST-016",
+        "ENF-05-MUST-018"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-008",
+      "given": [
+        "源缺失、上游失败、解析失败、无权限和部分接入"
+      ],
+      "when": "调用证据服务",
+      "then": [
+        "各种原因、request_id 和未处理项可区分",
+        "不补造来源",
+        "失败不伪装为空或完整成功"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-005",
+        "ENF-05-MUST_NOT-004",
+        "ENF-05-MUST_NOT-009"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-009",
+      "given": [
+        "内部页面和直接 API 客户端",
+        "不同权限账号"
+      ],
+      "when": "登记、查询、预览、下载、修改和状态操作",
+      "then": [
+        "服务行为一致",
+        "页面覆盖验证状态且不承载规则",
+        "详情和版本完整",
+        "页面不作为外部交付"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-001",
+        "ENF-05-MUST-011",
+        "ENF-05-MUST-019"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-010",
+      "given": [
+        "现有中心案件或线索系统"
+      ],
+      "when": "检查系统边界",
+      "then": [
+        "仅保存受控关联",
+        "不创建平行完整案件系统或权威身份"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-004",
+        "ENF-05-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-011",
+      "given": [
+        "已被分析报告引用的证据"
+      ],
+      "when": "请求删除",
+      "then": [
+        "物理删除被拒绝",
+        "允许的排除或归档保留版本和引用"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-017"
+      ]
+    },
+    {
+      "id": "ENF-05-AC-012",
+      "given": [
+        "文件类型、大小、保留期、链接和存储尚未确认"
+      ],
+      "when": "检查实现与验收状态",
+      "then": [
+        "参数保持待确认",
+        "模拟内容显式隔离",
+        "不标记真实接入或验收"
+      ],
+      "sourceClauseIds": [
+        "ENF-05-MUST-011",
+        "ENF-05-MUST-023",
+        "ENF-05-MUST-024"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-05-DD-001",
+      "decision": "证据业务状态与案件关联归属 Enforcement；通用 Evidence/SourceSnapshot/File/Review 提供不可变内容、来源、受控访问和审核记录。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-05-DD-002",
+      "decision": "具体 REST 路径、文件存储产品、摘要算法、预览组件、链接时长、DM8 类型和删除实现延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "原文将文件限制、保留、链接和存储列为待确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-05-OQ-001",
+      "type": "external_integration",
+      "question": "中心案件、线索和证据 API 的标识、关联、版本、认证、撤回及错误契约是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-09",
+        "真实接入"
+      ]
+    },
+    {
+      "id": "ENF-05-OQ-002",
+      "type": "file_policy",
+      "question": "允许文件类型、大小、原件存储位置、预览转换、链接有效期及恶意文件检测要求是什么？",
+      "blocks": [
+        "ARC-11",
+        "SPK-14",
+        "文件接入验收"
+      ]
+    },
+    {
+      "id": "ENF-05-OQ-003",
+      "type": "retention",
+      "question": "原件、派生件、排除或归档证据、访问日志和审计分别保留多久，未被引用证据何时允许物理删除？",
+      "blocks": [
+        "ARC-10",
+        "ARC-11",
+        "删除与归档"
+      ]
+    },
+    {
+      "id": "ENF-05-OQ-004",
+      "type": "authorization",
+      "question": "登记、上传、修改、预览、下载、核验、排除、归档和删除分别由哪些角色与案件范围控制？",
+      "blocks": [
+        "ARC-06",
+        "正式权限和状态设计"
+      ]
+    },
+    {
+      "id": "ENF-05-OQ-005",
+      "type": "business_semantics",
+      "question": "证据类型字典、核验标准、排除和归档条件及理由字典是什么？",
+      "blocks": [
+        "ARC-05",
+        "状态操作验收"
+      ]
+    },
+    {
+      "id": "ENF-05-OQ-006",
+      "type": "environment",
+      "question": "DM8 小版本、文件存储、备份恢复、JDK/驱动及国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "SPK-14",
+        "真实验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Byte integrity, business authenticity, legality and evidentiary weight remain separate concepts.",
+      "Original content, derived artifacts, metadata revisions and review state are separately versioned; duplicate digests do not merge collection histories.",
+      "No file product, limit, retention period, link lifetime, deletion rule, evidence taxonomy or role mapping was guessed."
+    ]
+  }
+}

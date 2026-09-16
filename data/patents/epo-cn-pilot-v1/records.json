@@ -1,0 +1,1066 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "CON-04-EPO-CN-PILOT-V1",
+  "generatedAt": "2026-09-16T09:14:38.125Z",
+  "source": {
+    "name": "EPO Linked Open Data",
+    "websiteUrl": "https://data.epo.org/linked-data/",
+    "apiBaseUrl": "https://data.epo.org/linked-data/data",
+    "accessMode": "PUBLIC_LINKED_DATA_NO_AUTH",
+    "authorityStatus": "NON_CENTER_PUBLIC_SOURCE",
+    "licenseReviewStatus": "REVIEW_REQUIRED",
+    "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+  },
+  "records": [
+    {
+      "sourceRecordId": "CN-1134880-A",
+      "publicationNumber": "CN 1134880 A",
+      "publicationDate": "1996-11-06",
+      "sourceVersion": "CN-1134880-A@1996-11-06",
+      "title": "CN 1134880 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1134880/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "96100620",
+      "filingDate": "1996-01-05",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "ae845e0d6afc07f670986f6f2907baf84e0e63f2cb965cc2cdfab9e02e8d8ab6",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1409973-A",
+      "publicationNumber": "CN 1409973 A",
+      "publicationDate": "2003-04-16",
+      "sourceVersion": "CN-1409973-A@2003-04-16",
+      "title": "CN 1409973 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1409973/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": null,
+      "filingDate": null,
+      "applicationKind": null,
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "6670efb6f6e0f4b6d334ca9b2fc916cc7505acc44e3972cf2e895903956ff4fd",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1102747-A",
+      "publicationNumber": "CN 1102747 A",
+      "publicationDate": "1995-05-17",
+      "sourceVersion": "CN-1102747-A@1995-05-17",
+      "title": "CN 1102747 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1102747/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "94190083",
+      "filingDate": "1994-01-13",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "cc061722c2cdfc1279213c1eb09779636390ac974289910998d28f2225e87769",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1557247-A",
+      "publicationNumber": "CN 1557247 A",
+      "publicationDate": "2004-12-29",
+      "sourceVersion": "CN-1557247-A@2004-12-29",
+      "title": "CN 1557247 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1557247/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "200410010658",
+      "filingDate": "2004-02-02",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "56a70f42e1e78ff9935e82a070a03f2cb6c6abb35582dc876e08f942dc298a42",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1240331-C",
+      "publicationNumber": "CN 1240331 C",
+      "publicationDate": "2006-02-08",
+      "sourceVersion": "CN-1240331-C@2006-02-08",
+      "title": "CN 1240331 C",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1240331/C/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "200410010658",
+      "filingDate": "2004-02-02",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "d33ff93ccf1cea40c3074c7103178b986a2ec590a2d74acdc2d17ac3d998d28d",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-2824287-Y",
+      "publicationNumber": "CN 2824287 Y",
+      "publicationDate": "2006-10-04",
+      "sourceVersion": "CN-2824287-Y@2006-10-04",
+      "title": "CN 2824287 Y",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/2824287/Y/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "200520063784",
+      "filingDate": "2005-08-29",
+      "applicationKind": "utility model application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "bc57229e73e8efb410165a8d5092b2d6537ab9b72d34db6450b64ae3f52775be",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-100527480-C",
+      "publicationNumber": "CN 100527480 C",
+      "publicationDate": "2009-08-12",
+      "sourceVersion": "CN-100527480-C@2009-08-12",
+      "title": "CN 100527480 C",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/100527480/C/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "200510114482",
+      "filingDate": "2005-10-27",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "56748cfe9583f52ff9b7b0088dd506f1710f65f654ec3acaf3b413707a686a14",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1956244-A",
+      "publicationNumber": "CN 1956244 A",
+      "publicationDate": "2007-05-02",
+      "sourceVersion": "CN-1956244-A@2007-05-02",
+      "title": "CN 1956244 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1956244/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "200510114482",
+      "filingDate": "2005-10-27",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "ac71fa4ebed6f3d7e21f1b9f1aa1ff67a32031d98a34f7b37dd9453d9fa2806f",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-100449852-C",
+      "publicationNumber": "CN 100449852 C",
+      "publicationDate": "2009-01-07",
+      "sourceVersion": "CN-100449852-C@2009-01-07",
+      "title": "CN 100449852 C",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/100449852/C/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "200510100488",
+      "filingDate": "2005-10-18",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "5f9f06736fa6468585c08808ab35a9f9a1e34538fdee71eb3fdad1ec5fd28038",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1953267-A",
+      "publicationNumber": "CN 1953267 A",
+      "publicationDate": "2007-04-25",
+      "sourceVersion": "CN-1953267-A@2007-04-25",
+      "title": "CN 1953267 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1953267/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "200510100488",
+      "filingDate": "2005-10-18",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "0e5f14e8a4aff477afbaeaac1f587e22dd2b0d7cdb6915675b1e623341de4737",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-101661362-A",
+      "publicationNumber": "CN 101661362 A",
+      "publicationDate": "2010-03-03",
+      "sourceVersion": "CN-101661362-A@2010-03-03",
+      "title": "CN 101661362 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/101661362/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "200810141739",
+      "filingDate": "2008-08-28",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "ad5f4bbe3095752b53f254dc24593dbca9f210d7ce36697d40850ea91c027058",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-2830547-Y",
+      "publicationNumber": "CN 2830547 Y",
+      "publicationDate": "2006-10-25",
+      "sourceVersion": "CN-2830547-Y@2006-10-25",
+      "title": "CN 2830547 Y",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/2830547/Y/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "200520019790",
+      "filingDate": "2005-06-15",
+      "applicationKind": "utility model application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "e028893724b3831b29ce373c188f7ab8bf6170470de93c80471200391c677123",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1655964-A",
+      "publicationNumber": "CN 1655964 A",
+      "publicationDate": "2005-08-17",
+      "sourceVersion": "CN-1655964-A@2005-08-17",
+      "title": "CN 1655964 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1655964/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "03811829",
+      "filingDate": "2003-05-14",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "5cbd7e3c45b89d2a99be0dc96cf135479a6dcc7180527925fe91676d7bbeb553",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-100398355-C",
+      "publicationNumber": "CN 100398355 C",
+      "publicationDate": "2008-07-02",
+      "sourceVersion": "CN-100398355-C@2008-07-02",
+      "title": "CN 100398355 C",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/100398355/C/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "03811829",
+      "filingDate": "2003-05-14",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "9c174da122ca9031c522eaa516dc581122a640aec372f13bbb62c9ad577b1015",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1036417-C",
+      "publicationNumber": "CN 1036417 C",
+      "publicationDate": "1997-11-12",
+      "sourceVersion": "CN-1036417-C@1997-11-12",
+      "title": "CN 1036417 C",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1036417/C/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "88100521",
+      "filingDate": "1988-01-29",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "664ce61c607390ce77a16e93efaad3cfa3f2e0d6ac758a59edd45fa0e78971b9",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1034616-A",
+      "publicationNumber": "CN 1034616 A",
+      "publicationDate": "1989-08-09",
+      "sourceVersion": "CN-1034616-A@1989-08-09",
+      "title": "CN 1034616 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1034616/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "88100521",
+      "filingDate": "1988-01-29",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "d21a627864aa5d544c79fa28862b64faf3aabfda4f70b6aefafa1cec3a41d6c0",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1085173-A",
+      "publicationNumber": "CN 1085173 A",
+      "publicationDate": "1994-04-13",
+      "sourceVersion": "CN-1085173-A@1994-04-13",
+      "title": "CN 1085173 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1085173/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "92112054",
+      "filingDate": "1992-09-26",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "8d319243b4fc5c454a1e12a7945393bcfd5ff1a29319a25d8d90ca43790b743d",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1111635-A",
+      "publicationNumber": "CN 1111635 A",
+      "publicationDate": null,
+      "sourceVersion": "CN-1111635-A@UNKNOWN",
+      "title": "CN 1111635 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1111635/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": null,
+      "filingDate": null,
+      "applicationKind": null,
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "07f6376fffb454f5b06854161eaad0e220560fb54329d6be4269f1cdc7aafd45",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1179390-A",
+      "publicationNumber": "CN 1179390 A",
+      "publicationDate": "1998-04-22",
+      "sourceVersion": "CN-1179390-A@1998-04-22",
+      "title": "CN 1179390 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1179390/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "97106467",
+      "filingDate": "1997-06-16",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "d5c9bd7bf616ce922b3c646a99815471144dd627f2633183ef96abbc1232d5d7",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1058232-C",
+      "publicationNumber": "CN 1058232 C",
+      "publicationDate": "2000-11-08",
+      "sourceVersion": "CN-1058232-C@2000-11-08",
+      "title": "CN 1058232 C",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1058232/C/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "97106467",
+      "filingDate": "1997-06-16",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "051a4fa0a193f898ac5cc404d977407cae7c6dd3d6ef826ed50edb9aa103613b",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1039249-A",
+      "publicationNumber": "CN 1039249 A",
+      "publicationDate": null,
+      "sourceVersion": "CN-1039249-A@UNKNOWN",
+      "title": "CN 1039249 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1039249/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": null,
+      "filingDate": null,
+      "applicationKind": null,
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "9a52061fd5b967c48be5c8d8c5a767c91ed210b191161234918a7a3dd5a7f88f",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1097764-A",
+      "publicationNumber": "CN 1097764 A",
+      "publicationDate": null,
+      "sourceVersion": "CN-1097764-A@UNKNOWN",
+      "title": "CN 1097764 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1097764/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": null,
+      "filingDate": null,
+      "applicationKind": null,
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "5d471a08e24024eb8f77cde6b586d309714444eeb9b116786ae66fe040e50239",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1288239-A",
+      "publicationNumber": "CN 1288239 A",
+      "publicationDate": "2001-03-21",
+      "sourceVersion": "CN-1288239-A@2001-03-21",
+      "title": "CN 1288239 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1288239/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "00102967",
+      "filingDate": "2000-03-10",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "8592c3bd58e0ff615fe00ac9a7054d8132a5b6854a41d357f264a3dd4f377a39",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1142560-C",
+      "publicationNumber": "CN 1142560 C",
+      "publicationDate": "2004-03-17",
+      "sourceVersion": "CN-1142560-C@2004-03-17",
+      "title": "CN 1142560 C",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1142560/C/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": "00102967",
+      "filingDate": "2000-03-10",
+      "applicationKind": "patent application",
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "ac4af52d18fa229e6788677a53ccc1726ff5815419958236dd71640285bc57bc",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1218335-A",
+      "publicationNumber": "CN 1218335 A",
+      "publicationDate": "1999-06-02",
+      "sourceVersion": "CN-1218335-A@1999-06-02",
+      "title": "CN 1218335 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/1218335/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": null,
+      "filingDate": null,
+      "applicationKind": null,
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "ed7f06f5905c431567b4c758589eab4690038891bd1c9be025ef777903d01e8e",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-102882315-A",
+      "publicationNumber": "CN 102882315 A",
+      "publicationDate": "2013-01-16",
+      "sourceVersion": "CN-102882315-A@2013-01-16",
+      "title": "CN 102882315 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/102882315/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": null,
+      "filingDate": null,
+      "applicationKind": null,
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "74f19ce5f64c2c31b2d9ac3ca2e468c714d5bd70fe491aabf35477c3fe93683d",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-102407848-A",
+      "publicationNumber": "CN 102407848 A",
+      "publicationDate": "2012-04-11",
+      "sourceVersion": "CN-102407848-A@2012-04-11",
+      "title": "CN 102407848 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/102407848/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": null,
+      "filingDate": null,
+      "applicationKind": null,
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "72efdf711f1e2fdb38e7851611e77e941a01a35ccbaf03b741861c698d8d6092",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-103072474-A",
+      "publicationNumber": "CN 103072474 A",
+      "publicationDate": "2013-05-01",
+      "sourceVersion": "CN-103072474-A@2013-05-01",
+      "title": "CN 103072474 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/103072474/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": null,
+      "filingDate": null,
+      "applicationKind": null,
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "b236a3c1a5b31916a978ab106e0bb873175609cca0ea7db8d8129e7ee14bb8b3",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-203157692-U",
+      "publicationNumber": "CN 203157692 U",
+      "publicationDate": null,
+      "sourceVersion": "CN-203157692-U@UNKNOWN",
+      "title": "CN 203157692 U",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/203157692/U/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": null,
+      "filingDate": null,
+      "applicationKind": null,
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "02acfc36ed1af8184cacd8c7087277205a171696bf6e195aec4c79926d6a3998",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-102072779-A",
+      "publicationNumber": "CN 102072779 A",
+      "publicationDate": "2011-05-25",
+      "sourceVersion": "CN-102072779-A@2011-05-25",
+      "title": "CN 102072779 A",
+      "titles": [],
+      "applicant": null,
+      "detailUrl": "http://data.epo.org/linked-data/data/publication/CN/102072779/A/-",
+      "matchedQueryIds": [
+        "EPO_LOD_CN_LIST"
+      ],
+      "capturedAt": "2026-09-16T09:14:38.125Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "applicationNumber": null,
+      "filingDate": null,
+      "applicationKind": null,
+      "sourceLocators": [
+        "document-root",
+        "application"
+      ],
+      "detailResponseSha256": "8860fc1a45cd36ecee3deb202de02abe6bb5e4f992d2d9abf4a67152c1e22960",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    }
+  ]
+}

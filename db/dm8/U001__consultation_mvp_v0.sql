@@ -1,0 +1,15 @@
+DROP TABLE con_patent_search_candidate;
+DROP TABLE con_patent_search_task;
+DROP TABLE con_idempotency_record;
+DROP TABLE con_answer_source_link;
+DROP TABLE con_answer_candidate;
+DROP TABLE con_assisted_answer;
+DROP TABLE con_retrieval_candidate;
+DROP TABLE con_retrieval_request;
+DROP TABLE con_information_issue;
+DROP TABLE con_user_input;
+DROP TABLE con_source_locator;
+DROP TABLE con_consultation;
+DROP TABLE con_trademark_search_dimension;
+DROP TABLE con_trademark_search_candidate;
+DROP TABLE con_trademark_search_task;

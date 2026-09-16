@@ -1,0 +1,27 @@
+import { chromium } from "@playwright/test";
+import { spawn, spawnSync } from "node:child_process";
+import { mkdirSync } from "node:fs";
+import { join } from "node:path";
+import process from "node:process";
+
+for (const name of ["DM8_JDBC_URL", "DM8_JDBC_USER", "DM8_JDBC_PASSWORD"]) if (!process.env[name]) throw new Error(`${name} is required`);
+const port = process.env.TRADEMARK_E2E_PORT || "18086";
+const baseUrl = `http://127.0.0.1:${port}`, requester = "v0-authorized-user";
+const maven = process.platform === "win32" ? "mvn.cmd" : "mvn";
+const java = process.env.JAVA_HOME ? join(process.env.JAVA_HOME, "bin", process.platform === "win32" ? "java.exe" : "java") : "java";
+let application, browser, verified = false;
+function run(command, args) { const executable = process.platform === "win32" ? (process.env.ComSpec || "cmd.exe") : command; const commandArgs = process.platform === "win32" ? ["/d", "/s", "/c", command, ...args] : args; const result = spawnSync(executable, commandArgs, { cwd: process.cwd(), env: process.env, stdio: "inherit" }); if (result.status !== 0) throw new Error(`${command} failed`); }
+function probe(phase, taskId) { const args = ["-Dtrademark.browser.phase=" + phase]; if (taskId) args.push("-Dtrademark.browser.taskId=" + taskId); args.push("-Dtest=Dm8TrademarkBrowserDatabaseProbe", "test"); run(maven, args); }
+function start() { const logs=[]; const child=spawn(java,["-jar","target/agent-platform-0.0.1-SNAPSHOT.jar"],{cwd:process.cwd(),env:{...process.env,CONSULTATION_STORAGE:"memory",PATENT_SEARCH_STORAGE:"memory",TRADEMARK_SEARCH_STORAGE:"dm8",SERVER_PORT:port,SPRING_DATASOURCE_URL:process.env.DM8_JDBC_URL,SPRING_DATASOURCE_USERNAME:process.env.DM8_JDBC_USER,SPRING_DATASOURCE_PASSWORD:process.env.DM8_JDBC_PASSWORD,SPRING_DATASOURCE_DRIVER_CLASS_NAME:"dm.jdbc.driver.DmDriver"},stdio:["ignore","pipe","pipe"]}); child.stdout.on("data",x=>logs.push(x.toString())); child.stderr.on("data",x=>logs.push(x.toString())); child.logs=logs; return child; }
+async function ready(child) { const end=Date.now()+45000; while(Date.now()<end){if(child.exitCode!==null)throw new Error(child.logs.join(""));try{if((await fetch(`${baseUrl}/index.html`)).ok)return;}catch{}await new Promise(r=>setTimeout(r,250));}throw new Error("Trademark application did not start"); }
+async function stop(){if(!application||application.exitCode!==null)return;application.kill();await Promise.race([new Promise(r=>application.once("exit",r)),new Promise((_,j)=>setTimeout(()=>j(new Error("Application did not stop")),10000))]);}
+function assert(value,message){if(!value)throw new Error(message);}
+try {
+  probe("setup"); run(maven,["-DskipTests","package"]); application=start(); await ready(application);
+  browser=await chromium.launch(); const page=await browser.newPage({viewport:{width:1366,height:900}}); await page.goto(baseUrl); await page.getByRole("button",{name:"商标检索"}).click();
+  const responsePromise=page.waitForResponse(r=>r.url().endsWith("/api/v0/trademark-search-tasks")&&r.request().method()==="POST"); await page.getByRole("button",{name:"创建检索任务"}).click(); const response=await responsePromise; const key=(await response.request().allHeaders())["idempotency-key"]; const requestBody=response.request().postDataJSON(); const task=await response.json(); await page.locator("#trademark-task-summary").getByText("检索完成").waitFor(); mkdirSync("target/playwright-artifacts",{recursive:true}); await page.screenshot({path:"target/playwright-artifacts/trademark-dm8-before-restart.png",fullPage:true});
+  await stop(); application=undefined; application=start(); await ready(application); await page.goto(baseUrl);
+  const result=await page.evaluate(async input=>{const headers={"X-V0-Requester":input.requester}; const read=await fetch(`/api/v0/trademark-search-tasks/${input.id}`,{headers}); const replay=await fetch("/api/v0/trademark-search-tasks",{method:"POST",headers:{...headers,"Content-Type":"application/json","Idempotency-Key":input.key},body:JSON.stringify(input.body)}); const conflict=await fetch("/api/v0/trademark-search-tasks",{method:"POST",headers:{...headers,"Content-Type":"application/json","Idempotency-Key":input.key},body:JSON.stringify({...input.body,name:"青源"})}); return {readStatus:read.status,read:await read.json(),replayStatus:replay.status,replay:await replay.json(),conflictStatus:conflict.status};},{id:task.taskId,key,requester,body:requestBody});
+  assert(result.readStatus===200&&result.read.status==="SUCCEEDED","Restart must retain completed trademark task"); assert(result.read.candidates.length===5&&result.read.candidates[0].dimensions[2].state==="NOT_ANALYZED","Restart must retain candidates and dimension states"); assert(result.replayStatus===202&&result.replay.taskId===task.taskId,"Idempotency replay must retain task identity"); assert(result.conflictStatus===409,"Changed request with same key must conflict after restart");
+  await page.getByRole("button",{name:"商标检索"}).click(); await page.screenshot({path:"target/playwright-artifacts/trademark-dm8-after-restart.png",fullPage:true}); await browser.close(); browser=undefined; await stop(); application=undefined; probe("verify",task.taskId); verified=true; console.log("Trademark DM8 browser E2E passed: browser create, HTTP, DM8 restart, candidates, dimensions, idempotency, conflict, and database integrity.");
+} finally { if(browser)await browser.close(); if(application)await stop(); if(!verified)try{probe("cleanup");}catch{} }

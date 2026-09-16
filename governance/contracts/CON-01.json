@@ -1,0 +1,865 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-01",
+  "title": "商标库管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权咨询助手/商标库管理需求文档.md",
+    "sha256": "0bf6834dcec865fec5fbbc4f25c5b2b85125b3c9ea5a98dc064c19a8dced1301",
+    "sections": [
+      {
+        "anchor": "国产化与达梦 DM8 适配要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与接入规则",
+        "purpose": "source_and_mapping"
+      },
+      {
+        "anchor": "3. 商标信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 查询服务与列表",
+        "purpose": "query"
+      },
+      {
+        "anchor": "5. 详情与历史信息",
+        "purpose": "details"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 服务输入输出与异常要求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "8. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "9. 交付内容",
+        "purpose": "delivery"
+      },
+      {
+        "anchor": "10. API 联调确认清单",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sections": [
+        "1. 项目定位与交付口径",
+        "3. 共用业务规则",
+        "4. 共用支撑能力与估工方式",
+        "5. 建议开发与集成顺序",
+        "6. 验收资料与共同口径",
+        "7. 评审状态记录"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-01-MUST-001",
+      "type": "MUST",
+      "statement": "通过后端接入中心 API 的商标注册、商品服务、状态、异议、无效和变更数据，提供字段转换、查询、详情及更新服务。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 数据来源与接入规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-001"
+      ]
+    },
+    {
+      "id": "CON-01-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "本模块不得实现商标相似检索、近似判断、注册可行性分析、通用接口管理平台或中心源数据的手工新增编辑删除。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 数据来源与接入规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-001"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-002",
+      "type": "MUST",
+      "statement": "以数据源标识与源记录稳定 ID 定位商标并关联基本信息和历史子项；无源 ID 时须先核实注册号与类别的唯一映射。",
+      "sourceAnchors": [
+        "2. 数据来源与接入规则",
+        "3. 商标信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-002"
+      ]
+    },
+    {
+      "id": "CON-01-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "不得以商标名称作为唯一标识，不得凭名称、标题或当前字段猜测记录关联。",
+      "sourceAnchors": [
+        "2. 数据来源与接入规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-002"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-003",
+      "type": "MUST",
+      "statement": "注册号按字符串保留前导零、字母和源格式；多注册人、多类别及类别下商品服务明细完整保留。",
+      "sourceAnchors": [
+        "2. 数据来源与接入规则",
+        "3. 商标信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-002",
+        "CON-01-AC-006"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-004",
+      "type": "MUST",
+      "statement": "源状态原值与统一展示值同时保留，未识别显示未映射；日期按源精度显示且不得因时区偏移一天。",
+      "sourceAnchors": [
+        "2. 数据来源与接入规则",
+        "3. 商标信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-003"
+      ]
+    },
+    {
+      "id": "CON-01-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "模型不得补写事实；字段缺失显示未提供，解析失败记录异常，有效期或未知状态不得自动推导法律状态。",
+      "sourceAnchors": [
+        "2. 数据来源与接入规则",
+        "3. 商标信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-003"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-005",
+      "type": "MUST",
+      "statement": "分别返回源更新时间和本次获取时间；启用缓存时披露命中状态与缓存获取时间，重新获取必须绕过缓存。",
+      "sourceAnchors": [
+        "2. 数据来源与接入规则",
+        "6. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-004"
+      ]
+    },
+    {
+      "id": "CON-01-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "源获取失败或暂时不存在不得以空结果覆盖旧数据、删除历史或推断商标注销失效。",
+      "sourceAnchors": [
+        "2. 数据来源与接入规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-004"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-006",
+      "type": "MUST",
+      "statement": "查询支持注册号精确、名称和注册人包含、类别与状态多选、注册及有效期范围；同字段多选为或、不同字段为且、日期含端点。",
+      "sourceAnchors": [
+        "4. 查询服务与列表"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-005"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-007",
+      "type": "MUST",
+      "statement": "注册号查询只去首尾空格不改内部字符；起始日期晚于结束日期时前后端均拒绝。",
+      "sourceAnchors": [
+        "4. 查询服务与列表"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-005"
+      ]
+    },
+    {
+      "id": "CON-01-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "名称包含查询不得扩展为语义相似；当前页过滤排序不得冒充全库筛选或全局排序。",
+      "sourceAnchors": [
+        "4. 查询服务与列表"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-005"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-008",
+      "type": "MUST",
+      "statement": "分页默认 20、可选 10/20/50、单次最多 50；默认注册日期倒序再按稳定 ID，缺失日期置后。",
+      "sourceAnchors": [
+        "4. 查询服务与列表",
+        "总目录/3. 共用业务规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-005"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-009",
+      "type": "MUST",
+      "statement": "只有上游提供可靠总数才展示总数；游标模式不伪造总数，无条件浏览受限时明确所需查询条件。",
+      "sourceAnchors": [
+        "4. 查询服务与列表"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-005"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-010",
+      "type": "MUST",
+      "statement": "修改条件回到第一页，重复点击避免重复提交，较早查询的迟到响应不得覆盖最新结果。",
+      "sourceAnchors": [
+        "4. 查询服务与列表",
+        "6. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-005"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-011",
+      "type": "MUST",
+      "statement": "详情完整展示商标字段和按类别分组的商品服务明细；图样加载失败及变更、异议、无效任一子项失败不影响已成功基本信息。",
+      "sourceAnchors": [
+        "5. 详情与历史信息"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-006"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-012",
+      "type": "MUST",
+      "statement": "变更记录按日期倒序并保留来源，不从当前信息反推历史；异议和无效的申请、进展与决定结果分别按源展示。",
+      "sourceAnchors": [
+        "5. 详情与历史信息"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-007"
+      ]
+    },
+    {
+      "id": "CON-01-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "存在异议或无效申请不得显示为异议成立或已宣告无效，源信息冲突不得自动改写法律状态。",
+      "sourceAnchors": [
+        "5. 详情与历史信息"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-007"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-013",
+      "type": "MUST",
+      "statement": "历史子项分别区分加载中、有记录、无记录、源未提供、访问受限和查询失败；未知状态不得显示为零条或无异议无无效。",
+      "sourceAnchors": [
+        "4. 查询服务与列表",
+        "5. 详情与历史信息"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-008"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-015",
+      "type": "MUST",
+      "statement": "只读请求仅在可重试错误上有限重试；超时、限流和性能参数以中心约束与试测确定，调用日志不含凭据和敏感请求。",
+      "sourceAnchors": [
+        "7. 服务输入输出与异常要求"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-009"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-016",
+      "type": "MUST",
+      "statement": "所有查询、原文、图样和历史入口由后端按当前权限校验，权限收紧后缓存、附件和历史不得继续泄露。",
+      "sourceAnchors": [
+        "6. 内部验证页面",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-010"
+      ]
+    },
+    {
+      "id": "CON-01-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "浏览器不得直连中心或接收凭据，验证页面不得承载鉴权业务规则、硬编码正式数据或作为对外交付门户。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "6. 内部验证页面",
+        "总目录/1. 项目定位与交付口径"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-011"
+      ]
+    },
+    {
+      "id": "CON-01-MUST-019",
+      "type": "MUST",
+      "statement": "中心接口和样本、字段状态映射、授权缓存、筛选排序分页、超时限流和性能未确认时逐项标记待补齐，不升级为真实验收。",
+      "sourceAnchors": [
+        "8. 验收要求",
+        "10. API 联调确认清单",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-AC-013"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "query",
+      "required": false,
+      "rules": [
+        "注册号、名称、注册人、类别、状态和日期范围按确认能力组合"
+      ]
+    },
+    {
+      "name": "recordRef",
+      "required": "详情和历史时",
+      "rules": [
+        "数据源 ID 与稳定源记录 ID"
+      ]
+    },
+    {
+      "name": "pagination",
+      "required": true,
+      "rules": [
+        "页式或游标式按源能力，单次最多 50"
+      ]
+    },
+    {
+      "name": "refresh",
+      "required": false,
+      "rules": [
+        "明确绕过缓存但仍受权限和限流"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "trademark",
+      "fields": [
+        "sourceId",
+        "sourceRecordId",
+        "registrationNumber",
+        "name",
+        "imageRef",
+        "applicants",
+        "classes",
+        "items",
+        "groups",
+        "dates",
+        "sourceStatus",
+        "displayStatus",
+        "sourceUpdatedAt",
+        "fetchedAt"
+      ]
+    },
+    {
+      "name": "page",
+      "fields": [
+        "items",
+        "pageOrCursor",
+        "reliableTotal",
+        "sort",
+        "actualScope",
+        "cacheState"
+      ]
+    },
+    {
+      "name": "historyItem",
+      "fields": [
+        "sourceRecordId",
+        "type",
+        "businessDates",
+        "status",
+        "result",
+        "before",
+        "after",
+        "sourceRef"
+      ]
+    },
+    {
+      "name": "childCapability",
+      "fields": [
+        "type",
+        "status",
+        "records",
+        "error",
+        "requestId"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "query_or_detail",
+      "enforcement": "中心数据范围和模块查询权限，召回前及读取时校验"
+    },
+    {
+      "action": "read_image_or_history",
+      "enforcement": "当前商标、附件及子记录权限"
+    },
+    {
+      "action": "refresh",
+      "enforcement": "查询权限、中心配额和缓存绕过权限"
+    },
+    {
+      "action": "persist_or_index",
+      "enforcement": "仅按中心明确授权范围、保留和刷新策略"
+    }
+  ],
+  "states": [
+    {
+      "name": "加载中",
+      "kind": "child_data",
+      "allowedNext": [
+        "有记录",
+        "无记录",
+        "源未提供",
+        "访问受限",
+        "查询失败"
+      ]
+    },
+    {
+      "name": "有记录",
+      "kind": "child_data",
+      "allowedNext": [
+        "加载中"
+      ]
+    },
+    {
+      "name": "无记录",
+      "kind": "child_data",
+      "allowedNext": [
+        "加载中"
+      ],
+      "invariant": "仅表示源成功返回无记录"
+    },
+    {
+      "name": "源未提供",
+      "kind": "child_data",
+      "allowedNext": [
+        "加载中"
+      ]
+    },
+    {
+      "name": "访问受限",
+      "kind": "child_data",
+      "allowedNext": [
+        "加载中"
+      ]
+    },
+    {
+      "name": "查询失败",
+      "kind": "child_data",
+      "allowedNext": [
+        "加载中"
+      ]
+    },
+    {
+      "name": "未映射",
+      "kind": "status_mapping",
+      "allowedNext": [
+        "已映射"
+      ],
+      "invariant": "保留源状态值"
+    },
+    {
+      "name": "已映射",
+      "kind": "status_mapping",
+      "allowedNext": [
+        "未映射"
+      ]
+    }
+  ],
+  "sourceAndVersionRules": [
+    "数据源和源记录 ID 共同构成稳定身份，源版本缺失时保存内容摘要快照。",
+    "源更新时间、获取时间和缓存时间分别保存。",
+    "源状态和统一映射值共存，未知状态不推断法律效力。",
+    "旧数据显示需带获取失败标记，不以失败空结果覆盖。",
+    "缓存、落库和索引必须绑定授权、保留与刷新策略，权限撤回可传播。",
+    "模拟和真实源、DM8 与验收证据隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "invalid_date_range",
+      "result": "前后端拒绝并返回参数错误"
+    },
+    {
+      "case": "source_capability_missing",
+      "result": "明确未提供，不显示为无记录"
+    },
+    {
+      "case": "source_timeout_or_rate_limit",
+      "result": "有限重试后返回对应错误，不伪装空结果"
+    },
+    {
+      "case": "refresh_failed_with_old_data",
+      "result": "保留旧数据并显式标记更新失败及原获取时间"
+    },
+    {
+      "case": "child_query_failed",
+      "result": "子项独立失败，不清除基本信息"
+    },
+    {
+      "case": "unmapped_status_or_parse_error",
+      "result": "保留源值并标记异常，不生成替代事实"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不从缓存、附件或历史泄露"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "CON-01-DEC-001",
+      "owner": "AI",
+      "description": "本模块不需要模型生成源事实或法律状态；模型不得补字段、关联记录或解释异议无效结果。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 数据来源与接入规则",
+        "5. 详情与历史信息"
+      ]
+    },
+    {
+      "id": "CON-01-DEC-002",
+      "owner": "RULE",
+      "description": "执行字段映射、输入校验、查询组合、分页排序、缓存、重试、权限、状态显示和数据异常规则。",
+      "sourceAnchors": [
+        "2. 数据来源与接入规则",
+        "4. 查询服务与列表",
+        "7. 服务输入输出与异常要求"
+      ]
+    },
+    {
+      "id": "CON-01-DEC-003",
+      "owner": "HUMAN",
+      "description": "用户明确查询条件和状态过滤；中心与项目人员确认映射、能力缺口、授权及验收样本。",
+      "sourceAnchors": [
+        "4. 查询服务与列表",
+        "8. 验收要求",
+        "10. API 联调确认清单"
+      ]
+    },
+    {
+      "id": "CON-01-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心 API 提供权威商标事实、历史、原图、状态、版本、数据范围和访问权限。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 数据来源与接入规则"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-01-AC-001",
+      "given": [
+        "中心商标接口和本模块调用方"
+      ],
+      "when": "查询商标库",
+      "then": [
+        "只提供库管理服务",
+        "不修改源数据",
+        "不执行相似或注册判断"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-001",
+        "CON-01-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "CON-01-AC-002",
+      "given": [
+        "前导零注册号、多类别多主体及同名商标"
+      ],
+      "when": "映射和读取记录",
+      "then": [
+        "稳定源 ID 关联",
+        "注册号格式和所有明细保留",
+        "名称不用于唯一去重"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-002",
+        "CON-01-MUST_NOT-002",
+        "CON-01-MUST-003"
+      ]
+    },
+    {
+      "id": "CON-01-AC-003",
+      "given": [
+        "未知状态、缺字段、解析异常和日期边界"
+      ],
+      "when": "转换数据",
+      "then": [
+        "源值、未映射和异常可见",
+        "不补事实或推断效力",
+        "日期不偏移"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-004",
+        "CON-01-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "CON-01-AC-004",
+      "given": [
+        "缓存旧数据和中心刷新失败或返回不存在"
+      ],
+      "when": "重新获取",
+      "then": [
+        "绕过缓存",
+        "源与获取时间分开",
+        "旧数据不被空结果覆盖且标记失败"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-005",
+        "CON-01-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "CON-01-AC-005",
+      "given": [
+        "组合条件、日期边界、多页、游标和快速连续查询"
+      ],
+      "when": "查询列表",
+      "then": [
+        "且或及包含精确规则正确",
+        "无当前页冒充全库",
+        "总数与排序真实",
+        "最终展示最新请求"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-006",
+        "CON-01-MUST-007",
+        "CON-01-MUST_NOT-005",
+        "CON-01-MUST-008",
+        "CON-01-MUST-009",
+        "CON-01-MUST-010"
+      ]
+    },
+    {
+      "id": "CON-01-AC-006",
+      "given": [
+        "多类别项目、多个主体、图样缺失和部分子项故障"
+      ],
+      "when": "查看详情",
+      "then": [
+        "全部明细关联完整",
+        "图样故障明确",
+        "基本信息不受子项失败影响"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-003",
+        "CON-01-MUST-011"
+      ]
+    },
+    {
+      "id": "CON-01-AC-007",
+      "given": [
+        "变更、异议申请、无效申请和矛盾状态"
+      ],
+      "when": "查看历史",
+      "then": [
+        "申请进展决定分开",
+        "不反推历史",
+        "不把申请显示为成立或宣告无效"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-012",
+        "CON-01-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "CON-01-AC-008",
+      "given": [
+        "有记录、无记录、源未提供、无权限和故障子项"
+      ],
+      "when": "展示历史能力",
+      "then": [
+        "六类状态准确区分",
+        "未知不显示为零条或否定事实"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-013"
+      ]
+    },
+    {
+      "id": "CON-01-AC-009",
+      "given": [
+        "参数、认证、权限、限流、超时、源和解析错误"
+      ],
+      "when": "直接调用服务",
+      "then": [
+        "错误和 request_id 可区分",
+        "重试有限且只读",
+        "日志不含凭据敏感内容"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-015"
+      ]
+    },
+    {
+      "id": "CON-01-AC-010",
+      "given": [
+        "无权用户及查询后被收紧权限"
+      ],
+      "when": "读取列表详情图样历史或缓存",
+      "then": [
+        "所有入口实时鉴权",
+        "已缓存和历史不泄露"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-016"
+      ]
+    },
+    {
+      "id": "CON-01-AC-011",
+      "given": [
+        "内部页面和不启动页面的 API 客户端"
+      ],
+      "when": "完成查询详情历史刷新",
+      "then": [
+        "服务可独立运行",
+        "页面状态与后端一致",
+        "浏览器无中心凭据且页面不对外交付"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "CON-01-AC-013",
+      "given": [
+        "固定中心真实样本与完整交付检查"
+      ],
+      "when": "执行联调验收",
+      "then": [
+        "普通多类别图形缺失历史异常权限场景齐全",
+        "所有版本预期实际问题有证据",
+        "未确认能力不标通过"
+      ],
+      "sourceClauseIds": [
+        "CON-01-MUST-019"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CON-01-OQ-001",
+      "type": "authority_api",
+      "question": "基本、详情、变更、异议、无效接口的稳定 ID、字段、状态、版本、分页排序筛选和关联能力是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "真实联调"
+      ]
+    },
+    {
+      "id": "CON-01-OQ-002",
+      "type": "authorization",
+      "question": "商标数据、图样、历史的访问范围及缓存、持久化、索引、保留和清理授权是什么？",
+      "blocks": [
+        "ARC-06",
+        "ARC-10",
+        "数据落地"
+      ]
+    },
+    {
+      "id": "CON-01-OQ-003",
+      "type": "business_semantics",
+      "question": "商标状态映射、无源 ID 映射、多类别唯一性、名称包含和无条件浏览规则如何确认？",
+      "blocks": [
+        "ARC-04",
+        "字段和查询设计"
+      ]
+    },
+    {
+      "id": "CON-01-OQ-004",
+      "type": "acceptance_data",
+      "question": "普通、多类别、图形、缺失、变更、异议和无效的真实期望样本是什么？",
+      "blocks": [
+        "SPK-10",
+        "真实验收"
+      ]
+    },
+    {
+      "id": "CON-01-OQ-005",
+      "type": "environment",
+      "question": "DM8、文件存储、国产系统、JDK、驱动及中心网络限流超时性能参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "SPK-16"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "CON-01-DD-001",
+      "decision": "Trademark Knowledge 拥有本地映射和查询契约，Authority Adapter 访问中心源，File 提供受控图样；Agent 不拥有源数据。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-01-DD-002",
+      "decision": "基本信息与各历史子项独立加载并保存能力状态，避免局部失败被折叠为无记录。",
+      "basis": "原文要求局部失败不影响基本信息且六类状态分开。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-01-DD-003",
+      "decision": "具体 REST 路径、字段英文名、缓存索引方案、重试参数和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心 API、授权和环境尚未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Source facts, display mappings, cache state, child capability state and legal conclusions remain separate.",
+      "Opposition or invalidation applications cannot be transformed into successful outcomes, and source failure cannot become no data.",
+      "No API, stable-key fallback, mapping, authorization, cache policy, threshold or environment behavior was guessed."
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "format": "linked-data-api",
+  "version": "0.2",
+  "result": {
+    "_about": "https://lod.apps.epo.org/linked-data/elda-common/linked-data/data/publication/CN.json?_page=2",
+    "definition": "https://lod.apps.epo.org/linked-data/elda-common/meta/linked-data/data/publication/_st3Code.json",
+    "extendedMetadataVersion": "https://lod.apps.epo.org/linked-data/elda-common/linked-data/data/publication/CN.json?_page=2&_metadata=all",
+    "first": "https://lod.apps.epo.org/linked-data/elda-common/linked-data/data/publication/CN.json?_page=0",
+    "isPartOf": {
+      "_about": "https://lod.apps.epo.org/linked-data/elda-common/linked-data/data/publication/CN.json",
+      "definition": "https://lod.apps.epo.org/linked-data/elda-common/meta/linked-data/data/publication/_st3Code.json",
+      "hasPart": "https://lod.apps.epo.org/linked-data/elda-common/linked-data/data/publication/CN.json?_page=2",
+      "type": "http://purl.org/linked-data/api/vocab#ListEndpoint"
+    },
+    "items": [
+      {
+        "_about": "http://data.epo.org/linked-data/data/publication/CN/1039249/A/-",
+        "label": "CN 1039249 A",
+        "publicationAuthority": "http://data.epo.org/linked-data/id/st3/CN",
+        "publicationKind": {
+          "_about": "http://data.epo.org/linked-data/def/patent/publicationKind_A",
+          "label": "A"
+        }
+      },
+      {
+        "_about": "http://data.epo.org/linked-data/data/publication/CN/1097764/A/-",
+        "label": "CN 1097764 A",
+        "publicationAuthority": "http://data.epo.org/linked-data/id/st3/CN",
+        "publicationKind": {
+          "_about": "http://data.epo.org/linked-data/def/patent/publicationKind_A",
+          "label": "A"
+        }
+      },
+      {
+        "_about": "http://data.epo.org/linked-data/data/publication/CN/1288239/A/-",
+        "application": {
+          "_about": "http://data.epo.org/linked-data/id/application/CN/00102967",
+          "applicationNumber": "00102967"
+        },
+        "label": "CN 1288239 A",
+        "publicationAuthority": "http://data.epo.org/linked-data/id/st3/CN",
+        "publicationDate": "Wed, 21 Mar 2001",
+        "publicationKind": {
+          "_about": "http://data.epo.org/linked-data/def/patent/publicationKind_A",
+          "label": "A"
+        }
+      },
+      {
+        "_about": "http://data.epo.org/linked-data/data/publication/CN/1142560/C/-",
+        "application": {
+          "_about": "http://data.epo.org/linked-data/id/application/CN/00102967",
+          "applicationNumber": "00102967"
+        },
+        "label": "CN 1142560 C",
+        "publicationAuthority": "http://data.epo.org/linked-data/id/st3/CN",
+        "publicationDate": "Wed, 17 Mar 2004",
+        "publicationKind": {
+          "_about": "http://data.epo.org/linked-data/def/patent/publicationKind_C",
+          "label": "C"
+        }
+      },
+      {
+        "_about": "http://data.epo.org/linked-data/data/publication/CN/1218335/A/-",
+        "label": "CN 1218335 A",
+        "publicationAuthority": "http://data.epo.org/linked-data/id/st3/CN",
+        "publicationDate": "Wed, 02 Jun 1999",
+        "publicationKind": {
+          "_about": "http://data.epo.org/linked-data/def/patent/publicationKind_A",
+          "label": "A"
+        }
+      },
+      {
+        "_about": "http://data.epo.org/linked-data/data/publication/CN/102882315/A/-",
+        "label": "CN 102882315 A",
+        "publicationAuthority": "http://data.epo.org/linked-data/id/st3/CN",
+        "publicationDate": "Wed, 16 Jan 2013",
+        "publicationKind": {
+          "_about": "http://data.epo.org/linked-data/def/patent/publicationKind_A",
+          "label": "A"
+        }
+      },
+      {
+        "_about": "http://data.epo.org/linked-data/data/publication/CN/102407848/A/-",
+        "label": "CN 102407848 A",
+        "publicationAuthority": "http://data.epo.org/linked-data/id/st3/CN",
+        "publicationDate": "Wed, 11 Apr 2012",
+        "publicationKind": {
+          "_about": "http://data.epo.org/linked-data/def/patent/publicationKind_A",
+          "label": "A"
+        }
+      },
+      {
+        "_about": "http://data.epo.org/linked-data/data/publication/CN/103072474/A/-",
+        "label": "CN 103072474 A",
+        "publicationAuthority": "http://data.epo.org/linked-data/id/st3/CN",
+        "publicationDate": "Wed, 01 May 2013",
+        "publicationKind": {
+          "_about": "http://data.epo.org/linked-data/def/patent/publicationKind_A",
+          "label": "A"
+        }
+      },
+      {
+        "_about": "http://data.epo.org/linked-data/data/publication/CN/203157692/U/-",
+        "label": "CN 203157692 U",
+        "publicationAuthority": "http://data.epo.org/linked-data/id/st3/CN",
+        "publicationKind": {
+          "_about": "http://data.epo.org/linked-data/def/patent/publicationKind_U",
+          "label": "U"
+        }
+      },
+      {
+        "_about": "http://data.epo.org/linked-data/data/publication/CN/102072779/A/-",
+        "label": "CN 102072779 A",
+        "publicationAuthority": "http://data.epo.org/linked-data/id/st3/CN",
+        "publicationDate": "Wed, 25 May 2011",
+        "publicationKind": {
+          "_about": "http://data.epo.org/linked-data/def/patent/publicationKind_A",
+          "label": "A"
+        }
+      }
+    ],
+    "itemsPerPage": 10,
+    "next": "https://lod.apps.epo.org/linked-data/elda-common/linked-data/data/publication/CN.json?_page=3",
+    "notice": {
+      "label": "Provided by the European Patent Office."
+    },
+    "page": 2,
+    "prev": "https://lod.apps.epo.org/linked-data/elda-common/linked-data/data/publication/CN.json?_page=1",
+    "startIndex": 21,
+    "type": "http://purl.org/linked-data/api/vocab#Page"
+  }
+}

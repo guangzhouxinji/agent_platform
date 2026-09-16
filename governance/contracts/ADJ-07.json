@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-07",
+  "title": "专利解析",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/07-专利解析需求文档.md",
+    "sha256": "e955e1530324b9b0cf2997a5f0606b107fe630f992a28b7c4bbe02553acbf2ac",
+    "sections": [
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 输入输出字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 解析流程与规则",
+        "purpose": "analysis_rules"
+      },
+      {
+        "anchor": "4. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "5. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 国产化与 DM8 要求",
+        "purpose": "environment"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 总体范围与交付边界",
+        "2. 统一数据与来源原则",
+        "3. AI、规则与人工边界",
+        "4. 服务、任务、审核与错误约定",
+        "5. 国产化、DM8 与验证"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-07-MUST-001",
+      "type": "MUST",
+      "statement": "复用授权专利库和文献解析能力，增加案件绑定、文献及权利要求选择、原文定位、人工修订和可供下游选择的解析版本。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 解析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-07-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "技术特征提取不得冒充最终权利保护范围，保护期限来源信息不得冒充专利始终或当前有效。",
+      "sourceAnchors": [
+        "1. 功能概述"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-07-MUST-002",
+      "type": "MUST",
+      "statement": "申请号、公开号、授权公告号和文献版本分开保存并校验材料归属；缺失字段不推测，标题不是唯一定位依据。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 解析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-07-MUST-003",
+      "type": "MUST",
+      "statement": "保留权利要求书、说明书、附图的页码段落权项附图定位，OCR 质量、不可读页和未处理内容可见。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 解析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-07-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "权利要求无法读取时不得用摘要替代，也不得把说明书任意细节自动增加为权利要求限定。",
+      "sourceAnchors": [
+        "3. 解析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-07-MUST-004",
+      "type": "MUST",
+      "statement": "提取独立从属关系并展开所选从属项实际引用链，逐项特征保留限定关系、必要上下文及说明书支持位置。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 解析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-07-MUST-005",
+      "type": "MUST",
+      "statement": "人工修订特征、依赖和定位生成确认新版本，机器原始结果、人工版本、人员时间和原因分开。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 解析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-07-MUST-006",
+      "type": "MUST",
+      "statement": "材料或权利要求变化新建解析并标旧结果来源已变更，不替换下游历史输入。",
+      "sourceAnchors": [
+        "3. 解析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-07-MUST-007",
+      "type": "MUST",
+      "statement": "外观设计采用视图、产品名称和简要说明的独立分支，不生成文本权利要求或套用发明特征矩阵。",
+      "sourceAnchors": [
+        "3. 解析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-07-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "哈希只证明完整性，不证明真实性；禁止任意服务器路径读取或执行文件内容指令。",
+      "sourceAnchors": [
+        "5. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-07-MUST-011",
+      "type": "MUST",
+      "statement": "中心确认文献覆盖、文件限制、外观能力、模型程序和专家基准，未确认能力不得标通过。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-07-AC-010"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "materialRequest",
+      "required": true,
+      "rules": [
+        "专利号码类型或受控文件、文献版本、案件权限"
+      ]
+    },
+    {
+      "name": "parseRequest",
+      "required": true,
+      "rules": [
+        "固定文献、所选权利要求、解析配置和幂等键"
+      ]
+    },
+    {
+      "name": "manualRevision",
+      "required": "修订确认时",
+      "rules": [
+        "当前解析版本、修改、原因和可信身份"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "patentParseVersion",
+      "fields": [
+        "parseId",
+        "version",
+        "caseId",
+        "patentIdentifiers",
+        "documentVersion",
+        "claims",
+        "dependencyTree",
+        "features",
+        "sourceLocations",
+        "ocrStatus",
+        "missingItems",
+        "confirmation"
+      ]
+    },
+    {
+      "name": "task",
+      "fields": [
+        "taskId",
+        "status",
+        "progress",
+        "resultVersion",
+        "unprocessedItems",
+        "errors",
+        "requestId"
+      ]
+    },
+    {
+      "name": "downstreamInput",
+      "fields": [
+        "parseVersion",
+        "confirmationStatus",
+        "sourceManifest",
+        "structure"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "prepare_or_upload",
+      "enforcement": "案件、专利源及受控文件权限"
+    },
+    {
+      "action": "parse_or_view",
+      "enforcement": "文献、案件、模型和文件权限交集"
+    },
+    {
+      "action": "revise_or_confirm",
+      "enforcement": "专业角色和当前版本"
+    },
+    {
+      "action": "consume_downstream",
+      "enforcement": "案件范围及明确确认状态"
+    }
+  ],
+  "states": [
+    {
+      "name": "未确认",
+      "kind": "parse",
+      "allowedNext": [
+        "已确认",
+        "来源已变更"
+      ]
+    },
+    {
+      "name": "已确认",
+      "kind": "parse",
+      "allowedNext": [
+        "来源已变更"
+      ],
+      "invariant": "修订生成新版本"
+    },
+    {
+      "name": "来源已变更",
+      "kind": "parse",
+      "allowedNext": [],
+      "invariant": "历史下游输入不替换"
+    },
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "号码类型、文献、原文、OCR、机器解析、人工修订和确认分版本保存。",
+    "每个特征绑定权利要求版本和原文位置。",
+    "来源变化不覆盖下游历史快照。",
+    "发明实用新型与外观解析分支隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "ambiguous_document",
+      "result": "返回候选和歧义，不按标题猜测"
+    },
+    {
+      "case": "claim_unreadable",
+      "result": "输出不完整和缺口，不用摘要替代"
+    },
+    {
+      "case": "ocr_low_quality",
+      "result": "标注页和未处理内容"
+    },
+    {
+      "case": "dependency_error",
+      "result": "返回异常链路，不生成虚构展开"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖"
+    },
+    {
+      "case": "unauthorized_or_unsafe_path",
+      "result": "拒绝且不读取任意路径"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-07-DEC-001",
+      "owner": "AI",
+      "description": "抽取候选结构特征和定位，不确定保护范围、法律状态或最终事实。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 解析流程与规则"
+      ]
+    },
+    {
+      "id": "ADJ-07-DEC-002",
+      "owner": "RULE",
+      "description": "校验号码文献版本、依赖结构、完整性、权限和状态。",
+      "sourceAnchors": [
+        "3. 解析流程与规则",
+        "5. 服务契约"
+      ]
+    },
+    {
+      "id": "ADJ-07-DEC-003",
+      "owner": "HUMAN",
+      "description": "选择权利要求、修订确认特征定位并确认专家预期。",
+      "sourceAnchors": [
+        "3. 解析流程与规则",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "ADJ-07-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "提供专利文献、法律状态来源和批准文件渠道。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-07-AC-001",
+      "given": [
+        "涉案专利文献"
+      ],
+      "when": "解析",
+      "then": [
+        "生成可追溯候选版本",
+        "不冒充保护范围有效状态"
+      ],
+      "sourceClauseIds": [
+        "ADJ-07-MUST-001",
+        "ADJ-07-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ADJ-07-AC-002",
+      "given": [
+        "多号码和同名版本"
+      ],
+      "when": "准备材料",
+      "then": [
+        "类型版本正确",
+        "不按标题猜测"
+      ],
+      "sourceClauseIds": [
+        "ADJ-07-MUST-002"
+      ]
+    },
+    {
+      "id": "ADJ-07-AC-003",
+      "given": [
+        "扫描件和缺权利要求"
+      ],
+      "when": "解析",
+      "then": [
+        "质量缺口可见",
+        "不用摘要或说明书补限定"
+      ],
+      "sourceClauseIds": [
+        "ADJ-07-MUST-003",
+        "ADJ-07-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ADJ-07-AC-004",
+      "given": [
+        "独立从属权项"
+      ],
+      "when": "展开提取",
+      "then": [
+        "依赖和特征与原文定位一致"
+      ],
+      "sourceClauseIds": [
+        "ADJ-07-MUST-004"
+      ]
+    },
+    {
+      "id": "ADJ-07-AC-005",
+      "given": [
+        "人工修订或材料变化"
+      ],
+      "when": "保存",
+      "then": [
+        "新版本产生",
+        "历史下游不覆盖"
+      ],
+      "sourceClauseIds": [
+        "ADJ-07-MUST-005",
+        "ADJ-07-MUST-006"
+      ]
+    },
+    {
+      "id": "ADJ-07-AC-006",
+      "given": [
+        "外观设计"
+      ],
+      "when": "解析",
+      "then": [
+        "走独立视图结构",
+        "不虚构文本权项"
+      ],
+      "sourceClauseIds": [
+        "ADJ-07-MUST-007"
+      ]
+    },
+    {
+      "id": "ADJ-07-AC-007",
+      "given": [
+        "损坏文件、重复请求和任意路径"
+      ],
+      "when": "调用服务",
+      "then": [
+        "状态错误准确",
+        "不执行或越权读取"
+      ],
+      "sourceClauseIds": [
+        "ADJ-07-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ADJ-07-AC-010",
+      "given": [
+        "中心专家样本"
+      ],
+      "when": "验收",
+      "then": [
+        "特征限定定位预期实际齐全",
+        "未确认能力不标通过"
+      ],
+      "sourceClauseIds": [
+        "ADJ-07-MUST-011"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-07-OQ-001",
+      "type": "integration",
+      "question": "中心专利 API、文献版本覆盖和授权文件渠道是什么？",
+      "blocks": [
+        "ARC-09",
+        "解析实现"
+      ]
+    },
+    {
+      "id": "ADJ-07-OQ-002",
+      "type": "file",
+      "question": "文件类型大小、OCR/PDF/图像组件和安全限制是什么？",
+      "blocks": [
+        "ARC-08",
+        "SPK-12"
+      ]
+    },
+    {
+      "id": "ADJ-07-OQ-003",
+      "type": "business_semantics",
+      "question": "权利要求确认流程和外观材料能力范围是什么？",
+      "blocks": [
+        "ARC-04"
+      ]
+    },
+    {
+      "id": "ADJ-07-OQ-004",
+      "type": "authorization",
+      "question": "上传解析修订确认下游消费角色是什么？",
+      "blocks": [
+        "ARC-06"
+      ]
+    },
+    {
+      "id": "ADJ-07-OQ-005",
+      "type": "validation",
+      "question": "中心专家特征完整性限定关系和定位基准是什么？",
+      "blocks": [
+        "REL-03",
+        "SPK-07"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-07-DD-001",
+      "decision": "Patent Parse 管理案件绑定的候选与确认版本，原文文件由受控 File 管理。",
+      "basis": "原文边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-07-DD-002",
+      "decision": "权项依赖树、特征和定位显式关联，外观使用独立结构。",
+      "basis": "原文流程。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-07-DD-003",
+      "decision": "具体解析模型、文件限制、角色、API 和 DM8 类型延后至 D 门。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心条件未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable adjudication overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Feature extraction, claim scope and patent validity remain distinct.",
+      "No parser, file limit, model capability, role or legal conclusion was guessed."
+    ]
+  }
+}

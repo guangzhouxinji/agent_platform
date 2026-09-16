@@ -1,0 +1,737 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-06",
+  "title": "法律条文引用",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/06-法律条文引用需求文档.md",
+    "sha256": "8d5437ee21df11ac2ba4520a7f268bbad5e7d14cf00c3f3ed43bf487a159f44a",
+    "sections": [
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 字段设计",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 业务规则",
+        "purpose": "citation_and_review"
+      },
+      {
+        "anchor": "4. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "5. 服务契约与一致性",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 国产化与 DM8 要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 建设与交付范围",
+        "4. 行政裁决业务边界",
+        "5. 数据、版本与变更规则",
+        "6. 通用服务与内部页面",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-06-MUST-001",
+      "type": "MUST",
+      "statement": "仅将人工确认或授权人员直接选择的具体法律条文版本形成可追溯引用，可选使用 ADJ-05 候选但不得强制依赖算法候选。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 业务规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "创建引用对象不得视为确认法律适用、正式采用、完成报告或作出裁决。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 业务规则",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-001",
+        "ADJ-06-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-002",
+      "type": "MUST",
+      "statement": "引用固定案件及资料版本、法规与条文稳定 ID 和具体版本、实际引用层级、逐字原文快照、用途、依据及来源时间。",
+      "sourceAnchors": [
+        "2. 字段设计",
+        "3. 业务规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-001",
+        "ADJ-06-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-003",
+      "type": "MUST",
+      "statement": "逐字原文、准确节引、概括解释和格式化引用文本必须显式区分；节引不改变原意且可回到具体版本与条款位置核对。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 字段设计",
+        "3. 业务规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "生成式改写、条文解析、概括解释或格式化文本不得写入逐字原文字段或冒充权威原文。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 业务规则",
+        "总览/5. 数据、版本与变更规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-004",
+      "type": "MUST",
+      "statement": "引用前检查条文原文、来源状态、实际适用时点和版本；历史案件可选择当时版本，但人工必须填写时点依据。",
+      "sourceAnchors": [
+        "3. 业务规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "不得因法规当前失效而一律禁止历史引用，也不得用当前有效版本自动替换历史案件版本。",
+      "sourceAnchors": [
+        "3. 业务规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-003",
+        "ADJ-06-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-005",
+      "type": "MUST",
+      "statement": "原文缺失、版本不确定、来源冲突或历史时点依据缺失时可保存待核实草稿，但不得确认为可用引用或进入待签发文件。",
+      "sourceAnchors": [
+        "3. 业务规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-006",
+      "type": "MUST",
+      "statement": "引用先创建不可变引用版本；进入报告时绑定具体报告版本和稳定章节或段落锚点，不能以可变页码作为唯一位置。",
+      "sourceAnchors": [
+        "2. 字段设计",
+        "3. 业务规则",
+        "5. 服务契约与一致性"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "未绑定报告的引用不得计为正式使用，失败生成批次不得遗留已采用的孤立引用。",
+      "sourceAnchors": [
+        "3. 业务规则",
+        "5. 服务契约与一致性"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-007",
+      "type": "MUST",
+      "statement": "绑定时校验案件一致、报告版本存在及引用版本可用；引用与报告同步提交使用明确事务或可验证补偿。",
+      "sourceAnchors": [
+        "5. 服务契约与一致性",
+        "6. 国产化与 DM8 要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-005",
+        "ADJ-06-AC-010"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-008",
+      "type": "MUST",
+      "statement": "报告内容或位置变化产生新报告绑定，保留旧报告版本的原位置关系和引用快照。",
+      "sourceAnchors": [
+        "3. 业务规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-009",
+      "type": "MUST",
+      "statement": "人工复核核对引用文本、适用版本、事实支撑和报告位置；通过记录审核人，任何引用修改均产生新版本并重新审核。",
+      "sourceAnchors": [
+        "2. 字段设计",
+        "3. 业务规则",
+        "5. 服务契约与一致性"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-010",
+      "type": "MUST",
+      "statement": "引用状态至少区分待确认、已确认、待复核和撤回；撤回只终止当前可用性，不删除历史。",
+      "sourceAnchors": [
+        "2. 字段设计",
+        "3. 业务规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-011",
+      "type": "MUST",
+      "statement": "法规来源更新标记受影响的当前引用及报告待复核，不自动改写现有或历史引用。",
+      "sourceAnchors": [
+        "3. 业务规则",
+        "总览/5. 数据、版本与变更规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-06-MUST-013",
+      "type": "MUST",
+      "statement": "案件、法规原文、报告、审核与撤回权限由后端在每次读取和写入时检查；权限撤回后不得通过缓存或历史反查泄露内容。",
+      "sourceAnchors": [
+        "5. 服务契约与一致性",
+        "总览/5. 数据、版本与变更规则",
+        "总览/6. 通用服务与内部页面"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-06-AC-009"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "citationDraft",
+      "required": true,
+      "rules": [
+        "案件资料版本、具体条文版本、全文或准确片段、用途、依据和来源状态"
+      ]
+    },
+    {
+      "name": "styleVersion",
+      "required": true,
+      "rules": [
+        "使用中心确认的引用样式；未确认只可标记草稿"
+      ]
+    },
+    {
+      "name": "reportBinding",
+      "required": "绑定时",
+      "rules": [
+        "报告 ID/版本、生成批次、稳定章节或段落锚点"
+      ]
+    },
+    {
+      "name": "reviewAction",
+      "required": "审核或撤回时",
+      "rules": [
+        "引用版本、动作、意见、可信身份和对象版本"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定调用方、操作及完整输入"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "citationPreview",
+      "fields": [
+        "verbatimSnapshot",
+        "excerpt",
+        "summary",
+        "formattedText",
+        "styleVersion",
+        "validationItems"
+      ]
+    },
+    {
+      "name": "citationVersion",
+      "fields": [
+        "citationId",
+        "version",
+        "caseVersion",
+        "articleVersion",
+        "purpose",
+        "basis",
+        "status",
+        "sourceTime",
+        "createdBy"
+      ]
+    },
+    {
+      "name": "reportBinding",
+      "fields": [
+        "reportId",
+        "reportVersion",
+        "batchId",
+        "anchor",
+        "bindingStatus",
+        "boundAt"
+      ]
+    },
+    {
+      "name": "reviewRecord",
+      "fields": [
+        "reviewId",
+        "citationVersion",
+        "action",
+        "opinion",
+        "reviewer",
+        "reviewedAt"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "preview_or_create",
+      "enforcement": "实时检查案件、法规版本和原文读取权限"
+    },
+    {
+      "action": "bind_or_adjust",
+      "enforcement": "检查案件一致、报告版本及编辑权限"
+    },
+    {
+      "action": "review_or_withdraw",
+      "enforcement": "按 ADJ-12 共用审核权限和分离规则执行"
+    },
+    {
+      "action": "read_or_trace",
+      "enforcement": "按当前案件、法规、报告和历史权限过滤，不因曾有权限而放行"
+    }
+  ],
+  "states": [
+    {
+      "name": "待确认",
+      "kind": "citation",
+      "allowedNext": [
+        "已确认",
+        "撤回"
+      ]
+    },
+    {
+      "name": "已确认",
+      "kind": "citation",
+      "allowedNext": [
+        "待复核",
+        "撤回"
+      ],
+      "invariant": "原文、版本、时点依据和审核均完整"
+    },
+    {
+      "name": "待复核",
+      "kind": "citation",
+      "allowedNext": [
+        "已确认",
+        "撤回"
+      ]
+    },
+    {
+      "name": "撤回",
+      "kind": "citation",
+      "allowedNext": [],
+      "invariant": "历史版本和既有报告关系保留"
+    },
+    {
+      "name": "待绑定",
+      "kind": "binding",
+      "allowedNext": [
+        "已绑定",
+        "绑定失败",
+        "已取消"
+      ]
+    },
+    {
+      "name": "已绑定",
+      "kind": "binding",
+      "allowedNext": [
+        "已失效"
+      ],
+      "invariant": "案件、引用和报告版本一致"
+    },
+    {
+      "name": "绑定失败",
+      "kind": "binding",
+      "allowedNext": []
+    },
+    {
+      "name": "已取消",
+      "kind": "binding",
+      "allowedNext": []
+    },
+    {
+      "name": "已失效",
+      "kind": "binding",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "逐字原文快照、节引、概述和格式化文本分别保存并标注类型。",
+    "引用版本固定案件、法规、条文、样式和来源状态；报告绑定另行版本化。",
+    "报告编辑创建新绑定，旧报告引用位置不可覆盖。",
+    "法规变化只传播待复核标记，不自动替换原文或历史版本。",
+    "引用修改后原审核不跨版本继承，撤回不删除历史。",
+    "模拟样式、数据、权限及数据库证据与真实验收隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "article_text_or_version_missing",
+      "result": "仅保存待核实草稿，不允许确认或进入待签发文件"
+    },
+    {
+      "case": "historical_basis_missing",
+      "result": "返回时点依据缺口，不默认适用当前版本"
+    },
+    {
+      "case": "cross_case_binding",
+      "result": "拒绝并返回案件不一致错误"
+    },
+    {
+      "case": "report_version_or_anchor_conflict",
+      "result": "拒绝覆盖并返回当前报告版本或锚点状态"
+    },
+    {
+      "case": "generation_batch_failed",
+      "result": "取消或补偿草稿绑定，不留下已采用孤立引用"
+    },
+    {
+      "case": "source_changed",
+      "result": "标记当前引用及报告待复核，保留历史"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露原文、报告或历史关系"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-06-DEC-001",
+      "owner": "AI",
+      "description": "可辅助生成概述或格式预览；不得改写原文、认定适用、选择最终引用或通过审核。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 业务规则"
+      ]
+    },
+    {
+      "id": "ADJ-06-DEC-002",
+      "owner": "RULE",
+      "description": "执行版本、案件一致、锚点、幂等、状态、来源变化和绑定事务或补偿。",
+      "sourceAnchors": [
+        "3. 业务规则",
+        "5. 服务契约与一致性",
+        "6. 国产化与 DM8 要求"
+      ]
+    },
+    {
+      "id": "ADJ-06-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权人员选择具体条文和片段、填写用途及时点依据、调整位置并复核文本、事实支撑和版本。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 业务规则"
+      ]
+    },
+    {
+      "id": "ADJ-06-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心系统提供权威案件、法规原文与版本、引用样式、角色和正式报告状态。",
+      "sourceAnchors": [
+        "3. 业务规则",
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-06-AC-001",
+      "given": [
+        "人工确认匹配项和授权人员手工选择项"
+      ],
+      "when": "创建引用",
+      "then": [
+        "两种来源均可创建",
+        "固定具体条文版本",
+        "引用仍不等于正式采用或裁决"
+      ],
+      "sourceClauseIds": [
+        "ADJ-06-MUST-001",
+        "ADJ-06-MUST_NOT-001",
+        "ADJ-06-MUST-002"
+      ]
+    },
+    {
+      "id": "ADJ-06-AC-002",
+      "given": [
+        "逐字原文、节引、概述和格式化内容"
+      ],
+      "when": "预览和保存引用",
+      "then": [
+        "四类内容显式区分",
+        "节引可回到具体条款核验",
+        "生成内容不污染原文"
+      ],
+      "sourceClauseIds": [
+        "ADJ-06-MUST-002",
+        "ADJ-06-MUST-003",
+        "ADJ-06-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ADJ-06-AC-003",
+      "given": [
+        "历史案件、失效法规、缺失原文或冲突来源"
+      ],
+      "when": "确认引用",
+      "then": [
+        "历史版本需人工时点依据",
+        "当前状态不替代历史判断",
+        "缺口只保存待核实草稿"
+      ],
+      "sourceClauseIds": [
+        "ADJ-06-MUST-004",
+        "ADJ-06-MUST_NOT-003",
+        "ADJ-06-MUST-005"
+      ]
+    },
+    {
+      "id": "ADJ-06-AC-004",
+      "given": [
+        "已创建引用和编辑前后两个报告版本"
+      ],
+      "when": "绑定章节位置",
+      "then": [
+        "使用稳定锚点",
+        "新旧绑定分别保存",
+        "页码不作为唯一位置"
+      ],
+      "sourceClauseIds": [
+        "ADJ-06-MUST-006",
+        "ADJ-06-MUST-008"
+      ]
+    },
+    {
+      "id": "ADJ-06-AC-005",
+      "given": [
+        "跨案件请求、冲突报告版本和失败生成批次"
+      ],
+      "when": "提交绑定",
+      "then": [
+        "跨案件和冲突被拒绝",
+        "事务或补偿可核验",
+        "不留下已采用孤立引用"
+      ],
+      "sourceClauseIds": [
+        "ADJ-06-MUST_NOT-004",
+        "ADJ-06-MUST-007"
+      ]
+    },
+    {
+      "id": "ADJ-06-AC-006",
+      "given": [
+        "待确认、修改后和撤回的引用"
+      ],
+      "when": "执行复核或撤回",
+      "then": [
+        "复核四类要素并留痕",
+        "修改后重新审核",
+        "撤回保留历史且不等于正式裁决"
+      ],
+      "sourceClauseIds": [
+        "ADJ-06-MUST_NOT-001",
+        "ADJ-06-MUST-009",
+        "ADJ-06-MUST-010"
+      ]
+    },
+    {
+      "id": "ADJ-06-AC-007",
+      "given": [
+        "来源法规发布新版本或状态改变"
+      ],
+      "when": "检测依赖变化",
+      "then": [
+        "受影响当前引用和报告待复核",
+        "旧原文和历史引用不被自动改写"
+      ],
+      "sourceClauseIds": [
+        "ADJ-06-MUST_NOT-003",
+        "ADJ-06-MUST-011"
+      ]
+    },
+    {
+      "id": "ADJ-06-AC-009",
+      "given": [
+        "无权用户和创建后被撤回的权限"
+      ],
+      "when": "创建、绑定、审核或反查",
+      "then": [
+        "所有入口实时鉴权",
+        "缓存和历史关系不泄露"
+      ],
+      "sourceClauseIds": [
+        "ADJ-06-MUST-013"
+      ]
+    },
+    {
+      "id": "ADJ-06-AC-010",
+      "given": [
+        "真实 DM8、长条文、并发锚点和生成故障"
+      ],
+      "when": "保存、补偿及恢复",
+      "then": [
+        "长文本无截断改写",
+        "跨表和并发一致",
+        "备份恢复关系完整"
+      ],
+      "sourceClauseIds": [
+        "ADJ-06-MUST-007"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-06-OQ-001",
+      "type": "business_semantics",
+      "question": "中心引用样式、版本说明、节引要求、用途分类和历史时点依据规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "引用格式正式设计",
+        "真实验收"
+      ]
+    },
+    {
+      "id": "ADJ-06-OQ-002",
+      "type": "integration",
+      "question": "报告稳定锚点、生成批次、同步事务或补偿以及正式采用状态如何定义？",
+      "blocks": [
+        "ARC-08",
+        "ARC-09",
+        "ADJ-11 集成"
+      ]
+    },
+    {
+      "id": "ADJ-06-OQ-003",
+      "type": "authorization",
+      "question": "创建、手工选择、绑定、复核、撤回和历史查看分别由哪些角色执行，是否要求职责分离？",
+      "blocks": [
+        "ARC-06",
+        "正式审核"
+      ]
+    },
+    {
+      "id": "ADJ-06-OQ-004",
+      "type": "authority_api",
+      "question": "法规、案件和报告 API 的稳定 ID、版本、来源状态、变更事件和回写能力是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "真实联调"
+      ]
+    },
+    {
+      "id": "ADJ-06-OQ-005",
+      "type": "environment",
+      "question": "DM8 小版本、事务能力、长文本类型、文件/报告存储和国产环境参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-06-DD-001",
+      "decision": "Citation 管理引用版本和位置关系，Legal Knowledge 提供权威原文，Review 管理人工审核，Report 管理报告版本；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-06-DD-002",
+      "decision": "引用对象状态与报告绑定状态分离，避免未绑定草稿被误报为正式采用。",
+      "basis": "原文要求未进入报告不计正式使用，生成失败不得留下已采用孤立引用。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-06-DD-003",
+      "decision": "具体 REST 路径、锚点格式、样式 DSL、事务边界和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心规范、报告集成和环境尚未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable adjudication overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Article applicability, citation creation, report binding, review and formal adjudication remain separate decisions and states.",
+      "Verbatim text, excerpt, summary and formatted citation cannot overwrite one another.",
+      "No citation style, historical-law rule, role, anchor format, API behavior or transaction implementation was guessed."
+    ]
+  }
+}

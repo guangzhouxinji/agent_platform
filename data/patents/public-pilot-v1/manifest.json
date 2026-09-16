@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "CON-04-PUBLIC-PILOT-V1",
+  "generatedAt": "2026-09-16T03:01:52.662Z",
+  "purpose": "CON-04 internal public-data feasibility pilot",
+  "source": {
+    "name": "SureChEMBL",
+    "websiteUrl": "https://www.surechembl.org/",
+    "apiBaseUrl": "https://surechembl.org/api",
+    "accessMode": "PUBLIC_WEB_API",
+    "authorityStatus": "NON_CENTER_PUBLIC_SOURCE",
+    "licenseReviewStatus": "REVIEW_REQUIRED",
+    "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+  },
+  "boundaries": {
+    "dataClass": "PUBLIC_PILOT",
+    "centerAuthoritative": false,
+    "expertLabeled": false,
+    "externalModelUseAllowed": false,
+    "formalDesignEvidence": false,
+    "formalVerificationEvidence": false,
+    "businessAcceptanceEvidence": false
+  },
+  "queries": [
+    {
+      "id": "Q1_AQUEOUS_BINDER_COATING_DRYING",
+      "label": "Water-based binder coating and drying",
+      "query": "(coating AND \"water-based binder\" AND drying)"
+    },
+    {
+      "id": "Q2_TWO_STAGE_DRYING",
+      "label": "Binder coating with partial and full drying",
+      "query": "(binder AND coating AND \"partially drying\" AND \"fully drying\")"
+    },
+    {
+      "id": "Q3_CN_AQUEOUS_BINDER",
+      "label": "Chinese patent titles for aqueous binders",
+      "query": "((ttl:\"水性粘结剂\" OR ttl:\"水系粘结剂\") AND pnctry:CN)"
+    }
+  ],
+  "recordCount": 44,
+  "detailedRecordCount": 5,
+  "recordsFile": "records.json",
+  "recordsSha256": "ce0bbd902a4b306de740b338e18e00002a3a9eea923b8d38f6c1356b36099039",
+  "rawResponses": [
+    {
+      "queryId": "Q1_AQUEOUS_BINDER_COATING_DRYING",
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28coating+AND+%22water-based+binder%22+AND+drying%29&page=1&itemsPerPage=15",
+      "file": "raw/search-q1_aqueous_binder_coating_drying.json",
+      "sha256": "109afc01adc3273af195437d539756ec11a41cae32ee9c74e1a400bdc52827a5",
+      "responseSha256": "959e1e3e7d41aeea19ae69ac8fdbfb247a093281084e41fa64cb739afe277843",
+      "totalHits": 4425
+    },
+    {
+      "queryId": "Q2_TWO_STAGE_DRYING",
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28binder+AND+coating+AND+%22partially+drying%22+AND+%22fully+drying%22%29&page=1&itemsPerPage=15",
+      "file": "raw/search-q2_two_stage_drying.json",
+      "sha256": "549ddf3b2b0c87910db4c6d05481c6080af0bf48d923d8d1ca8e2665de0ca990",
+      "responseSha256": "a30faaebac22d448eb290297feb7889293677f424a67c87efa61a107b4671a1b",
+      "totalHits": 64
+    },
+    {
+      "queryId": "Q3_CN_AQUEOUS_BINDER",
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28%28ttl%3A%22%E6%B0%B4%E6%80%A7%E7%B2%98%E7%BB%93%E5%89%82%22+OR+ttl%3A%22%E6%B0%B4%E7%B3%BB%E7%B2%98%E7%BB%93%E5%89%82%22%29+AND+pnctry%3ACN%29&page=1&itemsPerPage=15",
+      "file": "raw/search-q3_cn_aqueous_binder.json",
+      "sha256": "23e83facb56dc509ac866fd43dc47f46f12f1ec6308cca69a64def937c00c811",
+      "responseSha256": "46983d733cfcf5dc90cd0e7616ee9f63dbf1a6c1b2b3ee6ac1f0204f4fb4b9c6",
+      "totalHits": 360
+    }
+  ],
+  "limitations": [
+    "Search matches are unreviewed candidates, not expert relevance labels.",
+    "Public accessibility does not establish permission for production indexing, retention, redistribution, or external model processing.",
+    "This source is not the project's center authoritative patent system.",
+    "No PDF or full patent description is stored in this pilot dataset."
+  ]
+}

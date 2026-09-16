@@ -1,0 +1,885 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-02",
+  "title": "违法线索发现规则管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/02-违法线索发现规则管理需求文档.md",
+    "sha256": "9b6b94f5bb8ca7513e889736c8d38cd16ee15e4666968aea77a744575dd70b47",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope_and_delivery"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "source_and_dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "rule_lifecycle"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付口径",
+        "1.1 已确认的国产化与数据库要求",
+        "3. 通用接口约定",
+        "4. 信息字段说明",
+        "5. 审核与版本通用要求",
+        "6. 内部前端通用要求",
+        "7. API 与业务材料依赖清单",
+        "9. 验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-02-MUST-001",
+      "type": "MUST",
+      "statement": "配置从已授权源记录中筛选疑似违法线索的规则，并提供草稿、试运行、发布、停用和版本能力。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-001",
+        "ENF-02-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-003",
+      "type": "MUST",
+      "statement": "规则业务内容依赖中心提供并确认的违法行为分类、业务规则、标注样例以及获授权的商标或专利数据服务。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "不得由 AI 或开发人员自行预置违法分类、法定标准、阈值、例外或专业期望结果。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "8. 联调前需确认的条件",
+        "总览/7. API 与业务材料依赖清单"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-004",
+      "type": "MUST",
+      "statement": "规则接入和试运行校验资源编号、关联关系、版本、来源和当前访问权限，并分开表示源数据缺失、调用失败和规则不适用。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "来源字段、样例事实和缺失信息不得由模型生成、替换或为满足必填而编造。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "总览/4. 信息字段说明"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-005",
+      "type": "MUST",
+      "statement": "规则记录唯一编号、名称、中心确认的适用违法行为类型、规则说明、结构化匹配条件、适用数据源、状态、不可变发布版本、机构和审计字段。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-006",
+      "type": "MUST",
+      "statement": "评分型规则必须定义触发阈值及有效范围；阈值越界或条件字段缺失时阻止发布并定位字段。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-007",
+      "type": "MUST",
+      "statement": "确定性匹配仅支持已登记字段上的存在、文本包含、数值比较及 AND/OR 组合，并使用固定规则解释器执行。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "规则内容不得接受或执行任意脚本、任意 URL、数据库语句或未登记工具调用。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-008",
+      "type": "MUST",
+      "statement": "需要语义判断时显式配置模型任务、输入范围、结构化输出字段、模型版本和阈值；模型结果仅为疑似筛选信号。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "模型置信分不得表述为评测准确率、违法概率或正式执法结论。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "总览/5. 审核与版本通用要求",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-004",
+        "ENF-02-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-009",
+      "type": "MUST",
+      "statement": "发布前必须以中心确认样例试运行并逐条件展示命中和未命中理由，再由授权人员执行发布。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-002",
+        "ENF-02-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "草稿试运行不得创建正式线索、改变正式规则绑定或发送通知。",
+      "sourceAnchors": [
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-010",
+      "type": "MUST",
+      "statement": "假冒专利、专利侵权和宣传问题分类分别配置，不得默认其适用相同规则或处置程序。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "不得因分类名称相似而合并业务类别、规则条件或后续处置含义。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-011",
+      "type": "MUST",
+      "statement": "配置生命周期支持新增和编辑草稿、复制版本、试运行、发布和停用；发布前校验条件完整、数据源可访问及依赖有效。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-001",
+        "ENF-02-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-012",
+      "type": "MUST",
+      "statement": "发布后版本不可原地修改；已有运行固定绑定原版本，新版需显式发布和绑定；停用只影响后续新任务并保留历史依据。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-005",
+        "ENF-02-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "草稿保存、新版发布或停用不得重写历史结果、历史规则版本或已有运行绑定。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-005",
+        "ENF-02-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-014",
+      "type": "MUST",
+      "statement": "写入返回规则编号和版本；列表支持文档筛选、分页及更新时间倒序；详情返回完整字段、来源和历史版本而非摘要。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "5. 服务接口需求",
+        "6. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-015",
+      "type": "MUST",
+      "statement": "配置变更、人工修订、审核和状态变更记录真实操作人、前后状态、时间和版本；编辑使用预期版本并拒绝冲突覆盖。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST_NOT-009",
+      "type": "MUST_NOT",
+      "statement": "部分结果不得伪装完整成功，错误不得泄露凭证、敏感材料或内部堆栈。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-019",
+      "type": "MUST",
+      "statement": "确定性规则对固定规则版本和固定样例必须产生一致结果；模型规则使用中心专家标注的独立样本集评测并记录分母、版本和来源正确性。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-003",
+        "ENF-02-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST_NOT-010",
+      "type": "MUST_NOT",
+      "statement": "未确认中心样例、阈值或独立评测结果时，不得把模型自评分、静态演示或模拟结果作为业务正确性验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件",
+        "总览/6. 内部前端通用要求",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-010",
+        "ENF-02-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-02-MUST-021",
+      "type": "MUST",
+      "statement": "模拟数据必须显式标记并与真实环境隔离；未确认的违法字典、评分阈值、样例和模型效果只能作为阻塞项。",
+      "sourceAnchors": [
+        "8. 联调前需确认的条件",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-02-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "ruleDraft",
+      "required": true,
+      "rules": [
+        "稳定编号、名称、中心分类、说明、结构化条件、适用数据源、可选模型任务和预期版本"
+      ]
+    },
+    {
+      "name": "condition",
+      "required": true,
+      "rules": [
+        "已登记字段、允许运算符、比较值、AND/OR；评分型含合法范围阈值"
+      ]
+    },
+    {
+      "name": "trialSamples",
+      "required": "试运行或发布前",
+      "rules": [
+        "来源、版本、中心确认期望、模拟或真实标记"
+      ]
+    },
+    {
+      "name": "trustedIdentity",
+      "required": true,
+      "rules": [
+        "来自认证上下文"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "ruleVersion",
+      "fields": [
+        "ruleId",
+        "version",
+        "status",
+        "classification",
+        "conditions",
+        "dataSourceRefs",
+        "modelTask",
+        "audit"
+      ]
+    },
+    {
+      "name": "trialResult",
+      "fields": [
+        "sampleId",
+        "matched",
+        "conditionDetails",
+        "modelScoreWhenApplicable",
+        "missingOrFailureReason",
+        "ruleVersion",
+        "inputVersion"
+      ]
+    },
+    {
+      "name": "evaluation",
+      "fields": [
+        "taskId",
+        "sampleCount",
+        "actualDenominator",
+        "metrics",
+        "sourceCorrectness",
+        "errors",
+        "ruleVersion",
+        "modelVersion"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "manage_draft",
+      "enforcement": "规则配置角色、机构范围及预期版本校验"
+    },
+    {
+      "action": "trial_run",
+      "enforcement": "校验样例、数据源和模型通道权限，不产生正式业务副作用"
+    },
+    {
+      "action": "publish",
+      "enforcement": "中心授权发布或审核角色，后端执行完整性与依赖校验"
+    },
+    {
+      "action": "disable",
+      "enforcement": "授权角色，阻止新任务并保留历史"
+    },
+    {
+      "action": "read_versions_or_results",
+      "enforcement": "按机构、数据源、样例敏感级别和历史访问授权过滤"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "rule",
+      "allowedNext": [
+        "已发布"
+      ],
+      "actions": [
+        "编辑",
+        "复制",
+        "试运行"
+      ]
+    },
+    {
+      "name": "已发布",
+      "kind": "rule",
+      "allowedNext": [
+        "已停用"
+      ],
+      "invariant": "不可原地修改，运行固定版本"
+    },
+    {
+      "name": "已停用",
+      "kind": "rule",
+      "allowedNext": [],
+      "invariant": "不参与新任务，历史结果及版本保留"
+    },
+    {
+      "name": "queued",
+      "kind": "evaluation_task",
+      "allowedNext": [
+        "running",
+        "cancelled",
+        "failed"
+      ]
+    },
+    {
+      "name": "running",
+      "kind": "evaluation_task",
+      "allowedNext": [
+        "succeeded",
+        "partial_failed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    {
+      "name": "succeeded",
+      "kind": "evaluation_task",
+      "allowedNext": []
+    },
+    {
+      "name": "partial_failed",
+      "kind": "evaluation_task",
+      "allowedNext": [],
+      "invariant": "列出未处理样例和实际分母"
+    },
+    {
+      "name": "failed",
+      "kind": "evaluation_task",
+      "allowedNext": []
+    },
+    {
+      "name": "cancelled",
+      "kind": "evaluation_task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "规则采用稳定编号和不可变发布版本，修改形成新草稿。",
+    "试运行与正式任务固定规则、模型、样例、数据源和输入版本。",
+    "规则命中理由引用实际字段和值；来源和缺失原因不由模型补造。",
+    "历史结果保留所用规则版本，发布新版或停用不得重写。",
+    "模拟和真实样例、试运行及验收证据隔离并显式标记。",
+    "上游资源变化不改写历史结果，受影响结果标记需复核。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "invalid_condition_or_threshold",
+      "result": "阻止发布并返回字段路径和合法范围"
+    },
+    {
+      "case": "arbitrary_executable_content",
+      "result": "拒绝保存或发布，不执行任何脚本或外部目标"
+    },
+    {
+      "case": "data_source_missing_or_unauthorized",
+      "result": "拒绝试运行或发布并返回可区分原因"
+    },
+    {
+      "case": "source_data_missing",
+      "result": "记录资料缺失，不解释为不命中"
+    },
+    {
+      "case": "model_or_source_failure",
+      "result": "返回失败或部分失败，不产生正式线索"
+    },
+    {
+      "case": "rule_not_applicable",
+      "result": "明确返回不适用及依据，不与失败或未命中混同"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前版本"
+    },
+    {
+      "case": "partial_evaluation",
+      "result": "列出未处理样例、失败原因和实际分母"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-02-DEC-001",
+      "owner": "AI",
+      "description": "仅执行已发布配置中明确的语义分类任务并输出结构化候选分值；不得生成规则、权限或正式违法结论。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-02-DEC-002",
+      "owner": "RULE",
+      "description": "确定性条件、阈值范围、组合、版本、权限、状态、发布校验和试运行副作用隔离由规则运行时执行。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "ENF-02-DEC-003",
+      "owner": "HUMAN",
+      "description": "中心人员确认违法分类、规则、阈值、样例和期望；授权人员执行发布、停用和专业验收。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-02-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "身份系统决定权限，中心数据服务提供真实源记录和授权范围；规则配置不得扩展这些权限。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "5. 服务接口需求"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-02-AC-001",
+      "given": [
+        "中心确认分类、数据源和合法结构化条件"
+      ],
+      "when": "创建和查询规则草稿",
+      "then": [
+        "字段、来源、机构和审计完整",
+        "规则编号稳定",
+        "生命周期操作可用"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST-001",
+        "ENF-02-MUST-005",
+        "ENF-02-MUST-011"
+      ]
+    },
+    {
+      "id": "ENF-02-AC-002",
+      "given": [
+        "阈值越界、缺字段、无效数据源和合法规则"
+      ],
+      "when": "执行发布校验",
+      "then": [
+        "非法配置按字段阻断",
+        "合法规则完成中心样例试运行后才能由授权人员发布"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST-006",
+        "ENF-02-MUST-009",
+        "ENF-02-MUST-011"
+      ]
+    },
+    {
+      "id": "ENF-02-AC-003",
+      "given": [
+        "固定规则版本、固定样例和任意脚本输入"
+      ],
+      "when": "重复执行确定性试运行",
+      "then": [
+        "合法规则逐条件结果一致",
+        "任意脚本被拒绝且不执行",
+        "命中理由可复核"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST-007",
+        "ENF-02-MUST_NOT-004",
+        "ENF-02-MUST-009",
+        "ENF-02-MUST-019"
+      ]
+    },
+    {
+      "id": "ENF-02-AC-004",
+      "given": [
+        "显式语义任务、固定模型版本和阈值"
+      ],
+      "when": "执行模型型规则",
+      "then": [
+        "只输出配置字段和候选分值",
+        "分值不表述为准确率、违法概率或正式结论"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST-008",
+        "ENF-02-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ENF-02-AC-005",
+      "given": [
+        "草稿和被历史任务绑定的发布版本"
+      ],
+      "when": "试运行、发布新版或停用",
+      "then": [
+        "试运行不创建正式线索或通知",
+        "历史绑定不漂移",
+        "停用只阻止新任务",
+        "历史可查"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST-001",
+        "ENF-02-MUST_NOT-006",
+        "ENF-02-MUST-012",
+        "ENF-02-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "ENF-02-AC-006",
+      "given": [
+        "假冒专利、专利侵权和宣传问题样例"
+      ],
+      "when": "配置和试运行",
+      "then": [
+        "分类、规则及处置语义分别保留",
+        "不会因名称相似自动合并"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST-010",
+        "ENF-02-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ENF-02-AC-007",
+      "given": [
+        "缺失数据、上游失败、无权限、规则不适用和部分失败样例"
+      ],
+      "when": "调用服务",
+      "then": [
+        "原因和 request_id 可区分",
+        "不由模型补造事实",
+        "部分结果列出未处理项",
+        "无敏感信息泄露"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST-004",
+        "ENF-02-MUST_NOT-003",
+        "ENF-02-MUST_NOT-009"
+      ]
+    },
+    {
+      "id": "ENF-02-AC-008",
+      "given": [
+        "内部页面和直接 API 客户端",
+        "有权和无权用户"
+      ],
+      "when": "管理、试运行和查询版本",
+      "then": [
+        "服务接口完整且行为一致",
+        "页面逐条件展示并不承载规则或权限",
+        "详情完整",
+        "页面不作为外部交付"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST-014"
+      ]
+    },
+    {
+      "id": "ENF-02-AC-009",
+      "given": [
+        "并发编辑、已发布版本和历史结果"
+      ],
+      "when": "保存、发布新版和停用",
+      "then": [
+        "版本冲突被拒绝",
+        "真实操作人与状态留痕",
+        "发布版及历史结果不被覆盖"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST-012",
+        "ENF-02-MUST_NOT-008",
+        "ENF-02-MUST-015"
+      ]
+    },
+    {
+      "id": "ENF-02-AC-010",
+      "given": [
+        "中心专家独立标注集、固定规则和模型版本及部分失败样例"
+      ],
+      "when": "执行批量评测",
+      "then": [
+        "任务、分母、逐条错误、版本和来源正确性完整",
+        "模型置信度不冒充准确率",
+        "部分失败不被排除出分母说明"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST_NOT-005",
+        "ENF-02-MUST-019",
+        "ENF-02-MUST_NOT-010"
+      ]
+    },
+    {
+      "id": "ENF-02-AC-011",
+      "given": [
+        "字典、规则、阈值或样例尚未由中心确认"
+      ],
+      "when": "检查正式配置和验收状态",
+      "then": [
+        "不存在 AI 自行预置",
+        "模拟内容显式隔离",
+        "不升级为真实联调或业务验收"
+      ],
+      "sourceClauseIds": [
+        "ENF-02-MUST-003",
+        "ENF-02-MUST_NOT-002",
+        "ENF-02-MUST_NOT-010",
+        "ENF-02-MUST-021"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-02-DD-001",
+      "decision": "违法线索筛选规则语义归属 Enforcement，上层配置通过 Rule Runtime 发布不可变版本；试运行使用无业务副作用的独立执行模式。",
+      "basis": "ARC-03 与原文试运行边界",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-02-DD-002",
+      "decision": "具体 REST 路径、规则 DSL、字段名、模型、阈值、DM8 类型和规则解释器实现延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "原文未指定且业务值依赖中心确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-02-OQ-001",
+      "type": "business_semantics",
+      "question": "中心确认的违法行为字典、各类别边界、规则、例外和处置差异是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "正式规则配置"
+      ]
+    },
+    {
+      "id": "ENF-02-OQ-002",
+      "type": "acceptance_data",
+      "question": "中心确认的正反例和独立评测集由谁提供、如何标注和冻结？",
+      "blocks": [
+        "SPK-08",
+        "模型规则效果验收"
+      ]
+    },
+    {
+      "id": "ENF-02-OQ-003",
+      "type": "acceptance_parameter",
+      "question": "评分型规则的范围、触发阈值、指标和性能目标是什么？",
+      "blocks": [
+        "发布配置",
+        "效果与性能验收"
+      ]
+    },
+    {
+      "id": "ENF-02-OQ-004",
+      "type": "data_contract",
+      "question": "允许用于确定性条件的标准字段、类型、运算符及数据源版本契约是什么？",
+      "blocks": [
+        "ARC-09",
+        "规则 DSL",
+        "试运行"
+      ]
+    },
+    {
+      "id": "ENF-02-OQ-005",
+      "type": "authorization",
+      "question": "规则编辑、试运行、发布、审核、停用和历史结果访问分别由哪些角色执行？",
+      "blocks": [
+        "ARC-06",
+        "正式状态操作"
+      ]
+    },
+    {
+      "id": "ENF-02-OQ-006",
+      "type": "model_boundary",
+      "question": "批准的语义任务、模型通道、允许输入数据及输出字段是什么？",
+      "blocks": [
+        "ARC-07",
+        "ARC-11",
+        "SPK-08"
+      ]
+    },
+    {
+      "id": "ENF-02-OQ-007",
+      "type": "environment",
+      "question": "DM8 小版本、兼容模式、字符集、JDK/驱动及国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实 DM8 验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Deterministic conditions and model semantic signals are separated; model confidence is not treated as accuracy or a legal conclusion.",
+      "Trial execution is explicitly side-effect free and cannot create formal clues or notifications.",
+      "No offense taxonomy, legal rule, threshold, sample expectation, model, role or implementation DSL was invented."
+    ]
+  }
+}

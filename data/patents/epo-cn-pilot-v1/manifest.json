@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "CON-04-EPO-CN-PILOT-V1",
+  "generatedAt": "2026-09-16T09:14:38.125Z",
+  "purpose": "CON-04 EPO public LOD feasibility pilot for CN publications",
+  "source": {
+    "name": "EPO Linked Open Data",
+    "websiteUrl": "https://data.epo.org/linked-data/",
+    "apiBaseUrl": "https://data.epo.org/linked-data/data",
+    "accessMode": "PUBLIC_LINKED_DATA_NO_AUTH",
+    "authorityStatus": "NON_CENTER_PUBLIC_SOURCE",
+    "licenseReviewStatus": "REVIEW_REQUIRED",
+    "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+  },
+  "boundaries": {
+    "dataClass": "PUBLIC_PILOT",
+    "centerAuthoritative": false,
+    "expertLabeled": false,
+    "externalModelUseAllowed": false,
+    "formalDesignEvidence": false,
+    "formalVerificationEvidence": false,
+    "businessAcceptanceEvidence": false
+  },
+  "queries": [
+    {
+      "id": "EPO_LOD_CN_LIST",
+      "label": "CN publications list (EPO LOD public endpoint)",
+      "query": "GET /data/publication/CN (pages 0-2, 10 items per page)"
+    }
+  ],
+  "recordCount": 30,
+  "detailedRecordCount": 30,
+  "recordsFile": "records.json",
+  "recordsSha256": "a3ae46209b958b0c861c2425b23d5410df5ab45b45eb499662f1e677c7965579",
+  "rawResponses": [
+    {
+      "queryId": "EPO_LOD_CN_LIST",
+      "page": 0,
+      "requestUrl": "https://data.epo.org/linked-data/data/publication/CN",
+      "file": "raw/list-page-0.json",
+      "sha256": "caa32df38404e2656949ae4b25416804aa8779e5a0595161cfbf373d2e727956",
+      "responseSha256": "0de3eae93b268f10447fde266774baa86b1818a71b84c811b81b05692a6d61e2",
+      "itemCount": 10
+    },
+    {
+      "queryId": "EPO_LOD_CN_LIST",
+      "page": 1,
+      "requestUrl": "https://data.epo.org/linked-data/data/publication/CN?_page=1",
+      "file": "raw/list-page-1.json",
+      "sha256": "519ab24f1c235b03ccd5be081b19cdca18a88a875fb379b831352de4d8745143",
+      "responseSha256": "345657552053abfe6812ebba757b22bb7d75cf48b50d83f4f26bf47dc19eae45",
+      "itemCount": 10
+    },
+    {
+      "queryId": "EPO_LOD_CN_LIST",
+      "page": 2,
+      "requestUrl": "https://data.epo.org/linked-data/data/publication/CN?_page=2",
+      "file": "raw/list-page-2.json",
+      "sha256": "6c23c23e303011c106bdb39582c38c878910e5f783416d3442cf2838958a7616",
+      "responseSha256": "69ffbe81950cdd40e435891b44c290abacc57331062b7785f54b3859b338c608",
+      "itemCount": 10
+    }
+  ],
+  "fieldCoverage": {
+    "available": [
+      "publicationNumber",
+      "publicationDate",
+      "publicationKind",
+      "applicationNumber",
+      "filingDate",
+      "applicationKind"
+    ],
+    "unavailable": [
+      "title",
+      "applicant",
+      "inventor",
+      "cpcClassifications",
+      "abstractExcerpt",
+      "claimsExcerpt"
+    ],
+    "unavailableReason": "EPO LOD public endpoint exposes only publication-level metadata. Full bibliographic data (title, applicant, CPC, abstract, claims) requires Open Patent Services (OPS) API with OAuth credentials."
+  },
+  "limitations": [
+    "LOD public endpoint provides publication-level metadata only; not full bibliographic records.",
+    "Sample is the first N publications returned by the CN list endpoint, not a curated or relevance-ranked set.",
+    "Titles are placeholder labels (e.g., 'CN 1134880 A'), not actual invention titles.",
+    "Public accessibility does not establish permission for production indexing, retention, redistribution, or external model processing.",
+    "This source is not the project's center authoritative patent system.",
+    "Full bibliographic data and CPC classification require OPS API registration (consumer key/secret, 4 GB/week free tier).",
+    "No PDF or full patent description is stored in this pilot dataset."
+  ]
+}

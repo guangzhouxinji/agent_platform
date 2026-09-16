@@ -1,0 +1,600 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-08",
+  "title": "专利有效性分析",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/08-专利有效性分析需求文档.md",
+    "sha256": "ff1efb86fa1d48278d5864d3f87afb751861ca2ce819a68bd1f816c4222ade85",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与分析边界",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 字段与输入",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 分析流程与规则",
+        "purpose": "analysis_rules"
+      },
+      {
+        "anchor": "4. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "5. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 国产化与 DM8 要求",
+        "purpose": "environment"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 总体范围与交付边界",
+        "2. 统一数据与来源原则",
+        "3. AI、规则与人工边界",
+        "4. 服务、任务、审核与错误约定",
+        "5. 国产化、DM8 与验证"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-08-MUST-001",
+      "type": "MUST",
+      "statement": "分别输出指定时点可核实的官方法律状态及权利基础资料，以及基于明确有限材料的新颖性和创造性风险分析。",
+      "sourceAnchors": [
+        "1. 功能概述与分析边界",
+        "2. 字段与输入"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "无效请求不得冒充无效决定，技术风险不得改写官方状态，本模块不得作无效宣告或替代有权机关程序。",
+      "sourceAnchors": [
+        "1. 功能概述与分析边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST-002",
+      "type": "MUST",
+      "statement": "固定案件资料、ADJ-07 解析、所选权利要求、分析目的、相关时点地域及状态缴费无效事件来源版本；不能仅比较摘要。",
+      "sourceAnchors": [
+        "2. 字段与输入",
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST-003",
+      "type": "MUST",
+      "statement": "来源时间、事件时间和获取时间分开并显示冲突；当前状态不能自动回答历史时点，无历史资料返回无法核实。",
+      "sourceAnchors": [
+        "2. 字段与输入",
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "缺缴费记录不得推断权利终止，官方状态冲突不得由模型改写，API 超时不得返回未发生无效或已有效。",
+      "sourceAnchors": [
+        "3. 分析流程与规则",
+        "5. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST-004",
+      "type": "MUST",
+      "statement": "对比文献逐项保存公开日期、来源和与相关日期关系；日期不能核实时不得作为已确认现有技术，检索范围和未覆盖文献类型必须披露。",
+      "sourceAnchors": [
+        "2. 字段与输入",
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST-005",
+      "type": "MUST",
+      "statement": "新颖性按单篇文献逐全部必要要素对照，不把多篇拼接覆盖冒充单篇公开。",
+      "sourceAnchors": [
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST-006",
+      "type": "MUST",
+      "statement": "创造性列出比较基础、区别特征、技术问题、组合启示及来源；缺组合依据明确不足，语义相似不替代分析。",
+      "sourceAnchors": [
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST-007",
+      "type": "MUST",
+      "statement": "每栏分别标完成、资料不足或失败；状态成功而技术分析失败可为部分成功，但未分析失败不得折算成有效或低风险。",
+      "sourceAnchors": [
+        "4. 内部验证页面",
+        "5. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST-008",
+      "type": "MUST",
+      "statement": "外观设计采用经确认的独立评价流程和依据，能力须单独确认验收，不套用发明实用新型模板。",
+      "sourceAnchors": [
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "分析或复核不得自动改变案件流程、启动无效程序，未授权材料不得进入模型上下文。",
+      "sourceAnchors": [
+        "3. 分析流程与规则",
+        "5. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-08-MUST-012",
+      "type": "MUST",
+      "statement": "中心确认历史状态覆盖、对比资料来源、各专利类型能力、评价口径和专家样本，未确认分支不得标通过。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-08-AC-010"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "verificationRequest",
+      "required": true,
+      "rules": [
+        "案件、专利解析、权利要求、目的、时点、地域和幂等键"
+      ]
+    },
+    {
+      "name": "officialEvents",
+      "required": true,
+      "rules": [
+        "状态、缴费、无效请求受理决定后续程序及来源时间"
+      ]
+    },
+    {
+      "name": "priorArtSet",
+      "required": "技术风险分析时",
+      "rules": [
+        "逐篇来源、公开日期、授权范围和检索边界"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "validityAnalysis",
+      "fields": [
+        "reportId",
+        "version",
+        "officialStatusAtTime",
+        "feeEvidence",
+        "invalidationEvents",
+        "noveltyByDocument",
+        "inventiveStep",
+        "coverageDisclosure",
+        "riskOpinion",
+        "missingItems",
+        "reviewStatus"
+      ]
+    },
+    {
+      "name": "task",
+      "fields": [
+        "taskId",
+        "status",
+        "sectionStatuses",
+        "progress",
+        "errors",
+        "requestId"
+      ]
+    },
+    {
+      "name": "sourceManifest",
+      "fields": [
+        "caseVersion",
+        "parseVersion",
+        "eventSnapshots",
+        "priorArtVersions",
+        "ruleModelVersions"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "prepare_or_analyze",
+      "enforcement": "案件、专利、状态、检索和模型权限交集"
+    },
+    {
+      "action": "view_sources",
+      "enforcement": "逐项来源及文件权限"
+    },
+    {
+      "action": "supplement_or_rerun",
+      "enforcement": "案件维护角色和当前资料版本"
+    },
+    {
+      "action": "submit_review",
+      "enforcement": "报告版本及 ADJ-12 权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "资料不足",
+      "kind": "section",
+      "allowedNext": [
+        "完成",
+        "失败"
+      ]
+    },
+    {
+      "name": "完成",
+      "kind": "section",
+      "allowedNext": []
+    },
+    {
+      "name": "失败",
+      "kind": "section",
+      "allowedNext": [
+        "完成"
+      ]
+    },
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "官方法律状态与技术风险意见分栏、分来源保存。",
+    "每次分析冻结时点、解析、事件、文献、规则和模型版本。",
+    "补充材料和重跑创建新版本，旧报告复核引用保留。",
+    "无效请求受理决定及后续程序分开。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "historical_status_missing",
+      "result": "返回无法核实，不用当前状态替代"
+    },
+    {
+      "case": "official_sources_conflict",
+      "result": "列出冲突并交人工核查"
+    },
+    {
+      "case": "fee_record_missing",
+      "result": "记录缺口，不推断终止"
+    },
+    {
+      "case": "prior_art_date_unverified",
+      "result": "不作为已确认现有技术"
+    },
+    {
+      "case": "partial_failure",
+      "result": "逐栏状态和原因，不生成整体有效低风险"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且材料不进入模型"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-08-DEC-001",
+      "owner": "AI",
+      "description": "辅助逐要素和创造性风险分析及总结，不改写官方状态或作无效结论。",
+      "sourceAnchors": [
+        "1. 功能概述与分析边界",
+        "3. 分析流程与规则"
+      ]
+    },
+    {
+      "id": "ADJ-08-DEC-002",
+      "owner": "RULE",
+      "description": "校验时点、来源日期、权项文献版本、范围、权限和栏目状态。",
+      "sourceAnchors": [
+        "3. 分析流程与规则",
+        "5. 服务契约"
+      ]
+    },
+    {
+      "id": "ADJ-08-DEC-003",
+      "owner": "HUMAN",
+      "description": "确认输入范围、核查冲突、复核专业分析。",
+      "sourceAnchors": [
+        "3. 分析流程与规则",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "ADJ-08-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "提供官方法律状态缴费无效事件并作正式无效决定。",
+      "sourceAnchors": [
+        "1. 功能概述与分析边界",
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-08-AC-001",
+      "given": [
+        "官方状态和技术材料"
+      ],
+      "when": "分析",
+      "then": [
+        "两类结果分栏",
+        "请求风险不冒充无效决定"
+      ],
+      "sourceClauseIds": [
+        "ADJ-08-MUST-001",
+        "ADJ-08-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ADJ-08-AC-002",
+      "given": [
+        "当前和历史时点"
+      ],
+      "when": "准备分析",
+      "then": [
+        "固定权项资料",
+        "无历史数据返回无法核实"
+      ],
+      "sourceClauseIds": [
+        "ADJ-08-MUST-002",
+        "ADJ-08-MUST-003"
+      ]
+    },
+    {
+      "id": "ADJ-08-AC-003",
+      "given": [
+        "缺缴费、状态冲突和 API 超时"
+      ],
+      "when": "核验",
+      "then": [
+        "缺口冲突可见",
+        "不推断终止有效"
+      ],
+      "sourceClauseIds": [
+        "ADJ-08-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ADJ-08-AC-004",
+      "given": [
+        "有限检索和日期不明文献"
+      ],
+      "when": "建立文献集",
+      "then": [
+        "范围披露",
+        "不明日期不作确认现有技术"
+      ],
+      "sourceClauseIds": [
+        "ADJ-08-MUST-004"
+      ]
+    },
+    {
+      "id": "ADJ-08-AC-005",
+      "given": [
+        "单篇和多篇文献"
+      ],
+      "when": "分析新颖创造性",
+      "then": [
+        "单篇不拼接",
+        "组合启示有来源"
+      ],
+      "sourceClauseIds": [
+        "ADJ-08-MUST-005",
+        "ADJ-08-MUST-006"
+      ]
+    },
+    {
+      "id": "ADJ-08-AC-006",
+      "given": [
+        "部分失败和外观设计"
+      ],
+      "when": "生成报告",
+      "then": [
+        "失败不折算低风险",
+        "外观不套文本模板"
+      ],
+      "sourceClauseIds": [
+        "ADJ-08-MUST-007",
+        "ADJ-08-MUST-008"
+      ]
+    },
+    {
+      "id": "ADJ-08-AC-007",
+      "given": [
+        "补充材料和无权材料"
+      ],
+      "when": "重跑提交复核",
+      "then": [
+        "旧结果保留",
+        "不改变流程且无权材料不入模型"
+      ],
+      "sourceClauseIds": [
+        "ADJ-08-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ADJ-08-AC-010",
+      "given": [
+        "中心专家样本"
+      ],
+      "when": "业务验收",
+      "then": [
+        "事实日期证据范围预期实际齐全",
+        "未确认分支不标通过"
+      ],
+      "sourceClauseIds": [
+        "ADJ-08-MUST-012"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-08-OQ-001",
+      "type": "integration",
+      "question": "中心状态、缴费、无效事件 API 的历史覆盖和时间语义是什么？",
+      "blocks": [
+        "ARC-09",
+        "有效性实现"
+      ]
+    },
+    {
+      "id": "ADJ-08-OQ-002",
+      "type": "search",
+      "question": "授权对比资料来源、检索范围和公开日期核验方式是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-04"
+      ]
+    },
+    {
+      "id": "ADJ-08-OQ-003",
+      "type": "business_semantics",
+      "question": "各专利类型的新颖性创造性及外观评价口径是什么？",
+      "blocks": [
+        "ARC-05"
+      ]
+    },
+    {
+      "id": "ADJ-08-OQ-004",
+      "type": "authorization",
+      "question": "分析、来源查看、补充、重跑和复核角色是什么？",
+      "blocks": [
+        "ARC-06"
+      ]
+    },
+    {
+      "id": "ADJ-08-OQ-005",
+      "type": "validation",
+      "question": "中心专家样本、模型指标和真实环境是什么？",
+      "blocks": [
+        "REL-03",
+        "SPK-07"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-08-DD-001",
+      "decision": "Official Status Snapshot 与 Technical Risk Analysis 分离，统一报告只聚合不混写。",
+      "basis": "原文明示双输出。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-08-DD-002",
+      "decision": "逐栏目状态和证据建模，整体部分成功不能产生有效低风险标签。",
+      "basis": "原文失败边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-08-DD-003",
+      "decision": "具体法律规则、数据源、检索范围、角色、模型和 DM8 类型延后至 D 门。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心条件未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable adjudication overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Official status, technical risk and authority invalidation decision remain distinct.",
+      "No legal status, fee inference, prior-art coverage, evaluation rule, threshold or model capability was guessed."
+    ]
+  }
+}

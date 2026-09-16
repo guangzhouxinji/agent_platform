@@ -1,0 +1,930 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-01",
+  "title": "法律法规管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/01-法律法规管理需求文档.md",
+    "sha256": "30cc22ea536bde89cf027e7238099fc2502dc549e43e8e621dc07771707a2200",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与已有需求关系",
+        "purpose": "scope_and_reuse"
+      },
+      {
+        "anchor": "2. 字段与数据规则",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 接入与维护流程",
+        "purpose": "ingestion_and_versioning"
+      },
+      {
+        "anchor": "4. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "5. 服务契约与权限",
+        "purpose": "service_and_permission"
+      },
+      {
+        "anchor": "6. 国产化与 DM8 要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 建设与交付范围",
+        "3. 与已有法规需求的衔接",
+        "4. 行政裁决业务边界",
+        "5. 数据、版本与变更规则",
+        "6. 通用服务与内部页面",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    },
+    {
+      "path": "requirements/知识产权咨询助手/法律法规管理需求文档.md",
+      "sha256": "f4d0afedb7bb0a969ea531f99685285d2fa38893df39b088e958d8deb6656bdb",
+      "sections": [
+        "1. 功能概述",
+        "2. 数据来源",
+        "2.1 导入内容",
+        "2.2 导入校验",
+        "3. 法规信息管理",
+        "4. 法规列表",
+        "5. 修订记录管理",
+        "6. 验收要求"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-01-MUST-001",
+      "type": "MUST",
+      "statement": "复用统一法规服务接入、导入和维护知识产权法律、行政法规、部门规章、司法解释等，并提供版本查询、修订历史、效力状态、条款定位和引用基础。",
+      "sourceAnchors": [
+        "1. 功能概述与已有需求关系",
+        "既有/1. 功能概述"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-001",
+        "ADJ-01-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "不得为裁决助手重复建设另一套法规源库，也不得取消既有批量导入、人工新增编辑、修订弹窗和历史原文能力。",
+      "sourceAnchors": [
+        "1. 功能概述与已有需求关系",
+        "总览/3. 与已有法规需求的衔接"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-002",
+      "type": "MUST",
+      "statement": "中心 API 原始法规数据只读；人工维护写入本地校核版本，保存来源、修改理由和差异。",
+      "sourceAnchors": [
+        "1. 功能概述与已有需求关系",
+        "总览/3. 与已有法规需求的衔接"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "本地人工新增、编辑、导入更新或模型处理不得回写、覆盖或伪装成中心原始记录。",
+      "sourceAnchors": [
+        "1. 功能概述与已有需求关系",
+        "总览/3. 与已有法规需求的衔接"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-003",
+      "type": "MUST",
+      "statement": "法规编号稳定唯一且名称不得作为唯一关联键；跨系统使用稳定记录 ID、源系统 ID 和具体版本。",
+      "sourceAnchors": [
+        "2. 字段与数据规则",
+        "总览/5.1 身份和来源",
+        "既有/3.1 法规信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-004",
+      "type": "MUST",
+      "statement": "法规记录正式名称、发布部门、发布时间、实施时间、类别、可多选业务领域、适用地域、全文、源 ID、版本 ID、获取时间、创建更新人员和时间。",
+      "sourceAnchors": [
+        "2. 字段与数据规则",
+        "既有/3.1 法规信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-005",
+      "type": "MUST",
+      "statement": "发布与实施时间分开；生效失效区间和效力状态以来源为依据，状态支持未生效、现行有效、已失效、已废止和无法核实。",
+      "sourceAnchors": [
+        "2. 字段与数据规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "缺少事实、版本、效力或来源时不得由模型推测补齐，也不得把无法核实自动映射为有效或失效。",
+      "sourceAnchors": [
+        "文首开发要求",
+        "2. 字段与数据规则",
+        "总览/5.1 身份和来源"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-005",
+        "ADJ-01-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-006",
+      "type": "MUST",
+      "statement": "条文结构保存稳定条文 ID、条号、款项层级和原文位置；名称与条号不作为跨版本唯一键。",
+      "sourceAnchors": [
+        "2. 字段与数据规则",
+        "总览/5.1 身份和来源"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-001",
+        "ADJ-01-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-007",
+      "type": "MUST",
+      "statement": "修订记录保存修订日期、类型、说明、依据、修订前完整原文、来源、记录人员和关联的新旧法规版本。",
+      "sourceAnchors": [
+        "2. 字段与数据规则",
+        "3. 接入与维护流程",
+        "既有/5.2 修订记录字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-008",
+      "type": "MUST",
+      "statement": "支持中心 API 接入、约定模板批量导入法规基本信息、全文、修订记录与修订前原文，以及本地人工新增。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "既有/2. 数据来源",
+        "既有/2.1 导入内容"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-009",
+      "type": "MUST",
+      "statement": "导入校验必填、日期、编号重复、类别、效力字典、来源关联、法规与修订关联以及修订前原文匹配；无法关联的记录逐行失败。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "既有/2.2 导入校验"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "无法关联、编号歧义或修订原文不匹配时不得猜测归属、静默跳过或写入错误关联。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "既有/2.2 导入校验"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-010",
+      "type": "MUST",
+      "statement": "导入预览和结果分别返回新增、更新、跳过、成功、失败数量及逐行原因；重复法规策略明确为新增、更新或跳过。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "既有/2.2 导入校验"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-011",
+      "type": "MUST",
+      "statement": "相同源版本重复导入幂等；正文变化创建新不可变版本，已有覆盖或更新策略只能更新未审核草稿或生成新版本。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "总览/3. 与已有法规需求的衔接"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "正文更新、批量覆盖或人工编辑不得覆盖已引用、已审核或历史修订原文快照。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "总览/3. 与已有法规需求的衔接",
+        "既有/3.2 法规录入与维护",
+        "既有/5.4 修订时原文查看"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-003",
+        "ADJ-01-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-012",
+      "type": "MUST",
+      "statement": "人工编辑保留修改前值、修改后值、理由、真实人员、时间及来源差异；来源冲突标记待核实。",
+      "sourceAnchors": [
+        "3. 接入与维护流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "待核实的本地校核内容不得自动确认为裁决依据。",
+      "sourceAnchors": [
+        "3. 接入与维护流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-013",
+      "type": "MUST",
+      "statement": "查询支持当前版本和指定相关日期、地域的候选版本，并返回效力区间、来源及过渡规则缺口。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "5. 服务契约与权限"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "不得仅凭日期自动认定法规适用于案件，业务人员仍需核实过渡条款、地域、用途和案件时间。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "7. 验收要求",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-014",
+      "type": "MUST",
+      "statement": "修订记录按修订日期倒序，支持新增、编辑和错误记录处理；已被引用的错误记录只能撤回并留痕。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "既有/5.3 修订记录弹窗",
+        "总览/3. 与已有法规需求的衔接"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "已引用法规或修订记录不得物理删除，撤回不得破坏历史引用链。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "7. 验收要求",
+        "总览/3. 与已有法规需求的衔接"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-015",
+      "type": "MUST",
+      "statement": "修订时原文保持本次修订前全文语义并明确所属旧版本；当前正文修改不改变历史快照，多版本或编号歧义返回候选供确认。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "既有/5.4 修订时原文查看"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-017",
+      "type": "MUST",
+      "statement": "详情完整展示全文、条款树、版本、来源和修订记录；未提供原文、源故障、无记录与无权限分别表达。",
+      "sourceAnchors": [
+        "4. 内部验证页面",
+        "总览/6.1 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-008",
+        "ADJ-01-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-019",
+      "type": "MUST",
+      "statement": "查询、维护和导入权限分开，服务端以可信身份、机构和资源范围执行；权限撤回后不得从缓存、详情或历史引用泄露原文。",
+      "sourceAnchors": [
+        "5. 服务契约与权限",
+        "总览/5.1 身份和来源"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST_NOT-009",
+      "type": "MUST_NOT",
+      "statement": "上游故障、部分导入或源能力未提供不得伪装为空结果、完整成功或已实现。",
+      "sourceAnchors": [
+        "5. 服务契约与权限",
+        "8. 依赖与交付",
+        "总览/6.1 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-008",
+        "ADJ-01-AC-011"
+      ]
+    },
+    {
+      "id": "ADJ-01-MUST-023",
+      "type": "MUST",
+      "statement": "历史版本完整度、条款结构、人工校核角色、源数据授权和效力字典由中心确认；缺失能力保持待核实或未实现。",
+      "sourceAnchors": [
+        "8. 依赖与交付",
+        "总览/8. 依赖与待落实材料"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "ingestionBatch",
+      "required": "导入时",
+      "rules": [
+        "源引用或文件、重复策略、幂等键、来源和版本"
+      ]
+    },
+    {
+      "name": "localVersionDraft",
+      "required": "人工维护时",
+      "rules": [
+        "原版本、内容、差异、理由、预期版本和可信身份"
+      ]
+    },
+    {
+      "name": "revisionRecord",
+      "required": "修订维护时",
+      "rules": [
+        "修订日期、类型、说明、依据、修订前全文和新旧版本"
+      ]
+    },
+    {
+      "name": "pointInTimeQuery",
+      "required": "时点查询时",
+      "rules": [
+        "法规稳定 ID、相关日期、地域和用途"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "regulationVersion",
+      "fields": [
+        "regulationId",
+        "sourceSystemId",
+        "versionId",
+        "metadata",
+        "verbatimText",
+        "source",
+        "effectiveInterval",
+        "status",
+        "verificationStatus"
+      ]
+    },
+    {
+      "name": "article",
+      "fields": [
+        "articleId",
+        "versionId",
+        "number",
+        "hierarchy",
+        "verbatimText",
+        "sourceAnchor"
+      ]
+    },
+    {
+      "name": "revision",
+      "fields": [
+        "revisionId",
+        "oldVersionId",
+        "newVersionId",
+        "date",
+        "type",
+        "description",
+        "basis",
+        "preRevisionText",
+        "status"
+      ]
+    },
+    {
+      "name": "ingestionResult",
+      "fields": [
+        "taskId",
+        "added",
+        "updated",
+        "skipped",
+        "succeeded",
+        "failed",
+        "rowErrors",
+        "requestId"
+      ]
+    },
+    {
+      "name": "pointInTimeCandidates",
+      "fields": [
+        "candidateVersions",
+        "effectiveIntervals",
+        "transitionGaps",
+        "manualVerificationRequired"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "query",
+      "enforcement": "法规查询权限、机构及源授权"
+    },
+    {
+      "action": "import",
+      "enforcement": "独立导入角色、来源范围和幂等校验"
+    },
+    {
+      "action": "maintain_local_version",
+      "enforcement": "人工校核角色、预期版本和差异审计"
+    },
+    {
+      "action": "maintain_revision",
+      "enforcement": "修订维护角色；已引用记录禁止物理删除"
+    },
+    {
+      "action": "confirm_as_citation_basis",
+      "enforcement": "中心授权业务人员，待核实版本不得自动通过"
+    }
+  ],
+  "states": [
+    {
+      "name": "未生效",
+      "kind": "source_effectiveness",
+      "allowedNext": [
+        "现行有效",
+        "已废止",
+        "无法核实"
+      ]
+    },
+    {
+      "name": "现行有效",
+      "kind": "source_effectiveness",
+      "allowedNext": [
+        "已失效",
+        "已废止",
+        "无法核实"
+      ]
+    },
+    {
+      "name": "已失效",
+      "kind": "source_effectiveness",
+      "allowedNext": []
+    },
+    {
+      "name": "已废止",
+      "kind": "source_effectiveness",
+      "allowedNext": []
+    },
+    {
+      "name": "无法核实",
+      "kind": "verification",
+      "allowedNext": [
+        "未生效",
+        "现行有效",
+        "已失效",
+        "已废止"
+      ],
+      "invariant": "不得自动确认为裁决依据"
+    },
+    {
+      "name": "有效记录",
+      "kind": "revision",
+      "allowedNext": [
+        "已撤回"
+      ]
+    },
+    {
+      "name": "已撤回",
+      "kind": "revision",
+      "allowedNext": [],
+      "invariant": "原记录、版本和引用链保留"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "中心原文和本地校核版本分开，中心版本只读。",
+    "法规、条文、修订和来源均使用稳定 ID 与具体不可变版本。",
+    "正文变化生成新版本，历史修订前全文锁定旧版本且不覆盖。",
+    "源更新时间、发布时间、实施时间、获取导入时间、业务查询时间和人工修改时间分开。",
+    "法规变化向解析、要点、匹配、引用和未签发报告传播需复核，不自动改写下游。",
+    "源无版本时保存授权快照和内容摘要；模拟与真实来源隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "required_field_or_date_invalid",
+      "result": "逐行失败并返回字段路径"
+    },
+    {
+      "case": "duplicate_or_ambiguous_identifier",
+      "result": "按明确策略处理或返回候选，不猜测"
+    },
+    {
+      "case": "revision_unrelated_or_text_mismatch",
+      "result": "拒绝该行并保留原因"
+    },
+    {
+      "case": "source_conflict",
+      "result": "保存差异并标记待核实，不自动作为依据"
+    },
+    {
+      "case": "historical_or_transition_data_missing",
+      "result": "返回候选和缺口，不自动认定适用"
+    },
+    {
+      "case": "source_unavailable_or_unauthorized",
+      "result": "与无记录和原文缺失分开返回"
+    },
+    {
+      "case": "referenced_revision_delete",
+      "result": "拒绝物理删除并执行撤回留痕"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前版本"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-01-DEC-001",
+      "owner": "AI",
+      "description": "无权生成或改写法规原文、版本、效力和适用结论；可在后续能力中生成明确分离的候选解释。",
+      "sourceAnchors": [
+        "文首开发要求",
+        "3. 接入与维护流程"
+      ]
+    },
+    {
+      "id": "ADJ-01-DEC-002",
+      "owner": "RULE",
+      "description": "执行导入校验、幂等、版本不可变、查询组合、日期区间、权限、撤回和需复核传播。",
+      "sourceAnchors": [
+        "2. 字段与数据规则",
+        "3. 接入与维护流程",
+        "5. 服务契约与权限"
+      ]
+    },
+    {
+      "id": "ADJ-01-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权人员维护本地校核版本、处理来源冲突、确认历史适用、维护修订并决定可否作为裁决依据。",
+      "sourceAnchors": [
+        "3. 接入与维护流程",
+        "5. 服务契约与权限",
+        "8. 依赖与交付"
+      ]
+    },
+    {
+      "id": "ADJ-01-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心法规系统提供权威原文、版本、效力、地区和来源；身份系统提供可信人员和权限。",
+      "sourceAnchors": [
+        "1. 功能概述与已有需求关系",
+        "2. 字段与数据规则"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-01-AC-001",
+      "given": [
+        "多类别、多领域、同名及多版本法规"
+      ],
+      "when": "接入并查询详情",
+      "then": [
+        "稳定 ID 和版本区分正确",
+        "字段、全文、条款层级和来源完整",
+        "名称不作唯一键"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-MUST-001",
+        "ADJ-01-MUST-003",
+        "ADJ-01-MUST-004",
+        "ADJ-01-MUST-006"
+      ]
+    },
+    {
+      "id": "ADJ-01-AC-002",
+      "given": [
+        "合法、缺字段、日期错误、重复、字典错误、关联失败和原文不匹配导入行"
+      ],
+      "when": "预览并执行批量导入",
+      "then": [
+        "合法行入库",
+        "失败逐行定位",
+        "数量完整",
+        "不猜测关联"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-MUST-008",
+        "ADJ-01-MUST-009",
+        "ADJ-01-MUST_NOT-004",
+        "ADJ-01-MUST-010"
+      ]
+    },
+    {
+      "id": "ADJ-01-AC-003",
+      "given": [
+        "重复源版本、正文更新和已引用旧版本"
+      ],
+      "when": "再次导入或更新",
+      "then": [
+        "重复幂等",
+        "正文变化生成新版本",
+        "旧原文与引用不覆盖"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-MUST-011",
+        "ADJ-01-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ADJ-01-AC-004",
+      "given": [
+        "中心原文、本地人工修改和来源冲突"
+      ],
+      "when": "保存本地校核版本",
+      "then": [
+        "中心记录不变",
+        "本地差异和审计完整",
+        "冲突待核实且不自动作依据"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-MUST-002",
+        "ADJ-01-MUST_NOT-002",
+        "ADJ-01-MUST-012",
+        "ADJ-01-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ADJ-01-AC-005",
+      "given": [
+        "相关日期、地区、多个候选版本及过渡规则缺失"
+      ],
+      "when": "查询时点版本",
+      "then": [
+        "返回候选、区间、来源和缺口",
+        "不自动认定适用",
+        "缺失不被模型补齐"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-MUST-005",
+        "ADJ-01-MUST_NOT-003",
+        "ADJ-01-MUST-013",
+        "ADJ-01-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ADJ-01-AC-006",
+      "given": [
+        "多次修订、错误记录、已引用记录和当前正文变化"
+      ],
+      "when": "查看、编辑、撤回和查看修订前原文",
+      "then": [
+        "倒序和新旧版本对应",
+        "历史全文不变",
+        "已引用记录仅撤回留痕",
+        "歧义返回候选"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-MUST-006",
+        "ADJ-01-MUST-007",
+        "ADJ-01-MUST_NOT-005",
+        "ADJ-01-MUST-014",
+        "ADJ-01-MUST_NOT-008",
+        "ADJ-01-MUST-015"
+      ]
+    },
+    {
+      "id": "ADJ-01-AC-007",
+      "given": [
+        "查询、导入、维护三类角色及权限撤回"
+      ],
+      "when": "分别调用写读接口和历史原文",
+      "then": [
+        "职责权限分开",
+        "越权被后端拒绝",
+        "撤权后缓存和历史不泄露",
+        "并发写冲突"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-MUST-019"
+      ]
+    },
+    {
+      "id": "ADJ-01-AC-008",
+      "given": [
+        "原文缺失、无记录、无权限、源故障和部分导入"
+      ],
+      "when": "查询或导入",
+      "then": [
+        "状态和 request_id 可区分",
+        "部分结果列失败明细",
+        "不补造事实或伪装成功"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-MUST_NOT-003",
+        "ADJ-01-MUST-017",
+        "ADJ-01-MUST_NOT-009"
+      ]
+    },
+    {
+      "id": "ADJ-01-AC-009",
+      "given": [
+        "内部页面和直接 API 客户端"
+      ],
+      "when": "完成查询、导入、人工维护和修订操作",
+      "then": [
+        "既有能力全部保留",
+        "服务行为一致",
+        "页面不承载规则或作为外部交付"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-MUST-001",
+        "ADJ-01-MUST_NOT-001",
+        "ADJ-01-MUST-017"
+      ]
+    },
+    {
+      "id": "ADJ-01-AC-011",
+      "given": [
+        "历史版本、条款结构、授权或中心 API 能力未确认"
+      ],
+      "when": "检查状态和验收",
+      "then": [
+        "保持待核实或未实现",
+        "模拟能力不升级为真实联调",
+        "不隐藏按钮冒充完成"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-MUST_NOT-009",
+        "ADJ-01-MUST-023"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-01-DD-001",
+      "decision": "统一法规与条文资源归属 Legal Knowledge 上下文，咨询、执法和裁决通过端口复用；裁决域不复制源库。",
+      "basis": "ARC-03 与原文复用要求",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-01-DD-002",
+      "decision": "具体 REST 路径、字段英文名、导入格式、DM8 类型和法规检索实现延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心 API、历史版本、条款结构和环境尚待确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-01-OQ-001",
+      "type": "external_integration",
+      "question": "中心法规 API 或导入文件的稳定法规/条文 ID、版本、全文、修订、效力、地区和错误契约是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-09",
+        "真实接入"
+      ]
+    },
+    {
+      "id": "ADJ-01-OQ-002",
+      "type": "business_semantics",
+      "question": "法规类别、业务领域、效力状态、地域及过渡适用字典由中心如何定义？",
+      "blocks": [
+        "ARC-05",
+        "字典和时点查询"
+      ]
+    },
+    {
+      "id": "ADJ-01-OQ-003",
+      "type": "authorization",
+      "question": "查询、导入、本地校核、修订维护、撤回和确认依据分别由哪些角色执行？",
+      "blocks": [
+        "ARC-06",
+        "正式权限设计"
+      ]
+    },
+    {
+      "id": "ADJ-01-OQ-004",
+      "type": "data_authorization",
+      "question": "法规全文、历史快照、索引、缓存和模型处理的授权及保留范围是什么？",
+      "blocks": [
+        "ARC-10",
+        "ARC-11",
+        "检索与保存"
+      ]
+    },
+    {
+      "id": "ADJ-01-OQ-005",
+      "type": "migration",
+      "question": "既有法规服务的当前实现、数据版本、接口和迁移复用边界是什么？",
+      "blocks": [
+        "复用设计",
+        "避免重复建设"
+      ]
+    },
+    {
+      "id": "ADJ-01-OQ-006",
+      "type": "environment",
+      "question": "DM8 小版本、实例参数、JDK/驱动及国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against the ADJ-01 primary source, adjudication overview and full existing regulation-management requirement",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Existing import, manual maintenance, list, revision dialog and pre-revision text behavior are preserved while adding immutable source/version and adjudication-time constraints.",
+      "Authoritative center records, local verification versions and historical snapshots remain separate; point-in-time lookup returns candidates rather than automatic applicability decisions.",
+      "No API, taxonomy, transition rule, role, import template detail, retention or migration behavior was guessed."
+    ]
+  }
+}

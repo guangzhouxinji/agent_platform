@@ -1,0 +1,805 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-07",
+  "title": "商标相似度判断",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权咨询助手/商标相似度判断需求文档.md",
+    "sha256": "e6f79c6c4e05f1d9b78a53d157120fe5c919ab620e835336a97ca2ae8502f58c",
+    "sections": [
+      {
+        "anchor": "国产化与达梦 DM8 适配要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 输入输出字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 分析流程与规则",
+        "purpose": "analysis"
+      },
+      {
+        "anchor": "4. 报告与复核",
+        "purpose": "report_review"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sections": [
+        "1. 项目定位与交付口径",
+        "3. 共用业务规则",
+        "4. 共用支撑能力与估工方式",
+        "5. 建议开发与集成顺序",
+        "6. 验收资料与共同口径",
+        "7. 评审状态记录"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-07-MUST-001",
+      "type": "MUST",
+      "statement": "对目标与人工选定候选按文字、读音、含义、图形、整体视觉和商品服务关系逐项辅助比对，可从检索进入或直接选择对象。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-001"
+      ]
+    },
+    {
+      "id": "CON-07-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "检索相关度、多维意见或任务成功不得转换为注册成功率、法律近似、正式审查或裁决结论。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-001",
+        "CON-07-AC-006"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-002",
+      "type": "MUST",
+      "statement": "固定目标名称原图、用户确认商品服务类别类似群及分类版本、候选源快照、目的、地域、时间、分析维度和依据版本。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-002"
+      ]
+    },
+    {
+      "id": "CON-07-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "类别、项目、地域、时间或目的缺失时不得由模型猜测或默认当前条件，应返回补问和待确认项。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-002"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-003",
+      "type": "MUST",
+      "statement": "每个候选重新校验访问权限并获取实际名称、图样、商品服务和源状态，不能只沿用检索摘要。",
+      "sourceAnchors": [
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-003"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-004",
+      "type": "MUST",
+      "statement": "OCR、读音和含义识别结果以建议预览，歧义由用户修正；原始文字图样与确认值分别保存。",
+      "sourceAnchors": [
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-003"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-005",
+      "type": "MUST",
+      "statement": "文字维度记录字形顺序组成等可观察差异；读音不确定显式标记；含义区分材料支持与模型推测。",
+      "sourceAnchors": [
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-004"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-006",
+      "type": "MUST",
+      "statement": "图形和整体视觉必须实际访问目标及候选图样并保存证据，缺图时状态为材料不足。",
+      "sourceAnchors": [
+        "3. 分析流程与规则",
+        "5. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-004"
+      ]
+    },
+    {
+      "id": "CON-07-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "不得仅凭名称或 OCR 生成图形与整体视觉意见，未执行维度不得伪装为已分析。",
+      "sourceAnchors": [
+        "3. 分析流程与规则",
+        "4. 报告与复核"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-004"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-007",
+      "type": "MUST",
+      "statement": "商品服务关系列出实际项目、类似群、分类和标准版本及支持理由，同类不同类均不能直接决定类似关系。",
+      "sourceAnchors": [
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-005"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-008",
+      "type": "MUST",
+      "statement": "每维度明确已分析、不适用或材料不足，并分别保存事实、证据、意见和缺口。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "4. 报告与复核"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-006"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-009",
+      "type": "MUST",
+      "statement": "综合意见仅采用需重点复核相似因素、已分析维度差异明显或材料不足无法形成意见等辅助措辞，并给出理由。",
+      "sourceAnchors": [
+        "3. 分析流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-006"
+      ]
+    },
+    {
+      "id": "CON-07-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "不得用简单多数投票、任意阈值或检索分数直接得出法律近似；首版不输出未经独立标尺定义的数字评分。",
+      "sourceAnchors": [
+        "3. 分析流程与规则",
+        "4. 报告与复核"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-006"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-010",
+      "type": "MUST",
+      "statement": "报告保存目标候选快照、商品服务、逐维证据意见、原图、依据条款、综合意见、缺失维度、数据时间及模型规则版本。",
+      "sourceAnchors": [
+        "4. 报告与复核"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-007"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-011",
+      "type": "MUST",
+      "statement": "报告初始未复核，模型原始内容与专业人员意见分开；源状态或依据更新后新分析生成新版本，历史保留。",
+      "sourceAnchors": [
+        "4. 报告与复核"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-007"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-012",
+      "type": "MUST",
+      "statement": "异步服务覆盖准备、创建、任务报告查询、复核和取消，逐候选状态、失败重试、幂等及版本冲突可追踪。",
+      "sourceAnchors": [
+        "5. 内部验证页面",
+        "6. 服务契约",
+        "总目录/3.3 异步任务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-008"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-013",
+      "type": "MUST",
+      "statement": "图像失效、资料不足、来源故障、依据缺失、模型失败和无权限分别返回；缺依据只展示可观察差异，不编造标准条款。",
+      "sourceAnchors": [
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-008"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-014",
+      "type": "MUST",
+      "statement": "目标候选图样、来源依据、报告和历史由后端实时鉴权，权限撤回后缓存和旧版本不得泄露。",
+      "sourceAnchors": [
+        "6. 服务契约",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-009"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-017",
+      "type": "MUST",
+      "statement": "专家固定样本按维度评估事实准确、依据支持和综合意见合理性，记录分母失败及数据模型规则版本，阈值试测确认。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-012"
+      ]
+    },
+    {
+      "id": "CON-07-MUST-018",
+      "type": "MUST",
+      "statement": "图形能力、标准分类、商品服务关系、时间含义、专家人员、规模性能和环境未确认时对应能力保持待补齐。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-07-AC-012"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "targetSnapshot",
+      "required": true,
+      "rules": [
+        "名称或图样至少一项，按选择维度校验"
+      ]
+    },
+    {
+      "name": "classification",
+      "required": true,
+      "rules": [
+        "用户确认商品服务、类别、类似群和版本"
+      ]
+    },
+    {
+      "name": "candidateSnapshots",
+      "required": true,
+      "rules": [
+        "一个或多个稳定商标版本及原图"
+      ]
+    },
+    {
+      "name": "scope",
+      "required": true,
+      "rules": [
+        "分析目的、地域、相关时间和依据范围"
+      ]
+    },
+    {
+      "name": "dimensions",
+      "required": true,
+      "rules": [
+        "逐项选择且材料充分"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定完整输入与调用方"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "preparation",
+      "fields": [
+        "completeness",
+        "recognizedSuggestions",
+        "confirmationItems",
+        "sourceStates"
+      ]
+    },
+    {
+      "name": "analysisTask",
+      "fields": [
+        "taskId",
+        "status",
+        "inputManifest",
+        "candidateStatuses",
+        "requestId"
+      ]
+    },
+    {
+      "name": "dimensionOpinion",
+      "fields": [
+        "dimension",
+        "status",
+        "observableFacts",
+        "evidence",
+        "opinion",
+        "gaps"
+      ]
+    },
+    {
+      "name": "reportVersion",
+      "fields": [
+        "reportId",
+        "version",
+        "snapshots",
+        "dimensionTable",
+        "overallAdvisoryOpinion",
+        "basisVersions",
+        "modelVersion",
+        "ruleVersion",
+        "reviewStatus"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "prepare_or_analyze",
+      "enforcement": "目标候选、图样、标准、模型通道及目的权限"
+    },
+    {
+      "action": "read_report_or_evidence",
+      "enforcement": "当前图样、商标来源、依据和历史权限"
+    },
+    {
+      "action": "review",
+      "enforcement": "专业复核角色和固定报告版本"
+    }
+  ],
+  "states": [
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "逐候选和维度列明缺口"
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "已分析",
+      "kind": "dimension",
+      "allowedNext": []
+    },
+    {
+      "name": "不适用",
+      "kind": "dimension",
+      "allowedNext": []
+    },
+    {
+      "name": "材料不足",
+      "kind": "dimension",
+      "allowedNext": [
+        "已分析",
+        "不适用"
+      ]
+    },
+    {
+      "name": "未复核",
+      "kind": "review",
+      "allowedNext": [
+        "已复核"
+      ]
+    },
+    {
+      "name": "已复核",
+      "kind": "review",
+      "allowedNext": [
+        "待复核"
+      ]
+    },
+    {
+      "name": "待复核",
+      "kind": "review",
+      "allowedNext": [
+        "已复核"
+      ]
+    }
+  ],
+  "sourceAndVersionRules": [
+    "目标候选原始和确认输入、分类地域时间、依据、模型规则固定版本。",
+    "各维度事实证据意见和状态分开，原图可核验。",
+    "检索相关度、维度意见、综合辅助意见和法律结论分开。",
+    "模型原始报告与人工复核意见分开保存。",
+    "来源或依据变化创建新分析并保留历史。",
+    "模拟图像数据数据库与真实验收证据隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "classification_or_scope_missing",
+      "result": "返回补问，不默认类别地域时间"
+    },
+    {
+      "case": "image_missing_or_expired",
+      "result": "图形整体视觉为材料不足，不生成意见"
+    },
+    {
+      "case": "standard_unavailable",
+      "result": "保留可观察差异并标依据缺口，不编条款"
+    },
+    {
+      "case": "candidate_partial_failure",
+      "result": "其他结果保留并标部分成功"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前报告版本"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不从图样缓存报告历史泄露"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "CON-07-DEC-001",
+      "owner": "AI",
+      "description": "可识别文字读音含义图形并生成有证据的辅助意见；不得猜输入、伪图形分析、编标准、打法律分或作近似结论。",
+      "sourceAnchors": [
+        "3. 分析流程与规则",
+        "4. 报告与复核"
+      ]
+    },
+    {
+      "id": "CON-07-DEC-002",
+      "owner": "RULE",
+      "description": "执行完整性、权限、维度状态、分类依据、任务、版本和依赖变化规则。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 分析流程与规则",
+        "6. 服务契约"
+      ]
+    },
+    {
+      "id": "CON-07-DEC-003",
+      "owner": "HUMAN",
+      "description": "用户确认输入分类范围和识别歧义，专业人员复核报告并确认业务标准及样本。",
+      "sourceAnchors": [
+        "3. 分析流程与规则",
+        "4. 报告与复核",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "CON-07-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供商标图样状态、分类审查标准、商品服务关系、权限和正式审核渠道。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-07-AC-001",
+      "given": [
+        "检索跳转或直接选定目标候选"
+      ],
+      "when": "创建辅助比对",
+      "then": [
+        "对象和来源版本固定",
+        "逐维分析",
+        "不输出注册率或正式近似结论"
+      ],
+      "sourceClauseIds": [
+        "CON-07-MUST-001",
+        "CON-07-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "CON-07-AC-002",
+      "given": [
+        "类别时间地域目的缺失"
+      ],
+      "when": "分析准备",
+      "then": [
+        "返回补问",
+        "不默认或模型猜测",
+        "确认后冻结范围"
+      ],
+      "sourceClauseIds": [
+        "CON-07-MUST-002",
+        "CON-07-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "CON-07-AC-003",
+      "given": [
+        "检索快照、源更新和识别歧义"
+      ],
+      "when": "重新获取并确认输入",
+      "then": [
+        "实时鉴权和源状态可见",
+        "原始与修正值分开",
+        "不只沿用摘要"
+      ],
+      "sourceClauseIds": [
+        "CON-07-MUST-003",
+        "CON-07-MUST-004"
+      ]
+    },
+    {
+      "id": "CON-07-AC-004",
+      "given": [
+        "多音外文、含义推测、缺图和完整原图"
+      ],
+      "when": "逐维分析",
+      "then": [
+        "不确定与材料支持分开",
+        "图形只基于实际图样",
+        "缺图不伪装已分析"
+      ],
+      "sourceClauseIds": [
+        "CON-07-MUST-005",
+        "CON-07-MUST-006",
+        "CON-07-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "CON-07-AC-005",
+      "given": [
+        "同类别不同项目和跨类别相关项目"
+      ],
+      "when": "分析商品服务关系",
+      "then": [
+        "项目类似群版本和理由完整",
+        "类别一致与否不直接决定结果"
+      ],
+      "sourceClauseIds": [
+        "CON-07-MUST-007"
+      ]
+    },
+    {
+      "id": "CON-07-AC-006",
+      "given": [
+        "已分析、不适用和材料不足维度"
+      ],
+      "when": "生成综合意见",
+      "then": [
+        "状态缺口准确",
+        "只用辅助措辞和具体理由",
+        "不以投票阈值检索分数得法律结论"
+      ],
+      "sourceClauseIds": [
+        "CON-07-MUST_NOT-001",
+        "CON-07-MUST-008",
+        "CON-07-MUST-009",
+        "CON-07-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "CON-07-AC-007",
+      "given": [
+        "未复核报告和源依据更新"
+      ],
+      "when": "复核或重新分析",
+      "then": [
+        "完整快照证据版本保留",
+        "原始与人工意见分开",
+        "新旧报告不覆盖"
+      ],
+      "sourceClauseIds": [
+        "CON-07-MUST-010",
+        "CON-07-MUST-011"
+      ]
+    },
+    {
+      "id": "CON-07-AC-008",
+      "given": [
+        "部分候选失败、依据缺失、重复取消和版本冲突"
+      ],
+      "when": "调用异步服务",
+      "then": [
+        "状态幂等冲突可区分",
+        "可观察差异保留",
+        "不编依据条款"
+      ],
+      "sourceClauseIds": [
+        "CON-07-MUST-012",
+        "CON-07-MUST-013"
+      ]
+    },
+    {
+      "id": "CON-07-AC-009",
+      "given": [
+        "权限撤回"
+      ],
+      "when": "访问图样证据报告历史",
+      "then": [
+        "各入口实时鉴权",
+        "缓存旧版本不泄露"
+      ],
+      "sourceClauseIds": [
+        "CON-07-MUST-014"
+      ]
+    },
+    {
+      "id": "CON-07-AC-012",
+      "given": [
+        "固定专家样本和未确认标准环境"
+      ],
+      "when": "效果与交付检查",
+      "then": [
+        "逐维事实依据综合合理性分别评估",
+        "分母失败版本齐全",
+        "未确认能力保持待补齐"
+      ],
+      "sourceClauseIds": [
+        "CON-07-MUST-017",
+        "CON-07-MUST-018"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CON-07-OQ-001",
+      "type": "business_semantics",
+      "question": "各维度、商品服务关系、综合辅助措辞、地域时间和正式近似审核标准是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "分析规则实现"
+      ]
+    },
+    {
+      "id": "CON-07-OQ-002",
+      "type": "authority_api",
+      "question": "商标图样状态、分类类似群、审查标准和历史版本接口及权限是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "真实联调"
+      ]
+    },
+    {
+      "id": "CON-07-OQ-003",
+      "type": "model_boundary",
+      "question": "批准 OCR、文字图像模型、数据出域和可输出维度是什么？",
+      "blocks": [
+        "ARC-07",
+        "ARC-11",
+        "SPK-10"
+      ]
+    },
+    {
+      "id": "CON-07-OQ-004",
+      "type": "acceptance_data",
+      "question": "逐维专家样本、人员、任务规模、性能和效果阈值如何确认？",
+      "blocks": [
+        "SPK-10",
+        "SPK-16",
+        "效果验收"
+      ]
+    },
+    {
+      "id": "CON-07-OQ-005",
+      "type": "environment",
+      "question": "DM8、文件图像服务、模型和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "CON-07-DD-001",
+      "decision": "Trademark Analysis 拥有逐维意见和报告，Trademark Knowledge/File 提供快照，Review 管理专业意见；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-07-DD-002",
+      "decision": "维度状态与任务、报告审核状态分离，综合意见由显式规则消费维度结果而非多数投票。",
+      "basis": "原文要求逐维状态、材料缺口和辅助意见边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-07-DD-003",
+      "decision": "具体 API、分类规则、模型、综合规则、审核角色和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "标准、资源、模型、样本和环境未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Retrieval relevance, per-dimension observations, advisory synthesis, expert review and legal similarity remain distinct.",
+      "Image opinions require actual images and product/service relationships are not inferred from class equality alone.",
+      "No dimension rule, classification relation, standard, score, model, role, threshold or environment was guessed."
+    ]
+  }
+}

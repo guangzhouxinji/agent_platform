@@ -1,0 +1,821 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-10",
+  "title": "专利裁决报告模板配置",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/10-专利裁决报告模板配置需求文档.md",
+    "sha256": "435a005f3c49ecb6379799a187148eb56f66851bb3756509756788d02647ba7c",
+    "sections": [
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 模板字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 配置和发布流程",
+        "purpose": "lifecycle"
+      },
+      {
+        "anchor": "4. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "5. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 国产化与 DM8 要求",
+        "purpose": "database_and_rendering"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 建设与交付范围",
+        "4. 行政裁决业务边界",
+        "5. 数据、版本与变更规则",
+        "6. 通用服务与内部页面",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-10-MUST-001",
+      "type": "MUST",
+      "statement": "维护中心认可的专利裁决报告结构、必填章节、字段绑定和版式，并按确认的案件类型与报告用途提供不可变模板版本。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 模板字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "内部分析报告模板不得自动当作正式裁决文书模板，未获中心确认的草稿结构不得标称法定模板。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 配置和发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-002",
+      "type": "MUST",
+      "statement": "首版只要求结构化章节、变量配置和中心版式文件接入，不扩大为通用可视化排版平台。",
+      "sourceAnchors": [
+        "1. 功能概述"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-003",
+      "type": "MUST",
+      "statement": "模板保存唯一编号、名称、不可变版本、适用类型与用途、稳定章节 ID 和顺序、必填规则、变量来源、内容方式、格式、输出样例、状态及完整操作留痕。",
+      "sourceAnchors": [
+        "2. 模板字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-004",
+      "type": "MUST",
+      "statement": "每个变量定义类型、稳定来源字段、必填性和缺失处理；条件必填只依赖中心确认的确定字段。",
+      "sourceAnchors": [
+        "2. 模板字段",
+        "3. 配置和发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-002",
+        "ADJ-10-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "模板不得包含可执行脚本、任意数据库查询、宏或外链指令，模型不得自行决定条件必填。",
+      "sourceAnchors": [
+        "3. 配置和发布流程",
+        "5. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-003",
+        "ADJ-10-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-005",
+      "type": "MUST",
+      "statement": "原文引用、确定性填充和辅助生成三种内容方式分别配置，运行时不得混淆来源或可信级别。",
+      "sourceAnchors": [
+        "2. 模板字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-006",
+      "type": "MUST",
+      "statement": "发布前校验章节 ID 唯一、变量已定义、来源存在、条件无死循环、必填可检查、引用位置可绑定及所有依赖可用。",
+      "sourceAnchors": [
+        "3. 配置和发布流程",
+        "5. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-007",
+      "type": "MUST",
+      "statement": "使用脱敏样例试生成并验证长文本、表格、图样、分页、中文字体和缺项提示；试生成文件必须标识为受控预览。",
+      "sourceAnchors": [
+        "3. 配置和发布流程",
+        "4. 内部验证页面",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "试生成、网页预览、未渲染完成文件或脱敏样例不得标记为正式案件报告或正式格式验收通过。",
+      "sourceAnchors": [
+        "3. 配置和发布流程",
+        "4. 内部验证页面",
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-004",
+        "ADJ-10-AC-012"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-008",
+      "type": "MUST",
+      "statement": "模板经审核后才可由授权人员发布，发布版本不可原地修改；修改必须创建新草稿并重新校验审核发布。",
+      "sourceAnchors": [
+        "2. 模板字段",
+        "3. 配置和发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-009",
+      "type": "MUST",
+      "statement": "普通停用仅限制新任务；紧急撤销阻止在途继续生成并标记受影响草稿待复核；归档保留已被引用版本。",
+      "sourceAnchors": [
+        "3. 配置和发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-010",
+      "type": "MUST",
+      "statement": "已生成报告继续引用原模板版本，新版本发布不得改变历史报告；选择历史版本回滚前重新核对依赖。",
+      "sourceAnchors": [
+        "3. 配置和发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-005",
+        "ADJ-10-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "已被报告引用的模板版本不得物理删除，发布、停用、撤销和归档不得覆盖历史审核与使用关系。",
+      "sourceAnchors": [
+        "3. 配置和发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "正式签发字段、签章图像和文号不得由模型自由生成，模板配置不得自动执行正式签发。",
+      "sourceAnchors": [
+        "3. 配置和发布流程",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-012",
+      "type": "MUST",
+      "statement": "模板编辑、审核、发布、停用、撤销和归档由后端按角色及职责分离校验，隐藏页面按钮不能替代鉴权。",
+      "sourceAnchors": [
+        "5. 服务契约",
+        "总览/6. 通用服务与内部页面",
+        "总览/8. 依赖与待落实材料"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-013",
+      "type": "MUST",
+      "statement": "无效变量、缺失字体、渲染故障、不适用模板、已撤销模板、版本冲突和无权限分别返回错误及请求追踪信息。",
+      "sourceAnchors": [
+        "4. 内部验证页面",
+        "5. 服务契约",
+        "总览/6. 通用服务与内部页面"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST-016",
+      "type": "MUST",
+      "statement": "DOCX/PDF 转换、字体、JDK、CPU 和操作系统必须在目标国产环境以中心样例验证。",
+      "sourceAnchors": [
+        "6. 国产化与 DM8 要求",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-011"
+      ]
+    },
+    {
+      "id": "ADJ-10-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "不得默认依赖 Windows Office、外部转换 SaaS、未授权字体或非目标数据库环境，也不得用这些结果冒充国产环境验收。",
+      "sourceAnchors": [
+        "6. 国产化与 DM8 要求",
+        "总览/7. 国产化与达梦 DM8"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-10-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "templateDraft",
+      "required": true,
+      "rules": [
+        "编号、适用类型与用途、章节、变量、内容方式、格式和依赖"
+      ]
+    },
+    {
+      "name": "sampleData",
+      "required": "试生成时",
+      "rules": [
+        "脱敏、有版本、覆盖长文本表格图片分页和缺项"
+      ]
+    },
+    {
+      "name": "lifecycleAction",
+      "required": "状态变更时",
+      "rules": [
+        "模板版本、动作、意见、可信身份和并发版本"
+      ]
+    },
+    {
+      "name": "runtimeSelection",
+      "required": "运行读取时",
+      "rules": [
+        "固定模板版本、案件类型和报告用途"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定调用方、操作及完整输入"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "templateVersion",
+      "fields": [
+        "templateId",
+        "version",
+        "scope",
+        "sections",
+        "variables",
+        "contentModes",
+        "format",
+        "status",
+        "audit"
+      ]
+    },
+    {
+      "name": "validationResult",
+      "fields": [
+        "errors",
+        "warnings",
+        "missingDependencies",
+        "anchorChecks",
+        "variableChecks"
+      ]
+    },
+    {
+      "name": "previewTask",
+      "fields": [
+        "taskId",
+        "status",
+        "inputManifest",
+        "previewFile",
+        "renderErrors",
+        "requestId"
+      ]
+    },
+    {
+      "name": "runtimeContract",
+      "fields": [
+        "templateVersion",
+        "publishedStructure",
+        "variableContract",
+        "styleResources",
+        "revocationState"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "create_or_edit",
+      "enforcement": "模板配置角色和草稿对象版本"
+    },
+    {
+      "action": "validate_or_preview",
+      "enforcement": "模板、样例、字体、文件和渲染资源权限"
+    },
+    {
+      "action": "review",
+      "enforcement": "审核角色及与编辑发布职责分离"
+    },
+    {
+      "action": "publish_or_disable",
+      "enforcement": "授权发布角色、审核结果、依赖完整性和当前版本"
+    },
+    {
+      "action": "runtime_read",
+      "enforcement": "仅返回适用且未撤销的固定发布版本；历史重现按授权例外读取"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "template",
+      "allowedNext": [
+        "待审核",
+        "归档"
+      ]
+    },
+    {
+      "name": "待审核",
+      "kind": "template",
+      "allowedNext": [
+        "草稿",
+        "已发布",
+        "归档"
+      ]
+    },
+    {
+      "name": "已发布",
+      "kind": "template",
+      "allowedNext": [
+        "停用",
+        "归档"
+      ],
+      "invariant": "版本不可原地修改"
+    },
+    {
+      "name": "停用",
+      "kind": "template",
+      "allowedNext": [
+        "已发布",
+        "归档"
+      ],
+      "invariant": "普通停用不改变既有报告"
+    },
+    {
+      "name": "归档",
+      "kind": "template",
+      "allowedNext": [],
+      "invariant": "被引用版本保留且可审计"
+    },
+    {
+      "name": "排队",
+      "kind": "preview_task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "preview_task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "preview_task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "preview_task",
+      "allowedNext": [],
+      "invariant": "不得把未渲染完成文件标为完整成功"
+    },
+    {
+      "name": "失败",
+      "kind": "preview_task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "preview_task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "模板发布版本不可变，修改、恢复或回滚均创建可追踪版本或选择既有版本。",
+    "模板版本固定用途、章节、变量、内容方式、版式、文件、字体和审核记录。",
+    "已生成报告持续引用原模板版本，新发布、停用和归档不改写历史。",
+    "普通停用与紧急撤销分开；紧急撤销传播到在途任务和受影响草稿。",
+    "预览输入、渲染器和环境版本固定，预览文件与正式报告隔离。",
+    "模拟样例和非目标环境结果不得升级为真实格式验收证据。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "invalid_structure_or_variable",
+      "result": "返回章节、变量、条件和依赖错误清单并阻止发布"
+    },
+    {
+      "case": "missing_font_or_renderer_failure",
+      "result": "预览失败或部分成功，定位具体章节与依赖"
+    },
+    {
+      "case": "template_not_applicable",
+      "result": "拒绝运行并返回案件类型或用途不匹配"
+    },
+    {
+      "case": "template_revoked",
+      "result": "阻止新建及在途继续生成，标记受影响草稿待复核"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前模板版本"
+    },
+    {
+      "case": "unsafe_attachment",
+      "result": "拒绝执行宏、脚本、任意查询和外链指令"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝操作且不泄露模板、样例或文件内容"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-10-DEC-001",
+      "owner": "AI",
+      "description": "可辅助生成指定章节草稿或试填内容；不得决定必填条件、正式版式、签章、文号、发布或用途。",
+      "sourceAnchors": [
+        "2. 模板字段",
+        "3. 配置和发布流程"
+      ]
+    },
+    {
+      "id": "ADJ-10-DEC-002",
+      "owner": "RULE",
+      "description": "执行变量类型与来源、必填条件、唯一锚点、依赖、状态、版本、适用性、撤销传播和渲染任务规则。",
+      "sourceAnchors": [
+        "3. 配置和发布流程",
+        "5. 服务契约"
+      ]
+    },
+    {
+      "id": "ADJ-10-DEC-003",
+      "owner": "HUMAN",
+      "description": "配置人员依据中心样例编辑和试验，审核人审核，授权发布人员发布、停用、撤销或归档。",
+      "sourceAnchors": [
+        "3. 配置和发布流程",
+        "5. 服务契约"
+      ]
+    },
+    {
+      "id": "ADJ-10-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心确认模板目录、用途、字段、格式、样例、字体授权、角色和正式签发字段。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-10-AC-001",
+      "given": [
+        "内部报告与正式文书用途及未确认草稿结构"
+      ],
+      "when": "新建模板",
+      "then": [
+        "用途和类型明确分离",
+        "未确认结构不标称法定模板",
+        "范围不扩展为通用排版平台"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST-001",
+        "ADJ-10-MUST_NOT-001",
+        "ADJ-10-MUST-002"
+      ]
+    },
+    {
+      "id": "ADJ-10-AC-002",
+      "given": [
+        "中心字段目录和结构样例"
+      ],
+      "when": "保存模板草稿",
+      "then": [
+        "字段与来源完整",
+        "章节 ID 稳定",
+        "三种内容方式显式区分"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST-003",
+        "ADJ-10-MUST-004",
+        "ADJ-10-MUST-005"
+      ]
+    },
+    {
+      "id": "ADJ-10-AC-003",
+      "given": [
+        "未定义变量、重复锚点、循环条件、缺失依赖和脚本查询"
+      ],
+      "when": "校验并提交审核",
+      "then": [
+        "逐项返回错误",
+        "阻止进入发布",
+        "不执行不安全内容"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST-004",
+        "ADJ-10-MUST_NOT-002",
+        "ADJ-10-MUST-006"
+      ]
+    },
+    {
+      "id": "ADJ-10-AC-004",
+      "given": [
+        "脱敏长文本、表格、图样、分页和缺项样例"
+      ],
+      "when": "试生成 DOCX/PDF",
+      "then": [
+        "受控预览可核对",
+        "失败定位章节依赖",
+        "预览不成为正式案件报告"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST-007",
+        "ADJ-10-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ADJ-10-AC-005",
+      "given": [
+        "已发布模板和基于它生成的历史报告"
+      ],
+      "when": "修改并发布新版",
+      "then": [
+        "原版本不可改写",
+        "新草稿重新审核发布",
+        "历史报告仍引用原版本"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST-008",
+        "ADJ-10-MUST-010"
+      ]
+    },
+    {
+      "id": "ADJ-10-AC-006",
+      "given": [
+        "普通停用、紧急撤销、归档和回滚操作"
+      ],
+      "when": "改变模板可用性",
+      "then": [
+        "新任务与在途任务行为分开",
+        "受影响草稿待复核",
+        "历史版本和审核关系保留"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST-009",
+        "ADJ-10-MUST-010",
+        "ADJ-10-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ADJ-10-AC-007",
+      "given": [
+        "重复写入、版本冲突、缺字体、渲染故障和不适用模板"
+      ],
+      "when": "调用各模板服务",
+      "then": [
+        "幂等与冲突正确",
+        "错误类别和 request_id 明确",
+        "运行只读取固定发布版本"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST-013"
+      ]
+    },
+    {
+      "id": "ADJ-10-AC-008",
+      "given": [
+        "编辑、审核、发布角色及权限撤回"
+      ],
+      "when": "执行状态操作",
+      "then": [
+        "后端实时鉴权",
+        "职责分离按确认规则执行",
+        "隐藏按钮不替代权限"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST-012"
+      ]
+    },
+    {
+      "id": "ADJ-10-AC-009",
+      "given": [
+        "含脚本宏外链的附件及要求生成签章文号的输入"
+      ],
+      "when": "校验或试生成",
+      "then": [
+        "危险指令不执行",
+        "模型不生成正式签章文号",
+        "不触发签发"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST_NOT-002",
+        "ADJ-10-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ADJ-10-AC-011",
+      "given": [
+        "真实 DM8 与目标国产渲染环境"
+      ],
+      "when": "保存长模板并渲染 DOCX/PDF",
+      "then": [
+        "唯一约束和事务正确",
+        "中文字体版式按样例",
+        "不依赖 Office、外部 SaaS 或未授权资源"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST-016",
+        "ADJ-10-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ADJ-10-AC-012",
+      "given": [
+        "功能交付检查"
+      ],
+      "when": "核对验收材料",
+      "then": [
+        "模板与全部环境版本、预期实际、API、页面和文件对照齐全",
+        "网页或非目标环境不替代正式格式验收"
+      ],
+      "sourceClauseIds": [
+        "ADJ-10-MUST_NOT-003"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-10-OQ-001",
+      "type": "business_semantics",
+      "question": "首批中心认可的案件类型、报告用途、模板章节、条件必填、字段目录和正式签发字段是什么？",
+      "blocks": [
+        "ARC-04",
+        "模板正式设计",
+        "MVP-ADJ"
+      ]
+    },
+    {
+      "id": "ADJ-10-OQ-002",
+      "type": "format",
+      "question": "中心 DOCX/PDF 样例、标题段落页眉页脚页码、图表规则、字体及授权是什么？",
+      "blocks": [
+        "ARC-08",
+        "SPK-12",
+        "格式验收"
+      ]
+    },
+    {
+      "id": "ADJ-10-OQ-003",
+      "type": "authorization",
+      "question": "编辑、审核、发布、停用、紧急撤销、归档和历史读取角色及职责分离如何定义？",
+      "blocks": [
+        "ARC-06",
+        "模板生命周期实现"
+      ]
+    },
+    {
+      "id": "ADJ-10-OQ-004",
+      "type": "integration",
+      "question": "案件、引用、解析、证据、复核字段的稳定接口和版本，以及文件与渲染服务契约是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "SPK-12"
+      ]
+    },
+    {
+      "id": "ADJ-10-OQ-005",
+      "type": "environment",
+      "question": "DM8、JDK、CPU、操作系统、渲染器和文件存储的目标组合及预览规模是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "SPK-12",
+        "真实验证"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-10-DD-001",
+      "decision": "Template 领域拥有模板结构与版本，Review 管理审核，File/Render 提供受控资源与渲染；Agent 仅编排试生成和发布流程。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-10-DD-002",
+      "decision": "模板生命周期状态与异步预览任务状态分离，紧急撤销作为发布版本的可用性事件传播。",
+      "basis": "原文分别定义模板状态、试生成任务和撤销行为。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-10-DD-003",
+      "decision": "具体模板 DSL、REST 路径、DOCX 库、字体、文件格式和 DM8 类型延后至 D 门禁与 Spike。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心样例、授权和目标环境尚未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable adjudication overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Internal analysis templates, formal adjudication document templates, previews and generated case reports remain distinct artifacts.",
+      "Published versions are immutable; normal disable, emergency revocation and archive have different effects.",
+      "No center template, field, condition, style, font, role, renderer or formal signing behavior was guessed."
+    ]
+  }
+}

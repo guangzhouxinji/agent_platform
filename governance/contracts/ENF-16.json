@@ -1,0 +1,620 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-16",
+  "title": "处罚建议生成",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/16-处罚建议生成需求文档.md",
+    "sha256": "6ef4d66074915d72ccb4bb2b94537bdb51b4666e398b32ad6b040ed344606b9e",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "recommendation_logic"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付范围",
+        "2. 数据、身份、权限与审计",
+        "3. 时间、版本与变更",
+        "4. 服务、任务与错误契约",
+        "5. AI、规则与人工边界",
+        "6. 页面验证",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-16-MUST-001",
+      "type": "MUST",
+      "statement": "仅结合固定版本的 ENF-11 分析、ENF-05 证据、ENF-15 规则、ENF-17 引用和经业务确认的事实生成可解释处罚建议供人工审核。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "建议、模型输出、规则计算或审核结果不得冒充正式处罚决定、送达、执行或收缴。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST-002",
+      "type": "MUST",
+      "statement": "生成前固定并校验案件、职权、程序、行为类型、规则及所有事实证据引用版本和权限；缺失与源失败分开。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST-003",
+      "type": "MUST",
+      "statement": "不适用行政处罚时返回有依据的不适用说明，不生成罚款建议。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST-004",
+      "type": "MUST",
+      "statement": "必要事实未经确认或关键证据不足时状态为待补充，列明缺口且不生成确定处罚金额。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "金额输入缺失不得默认按零、历史值或模型估计计算，待确认行为类别不得冒充已确认。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST-005",
+      "type": "MUST",
+      "statement": "确定性规则计算法定范围和可用裁量方案，展示每个因素、证据、公式、口径、单位和逐步结果。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST-006",
+      "type": "MUST",
+      "statement": "规则允许多个合理选择时输出带适用条件的并列方案，不自动选择其中之一。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "模型只可撰写基于计算和证据的解释，不得决定数值、适用性、事实确认、审核或最终处罚。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST-007",
+      "type": "MUST",
+      "statement": "人工调整记录理由、依据、操作者及新版本；越出确认法定范围时阻止确认为有效结果。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST-008",
+      "type": "MUST",
+      "statement": "生成、修订、审核和重跑均保留输入、规则、输出和人工意见版本，旧结果不被覆盖。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-16-MUST-012",
+      "type": "MUST",
+      "statement": "固定专业样例记录输入规则预期实际步骤证据和问题，专业预期由中心确认，未确认不标通过。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-16-AC-009"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "recommendationRequest",
+      "required": true,
+      "rules": [
+        "案件、确认事实、证据、分析、规则和引用固定版本",
+        "幂等键"
+      ]
+    },
+    {
+      "name": "amountInputs",
+      "required": "规则涉及金额时",
+      "rules": [
+        "金额类型、币种、精度、数值和来源"
+      ]
+    },
+    {
+      "name": "manualAction",
+      "required": "修订或审核时",
+      "rules": [
+        "建议版本、调整、理由依据、动作和可信身份"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "recommendation",
+      "fields": [
+        "recommendationId",
+        "version",
+        "caseId",
+        "applicability",
+        "behaviorTypeStatus",
+        "statutoryRange",
+        "conditionalOptions",
+        "calculationSteps",
+        "evidenceCitations",
+        "missingItems",
+        "reviewStatus"
+      ]
+    },
+    {
+      "name": "task",
+      "fields": [
+        "taskId",
+        "status",
+        "progress",
+        "resultVersion",
+        "unprocessedItems",
+        "errors",
+        "requestId"
+      ]
+    },
+    {
+      "name": "auditTrail",
+      "fields": [
+        "inputManifest",
+        "ruleVersion",
+        "modelManifest",
+        "manualRevisions",
+        "reviewEvents"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "generate_or_view",
+      "enforcement": "案件及全部事实证据规则引用的实时权限交集"
+    },
+    {
+      "action": "adjust",
+      "enforcement": "授权专业角色、案件范围和当前建议版本"
+    },
+    {
+      "action": "review",
+      "enforcement": "独立审核角色、状态及机构范围"
+    },
+    {
+      "action": "view_history",
+      "enforcement": "案件及历史输入输出权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "待补充",
+      "kind": "recommendation",
+      "allowedNext": [
+        "待审核"
+      ],
+      "invariant": "必要事实证据补齐前不得确认"
+    },
+    {
+      "name": "待审核",
+      "kind": "recommendation",
+      "allowedNext": [
+        "已确认",
+        "退回"
+      ]
+    },
+    {
+      "name": "退回",
+      "kind": "recommendation",
+      "allowedNext": [
+        "待审核"
+      ]
+    },
+    {
+      "name": "已确认",
+      "kind": "recommendation",
+      "allowedNext": [],
+      "invariant": "不等于正式处罚决定"
+    },
+    {
+      "name": "不适用",
+      "kind": "recommendation",
+      "allowedNext": []
+    },
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "每次运行冻结案件事实、证据、分析、规则、引用、金额输入和模型提示词版本。",
+    "规则计算、模型解释、人工调整、审核和正式决定分离保存。",
+    "重跑生成新建议版本，不覆盖旧输入输出和意见。",
+    "建议状态、任务状态和权威处罚状态分离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "not_applicable",
+      "result": "返回依据说明且不生成罚款建议"
+    },
+    {
+      "case": "missing_confirmed_fact_or_evidence",
+      "result": "返回待补充且不生成确定金额"
+    },
+    {
+      "case": "missing_amount",
+      "result": "返回缺口，不按零计算"
+    },
+    {
+      "case": "out_of_statutory_range",
+      "result": "阻止确认人工调整并说明范围依据"
+    },
+    {
+      "case": "source_or_rule_failure",
+      "result": "返回明确失败，不伪装不适用或无处罚"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前版本"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露案件建议证据"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-16-DEC-001",
+      "owner": "AI",
+      "description": "仅撰写基于固定计算证据的解释和草稿，不决定数值、适用性或最终处罚。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-16-DEC-002",
+      "owner": "RULE",
+      "description": "执行职权程序适用性、确定性公式、法定边界、状态和权限校验。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-16-DEC-003",
+      "owner": "HUMAN",
+      "description": "确认事实情节、选择条件方案、说明调整并审核建议。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-16-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "提供权威案件事实、职权程序和正式处罚决定执行状态。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "8. 联调前需确认的条件"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-16-AC-001",
+      "given": [
+        "确认事实证据规则"
+      ],
+      "when": "生成建议",
+      "then": [
+        "输出供人工审核建议",
+        "不冒充处罚决定执行"
+      ],
+      "sourceClauseIds": [
+        "ENF-16-MUST-001",
+        "ENF-16-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-16-AC-002",
+      "given": [
+        "版本缺失源失败无权"
+      ],
+      "when": "准备生成",
+      "then": [
+        "逐类返回错误",
+        "不猜来源事实"
+      ],
+      "sourceClauseIds": [
+        "ENF-16-MUST-002"
+      ]
+    },
+    {
+      "id": "ENF-16-AC-003",
+      "given": [
+        "不适用行政处罚样例"
+      ],
+      "when": "生成",
+      "then": [
+        "返回不适用说明",
+        "无罚款建议"
+      ],
+      "sourceClauseIds": [
+        "ENF-16-MUST-003"
+      ]
+    },
+    {
+      "id": "ENF-16-AC-004",
+      "given": [
+        "必要事实证据或金额缺失"
+      ],
+      "when": "生成",
+      "then": [
+        "状态待补充",
+        "不按零或估计生成金额"
+      ],
+      "sourceClauseIds": [
+        "ENF-16-MUST-004",
+        "ENF-16-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-16-AC-005",
+      "given": [
+        "固定输入规则及多个可选方案"
+      ],
+      "when": "重复计算",
+      "then": [
+        "步骤金额一致",
+        "条件方案并列",
+        "模型不决定数值"
+      ],
+      "sourceClauseIds": [
+        "ENF-16-MUST-005",
+        "ENF-16-MUST-006",
+        "ENF-16-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ENF-16-AC-006",
+      "given": [
+        "人工调整越界及重跑"
+      ],
+      "when": "保存确认",
+      "then": [
+        "越界阻止",
+        "理由版本完整且旧结果保留"
+      ],
+      "sourceClauseIds": [
+        "ENF-16-MUST-007",
+        "ENF-16-MUST-008"
+      ]
+    },
+    {
+      "id": "ENF-16-AC-009",
+      "given": [
+        "中心固定专业样例"
+      ],
+      "when": "业务验收",
+      "then": [
+        "事实步骤预期实际证据齐全",
+        "未确认不标通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-16-MUST-012"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-16-OQ-001",
+      "type": "business_semantics",
+      "question": "职权程序、行为类型、必要事实、证据要求和中心确认流程是什么？",
+      "blocks": [
+        "ARC-04",
+        "建议实现"
+      ]
+    },
+    {
+      "id": "ENF-16-OQ-002",
+      "type": "calculation",
+      "question": "金额及情节口径、规则版本和法定边界如何提供？",
+      "blocks": [
+        "ARC-05",
+        "SPK-06"
+      ]
+    },
+    {
+      "id": "ENF-16-OQ-003",
+      "type": "authorization",
+      "question": "生成、事实确认、调整、审核和历史查看角色是什么？",
+      "blocks": [
+        "ARC-06"
+      ]
+    },
+    {
+      "id": "ENF-16-OQ-004",
+      "type": "integration",
+      "question": "案件分析证据规则引用及权威处罚系统的稳定接口是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03"
+      ]
+    },
+    {
+      "id": "ENF-16-OQ-005",
+      "type": "validation",
+      "question": "中心确认的计算、缺口、不适用和越界专家样例是什么？",
+      "blocks": [
+        "REL-03",
+        "SPK-06"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-16-DD-001",
+      "decision": "Penalty Recommendation 编排固定事实与规则计算；AI 解释、Rule 计算、Human 审核、Authority 决定分离。",
+      "basis": "原文明确四方边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-16-DD-002",
+      "decision": "条件化方案与最终选择分离，越界调整由确定性规则阻断。",
+      "basis": "原文多方案和法定范围要求。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-16-DD-003",
+      "decision": "具体金额情节、API、角色、样例和 DM8 类型延后至 D 门。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心条件未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Recommendation, human confirmation and formal penalty decision remain separate.",
+      "No amount, factor, formula, threshold, role or final penalty behavior was guessed."
+    ]
+  }
+}

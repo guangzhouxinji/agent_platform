@@ -1,0 +1,355 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-16 03:01:53 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 4425,
+      "documents": [
+        {
+          "docId": "CN-104900909-A",
+          "metadata": {
+            "pd": "20150909",
+            "pn": "CN-104900909-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery with inorganic isolation layers, and method and device for manufacturing lithium ion battery"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZHOU HU"
+        },
+        {
+          "docId": "EP-3044822-B1",
+          "metadata": {
+            "pd": "20180613",
+            "pn": "EP-3044822-B1",
+            "titles": [
+              {
+                "lang": "de",
+                "titles": [
+                  "KATHODENAUFSCHLÄMMUNG AUF WASSERBASIS FÜR EINE LITHIUM-IONEN-BATTERIE"
+                ]
+              },
+              {
+                "lang": "en",
+                "titles": [
+                  "WATER-BASED CATHODE SLURRY FOR A LITHIUM ION BATTERY"
+                ]
+              },
+              {
+                "lang": "fr",
+                "titles": [
+                  "SUSPENSION AQUEUSE ÉPAISSE DE CATHODE POUR BATTERIE AU LITHIUM-ION"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/EP3044822B1"
+          },
+          "pa": "UMICORE NV"
+        },
+        {
+          "docId": "CN-110165124-B",
+          "metadata": {
+            "pd": "20220222",
+            "pn": "CN-110165124-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Double-coating diaphragm applied to lithium-selenium disulfide battery and preparation method and application thereof"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种应用于锂-二硫化硒电池的双涂层隔膜及其制备方法和应用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SOUTH CHINA NORMAL UNIVERSITY"
+        },
+        {
+          "docId": "US-20160218356-A1",
+          "metadata": {
+            "pd": "20160728",
+            "pn": "US-20160218356-A1",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Water-Based Cathode Slurry for a Lithium Ion Battery"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US20160218356A1"
+          },
+          "pa": "UMICORE NV"
+        },
+        {
+          "docId": "EP-3044822-A2",
+          "metadata": {
+            "pd": "20160720",
+            "pn": "EP-3044822-A2",
+            "titles": [
+              {
+                "lang": "de",
+                "titles": [
+                  "KATHODENAUFSCHLÄMMUNG AUF WASSERBASIS FÜR EINE LITHIUM-IONEN-BATTERIE"
+                ]
+              },
+              {
+                "lang": "en",
+                "titles": [
+                  "WATER-BASED CATHODE SLURRY FOR A LITHIUM ION BATTERY"
+                ]
+              },
+              {
+                "lang": "fr",
+                "titles": [
+                  "SUSPENSION AQUEUSE ÉPAISSE DE CATHODE POUR BATTERIE AU LITHIUM-ION"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/EP3044822A2"
+          },
+          "pa": "UMICORE NV"
+        },
+        {
+          "docId": "WO-2015036882-A2",
+          "metadata": {
+            "pd": "20150319",
+            "pn": "WO-2015036882-A2",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "WATER-BASED CATHODE SLURRY FOR A LITHIUM ION BATTERY"
+                ]
+              },
+              {
+                "lang": "fr",
+                "titles": [
+                  "SUSPENSION AQUEUSE ÉPAISSE DE CATHODE POUR BATTERIE AU LITHIUM-ION"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/WO2015036882A2"
+          },
+          "pa": "UMICORE NV"
+        },
+        {
+          "docId": "US-20130157136-A1",
+          "metadata": {
+            "pd": "20130620",
+            "pn": "US-20130157136-A1",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "COATING OF DISORDERED CARBON ACTIVE MATERIAL USING WATER-BASED BINDER SLURRY"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US20130157136A1"
+          },
+          "pa": "BALICKI MARK"
+        },
+        {
+          "docId": "CN-117613274-A",
+          "metadata": {
+            "pd": "20240227",
+            "pn": "CN-117613274-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Soft package battery assembling method using aqueous binder"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种使用水性粘结剂的软包电池组装方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HANGZHOU BOLING TAIWEI TECH CO LTD"
+        },
+        {
+          "docId": "CN-113178547-A",
+          "metadata": {
+            "pd": "20210727",
+            "pn": "CN-113178547-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Preparation method of high-safety inorganic diaphragm composite electrode and composite electrode prepared by same"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "高安全型无机隔膜复合电极制备方法及其制得的复合电极"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "WUHAN LIXING TORCH POWER SOURCES CO LTD"
+        },
+        {
+          "docId": "CN-108767259-B",
+          "metadata": {
+            "pd": "20211231",
+            "pn": "CN-108767259-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Water-based binder for lithium ion battery and preparation method thereof"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于锂离子电池的水性粘结剂及其制备方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUKOU NEW MATERIALS COLLABORATIVE INNOVATION CENTER"
+        },
+        {
+          "docId": "CN-120365880-A",
+          "metadata": {
+            "pd": "20250725",
+            "pn": "CN-120365880-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Sodium carboxymethyl cellulose derivative water-based binder containing carbamate structural unit, and preparation method and application thereof"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种含有氨基甲酸酯结构单元的羧甲基纤维素钠衍生物类水系粘结剂及其制备方法和应用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV CHINA GEOSCIENCES WUHAN"
+        },
+        {
+          "docId": "CN-110931714-A",
+          "metadata": {
+            "pd": "20200327",
+            "pn": "CN-110931714-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Preparation and application of PEO-based film coated silicon-carbon electrode"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种PEO基薄膜包覆的硅碳电极的制备与应用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "INST PROCESS ENG CAS"
+        },
+        {
+          "docId": "CN-116487539-A",
+          "metadata": {
+            "pd": "20230725",
+            "pn": "CN-116487539-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Cathode/ceramic diaphragm integrated electrode and preparation method and application thereof"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种负极/陶瓷隔膜一体化电极及其制备方法和应用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "XIAN ALUMINUM ELECTRICITY TECH DEVELOPMENT CO LTD"
+        },
+        {
+          "docId": "CN-118813174-A",
+          "metadata": {
+            "pd": "20241022",
+            "pn": "CN-118813174-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Water-based binder for lithium ion battery and preparation method and application thereof"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于锂离子电池的水系粘结剂及其制备方法和应用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SATELLITE CHEMICAL S A"
+        },
+        {
+          "docId": "CN-109664573-B",
+          "metadata": {
+            "pd": "20200717",
+            "pn": "CN-109664573-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Printable high-strength solid medicinal cold stamping forming composite hard sheet"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种可印刷的高强度固体药用冷冲压成型复合硬片"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHANGZHOU HUAJIAN PHARMACEUTICAL PACKAGING MATERIALS Co.,Ltd."
+        }
+      ],
+      "query": "(coating AND \"water-based binder\" AND drying)"
+    },
+    "query": ""
+  }
+}

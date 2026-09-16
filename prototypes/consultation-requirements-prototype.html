@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>知识产权咨询助手 - 需求理解原型</title>
+  <style>
+    :root { --ink:#17212b; --muted:#64707d; --line:#dbe1e6; --surface:#ffffff; --canvas:#f4f6f8; --nav:#17212b; --nav-muted:#9eabb7; --blue:#1369ce; --blue-soft:#e9f2ff; --teal:#087e7a; --teal-soft:#e7f6f4; --amber:#a65d00; --amber-soft:#fff3df; --red:#bd3d3d; --red-soft:#fff0f0; --purple:#6b4ec7; --radius:6px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:14px/1.45 "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; color:var(--ink); background:var(--canvas); }
+    button, input, select, textarea { font:inherit; }
+    button { cursor:pointer; }
+    .shell { min-height:100vh; display:grid; grid-template-columns:244px minmax(0,1fr); }
+    .sidebar { background:var(--nav); color:#fff; padding:18px 12px; display:flex; flex-direction:column; gap:20px; }
+    .brand { padding:4px 10px 14px; border-bottom:1px solid #34414e; }
+    .brand strong { display:block; font-size:16px; }
+    .brand span { color:var(--nav-muted); font-size:12px; }
+    .nav-label { color:var(--nav-muted); font-size:11px; padding:0 10px; margin:4px 0; }
+    .module-nav { display:grid; gap:3px; }
+    .module-nav button { border:0; text-align:left; color:#dbe3ea; background:transparent; padding:9px 10px; border-radius:4px; display:flex; gap:9px; align-items:center; }
+    .module-nav button:hover, .module-nav button.active { background:#2b3b4a; color:#fff; }
+    .module-nav .code { color:#8bbdf0; min-width:42px; font:11px Consolas, monospace; }
+    .scope { margin-top:auto; border-top:1px solid #34414e; padding:14px 10px 0; color:var(--nav-muted); font-size:12px; }
+    .scope b { color:#ffd58f; display:block; margin-bottom:4px; font-weight:600; }
+    .app { min-width:0; }
+    .topbar { height:68px; background:var(--surface); border-bottom:1px solid var(--line); padding:0 28px; display:flex; justify-content:space-between; align-items:center; gap:18px; }
+    .crumb { color:var(--muted); font-size:12px; }
+    .crumb b { color:var(--ink); font-weight:600; }
+    .top-actions { display:flex; gap:8px; align-items:center; }
+    .button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:4px; padding:7px 12px; white-space:nowrap; }
+    .button.primary { border-color:var(--blue); background:var(--blue); color:#fff; }
+    .button.warn { color:var(--amber); border-color:#efc980; background:#fffaf0; }
+    .main { padding:24px 28px 36px; max-width:1600px; margin:auto; }
+    .view { display:none; }
+    .view.active { display:block; }
+    .page-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:16px; margin-bottom:18px; }
+    h1 { margin:0; font-size:24px; line-height:1.25; font-weight:650; }
+    h2 { margin:0; font-size:16px; font-weight:650; }
+    h3 { margin:0; font-size:14px; font-weight:650; }
+    p { margin:0; }
+    .subtle { color:var(--muted); margin-top:4px; }
+    .chip { display:inline-flex; align-items:center; border-radius:999px; padding:3px 8px; font-size:12px; white-space:nowrap; }
+    .chip.blue { color:#0d5eae; background:var(--blue-soft); } .chip.teal { color:#056a67; background:var(--teal-soft); } .chip.amber { color:#945200; background:var(--amber-soft); } .chip.red { color:#a52e2e; background:var(--red-soft); } .chip.gray { color:#53616c; background:#edf0f2; }
+    .notice { display:flex; gap:12px; align-items:flex-start; border:1px solid #eacb88; border-left:4px solid var(--amber); background:#fffaf0; padding:12px 14px; margin-bottom:18px; }
+    .notice b { font-size:13px; } .notice p { color:#765c35; font-size:13px; margin-top:2px; }
+    .grid { display:grid; gap:14px; } .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); } .grid.three { grid-template-columns:repeat(3,minmax(0,1fr)); } .grid.aside { grid-template-columns:minmax(0,1fr) 330px; }
+    .panel { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:16px; min-width:0; }
+    .panel-head { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:14px; }
+    .stat { min-height:110px; display:flex; flex-direction:column; justify-content:space-between; }
+    .stat b { font-size:28px; line-height:1; } .stat span { color:var(--muted); font-size:12px; }
+    .module-map { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+    .module-map article { padding:14px; border-right:1px solid var(--line); min-height:150px; } .module-map article:last-child { border:0; }
+    .module-map .stage { color:var(--blue); font:11px Consolas, monospace; } .module-map h3 { margin:7px 0 5px; } .module-map p { color:var(--muted); font-size:13px; }
+    .flow { display:flex; gap:0; overflow-x:auto; padding:3px 0; } .flow article { flex:0 0 180px; border:1px solid var(--line); padding:11px; background:#fff; } .flow article:first-child { border-radius:5px 0 0 5px; } .flow article:last-child { border-radius:0 5px 5px 0; } .flow .arrow { display:flex; align-items:center; color:var(--muted); padding:0 6px; }
+    .flow small { color:var(--muted); display:block; margin-top:4px; }
+    .table-wrap { overflow:auto; border:1px solid var(--line); border-radius:var(--radius); } table { border-collapse:collapse; width:100%; min-width:720px; } th { background:#f7f9fa; color:#52606b; font-size:12px; text-align:left; font-weight:600; } th, td { padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; } tr:last-child td { border-bottom:0; } td { font-size:13px; } .linkish { color:var(--blue); font-weight:600; cursor:pointer; }
+    .filters { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)) auto; gap:10px; align-items:end; margin-bottom:14px; } label { color:#52606b; font-size:12px; display:grid; gap:5px; } input, select, textarea { width:100%; border:1px solid #cbd4dc; border-radius:4px; padding:8px; color:var(--ink); background:#fff; } textarea { resize:vertical; }
+    .detail { display:grid; grid-template-columns:200px minmax(0,1fr); gap:16px; } .detail-nav { display:grid; gap:4px; align-content:start; } .detail-nav button { border:0; text-align:left; padding:9px 10px; background:transparent; color:#4f5e69; border-radius:4px; } .detail-nav button.active { background:var(--blue-soft); color:#075da8; font-weight:600; }
+    .kv { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 18px; } .kv div { padding:10px 0; border-bottom:1px solid var(--line); } .kv dt { color:var(--muted); font-size:12px; } .kv dd { margin:3px 0 0; }
+    .history { display:grid; gap:0; } .history article { padding:12px 0 12px 16px; border-left:2px solid #c6d7ec; position:relative; } .history article:before { content:""; width:8px; height:8px; background:var(--blue); border-radius:50%; position:absolute; left:-5px; top:17px; } .history time { color:var(--muted); font-size:12px; }
+    .search-layout { display:grid; grid-template-columns:300px minmax(0,1fr); gap:14px; } .form-stack { display:grid; gap:11px; } .fieldset { border:0; padding:0; margin:0; display:grid; gap:7px; } .checks { display:flex; flex-wrap:wrap; gap:8px; } .checks label { display:flex; align-items:center; gap:5px; color:var(--ink); border:1px solid var(--line); padding:5px 7px; border-radius:4px; } .checks input { width:auto; }
+    .candidate { border:1px solid var(--line); border-radius:var(--radius); padding:13px; display:grid; grid-template-columns:76px minmax(0,1fr) auto; gap:12px; align-items:start; margin-bottom:10px; } .mark { width:68px; height:68px; border:1px solid #aebbc5; border-radius:4px; display:grid; place-items:center; color:var(--purple); font-size:27px; font-weight:700; background:linear-gradient(135deg,#fafbff,#eef2ff); } .candidate p { color:var(--muted); font-size:12px; margin-top:4px; } .score { color:#086967; font-size:20px; font-weight:650; text-align:right; } .score span { display:block; color:var(--muted); font-size:11px; font-weight:400; }
+    .steps { display:flex; gap:0; border-bottom:1px solid var(--line); margin-bottom:16px; overflow:auto; } .steps button { border:0; background:transparent; color:var(--muted); padding:9px 12px; border-bottom:2px solid transparent; white-space:nowrap; } .steps button.active { color:var(--blue); border-color:var(--blue); font-weight:600; }
+    .compare { display:grid; grid-template-columns:1fr 1fr; gap:12px; } .compare .side { border:1px solid var(--line); border-radius:var(--radius); padding:13px; } .feature { padding:9px 0; border-bottom:1px dashed var(--line); } .feature:last-child { border:0; } .feature strong { display:block; font-size:12px; color:var(--muted); margin-bottom:3px; }
+    .conversation { display:grid; gap:11px; } .bubble { max-width:80%; padding:11px 13px; border-radius:6px; border:1px solid var(--line); background:#fff; } .bubble.user { margin-left:auto; background:var(--blue-soft); border-color:#c7def8; } .bubble .role { color:var(--muted); font-size:11px; margin-bottom:4px; } .citation { margin-top:8px; color:#0667b8; font-size:12px; }
+    .config-tabs { display:flex; gap:5px; border-bottom:1px solid var(--line); margin-bottom:14px; overflow:auto; } .config-tabs button { border:0; background:transparent; padding:9px 10px; color:var(--muted); white-space:nowrap; border-bottom:2px solid transparent; } .config-tabs button.active { border-color:var(--purple); color:var(--purple); font-weight:600; }
+    .config-card { border:1px solid var(--line); border-radius:var(--radius); padding:13px; margin-bottom:10px; } .config-card .row { display:flex; justify-content:space-between; gap:12px; align-items:center; } .config-card p { color:var(--muted); font-size:12px; margin-top:5px; }
+    .empty-note { text-align:center; color:var(--muted); padding:28px; border:1px dashed #c8d2db; border-radius:var(--radius); }
+    .prototype-note { color:var(--muted); font-size:12px; margin-top:12px; }
+    @media (max-width:1050px) { .shell { grid-template-columns:190px minmax(0,1fr); } .main { padding:20px; } .module-map { grid-template-columns:repeat(2,minmax(0,1fr)); } .module-map article:nth-child(2) { border-right:0; } .module-map article:nth-child(-n+2) { border-bottom:1px solid var(--line); } .grid.three { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:760px) { .shell { display:block; } .sidebar { min-height:auto; padding:12px; } .module-nav { grid-template-columns:repeat(2,minmax(0,1fr)); } .module-nav button { font-size:12px; } .scope { display:none; } .topbar { padding:0 14px; } .main { padding:16px 12px 28px; } .top-actions .button:not(.primary) { display:none; } .grid.two, .grid.three, .grid.aside, .search-layout, .compare { grid-template-columns:1fr; } .module-map { grid-template-columns:1fr; } .module-map article { border-right:0; border-bottom:1px solid var(--line); min-height:auto; } .module-map article:last-child { border-bottom:0; } .filters { grid-template-columns:1fr 1fr; } .filters .button { grid-column:1/-1; } .detail { grid-template-columns:1fr; } .detail-nav { grid-template-columns:repeat(3,minmax(0,1fr)); } .kv { grid-template-columns:1fr; } h1 { font-size:20px; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><strong>知识产权咨询助手</strong><span>需求理解原型 · 内部评审</span></div>
+      <div><div class="nav-label">全景</div><nav class="module-nav"><button class="active" data-view="overview"><span class="code">HOME</span>能力总览</button></nav></div>
+      <div><div class="nav-label">知识资源</div><nav class="module-nav"><button data-view="trademark"><span class="code">CON-01</span>商标库管理</button><button data-view="patent"><span class="code">CON-02</span>专利库管理</button><button data-view="case"><span class="code">CON-03</span>案例库管理</button></nav></div>
+      <div><div class="nav-label">检索与辅助分析</div><nav class="module-nav"><button data-view="patent-search"><span class="code">CON-04</span>专利相似度检索</button><button data-view="trademark-search"><span class="code">CON-05</span>商标相似度检索</button><button data-view="patent-compare"><span class="code">CON-06</span>专利相似度判断</button><button data-view="trademark-compare"><span class="code">CON-07</span>商标相似度判断</button><button data-view="case-search"><span class="code">CON-08</span>相似案例检索</button></nav></div>
+      <div><div class="nav-label">咨询编排</div><nav class="module-nav"><button data-view="agent"><span class="code">CON-09</span>智能体管理</button><button data-view="prompt"><span class="code">CON-10</span>提示词管理</button><button data-view="intent"><span class="code">CON-11</span>意图管理</button><button data-view="flow"><span class="code">CON-12</span>对话流管理</button></nav></div>
+      <div class="scope"><b>仅作原型展示</b>示例记录、分数、状态与引用均为虚构内容，不代表中心数据、专业意见或正式结论。</div>
+    </aside>
+    <div class="app">
+      <header class="topbar"><div class="crumb">知识产权咨询助手 / <b id="page-name">能力总览</b></div><div class="top-actions"><span class="chip amber">需求原型</span><button class="button">查看需求映射</button><button class="button primary" id="demo-action">演示操作</button></div></header>
+      <main class="main">
+        <section class="view active" id="overview">
+          <div class="page-heading"><div><h1>从咨询提问到可追溯辅助意见</h1><p class="subtle">一个入口协调知识资源、检索、比对、案例与多轮对话；正式决定始终保留给授权人员或权威系统。</p></div></div>
+          <div class="notice"><div><b>当前理解边界</b><p>所有页面都展示预期的内部验证体验。真实中心 API、数据授权、角色权限、评分阈值、模型处理范围和人工受理衔接仍待确认，因此不应将页面中的样例操作理解为已实现业务。</p></div></div>
+          <div class="grid three"><article class="panel stat"><span>原需求模块</span><b>12</b><span>各模块独立评审、交付与验收</span></article><article class="panel stat"><span>主要用户路径</span><b>4</b><span>资源查询、相似检索、辅助比对、多轮咨询</span></article><article class="panel stat"><span>必经控制点</span><b>3</b><span>服务端授权、真实来源引用、人工复核/权威回执</span></article></div>
+          <div class="panel" style="margin-top:14px"><div class="panel-head"><h2>能力地图</h2><span class="chip gray">按用户工作面归组</span></div><div class="module-map"><article><span class="stage">01 知识资源</span><h3>商标、专利、案例</h3><p>在授权范围内查询源记录、全文/图样、历史和派生标注，并保留来源与版本。</p></article><article><span class="stage">02 候选发现</span><h3>专利、商标、案例检索</h3><p>建立异步任务，公开实际范围、候选、匹配依据、部分失败和排序版本。</p></article><article><span class="stage">03 辅助比对</span><h3>专利、商标比对</h3><p>把选定对象展开为逐项对照、证据和资料缺口，产出待复核的辅助报告。</p></article><article><span class="stage">04 咨询编排</span><h3>智能体、提示词、意图、对话流</h3><p>以版本化配置管理工具调用，让对话中的对象、引用、任务和上下文可追溯。</p></article></div></div>
+          <div class="grid two" style="margin-top:14px"><article class="panel"><div class="panel-head"><h2>典型闭环：商标咨询</h2><span class="chip blue">跨模块</span></div><div class="flow"><article><b>提出目标</b><small>名称、图样、类别、商品/服务</small></article><span class="arrow">→</span><article><b>相似检索</b><small>文字/图形候选与范围披露</small></article><span class="arrow">→</span><article><b>辅助比对</b><small>多维证据与资料缺口</small></article><span class="arrow">→</span><article><b>对话答复</b><small>引用、复核提示或办理指引</small></article></div></article><article class="panel"><div class="panel-head"><h2>所有工作面共用的约束</h2></div><div class="history"><article><b>中心源只读</b><p class="subtle">本地管理配置、任务、会话、报告和派生标注，不覆盖中心原文。</p></article><article><b>权限按当前状态复查</b><p class="subtle">检索前过滤；读取原文、报告、缓存和附件时再次校验。</p></article><article><b>AI 只给候选或草稿</b><p class="subtle">不得授予权限、编造依据、形成正式审查或法律结论。</p></article></div></article></div>
+        </section>
+
+        <section class="view" id="trademark">
+          <div class="page-heading"><div><h1>商标库管理</h1><p class="subtle">CON-01 · 查询授权商标记录、详情、变更、异议与无效信息。</p></div><span class="chip teal">中心源只读</span></div>
+          <div class="panel"><div class="filters"><label>注册号<input value="" placeholder="例如：12345678"></label><label>商标名称<input value="" placeholder="支持包含查询"></label><label>商品/服务类别<select><option>全部类别</option><option>第 9 类</option><option>第 35 类</option></select></label><label>商标状态<select><option>全部状态</option><option>已注册</option><option>申请中</option></select></label><button class="button primary">查询</button></div><div class="table-wrap"><table><thead><tr><th>商标</th><th>注册号</th><th>类别与商品/服务</th><th>注册人</th><th>状态</th><th>来源更新时间</th></tr></thead><tbody><tr><td><span class="linkish">启明科技</span></td><td>12345678</td><td>第 9 类 · 可下载软件</td><td>示例企业</td><td><span class="chip teal">已注册</span></td><td>2026-08-20</td></tr><tr><td><span class="linkish">QIMING</span></td><td>87654321</td><td>第 35 类 · 广告推广</td><td>示例企业</td><td><span class="chip amber">申请中</span></td><td>2026-08-18</td></tr></tbody></table></div></div>
+          <div class="panel" style="margin-top:14px"><div class="detail"><nav class="detail-nav"><button class="active">基本信息</button><button>商品/服务</button><button>变更记录</button><button>异议信息</button><button>无效信息</button><button>数据来源</button></nav><div><div class="panel-head"><h2>启明科技 · 商标详情</h2><button class="button">重新获取</button></div><dl class="kv"><div><dt>数据源 / 源记录 ID</dt><dd>中心商标库 / TM-DEMO-001</dd></div><div><dt>本次获取时间</dt><dd>2026-09-16 10:30</dd></div><div><dt>核定类别</dt><dd>第 9 类</dd></div><div><dt>类似群</dt><dd>0901、0907</dd></div><div><dt>注册日期</dt><dd>2024-05-12</dd></div><div><dt>有效期至</dt><dd>2034-05-11</dd></div></dl><p class="prototype-note">历史子项是否可用、记录字段与刷新策略均由中心 API 能力决定；缺失时应显示能力状态而非伪造空记录。</p></div></div></div>
+        </section>
+
+        <section class="view" id="patent">
+          <div class="page-heading"><div><h1>专利库管理</h1><p class="subtle">CON-02 · 查询专利记录、全文/权利要求、版本、法律状态与事件。</p></div><span class="chip teal">来源与版本可追溯</span></div>
+          <div class="panel"><div class="filters"><label>申请号 / 公开号<input placeholder="精确或按约定查询"></label><label>标题或申请人<input placeholder="名称包含查询"></label><label>专利类型<select><option>全部类型</option><option>发明</option><option>实用新型</option></select></label><label>申请日<select><option>不限</option><option>近三年</option></select></label><button class="button primary">查询专利</button></div><div class="table-wrap"><table><thead><tr><th>名称</th><th>公开号</th><th>类型</th><th>申请人</th><th>公开日</th><th>全文状态</th></tr></thead><tbody><tr><td><span class="linkish">一种水性涂布工艺</span></td><td>CN-D-2026001</td><td>发明</td><td>示例材料公司</td><td>2026-03-02</td><td><span class="chip teal">可用</span></td></tr><tr><td><span class="linkish">双区烘干装置</span></td><td>CN-D-2026002</td><td>实用新型</td><td>示例设备公司</td><td>2026-01-15</td><td><span class="chip amber">待获取</span></td></tr></tbody></table></div></div>
+          <div class="grid two" style="margin-top:14px"><article class="panel"><div class="panel-head"><h2>文献详情与版本</h2><span class="chip blue">版本 V2026.03</span></div><p class="subtle">详情页展示摘要、权利要求、说明书、附图与来源定位；关键正文缺失时，比对模块必须提示补充，不能以摘要代替。</p><div class="history" style="margin-top:12px"><article><b>2026-03-02 · 源版本获取</b><p class="subtle">记录来源更新时间与本次获取时间。</p></article><article><b>2026-05-10 · 法律状态事件</b><p class="subtle">按源数据展示，不自行推导有效性或权利状态。</p></article></div></article><article class="panel"><div class="panel-head"><h2>可用操作</h2></div><p class="subtle">查看原文、选择具体文献版本、发起相似检索、加入专利比对。每次跳转均携带对象和版本，服务端重新校验访问权限。</p></article></div>
+        </section>
+
+        <section class="view" id="case">
+          <div class="page-heading"><div><h1>案例库管理</h1><p class="subtle">CON-03 · 案例、文书原文、派生标注、审核与发布版本。</p></div><span class="chip teal">原文与派生内容分离</span></div>
+          <div class="grid aside"><div class="panel"><div class="panel-head"><h2>案例查询</h2><button class="button">发起提取任务</button></div><div class="table-wrap"><table><thead><tr><th>案例编号 / 名称</th><th>类型</th><th>核心争议</th><th>原文版本</th><th>标注状态</th></tr></thead><tbody><tr><td><span class="linkish">CASE-DEMO-008</span><br>示例商标争议</td><td>商标</td><td>商品/服务关系</td><td>源 V3</td><td><span class="chip amber">待审核</span></td></tr><tr><td><span class="linkish">CASE-DEMO-014</span><br>示例专利纠纷</td><td>专利</td><td>技术特征对照</td><td>源 V2</td><td><span class="chip teal">已发布</span></td></tr></tbody></table></div></div><aside class="panel"><div class="panel-head"><h2>标注工作流</h2></div><div class="history"><article><b>草稿标注</b><p class="subtle">提取内容与人工补充均保留证据定位。</p></article><article><b>提交审核</b><p class="subtle">无依据内容进入待核实，不能自动发布。</p></article><article><b>发布 / 撤回</b><p class="subtle">原文更新会让相关标注待复核；历史版本仍可追溯。</p></article></div></aside></div>
+        </section>
+
+        <section class="view" id="patent-search">
+          <div class="page-heading"><div><h1>专利相似度检索</h1><p class="subtle">CON-04 · 从技术方案、核心特征或专利号码创建可追溯的候选召回任务。</p></div><span class="chip amber">示例排序，非真实 Recall@K</span></div>
+          <div class="search-layout"><aside class="panel"><form class="form-stack"><label>输入方式<select><option>技术方案</option><option>核心特征</option><option>专利号码</option></select></label><label>技术方案<textarea rows="4">水性粘结剂、双区烘干、在线测厚反馈</textarea></label><label>检索目的<select><option>技术参考</option><option>新颖性辅助准备</option><option>侵权风险辅助准备</option></select></label><label>确认后的检索特征<input value="水性粘结剂，双区烘干"></label><fieldset class="fieldset"><span>专利类型</span><div class="checks"><label><input checked type="checkbox">发明</label><label><input checked type="checkbox">实用新型</label><label><input type="checkbox">外观设计</label></div></fieldset><button class="button primary" type="button">创建检索任务</button></form></aside><div><div class="panel"><div class="panel-head"><div><h2>任务 PS-DEMO-001</h2><p class="subtle">成功 · 实际范围：CN / 发明、实用新型 / 2020-01-01 至今</p></div><span class="chip teal">评分版本: 示例 V1</span></div><div class="notice"><div><b>结果范围披露</b><p>以下是原型候选。生产环境必须披露数据源、索引覆盖、截断、部分失败、文献版本和排序依据。</p></div></div><article class="candidate"><div class="mark">P</div><div><h3>一种水性涂布工艺</h3><p>CN-D-2026001 · 发明 · 公开日 2026-03-02</p><p>匹配片段：水性粘结剂配方与分区干燥步骤。</p></div><div class="score">高相关<span>文字/特征依据</span><button class="button" style="margin-top:8px">加入比对</button></div></article><article class="candidate"><div class="mark">P</div><div><h3>双区烘干装置</h3><p>CN-D-2026002 · 实用新型 · 公开日 2026-01-15</p><p>匹配片段：烘干区温度反馈与在线测厚控制。</p></div><div class="score">相关<span>候选需进一步核对</span><button class="button" style="margin-top:8px">查看原文</button></div></article></div><p class="prototype-note">任务应支持排队、处理中、成功、部分成功、失败、取消；重复提交、取消、重试和关闭页面后的服务端执行均受异步任务契约约束。</p></div></div>
+        </section>
+
+        <section class="view" id="trademark-search">
+          <div class="page-heading"><div><h1>商标相似度检索</h1><p class="subtle">CON-05 · 面向文字、图形或组合商标的候选召回；相关度不等于法律近似或注册成功率。</p></div><span class="chip amber">图形能力待上游确认</span></div>
+          <div class="search-layout"><aside class="panel"><form class="form-stack"><label>目标商标名称<input value="启明科技"></label><label>图样<input type="file" accept=".jpg,.jpeg,.png"></label><label>商品/服务类别<input value="第 9 类 · 可下载软件"></label><label>检索维度<select><option>文字 + 读音 + 含义</option><option>图形</option><option>组合</option></select></label><fieldset class="fieldset"><span>检索范围</span><div class="checks"><label><input checked type="checkbox">已注册</label><label><input type="checkbox">申请中</label><label><input type="checkbox">跨类别扩展</label></div></fieldset><button class="button primary" type="button">开始检索</button></form></aside><div class="panel"><div class="panel-head"><div><h2>候选结果</h2><p class="subtle">文字维度已分析 · 图形维度：未配置，未纳入结果</p></div><span class="chip blue">20 / 页</span></div><article class="candidate"><div class="mark">启</div><div><h3>启明科技</h3><p>注册号 12345678 · 第 9 类 · 已注册</p><p>匹配依据：文字构成与读音候选相近；商品/服务范围仅为当前用户选择。</p></div><div class="score">高相关<span>文字：已分析<br>图形：未分析</span><button class="button" style="margin-top:8px">选择比对</button></div></article><article class="candidate"><div class="mark">明</div><div><h3>启明智联</h3><p>注册号 99887766 · 第 42 类 · 已注册</p><p>匹配依据：名称部分相同；跨类别关系尚未分析。</p></div><div class="score">待复核<span>范围差异已披露</span></div></article></div></div>
+        </section>
+
+        <section class="view" id="patent-compare">
+          <div class="page-heading"><div><h1>专利相似度判断</h1><p class="subtle">CON-06 · 对目标技术方案/专利和选定文献做逐项技术特征对照，形成辅助报告。</p></div><span class="chip red">不形成新颖性或侵权结论</span></div>
+          <div class="panel"><div class="steps"><button class="active">1. 选择对象与版本</button><button>2. 确认技术特征</button><button>3. 执行逐项对照</button><button>4. 查看报告与复核</button></div><div class="grid two"><div><label>分析目的<select><option>技术相似辅助比对</option><option>新颖性辅助分析</option><option>权利要求与产品/技术方案对照</option></select></label><label style="margin-top:10px">目标技术方案<textarea rows="4">水性粘结剂、双区烘干、在线测厚反馈</textarea></label></div><div><label>选定对比文献<select><option>CN-D-2026001 · 一种水性涂布工艺 · V2026.03</option></select></label><label style="margin-top:10px">相关日期与地域<input placeholder="涉及法律问题时必须确认"></label></div></div></div>
+          <div class="compare" style="margin-top:14px"><article class="panel"><div class="panel-head"><h2>目标特征</h2><span class="chip blue">用户可修订</span></div><div class="feature"><strong>F-01</strong>水性粘结剂配方</div><div class="feature"><strong>F-02</strong>双区烘干流程</div><div class="feature"><strong>F-03</strong>在线测厚反馈控制</div></article><article class="panel"><div class="panel-head"><h2>对照与证据</h2><span class="chip amber">辅助结果</span></div><div class="feature"><strong>F-01 · 对应</strong>权利要求 1，第 2 段</div><div class="feature"><strong>F-02 · 部分对应</strong>说明书第 15 段；工艺参数尚待核验</div><div class="feature"><strong>F-03 · 无法判断</strong>当前文献版本未取得完整控制逻辑</div></article></div><div class="panel" style="margin-top:14px"><div class="panel-head"><h2>报告与人工复核</h2><span class="chip amber">未复核</span></div><p class="subtle">报告分开呈现事实、技术对照、资料缺口和需适用法律的问题。人工复核意见形成独立留痕，不覆盖系统原始输出。</p></div>
+        </section>
+
+        <section class="view" id="trademark-compare">
+          <div class="page-heading"><div><h1>商标相似度判断</h1><p class="subtle">CON-07 · 对目标与候选商标的文字、读音、含义、图形、整体视觉及商品/服务关系作辅助比对。</p></div><span class="chip red">辅助意见，待专业复核</span></div>
+          <div class="grid two"><article class="panel"><div class="panel-head"><h2>对象与资料完整性</h2><span class="chip amber">缺少图样</span></div><dl class="kv"><div><dt>目标</dt><dd>启明科技 · 第 9 类</dd></div><div><dt>候选</dt><dd>启明智联 · 第 42 类</dd></div><div><dt>分析目的</dt><dd>拟申请前的辅助参考</dd></div><div><dt>标准与分类版本</dt><dd>待中心确认</dd></div></dl><p class="prototype-note">没有图样时，图形与整体视觉维度必须显示“材料不足”，而不是输出完整意见。</p></article><article class="panel"><div class="panel-head"><h2>维度意见</h2><span class="chip blue">报告 V1</span></div><div class="feature"><strong>文字 · 已分析</strong>首字与组成部分存在相同元素；保留可观察差异。</div><div class="feature"><strong>读音 · 待确认</strong>外文读法和多音字未确认。</div><div class="feature"><strong>图形 / 整体视觉 · 材料不足</strong>未取得可访问图样，不能生成该维度意见。</div><div class="feature"><strong>商品/服务关系 · 待依据</strong>类别不同不自动排除关联；需说明项目、类似群和标准版本。</div></article></div><div class="notice" style="margin-top:14px"><div><b>综合辅助意见的表达方式</b><p>只可呈现“存在需重点复核的相似因素”“已分析维度差异较明显”或“材料不足，无法形成综合意见”等，并给出依据和缺口，不以简单阈值生成法律结论。</p></div></div>
+        </section>
+
+        <section class="view" id="case-search">
+          <div class="page-heading"><div><h1>相似案例检索</h1><p class="subtle">CON-08 · 以争议要点、事实或法律问题查找可访问案例，并区分原文、参考点和差异。</p></div><span class="chip teal">来源可定位</span></div>
+          <div class="panel"><div class="filters"><label>咨询问题 / 争议要点<input value="商品服务相似关系"></label><label>知识产权类型<select><option>商标</option><option>专利</option></select></label><label>时间范围<select><option>不限</option><option>近五年</option></select></label><label>来源范围<select><option>授权案例库</option></select></label><button class="button primary">检索案例</button></div><div class="table-wrap"><table><thead><tr><th>案例</th><th>相似参考点</th><th>重要差异</th><th>原文与版本</th><th>操作</th></tr></thead><tbody><tr><td>CASE-DEMO-008<br>示例商标争议</td><td>商品/服务项目的实际关系</td><td>目标商品类别不同</td><td>源 V3 · 第 12 段</td><td><button class="button">加入咨询引用</button></td></tr><tr><td>CASE-DEMO-011<br>示例行政处理</td><td>类似群及使用场景</td><td>处理机关与程序不同</td><td>源 V1 · 第 8 段</td><td><button class="button">查看原文</button></td></tr></tbody></table></div></div>
+        </section>
+
+        <section class="view" id="agent">
+          <div class="page-heading"><div><h1>知识产权咨询智能体管理</h1><p class="subtle">CON-09 · 管理咨询入口的场景、可调用能力、回复规则、发布版本、服务状态与效果监控。</p></div><button class="button primary">创建草稿</button></div>
+          <div class="grid two"><article class="panel"><div class="panel-head"><h2>咨询入口</h2><span class="chip teal">运行中</span></div><dl class="kv"><div><dt>智能体编号</dt><dd>AGENT-CONSULT-001</dd></div><div><dt>当前版本</dt><dd>V1.4</dd></div><div><dt>已绑定能力</dt><dd>商标/专利/案例检索、辅助比对</dd></div><div><dt>依赖版本</dt><dd>提示词、意图、对话流的已发布版本</dd></div></dl><div style="margin-top:14px"><button class="button">校验</button> <button class="button">试运行</button> <button class="button warn">暂停</button></div></article><article class="panel"><div class="panel-head"><h2>监控与评测</h2><span class="chip gray">示例数据</span></div><div class="grid two"><div class="stat"><span>正式咨询量</span><b>--</b><span>需区分测试会话</span></div><div class="stat"><span>回复准确率</span><b>未评测</b><span>只能来自专家评测样本</span></div></div><p class="prototype-note">发布后新会话绑定新版本，既有会话保留原版本；权限撤回和服务暂停即时生效。草稿试运行不计入正式统计。</p></article></div>
+        </section>
+
+        <section class="view" id="prompt">
+          <div class="page-heading"><div><h1>知识产权咨询提示词管理</h1><p class="subtle">CON-10 · 管理场景化提问引导、执行模板、引用规则和不可变发布版本。</p></div><button class="button primary">新建模板草稿</button></div>
+          <div class="panel"><div class="config-tabs"><button class="active">咨询答复模板</button><button>补问模板</button><button>检索任务说明</button><button>异常回退</button></div><article class="config-card"><div class="row"><div><h3>商标咨询答复 · V3 草稿</h3><p>要求区分检索发现、辅助意见、资料缺口；引用可解析来源；不生成注册成功率或法律结论。</p></div><span class="chip amber">草稿</span></div></article><article class="config-card"><div class="row"><div><h3>专利资料不足补问 · V2 已发布</h3><p>在权利要求、文献版本、相关日期或技术方案缺失时引导补充，不以摘要补全事实。</p></div><span class="chip teal">已发布</span></div></article><p class="prototype-note">模板正文、模型配置和系统密钥分离管理；普通页面不得显示系统模板的敏感部分、隐含推理或凭据。</p></div>
+        </section>
+
+        <section class="view" id="intent">
+          <div class="page-heading"><div><h1>知识产权咨询意图管理</h1><p class="subtle">CON-11 · 管理意图、槽位、补问策略与路由建议，帮助把问题送到经批准的工具。</p></div><button class="button primary">新建意图草稿</button></div>
+          <div class="panel"><div class="table-wrap"><table><thead><tr><th>意图</th><th>必需信息 / 槽位</th><th>补问策略</th><th>路由建议</th><th>版本状态</th></tr></thead><tbody><tr><td>商标相似检索</td><td>名称或图样；类别与商品/服务</td><td>项目不明确时追问</td><td>CON-05</td><td><span class="chip teal">V2 已发布</span></td></tr><tr><td>专利技术对照</td><td>目标对象；候选文献；分析目的</td><td>缺权利要求或日期时阻断并说明</td><td>CON-06</td><td><span class="chip teal">V1 已发布</span></td></tr><tr><td>案例参考</td><td>争议要点；知识产权类型</td><td>术语歧义时展示候选含义</td><td>CON-08</td><td><span class="chip amber">V3 草稿</span></td></tr></tbody></table></div><p class="prototype-note">意图识别只提出候选与路由建议；工具可用性、数据权限和最终调用由服务端的配置与授权检查控制。</p></div>
+        </section>
+
+        <section class="view" id="flow">
+          <div class="page-heading"><div><h1>知识产权咨询对话流管理</h1><p class="subtle">CON-12 · 管理多轮会话、对象与槽位、工具任务、引用、异常回退及结束流程。</p></div><button class="button primary">创建会话</button></div>
+          <div class="grid aside"><section class="panel"><div class="panel-head"><h2>会话 CONV-DEMO-001</h2><span class="chip blue">检索结果待确认</span></div><div class="conversation"><article class="bubble user"><div class="role">用户 · 第 1 轮</div>“启明科技”这个商标能否申请第 9 类？</article><article class="bubble"><div class="role">助手 · 资料补充</div>为确认检索范围，请补充拟使用的具体商品/服务项目；现阶段只能提供检索与辅助比对参考，不能给出注册结论。</article><article class="bubble user"><div class="role">用户 · 第 2 轮</div>可下载的软件。</article><article class="bubble"><div class="role">工具事件</div>已创建商标相似检索任务 TS-DEMO-001，当前处理完成。<div class="citation">引用：商标候选 TM-DEMO-001 · 源版本与获取时间</div></article><article class="bubble"><div class="role">助手 · 带引用答复</div>已找到需要进一步比对的候选。文字维度存在相近要素；图形维度未分析；商品/服务关系仍需依据已确认标准进一步复核。<div class="citation">查看候选 · 查看来源 · 进入辅助比对</div></article></div><div style="display:flex;gap:8px;margin-top:14px"><input placeholder="继续输入咨询问题"><button class="button primary">发送</button><button class="button">结束会话</button></div></section><aside class="panel"><div class="panel-head"><h2>本轮上下文</h2></div><dl class="kv"><div><dt>绑定智能体/流程版本</dt><dd>AGENT-CONSULT-001 / FLOW V2</dd></div><div><dt>当前对象</dt><dd>目标商标：启明科技</dd></div><div><dt>已确认槽位</dt><dd>第 9 类 · 可下载软件</dd></div><div><dt>工具任务</dt><dd>TS-DEMO-001</dd></div><div><dt>控制点</dt><dd>单会话同一时刻只处理一条消息</dd></div><div><dt>会话状态</dt><dd>进行中</dd></div></dl><p class="prototype-note">对象切换或关键事实更正会更新相关槽位并使旧分析失效；重连按消息 ID 恢复，不重复计轮次或重复调用工具。</p></aside></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script>
+    const names={overview:'能力总览',trademark:'商标库管理',patent:'专利库管理',case:'案例库管理','patent-search':'专利相似度检索','trademark-search':'商标相似度检索','patent-compare':'专利相似度判断','trademark-compare':'商标相似度判断','case-search':'相似案例检索',agent:'智能体管理',prompt:'提示词管理',intent:'意图管理',flow:'对话流管理'};
+    const buttons=document.querySelectorAll('[data-view]');
+    function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));buttons.forEach(b=>b.classList.toggle('active',b.dataset.view===id));document.getElementById('page-name').textContent=names[id];window.scrollTo({top:0,behavior:'smooth'});}
+    buttons.forEach(button=>button.addEventListener('click',()=>showView(button.dataset.view)));
+    document.querySelectorAll('.detail-nav button,.steps button,.config-tabs button').forEach(button=>button.addEventListener('click',()=>{button.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));button.classList.add('active');}));
+    document.getElementById('demo-action').addEventListener('click',()=>showView('flow'));
+  </script>
+</body>
+</html>

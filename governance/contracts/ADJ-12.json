@@ -1,0 +1,996 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-12",
+  "title": "人工复核",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/12-人工复核需求文档.md",
+    "sha256": "af7d803c37430efe22e148281862dbcbf0179558dee7b478291d0ba24a5ad9ef",
+    "sections": [
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 字段与状态",
+        "purpose": "data_and_state"
+      },
+      {
+        "anchor": "3. 审核流程与规则",
+        "purpose": "review_workflow"
+      },
+      {
+        "anchor": "4. 正式文件与归档衔接",
+        "purpose": "signing_and_archive"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "7. 国产化与 DM8 要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "8. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "9. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 建设与交付范围",
+        "4. 行政裁决业务边界",
+        "5. 数据、版本与变更规则",
+        "6. 通用服务与内部页面",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-12-MUST-001",
+      "type": "MUST",
+      "statement": "由中心授权专业人员审核和修正固定版本的法律匹配、引用、专利分析、证据意见和裁决报告，保留完整修改、来源与决定依据。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 字段与状态"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "模型、服务账号、提交人冒用身份或未经授权人员不得代替专业人员作出审核、签发或正式状态确认。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 审核流程与规则",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-005",
+        "ADJ-12-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-002",
+      "type": "MUST",
+      "statement": "共用审核对象可复用技术能力，但知识解析审核、单项分析审核、报告最终复核和正式签发的状态、权限与责任分别管理。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 审核流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-001",
+        "ADJ-12-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-003",
+      "type": "MUST",
+      "statement": "复核任务固定案件、对象类型、对象 ID/版本、原始结果快照、证据、依赖版本、提交人与时间，并使用真实身份确定复核人员和角色。",
+      "sourceAnchors": [
+        "2. 字段与状态",
+        "3. 审核流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-004",
+      "type": "MUST",
+      "statement": "提交前执行完整性、案件与对象一致性、权限和依赖检查；缺少必填内容或关键证据的最终报告必须阻止提交。",
+      "sourceAnchors": [
+        "3. 审核流程与规则",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-005",
+      "type": "MUST",
+      "statement": "按中心角色分配、领取和转派任务并记录人员、时间、理由与并发版本，防止多人覆盖同一结论。",
+      "sourceAnchors": [
+        "3. 审核流程与规则",
+        "5. 内部验证页面",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-006",
+      "type": "MUST",
+      "statement": "复核逐项核对事实、证据、技术对照、法规时点、引用格式和模板必填项；每个冲突、缺项及争议必须关闭或保留有依据的说明。",
+      "sourceAnchors": [
+        "2. 字段与状态",
+        "3. 审核流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "存在未核实重要事实或引用时，不得以已阅读勾选、模型建议、空意见或一般说明绕过逐项校验。",
+      "sourceAnchors": [
+        "3. 审核流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-007",
+      "type": "MUST",
+      "statement": "专业人员可认定事项不适用或资料已补齐，但必须填写依据并关联证据；通过、不通过或退回均形成具名决定记录。",
+      "sourceAnchors": [
+        "3. 审核流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-003",
+        "ADJ-12-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-008",
+      "type": "MUST",
+      "statement": "退回修改和不通过必须填写理由；通过也记录审核结论和实际采用的对象、来源及依赖版本清单。",
+      "sourceAnchors": [
+        "3. 审核流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-009",
+      "type": "MUST",
+      "statement": "复核中修正形成新修订并保留原始模型和人工版本及前后差异；最终决定必须针对已保存的确切修订版本。",
+      "sourceAnchors": [
+        "2. 字段与状态",
+        "3. 审核流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "不得先审核旧版后静默替换内容，也不得在重提、转派、撤回或新审核尝试时覆盖历史意见和决定。",
+      "sourceAnchors": [
+        "3. 审核流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-010",
+      "type": "MUST",
+      "statement": "最终报告默认提交人与最终复核人分离；代审、多级审核和中间技术标注人员按中心制度单独配置，不自动获得最终签发权限。",
+      "sourceAnchors": [
+        "3. 审核流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-011",
+      "type": "MUST",
+      "statement": "已通过版本发生实质修改或其证据、法规、事实等依赖变化时转为待复核或已失效，旧批准不得用于签发新内容。",
+      "sourceAnchors": [
+        "3. 审核流程与规则",
+        "总览/5. 数据、版本与变更规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-012",
+      "type": "MUST",
+      "statement": "复核通过只形成可进入正式办理流程的锁定版本；复核状态、案件办结、签发、签章、正式文件、送达和执行状态相互分离。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 字段与状态",
+        "3. 审核流程与规则",
+        "4. 正式文件与归档衔接"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "未接通权威系统时不得生成虚构签章、正式文号、送达或办结事件，首版不得自动通知、送达当事人或执行裁决。",
+      "sourceAnchors": [
+        "4. 正式文件与归档衔接"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-013",
+      "type": "MUST",
+      "statement": "线下签发须由授权人员登记真实签发事实、正式文件来源及依据，经规则校验后确认，不得以普通审核通过按钮兼任签发。",
+      "sourceAnchors": [
+        "4. 正式文件与归档衔接",
+        "5. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-014",
+      "type": "MUST",
+      "statement": "外部签发请求幂等并绑定正确锁定报告版本；不确定响应进入待核实或待对账，只有授权确认或真实回执可更新正式状态。",
+      "sourceAnchors": [
+        "3. 审核流程与规则",
+        "4. 正式文件与归档衔接",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-015",
+      "type": "MUST",
+      "statement": "正式文件确认后锁定；更正使用新文件或补正流程并保留原文件，案件归档关联正式文件及完整审核链。",
+      "sourceAnchors": [
+        "4. 正式文件与归档衔接"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-016",
+      "type": "MUST",
+      "statement": "服务覆盖提交分配、领取转派、保存修正、提交决定、查询审核链和正式状态登记回执，并统一执行对象版本、幂等、原子决定和可区分错误。",
+      "sourceAnchors": [
+        "6. 服务契约",
+        "总览/6. 通用服务与内部页面"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-017",
+      "type": "MUST",
+      "statement": "后端校验角色分离、案件与对象权限、可信身份、版本一致和依赖未变更；审核决定与对象状态更新保持原子一致。",
+      "sourceAnchors": [
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-018",
+      "type": "MUST",
+      "statement": "内部页面显示确切被审版本、变更摘要、来源证据、引用、缺项争议、历史意见、依赖变化和签发衔接；正式状态确认与复核动作分开。",
+      "sourceAnchors": [
+        "5. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-010"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "内部页面不得承载权限、审核、签发或正式状态规则，也不得作为对外交付页面；本地正式状态记录不得冒充中心权威状态。",
+      "sourceAnchors": [
+        "文首交付边界",
+        "5. 内部验证页面",
+        "总览/1. 建设与交付范围"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-010"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-019",
+      "type": "MUST",
+      "statement": "真实 DM8 保存任务、版本清单、意见、差异、决定及签发回执引用，并验证多人竞争、事务回滚、依赖失效、幂等、审计不可覆盖和归档恢复。",
+      "sourceAnchors": [
+        "7. 国产化与 DM8 要求",
+        "总览/7. 国产化与达梦 DM8"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-011"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST-020",
+      "type": "MUST",
+      "statement": "账号业务权限与数据库运维权限分离，历史审核链读取仍按当前业务权限控制。",
+      "sourceAnchors": [
+        "7. 国产化与 DM8 要求",
+        "总览/5. 数据、版本与变更规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-011"
+      ]
+    },
+    {
+      "id": "ADJ-12-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "内存数据库、其他数据库、模拟身份或模拟回执不得冒充真实 DM8、权限、审核、签发或业务验收。",
+      "sourceAnchors": [
+        "7. 国产化与 DM8 要求",
+        "8. 验收要求",
+        "总览/7. 国产化与达梦 DM8"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-12-AC-011",
+        "ADJ-12-AC-012"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "reviewSubmission",
+      "required": true,
+      "rules": [
+        "案件、对象类型、对象 ID/版本、快照、依赖清单、提交人和幂等键"
+      ]
+    },
+    {
+      "name": "assignmentAction",
+      "required": "分配领取转派时",
+      "rules": [
+        "任务版本、真实人员、角色、动作和转派理由"
+      ]
+    },
+    {
+      "name": "reviewRevision",
+      "required": "修正时",
+      "rules": [
+        "被审版本、逐项修改、依据、证据关联和可信身份"
+      ]
+    },
+    {
+      "name": "reviewDecision",
+      "required": "决定时",
+      "rules": [
+        "最终保存版本、动作、意见、依赖版本和当前任务版本"
+      ]
+    },
+    {
+      "name": "formalStatusEvidence",
+      "required": "签发衔接时",
+      "rules": [
+        "锁定报告版本、授权动作、真实签发事实或源回执"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "reviewTask",
+      "fields": [
+        "taskId",
+        "caseId",
+        "objectType",
+        "objectId",
+        "objectVersion",
+        "status",
+        "assignee",
+        "version",
+        "gaps"
+      ]
+    },
+    {
+      "name": "reviewRevision",
+      "fields": [
+        "revisionId",
+        "baseVersion",
+        "content",
+        "diff",
+        "reason",
+        "evidenceRefs",
+        "author"
+      ]
+    },
+    {
+      "name": "decisionEvent",
+      "fields": [
+        "decisionId",
+        "reviewedVersion",
+        "result",
+        "opinion",
+        "reviewer",
+        "role",
+        "dependencyManifest",
+        "decidedAt"
+      ]
+    },
+    {
+      "name": "reviewChain",
+      "fields": [
+        "attempts",
+        "assignments",
+        "revisions",
+        "decisions",
+        "dependencies",
+        "invalidationEvents"
+      ]
+    },
+    {
+      "name": "formalStatus",
+      "fields": [
+        "signingStatus",
+        "authorityReceipt",
+        "reconciliationStatus",
+        "formalFileRef",
+        "lockedReportVersion"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "submit",
+      "enforcement": "案件、被审对象和所有关键依赖读取权限及提交角色"
+    },
+    {
+      "action": "assign_or_transfer",
+      "enforcement": "中心任务分配角色、人员有效性和任务并发版本"
+    },
+    {
+      "action": "review_or_revise",
+      "enforcement": "专业复核角色、案件权限、职责分离和确切对象版本"
+    },
+    {
+      "action": "decide",
+      "enforcement": "最终审核角色、依赖未变、修订已保存及当前任务所有权"
+    },
+    {
+      "action": "sign_or_register",
+      "enforcement": "独立授权签发角色或权威系统回执，不继承普通复核权限"
+    },
+    {
+      "action": "read_chain",
+      "enforcement": "按当前案件、对象、证据和正式文件权限过滤历史"
+    }
+  ],
+  "states": [
+    {
+      "name": "待复核",
+      "kind": "review",
+      "allowedNext": [
+        "复核中",
+        "撤回",
+        "已失效"
+      ]
+    },
+    {
+      "name": "复核中",
+      "kind": "review",
+      "allowedNext": [
+        "退回修改",
+        "通过",
+        "不通过",
+        "撤回",
+        "已失效"
+      ]
+    },
+    {
+      "name": "退回修改",
+      "kind": "review",
+      "allowedNext": [
+        "待复核",
+        "撤回",
+        "已失效"
+      ],
+      "invariant": "理由必填且重提创建新审核尝试"
+    },
+    {
+      "name": "通过",
+      "kind": "review",
+      "allowedNext": [
+        "待复核",
+        "已失效"
+      ],
+      "invariant": "只针对固定修订和依赖版本，不等于签发"
+    },
+    {
+      "name": "不通过",
+      "kind": "review",
+      "allowedNext": [],
+      "invariant": "理由必填"
+    },
+    {
+      "name": "撤回",
+      "kind": "review",
+      "allowedNext": []
+    },
+    {
+      "name": "已失效",
+      "kind": "review",
+      "allowedNext": [
+        "待复核"
+      ]
+    },
+    {
+      "name": "待签发",
+      "kind": "formal",
+      "allowedNext": [
+        "签发处理中",
+        "线下待登记"
+      ]
+    },
+    {
+      "name": "签发处理中",
+      "kind": "formal",
+      "allowedNext": [
+        "已确认",
+        "待核实",
+        "待对账",
+        "失败"
+      ]
+    },
+    {
+      "name": "线下待登记",
+      "kind": "formal",
+      "allowedNext": [
+        "已确认",
+        "待核实"
+      ]
+    },
+    {
+      "name": "待核实",
+      "kind": "formal",
+      "allowedNext": [
+        "已确认",
+        "失败"
+      ]
+    },
+    {
+      "name": "待对账",
+      "kind": "formal",
+      "allowedNext": [
+        "已确认",
+        "失败"
+      ]
+    },
+    {
+      "name": "已确认",
+      "kind": "formal",
+      "allowedNext": [
+        "补正中"
+      ],
+      "invariant": "必须有关联锁定版本和真实授权事实或回执"
+    },
+    {
+      "name": "失败",
+      "kind": "formal",
+      "allowedNext": []
+    },
+    {
+      "name": "补正中",
+      "kind": "formal",
+      "allowedNext": [
+        "已确认"
+      ],
+      "invariant": "新文件保留原文件"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "审核任务固定案件、对象、原始快照、修订和全部依赖版本。",
+    "模型原始结果、人工修订、差异、意见和决定分别保存且不可覆盖。",
+    "每次重提创建审核尝试，最终决定精确引用已保存修订版本。",
+    "依赖或实质内容变化使批准待复核或失效，不跨版本继承。",
+    "审核、案件、签发、文件、送达和执行状态分别保存。",
+    "正式回执、线下事实、锁定报告和文件版本稳定关联；补正保留原件。",
+    "模拟身份、回执、数据库和业务证据与真实验收隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "submission_incomplete",
+      "result": "返回关键缺项并阻止最终报告进入复核"
+    },
+    {
+      "case": "assignment_conflict",
+      "result": "拒绝覆盖并返回当前任务人员、状态和版本"
+    },
+    {
+      "case": "separation_of_duties_violation",
+      "result": "拒绝决定并记录权限事件"
+    },
+    {
+      "case": "reviewed_version_changed",
+      "result": "决定失败，要求针对已保存当前修订重新确认"
+    },
+    {
+      "case": "dependency_changed",
+      "result": "审核转待复核或失效，禁止旧批准签发"
+    },
+    {
+      "case": "external_signing_uncertain",
+      "result": "进入待核实或待对账，不默认成功"
+    },
+    {
+      "case": "duplicate_formal_request",
+      "result": "按幂等规则返回原结果，不重复签发或登记"
+    },
+    {
+      "case": "unauthorized_or_untrusted_identity",
+      "result": "拒绝且不接受前端指定任意审核人"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-12-DEC-001",
+      "owner": "AI",
+      "description": "可辅助展示差异、缺口和来源，但不得作出复核决定、认定事项已核实、冒用人员身份、签发或确认正式状态。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 审核流程与规则"
+      ]
+    },
+    {
+      "id": "ADJ-12-DEC-002",
+      "owner": "RULE",
+      "description": "执行完整性、权限、角色分离、任务所有权、版本依赖、理由必填、状态、幂等、原子更新、回执校验和失效传播。",
+      "sourceAnchors": [
+        "3. 审核流程与规则",
+        "4. 正式文件与归档衔接",
+        "6. 服务契约"
+      ]
+    },
+    {
+      "id": "ADJ-12-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权专业人员逐项核对修正并具名决定；授权签发人员登记线下事实或执行中心规定的签发操作。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 审核流程与规则",
+        "4. 正式文件与归档衔接"
+      ]
+    },
+    {
+      "id": "ADJ-12-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供人员角色、职责分离、多级审核、权威案件状态、签发签章、正式文件和回执。",
+      "sourceAnchors": [
+        "3. 审核流程与规则",
+        "4. 正式文件与归档衔接",
+        "9. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-12-AC-001",
+      "given": [
+        "不同审核对象、固定案件和缺少关键材料的报告"
+      ],
+      "when": "提交复核",
+      "then": [
+        "对象版本快照和依赖完整",
+        "共用能力不混淆责任状态",
+        "缺关键材料被阻止"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST-001",
+        "ADJ-12-MUST-002",
+        "ADJ-12-MUST-003",
+        "ADJ-12-MUST-004"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-002",
+      "given": [
+        "两个复核人员并发领取及转派请求"
+      ],
+      "when": "更新任务所有权",
+      "then": [
+        "只有一个版本成功",
+        "人员理由时间留痕",
+        "另一请求收到明确冲突"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST-005"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-003",
+      "given": [
+        "未核实事实、引用冲突和可认定不适用事项"
+      ],
+      "when": "逐项复核",
+      "then": [
+        "冲突缺项分别处理",
+        "已阅读不能绕过",
+        "不适用或补齐有依据和证据关联"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST-006",
+        "ADJ-12-MUST_NOT-002",
+        "ADJ-12-MUST-007"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-004",
+      "given": [
+        "复核中修正、退回、不通过、通过和重提"
+      ],
+      "when": "保存修订并提交决定",
+      "then": [
+        "前后差异和历史意见保留",
+        "理由与通过版本清单完整",
+        "决定只针对最终保存版本"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST-007",
+        "ADJ-12-MUST-008",
+        "ADJ-12-MUST-009",
+        "ADJ-12-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-005",
+      "given": [
+        "提交人、最终复核人、技术标注员、服务账号和模型"
+      ],
+      "when": "尝试最终审核",
+      "then": [
+        "中心职责分离由后端执行",
+        "技术权限不变成签发权限",
+        "服务账号和模型不能代审"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST_NOT-001",
+        "ADJ-12-MUST-002",
+        "ADJ-12-MUST-010"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-006",
+      "given": [
+        "已通过对象发生实质修改或依赖变化"
+      ],
+      "when": "尝试沿用旧批准",
+      "then": [
+        "审核待复核或失效",
+        "旧批准不能签发新内容",
+        "历史决定保留"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST-011"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-007",
+      "given": [
+        "报告复核通过但签发系统未接通"
+      ],
+      "when": "进入正式办理衔接",
+      "then": [
+        "只显示锁定待签发材料",
+        "审核按钮不兼任签发",
+        "不生成文号签章送达办结或执行"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST-012",
+        "ADJ-12-MUST_NOT-004",
+        "ADJ-12-MUST-013"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-008",
+      "given": [
+        "外部签发超时、不确定响应、重复请求及后续补正"
+      ],
+      "when": "登记或同步正式状态",
+      "then": [
+        "请求幂等并绑定锁定版本",
+        "不确定结果待核实对账",
+        "补正保留原文件和完整链"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST-014",
+        "ADJ-12-MUST-015"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-009",
+      "given": [
+        "版本冲突、重复决定、角色冲突和前端伪造审核人"
+      ],
+      "when": "调用复核服务",
+      "then": [
+        "后端拒绝越权及冲突",
+        "决定与对象状态原子一致",
+        "重复请求不重复通过"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST_NOT-001",
+        "ADJ-12-MUST-016",
+        "ADJ-12-MUST-017"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-010",
+      "given": [
+        "内部页面和直接 API 客户端"
+      ],
+      "when": "执行复核及签发衔接",
+      "then": [
+        "确切版本和审核链可见",
+        "正式状态页面与复核动作分开",
+        "页面不承载规则且本地状态不冒充权威状态"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST-018",
+        "ADJ-12-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-011",
+      "given": [
+        "真实 DM8、多人竞争、事务故障、依赖失效和归档恢复"
+      ],
+      "when": "执行并恢复审核",
+      "then": [
+        "原子决定、幂等和不可覆盖审计正确",
+        "原报告文件和审核链可追踪",
+        "业务账号与运维权限分离"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST-019",
+        "ADJ-12-MUST-020",
+        "ADJ-12-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ADJ-12-AC-012",
+      "given": [
+        "功能交付检查"
+      ],
+      "when": "核对验收材料",
+      "then": [
+        "对象、角色制度、依赖、决定、回执、环境、预期实际和问题证据齐全",
+        "模拟回执数据库或身份不冒充真实验收"
+      ],
+      "sourceClauseIds": [
+        "ADJ-12-MUST_NOT-006"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-12-OQ-001",
+      "type": "authorization",
+      "question": "各对象的提交、分配、复核、代审、多级审核、最终复核、签发和归档角色及职责分离规则是什么？",
+      "blocks": [
+        "ARC-06",
+        "审核权限实现",
+        "MVP-ADJ"
+      ]
+    },
+    {
+      "id": "ADJ-12-OQ-002",
+      "type": "business_semantics",
+      "question": "各审核对象必填项、关键证据、逐项清单、不适用与补齐依据、实质修改和失效规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "审核规则实现"
+      ]
+    },
+    {
+      "id": "ADJ-12-OQ-003",
+      "type": "authority_workflow",
+      "question": "签发、签章、正式文号、线下证明、办结、送达、补正和归档的权威流程及状态是什么？",
+      "blocks": [
+        "ARC-05",
+        "ARC-09",
+        "正式状态实现"
+      ]
+    },
+    {
+      "id": "ADJ-12-OQ-004",
+      "type": "integration",
+      "question": "人员、案件、对象版本、依赖变化、签发系统和外部回执协议及对账能力是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "真实联调"
+      ]
+    },
+    {
+      "id": "ADJ-12-OQ-005",
+      "type": "environment",
+      "question": "DM8 小版本、事务隔离、审计保留、账号体系、文件存储和恢复环境参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-12-DD-001",
+      "decision": "Review 领域提供通用任务、修订和决定能力，各业务域拥有自己的审核语义；Authority Adapter 处理签发回执，Agent 只编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-12-DD-002",
+      "decision": "审核状态与正式状态使用独立状态机；每次重提形成审核尝试，决定以不可变事件关联确切对象版本。",
+      "basis": "原文明确复核不等于办结签发，历史意见和版本不可覆盖。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-12-DD-003",
+      "decision": "具体 REST 路径、角色矩阵、审核层级、签发适配、回执字段和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心制度、接口和环境尚未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable adjudication overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Shared review technology does not merge knowledge review, analysis review, final report review, signing or case completion responsibilities.",
+      "Every decision targets an exact saved revision and dependency manifest; old approval cannot authorize changed content.",
+      "No role, review level, material-change rule, signing workflow, receipt schema, delivery capability or DM8 behavior was guessed."
+    ]
+  }
+}

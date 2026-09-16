@@ -1,0 +1,634 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-13",
+  "title": "执法文书生成规则配置",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/13-执法文书生成规则配置需求文档.md",
+    "sha256": "d1a16c5c9c6929fb13223f6a5d21a273794461edd76cfabec81d58b19af599c9",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "generation_rules"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付范围",
+        "2. 数据、身份、权限与审计",
+        "3. 时间、版本与变更",
+        "4. 服务、任务与错误契约",
+        "5. AI、规则与人工边界",
+        "6. 页面验证",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-13-MUST-001",
+      "type": "MUST",
+      "statement": "为固定 ENF-12 发布模板版本逐字段配置案件、证据和分析结果的允许来源、转换方式、生成方式及缺失策略。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖",
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST-002",
+      "type": "MUST",
+      "statement": "规则保存唯一编号、名称、模板版本、字段路径与来源、直接取值/确定性计算/辅助撰写方式、缺失策略、不可变版本和审计。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST-003",
+      "type": "MUST",
+      "statement": "中心案件字段字典、证据结构、分析结构和模板字段均固定稳定 ID 与版本并校验关联权限，缺失与源调用失败分开。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "来源字段、业务编号、案件事实、证据和分析结果不得由模型生成或替换，不存在的数据路径不得发布。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-002",
+        "ENF-13-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST-004",
+      "type": "MUST",
+      "statement": "当事人、金额、日期和法条原文优先从确认来源直接取值或确定性计算，并保留字段级来源。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "模型不得补写缺失当事人、金额、日期、法条原文、签名或其他确定性字段。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST-005",
+      "type": "MUST",
+      "statement": "叙述性段落仅可使用已授权且固定版本的案件材料辅助撰写，输出保存段落级来源、模型和提示词版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "模型不得扩大数据权限、使用未允许来源或将辅助叙述冒充原始记录、事实确认和人工意见。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST-006",
+      "type": "MUST",
+      "statement": "每个字段缺失策略只可为阻断、留空并提示或省略可选段落；必填缺失只能生成明确标识的不完整草稿且不得提交审核。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST-007",
+      "type": "MUST",
+      "statement": "调查笔录只可基于真实问答或记录整理并逐项关联来源。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "没有真实问答记录时不得生成调查过程、提问、回答或签名。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST-008",
+      "type": "MUST",
+      "statement": "映射验证和样例试生成固定模板、规则与输入版本，输出字段来源预览、缺失、无效路径、权限和未处理项。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST-009",
+      "type": "MUST",
+      "statement": "模板字段变化使相关规则待复核，重新校验通过前不得把旧映射套用到新模板。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST-010",
+      "type": "MUST",
+      "statement": "发布规则不可原地修改，编辑创建新草稿，停用限制新任务，历史文书继续引用原规则模板版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-13-MUST-014",
+      "type": "MUST",
+      "statement": "中心逐项确认案件字段与文书字段关系；固定样例记录模板规则输入模型、预期实际、来源和问题，未确认映射不升级验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-13-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "generationRuleDraft",
+      "required": true,
+      "rules": [
+        "固定模板版本、逐字段来源方式和缺失策略"
+      ]
+    },
+    {
+      "name": "sampleInput",
+      "required": "验证试生成时",
+      "rules": [
+        "案件证据分析真实模拟标识和版本"
+      ]
+    },
+    {
+      "name": "lifecycleAction",
+      "required": "发布停用时",
+      "rules": [
+        "规则版本、动作、意见、可信身份和并发版本"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "generationRuleVersion",
+      "fields": [
+        "ruleId",
+        "version",
+        "templateVersion",
+        "fieldMappings",
+        "paragraphRules",
+        "missingPolicies",
+        "status",
+        "audit"
+      ]
+    },
+    {
+      "name": "mappingValidation",
+      "fields": [
+        "fieldSourcePreview",
+        "missingPaths",
+        "invalidPaths",
+        "permissionErrors",
+        "templateDrift",
+        "unprocessedItems"
+      ]
+    },
+    {
+      "name": "dryRun",
+      "fields": [
+        "draftFields",
+        "draftParagraphs",
+        "sourceMap",
+        "completeness",
+        "modelManifest",
+        "errors"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "create_or_edit",
+      "enforcement": "规则配置角色、模板和字段字典权限"
+    },
+    {
+      "action": "validate_or_dry_run",
+      "enforcement": "模板、案件、证据、分析及模型通道权限"
+    },
+    {
+      "action": "publish_or_disable",
+      "enforcement": "授权发布角色、依赖完整性和当前版本"
+    },
+    {
+      "action": "read_history",
+      "enforcement": "机构、模板、来源和历史版本权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "rule",
+      "allowedNext": [
+        "已发布",
+        "已停用"
+      ]
+    },
+    {
+      "name": "已发布",
+      "kind": "rule",
+      "allowedNext": [
+        "待复核",
+        "已停用"
+      ],
+      "invariant": "不可原地修改"
+    },
+    {
+      "name": "待复核",
+      "kind": "rule",
+      "allowedNext": [
+        "草稿",
+        "已停用"
+      ]
+    },
+    {
+      "name": "已停用",
+      "kind": "rule",
+      "allowedNext": []
+    },
+    {
+      "name": "完整",
+      "kind": "dry_run",
+      "allowedNext": []
+    },
+    {
+      "name": "不完整",
+      "kind": "dry_run",
+      "allowedNext": [],
+      "invariant": "不得提交审核"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "规则固定模板、字段字典、案件证据分析结构、模型提示词和权限版本。",
+    "直接值、确定性计算和辅助撰写分别标记并带来源。",
+    "发布规则不可变，历史文书使用原规则模板。",
+    "模板变化传播待复核，不自动套用旧映射。",
+    "模拟字段输入模型数据库与真实验收隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "source_path_missing",
+      "result": "返回精确字段路径并阻止发布"
+    },
+    {
+      "case": "required_value_missing",
+      "result": "按策略阻断或生成不完整草稿，不由模型补齐"
+    },
+    {
+      "case": "interview_record_missing",
+      "result": "阻止生成问答过程和签名"
+    },
+    {
+      "case": "template_version_changed",
+      "result": "规则待复核并要求重新验证"
+    },
+    {
+      "case": "partial_dry_run",
+      "result": "列出未处理项不标完整成功"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露模板案件证据分析"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-13-DEC-001",
+      "owner": "AI",
+      "description": "仅按已发布段落规则对授权材料辅助撰写并给来源；不得补确定字段、问答、签名或改变缺失状态。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-13-DEC-002",
+      "owner": "RULE",
+      "description": "执行字段路径、确定性转换、缺失策略、模板兼容、版本权限和发布校验。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-13-DEC-003",
+      "owner": "HUMAN",
+      "description": "中心人员确认字段映射生成方式和样例，授权人员配置发布停用。",
+      "sourceAnchors": [
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-13-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供案件字段字典、真实问答、证据分析结构、模板和权限。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-13-AC-001",
+      "given": [
+        "发布模板和中心字段结构"
+      ],
+      "when": "配置规则",
+      "then": [
+        "逐字段来源方式缺失策略完整"
+      ],
+      "sourceClauseIds": [
+        "ENF-13-MUST-001"
+      ]
+    },
+    {
+      "id": "ENF-13-AC-002",
+      "given": [
+        "有效和不存在字段路径"
+      ],
+      "when": "保存映射",
+      "then": [
+        "版本审计关联完整",
+        "模型不补来源",
+        "无效路径不可发布"
+      ],
+      "sourceClauseIds": [
+        "ENF-13-MUST-002",
+        "ENF-13-MUST-003",
+        "ENF-13-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-13-AC-003",
+      "given": [
+        "当事人金额日期法条缺失"
+      ],
+      "when": "试生成",
+      "then": [
+        "确定来源直接填充",
+        "缺失显示且模型不补"
+      ],
+      "sourceClauseIds": [
+        "ENF-13-MUST-004",
+        "ENF-13-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-13-AC-004",
+      "given": [
+        "授权和未授权叙述材料"
+      ],
+      "when": "辅助撰写",
+      "then": [
+        "仅授权输入和段落来源可追踪",
+        "不扩大权限或冒充事实"
+      ],
+      "sourceClauseIds": [
+        "ENF-13-MUST-005",
+        "ENF-13-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ENF-13-AC-005",
+      "given": [
+        "必填缺失和无真实问答调查笔录"
+      ],
+      "when": "试生成",
+      "then": [
+        "只形成不完整草稿且不能审核",
+        "不编问答过程签名"
+      ],
+      "sourceClauseIds": [
+        "ENF-13-MUST-006",
+        "ENF-13-MUST-007",
+        "ENF-13-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ENF-13-AC-006",
+      "given": [
+        "固定样例和模板字段变化"
+      ],
+      "when": "映射验证",
+      "then": [
+        "来源缺失未处理完整",
+        "旧规则待复核不套新版"
+      ],
+      "sourceClauseIds": [
+        "ENF-13-MUST_NOT-001",
+        "ENF-13-MUST-008",
+        "ENF-13-MUST-009"
+      ]
+    },
+    {
+      "id": "ENF-13-AC-007",
+      "given": [
+        "已发布规则修改停用"
+      ],
+      "when": "变更生命周期",
+      "then": [
+        "新草稿不覆盖旧版",
+        "历史文书引用不变"
+      ],
+      "sourceClauseIds": [
+        "ENF-13-MUST-010"
+      ]
+    },
+    {
+      "id": "ENF-13-AC-011",
+      "given": [
+        "中心固定模板案件样例"
+      ],
+      "when": "业务验收",
+      "then": [
+        "字段来源预期实际版本问题齐全",
+        "未确认映射不标通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-13-MUST-014"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-13-OQ-001",
+      "type": "business_semantics",
+      "question": "首批文书逐字段允许来源、转换、辅助段落和缺失策略是什么？",
+      "blocks": [
+        "ARC-04",
+        "生成规则实现"
+      ]
+    },
+    {
+      "id": "ENF-13-OQ-002",
+      "type": "authority_api",
+      "question": "案件字段、证据分析结构和变更事件接口版本是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03"
+      ]
+    },
+    {
+      "id": "ENF-13-OQ-003",
+      "type": "authorization",
+      "question": "配置试生成审核发布停用及材料出域角色是什么？",
+      "blocks": [
+        "ARC-06",
+        "ARC-11"
+      ]
+    },
+    {
+      "id": "ENF-13-OQ-004",
+      "type": "model_boundary",
+      "question": "允许辅助撰写的段落、模型、提示词和输入范围是什么？",
+      "blocks": [
+        "ARC-07",
+        "SPK-10"
+      ]
+    },
+    {
+      "id": "ENF-13-OQ-005",
+      "type": "environment",
+      "question": "DM8、模型、文件渲染和国产环境是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-13-DD-001",
+      "decision": "Document Rule 领域拥有字段映射版本，Authority/Evidence/Analysis 提供来源，Model 仅执行允许段落；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-13-DD-002",
+      "decision": "字段级来源和段落级来源统一进入可信链，完整性状态独立于生成任务。",
+      "basis": "原文来源与缺失要求。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-13-DD-003",
+      "decision": "具体 API、字段路径语法、转换、模型角色和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心字段映射模型环境未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Direct values, deterministic calculations, AI-assisted prose and missing-value policies remain explicit per field.",
+      "Interview records require real questions and answers; incomplete drafts cannot enter review.",
+      "No field mapping, transformation, prose scope, model, role or environment was guessed."
+    ]
+  }
+}

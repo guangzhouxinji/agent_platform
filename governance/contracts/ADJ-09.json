@@ -1,0 +1,652 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-09",
+  "title": "专利侵权证据分析",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/09-专利侵权证据分析需求文档.md",
+    "sha256": "5ba05bd3261bafc7a6f205c5ea01804cfddd0a72576ead5aec65778ba0ecdb54",
+    "sections": [
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 字段与资料结构",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 证据管理与分析流程",
+        "purpose": "analysis_rules"
+      },
+      {
+        "anchor": "4. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "5. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 国产化与 DM8 要求",
+        "purpose": "environment"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 总体范围与交付边界",
+        "2. 统一数据与来源原则",
+        "3. AI、规则与人工边界",
+        "4. 服务、任务、审核与错误约定",
+        "5. 国产化、DM8 与验证"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-09-MUST-001",
+      "type": "MUST",
+      "statement": "在固定案件、证据、涉案产品和 ADJ-07 权利要求解析版本上，关联待证事实并逐必要技术特征生成证据报告及辅助侵权意见。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 字段与资料结构",
+        "3. 证据管理与分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "证据事实、当事人主张、质证意见、系统推断和人工认定必须分开；系统不得自动认定真实性、证明力、采信或侵权成立。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 字段与资料结构"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST-002",
+      "type": "MUST",
+      "statement": "可复用受控文件和证据目录组件，但裁决案件关系、证据状态、审核规则独立，禁止沿用执法处罚结论。",
+      "sourceAnchors": [
+        "1. 功能概述"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST-003",
+      "type": "MUST",
+      "statement": "证据版本保存类型、原文件或实物位置、提供方、收集人时间方式、上传时间、哈希、权限、待证事实、争议和人工采信状态。",
+      "sourceAnchors": [
+        "2. 字段与资料结构"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "上传时间不得替代收集时间，照片不得冒充实物或不可观察内部结构，哈希/OCR/模型分不得证明真实性合法性充分性。",
+      "sourceAnchors": [
+        "2. 字段与资料结构",
+        "3. 证据管理与分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST-004",
+      "type": "MUST",
+      "statement": "不可读文件保留原材料并进入异常清单；提取可观察事实时同时保留支持、反向、冲突和双方意见。",
+      "sourceAnchors": [
+        "3. 证据管理与分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST-005",
+      "type": "MUST",
+      "statement": "用户确认产品技术方案、权利要求版本、证据集合以及已认定和争议事实；逐全部必要特征关联页码、图片区域或可靠位置。",
+      "sourceAnchors": [
+        "3. 证据管理与分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "不得只比较专利标题摘要，销售记录只支持相应交易事实而不自动证明内部结构，缺证不得生成完整结论。",
+      "sourceAnchors": [
+        "3. 证据管理与分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST-006",
+      "type": "MUST",
+      "statement": "文字对应与可能等同问题分开展示；等同仅列技术事实、依据和待专业判断，不按固定相似度阈值认定。",
+      "sourceAnchors": [
+        "3. 证据管理与分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST-007",
+      "type": "MUST",
+      "statement": "产品、方法和外观采用各自所需证据及分析分支；外观按视图和整体视觉流程，不套文本权项矩阵。",
+      "sourceAnchors": [
+        "3. 证据管理与分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST-008",
+      "type": "MUST",
+      "statement": "同哈希材料只提示重复并保留不同提交来源；追加替换证据新建版本并使相关分析待更新，旧报告和人工意见保留。",
+      "sourceAnchors": [
+        "3. 证据管理与分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "材料下载和模型上下文不得绕过案件权限，跨案使用须显式授权；文件解析不得执行宏或文本指令。",
+      "sourceAnchors": [
+        "5. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-09-MUST-012",
+      "type": "MUST",
+      "statement": "中心确认质证采信流程、材料类型、文件限制、各专利类型能力和专家样本，未确认分支不得标通过。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-09-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "evidenceIntake",
+      "required": true,
+      "rules": [
+        "案件、文件或实物引用、来源收集元数据、版本和幂等键"
+      ]
+    },
+    {
+      "name": "analysisRequest",
+      "required": true,
+      "rules": [
+        "案件快照、产品技术方案、权利要求解析版本、证据版本集合和事实确认状态"
+      ]
+    },
+    {
+      "name": "factRelationChange",
+      "required": "维护时",
+      "rules": [
+        "证据版本、待证事实、关系说明和可信身份"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "evidenceVersion",
+      "fields": [
+        "evidenceId",
+        "version",
+        "type",
+        "source",
+        "collection",
+        "uploadTime",
+        "fileOrObjectRef",
+        "integrity",
+        "readability",
+        "factRelations",
+        "disputes",
+        "admissionStatus"
+      ]
+    },
+    {
+      "name": "infringementEvidenceReport",
+      "fields": [
+        "reportId",
+        "version",
+        "claimVersion",
+        "elementMatrix",
+        "supportingEvidence",
+        "counterEvidence",
+        "conflicts",
+        "gaps",
+        "defenses",
+        "equivalenceIssues",
+        "assistOpinion",
+        "reviewStatus"
+      ]
+    },
+    {
+      "name": "task",
+      "fields": [
+        "taskId",
+        "status",
+        "progress",
+        "missingItems",
+        "errors",
+        "requestId"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "intake_or_view",
+      "enforcement": "案件、来源、受控文件和证据权限"
+    },
+    {
+      "action": "maintain_fact_relation",
+      "enforcement": "案件维护角色和当前证据版本"
+    },
+    {
+      "action": "analyze",
+      "enforcement": "案件权项和所选证据权限交集"
+    },
+    {
+      "action": "cross_case_use",
+      "enforcement": "显式跨案授权及用途"
+    },
+    {
+      "action": "submit_review",
+      "enforcement": "报告版本和 ADJ-12 权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "可读",
+      "kind": "material",
+      "allowedNext": [
+        "来源已变更"
+      ]
+    },
+    {
+      "name": "不可读",
+      "kind": "material",
+      "allowedNext": [
+        "可读",
+        "来源已变更"
+      ]
+    },
+    {
+      "name": "来源已变更",
+      "kind": "material",
+      "allowedNext": []
+    },
+    {
+      "name": "未确认",
+      "kind": "admission",
+      "allowedNext": [
+        "采信",
+        "不采信"
+      ]
+    },
+    {
+      "name": "采信",
+      "kind": "admission",
+      "allowedNext": []
+    },
+    {
+      "name": "不采信",
+      "kind": "admission",
+      "allowedNext": []
+    },
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "原材料、派生文本、事实关联、人工采信和分析报告分版本保存。",
+    "同内容不同来源不合并证据身份。",
+    "每个要素关系绑定权项、证据版本和精确位置。",
+    "证据变化传播待更新但不覆盖旧报告复核。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "unreadable_material",
+      "result": "保留原件并列缺口，允许明确部分分析"
+    },
+    {
+      "case": "insufficient_internal_structure_evidence",
+      "result": "返回缺证，不由照片销售记录补结论"
+    },
+    {
+      "case": "duplicate_hash",
+      "result": "提示重复但保留各来源记录"
+    },
+    {
+      "case": "cross_case_unauthorized",
+      "result": "拒绝访问且不进入模型"
+    },
+    {
+      "case": "unsafe_file",
+      "result": "只解析数据，不执行宏或指令"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-09-DEC-001",
+      "owner": "AI",
+      "description": "抽取可观察事实、候选要素关系和辅助解释，不认定真实性采信或侵权。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 证据管理与分析流程"
+      ]
+    },
+    {
+      "id": "ADJ-09-DEC-002",
+      "owner": "RULE",
+      "description": "校验案件版本、权项证据关系、权限、完整性、对象分支和状态传播。",
+      "sourceAnchors": [
+        "3. 证据管理与分析流程",
+        "5. 服务契约"
+      ]
+    },
+    {
+      "id": "ADJ-09-DEC-003",
+      "owner": "HUMAN",
+      "description": "确认分析对象和事实争议，修正关系，质证采信并复核辅助意见。",
+      "sourceAnchors": [
+        "3. 证据管理与分析流程"
+      ]
+    },
+    {
+      "id": "ADJ-09-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "提供案件证据权威关系及最终裁决状态。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-09-AC-001",
+      "given": [
+        "案件证据和权项版本"
+      ],
+      "when": "分析",
+      "then": [
+        "逐要素辅助报告",
+        "事实主张认定分离"
+      ],
+      "sourceClauseIds": [
+        "ADJ-09-MUST-001",
+        "ADJ-09-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ADJ-09-AC-002",
+      "given": [
+        "执法证据组件"
+      ],
+      "when": "复用",
+      "then": [
+        "只复用技术能力",
+        "不继承处罚结论状态"
+      ],
+      "sourceClauseIds": [
+        "ADJ-09-MUST-002"
+      ]
+    },
+    {
+      "id": "ADJ-09-AC-003",
+      "given": [
+        "同内容多来源、照片实物和多时间"
+      ],
+      "when": "接收",
+      "then": [
+        "来源时间分开",
+        "哈希照片不冒充真实性结构"
+      ],
+      "sourceClauseIds": [
+        "ADJ-09-MUST-003",
+        "ADJ-09-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ADJ-09-AC-004",
+      "given": [
+        "不可读和反向材料"
+      ],
+      "when": "整理",
+      "then": [
+        "原件保留",
+        "异常冲突意见可见"
+      ],
+      "sourceClauseIds": [
+        "ADJ-09-MUST-004"
+      ]
+    },
+    {
+      "id": "ADJ-09-AC-005",
+      "given": [
+        "销售记录和内部结构缺口"
+      ],
+      "when": "逐特征对照",
+      "then": [
+        "位置可核验",
+        "缺证不生成完整结论"
+      ],
+      "sourceClauseIds": [
+        "ADJ-09-MUST-005",
+        "ADJ-09-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ADJ-09-AC-006",
+      "given": [
+        "等同问题及方法产品外观"
+      ],
+      "when": "分析",
+      "then": [
+        "等同待专业判断",
+        "对象分支正确"
+      ],
+      "sourceClauseIds": [
+        "ADJ-09-MUST-006",
+        "ADJ-09-MUST-007"
+      ]
+    },
+    {
+      "id": "ADJ-09-AC-007",
+      "given": [
+        "同哈希或证据替换"
+      ],
+      "when": "更新",
+      "then": [
+        "来源身份和旧报告保留",
+        "新分析待更新"
+      ],
+      "sourceClauseIds": [
+        "ADJ-09-MUST-008"
+      ]
+    },
+    {
+      "id": "ADJ-09-AC-008",
+      "given": [
+        "部分不可读和跨案无权材料"
+      ],
+      "when": "服务分析",
+      "then": [
+        "部分缺口明确",
+        "不冒充未侵权且不入模型"
+      ],
+      "sourceClauseIds": [
+        "ADJ-09-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ADJ-09-AC-011",
+      "given": [
+        "中心专家样本"
+      ],
+      "when": "业务验收",
+      "then": [
+        "要素证据缺口预期实际齐全",
+        "未确认能力不标通过"
+      ],
+      "sourceClauseIds": [
+        "ADJ-09-MUST-012"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-09-OQ-001",
+      "type": "business_semantics",
+      "question": "质证采信流程、待证事实和各专利类型分析规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "证据分析实现"
+      ]
+    },
+    {
+      "id": "ADJ-09-OQ-002",
+      "type": "integration",
+      "question": "案件证据 API、文件服务、实物位置和状态事件接口是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03"
+      ]
+    },
+    {
+      "id": "ADJ-09-OQ-003",
+      "type": "file",
+      "question": "材料类型、大小、安全解析和图像能力限制是什么？",
+      "blocks": [
+        "ARC-08",
+        "SPK-12"
+      ]
+    },
+    {
+      "id": "ADJ-09-OQ-004",
+      "type": "authorization",
+      "question": "接收查看事实维护跨案分析复核角色是什么？",
+      "blocks": [
+        "ARC-06"
+      ]
+    },
+    {
+      "id": "ADJ-09-OQ-005",
+      "type": "validation",
+      "question": "中心专家要素证据、等同及对象分支样本是什么？",
+      "blocks": [
+        "REL-03",
+        "SPK-07"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-09-DD-001",
+      "decision": "共享受控 Evidence/File 技术能力，裁决 Evidence Relation、Admission 和 Review 归裁决域。",
+      "basis": "原文复用与隔离边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-09-DD-002",
+      "decision": "Claim Element 到 Evidence Location 的多版本关系显式建模，支持反证冲突缺口。",
+      "basis": "原文逐要素要求。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-09-DD-003",
+      "decision": "具体采信流程、分析规则、API、角色、模型和 DM8 类型延后至 D 门。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心条件未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable adjudication overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Evidence facts, party assertions, system analysis, human admission and final adjudication remain distinct.",
+      "No evidence rule, equivalence threshold, admission behavior, role, file limit or legal conclusion was guessed."
+    ]
+  }
+}

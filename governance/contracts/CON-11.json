@@ -1,0 +1,868 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-11",
+  "title": "知识产权咨询意图管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权咨询助手/知识产权咨询意图管理需求文档.md",
+    "sha256": "f664676e22be212fdeee532d2f8ccb897fa0da2f54a2980b52c38fe00c9aa9e2",
+    "sections": [
+      {
+        "anchor": "国产化与达梦 DM8 适配要求",
+        "purpose": "deployment_and_storage"
+      },
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 字段设计",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 首批意图与槽位",
+        "purpose": "initial_config"
+      },
+      {
+        "anchor": "4. 识别与管理规则",
+        "purpose": "recognition_and_lifecycle"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约与统计",
+        "purpose": "service_and_evaluation"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "dependencies_and_delivery"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sections": [
+        "1. 项目定位与交付口径",
+        "3.2 来源、版本和权限",
+        "3.4 配置引用与发布",
+        "3.5 评分及专业意见",
+        "3.6 默认值与未决条件",
+        "3.7 国产化部署与达梦 DM8 数据库",
+        "6. 验收资料与共同口径"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-11-MUST-001",
+      "type": "MUST",
+      "statement": "意图解析识别用户问题的核心诉求、关键词和必要业务信息，并输出已授权工具或补问流程的路由建议。",
+      "sourceAnchors": [
+        "1. 功能概述"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-001",
+        "CON-11-AC-005"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-002",
+      "type": "MUST",
+      "statement": "解析支持主意图、候选意图、多意图、未知和需澄清结果。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 字段设计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-003"
+      ]
+    },
+    {
+      "id": "CON-11-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "不得强制把每句话归入某个业务类别，无法识别、超出范围或信息不足时必须允许未知或澄清结果。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-003"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-003",
+      "type": "MUST",
+      "statement": "意图配置维护稳定编号、标签、类别、描述、正反例、关联问题、辅助关键词、必要或可选槽位、路由和资源范围引用。",
+      "sourceAnchors": [
+        "2. 字段设计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-001",
+        "CON-11-AC-006"
+      ]
+    },
+    {
+      "id": "CON-11-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "核心关键词不得作为唯一识别依据，路由目标不得使用任意 URL。",
+      "sourceAnchors": [
+        "2. 字段设计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-001",
+        "CON-11-AC-005"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-004",
+      "type": "MUST",
+      "statement": "每个槽位记录名称、类型、校验规则、敏感级别和追问文案引用；解析值记录来源轮次与缺失项。",
+      "sourceAnchors": [
+        "2. 字段设计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-002",
+        "CON-11-AC-004"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-005",
+      "type": "MUST",
+      "statement": "首批配置覆盖商标信息查询、商标相似检索、商标辅助比对、专利信息查询、专利相似检索、专利辅助比对、案例参考、办理或法规咨询及无法识别或超出范围。",
+      "sourceAnchors": [
+        "3. 首批意图与槽位"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-001"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-006",
+      "type": "MUST",
+      "statement": "首批意图是可配置分类建议，但配置必须与实际工具契约一致；条件必填槽位按分析目的决定。",
+      "sourceAnchors": [
+        "3. 首批意图与槽位"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-001",
+        "CON-11-AC-002"
+      ]
+    },
+    {
+      "id": "CON-11-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "不得对所有目的机械要求相同槽位，例如新颖性辅助所需相关日期不能无条件套用于其他目的。",
+      "sourceAnchors": [
+        "3. 首批意图与槽位"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-002"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-007",
+      "type": "MUST",
+      "statement": "解析只读取当前问题和调用方允许的上下文，提取槽位时区分当前输入与历史轮次来源。",
+      "sourceAnchors": [
+        "4. 识别与管理规则",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-002",
+        "CON-11-AC-004"
+      ]
+    },
+    {
+      "id": "CON-11-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "模型推测不得标记为用户已确认事实，越权上下文不得进入解析。",
+      "sourceAnchors": [
+        "4. 识别与管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-002",
+        "CON-11-AC-005"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-008",
+      "type": "MUST",
+      "statement": "多意图可独立处理时返回有序意图清单；存在依赖时先补齐前置项；冲突或指代不清时请求澄清。",
+      "sourceAnchors": [
+        "4. 识别与管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-003"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-009",
+      "type": "MUST",
+      "statement": "槽位齐全且路由可用时才返回工具或流程稳定标识，否则返回缺失项和补问建议。",
+      "sourceAnchors": [
+        "4. 识别与管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-002",
+        "CON-11-AC-005"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-010",
+      "type": "MUST",
+      "statement": "对话流实际执行工具前再次校验参数和当前权限；解析成功仅代表路由建议，不代表允许调用或工具已经执行。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "4. 识别与管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-005"
+      ]
+    },
+    {
+      "id": "CON-11-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "意图配置、资源编号或模型输出不得扩大智能体、用户、工具或数据权限。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 字段设计",
+        "4. 识别与管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-005"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-011",
+      "type": "MUST",
+      "statement": "配置支持新增或编辑草稿、正反例测试、批量评测、发布、停用和归档；多人编辑使用版本冲突校验。",
+      "sourceAnchors": [
+        "4. 识别与管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-006"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-012",
+      "type": "MUST",
+      "statement": "发布前验证标签唯一、路由目标存在、槽位类型匹配和回退规则；已发布版本不可原地改写，智能体显式绑定新版后才升级。",
+      "sourceAnchors": [
+        "4. 识别与管理规则",
+        "总目录/3.4 配置引用与发布"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-006"
+      ]
+    },
+    {
+      "id": "CON-11-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "草稿保存或新版本发布不得自动改变正式解析所使用的固定版本。",
+      "sourceAnchors": [
+        "4. 识别与管理规则",
+        "总目录/3.4 配置引用与发布"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-006"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-013",
+      "type": "MUST",
+      "statement": "普通停用阻止新绑定而保留现有版本引用的可追溯性；紧急撤销立即阻止运行并进入已配置回退。",
+      "sourceAnchors": [
+        "4. 识别与管理规则",
+        "总目录/3.4 配置引用与发布"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-006"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-014",
+      "type": "MUST",
+      "statement": "测试并列展示输入、候选意图、提取值、来源轮次、缺失槽位和计划路由，并允许填写人工标准答案。",
+      "sourceAnchors": [
+        "5. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-007"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-015",
+      "type": "MUST",
+      "statement": "评测报告至少包含样本量、整体准确率、各类精确率和召回率、槽位准确性、未知意图处理、多意图评价口径、时间及配置和模型版本。",
+      "sourceAnchors": [
+        "5. 内部验证页面",
+        "6. 服务契约与统计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-007"
+      ]
+    },
+    {
+      "id": "CON-11-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "评测不得只展示一个总百分比，识别置信指标不得冒充以人工标准答案计算的准确率。",
+      "sourceAnchors": [
+        "2. 字段设计",
+        "5. 内部验证页面",
+        "6. 服务契约与统计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-007"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-016",
+      "type": "MUST",
+      "statement": "评测集与调参样本分开记录，未知意图样本必须纳入评测；指标目标值须试测后由业务确认。",
+      "sourceAnchors": [
+        "6. 服务契约与统计",
+        "8. 依赖与交付",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-007"
+      ]
+    },
+    {
+      "id": "CON-11-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "不得自行设定低置信处理阈值、准确率、性能目标或把调参样本当作独立评测结果。",
+      "sourceAnchors": [
+        "6. 服务契约与统计",
+        "8. 依赖与交付",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-007"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-018",
+      "type": "MUST",
+      "statement": "无效配置、路由不可用、源上下文越权、模型失败和参数非法必须可区分；识别失败可以返回澄清。",
+      "sourceAnchors": [
+        "6. 服务契约与统计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-003",
+        "CON-11-AC-009"
+      ]
+    },
+    {
+      "id": "CON-11-MUST_NOT-009",
+      "type": "MUST_NOT",
+      "statement": "识别失败、模型失败或路由建议不得伪装成工具已经执行。",
+      "sourceAnchors": [
+        "6. 服务契约与统计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-005",
+        "CON-11-AC-009"
+      ]
+    },
+    {
+      "id": "CON-11-MUST-022",
+      "type": "MUST",
+      "statement": "中心业务分类、首批样本、条件必填规则、低置信处理标准、评测阈值和性能目标须经确认后才能作为正式配置或验收依据。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-11-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "intentConfiguration",
+      "required": "管理操作时",
+      "rules": [
+        "稳定编号、标签、正反例、槽位、路由稳定 ID、资源范围和预期版本"
+      ]
+    },
+    {
+      "name": "question",
+      "required": "解析时",
+      "rules": [
+        "保留实际咨询内容"
+      ]
+    },
+    {
+      "name": "allowedContext",
+      "required": false,
+      "rules": [
+        "仅包含调用方有权访问的轮次和来源"
+      ]
+    },
+    {
+      "name": "fixedConfigurationVersion",
+      "required": "解析或评测时",
+      "rules": [
+        "禁止隐式漂移"
+      ]
+    },
+    {
+      "name": "evaluationSet",
+      "required": "批量评测时",
+      "rules": [
+        "人工标准答案、未知样本、多意图口径、数据集用途标记"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "parseResult",
+      "fields": [
+        "primaryIntent",
+        "orderedCandidateIntents",
+        "multiIntent",
+        "unknown",
+        "needsClarification",
+        "slots",
+        "missingSlots",
+        "routeSuggestion",
+        "configurationVersion",
+        "modelVersion",
+        "parseTime"
+      ]
+    },
+    {
+      "name": "slot",
+      "fields": [
+        "name",
+        "value",
+        "status",
+        "sourceTurn",
+        "userConfirmed"
+      ]
+    },
+    {
+      "name": "evaluation",
+      "fields": [
+        "sampleCount",
+        "overallAccuracy",
+        "perClassPrecision",
+        "perClassRecall",
+        "slotAccuracy",
+        "unknownHandling",
+        "multiIntentPolicy",
+        "errors",
+        "versions",
+        "time"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "parse",
+      "enforcement": "仅接收调用方允许的上下文和可见意图配置"
+    },
+    {
+      "action": "route",
+      "enforcement": "路由仅建议已注册工具或流程，执行时二次鉴权"
+    },
+    {
+      "action": "manage_draft",
+      "enforcement": "意图配置管理权限及版本冲突检查"
+    },
+    {
+      "action": "publish_or_disable",
+      "enforcement": "中心确认的授权角色并保留真实人员审计"
+    },
+    {
+      "action": "emergency_revoke",
+      "enforcement": "中心确认的紧急角色，运行时即时阻断"
+    },
+    {
+      "action": "read_sensitive_slots_or_records",
+      "enforcement": "按敏感级别、用户和数据保留授权控制"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "allowedNext": [
+        "已发布"
+      ],
+      "actions": [
+        "编辑",
+        "测试",
+        "评测"
+      ]
+    },
+    {
+      "name": "已发布",
+      "allowedNext": [
+        "已停用",
+        "已归档"
+      ],
+      "invariant": "不可原地改写，运行按固定版本"
+    },
+    {
+      "name": "已停用",
+      "allowedNext": [
+        "已归档"
+      ],
+      "invariant": "禁止新绑定，历史固定引用可追溯"
+    },
+    {
+      "name": "已归档",
+      "allowedNext": [],
+      "invariant": "历史版本和审计保留"
+    },
+    {
+      "name": "紧急撤销标记",
+      "kind": "runtime_control",
+      "invariant": "立即阻止运行并进入配置回退，不与普通停用混同"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "意图配置采用稳定编号和不可变版本，发布不自动替换智能体绑定。",
+    "每次解析和评测记录固定配置、模型和提示词版本以及实际上下文引用。",
+    "槽位值保留来源轮次、用户确认状态和后续更正，不覆盖历史来源。",
+    "评测数据集记录版本及调参或独立评测用途，未知样本纳入。",
+    "解析或评测记录仅在授权范围和保留期限内存储。",
+    "紧急撤销在运行时重新校验，不允许已缓存配置继续执行。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "insufficient_information",
+      "result": "返回缺失槽位和补问建议，不编造值"
+    },
+    {
+      "case": "unknown_or_out_of_scope",
+      "result": "返回未知、澄清或能力范围说明，不强制分类"
+    },
+    {
+      "case": "ambiguous_reference_or_conflicting_intents",
+      "result": "请求澄清并保留候选"
+    },
+    {
+      "case": "unauthorized_context",
+      "result": "拒绝使用越权内容并返回可区分错误"
+    },
+    {
+      "case": "route_unavailable_or_revoked",
+      "result": "不执行工具，返回回退或明确不可用"
+    },
+    {
+      "case": "model_failure",
+      "result": "返回失败或澄清，不伪装执行成功"
+    },
+    {
+      "case": "configuration_invalid_or_conflict",
+      "result": "阻止发布或覆盖并返回逐项错误"
+    },
+    {
+      "case": "evaluation_partial_failure",
+      "result": "保留逐条错误、失败数量和实际分母"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "CON-11-DEC-001",
+      "owner": "AI",
+      "description": "生成候选意图、关键词、槽位候选和澄清建议；候选推测不等于用户确认或执行授权。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "4. 识别与管理规则"
+      ]
+    },
+    {
+      "id": "CON-11-DEC-002",
+      "owner": "RULE",
+      "description": "执行槽位类型与条件必填、配置版本、状态、已注册路由、参数和权限校验及评测计算。",
+      "sourceAnchors": [
+        "3. 首批意图与槽位",
+        "4. 识别与管理规则",
+        "6. 服务契约与统计"
+      ]
+    },
+    {
+      "id": "CON-11-DEC-003",
+      "owner": "HUMAN",
+      "description": "确认业务分类、正反例、条件必填、标准答案和槽位更正，并由授权人员发布或撤销配置。",
+      "sourceAnchors": [
+        "4. 识别与管理规则",
+        "5. 内部验证页面",
+        "8. 依赖与交付"
+      ]
+    },
+    {
+      "id": "CON-11-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "身份权限系统决定可用上下文和工具数据权限，工具目录决定可路由稳定 ID；解析模块无权扩大范围。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "4. 识别与管理规则"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-11-AC-001",
+      "given": [
+        "首批分类、正反例、槽位及真实工具目录"
+      ],
+      "when": "校验并解析各类典型问题",
+      "then": [
+        "配置覆盖首批建议且与工具契约一致",
+        "关键词不作为唯一依据",
+        "路由只使用稳定注册 ID"
+      ],
+      "sourceClauseIds": [
+        "CON-11-MUST-001",
+        "CON-11-MUST-003",
+        "CON-11-MUST_NOT-002",
+        "CON-11-MUST-005",
+        "CON-11-MUST-006"
+      ]
+    },
+    {
+      "id": "CON-11-AC-002",
+      "given": [
+        "信息不足、不同分析目的和包含模型可推测信息的问题"
+      ],
+      "when": "解析槽位",
+      "then": [
+        "按目的返回真实缺口",
+        "不机械要求无关槽位",
+        "推测值不标记已确认",
+        "来源轮次可追溯"
+      ],
+      "sourceClauseIds": [
+        "CON-11-MUST-004",
+        "CON-11-MUST-006",
+        "CON-11-MUST_NOT-003",
+        "CON-11-MUST-007",
+        "CON-11-MUST_NOT-004",
+        "CON-11-MUST-009"
+      ]
+    },
+    {
+      "id": "CON-11-AC-003",
+      "given": [
+        "可独立多意图、有依赖多意图、未知问题和指代歧义"
+      ],
+      "when": "执行解析",
+      "then": [
+        "分别返回有序清单、前置补问、未知或澄清",
+        "不强制分类"
+      ],
+      "sourceClauseIds": [
+        "CON-11-MUST-002",
+        "CON-11-MUST_NOT-001",
+        "CON-11-MUST-008",
+        "CON-11-MUST-018"
+      ]
+    },
+    {
+      "id": "CON-11-AC-004",
+      "given": [
+        "历史槽位值和用户后续更正"
+      ],
+      "when": "继续多轮解析",
+      "then": [
+        "更正成为当前值",
+        "原值、来源轮次和更正关系仍可追溯"
+      ],
+      "sourceClauseIds": [
+        "CON-11-MUST-004",
+        "CON-11-MUST-007"
+      ]
+    },
+    {
+      "id": "CON-11-AC-005",
+      "given": [
+        "解析成功但用户无工具权限、路由被撤销或上下文越权"
+      ],
+      "when": "对话流准备执行",
+      "then": [
+        "参数与权限二次校验阻断",
+        "不泄露越权上下文",
+        "不伪装工具已执行"
+      ],
+      "sourceClauseIds": [
+        "CON-11-MUST-001",
+        "CON-11-MUST_NOT-002",
+        "CON-11-MUST_NOT-004",
+        "CON-11-MUST-009",
+        "CON-11-MUST-010",
+        "CON-11-MUST_NOT-005",
+        "CON-11-MUST_NOT-009"
+      ]
+    },
+    {
+      "id": "CON-11-AC-006",
+      "given": [
+        "重复标签、无效目标、槽位类型冲突、并发编辑和已有固定引用"
+      ],
+      "when": "保存、发布、停用或紧急撤销",
+      "then": [
+        "非法配置和冲突被拒绝",
+        "发布版本不可改写或隐式替换",
+        "普通停用与紧急撤销语义正确"
+      ],
+      "sourceClauseIds": [
+        "CON-11-MUST-003",
+        "CON-11-MUST-011",
+        "CON-11-MUST-012",
+        "CON-11-MUST_NOT-006",
+        "CON-11-MUST-013"
+      ]
+    },
+    {
+      "id": "CON-11-AC-007",
+      "given": [
+        "冻结标注集、独立调参集、未知及多意图样本"
+      ],
+      "when": "执行批量评测",
+      "then": [
+        "显示样本量及分项指标",
+        "置信度不冒充准确率",
+        "数据集用途分开",
+        "未确认阈值不被系统自行填入"
+      ],
+      "sourceClauseIds": [
+        "CON-11-MUST-014",
+        "CON-11-MUST-015",
+        "CON-11-MUST_NOT-007",
+        "CON-11-MUST-016",
+        "CON-11-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "CON-11-AC-009",
+      "given": [
+        "无效配置、路由不可用、模型失败和参数错误"
+      ],
+      "when": "直接调用解析或评测服务",
+      "then": [
+        "错误类型可区分",
+        "失败不伪装成工具执行",
+        "评测保留逐条错误和实际分母"
+      ],
+      "sourceClauseIds": [
+        "CON-11-MUST-018",
+        "CON-11-MUST_NOT-009"
+      ]
+    },
+    {
+      "id": "CON-11-AC-011",
+      "given": [
+        "尚未确认的分类、样本、条件规则、阈值或性能值"
+      ],
+      "when": "检查正式配置和验收报告",
+      "then": [
+        "保持待确认并阻断受影响环节",
+        "不存在 AI 自行补值"
+      ],
+      "sourceClauseIds": [
+        "CON-11-MUST-022"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "CON-11-DD-001",
+      "decision": "意图语义与槽位规则归属 Consultation 上下文；配置版本生命周期复用 Versioned Configuration；对话流拥有多轮更新和实际工具执行。",
+      "basis": "ARC-03 与原文模块边界",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-11-DD-002",
+      "decision": "具体 REST 路径、分类器或模型、阈值、模板语法和 DM8 类型延后至 D 门禁及评测验证。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "原文明确要求中心确认与试测，当前不猜测。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CON-11-OQ-001",
+      "type": "business_semantics",
+      "question": "中心确认的业务分类、标签边界、正反例、条件必填规则和多意图评价口径是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "正式意图配置"
+      ]
+    },
+    {
+      "id": "CON-11-OQ-002",
+      "type": "acceptance_data",
+      "question": "首批训练或调参集与独立评测集由谁提供、如何标注和冻结？",
+      "blocks": [
+        "SPK-08",
+        "效果验收"
+      ]
+    },
+    {
+      "id": "CON-11-OQ-003",
+      "type": "acceptance_parameter",
+      "question": "低置信处理、各类精确率/召回率、槽位准确性和性能目标的确认值是什么？",
+      "blocks": [
+        "路由回退配置",
+        "效果与性能验收"
+      ]
+    },
+    {
+      "id": "CON-11-OQ-004",
+      "type": "authorization",
+      "question": "配置、发布、停用、紧急撤销、敏感槽位及解析记录访问分别由哪些角色负责？",
+      "blocks": [
+        "ARC-06",
+        "ARC-11",
+        "正式状态操作"
+      ]
+    },
+    {
+      "id": "CON-11-OQ-005",
+      "type": "runtime_dependency",
+      "question": "首批工具与对话流的稳定 ID、输入契约、可用状态和回退顺序是什么？",
+      "blocks": [
+        "ARC-07",
+        "CON-12",
+        "MVP-CON路由"
+      ]
+    },
+    {
+      "id": "CON-11-OQ-006",
+      "type": "environment",
+      "question": "DM8 小版本、实例参数、JDK/驱动、批准模型通道和数据保留授权是什么？",
+      "blocks": [
+        "ARC-10",
+        "ARC-11",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "The initial intent table is preserved as configurable source guidance, not converted into an immutable AI-invented taxonomy.",
+      "Candidate extraction, deterministic validation, human business confirmation and authoritative permission decisions are separated.",
+      "No confidence threshold, evaluation target, performance value, route identifier or role mapping was guessed."
+    ]
+  }
+}

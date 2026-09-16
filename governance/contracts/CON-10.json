@@ -1,0 +1,909 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-10",
+  "title": "知识产权咨询提示词管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权咨询助手/知识产权咨询提示词管理需求文档.md",
+    "sha256": "aaf278a2b3c8dd263541431baf951369354bfd8234e5fe91d3786499a70353e5",
+    "sections": [
+      {
+        "anchor": "国产化与达梦 DM8 适配要求",
+        "purpose": "deployment_and_storage"
+      },
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 管理规则",
+        "purpose": "lifecycle_and_security"
+      },
+      {
+        "anchor": "4. 测试与统计",
+        "purpose": "testing_and_metrics"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "dependencies_and_delivery"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sections": [
+        "1. 项目定位与交付口径",
+        "3.2 来源、版本和权限",
+        "3.4 配置引用与发布",
+        "3.6 默认值与未决条件",
+        "3.7 国产化部署与达梦 DM8 数据库",
+        "6. 验收资料与共同口径"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-10-MUST-001",
+      "type": "MUST",
+      "statement": "提示词分为面向用户的提问引导和内部系统执行模板，两类记录共用版本机制但用途、可见范围和使用统计分开。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "4. 测试与统计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-001",
+        "CON-10-AC-008"
+      ]
+    },
+    {
+      "id": "CON-10-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "用户提问引导不得被直接拼接为高权限系统指令。",
+      "sourceAnchors": [
+        "1. 功能概述"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-001",
+        "CON-10-AC-006"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-002",
+      "type": "MUST",
+      "statement": "首版支持人工维护、预览、测试、发布、停用、复制新版本和归档。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-002",
+        "CON-10-AC-003"
+      ]
+    },
+    {
+      "id": "CON-10-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "首版不要求自动批量生成提示词或自动上线优化；未经中心评审的生成模板不得直接发布。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-011"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-003",
+      "type": "MUST",
+      "statement": "每条提示词具有唯一且创建后不可修改的稳定编号，并记录名称、类型、正文、场景或意图稳定 ID、适用用户、语言、状态和不可变版本。",
+      "sourceAnchors": [
+        "2. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-002"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-004",
+      "type": "MUST",
+      "statement": "模板变量记录名称、类型、必填性、来源和默认值规则；系统变量具有明确类型、转义和分隔规则。",
+      "sourceAnchors": [
+        "2. 信息字段",
+        "3. 管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-004",
+        "CON-10-AC-006"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-005",
+      "type": "MUST",
+      "statement": "记录创建或辅助生成来源、创建时间、更新时间、创建人、修改人、发布人、变更说明和版本测试记录。",
+      "sourceAnchors": [
+        "2. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-002",
+        "CON-10-AC-011"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-006",
+      "type": "MUST",
+      "statement": "管理查询支持编号精确、名称或内容关键词包含查询，以及类型、场景和状态筛选；默认更新时间倒序、每页 20 条。",
+      "sourceAnchors": [
+        "3. 管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-002"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-007",
+      "type": "MUST",
+      "statement": "已发布正文不可原地修改；编辑创建新草稿，保存时检查并发版本冲突。",
+      "sourceAnchors": [
+        "3. 管理规则",
+        "总目录/3.4 配置引用与发布"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-003",
+        "CON-10-AC-010"
+      ]
+    },
+    {
+      "id": "CON-10-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "草稿保存不得自动影响正式服务，也不得覆盖已发布或历史版本。",
+      "sourceAnchors": [
+        "3. 管理规则",
+        "总目录/3.4 配置引用与发布"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-003"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-008",
+      "type": "MUST",
+      "statement": "发布前校验变量定义、场景关联和模板完整性，未定义变量或缺失必填变量必须阻止发布或调用。",
+      "sourceAnchors": [
+        "3. 管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-004"
+      ]
+    },
+    {
+      "id": "CON-10-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "变量无值且无允许的默认值时不得残留占位符或静默继续渲染。",
+      "sourceAnchors": [
+        "3. 管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-004"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-009",
+      "type": "MUST",
+      "statement": "用户文本和检索文献始终作为数据输入并按变量规则转义或分隔，不能改变工具权限、系统规则或资源访问范围。",
+      "sourceAnchors": [
+        "3. 管理规则",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-006"
+      ]
+    },
+    {
+      "id": "CON-10-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "模板不得声明超出智能体授权的资源访问，模型输出不得授予权限。",
+      "sourceAnchors": [
+        "3. 管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-006"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-010",
+      "type": "MUST",
+      "statement": "用户引导按场景、用户范围和配置顺序展示；点击仅填入或发起普通用户问题，不执行管理动作；展示条数由调用方配置。",
+      "sourceAnchors": [
+        "3. 管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-001"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-011",
+      "type": "MUST",
+      "statement": "发布新版本不自动替换智能体的固定版本引用，升级须通过智能体配置另行发布。",
+      "sourceAnchors": [
+        "3. 管理规则",
+        "总目录/3.4 配置引用与发布"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-003"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-012",
+      "type": "MUST",
+      "statement": "普通停用禁止新绑定和新展示但允许已有固定引用继续；紧急撤销立即拒绝所有运行时调用并进入已配置的回退或不可用状态。",
+      "sourceAnchors": [
+        "3. 管理规则",
+        "总目录/3.4 配置引用与发布"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-005"
+      ]
+    },
+    {
+      "id": "CON-10-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "普通停用与紧急撤销不得合并为语义不明的单一操作，界面和服务必须区分。",
+      "sourceAnchors": [
+        "3. 管理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-005"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-013",
+      "type": "MUST",
+      "statement": "草稿可以删除；有历史引用的版本只能归档并保留审计，历史审计不得因归档而破坏。",
+      "sourceAnchors": [
+        "3. 管理规则",
+        "总目录/3.4 配置引用与发布"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-003"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-014",
+      "type": "MUST",
+      "statement": "系统模板测试接收变量样例并返回渲染结果和逐项校验错误；模型试运行明确标为测试且记录模型与模板版本。",
+      "sourceAnchors": [
+        "4. 测试与统计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-007"
+      ]
+    },
+    {
+      "id": "CON-10-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "测试或模型试运行不得计入正式使用频率，也不得自动改变已发布配置。",
+      "sourceAnchors": [
+        "4. 测试与统计",
+        "总目录/3.4 配置引用与发布"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-007",
+        "CON-10-AC-008"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-015",
+      "type": "MUST",
+      "statement": "用户引导的展示与点击分开统计；执行模板的成功渲染或调用与失败分开统计；重复事件 ID 幂等去重并注明时间范围和统计延迟。",
+      "sourceAnchors": [
+        "2. 信息字段",
+        "4. 测试与统计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-008"
+      ]
+    },
+    {
+      "id": "CON-10-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "展示、点击、成功执行、失败执行不得合并成一个无法解释的使用次数。",
+      "sourceAnchors": [
+        "4. 测试与统计"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-008"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-016",
+      "type": "MUST",
+      "statement": "普通用户仅能查询允许展示的用户引导，内部模板正文与管理接口只对有管理权限的账号或授权服务身份开放。",
+      "sourceAnchors": [
+        "5. 内部验证页面",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-009"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-018",
+      "type": "MUST",
+      "statement": "变量缺失、版本冲突、模板不可用、关联无效和无权限错误可区分，错误不得返回密钥、内部模板给无权用户或敏感内部堆栈。",
+      "sourceAnchors": [
+        "6. 服务契约",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-004",
+        "CON-10-AC-009",
+        "CON-10-AC-010"
+      ]
+    },
+    {
+      "id": "CON-10-MUST-022",
+      "type": "MUST",
+      "statement": "模板正文业务内容、首批引导问题、变量清单、发布权限、紧急撤销角色和事件保留时间须由中心确认后才能进入对应正式配置与验收。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-10-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "promptDraft",
+      "required": true,
+      "rules": [
+        "稳定编号创建后不可修改",
+        "类型二选一",
+        "正文、范围、语言、关联稳定 ID 和变更说明"
+      ]
+    },
+    {
+      "name": "variableDefinitions",
+      "required": "系统执行模板时",
+      "rules": [
+        "名称、类型、必填、来源、默认规则、转义或分隔规则"
+      ]
+    },
+    {
+      "name": "expectedVersion",
+      "required": "编辑、状态操作时",
+      "rules": [
+        "用于并发冲突检查"
+      ]
+    },
+    {
+      "name": "lifecycleAction",
+      "required": "状态变更时",
+      "rules": [
+        "publish|disable|emergency_revoke|archive 明确区分并带原因"
+      ]
+    },
+    {
+      "name": "renderSample",
+      "required": "测试时",
+      "rules": [
+        "样例变量和可选批准模型"
+      ]
+    },
+    {
+      "name": "usageEvent",
+      "required": "统计上报时",
+      "rules": [
+        "唯一事件 ID、事件类型、提示词版本、时间"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "promptVersion",
+      "fields": [
+        "promptId",
+        "versionId",
+        "type",
+        "status",
+        "contentOrAllowedView",
+        "scope",
+        "audit"
+      ]
+    },
+    {
+      "name": "validation",
+      "fields": [
+        "valid",
+        "fieldErrors",
+        "undefinedVariables",
+        "missingRequiredVariables"
+      ]
+    },
+    {
+      "name": "renderResult",
+      "fields": [
+        "renderedContent",
+        "promptVersion",
+        "modelVersionWhenTested",
+        "testMarker"
+      ]
+    },
+    {
+      "name": "lifecycleResult",
+      "fields": [
+        "oldStatus",
+        "newStatus",
+        "operation",
+        "operator",
+        "reason",
+        "affectedBindings"
+      ]
+    },
+    {
+      "name": "usageStatistics",
+      "fields": [
+        "timeRange",
+        "delay",
+        "displayCount",
+        "clickCount",
+        "successCount",
+        "failureCount"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "read_user_guidance",
+      "enforcement": "按场景、语言和用户范围由服务端过滤"
+    },
+    {
+      "action": "read_internal_template",
+      "enforcement": "仅授权服务身份及模板管理人员可读取固定版本"
+    },
+    {
+      "action": "create_or_edit_draft",
+      "enforcement": "模板管理权限且执行并发版本检查"
+    },
+    {
+      "action": "publish",
+      "enforcement": "中心确认的发布角色，记录真实人员身份"
+    },
+    {
+      "action": "disable",
+      "enforcement": "授权配置管理角色"
+    },
+    {
+      "action": "emergency_revoke",
+      "enforcement": "中心确认的紧急撤销角色，立即由运行时强制执行"
+    },
+    {
+      "action": "view_internal_content",
+      "enforcement": "普通咨询用户明确禁止"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "allowedNext": [
+        "已发布"
+      ],
+      "actions": [
+        "编辑",
+        "测试",
+        "删除"
+      ]
+    },
+    {
+      "name": "已发布",
+      "allowedNext": [
+        "已停用",
+        "已归档"
+      ],
+      "actions": [
+        "固定版本调用",
+        "复制新草稿",
+        "紧急撤销"
+      ]
+    },
+    {
+      "name": "已停用",
+      "allowedNext": [
+        "已归档"
+      ],
+      "invariant": "禁止新绑定和新展示；已有固定引用可继续，除非紧急撤销"
+    },
+    {
+      "name": "已归档",
+      "allowedNext": [],
+      "invariant": "历史引用与审计保留"
+    },
+    {
+      "name": "紧急撤销标记",
+      "kind": "runtime_control",
+      "invariant": "不是普通停用的别名；立即阻止所有后续运行并触发配置回退或不可用状态"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "提示词使用稳定编号加不可变版本；已发布版本不原地修改。",
+    "草稿、发布、普通停用、紧急撤销和归档分别留存操作者、原因、时间和版本。",
+    "流程和智能体绑定固定已发布版本，新版本发布不隐式漂移现有绑定。",
+    "模板试运行记录模板和模型版本且标为测试，不计正式统计。",
+    "运行清单记录实际提示词版本；紧急撤销在运行时重新校验。",
+    "内部模板和日志遵守当前权限与脱敏要求，不向普通页面暴露正文、凭据或敏感堆栈。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "undefined_or_missing_variable",
+      "result": "阻止发布或调用并逐项返回变量错误，不遗留占位符"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前版本信息"
+    },
+    {
+      "case": "invalid_scene_or_intent_reference",
+      "result": "阻止发布并返回关联无效"
+    },
+    {
+      "case": "template_disabled",
+      "result": "拒绝新绑定或新展示，固定引用按普通停用规则处理"
+    },
+    {
+      "case": "template_emergency_revoked",
+      "result": "所有运行时调用立即拒绝并进入配置回退或明确不可用"
+    },
+    {
+      "case": "unauthorized_template_read",
+      "result": "拒绝且不返回内部正文、密钥或敏感错误"
+    },
+    {
+      "case": "duplicate_usage_event",
+      "result": "幂等接受且不重复累计"
+    },
+    {
+      "case": "database_or_transaction_failure",
+      "result": "状态变更不部分生效并返回可追踪失败"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "CON-10-DEC-001",
+      "owner": "AI",
+      "description": "仅在人工发起的测试或辅助生成中产生候选内容；输出保持测试或草稿，不可自行发布。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "4. 测试与统计",
+        "8. 依赖与交付"
+      ]
+    },
+    {
+      "id": "CON-10-DEC-002",
+      "owner": "RULE",
+      "description": "执行变量校验、转义、权限限制、版本冲突、状态转换、固定版本解析、撤销和事件去重。",
+      "sourceAnchors": [
+        "3. 管理规则",
+        "4. 测试与统计",
+        "6. 服务契约"
+      ]
+    },
+    {
+      "id": "CON-10-DEC-003",
+      "owner": "HUMAN",
+      "description": "维护和确认正文、变量、适用范围与变更说明，并由授权人员执行发布、停用、紧急撤销和归档。",
+      "sourceAnchors": [
+        "3. 管理规则",
+        "8. 依赖与交付"
+      ]
+    },
+    {
+      "id": "CON-10-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "身份权限系统提供真实用户、角色和服务身份；运行时依据已发布绑定决定可调用版本。",
+      "sourceAnchors": [
+        "5. 内部验证页面",
+        "6. 服务契约"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-10-AC-001",
+      "given": [
+        "两类提示词及不同普通用户范围"
+      ],
+      "when": "查询和点击用户引导",
+      "then": [
+        "仅返回匹配范围的引导",
+        "点击只形成普通问题",
+        "内部模板不混入引导或高权限指令"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST-001",
+        "CON-10-MUST_NOT-001",
+        "CON-10-MUST-010"
+      ]
+    },
+    {
+      "id": "CON-10-AC-002",
+      "given": [
+        "新建、查询和编辑草稿"
+      ],
+      "when": "执行管理操作",
+      "then": [
+        "编号唯一且不可改",
+        "字段及审计完整",
+        "查询筛选排序分页符合规则"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST-002",
+        "CON-10-MUST-003",
+        "CON-10-MUST-005",
+        "CON-10-MUST-006"
+      ]
+    },
+    {
+      "id": "CON-10-AC-003",
+      "given": [
+        "已发布版本及其智能体固定引用"
+      ],
+      "when": "编辑、发布新版、普通停用和归档",
+      "then": [
+        "原版本不被改写",
+        "新版不自动替换绑定",
+        "草稿不影响正式服务",
+        "历史引用与审计保留"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST-002",
+        "CON-10-MUST-007",
+        "CON-10-MUST_NOT-003",
+        "CON-10-MUST-011",
+        "CON-10-MUST-013"
+      ]
+    },
+    {
+      "id": "CON-10-AC-004",
+      "given": [
+        "未定义变量、缺失必填值和合法默认值样本"
+      ],
+      "when": "发布或渲染",
+      "then": [
+        "非法样本逐项报错并阻断",
+        "合法默认规则生效",
+        "结果无残留占位符"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST-004",
+        "CON-10-MUST-008",
+        "CON-10-MUST_NOT-004",
+        "CON-10-MUST-018"
+      ]
+    },
+    {
+      "id": "CON-10-AC-005",
+      "given": [
+        "正在被固定引用的发布版本"
+      ],
+      "when": "分别执行普通停用和紧急撤销",
+      "then": [
+        "普通停用只阻止新绑定和展示",
+        "紧急撤销立即阻止运行并触发回退",
+        "两种操作及审计可区分"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST-012",
+        "CON-10-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "CON-10-AC-006",
+      "given": [
+        "含提示注入内容的用户文本或检索文献",
+        "超出智能体权限的模板声明"
+      ],
+      "when": "渲染和执行",
+      "then": [
+        "用户内容仅作为转义数据",
+        "工具和资源权限不扩大",
+        "非法访问被规则层阻断"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST_NOT-001",
+        "CON-10-MUST-004",
+        "CON-10-MUST-009",
+        "CON-10-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "CON-10-AC-007",
+      "given": [
+        "模板变量样例和批准模型"
+      ],
+      "when": "预览、渲染测试和模型试运行",
+      "then": [
+        "结果与逐项错误可见",
+        "记录模板和模型版本",
+        "明确标记测试且不改变发布状态"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST-014",
+        "CON-10-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "CON-10-AC-008",
+      "given": [
+        "展示、点击、成功、失败、测试及重复事件"
+      ],
+      "when": "查询统计",
+      "then": [
+        "分类计数不混淆",
+        "重复事件不累计",
+        "测试排除",
+        "时间范围和延迟可见"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST-001",
+        "CON-10-MUST_NOT-007",
+        "CON-10-MUST-015",
+        "CON-10-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "CON-10-AC-009",
+      "given": [
+        "普通用户、模板管理员和授权服务身份"
+      ],
+      "when": "分别调用用户引导、内部解析和管理接口",
+      "then": [
+        "权限范围正确",
+        "越权被拒绝",
+        "内部正文、密钥和敏感堆栈不泄露"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST-016",
+        "CON-10-MUST-018"
+      ]
+    },
+    {
+      "id": "CON-10-AC-010",
+      "given": [
+        "两个客户端基于同一旧版本编辑"
+      ],
+      "when": "先后保存或发布",
+      "then": [
+        "后提交者收到版本冲突",
+        "已发布内容不被覆盖"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST-007",
+        "CON-10-MUST-018"
+      ]
+    },
+    {
+      "id": "CON-10-AC-011",
+      "given": [
+        "AI 生成的候选模板和未经确认的业务正文"
+      ],
+      "when": "尝试进入正式发布",
+      "then": [
+        "保持草稿或测试状态",
+        "必须经过中心确认和授权人员发布",
+        "系统不自动优化上线"
+      ],
+      "sourceClauseIds": [
+        "CON-10-MUST_NOT-002",
+        "CON-10-MUST-005",
+        "CON-10-MUST-022"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "CON-10-DD-001",
+      "decision": "通用不可变版本、发布和紧急撤销能力由 Versioned Configuration 上下文提供，咨询域拥有提示词用途、变量和场景约束。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-10-DD-002",
+      "decision": "具体 REST 路径、字段名、模板语法、转义库、DM8 类型和回退实现延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "原需求未指定技术实现且依赖环境与安全验证。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CON-10-OQ-001",
+      "type": "business_content",
+      "question": "首批用户引导问题和系统执行模板正文由谁提供与确认？",
+      "blocks": [
+        "正式配置",
+        "MVP-CON内容验收"
+      ]
+    },
+    {
+      "id": "CON-10-OQ-002",
+      "type": "business_semantics",
+      "question": "允许的变量名称、类型、来源、默认值、转义和分隔规则清单是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-09",
+        "模板渲染实现"
+      ]
+    },
+    {
+      "id": "CON-10-OQ-003",
+      "type": "authorization",
+      "question": "创建、测试、发布、普通停用、紧急撤销、归档和查看内部正文分别由哪些真实角色执行？",
+      "blocks": [
+        "ARC-06",
+        "正式状态操作"
+      ]
+    },
+    {
+      "id": "CON-10-OQ-004",
+      "type": "retention",
+      "question": "提示词版本、测试记录、使用事件和审计记录分别保留多久？",
+      "blocks": [
+        "ARC-10",
+        "ARC-11",
+        "归档清理"
+      ]
+    },
+    {
+      "id": "CON-10-OQ-005",
+      "type": "runtime_policy",
+      "question": "紧急撤销后的回退顺序和无可用版本时的用户可见行为是什么？",
+      "blocks": [
+        "ARC-05",
+        "ARC-07",
+        "MVP-CON异常闭环"
+      ]
+    },
+    {
+      "id": "CON-10-OQ-006",
+      "type": "environment",
+      "question": "DM8 小版本、实例参数、JDK/驱动、模型通道和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实 DM8 验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "The source's four named lifecycle states are preserved; emergency revocation is represented as a separate runtime control rather than inventing a fifth persisted business state.",
+      "No template body, variable vocabulary, role mapping, retention period, fallback order or technical template syntax was guessed.",
+      "AI remains limited to candidate generation and test runs; deterministic validation and authorized human publication are explicit."
+    ]
+  }
+}

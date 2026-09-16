@@ -1,0 +1,14 @@
+DROP TABLE adj_idempotency_record;
+DROP TABLE adj_test_review;
+DROP TABLE adj_draft_section_source;
+DROP TABLE adj_draft_section;
+DROP TABLE adj_draft_citation;
+DROP TABLE adj_draft;
+DROP TABLE adj_citation;
+DROP TABLE adj_legal_candidate;
+DROP TABLE adj_legal_candidate_set;
+DROP TABLE adj_inspection_item;
+DROP TABLE adj_material_inspection;
+DROP TABLE adj_work_input;
+DROP TABLE adj_work_item;
+DROP TABLE adj_source_locator;

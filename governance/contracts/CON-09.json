@@ -1,0 +1,779 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-09",
+  "title": "知识产权咨询智能体管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权咨询助手/知识产权咨询智能体管理需求文档.md",
+    "sha256": "b4468a52b36bcd303a2faa9a2b89434cac2d035542f534ab5f29b632c01cc416",
+    "sections": [
+      {
+        "anchor": "国产化与达梦 DM8 适配要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "1. 功能概述与范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 配置与统计字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 配置及发布流程",
+        "purpose": "lifecycle"
+      },
+      {
+        "anchor": "4. 运行监控与评测",
+        "purpose": "metrics"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约与权限",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sections": [
+        "1. 项目定位与交付口径",
+        "3. 共用业务规则",
+        "4. 共用支撑能力与估工方式",
+        "5. 建议开发与集成顺序",
+        "6. 验收资料与共同口径",
+        "7. 评审状态记录"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-09-MUST-001",
+      "type": "MUST",
+      "statement": "默认一个咨询入口按场景编排已授权服务，管理场景、能力、回复规则、版本、运行状态和效果监控。",
+      "sourceAnchors": [
+        "1. 功能概述与范围"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-001"
+      ]
+    },
+    {
+      "id": "CON-09-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "不得为每项功能默认复制独立智能体，Agent 不得拥有提示词正文、意图槽位、对话状态、业务数据、权限或法律规则。",
+      "sourceAnchors": [
+        "1. 功能概述与范围"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-001"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-002",
+      "type": "MUST",
+      "statement": "智能体编号唯一且创建后不可修改，配置固定适用用户场景、模型引用、工具清单、知识范围、回复规则及提示词意图流程具体版本。",
+      "sourceAnchors": [
+        "2. 配置与统计字段",
+        "3. 配置及发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-002"
+      ]
+    },
+    {
+      "id": "CON-09-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "配置不得包含或向页面返回中心凭据、模型密钥、未授权工具和超出用户数据权限的资源。",
+      "sourceAnchors": [
+        "1. 功能概述与范围",
+        "2. 配置与统计字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-002",
+        "CON-09-AC-009"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-003",
+      "type": "MUST",
+      "statement": "发布前校验引用存在且已发布、工具可用、数据权限合法、流程入口和回退存在，依赖快照完整。",
+      "sourceAnchors": [
+        "3. 配置及发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-003"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-004",
+      "type": "MUST",
+      "statement": "草稿试运行使用固定草稿配置并与正式会话、咨询量、调用和效果统计隔离。",
+      "sourceAnchors": [
+        "3. 配置及发布流程",
+        "4. 运行监控与评测"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-004"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-005",
+      "type": "MUST",
+      "statement": "授权人员填写变更说明后原子发布不可变版本；失败保持原生效版本，多人编辑使用并发版本拒绝静默覆盖。",
+      "sourceAnchors": [
+        "3. 配置及发布流程",
+        "6. 服务契约与权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-005"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-006",
+      "type": "MUST",
+      "statement": "新会话使用新生效版本，既有会话固定原版本；权限撤回和服务暂停即时生效，不受版本固定保护。",
+      "sourceAnchors": [
+        "3. 配置及发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-005",
+        "CON-09-AC-006"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-007",
+      "type": "MUST",
+      "statement": "回滚只能明确选择历史版本并重新校验依赖权限，被安全撤销版本不得启用；失败不改变当前版本。",
+      "sourceAnchors": [
+        "3. 配置及发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-005"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-008",
+      "type": "MUST",
+      "statement": "暂停拒绝新咨询并阻止在途后续工具调用，以可识别暂停状态结束；已完成历史按当前权限保留。",
+      "sourceAnchors": [
+        "3. 配置及发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-006"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-009",
+      "type": "MUST",
+      "statement": "故障降级只调用明确配置且当前可用的能力，失败工具及来源必须披露。",
+      "sourceAnchors": [
+        "3. 配置及发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-006"
+      ]
+    },
+    {
+      "id": "CON-09-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "暂停或降级不得由模型绕过工具权限、继续调用、编造失败工具结果或静默换用未配置能力。",
+      "sourceAnchors": [
+        "3. 配置及发布流程",
+        "总目录/3.4 配置引用与发布"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-006"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-010",
+      "type": "MUST",
+      "statement": "发布版本不可原地修改，修改复制新草稿；草稿可删除，发布版本只归档且不破坏历史会话引用。",
+      "sourceAnchors": [
+        "3. 配置及发布流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-007"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-011",
+      "type": "MUST",
+      "statement": "配置状态至少区分草稿、校验通过、已发布、已归档；服务状态区分未启用、运行中、暂停、故障降级及人工设置与探测来源。",
+      "sourceAnchors": [
+        "2. 配置与统计字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-007"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-012",
+      "type": "MUST",
+      "statement": "咨询量、用户消息、工具调用、成功失败分别计数；正式咨询量以提交首个有效问题的正式会话计算，测试默认排除。",
+      "sourceAnchors": [
+        "4. 运行监控与评测"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-008"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-013",
+      "type": "MUST",
+      "statement": "统计按 Asia/Shanghai 自然日或区间，首响应与最终完成耗时分开，失败率记录分母并可区分源故障和生成失败。",
+      "sourceAnchors": [
+        "4. 运行监控与评测"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-008"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-014",
+      "type": "MUST",
+      "statement": "回复准确率仅来自固定标注集或人工抽检并记录正确数、有效数、时间和配置版本；无评测显示未评测。",
+      "sourceAnchors": [
+        "2. 配置与统计字段",
+        "4. 运行监控与评测"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-008"
+      ]
+    },
+    {
+      "id": "CON-09-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "点赞率和模型自评分不得称为准确率，无评测不得显示 0%，线上反馈不得自动修改发布配置。",
+      "sourceAnchors": [
+        "4. 运行监控与评测",
+        "5. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-008"
+      ]
+    },
+    {
+      "id": "CON-09-MUST-018",
+      "type": "MUST",
+      "statement": "模型范围、工具目录、人员权限、指标保留、降级、专家样本、并发响应和环境未确认时对应设计验收保持阻塞。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-09-AC-012"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "agentDraft",
+      "required": true,
+      "rules": [
+        "唯一编号、场景用户、模型引用、工具资源、回复规则和依赖版本"
+      ]
+    },
+    {
+      "name": "testQuestion",
+      "required": "试运行时",
+      "rules": [
+        "明确测试身份和数据范围"
+      ]
+    },
+    {
+      "name": "lifecycleAction",
+      "required": "发布回滚归档时",
+      "rules": [
+        "版本、变更说明、当前并发版本和可信身份"
+      ]
+    },
+    {
+      "name": "serviceAction",
+      "required": "启停时",
+      "rules": [
+        "智能体编号、原因和当前服务状态"
+      ]
+    },
+    {
+      "name": "metricQuery",
+      "required": "监控时",
+      "rules": [
+        "配置版本、Asia/Shanghai 区间和指标口径"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "agentVersion",
+      "fields": [
+        "agentId",
+        "version",
+        "audiences",
+        "scenarios",
+        "modelRef",
+        "tools",
+        "resourceScope",
+        "promptVersion",
+        "intentVersion",
+        "flowVersion",
+        "replyRules",
+        "configStatus"
+      ]
+    },
+    {
+      "name": "dependencyValidation",
+      "fields": [
+        "errors",
+        "warnings",
+        "dependencyManifest",
+        "permissionChecks"
+      ]
+    },
+    {
+      "name": "runtimeState",
+      "fields": [
+        "configuredState",
+        "probedState",
+        "effectiveState",
+        "degradedCapabilities",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "metrics",
+      "fields": [
+        "period",
+        "formalSessions",
+        "userMessages",
+        "toolCalls",
+        "successes",
+        "failures",
+        "firstResponseLatency",
+        "completionLatency",
+        "evaluationCounts",
+        "accuracyOrUnevaluated",
+        "dataDelay"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "view_or_edit",
+      "enforcement": "配置查看和草稿编辑角色分离"
+    },
+    {
+      "action": "publish_or_rollback",
+      "enforcement": "发布角色、依赖完整性和并发版本"
+    },
+    {
+      "action": "enable_or_pause",
+      "enforcement": "独立运行控制角色和操作原因"
+    },
+    {
+      "action": "run",
+      "enforcement": "调用用户、场景、工具和数据权限取交集且每工具再次鉴权"
+    },
+    {
+      "action": "view_metrics",
+      "enforcement": "指标、样本、错误内容和版本访问权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "config",
+      "allowedNext": [
+        "校验通过",
+        "已归档"
+      ]
+    },
+    {
+      "name": "校验通过",
+      "kind": "config",
+      "allowedNext": [
+        "草稿",
+        "已发布",
+        "已归档"
+      ]
+    },
+    {
+      "name": "已发布",
+      "kind": "config",
+      "allowedNext": [
+        "已归档"
+      ],
+      "invariant": "不可原地修改"
+    },
+    {
+      "name": "已归档",
+      "kind": "config",
+      "allowedNext": []
+    },
+    {
+      "name": "未启用",
+      "kind": "service",
+      "allowedNext": [
+        "运行中"
+      ]
+    },
+    {
+      "name": "运行中",
+      "kind": "service",
+      "allowedNext": [
+        "暂停",
+        "故障/降级"
+      ]
+    },
+    {
+      "name": "暂停",
+      "kind": "service",
+      "allowedNext": [
+        "运行中"
+      ]
+    },
+    {
+      "name": "故障/降级",
+      "kind": "service",
+      "allowedNext": [
+        "运行中",
+        "暂停"
+      ]
+    }
+  ],
+  "sourceAndVersionRules": [
+    "智能体版本固定已发布提示词意图流程、模型工具、资源范围和回复规则。",
+    "草稿试运行与正式会话、日志和指标隔离。",
+    "新会话绑定新版本，既有会话保留原版本；权限暂停即时覆盖。",
+    "配置状态、服务人工设置和健康探测状态分开。",
+    "发布回滚原子且历史会话引用不可破坏。",
+    "指标绑定口径时间样本和配置版本。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "dependency_missing_or_unpublished",
+      "result": "校验失败并阻止发布"
+    },
+    {
+      "case": "tool_or_data_unauthorized",
+      "result": "阻止配置或运行，不扩大权限"
+    },
+    {
+      "case": "publish_conflict_or_failure",
+      "result": "保持原版本并返回当前版本"
+    },
+    {
+      "case": "emergency_pause",
+      "result": "拒绝新会话并停止在途后续工具"
+    },
+    {
+      "case": "capability_failure",
+      "result": "仅按明确降级策略继续并披露缺口"
+    },
+    {
+      "case": "no_evaluation",
+      "result": "显示未评测，不输出 0%"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "CON-09-DEC-001",
+      "owner": "AI",
+      "description": "运行已发布编排和生成辅助回复；不得改变配置、扩大工具权限、编造失败结果或自评为准确。",
+      "sourceAnchors": [
+        "1. 功能概述与范围",
+        "3. 配置及发布流程",
+        "4. 运行监控与评测"
+      ]
+    },
+    {
+      "id": "CON-09-DEC-002",
+      "owner": "RULE",
+      "description": "执行依赖校验、版本发布、权限交集、启停降级、会话绑定、指标口径和并发。",
+      "sourceAnchors": [
+        "3. 配置及发布流程",
+        "4. 运行监控与评测",
+        "6. 服务契约与权限"
+      ]
+    },
+    {
+      "id": "CON-09-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权人员配置、试运行、发布回滚启停并确认变更，专家执行回复评测。",
+      "sourceAnchors": [
+        "3. 配置及发布流程",
+        "4. 运行监控与评测"
+      ]
+    },
+    {
+      "id": "CON-09-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供用户角色、模型工具目录、数据授权、运行制度和验收目标。",
+      "sourceAnchors": [
+        "2. 配置与统计字段",
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-09-AC-001",
+      "given": [
+        "多个咨询场景和一个入口"
+      ],
+      "when": "配置智能体",
+      "then": [
+        "按场景编排共享能力",
+        "不复制每功能智能体",
+        "Agent 不拥有其他模块数据规则"
+      ],
+      "sourceClauseIds": [
+        "CON-09-MUST-001",
+        "CON-09-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "CON-09-AC-002",
+      "given": [
+        "固定依赖版本、工具和越权资源密钥"
+      ],
+      "when": "保存草稿",
+      "then": [
+        "稳定编号和依赖完整",
+        "越权资源被拒绝",
+        "密钥不进入配置响应"
+      ],
+      "sourceClauseIds": [
+        "CON-09-MUST-002",
+        "CON-09-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "CON-09-AC-003",
+      "given": [
+        "缺失未发布依赖、不可用工具和无回退流程"
+      ],
+      "when": "发布校验",
+      "then": [
+        "逐项错误返回",
+        "阻止发布",
+        "依赖快照可核对"
+      ],
+      "sourceClauseIds": [
+        "CON-09-MUST-003"
+      ]
+    },
+    {
+      "id": "CON-09-AC-004",
+      "given": [
+        "草稿试运行和正式会话"
+      ],
+      "when": "执行测试",
+      "then": [
+        "使用草稿固定版本",
+        "测试记录明确",
+        "不进入正式统计"
+      ],
+      "sourceClauseIds": [
+        "CON-09-MUST-004"
+      ]
+    },
+    {
+      "id": "CON-09-AC-005",
+      "given": [
+        "并发发布、新旧会话和历史回滚"
+      ],
+      "when": "发布或回滚",
+      "then": [
+        "原子切换且失败保持原版",
+        "新旧会话版本正确",
+        "回滚重校验并阻止撤销版本"
+      ],
+      "sourceClauseIds": [
+        "CON-09-MUST-005",
+        "CON-09-MUST-006",
+        "CON-09-MUST-007"
+      ]
+    },
+    {
+      "id": "CON-09-AC-006",
+      "given": [
+        "运行中会话、人工暂停和工具故障"
+      ],
+      "when": "状态变化",
+      "then": [
+        "新请求拒绝在途停止后续工具",
+        "只用明确降级能力",
+        "不编造失败结果"
+      ],
+      "sourceClauseIds": [
+        "CON-09-MUST-006",
+        "CON-09-MUST-008",
+        "CON-09-MUST-009",
+        "CON-09-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "CON-09-AC-007",
+      "given": [
+        "草稿、发布和归档版本及服务探测"
+      ],
+      "when": "查看生命周期",
+      "then": [
+        "配置与服务状态分开",
+        "发布版本不可改写",
+        "历史会话引用保留"
+      ],
+      "sourceClauseIds": [
+        "CON-09-MUST-010",
+        "CON-09-MUST-011"
+      ]
+    },
+    {
+      "id": "CON-09-AC-008",
+      "given": [
+        "正式测试会话、点赞、人工评测和多类失败"
+      ],
+      "when": "统计监控",
+      "then": [
+        "会话消息工具口径分开",
+        "时区耗时分母明确",
+        "未评测和点赞自评分不冒充准确率"
+      ],
+      "sourceClauseIds": [
+        "CON-09-MUST-012",
+        "CON-09-MUST-013",
+        "CON-09-MUST-014",
+        "CON-09-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "CON-09-AC-009",
+      "given": [
+        "不同配置发布运行角色和接口故障"
+      ],
+      "when": "直接调用管理服务",
+      "then": [
+        "后端分权和错误明确",
+        "并发不覆盖",
+        "凭据密钥不下发"
+      ],
+      "sourceClauseIds": [
+        "CON-09-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "CON-09-AC-012",
+      "given": [
+        "模型工具人员样本目标环境未确认"
+      ],
+      "when": "检查交付状态",
+      "then": [
+        "受影响设计验证保持阻塞",
+        "不预设复杂平台或指标阈值"
+      ],
+      "sourceClauseIds": [
+        "CON-09-MUST-018"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CON-09-OQ-001",
+      "type": "business_semantics",
+      "question": "首批咨询场景、用户范围、工具清单、回复规则、降级回退和暂停语义是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "运行设计"
+      ]
+    },
+    {
+      "id": "CON-09-OQ-002",
+      "type": "authorization",
+      "question": "配置查看编辑发布运行控制和评测角色及数据权限是什么？",
+      "blocks": [
+        "ARC-06",
+        "管理权限实现"
+      ]
+    },
+    {
+      "id": "CON-09-OQ-003",
+      "type": "model_boundary",
+      "question": "批准模型配置、可用范围、出域策略和工具调用约束是什么？",
+      "blocks": [
+        "ARC-07",
+        "ARC-11",
+        "SPK-10"
+      ]
+    },
+    {
+      "id": "CON-09-OQ-004",
+      "type": "acceptance_data",
+      "question": "专家评测样本、统计保留、可用性并发响应和效果阈值如何确认？",
+      "blocks": [
+        "SPK-10",
+        "SPK-16",
+        "验收"
+      ]
+    },
+    {
+      "id": "CON-09-OQ-005",
+      "type": "environment",
+      "question": "DM8、日志监控、模型网关和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "CON-09-DD-001",
+      "decision": "ConsultAgent 仅绑定场景与已发布 Workflow/Tool/Prompt/Intent/Model 版本，业务数据权限由各领域和平台拥有。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-09-DD-002",
+      "decision": "配置生命周期、人工服务开关、健康探测和会话执行状态分离，权限暂停作为实时运行覆盖。",
+      "basis": "原文明确状态来源和版本固定例外。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-09-DD-003",
+      "decision": "具体 API、场景工具目录、降级策略、统计实现和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心规则、权限、模型、目标和环境未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "The agent remains an orchestrator; prompt, intent, workflow, tools, permissions and business data retain separate ownership.",
+      "Configuration state, service control, health state, session version and metrics are not conflated.",
+      "No scene, tool, role, model, degradation policy, metric target or environment was guessed."
+    ]
+  }
+}

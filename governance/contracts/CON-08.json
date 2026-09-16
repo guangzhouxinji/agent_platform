@@ -1,0 +1,783 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-08",
+  "title": "相似案例检索",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权咨询助手/相似案例检索需求文档.md",
+    "sha256": "defb85600e08997f878cccda6c391153a2e06b5ae70e9bc4e546deda801712f9",
+    "sections": [
+      {
+        "anchor": "国产化与达梦 DM8 适配要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 输入输出字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 流程与检索规则",
+        "purpose": "retrieval"
+      },
+      {
+        "anchor": "4. 评分与引用",
+        "purpose": "scoring_citation"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sections": [
+        "1. 项目定位与交付口径",
+        "3. 共用业务规则",
+        "4. 共用支撑能力与估工方式",
+        "5. 建议开发与集成顺序",
+        "6. 验收资料与共同口径",
+        "7. 评审状态记录"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-08-MUST-001",
+      "type": "MUST",
+      "statement": "根据用户问题和已确认补充事实检索相关案例，输出有原文支持的参考点和关键差异供咨询引用。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 输入输出字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-001"
+      ]
+    },
+    {
+      "id": "CON-08-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "不得将他案结果、案情相关度或排序标签直接作为当前问题处理结果或发生概率。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "4. 评分与引用"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-001",
+        "CON-08-AC-006"
+      ]
+    },
+    {
+      "id": "CON-08-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "本模块不得编辑源案例、审核派生标注或生成最终咨询回答。",
+      "sourceAnchors": [
+        "1. 功能概述"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-001"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-002",
+      "type": "MUST",
+      "statement": "保留咨询问题和事实原文、确认的知识产权与争议类型、关键词、关键事实、法律问题及机构程序日期类型授权范围。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 流程与检索规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-002"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-003",
+      "type": "MUST",
+      "statement": "宽泛问题返回具体补问信息，系统建议的类型、标签和检索要素允许用户确认修改后才创建任务。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 流程与检索规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-002"
+      ]
+    },
+    {
+      "id": "CON-08-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "不得从宽泛描述、历史案例或模型常识补造当前事实、争议或法律问题。",
+      "sourceAnchors": [
+        "3. 流程与检索规则",
+        "总目录/3.5 评分及专业意见"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-002"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-004",
+      "type": "MUST",
+      "statement": "在权限和明确范围内按关键词、争议、关键事实和实际语义能力召回，已发布标注可提升质量。",
+      "sourceAnchors": [
+        "3. 流程与检索规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-003"
+      ]
+    },
+    {
+      "id": "CON-08-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "普通关键词检索不得标称语义检索，有限候选不得冒充全库，源失败不得伪装无结果。",
+      "sourceAnchors": [
+        "3. 流程与检索规则",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-003",
+        "CON-08-AC-007"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-005",
+      "type": "MUST",
+      "statement": "逐候选按法律问题、事实和程序解释排序理由、可参考点与差异，并绑定具体文书版本、日期程序和裁判结果。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 流程与检索规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-004"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-006",
+      "type": "MUST",
+      "statement": "原文可独立检索；只有已审核发布派生标注可作为已校核要点，临时生成解释须标明本次生成并提供证据。",
+      "sourceAnchors": [
+        "3. 流程与检索规则",
+        "4. 评分与引用"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-004"
+      ]
+    },
+    {
+      "id": "CON-08-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "无证据生成解释不得作为确定裁判要点，未经审核标注不得冒充已校核依据。",
+      "sourceAnchors": [
+        "3. 流程与检索规则",
+        "4. 评分与引用"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-004"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-007",
+      "type": "MUST",
+      "statement": "同一纠纷不同审级程序只在可靠关系下聚合展示，文书和裁判结果仍分别保存。",
+      "sourceAnchors": [
+        "3. 流程与检索规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-005"
+      ]
+    },
+    {
+      "id": "CON-08-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "不同程序结果不得合并，不同年代法规版本不得替换为现行法，历史结论不得默认适用当前事实。",
+      "sourceAnchors": [
+        "3. 流程与检索规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-005"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-008",
+      "type": "MUST",
+      "statement": "默认相关度降序再按稳定 ID，最多 50 条每页 10 条；返回实际范围、返回数、可靠总数与截断情况，默认值可评审调整。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 流程与检索规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-003"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-009",
+      "type": "MUST",
+      "statement": "数值相关度必须有固定算法映射和版本；未标定只返回排序与标签，案情相似度与结果概率分开。",
+      "sourceAnchors": [
+        "4. 评分与引用"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-006"
+      ]
+    },
+    {
+      "id": "CON-08-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "无结果不得生成虚构案例或有利不利结论，只返回实际范围和建议补充条件。",
+      "sourceAnchors": [
+        "3. 流程与检索规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-007"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-010",
+      "type": "MUST",
+      "statement": "每个结果至少包含来源标识、可访问原文引用、证据定位和排序理由，传给咨询时重新检查引用可访问性。",
+      "sourceAnchors": [
+        "4. 评分与引用"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-004",
+        "CON-08-AC-009"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-011",
+      "type": "MUST",
+      "statement": "异步服务覆盖问题解析、创建检索、任务结果查询和取消，区分无记录、能力未提供、部分失败、源故障、权限和取消。",
+      "sourceAnchors": [
+        "6. 服务契约",
+        "总目录/3.3 异步任务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-008"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-012",
+      "type": "MUST",
+      "statement": "受限案例在召回前过滤且不得进入未授权模型上下文、日志或响应；权限撤回后原文引用历史均不可泄露。",
+      "sourceAnchors": [
+        "6. 服务契约",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-009"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-015",
+      "type": "MUST",
+      "statement": "专家固定样本评估 Recall@K、排序和解释证据准确性，记录分母失败、案例标注检索模型版本，阈值试测确认。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-012"
+      ]
+    },
+    {
+      "id": "CON-08-MUST-016",
+      "type": "MUST",
+      "statement": "全文标注质量、索引授权、机构程序字典、分类、专家样本、上限性能和环境未确认时对应能力保持待补齐。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-08-AC-012"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "questionSnapshot",
+      "required": true,
+      "rules": [
+        "咨询问题和用户提供事实原文"
+      ]
+    },
+    {
+      "name": "confirmedElements",
+      "required": true,
+      "rules": [
+        "类型争议关键词关键事实法律问题由用户确认"
+      ]
+    },
+    {
+      "name": "scope",
+      "required": true,
+      "rules": [
+        "机构程序日期案例类型和授权范围"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定调用方和完整确认输入"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "questionAnalysis",
+      "fields": [
+        "suggestedElements",
+        "clarificationQuestions",
+        "confirmationState"
+      ]
+    },
+    {
+      "name": "searchTask",
+      "fields": [
+        "taskId",
+        "status",
+        "inputManifest",
+        "actualScope",
+        "failedSources",
+        "requestId"
+      ]
+    },
+    {
+      "name": "candidate",
+      "fields": [
+        "caseId",
+        "documentVersion",
+        "caseNumber",
+        "title",
+        "institution",
+        "procedure",
+        "date",
+        "outcome",
+        "relevanceLabelOrScore",
+        "rankingVersion",
+        "referencePoints",
+        "differences",
+        "evidence",
+        "lawVersions"
+      ]
+    },
+    {
+      "name": "consultHandoff",
+      "fields": [
+        "selectedCases",
+        "documentVersions",
+        "citations",
+        "actualScope",
+        "taskVersion"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "parse_or_search",
+      "enforcement": "问题事实、案例数据源、索引和模型通道权限"
+    },
+    {
+      "action": "read_source_or_result",
+      "enforcement": "当前文书原文附件标注和历史权限"
+    },
+    {
+      "action": "handoff_to_consult",
+      "enforcement": "选定引用在咨询上下文中再次鉴权"
+    }
+  ],
+  "states": [
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "列出失败来源与覆盖"
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "待补问",
+      "kind": "input",
+      "allowedNext": [
+        "已确认"
+      ]
+    },
+    {
+      "name": "已确认",
+      "kind": "input",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "问题原文、系统建议和用户确认条件分开保存。",
+    "固定案例文书、原文证据、派生标注、法规、检索模型和排序版本。",
+    "不同程序文书结果分开，聚合关系有可靠来源。",
+    "已发布标注与本次生成解释分开标识。",
+    "实际范围、有限候选、无结果和失败来源显式披露。",
+    "模拟案例检索数据库与真实验收证据隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "question_too_broad",
+      "result": "返回补问，不补造事实"
+    },
+    {
+      "case": "semantic_capability_missing",
+      "result": "披露关键词能力，不标语义检索完成"
+    },
+    {
+      "case": "source_partial_or_failed",
+      "result": "返回实际范围和失败来源，不伪装无结果"
+    },
+    {
+      "case": "no_result",
+      "result": "建议补充条件，不虚构案例结论"
+    },
+    {
+      "case": "citation_unavailable",
+      "result": "不传咨询并返回当前权限或源缺口"
+    },
+    {
+      "case": "unauthorized",
+      "result": "召回前阻断且不进入模型日志响应"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "CON-08-DEC-001",
+      "owner": "AI",
+      "description": "可建议检索要素、排序解释、参考点和差异；不得补当前事实、伪造案例证据或预测处理结果。",
+      "sourceAnchors": [
+        "3. 流程与检索规则",
+        "4. 评分与引用"
+      ]
+    },
+    {
+      "id": "CON-08-DEC-002",
+      "owner": "RULE",
+      "description": "执行补问完整性、权限、范围、任务、文书关系、版本、排序映射和引用可访问性。",
+      "sourceAnchors": [
+        "3. 流程与检索规则",
+        "6. 服务契约"
+      ]
+    },
+    {
+      "id": "CON-08-DEC-003",
+      "owner": "HUMAN",
+      "description": "用户确认问题要素范围并选择参考案例，专家确认样本预期和阈值。",
+      "sourceAnchors": [
+        "3. 流程与检索规则",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "CON-08-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供案例原文版本、可靠程序关系、法规版本、发布标注、索引与权限。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-08-AC-001",
+      "given": [
+        "明确咨询问题和相关案例"
+      ],
+      "when": "检索并选择参考",
+      "then": [
+        "输出证据参考差异",
+        "不编辑源或生成最终回答",
+        "他案结果不成为当前结果"
+      ],
+      "sourceClauseIds": [
+        "CON-08-MUST-001",
+        "CON-08-MUST_NOT-001",
+        "CON-08-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "CON-08-AC-002",
+      "given": [
+        "宽泛和明确两类问题"
+      ],
+      "when": "解析输入",
+      "then": [
+        "宽泛问题返回补问",
+        "建议可修正确认",
+        "不补造事实"
+      ],
+      "sourceClauseIds": [
+        "CON-08-MUST-002",
+        "CON-08-MUST-003",
+        "CON-08-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "CON-08-AC-003",
+      "given": [
+        "语义能力、关键词能力和有限候选"
+      ],
+      "when": "召回排序",
+      "then": [
+        "实际能力范围数与截断披露",
+        "关键词不冒充语义",
+        "有限候选不冒充全库"
+      ],
+      "sourceClauseIds": [
+        "CON-08-MUST-004",
+        "CON-08-MUST_NOT-004",
+        "CON-08-MUST-008"
+      ]
+    },
+    {
+      "id": "CON-08-AC-004",
+      "given": [
+        "原文、已发布标注、未审核标注和临时生成解释"
+      ],
+      "when": "生成参考点差异",
+      "then": [
+        "候选文书日期程序结果准确",
+        "来源类型分开",
+        "无证据和未审核内容不冒充已校核要点"
+      ],
+      "sourceClauseIds": [
+        "CON-08-MUST-005",
+        "CON-08-MUST-006",
+        "CON-08-MUST_NOT-005",
+        "CON-08-MUST-010"
+      ]
+    },
+    {
+      "id": "CON-08-AC-005",
+      "given": [
+        "同纠纷多程序和不同年代案例"
+      ],
+      "when": "聚合展示",
+      "then": [
+        "仅可靠关系聚合",
+        "裁判结果分开",
+        "历史法规不换现行且结论不套当前事实"
+      ],
+      "sourceClauseIds": [
+        "CON-08-MUST-007",
+        "CON-08-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "CON-08-AC-006",
+      "given": [
+        "标定与未标定相关度"
+      ],
+      "when": "返回排序",
+      "then": [
+        "数值有算法版本",
+        "未标定仅标签排序",
+        "相关度不表示结果概率"
+      ],
+      "sourceClauseIds": [
+        "CON-08-MUST_NOT-001",
+        "CON-08-MUST-009"
+      ]
+    },
+    {
+      "id": "CON-08-AC-007",
+      "given": [
+        "无结果、部分失败和源故障"
+      ],
+      "when": "查询任务",
+      "then": [
+        "状态和实际范围明确",
+        "不伪装无结果",
+        "不虚构案例或结论"
+      ],
+      "sourceClauseIds": [
+        "CON-08-MUST_NOT-004",
+        "CON-08-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "CON-08-AC-008",
+      "given": [
+        "重复请求、取消和重试"
+      ],
+      "when": "调用异步服务",
+      "then": [
+        "幂等和状态正确",
+        "迟到结果不恢复取消",
+        "错误 request_id 可追踪"
+      ],
+      "sourceClauseIds": [
+        "CON-08-MUST-011"
+      ]
+    },
+    {
+      "id": "CON-08-AC-009",
+      "given": [
+        "内部受限案例和权限撤回"
+      ],
+      "when": "召回、模型处理、查看或传咨询",
+      "then": [
+        "召回前与读取传递时鉴权",
+        "日志模型缓存响应不泄露"
+      ],
+      "sourceClauseIds": [
+        "CON-08-MUST-010",
+        "CON-08-MUST-012"
+      ]
+    },
+    {
+      "id": "CON-08-AC-012",
+      "given": [
+        "固定专家样本和未确认能力环境"
+      ],
+      "when": "效果交付检查",
+      "then": [
+        "召回排序解释证据分别评估且含失败版本",
+        "阈值试测确认",
+        "未确认能力保持待补齐"
+      ],
+      "sourceClauseIds": [
+        "CON-08-MUST-015",
+        "CON-08-MUST-016"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CON-08-OQ-001",
+      "type": "search_capability",
+      "question": "中心案例关键词语义检索的覆盖、筛选、排序、分页、有限候选和索引接口是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-11",
+        "真实检索"
+      ]
+    },
+    {
+      "id": "CON-08-OQ-002",
+      "type": "business_semantics",
+      "question": "案例类型争议机构程序字典、可靠聚合关系、参考点差异和历史法规规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "检索解释设计"
+      ]
+    },
+    {
+      "id": "CON-08-OQ-003",
+      "type": "authorization",
+      "question": "案例原文附件标注索引模型和咨询引用的权限及持久化保留是什么？",
+      "blocks": [
+        "ARC-06",
+        "ARC-10",
+        "数据设计"
+      ]
+    },
+    {
+      "id": "CON-08-OQ-004",
+      "type": "acceptance_data",
+      "question": "专家样本、相关案例、排序解释预期、Recall@K 和性能阈值如何冻结？",
+      "blocks": [
+        "SPK-10",
+        "SPK-16",
+        "效果验收"
+      ]
+    },
+    {
+      "id": "CON-08-OQ-005",
+      "type": "environment",
+      "question": "DM8、检索模型、文件服务和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "SPK-11"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "CON-08-DD-001",
+      "decision": "Case Search 拥有任务候选解释，Case Knowledge 提供版本原文和发布标注，Citation 管理证据，Consult Workflow 消费选择；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-08-DD-002",
+      "decision": "问题建议与确认输入、文书聚合与文书结果、发布标注与临时解释分别建模。",
+      "basis": "原文明确这些内容不得混同。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-08-DD-003",
+      "decision": "具体 API、语义产品、分类聚合规则、评分映射、阈值和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心能力、规则、授权、样本和环境未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Case relevance, reference points, historical outcomes and the current consultation result remain distinct.",
+      "Different proceeding outcomes and historical law versions are preserved; unpublished annotations cannot become verified holdings.",
+      "No search capability, taxonomy, relation, legal applicability, score mapping, threshold or environment was guessed."
+    ]
+  }
+}

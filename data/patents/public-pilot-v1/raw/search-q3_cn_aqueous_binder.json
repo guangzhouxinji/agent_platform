@@ -1,0 +1,361 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-16 03:01:54 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 360,
+      "documents": [
+        {
+          "docId": "CN-108276937-A",
+          "metadata": {
+            "pd": "20180713",
+            "pn": "CN-108276937-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "The preparation method and application of aqueous binders, aqueous binders"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "水性粘结剂、水性粘结剂的制备方法及应用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENZHEN SHANMU NEW ENERGY TECH CO LTD"
+        },
+        {
+          "docId": "CN-114539948-B",
+          "metadata": {
+            "pd": "20231205",
+            "pn": "CN-114539948-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Aqueous binder and application thereof"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "水性粘结剂及其应用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Vision Ruitai Power Technology (Shanghai) Co.,Ltd."
+        },
+        {
+          "docId": "CN-114539948-A",
+          "metadata": {
+            "pd": "20220527",
+            "pn": "CN-114539948-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Aqueous binder and application thereof"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "水性粘结剂及其应用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "LONG RANGE POWER TECH JIANGSU LIMITED COMPANY"
+        },
+        {
+          "docId": "CN-214233780-U",
+          "metadata": {
+            "pd": "20210921",
+            "pn": "CN-214233780-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Aqueous binder stirring device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种水性粘结剂搅拌装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NANTONG QINGHUA NANOMATERIAL CO LTD"
+        },
+        {
+          "docId": "CN-113840870-A",
+          "metadata": {
+            "pd": "20211224",
+            "pn": "CN-113840870-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Aqueous binder composition"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "水性粘结剂组合物"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "OWENS CORNING INTELLECTUAL CAPITAL LLC"
+        },
+        {
+          "docId": "CN-1150220-C",
+          "metadata": {
+            "pd": "20040519",
+            "pn": "CN-1150220-C",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Formaldehyde-free aqueous binders"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "不含甲醛的水性粘结剂"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BASF AG"
+        },
+        {
+          "docId": "CN-115513464-A",
+          "metadata": {
+            "pd": "20221223",
+            "pn": "CN-115513464-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Water-based binder, preparation method and lithium battery containing water-based binder"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种水性粘结剂、制备方法及包含水性粘结剂的锂电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHUNENG NEW ENERGY CO LTD"
+        },
+        {
+          "docId": "CN-115513464-B",
+          "metadata": {
+            "pd": "20230414",
+            "pn": "CN-115513464-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Water-based binder, preparation method and lithium battery containing water-based binder"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种水性粘结剂、制备方法及包含水性粘结剂的锂电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Cornex New Energy Co.,Ltd."
+        },
+        {
+          "docId": "CN-118047899-A",
+          "metadata": {
+            "pd": "20240517",
+            "pn": "CN-118047899-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Water-based binder, preparation method of water-based binder and lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种水性粘结剂、水性粘结剂的制备方法及锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HEFEI GUOXUAN HIGH TECH POWER ENERGY CO LTD"
+        },
+        {
+          "docId": "CN-115260403-B",
+          "metadata": {
+            "pd": "20231208",
+            "pn": "CN-115260403-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Aqueous binder, modified diaphragm, battery and preparation method of aqueous binder"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种水性粘结剂、改性隔膜、电池及水性粘结剂的制备方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Shenzhen Hongxing Innovative Materials Co.,Ltd."
+        },
+        {
+          "docId": "CN-115260403-A",
+          "metadata": {
+            "pd": "20221101",
+            "pn": "CN-115260403-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Water-based binder, modified diaphragm, battery and preparation method of water-based binder"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种水性粘结剂、改性隔膜、电池及水性粘结剂的制备方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENZHEN HONGXING INNOVATION MAT CO LTD"
+        },
+        {
+          "docId": "CN-119674073-A",
+          "metadata": {
+            "pd": "20250321",
+            "pn": "CN-119674073-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Preparation method of water-based adhesive, water-based adhesive and application of water-based adhesive"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种水系粘结剂的制备方法、水系粘结剂及其应用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "LIYANG TIANMU PILOT BATTERY MATERIAL TECH CO LTD"
+        },
+        {
+          "docId": "CN-112920747-A",
+          "metadata": {
+            "pd": "20210608",
+            "pn": "CN-112920747-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Aqueous binder for lithium ion battery diaphragm"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池隔膜用水性粘结剂"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENZHEN HAODIAN TECH CO LTD"
+        },
+        {
+          "docId": "CN-109957360-B",
+          "metadata": {
+            "pd": "20200915",
+            "pn": "CN-109957360-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Water-based binder and secondary battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种水性粘结剂及二次电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-109957361-B",
+          "metadata": {
+            "pd": "20210209",
+            "pn": "CN-109957361-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Water-based binder and secondary battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种水性粘结剂及二次电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        }
+      ],
+      "query": "((ttl:\"水性粘结剂\" OR ttl:\"水系粘结剂\") AND pnctry:CN)"
+    },
+    "query": ""
+  }
+}

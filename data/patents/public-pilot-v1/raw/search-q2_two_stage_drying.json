@@ -1,0 +1,325 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-16 03:01:53 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 64,
+      "documents": [
+        {
+          "docId": "US-20130157136-A1",
+          "metadata": {
+            "pd": "20130620",
+            "pn": "US-20130157136-A1",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "COATING OF DISORDERED CARBON ACTIVE MATERIAL USING WATER-BASED BINDER SLURRY"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US20130157136A1"
+          },
+          "pa": "BALICKI MARK"
+        },
+        {
+          "docId": "US-12689050-B2",
+          "metadata": {
+            "pd": "20260721",
+            "pn": "US-12689050-B2",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Method for producing a catalyst-coated membrane"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US12689050B2"
+          },
+          "pa": "AUDI AG"
+        },
+        {
+          "docId": "US-5250383-A",
+          "metadata": {
+            "pd": "19931005",
+            "pn": "US-5250383-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Process for forming multilayer coating"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US5250383"
+          },
+          "pa": "FUJI PHOTO FILM CO LTD"
+        },
+        {
+          "docId": "EP-3581679-A1",
+          "metadata": {
+            "pd": "20191218",
+            "pn": "EP-3581679-A1",
+            "titles": [
+              {
+                "lang": "de",
+                "titles": [
+                  "REPARATUR VON AUFSCHLÄMMUNGSBASIERTEN BESCHICHTUNGSSYSTEMEN"
+                ]
+              },
+              {
+                "lang": "en",
+                "titles": [
+                  "SLURRY-BASED COATING SYSTEM REPAIR"
+                ]
+              },
+              {
+                "lang": "fr",
+                "titles": [
+                  "RÉPARATION DE SYSTÈME DE REVÊTEMENT À BASE DE SUSPENSION"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/EP3581679A1"
+          },
+          "pa": "ROLLS ROYCE NAM TECH INC"
+        },
+        {
+          "docId": "US-20200230645-A1",
+          "metadata": {
+            "pd": "20200723",
+            "pn": "US-20200230645-A1",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "SLURRY-BASED COATING SYSTEM REPAIR"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US20200230645A1"
+          },
+          "pa": "ROLLS ROYCE NAM TECH INC"
+        },
+        {
+          "docId": "US-11167312-B2",
+          "metadata": {
+            "pd": "20211109",
+            "pn": "US-11167312-B2",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Slurry-based coating system repair"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US11167312B2"
+          },
+          "pa": "ROLLS ROYCE NAM TECH INC"
+        },
+        {
+          "docId": "EP-3581679-B1",
+          "metadata": {
+            "pd": "20210217",
+            "pn": "EP-3581679-B1",
+            "titles": [
+              {
+                "lang": "de",
+                "titles": [
+                  "REPARATUR VON AUFSCHLÄMMUNGSBASIERTEN BESCHICHTUNGSSYSTEMEN"
+                ]
+              },
+              {
+                "lang": "en",
+                "titles": [
+                  "SLURRY-BASED COATING SYSTEM REPAIR"
+                ]
+              },
+              {
+                "lang": "fr",
+                "titles": [
+                  "RÉPARATION DE SYSTÈME DE REVÊTEMENT À BASE DE SUSPENSION"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/EP3581679B1"
+          },
+          "pa": "ROLLS ROYCE NAM TECH INC"
+        },
+        {
+          "docId": "WO-2022225935-A1",
+          "metadata": {
+            "pd": "20221027",
+            "pn": "WO-2022225935-A1",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "SYSTEM AND METHOD FOR COATING CONFECTIONERY PRODUCT"
+                ]
+              },
+              {
+                "lang": "fr",
+                "titles": [
+                  "SYSTÈME ET PROCÉDÉ D'ENROBAGE DE PRODUIT DE CONFISERIE"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/WO2022225935A1"
+          },
+          "pa": "INTERCONTINENTAL GREAT BRANDS LLC"
+        },
+        {
+          "docId": "EP-4326082-A1",
+          "metadata": {
+            "pd": "20240228",
+            "pn": "EP-4326082-A1",
+            "titles": [
+              {
+                "lang": "de",
+                "titles": [
+                  "SYSTEM UND VERFAHREN ZUR BESCHICHTUNG VON SÜSSWAREN"
+                ]
+              },
+              {
+                "lang": "en",
+                "titles": [
+                  "SYSTEM AND METHOD FOR COATING CONFECTIONERY PRODUCT"
+                ]
+              },
+              {
+                "lang": "fr",
+                "titles": [
+                  "SYSTÈME ET PROCÉDÉ D'ENROBAGE DE PRODUIT DE CONFISERIE"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/EP4326082A1"
+          },
+          "pa": "INTERCONTINENTAL GREAT BRANDS LLC"
+        },
+        {
+          "docId": "US-20240164402-A1",
+          "metadata": {
+            "pd": "20240523",
+            "pn": "US-20240164402-A1",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "SYSTEM AND METHOD FOR COATING CONFECTIONERY PRODUCT"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US20240164402A1"
+          },
+          "pa": "INTERCONTINENTAL GREAT BRANDS LLC"
+        },
+        {
+          "docId": "US-20230219853-A1",
+          "metadata": {
+            "pd": "20230713",
+            "pn": "US-20230219853-A1",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "FUNCTIONALLY GRADED FIRING SETTERS AND PROCESS FOR MANUFACTURING THESE SETTERS"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US20230219853A1"
+          },
+          "pa": "FERGUSON LUCIAN GARRETT"
+        },
+        {
+          "docId": "US-12623968-B2",
+          "metadata": {
+            "pd": "20260512",
+            "pn": "US-12623968-B2",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Functionally graded firing setters and process for manufacturing these setters"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US12623968B2"
+          },
+          "pa": "FERGUSON LUCIAN GARRETT"
+        },
+        {
+          "docId": "EP-4326082-B1",
+          "metadata": {
+            "pd": "20250604",
+            "pn": "EP-4326082-B1",
+            "titles": [
+              {
+                "lang": "de",
+                "titles": [
+                  "VERFAHREN ZUR BESCHICHTUNG VON SÜSSWAREN"
+                ]
+              },
+              {
+                "lang": "en",
+                "titles": [
+                  "METHOD FOR COATING CONFECTIONERY PRODUCT"
+                ]
+              },
+              {
+                "lang": "fr",
+                "titles": [
+                  "PROCÉDÉ D'ENROBAGE DE PRODUIT DE CONFISERIE"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/EP4326082B1"
+          },
+          "pa": "INTERCONTINENTAL GREAT BRANDS LLC"
+        },
+        {
+          "docId": "US-20250149543-A1",
+          "metadata": {
+            "pd": "20250508",
+            "pn": "US-20250149543-A1",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "DENSIFIED BATTERY ELECTRODES AND METHODS THEREOF"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US20250149543A1"
+          },
+          "pa": "SILA NANOTECHNOLOGIES INC"
+        },
+        {
+          "docId": "US-11594718-B2",
+          "metadata": {
+            "pd": "20230228",
+            "pn": "US-11594718-B2",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Densified battery electrodes with electrode parts having different porosities and methods thereof"
+                ]
+              }
+            ],
+            "pdfLink": "/assets/pdf/US11594718B2"
+          },
+          "pa": "SILA NANOTECHNOLOGIES INC"
+        }
+      ],
+      "query": "(binder AND coating AND \"partially drying\" AND \"fully drying\")"
+    },
+    "query": ""
+  }
+}

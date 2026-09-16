@@ -1,0 +1,657 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-09",
+  "title": "执法流程合规性校验",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/09-执法流程合规性校验需求文档.md",
+    "sha256": "68a3c59eca60d3fa9bb876223ff6012d10067f99b7b7641470d649adada1863f",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "validation"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付范围",
+        "2. 数据、身份、权限与审计",
+        "3. 时间、版本与变更",
+        "4. 服务、任务与错误契约",
+        "5. AI、规则与人工边界",
+        "6. 页面验证",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-09-MUST-001",
+      "type": "MUST",
+      "statement": "对中心案件固定事件和材料快照执行 ENF-08 已发布适用规则，形成逐项校验、依据、缺项和整改建议。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "流程校验、疑似问题、整改建议或任务成功不得自动认定程序违法、案件违法成立、办结或处罚。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST-002",
+      "type": "MUST",
+      "statement": "接入校验案件稳定 ID、事件材料关联、案件快照版本、来源与权限；来源字段和业务编号不得由模型生成替换。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST-003",
+      "type": "MUST",
+      "statement": "按地区、程序和适用时间筛选规则，对所有适用项逐项检查并固定规则版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST-004",
+      "type": "MUST",
+      "statement": "每项结果严格区分通过、不通过、无法判断和不适用，并保存当前涉及环节、校验要求、事实、依据和缺口。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "字段缺失或中心接口未覆盖只能标无法判断，不得视为通过、不适用或程序违法；规则范围不匹配才可标不适用。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST-005",
+      "type": "MUST",
+      "statement": "时限项调用固定 ENF-08 确定性规则，保存输入事件、工作日历、例外、截止时间和逐步计算过程。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "不得由模型重新计算或修改法定时限，也不得在缺少日历、事件或例外依据时生成通过或超期结论。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST-006",
+      "type": "MUST",
+      "statement": "临期提醒仅使用中心确认的配置和计算结果，提醒状态与校验结论、案件流程状态分开。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST-007",
+      "type": "MUST",
+      "statement": "业务人员可登记整改说明及证据，重新校验创建新任务与报告并保留前后结果、输入和规则版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "人工整改说明不得直接把旧计算结果改为通过、覆盖旧报告或跳过重新校验。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST-008",
+      "type": "MUST",
+      "statement": "源接口失败、解析失败或部分规则无法执行时任务为失败或部分成功并列出未处理项，不生成全部通过报告。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST-010",
+      "type": "MUST",
+      "statement": "案件、事件、材料、规则、报告、整改和历史均由后端按机构角色实时鉴权，关联资源缺失或无权限时拒绝。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-09-MUST-013",
+      "type": "MUST",
+      "statement": "固定中心样例记录案件事件材料、规则日历、预期实际、计算过程、权限、API、页面和问题编号，专业预期由中心确认。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-09-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "caseSnapshot",
+      "required": true,
+      "rules": [
+        "中心案件 ID、事件材料延期中止和固定版本"
+      ]
+    },
+    {
+      "name": "validationScope",
+      "required": true,
+      "rules": [
+        "地区、程序、环节和适用时间"
+      ]
+    },
+    {
+      "name": "remediationRecord",
+      "required": "整改时",
+      "rules": [
+        "报告版本、说明、证据、人员和时间"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定案件快照、规则范围和操作"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "validationTask",
+      "fields": [
+        "taskId",
+        "status",
+        "inputManifest",
+        "ruleManifest",
+        "failedItems",
+        "requestId"
+      ]
+    },
+    {
+      "name": "validationItem",
+      "fields": [
+        "stage",
+        "requirement",
+        "result",
+        "facts",
+        "basis",
+        "gaps",
+        "deadline",
+        "calculationSteps"
+      ]
+    },
+    {
+      "name": "validationReport",
+      "fields": [
+        "reportId",
+        "version",
+        "summary",
+        "items",
+        "remediation",
+        "caseVersion",
+        "ruleVersions",
+        "createdAt"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "validate",
+      "enforcement": "案件事件材料、规则及机构范围权限"
+    },
+    {
+      "action": "read_report_or_source",
+      "enforcement": "当前案件、证据、规则依据和历史权限"
+    },
+    {
+      "action": "record_remediation",
+      "enforcement": "授权承办角色、报告版本和证据权限"
+    },
+    {
+      "action": "revalidate",
+      "enforcement": "新案件快照和规则版本重新鉴权"
+    }
+  ],
+  "states": [
+    {
+      "name": "通过",
+      "kind": "item",
+      "allowedNext": []
+    },
+    {
+      "name": "不通过",
+      "kind": "item",
+      "allowedNext": []
+    },
+    {
+      "name": "无法判断",
+      "kind": "item",
+      "allowedNext": []
+    },
+    {
+      "name": "不适用",
+      "kind": "item",
+      "allowedNext": []
+    },
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "列出未处理项，不得汇总全部通过"
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "固定案件事件材料、适用范围、规则日历依据和权限版本。",
+    "逐项四类结果不可互换，汇总保留缺口与失败。",
+    "时限轨迹引用 ENF-08 固定版本。",
+    "整改记录与计算报告分开，重跑创建新版本。",
+    "任务、提醒、校验结果和案件流程状态分开。",
+    "模拟流程数据库与真实验收证据隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "required_event_or_material_missing",
+      "result": "逐项无法判断，不计通过或违法"
+    },
+    {
+      "case": "rule_not_applicable",
+      "result": "该规则项标不适用并说明范围"
+    },
+    {
+      "case": "calendar_or_deadline_input_missing",
+      "result": "时限项无法判断，不生成截止结论"
+    },
+    {
+      "case": "source_partial_failure",
+      "result": "任务部分成功并列出未处理项"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖整改或报告并返回当前版本"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露案件流程材料报告"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-09-DEC-001",
+      "owner": "AI",
+      "description": "可解释逐项结果和生成整改建议草稿；不得补事件材料、计算期限、改变结果或认定程序违法。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-09-DEC-002",
+      "owner": "RULE",
+      "description": "执行适用规则选择、四类结果、确定性时限、任务、版本、权限和重新校验。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-09-DEC-003",
+      "owner": "HUMAN",
+      "description": "业务人员登记整改事实证据并查看对比，中心人员确认样例预期和最终业务处理。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "ENF-09-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心案件系统提供权威事件、时间、材料、延期中止、状态和权限。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "8. 联调前需确认的条件"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-09-AC-001",
+      "given": [
+        "固定案件流程和发布规则"
+      ],
+      "when": "执行校验",
+      "then": [
+        "逐项依据缺口建议完整",
+        "不自动认定违法办结处罚"
+      ],
+      "sourceClauseIds": [
+        "ENF-09-MUST-001",
+        "ENF-09-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-09-AC-002",
+      "given": [
+        "中心事件材料和缺失失败来源"
+      ],
+      "when": "准备输入",
+      "then": [
+        "稳定版本权限关联完整",
+        "模型不补来源业务编号"
+      ],
+      "sourceClauseIds": [
+        "ENF-09-MUST-002"
+      ]
+    },
+    {
+      "id": "ENF-09-AC-003",
+      "given": [
+        "缺告知时间、不适用程序和明确通过不通过项"
+      ],
+      "when": "逐项校验",
+      "then": [
+        "规则按范围时点选择",
+        "四类结果准确",
+        "缺字段不冒充通过违法不适用"
+      ],
+      "sourceClauseIds": [
+        "ENF-09-MUST-003",
+        "ENF-09-MUST-004",
+        "ENF-09-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-09-AC-004",
+      "given": [
+        "确认超期、缺日历和临期样例"
+      ],
+      "when": "校验时限",
+      "then": [
+        "确定性轨迹完整",
+        "缺依赖不生成结论",
+        "提醒不改变校验流程状态"
+      ],
+      "sourceClauseIds": [
+        "ENF-09-MUST-005",
+        "ENF-09-MUST_NOT-003",
+        "ENF-09-MUST-006"
+      ]
+    },
+    {
+      "id": "ENF-09-AC-005",
+      "given": [
+        "旧报告及整改后新快照"
+      ],
+      "when": "登记整改并重跑",
+      "then": [
+        "说明证据留痕",
+        "新旧报告同时保留",
+        "旧结果不被手工改通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-09-MUST-007",
+        "ENF-09-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ENF-09-AC-006",
+      "given": [
+        "源接口或部分规则失败"
+      ],
+      "when": "查询任务",
+      "then": [
+        "失败部分成功和未处理项明确",
+        "不生成全部通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-09-MUST-008"
+      ]
+    },
+    {
+      "id": "ENF-09-AC-008",
+      "given": [
+        "无权账号和权限撤回"
+      ],
+      "when": "校验查看整改重跑",
+      "then": [
+        "后端实时鉴权",
+        "案件材料历史不泄露"
+      ],
+      "sourceClauseIds": [
+        "ENF-09-MUST-010"
+      ]
+    },
+    {
+      "id": "ENF-09-AC-011",
+      "given": [
+        "中心真实超期缺失不适用样例"
+      ],
+      "when": "验收",
+      "then": [
+        "事件材料规则日历预期实际证据齐全",
+        "仅摘要或模拟不标真实通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-09-MUST-013"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-09-OQ-001",
+      "type": "authority_api",
+      "question": "中心案件流程事件、材料、延期中止、稳定版本和变更接口是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "真实联调"
+      ]
+    },
+    {
+      "id": "ENF-09-OQ-002",
+      "type": "business_semantics",
+      "question": "校验范围、四类结果汇总、整改要求、提醒规则和正式业务处理是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "校验实现"
+      ]
+    },
+    {
+      "id": "ENF-09-OQ-003",
+      "type": "authorization",
+      "question": "校验查看整改重跑和跨机构角色是什么？",
+      "blocks": [
+        "ARC-06",
+        "权限实现"
+      ]
+    },
+    {
+      "id": "ENF-09-OQ-004",
+      "type": "acceptance_data",
+      "question": "真实流程、超期缺失不适用样例和中心预期是什么？",
+      "blocks": [
+        "SPK-10",
+        "验收"
+      ]
+    },
+    {
+      "id": "ENF-09-OQ-005",
+      "type": "environment",
+      "question": "DM8、中心接口和国产环境参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-09-DD-001",
+      "decision": "Enforcement Compliance 领域拥有校验报告和整改，Rule Runtime 执行 ENF-08 版本，Authority Adapter 提供案件事件；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-09-DD-002",
+      "decision": "逐项结果、任务、提醒、整改和案件流程采用分离状态与版本。",
+      "basis": "原文明确这些状态不可混同。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-09-DD-003",
+      "decision": "具体 API、结果汇总、提醒策略、角色和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心流程规则接口样例环境未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Pass, fail, indeterminate and not-applicable remain distinct, as do validation, remediation, reminders and authoritative case status.",
+      "Missing data and source failure cannot become pass; remediation cannot rewrite an old result.",
+      "No process rule, deadline, reminder threshold, role, API or environment was guessed."
+    ]
+  }
+}

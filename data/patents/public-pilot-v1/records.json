@@ -1,0 +1,1823 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "CON-04-PUBLIC-PILOT-V1",
+  "generatedAt": "2026-09-16T03:01:52.662Z",
+  "source": {
+    "name": "SureChEMBL",
+    "websiteUrl": "https://www.surechembl.org/",
+    "apiBaseUrl": "https://surechembl.org/api",
+    "accessMode": "PUBLIC_WEB_API",
+    "authorityStatus": "NON_CENTER_PUBLIC_SOURCE",
+    "licenseReviewStatus": "REVIEW_REQUIRED",
+    "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+  },
+  "records": [
+    {
+      "sourceRecordId": "CN-104900909-A",
+      "publicationNumber": "CN-104900909-A",
+      "publicationDate": "2015-09-09",
+      "sourceVersion": "CN-104900909-A@20150909",
+      "title": "Lithium ion battery with inorganic isolation layers, and method and device for manufacturing lithium ion battery",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Lithium ion battery with inorganic isolation layers, and method and device for manufacturing lithium ion battery"
+        }
+      ],
+      "applicant": "ZHOU HU",
+      "detailUrl": "https://www.surechembl.org/patent/CN-104900909-A",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-108276937-A",
+      "publicationNumber": "CN-108276937-A",
+      "publicationDate": "2018-07-13",
+      "sourceVersion": "CN-108276937-A@20180713",
+      "title": "水性粘结剂、水性粘结剂的制备方法及应用",
+      "titles": [
+        {
+          "language": "en",
+          "text": "The preparation method and application of aqueous binders, aqueous binders"
+        },
+        {
+          "language": "zh",
+          "text": "水性粘结剂、水性粘结剂的制备方法及应用"
+        }
+      ],
+      "applicant": "SHENZHEN SHANMU NEW ENERGY TECH CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/CN-108276937-A",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": "The present invention provides a kind of aqueous binders, the raw material of the aqueous binders includes Isooctyl acrylate monomer, acrylonitrile, emulsifier, initiator, the ratio of ingredient each by weight percentage is followed successively by 20%~25%, 23%~27%, 0.5%~0.8%, 0.8%~1.2%, remaining ingredient is deionized water, the emulsifier is the mixing and emulsifying system of anion emulsifier and nonionic emulsifier, and the initiator is ammonium sulfate sodium hydrogensulfite Redox initiator systems.The present invention also provides the preparation method and applications of above-mentioned aqueous binders, the present invention can solve in the prior art, and oiliness binder is seriously polluted, the problem of influencing coating process efficiency. 本发明提供了种水性粘结剂，所述水性粘结剂的原料包括丙烯酸异辛酯、丙烯腈、乳化剂、引发剂，按重量百分比各成分的比例依次为20％～25％、23％～27％、0.5％～0.8％、0.8％～1.2％，剩余组分为去离子水，所述乳化剂为阴离子乳化剂和非离子乳化剂的混合乳化系统，所述引发剂为硫酸铵‑亚硫酸氢钠氧化还原引发剂体系。本发明还提供了上述水性粘结剂的制备方法及其应用，本发明能够解决现有技术中，油性粘结剂污染严重，影响涂布工艺效率的问题。",
+      "claimsExcerpt": "1. a kind of aqueous binders, which is characterized in that the raw material of the aqueous binders include Isooctyl acrylate monomer, acrylonitrile, Emulsifier, initiator, the ratio of ingredient each by weight percentage is followed successively by 20%~25%, 23%~27%, 0.5%~ 0.8%, 0.8%~1.2%, remaining ingredient is deionized water, and the emulsifier is anion emulsifier and nonionic emulsifier Mixing and emulsifying system, the initiator be ammonium sulfate-sodium hydrogensulfite Redox initiator systems. 2. aqueous binders according to claim 1, which is characterized in that the anion emulsifier and the nonionic Emulsion The mass ratio of agent is 3.5~4：1. 3. aqueous binders according to claim 1, which is characterized in that the raw material of the aqueous binders includes acrylic acid Different monooctyl ester, acrylonitrile, emulsifier, initiator, the ratio of ingredient each by weight percentage is followed successively by 20%, 27%, 0.5%, 0.9%, remaining ingredient is deionized water, and the emulsifier is the mixing and emulsifying system of anion emulsifier and nonionic emulsifier The mass ratio of system, the anion emulsifier and the nonionic emulsifier is 3.5：1, the initiator is ammonium sulfate-sulfurous Sour hydrogen sodium Redox initiator systems. 4. aqueous binders according to claim 1, which is characterized in that the raw material of the aqueous binders includes acrylic acid Different monooctyl ester, acrylonitrile, emulsifier, initiator, the ratio of ingredient each by weight percentage is followed successively by 25%, 25%, 0.6%, 1.2%, remaining ingredient is deionized water, and the emulsifier is the mixing and emulsifying system of anion emulsifier and nonionic emulsifier The mass ratio of system, the anion emulsifier and the nonionic emulsifier is 4：1, the initiator is ammonium sulfate-sulfurous acid Hydrogen sodium Redox initiator systems. 5. a kind of preparation method of aqueous binders, which is characterized in that including： Raw material type described in accordance with the claim 1 and ratio get out each raw material； Whole emulsifiers and deionized water are added into reactor, stirring makes it be uniformly mixed to send emulsion reaction； 55~60 DEG C are heated to, while being passed through nitrogen to exclude the oxygen in the reactor； Isooctyl acrylate monomer, acrylonitrile and the initiator of part are added into the reactor, is heated to 65~70 DEG C； After polymerisation, the Isooctyl acrylate monomer, acrylonitrile and initiator of rest part is added dropwise simultaneously into system respectively； After being added dropwise completely, the reaction was continued 20~25min； 40~45 DEG C are cooled to, ammonium hydroxide is then added into system makes pH value of solution reach 7.0~8.0, up to the water after cooling Property binder. 6. the preparation method of aqueous binders according to claim 5, which is characterized in that described to be added entirely into reactor The emulsifier and deionized water in portion, stirring make its be uniformly mixed to send emulsion reaction the step of in, mixing time be 1~ 1.5h。 7. the preparation method of aqueous binders according to claim 5, which is characterized in that described to add into the reactor The Isooctyl acrylate monomer, acrylonitrile and initiator for entering part, after being heated to 65~70 DEG C, 25~30min of constant temperature. 8. the preparation method of aqueous binders according to claim 5, which is characterized in that described to add into the reactor The Isooctyl acrylate monomer, acrylonitrile and initiator for entering part, the step of being heated to 65~70 DEG C, the Isooctyl acrylate monomer of addition Weight accounts for the 12~18% of the weight of whole Isooctyl acrylate monomers, and the weight of the acrylonitrile of addition accounts for the weight of whole acrylonitrile 15~20%, the weight of the initiator of addition accounts for the 35~40% of the weight of whole Isooctyl acrylate monomers. 9. the aqueous binders are used to prepare phosphoric acid by the application of aqueous binders prepared by Claims 1-4 any one Lithium iron battery. 10. the application of aqueous binders according to claim 9, which is characterized in that the ferric phosphate lithium cell for preparing Step includes： Deionized water and the aqueous binders are put into blender and stirred in tank and are mixed by positive batch mixing, are then added and are led Electric agent carries out, and is eventually adding positive active material, continues to stir after vacuumizing, obtain anode sizing agent； Deionized water and the aqueous binders are put into blender and stirred in tank and are mixed by cathode batch mixing, are then added and are led Electric agent carries out, and is eventually adding negative electrode active material, continues to stir after vacuumizing, obtains negative electrode slurry, the negative electrode active material For LiFePO4； The anode sizing agent and the negative electrode slurry ar...",
+      "cpcClassifications": [
+        "C08F 2/30 20130101 LI20180611BHCN",
+        "H01M 4/622 20130101 LI20180611BHCN",
+        "C08F 220/1808 20200201 LA20200203RHCN",
+        "C08F 220/18 20130101 LI20180611BHCN",
+        "H01M 10/0525 20130101 LI20180611BHCN",
+        "C09J 133/20 20130101 FI20180611BHCN",
+        "C08F 2/26 20130101 LI20180611BHCN",
+        "C08F 220/44 20130101 LI20180611BHCN",
+        "Y02E 60/10 20130101 LA20200826BGEP"
+      ],
+      "sourceLocators": [
+        "document-root",
+        "abstract",
+        "claims"
+      ],
+      "detailResponseSha256": "c2a6acc8f74f12e6f42937a07b0e8573ce75eb97656b8893a27ab223ec7a6ede",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-108767259-B",
+      "publicationNumber": "CN-108767259-B",
+      "publicationDate": "2021-12-31",
+      "sourceVersion": "CN-108767259-B@20211231",
+      "title": "一种用于锂离子电池的水性粘结剂及其制备方法",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Water-based binder for lithium ion battery and preparation method thereof"
+        },
+        {
+          "language": "zh",
+          "text": "一种用于锂离子电池的水性粘结剂及其制备方法"
+        }
+      ],
+      "applicant": "HUKOU NEW MATERIALS COLLABORATIVE INNOVATION CENTER",
+      "detailUrl": "https://www.surechembl.org/patent/CN-108767259-B",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": "The invention discloses a water-based binder for lithium ion batteries, which is prepared from 0.2-9% of long-chain polyether compound containing double bonds, 7-11% of vinyl monomer, 0.001-1% of initiator, 0.02-2% of emulsifier and the balance of water. The aqueous binder for the lithium ion battery prepared by the method can keep high strength and high elasticity in a wider temperature range, is particularly suitable for binding electrodes, and effectively improves the transmission capability of lithium ions in the electrodes. 本发明公开了一种锂离子电池用水性粘结剂，由0.2％～9％含有双键的长链聚醚化合物、7％～11％乙烯基类单体、0.001％～1％引发剂、0.02％～2％乳化剂和余量水制成。采用本发明的方法制备的锂离子电池用水性粘结剂在较宽的温度范围内能保持高强度和高弹性，特别适用于电极的粘结，有效的提高了锂离子在电极中的传输能力。",
+      "claimsExcerpt": "1. An aqueous binder for a lithium ion battery, characterized in that: is prepared by 0.2 to 9 percent of long-chain polyether compound containing double bonds, 7 to 11 percent of vinyl monomer, 0.001 to 1 percent of initiator, 0.02 to 2 percent of emulsifier and the balance of water; the structural formula of the double-bond-containing long-chain polyether compound is as follows: wherein R is 1 、R 2 And R 6 Each independently is hydrogen, C 1 ~C 25 Alkyl or C 1 ~C 25 A substituted alkyl group; r 3 Is hydrogen, C 1 ~C 25 Alkyl, aryl, heteroaryl, and heteroaryl,C 1 ~C 25 Substituted alkyl or carboxyl; r 4 Is oxygen, an ester group or a sulfone group; r 5 Is hydrogen or methyl; n is an integer of 1 to 50; the aqueous binder is prepared according to the following steps: 1) adding 0.2-9% of long-chain polyether compound containing double bonds, 7-11% of vinyl monomer and 0.02-2% of emulsifier into partial deionized water, and dispersing at high speed to obtain pre-emulsion; 2) dissolving 0.001-1% of initiator in partial deionized water to obtain initiator solution; 3) adding the rest deionized water into a reaction container, and heating to 60-70 ℃; 4) slowly adding an initiator solution into a reaction container in several times, and simultaneously slowly adding the pre-emulsion prepared in the step 1); 5) after the reaction is completed, cooling to normal temperature to obtain a water-based binder; the initiator is a redox initiator, and the redox initiator is potassium persulfate/sodium sulfite, benzoyl peroxide/sucrose, tert-butyl hydroperoxide/sodium metabisulfite, benzoyl peroxide/N, N-dimethylaniline, benzoyl peroxide/N, N-diethylaniline, benzoyl peroxide/ferrous pyrophosphate, ammonium persulfate/sodium bisulfite, hydrogen peroxide/tartaric acid or ammonium persulfate/ferrous sulfate. 2. The aqueous binder of claim 1, wherein: the emulsifier is one or more of alkyl sulfonate, sodium alkyl benzene sulfonate, alkylphenol polyoxyethylene, polyvinyl alcohol and polyethylene glycol. 3. The aqueous binder of claim 1, wherein: in step 3), the inert gas is continuously introduced after the temperature is raised. 4. The aqueous binder of claim 3, wherein: in the step 5), after cooling to normal temperature, adjusting the pH value of the product to be neutral to obtain the water-based binder. 5. An electrode sheet produced using the binder according to any one of claims 1 to 4.",
+      "cpcClassifications": [
+        "H01M 4/622 20130101 FI20180930BHCN",
+        "C08F 220/286 20200201 LA20200203RHCN",
+        "C08F 220/28 20130101 LI20180930BHCN",
+        "C08F 283/065 20130101 LI20180930BHCN",
+        "Y02E 60/10 20130101 LA20200826BGEP",
+        "C08F 2/26 20130101 LI20180930BHCN"
+      ],
+      "sourceLocators": [
+        "document-root",
+        "abstract",
+        "claims"
+      ],
+      "detailResponseSha256": "593d8e8a9136daa2ee17d1b49811560d24d20fa41b97af1fb33f5cb350d4ddaa",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-109664573-B",
+      "publicationNumber": "CN-109664573-B",
+      "publicationDate": "2020-07-17",
+      "sourceVersion": "CN-109664573-B@20200717",
+      "title": "一种可印刷的高强度固体药用冷冲压成型复合硬片",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Printable high-strength solid medicinal cold stamping forming composite hard sheet"
+        },
+        {
+          "language": "zh",
+          "text": "一种可印刷的高强度固体药用冷冲压成型复合硬片"
+        }
+      ],
+      "applicant": "CHANGZHOU HUAJIAN PHARMACEUTICAL PACKAGING MATERIALS Co.,Ltd.",
+      "detailUrl": "https://www.surechembl.org/patent/CN-109664573-B",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-109957360-B",
+      "publicationNumber": "CN-109957360-B",
+      "publicationDate": "2020-09-15",
+      "sourceVersion": "CN-109957360-B@20200915",
+      "title": "一种水性粘结剂及二次电池",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Water-based binder and secondary battery"
+        },
+        {
+          "language": "zh",
+          "text": "一种水性粘结剂及二次电池"
+        }
+      ],
+      "applicant": "Contemporary Amperex Technology Co.,Ltd.",
+      "detailUrl": "https://www.surechembl.org/patent/CN-109957360-B",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": "The invention discloses an aqueous binder and a secondary battery. The adhesive has self-repairing capability and is a polymer containing at least two monomer units, wherein one monomer contains both a sulfonic acid group and an amide group, and the other monomer contains an alcohol ester group or/and a carboxylic acid ester group. The number average molecular weight of the polymer is preferably 20 ten thousand or more. The invention also relates to a secondary battery, which comprises a positive pole piece, a negative pole piece, a separation film and electrolyte, wherein at least one of the positive pole piece, the negative pole piece and the separation film (preferably the negative pole piece) contains the binder. Compared with the binder in the prior art, the binder provided by the invention has the advantages of high electrochemical stability, strong binding capacity and good mechanical property, and can be used for remarkably prolonging the cycle life of a secondary battery and reducing the cycle expansion. Therefore, the binder material has good application prospect in secondary batteries. 本发明公开了一种水性粘结剂及二次电池。该粘结剂具有自修复能力，是包含至少两种单体单元的聚合物，其中一种单体同时包含有磺酸基和酰胺基，另一种单体包含有醇酯基或/和羧酸酯基。聚合物数均分子量优选为大于等于20万。本发明还涉及一种二次电池，包含正极极片、负极极片、隔离膜和电解质，所述正极极片、负极极片、隔离膜中至少之一(优选负极极片)中含有本发明的粘结剂。本发明所述的粘结剂相比于现有技术中的粘结剂，电化学稳定性高，粘结能力强，机械性能好，可以显著提高二次电池的循环寿命及降低循环膨胀。因此，该粘结剂材料在二次电池中有很好的应用前景。",
+      "claimsExcerpt": "1. An aqueous binder which is a polymer comprising at least two kinds of monomer units, wherein one of the monomer units is a unit represented by the formula (I) containing both a sulfonic acid group and an amide group, and the other monomer unit is a unit represented by the formula (II) -1, wherein, in the structural formula (I), R 1 Selected from H, C1-6 linear or branched alkyl n H 2n Is a straight-chain or branched alkylene group with n being 1-8, and X is selected from hydrogen ions, lithium ions, sodium ions, potassium ions, rubidium ions, cesium ions or ammonium ions; in the structural formula (II) -1, R 1 Selected from H, C1-6 straight chain or branched chain alkyl, R 2 Selected from H, benzoyl, straight chain or branched chain alkanoyl with total carbon atoms of 1-8; r in the formula (I) 1 With R in the formula (II) -1 1 Are each independently selected; the structural unit shown in the structural formula (I) accounts for 40-90% of the molar percentage of the binder, and the structural unit shown in the structural formula (II) -1 accounts for 10-60% of the molar percentage of the binder; and is The number average molecular weight of the binder is 20-150 ten thousand. 2. Binder according to claim 1, wherein the units of formula (I) are selected from the group consisting of poly (sodium 2-acrylamido-2-methylpropanesulfonate) segments, poly (3-methacrylamido-2-methyl-1-propanesulfonic acid) segments, poly (lithium 3-acrylamido-2, 2-dimethyl-1-propanesulfonate) segments, poly (ammonium 3-acrylamido-1-propanesulfonate) segments, poly (potassium 3-methacrylamido-2, 3-dimethyl-2-butanesulfonate) segments. 3. The binder according to claim 1, wherein the unit of formula (II) -1 is selected from: a polyvinyl alcohol segment, a polyvinyl acetate segment, a polyvinyl benzoate segment, a polyvinyl propionate segment, or a polyvinyl n-butyrate segment. 4. The binder of claim 1 wherein the mole percentage of structural units of formula (I) in the binder is 50 to 80%. 5. The binder of claim 1, wherein the structural unit of formula (II) -1 is present in a molar percentage of 20 to 50% of the binder. 6. A binder as claimed in any one of claims 1 to 5, characterized in that the number average molecular weight of the binder is between 40 and 110 ten thousand. 7. The binder as claimed in any one of claims 1 to 5, wherein the binder is composed of units of formula (I) and units of formula (II) -1. 8. A secondary battery comprising a positive electrode sheet, a negative electrode sheet, a separator and an electrolyte, wherein at least one of the positive electrode sheet, the negative electrode sheet and the separator contains the binder according to any one of claims 1 to 7. 9. The secondary battery according to claim 8, which is a lithium ion battery, the negative electrode tab comprises a negative electrode current collector and a negative electrode active material coating, the negative electrode active material coating comprises a conductive agent, a negative electrode active material and the binder according to any one of claims 1 to 7. 10. The secondary battery according to claim 8, which is a lithium ion battery, the negative electrode sheet comprises a negative electrode current collector and a negative electrode active material coating, a coating is arranged between the negative electrode current collector and the negative electrode active material coating, and the coating comprises the binder according to any one of claims 1 to 7.",
+      "cpcClassifications": [
+        "C08F 220/585 20200201 FI20211102RHUS",
+        "C08F 220/1802 20200201 LI20211102RHUS",
+        "C08F 220/585 20200201 LI20211018RHCN",
+        "C08F 220/585 20200201 FI20211018RHEP",
+        "C08F 220/1802 20200201 LI20211018RHEP",
+        "C08F 220/1802 20200201 LI20211018RHCN",
+        "C08F 218/08 20130101 LA20200203RHCN",
+        "C09J 133/24 20130101 LI20180625BHCN",
+        "H01M 4/622 20130101 LI20180625BHCN",
+        "C09J 133/24 20130101 LI20190720BHEP",
+        "C08F 218/08 20130101 LI20190720BHEP",
+        "H01M 4/62 20130101 LI20190720BHEP",
+        "C08F 220/585 20200201 LA20200203RHCN",
+        "C08F 220/06 20130101 LI20190720BHEP",
+        "Y02E 60/10 20130101 LA20200826BGEP",
+        "C08F 220/10 20130101 LI20190720BHEP"
+      ],
+      "sourceLocators": [
+        "document-root",
+        "abstract",
+        "claims"
+      ],
+      "detailResponseSha256": "a87b685fe7d20f7ebfee314e2ddfbaa9a6bb74884f6c6b0c2f53cbfeb0e2cc3e",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-109957361-B",
+      "publicationNumber": "CN-109957361-B",
+      "publicationDate": "2021-02-09",
+      "sourceVersion": "CN-109957361-B@20210209",
+      "title": "一种水性粘结剂及二次电池",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Water-based binder and secondary battery"
+        },
+        {
+          "language": "zh",
+          "text": "一种水性粘结剂及二次电池"
+        }
+      ],
+      "applicant": "Contemporary Amperex Technology Co.,Ltd.",
+      "detailUrl": "https://www.surechembl.org/patent/CN-109957361-B",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": "The invention discloses an aqueous binder and a secondary battery. The adhesive comprises at least two monomer units, wherein one monomer unit is a vinyl unsaturated amide sulfonic acid monomer unit, and the other monomer unit is a vinyl unsaturated silane coupling agent monomer unit, and the vinyl unsaturated amide sulfonic acid monomer unit is a cross-linkable self-repairing and self-healing polymer. Preferably, it has a number average molecular weight greater than or equal to 40 ten thousand. The invention also relates to a secondary battery, which comprises a positive pole piece, a negative pole piece, a separation film and electrolyte, wherein at least one of the positive pole piece, the negative pole piece and the separation film contains the adhesive. Compared with the binder in the prior art, the binder provided by the invention has the advantages of good mechanical property, strong binding capacity and high electrochemical stability. 本发明公开了一种水性粘结剂及二次电池。该粘结剂包含至少两种单体单元，其中一种是乙烯基不饱和酰胺磺酸类单体单元，另一种是乙烯基不饱和硅烷偶联剂类单体单元，它是一种可交联并具有自修复性、自愈合性的聚合物。优选地，其数均分子量大于或等于40万。本发明还涉及一种二次电池，包含正极极片、负极极片、隔离膜和电解质，在正极极片、负极极片、隔离膜中至少一种含有本发明的粘结剂。本发明所述的粘结剂相比于现有技术中的粘结剂，机械性能好，粘结能力强，电化学稳定性高。",
+      "claimsExcerpt": "1. An aqueous binder which is a polymer comprising at least two monomer units, wherein one monomer unit is a unit represented by the formula (I) containing both a sulfonic acid group and an amide group, and the other monomer unit is a unit represented by the formula (II) -1 or the formula (II) -2, wherein, the mol percentage of the structural unit shown in the structural formula (I) in the binding agent is 30-90%, the mol percentage of the structural unit shown in the structural formula (II) -1 and/or the structural formula (II) -2 in the binding agent is 5-40%, in the formula (I), R 1 Selected from H, C1-6 linear or branched alkyl or substituted alkyl n H 2n Is a straight-chain or branched alkylene group with n being 1-6, X is selected from hydrogen ion, lithium ion, sodium ion, potassium ion, rubidium ion, cesium ion or ammonium ion, wherein the substituent of the alkyl is 1,2 or 3 selected from halogen and C 1-4 Alkyl or C 1-4 A substituent of an alkoxy group; in the structural formula (II) -1, R 1 Selected from H, C1-6 linear or branched alkyl or substituted alkyl, R 2 Selected from phenyl or substituted phenyl, straight chain or branched chain alkanoyl or substituted alkanoyl with 1-6 total carbon atoms, benzoyl or substituted benzoyl, wherein the alkyl, phenyl, benzoyl and alkanoyl have 1,2 or 3 substituents selected from halogen, C 1-4 Alkyl or C 1-4 A substituent of an alkoxy group; in the formula (II) -2R 1 Selected from H, C1-6 linear or branched alkyl or substituted alkyl, R 3 Selected from H, phenyl or substituted phenyl, straight chain or branched chain alkanoyl or substituted alkanoyl with the total number of carbon atoms of 1-8, straight chain or branched chain alkyl or substituted alkyl with the number of carbon atoms of 1-8, cycloalkyl or substituted cycloalkyl with the number of carbon atoms of 3-8, benzoyl or substituted benzoyl, wherein the substituents of the alkyl, phenyl, alkanoyl, cycloalkyl and benzoyl are 1,2 or 3 substituents selected from halogen, C 1-4 Alkyl or C 1-4 A substituent of an alkoxy group; wherein R in the structural formula (I) 1 With R in the formula (II) -1 1 R in the structural formula (II) -2 1 Are each independently selected. 2. The binder of claim 1 wherein the mole percentage of structural units of formula (I) in the binder is 50 to 80%. 3. The binder according to claim 1, wherein the structural units of formula (II) -1 and/or formula (II) -2 are present in a molar percentage of 10 to 30% of the binder. 4. Binder according to claim 1, wherein the units of formula (I) are selected from the group consisting of poly (sodium 2-acrylamido-2-methylpropanesulfonate) segments, poly (3-methacrylamido-2-methyl-1-propanesulfonic acid) segments, poly (lithium 3-acrylamido-2, 2-dimethyl-1-propanesulfonate) segments, poly (ammonium 3-acrylamido-1-propanesulfonate) segments, poly (potassium 3-methacrylamido-2, 3-dimethyl-2-butanesulfonate) segments. 5. The binder of claim 1, wherein R is represented by the formula (II) -2 3 Selected from cyclohexyl, phenyl, 2-methoxyethyl, acetyl, methyl, ethyl, propyl, isopropyl, n-butyl, isobutyl, sec-butyl, tert-butyl. 6. The binder as claimed in any one of claims 1 to 5, wherein the number average molecular weight of the binder is 40 ten thousand or more. 7. A binder as claimed in any one of claims 1 to 5, characterized in that the number average molecular weight of the binder is between 40 and 160 ten thousand. 8. A binder as claimed in any one of claims 1 to 5, characterized in that the number average molecular weight of the binder is between 40 and 100 ten thousand. 9. The binder according to any one of claims 1 to 5, wherein the binder is composed of units of formula (I) and units of formula (II) -1 and/or formula (II) -2. 10. The binder according to any one of claims 1 to 5, further comprising units of formula (III) -1 or/and formula (III) -2, the molar percentage of the (III) -1 or/and (III) -2 units in the binder is 5 to 30%, r in the formula (III) -1 1 Selected from H, C1-6 linear or branched alkyl or substituted alkyl, R in structural formula (III) -1 2 Selected from phenyl or substituted phenyl, straight chain or branched chain alkanoyl or substituted alkanoyl with 1-6 total carbon atoms, benzoyl or substituted benzoyl, wherein the alkyl, phenyl, benzoyl and alkanoyl have 1,2 or 3 substituents selected from halogen, C 1-4 Alkyl or C 1-4 A substituent of an alkoxy group; r in the formula (III) -2 1 Selected from H, C1-6 linear or branched alkyl or substituted alkyl, R 3 Selected from H, phenyl or substituted phenyl, straight chain or branched chain alkanoyl or substituted alkanoyl with the total number of carbon atoms of 1-8, straight chain or branched chain alkyl or substituted alkyl with the number of carbon atoms of 1-8, cycloalkyl or substituted cycloalkyl with the number of carbon atoms of 3-8, benzoyl or substituted benzoyl, wherein the substituents of the alkyl, phenyl, alkanoyl, cycloalkyl and benzoyl are 1,2 or 3 substi...",
+      "cpcClassifications": [
+        "C08F 220/585 20200201 LA20200203RHCN",
+        "H01M 10/0525 20130101 LI20180625BHCN",
+        "H01M 4/622 20130101 LI20180625BHCN",
+        "C08F 220/58 20130101 LI20180625BHCN",
+        "Y02E 60/10 20130101 LA20200826BGEP",
+        "C09J 143/04 20130101 LI20180625BHCN"
+      ],
+      "sourceLocators": [
+        "document-root",
+        "abstract",
+        "claims"
+      ],
+      "detailResponseSha256": "1c30c1e407f4e6e460e6a66d5a36fa9376b839dd9c7017f446356a43609e2479",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-110165124-B",
+      "publicationNumber": "CN-110165124-B",
+      "publicationDate": "2022-02-22",
+      "sourceVersion": "CN-110165124-B@20220222",
+      "title": "一种应用于锂-二硫化硒电池的双涂层隔膜及其制备方法和应用",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Double-coating diaphragm applied to lithium-selenium disulfide battery and preparation method and application thereof"
+        },
+        {
+          "language": "zh",
+          "text": "一种应用于锂-二硫化硒电池的双涂层隔膜及其制备方法和应用"
+        }
+      ],
+      "applicant": "SOUTH CHINA NORMAL UNIVERSITY",
+      "detailUrl": "https://www.surechembl.org/patent/CN-110165124-B",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-110931714-A",
+      "publicationNumber": "CN-110931714-A",
+      "publicationDate": "2020-03-27",
+      "sourceVersion": "CN-110931714-A@20200327",
+      "title": "一种PEO基薄膜包覆的硅碳电极的制备与应用",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Preparation and application of PEO-based film coated silicon-carbon electrode"
+        },
+        {
+          "language": "zh",
+          "text": "一种PEO基薄膜包覆的硅碳电极的制备与应用"
+        }
+      ],
+      "applicant": "INST PROCESS ENG CAS",
+      "detailUrl": "https://www.surechembl.org/patent/CN-110931714-A",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-112920747-A",
+      "publicationNumber": "CN-112920747-A",
+      "publicationDate": "2021-06-08",
+      "sourceVersion": "CN-112920747-A@20210608",
+      "title": "锂离子电池隔膜用水性粘结剂",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Aqueous binder for lithium ion battery diaphragm"
+        },
+        {
+          "language": "zh",
+          "text": "锂离子电池隔膜用水性粘结剂"
+        }
+      ],
+      "applicant": "SHENZHEN HAODIAN TECH CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/CN-112920747-A",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-113178547-A",
+      "publicationNumber": "CN-113178547-A",
+      "publicationDate": "2021-07-27",
+      "sourceVersion": "CN-113178547-A@20210727",
+      "title": "高安全型无机隔膜复合电极制备方法及其制得的复合电极",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Preparation method of high-safety inorganic diaphragm composite electrode and composite electrode prepared by same"
+        },
+        {
+          "language": "zh",
+          "text": "高安全型无机隔膜复合电极制备方法及其制得的复合电极"
+        }
+      ],
+      "applicant": "WUHAN LIXING TORCH POWER SOURCES CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/CN-113178547-A",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-113840870-A",
+      "publicationNumber": "CN-113840870-A",
+      "publicationDate": "2021-12-24",
+      "sourceVersion": "CN-113840870-A@20211224",
+      "title": "水性粘结剂组合物",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Aqueous binder composition"
+        },
+        {
+          "language": "zh",
+          "text": "水性粘结剂组合物"
+        }
+      ],
+      "applicant": "OWENS CORNING INTELLECTUAL CAPITAL LLC",
+      "detailUrl": "https://www.surechembl.org/patent/CN-113840870-A",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-114539948-A",
+      "publicationNumber": "CN-114539948-A",
+      "publicationDate": "2022-05-27",
+      "sourceVersion": "CN-114539948-A@20220527",
+      "title": "水性粘结剂及其应用",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Aqueous binder and application thereof"
+        },
+        {
+          "language": "zh",
+          "text": "水性粘结剂及其应用"
+        }
+      ],
+      "applicant": "LONG RANGE POWER TECH JIANGSU LIMITED COMPANY",
+      "detailUrl": "https://www.surechembl.org/patent/CN-114539948-A",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-114539948-B",
+      "publicationNumber": "CN-114539948-B",
+      "publicationDate": "2023-12-05",
+      "sourceVersion": "CN-114539948-B@20231205",
+      "title": "水性粘结剂及其应用",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Aqueous binder and application thereof"
+        },
+        {
+          "language": "zh",
+          "text": "水性粘结剂及其应用"
+        }
+      ],
+      "applicant": "Vision Ruitai Power Technology (Shanghai) Co.,Ltd.",
+      "detailUrl": "https://www.surechembl.org/patent/CN-114539948-B",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-1150220-C",
+      "publicationNumber": "CN-1150220-C",
+      "publicationDate": "2004-05-19",
+      "sourceVersion": "CN-1150220-C@20040519",
+      "title": "不含甲醛的水性粘结剂",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Formaldehyde-free aqueous binders"
+        },
+        {
+          "language": "zh",
+          "text": "不含甲醛的水性粘结剂"
+        }
+      ],
+      "applicant": "BASF AG",
+      "detailUrl": "https://www.surechembl.org/patent/CN-1150220-C",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-115260403-A",
+      "publicationNumber": "CN-115260403-A",
+      "publicationDate": "2022-11-01",
+      "sourceVersion": "CN-115260403-A@20221101",
+      "title": "一种水性粘结剂、改性隔膜、电池及水性粘结剂的制备方法",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Water-based binder, modified diaphragm, battery and preparation method of water-based binder"
+        },
+        {
+          "language": "zh",
+          "text": "一种水性粘结剂、改性隔膜、电池及水性粘结剂的制备方法"
+        }
+      ],
+      "applicant": "SHENZHEN HONGXING INNOVATION MAT CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/CN-115260403-A",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-115260403-B",
+      "publicationNumber": "CN-115260403-B",
+      "publicationDate": "2023-12-08",
+      "sourceVersion": "CN-115260403-B@20231208",
+      "title": "一种水性粘结剂、改性隔膜、电池及水性粘结剂的制备方法",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Aqueous binder, modified diaphragm, battery and preparation method of aqueous binder"
+        },
+        {
+          "language": "zh",
+          "text": "一种水性粘结剂、改性隔膜、电池及水性粘结剂的制备方法"
+        }
+      ],
+      "applicant": "Shenzhen Hongxing Innovative Materials Co.,Ltd.",
+      "detailUrl": "https://www.surechembl.org/patent/CN-115260403-B",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-115513464-A",
+      "publicationNumber": "CN-115513464-A",
+      "publicationDate": "2022-12-23",
+      "sourceVersion": "CN-115513464-A@20221223",
+      "title": "一种水性粘结剂、制备方法及包含水性粘结剂的锂电池",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Water-based binder, preparation method and lithium battery containing water-based binder"
+        },
+        {
+          "language": "zh",
+          "text": "一种水性粘结剂、制备方法及包含水性粘结剂的锂电池"
+        }
+      ],
+      "applicant": "CHUNENG NEW ENERGY CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/CN-115513464-A",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-115513464-B",
+      "publicationNumber": "CN-115513464-B",
+      "publicationDate": "2023-04-14",
+      "sourceVersion": "CN-115513464-B@20230414",
+      "title": "一种水性粘结剂、制备方法及包含水性粘结剂的锂电池",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Water-based binder, preparation method and lithium battery containing water-based binder"
+        },
+        {
+          "language": "zh",
+          "text": "一种水性粘结剂、制备方法及包含水性粘结剂的锂电池"
+        }
+      ],
+      "applicant": "Cornex New Energy Co.,Ltd.",
+      "detailUrl": "https://www.surechembl.org/patent/CN-115513464-B",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-116487539-A",
+      "publicationNumber": "CN-116487539-A",
+      "publicationDate": "2023-07-25",
+      "sourceVersion": "CN-116487539-A@20230725",
+      "title": "一种负极/陶瓷隔膜一体化电极及其制备方法和应用",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Cathode/ceramic diaphragm integrated electrode and preparation method and application thereof"
+        },
+        {
+          "language": "zh",
+          "text": "一种负极/陶瓷隔膜一体化电极及其制备方法和应用"
+        }
+      ],
+      "applicant": "XIAN ALUMINUM ELECTRICITY TECH DEVELOPMENT CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/CN-116487539-A",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-117613274-A",
+      "publicationNumber": "CN-117613274-A",
+      "publicationDate": "2024-02-27",
+      "sourceVersion": "CN-117613274-A@20240227",
+      "title": "一种使用水性粘结剂的软包电池组装方法",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Soft package battery assembling method using aqueous binder"
+        },
+        {
+          "language": "zh",
+          "text": "一种使用水性粘结剂的软包电池组装方法"
+        }
+      ],
+      "applicant": "HANGZHOU BOLING TAIWEI TECH CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/CN-117613274-A",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-118047899-A",
+      "publicationNumber": "CN-118047899-A",
+      "publicationDate": "2024-05-17",
+      "sourceVersion": "CN-118047899-A@20240517",
+      "title": "一种水性粘结剂、水性粘结剂的制备方法及锂离子电池",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Water-based binder, preparation method of water-based binder and lithium ion battery"
+        },
+        {
+          "language": "zh",
+          "text": "一种水性粘结剂、水性粘结剂的制备方法及锂离子电池"
+        }
+      ],
+      "applicant": "HEFEI GUOXUAN HIGH TECH POWER ENERGY CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/CN-118047899-A",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-118813174-A",
+      "publicationNumber": "CN-118813174-A",
+      "publicationDate": "2024-10-22",
+      "sourceVersion": "CN-118813174-A@20241022",
+      "title": "一种用于锂离子电池的水系粘结剂及其制备方法和应用",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Water-based binder for lithium ion battery and preparation method and application thereof"
+        },
+        {
+          "language": "zh",
+          "text": "一种用于锂离子电池的水系粘结剂及其制备方法和应用"
+        }
+      ],
+      "applicant": "SATELLITE CHEMICAL S A",
+      "detailUrl": "https://www.surechembl.org/patent/CN-118813174-A",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-119674073-A",
+      "publicationNumber": "CN-119674073-A",
+      "publicationDate": "2025-03-21",
+      "sourceVersion": "CN-119674073-A@20250321",
+      "title": "一种水系粘结剂的制备方法、水系粘结剂及其应用",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Preparation method of water-based adhesive, water-based adhesive and application of water-based adhesive"
+        },
+        {
+          "language": "zh",
+          "text": "一种水系粘结剂的制备方法、水系粘结剂及其应用"
+        }
+      ],
+      "applicant": "LIYANG TIANMU PILOT BATTERY MATERIAL TECH CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/CN-119674073-A",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-120365880-A",
+      "publicationNumber": "CN-120365880-A",
+      "publicationDate": "2025-07-25",
+      "sourceVersion": "CN-120365880-A@20250725",
+      "title": "一种含有氨基甲酸酯结构单元的羧甲基纤维素钠衍生物类水系粘结剂及其制备方法和应用",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Sodium carboxymethyl cellulose derivative water-based binder containing carbamate structural unit, and preparation method and application thereof"
+        },
+        {
+          "language": "zh",
+          "text": "一种含有氨基甲酸酯结构单元的羧甲基纤维素钠衍生物类水系粘结剂及其制备方法和应用"
+        }
+      ],
+      "applicant": "UNIV CHINA GEOSCIENCES WUHAN",
+      "detailUrl": "https://www.surechembl.org/patent/CN-120365880-A",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "CN-214233780-U",
+      "publicationNumber": "CN-214233780-U",
+      "publicationDate": "2021-09-21",
+      "sourceVersion": "CN-214233780-U@20210921",
+      "title": "一种水性粘结剂搅拌装置",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Aqueous binder stirring device"
+        },
+        {
+          "language": "zh",
+          "text": "一种水性粘结剂搅拌装置"
+        }
+      ],
+      "applicant": "NANTONG QINGHUA NANOMATERIAL CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/CN-214233780-U",
+      "matchedQueryIds": [
+        "Q3_CN_AQUEOUS_BINDER"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "EP-3044822-A2",
+      "publicationNumber": "EP-3044822-A2",
+      "publicationDate": "2016-07-20",
+      "sourceVersion": "EP-3044822-A2@20160720",
+      "title": "WATER-BASED CATHODE SLURRY FOR A LITHIUM ION BATTERY",
+      "titles": [
+        {
+          "language": "de",
+          "text": "KATHODENAUFSCHLÄMMUNG AUF WASSERBASIS FÜR EINE LITHIUM-IONEN-BATTERIE"
+        },
+        {
+          "language": "en",
+          "text": "WATER-BASED CATHODE SLURRY FOR A LITHIUM ION BATTERY"
+        },
+        {
+          "language": "fr",
+          "text": "SUSPENSION AQUEUSE ÉPAISSE DE CATHODE POUR BATTERIE AU LITHIUM-ION"
+        }
+      ],
+      "applicant": "UMICORE NV",
+      "detailUrl": "https://www.surechembl.org/patent/EP-3044822-A2",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "EP-3044822-B1",
+      "publicationNumber": "EP-3044822-B1",
+      "publicationDate": "2018-06-13",
+      "sourceVersion": "EP-3044822-B1@20180613",
+      "title": "WATER-BASED CATHODE SLURRY FOR A LITHIUM ION BATTERY",
+      "titles": [
+        {
+          "language": "de",
+          "text": "KATHODENAUFSCHLÄMMUNG AUF WASSERBASIS FÜR EINE LITHIUM-IONEN-BATTERIE"
+        },
+        {
+          "language": "en",
+          "text": "WATER-BASED CATHODE SLURRY FOR A LITHIUM ION BATTERY"
+        },
+        {
+          "language": "fr",
+          "text": "SUSPENSION AQUEUSE ÉPAISSE DE CATHODE POUR BATTERIE AU LITHIUM-ION"
+        }
+      ],
+      "applicant": "UMICORE NV",
+      "detailUrl": "https://www.surechembl.org/patent/EP-3044822-B1",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "EP-3581679-A1",
+      "publicationNumber": "EP-3581679-A1",
+      "publicationDate": "2019-12-18",
+      "sourceVersion": "EP-3581679-A1@20191218",
+      "title": "SLURRY-BASED COATING SYSTEM REPAIR",
+      "titles": [
+        {
+          "language": "de",
+          "text": "REPARATUR VON AUFSCHLÄMMUNGSBASIERTEN BESCHICHTUNGSSYSTEMEN"
+        },
+        {
+          "language": "en",
+          "text": "SLURRY-BASED COATING SYSTEM REPAIR"
+        },
+        {
+          "language": "fr",
+          "text": "RÉPARATION DE SYSTÈME DE REVÊTEMENT À BASE DE SUSPENSION"
+        }
+      ],
+      "applicant": "ROLLS ROYCE NAM TECH INC",
+      "detailUrl": "https://www.surechembl.org/patent/EP-3581679-A1",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "EP-3581679-B1",
+      "publicationNumber": "EP-3581679-B1",
+      "publicationDate": "2021-02-17",
+      "sourceVersion": "EP-3581679-B1@20210217",
+      "title": "SLURRY-BASED COATING SYSTEM REPAIR",
+      "titles": [
+        {
+          "language": "de",
+          "text": "REPARATUR VON AUFSCHLÄMMUNGSBASIERTEN BESCHICHTUNGSSYSTEMEN"
+        },
+        {
+          "language": "en",
+          "text": "SLURRY-BASED COATING SYSTEM REPAIR"
+        },
+        {
+          "language": "fr",
+          "text": "RÉPARATION DE SYSTÈME DE REVÊTEMENT À BASE DE SUSPENSION"
+        }
+      ],
+      "applicant": "ROLLS ROYCE NAM TECH INC",
+      "detailUrl": "https://www.surechembl.org/patent/EP-3581679-B1",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "EP-4326082-A1",
+      "publicationNumber": "EP-4326082-A1",
+      "publicationDate": "2024-02-28",
+      "sourceVersion": "EP-4326082-A1@20240228",
+      "title": "SYSTEM AND METHOD FOR COATING CONFECTIONERY PRODUCT",
+      "titles": [
+        {
+          "language": "de",
+          "text": "SYSTEM UND VERFAHREN ZUR BESCHICHTUNG VON SÜSSWAREN"
+        },
+        {
+          "language": "en",
+          "text": "SYSTEM AND METHOD FOR COATING CONFECTIONERY PRODUCT"
+        },
+        {
+          "language": "fr",
+          "text": "SYSTÈME ET PROCÉDÉ D'ENROBAGE DE PRODUIT DE CONFISERIE"
+        }
+      ],
+      "applicant": "INTERCONTINENTAL GREAT BRANDS LLC",
+      "detailUrl": "https://www.surechembl.org/patent/EP-4326082-A1",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "EP-4326082-B1",
+      "publicationNumber": "EP-4326082-B1",
+      "publicationDate": "2025-06-04",
+      "sourceVersion": "EP-4326082-B1@20250604",
+      "title": "METHOD FOR COATING CONFECTIONERY PRODUCT",
+      "titles": [
+        {
+          "language": "de",
+          "text": "VERFAHREN ZUR BESCHICHTUNG VON SÜSSWAREN"
+        },
+        {
+          "language": "en",
+          "text": "METHOD FOR COATING CONFECTIONERY PRODUCT"
+        },
+        {
+          "language": "fr",
+          "text": "PROCÉDÉ D'ENROBAGE DE PRODUIT DE CONFISERIE"
+        }
+      ],
+      "applicant": "INTERCONTINENTAL GREAT BRANDS LLC",
+      "detailUrl": "https://www.surechembl.org/patent/EP-4326082-B1",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-11167312-B2",
+      "publicationNumber": "US-11167312-B2",
+      "publicationDate": "2021-11-09",
+      "sourceVersion": "US-11167312-B2@20211109",
+      "title": "Slurry-based coating system repair",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Slurry-based coating system repair"
+        }
+      ],
+      "applicant": "ROLLS ROYCE NAM TECH INC",
+      "detailUrl": "https://www.surechembl.org/patent/US-11167312-B2",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-11594718-B2",
+      "publicationNumber": "US-11594718-B2",
+      "publicationDate": "2023-02-28",
+      "sourceVersion": "US-11594718-B2@20230228",
+      "title": "Densified battery electrodes with electrode parts having different porosities and methods thereof",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Densified battery electrodes with electrode parts having different porosities and methods thereof"
+        }
+      ],
+      "applicant": "SILA NANOTECHNOLOGIES INC",
+      "detailUrl": "https://www.surechembl.org/patent/US-11594718-B2",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-12623968-B2",
+      "publicationNumber": "US-12623968-B2",
+      "publicationDate": "2026-05-12",
+      "sourceVersion": "US-12623968-B2@20260512",
+      "title": "Functionally graded firing setters and process for manufacturing these setters",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Functionally graded firing setters and process for manufacturing these setters"
+        }
+      ],
+      "applicant": "FERGUSON LUCIAN GARRETT",
+      "detailUrl": "https://www.surechembl.org/patent/US-12623968-B2",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-12689050-B2",
+      "publicationNumber": "US-12689050-B2",
+      "publicationDate": "2026-07-21",
+      "sourceVersion": "US-12689050-B2@20260721",
+      "title": "Method for producing a catalyst-coated membrane",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Method for producing a catalyst-coated membrane"
+        }
+      ],
+      "applicant": "AUDI AG",
+      "detailUrl": "https://www.surechembl.org/patent/US-12689050-B2",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-20130157136-A1",
+      "publicationNumber": "US-20130157136-A1",
+      "publicationDate": "2013-06-20",
+      "sourceVersion": "US-20130157136-A1@20130620",
+      "title": "COATING OF DISORDERED CARBON ACTIVE MATERIAL USING WATER-BASED BINDER SLURRY",
+      "titles": [
+        {
+          "language": "en",
+          "text": "COATING OF DISORDERED CARBON ACTIVE MATERIAL USING WATER-BASED BINDER SLURRY"
+        }
+      ],
+      "applicant": "BALICKI MARK",
+      "detailUrl": "https://www.surechembl.org/patent/US-20130157136-A1",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING",
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": "An electrochemical cell manufactured by coating a conductive substrate of an electrode with a disordered carbon active material using a water-based binder slurry. An exemplary binder slurry includes at least one disordered carbon material, carboxymethyl cellulose (CMC), styrene butadiene rubber (SBR), and water.",
+      "claimsExcerpt": "What is claimed is:1. A water-based binder slurry used to produce an electrode of an electrochemical cell, the binder slurry comprising: at least one disordered carbon material; at least one binder; and water. 2. The binder slurry of claim 1, wherein the at least one binder comprises carboxymethyl cellulose (CMC) and styrene butadiene rubber (SBR). 3. The binder slurry of claim 2, wherein the at least one disordered carbon material is present in the water at about 96 wt. %, the CMC is present in the water at about 2 wt. %, and the SBR is present in the water at about 2 wt. %. 4. The binder slurry of claim 2, wherein the at least one disordered carbon material, the CMC, and the SBR, together, comprise between about 40 wt. % and 60 wt. % of the binder slurry, with the water making up the balance of the binder slurry. 5. The binder slurry of claim 2, wherein the binder slurry consists essentially of the at least one disordered carbon material, the CMC, the SBR, and the water. 6. The binder slurry of claim 2, wherein the CMC in the binder slurry has a degree of carboxymethyl-substitution less than 0.85. 7. The binder slurry of claim 2, wherein the CMC in the binder slurry has a degree of carboxymethyl-substitution of 0.65 to 0.75. 8. The binder slurry of claim 1, wherein the binder slurry has a viscosity at room temperature between about 4,500 cP and 5,500 cP. 9. The binder slurry of claim 1, wherein the at least one disordered carbon material comprises hard carbon. 10. The binder slurry of claim 1, wherein the at least one disordered carbon material comprises soft carbon. 11. An electrochemical cell comprising: a cathode comprising an active layer and a conductive layer; an anode comprising an active layer with at least one disordered carbon material and a conductive layer, the at least one disordered carbon material in the active layer of the anode being adhered to the conductive layer of the anode using a binder slurry that comprises: carboxymethyl cellulose (CMC); styrene butadiene rubber (SBR); and water; and an electrolyte in communication with the anode and the cathode. 12. The electrochemical cell of claim 11, wherein the active layer of the anode is applied to a first side of the conductive layer of the anode at more than about 5 mg/cm 2 . 13. The electrochemical cell of claim 12, wherein the active layer of the anode is applied to the first side of the conductive layer of the anode at about 10 mg/cm 2 . 14. The electrochemical cell of claim 12, wherein the active layer of the anode is applied to a second side of the conductive layer of the anode opposite the first side. 15. The electrochemical cell of claim 11, wherein the active layer of the cathode comprises LiNiCoMnO 2 (NMC). 16. A method of manufacturing an electrochemical cell, the method comprising the steps of: preparing a binder slurry comprising: at least one disordered carbon material; carboxymethyl cellulose (CMC); styrene butadiene rubber (SBR); and water; applying the binder slurry to a conductive substrate to form an anode; and placing the anode in electrical communication with a cathode. 17. The method of claim 16, wherein the preparing step comprises mixing the slurry to arrive at a viscosity at room temperature between about 4,500 cP and 5,500 cP. 18. The method of claim 16, further comprising the step of partially drying the anode after the applying step by placing the anode in a furnace that is heated to a first temperature of about 70° C. or less. 19. The method of claim 18, further comprising the step of fully drying the anode after partially drying the anode by placing the anode in a furnace that is heated to a second temperature higher than the first temperature. 20. The method of claim 19, further comprising the step of pressing the anode after partially drying and before fully drying the anode.",
+      "cpcClassifications": [
+        "H01M 4/525 20130101 LI20160901BHKR",
+        "H01M 10/052 20130101 LI20160901BHKR",
+        "H01M 4/505 20130101 LI20160901BHKR",
+        "H01M 4/62 20130101 FI20160901BHKR",
+        "Y02P 70/50 20151101 LA20210630BGEP",
+        "H01M 4/625 20130101 LI20140213BHEP",
+        "C09J 109/06 20130101 LI20130723BHEP",
+        "C09J 101/286 20130101 LI20140725BHEP",
+        "Y10T 29/49115 20150115 LA20150123BCUS",
+        "C08L 9/02 20130101 LI20180131BHEP",
+        "Y02E 60/10 20130101 LA20200826BGEP",
+        "H01M 4/622 20130101 FI20140213BHEP",
+        "Y10T 29/49115 20150115 LA20150123BCEP",
+        "H01M 4/622 20130101 FI20190822BHUS",
+        "C09J 109/06 20130101 LI20191011BHUS",
+        "H01M 4/625 20130101 LI20191011BHUS",
+        "C09J 101/286 20130101 LI20191011BHUS",
+        "C08L 9/02 20130101 LI20191011BHUS"
+      ],
+      "sourceLocators": [
+        "document-root",
+        "abstract",
+        "claims"
+      ],
+      "detailResponseSha256": "b37ab4317096aadb9017469574e9e96a4d5536a47d97c75e485d2286c0b0763d",
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-20160218356-A1",
+      "publicationNumber": "US-20160218356-A1",
+      "publicationDate": "2016-07-28",
+      "sourceVersion": "US-20160218356-A1@20160728",
+      "title": "Water-Based Cathode Slurry for a Lithium Ion Battery",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Water-Based Cathode Slurry for a Lithium Ion Battery"
+        }
+      ],
+      "applicant": "UMICORE NV",
+      "detailUrl": "https://www.surechembl.org/patent/US-20160218356-A1",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-20200230645-A1",
+      "publicationNumber": "US-20200230645-A1",
+      "publicationDate": "2020-07-23",
+      "sourceVersion": "US-20200230645-A1@20200723",
+      "title": "SLURRY-BASED COATING SYSTEM REPAIR",
+      "titles": [
+        {
+          "language": "en",
+          "text": "SLURRY-BASED COATING SYSTEM REPAIR"
+        }
+      ],
+      "applicant": "ROLLS ROYCE NAM TECH INC",
+      "detailUrl": "https://www.surechembl.org/patent/US-20200230645-A1",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-20230219853-A1",
+      "publicationNumber": "US-20230219853-A1",
+      "publicationDate": "2023-07-13",
+      "sourceVersion": "US-20230219853-A1@20230713",
+      "title": "FUNCTIONALLY GRADED FIRING SETTERS AND PROCESS FOR MANUFACTURING THESE SETTERS",
+      "titles": [
+        {
+          "language": "en",
+          "text": "FUNCTIONALLY GRADED FIRING SETTERS AND PROCESS FOR MANUFACTURING THESE SETTERS"
+        }
+      ],
+      "applicant": "FERGUSON LUCIAN GARRETT",
+      "detailUrl": "https://www.surechembl.org/patent/US-20230219853-A1",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-20240164402-A1",
+      "publicationNumber": "US-20240164402-A1",
+      "publicationDate": "2024-05-23",
+      "sourceVersion": "US-20240164402-A1@20240523",
+      "title": "SYSTEM AND METHOD FOR COATING CONFECTIONERY PRODUCT",
+      "titles": [
+        {
+          "language": "en",
+          "text": "SYSTEM AND METHOD FOR COATING CONFECTIONERY PRODUCT"
+        }
+      ],
+      "applicant": "INTERCONTINENTAL GREAT BRANDS LLC",
+      "detailUrl": "https://www.surechembl.org/patent/US-20240164402-A1",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-20250149543-A1",
+      "publicationNumber": "US-20250149543-A1",
+      "publicationDate": "2025-05-08",
+      "sourceVersion": "US-20250149543-A1@20250508",
+      "title": "DENSIFIED BATTERY ELECTRODES AND METHODS THEREOF",
+      "titles": [
+        {
+          "language": "en",
+          "text": "DENSIFIED BATTERY ELECTRODES AND METHODS THEREOF"
+        }
+      ],
+      "applicant": "SILA NANOTECHNOLOGIES INC",
+      "detailUrl": "https://www.surechembl.org/patent/US-20250149543-A1",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "US-5250383-A",
+      "publicationNumber": "US-5250383-A",
+      "publicationDate": "1993-10-05",
+      "sourceVersion": "US-5250383-A@19931005",
+      "title": "Process for forming multilayer coating",
+      "titles": [
+        {
+          "language": "en",
+          "text": "Process for forming multilayer coating"
+        }
+      ],
+      "applicant": "FUJI PHOTO FILM CO LTD",
+      "detailUrl": "https://www.surechembl.org/patent/US-5250383-A",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "WO-2015036882-A2",
+      "publicationNumber": "WO-2015036882-A2",
+      "publicationDate": "2015-03-19",
+      "sourceVersion": "WO-2015036882-A2@20150319",
+      "title": "WATER-BASED CATHODE SLURRY FOR A LITHIUM ION BATTERY",
+      "titles": [
+        {
+          "language": "en",
+          "text": "WATER-BASED CATHODE SLURRY FOR A LITHIUM ION BATTERY"
+        },
+        {
+          "language": "fr",
+          "text": "SUSPENSION AQUEUSE ÉPAISSE DE CATHODE POUR BATTERIE AU LITHIUM-ION"
+        }
+      ],
+      "applicant": "UMICORE NV",
+      "detailUrl": "https://www.surechembl.org/patent/WO-2015036882-A2",
+      "matchedQueryIds": [
+        "Q1_AQUEOUS_BINDER_COATING_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    },
+    {
+      "sourceRecordId": "WO-2022225935-A1",
+      "publicationNumber": "WO-2022225935-A1",
+      "publicationDate": "2022-10-27",
+      "sourceVersion": "WO-2022225935-A1@20221027",
+      "title": "SYSTEM AND METHOD FOR COATING CONFECTIONERY PRODUCT",
+      "titles": [
+        {
+          "language": "en",
+          "text": "SYSTEM AND METHOD FOR COATING CONFECTIONERY PRODUCT"
+        },
+        {
+          "language": "fr",
+          "text": "SYSTÈME ET PROCÉDÉ D'ENROBAGE DE PRODUIT DE CONFISERIE"
+        }
+      ],
+      "applicant": "INTERCONTINENTAL GREAT BRANDS LLC",
+      "detailUrl": "https://www.surechembl.org/patent/WO-2022225935-A1",
+      "matchedQueryIds": [
+        "Q2_TWO_STAGE_DRYING"
+      ],
+      "capturedAt": "2026-09-16T03:01:52.662Z",
+      "abstractExcerpt": null,
+      "claimsExcerpt": null,
+      "cpcClassifications": [],
+      "sourceLocators": [
+        "document-root"
+      ],
+      "detailResponseSha256": null,
+      "expertLabel": null,
+      "boundaries": {
+        "dataClass": "PUBLIC_PILOT",
+        "centerAuthoritative": false,
+        "expertLabeled": false,
+        "externalModelUseAllowed": false,
+        "formalDesignEvidence": false,
+        "formalVerificationEvidence": false,
+        "businessAcceptanceEvidence": false
+      }
+    }
+  ]
+}

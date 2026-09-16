@@ -1,0 +1,692 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-03",
+  "title": "违法线索发现",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/03-违法线索发现需求文档.md",
+    "sha256": "ac774a2e00e78896abdd09d03c58fbb114094a1868056a95f321a355ecf6f042",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "processing"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付范围",
+        "2. 数据、身份、权限与审计",
+        "3. 时间、版本与变更",
+        "4. 服务、任务与错误契约",
+        "5. AI、规则与人工边界",
+        "6. 页面验证",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-03-MUST-001",
+      "type": "MUST",
+      "statement": "对 ENF-01 固定接入记录执行 ENF-02 已发布适用规则，形成带命中证据的待核实线索。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "规则命中、模型置信度、通知成功或任务成功不得称为违法成立、正式立案或处置决定。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "3. 信息字段",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST-002",
+      "type": "MUST",
+      "statement": "首版按同步批次触发，事件推送仅在中心提供且确认协议后接入；固定数据批次、源记录和规则版本。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST-003",
+      "type": "MUST",
+      "statement": "接入前校验资源编号、关联、版本和权限，源数据缺失、源调用失败、解析失败和规则不适用分别记录。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-002",
+        "ENF-03-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "来源、业务编号、原记录引用和事实字段不得由模型生成、替换或随意改写。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST-005",
+      "type": "MUST",
+      "statement": "置信度仅在模型实际评分时记录并绑定模型版本，不得补默认值或替代规则命中事实。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST-006",
+      "type": "MUST",
+      "statement": "同一源记录同一版本只生成一条线索，多规则命中合并明细；源新版本追加发现记录且不覆盖历史处置。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST-007",
+      "type": "MUST",
+      "statement": "跨来源相似记录只标疑似重复，由人工确认后建立关联，不自动合并线索或处置。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST-008",
+      "type": "MUST",
+      "statement": "线索状态区分待核实、核实中、已转处置、排除和关闭；排除关闭必须保留原因、人员、时间和版本。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST-009",
+      "type": "MUST",
+      "statement": "通知状态与线索处置状态分开；中心接收接口存在且授权时按事件编号幂等推送，失败有限重试。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "不得默认短信等通知渠道，推送失败不得改变线索事实或重复通知。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST-010",
+      "type": "MUST",
+      "statement": "源接口、规则或模型失败进入失败或部分失败及未处理明细，不得计为未命中或完整成功。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST-012",
+      "type": "MUST",
+      "statement": "来源、线索、状态、通知和历史在后端按机构与角色实时鉴权，关联资源不存在或无权限时拒绝且不泄露。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-03-MUST-015",
+      "type": "MUST",
+      "statement": "固定专业样例记录请求、期望、实际、来源、规则模型、任务和证据版本，业务期望与效果性能阈值由中心确认。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-03-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "discoveryBatch",
+      "required": true,
+      "rules": [
+        "ENF-01 数据源批次、记录版本和机构范围"
+      ]
+    },
+    {
+      "name": "ruleScope",
+      "required": true,
+      "rules": [
+        "ENF-02 已发布规则具体版本"
+      ]
+    },
+    {
+      "name": "statusAction",
+      "required": "人工处置时",
+      "rules": [
+        "线索版本、动作、原因和可信身份"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定批次规则范围或通知事件"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "discoveryTask",
+      "fields": [
+        "taskId",
+        "status",
+        "inputManifest",
+        "matchCounts",
+        "failedItems",
+        "requestId"
+      ]
+    },
+    {
+      "name": "lead",
+      "fields": [
+        "leadId",
+        "sourceRef",
+        "suspectedType",
+        "content",
+        "firstFoundAt",
+        "ruleMatches",
+        "modelScore",
+        "modelVersion",
+        "processingStatus",
+        "institution",
+        "version"
+      ]
+    },
+    {
+      "name": "notification",
+      "fields": [
+        "eventId",
+        "leadVersion",
+        "destination",
+        "status",
+        "attempts",
+        "error"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "discover",
+      "enforcement": "数据源记录、规则及机构范围权限"
+    },
+    {
+      "action": "read_or_update_lead",
+      "enforcement": "当前机构案件角色和线索版本"
+    },
+    {
+      "action": "notify",
+      "enforcement": "明确业务授权、目的端和事件范围"
+    },
+    {
+      "action": "read_history",
+      "enforcement": "来源线索处置及通知历史的当前权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "待核实",
+      "kind": "lead",
+      "allowedNext": [
+        "核实中",
+        "排除",
+        "关闭"
+      ]
+    },
+    {
+      "name": "核实中",
+      "kind": "lead",
+      "allowedNext": [
+        "已转处置",
+        "排除",
+        "关闭"
+      ]
+    },
+    {
+      "name": "已转处置",
+      "kind": "lead",
+      "allowedNext": [
+        "关闭"
+      ]
+    },
+    {
+      "name": "排除",
+      "kind": "lead",
+      "allowedNext": [],
+      "invariant": "原因必填"
+    },
+    {
+      "name": "关闭",
+      "kind": "lead",
+      "allowedNext": [],
+      "invariant": "原因保留"
+    },
+    {
+      "name": "待投递",
+      "kind": "notification",
+      "allowedNext": [
+        "成功",
+        "失败"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "notification",
+      "allowedNext": []
+    },
+    {
+      "name": "失败",
+      "kind": "notification",
+      "allowedNext": [
+        "待投递"
+      ]
+    },
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "固定源记录批次版本、规则版本、模型版本和权限范围。",
+    "同源同版本线索唯一，多规则作为命中明细。",
+    "跨源疑似重复与人工确认关联分开。",
+    "新源版本追加发现，不覆盖处置历史。",
+    "线索处置、任务和通知状态分开。",
+    "模拟源规则通知数据库与真实验收隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "source_missing",
+      "result": "记录源缺失，不计未命中"
+    },
+    {
+      "case": "source_or_model_failure",
+      "result": "任务失败或部分失败并列出对象"
+    },
+    {
+      "case": "rule_not_applicable",
+      "result": "明确规则不适用及版本"
+    },
+    {
+      "case": "duplicate_execution",
+      "result": "返回既有线索和任务，不重复通知"
+    },
+    {
+      "case": "notification_failure",
+      "result": "保留线索并有限重试"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露其他机构线索"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-03-DEC-001",
+      "owner": "AI",
+      "description": "可产生疑似类型、摘要和模型评分；不得补来源、认定违法、立案或处置。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-03-DEC-002",
+      "owner": "RULE",
+      "description": "执行已发布规则、同源去重、多规则合并、任务状态、权限、版本和通知幂等。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-03-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权人员核实、确认跨源关联、排除关闭并确认专业样例预期。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "6. 内部验证页面",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "ENF-03-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供接入源、规则业务标准、组织权限和可选通知接收回执。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "8. 联调前需确认的条件"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-03-AC-001",
+      "given": [
+        "固定接入记录和发布规则"
+      ],
+      "when": "执行发现",
+      "then": [
+        "形成待核实线索和证据",
+        "不自动认定违法立案处置"
+      ],
+      "sourceClauseIds": [
+        "ENF-03-MUST-001",
+        "ENF-03-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-03-AC-002",
+      "given": [
+        "批次记录含缺失失败和不可改来源"
+      ],
+      "when": "准备任务",
+      "then": [
+        "输入规则版本固定",
+        "缺失失败分开",
+        "模型不生成来源"
+      ],
+      "sourceClauseIds": [
+        "ENF-03-MUST-002",
+        "ENF-03-MUST-003",
+        "ENF-03-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-03-AC-003",
+      "given": [
+        "规则与模型混合命中"
+      ],
+      "when": "保存线索",
+      "then": [
+        "字段证据版本完整",
+        "模型分仅在实际执行时记录"
+      ],
+      "sourceClauseIds": [
+        "ENF-03-MUST-005"
+      ]
+    },
+    {
+      "id": "ENF-03-AC-004",
+      "given": [
+        "同源重复多规则、跨源相似和源新版本"
+      ],
+      "when": "重复发现",
+      "then": [
+        "同源不重复且规则合并",
+        "跨源只疑似待人工",
+        "新版本追加不覆盖"
+      ],
+      "sourceClauseIds": [
+        "ENF-03-MUST-006",
+        "ENF-03-MUST-007"
+      ]
+    },
+    {
+      "id": "ENF-03-AC-005",
+      "given": [
+        "核实排除关闭及通知失败重试"
+      ],
+      "when": "处理线索",
+      "then": [
+        "处置原因留痕",
+        "通知与处置分离且幂等",
+        "不默认短信渠道"
+      ],
+      "sourceClauseIds": [
+        "ENF-03-MUST-008",
+        "ENF-03-MUST-009",
+        "ENF-03-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ENF-03-AC-006",
+      "given": [
+        "源规则模型部分失败"
+      ],
+      "when": "查询任务",
+      "then": [
+        "失败明细完整",
+        "不计未命中或完整成功"
+      ],
+      "sourceClauseIds": [
+        "ENF-03-MUST-003",
+        "ENF-03-MUST-010"
+      ]
+    },
+    {
+      "id": "ENF-03-AC-008",
+      "given": [
+        "无权账号和关联资源撤回"
+      ],
+      "when": "查询处置通知历史",
+      "then": [
+        "后端实时鉴权",
+        "其他机构内容不泄露"
+      ],
+      "sourceClauseIds": [
+        "ENF-03-MUST-012"
+      ]
+    },
+    {
+      "id": "ENF-03-AC-011",
+      "given": [
+        "固定专业样例和未确认通知目标"
+      ],
+      "when": "验收",
+      "then": [
+        "期望实际来源版本证据齐全",
+        "中心确认专业结果阈值",
+        "模拟不算真实联调"
+      ],
+      "sourceClauseIds": [
+        "ENF-03-MUST-015"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-03-OQ-001",
+      "type": "business_semantics",
+      "question": "线索状态、跨源关联、排除关闭、疑似类型及专业命中预期是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "线索实现"
+      ]
+    },
+    {
+      "id": "ENF-03-OQ-002",
+      "type": "authority_api",
+      "question": "批次事件、通知目的端回执、频率延迟和源版本接口是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "真实联调"
+      ]
+    },
+    {
+      "id": "ENF-03-OQ-003",
+      "type": "authorization",
+      "question": "发现查询核实处置通知和跨机构访问角色是什么？",
+      "blocks": [
+        "ARC-06",
+        "权限实现"
+      ]
+    },
+    {
+      "id": "ENF-03-OQ-004",
+      "type": "acceptance_data",
+      "question": "固定源记录、规则命中、模型样本、效果与性能阈值如何确认？",
+      "blocks": [
+        "SPK-10",
+        "SPK-16",
+        "验收"
+      ]
+    },
+    {
+      "id": "ENF-03-OQ-005",
+      "type": "environment",
+      "question": "DM8、任务、模型、通知和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-03-DD-001",
+      "decision": "Enforcement Lead 领域拥有线索与处置，Rule Runtime 执行发布规则，Task/Notification 管理运行和投递；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-03-DD-002",
+      "decision": "线索、发现任务和通知使用独立状态，同源唯一键绑定源版本。",
+      "basis": "原文明确三类状态及重复规则。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-03-DD-003",
+      "decision": "具体 API、事件协议、通知渠道、状态权限和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心规则接口人员环境未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Rule hits, model scores, leads, human verification, disposition and notification remain distinct.",
+      "Source failure is not a no-hit and cross-source similarity is not automatic deduplication.",
+      "No violation rule, role, notification channel, threshold, API or environment was guessed."
+    ]
+  }
+}

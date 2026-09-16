@@ -1,0 +1,698 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-12",
+  "title": "执法文书模板配置",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/12-执法文书模板配置需求文档.md",
+    "sha256": "885f1e276413d11dc569681e1cee971af14a6b90f2169df2a635845795afbe5d",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "template_rules"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付范围",
+        "2. 数据、身份、权限与审计",
+        "3. 时间、版本与变更",
+        "4. 服务、任务与错误契约",
+        "5. AI、规则与人工边界",
+        "6. 页面验证",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-12-MUST-001",
+      "type": "MUST",
+      "statement": "管理中心认可且按机构、地区、程序和执法环节限定的文书版式、章节、字段、填写规则和不可变模板版本。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖",
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "未获中心确认的样例、内部模板或通用模板不得标称正式执法文书模板或跨范围使用。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-002",
+      "type": "MUST",
+      "statement": "首版支持 DOCX 模板上传、占位字段配置和 DOCX 输出，PDF 仅作为可选预览转换。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "首版不得扩大为在线富文本或通用可视化排版设计器；自定义版式通过上传新模板版本完成。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-003",
+      "type": "MUST",
+      "statement": "模板保存唯一编号、名称、执法环节、结构、必填字段、格式、适用范围、状态、发布版本和完整审计。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-004",
+      "type": "MUST",
+      "statement": "每个字段定义名称、类型、必填性、重复段落和展示格式；占位符稳定唯一且与字段配置一致。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-005",
+      "type": "MUST",
+      "statement": "中心模板及填写说明保存稳定来源和版本并校验关联、适用范围与权限；源缺失和调用失败分开。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "来源、业务编号、正式字段、版式和填写规则不得由模型生成或替换。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-006",
+      "type": "MUST",
+      "statement": "样例填充固定模板、字段和渲染版本，验证遗漏占位符、未定义字段、重复标识、重复段落、异常表格和中文长文本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-007",
+      "type": "MUST",
+      "statement": "渲染失败或部分完成返回具体字段、段落、表格或环境错误，不把未完成文件标为成功。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "总览/4. 服务、任务与错误契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-008",
+      "type": "MUST",
+      "statement": "发布前检查模板文件、适用范围、全部占位字段、必填规则、格式依赖和中心确认状态。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-009",
+      "type": "MUST",
+      "statement": "已发布模板不可覆盖，修改上传新草稿和版本；停用限制新文书，旧文书继续绑定原模板版式。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "正式文号和签章区域只能预留，模板服务和模型不得自动分配文号、生成签章或执行签署。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-011",
+      "type": "MUST",
+      "statement": "模板文件、预览、字段配置和历史版本由后端按机构程序及角色实时鉴权，附件宏脚本和外链不得执行。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "总览/2. 数据、身份、权限与审计"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-014",
+      "type": "MUST",
+      "statement": "DOCX 与可选 PDF 转换、中文字体、表格和重复段落必须在目标国产环境按中心样例验证，不默认依赖 Windows Office 或外部 SaaS。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件",
+        "总览/7. 国产化与达梦 DM8"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-12-MUST-015",
+      "type": "MUST",
+      "statement": "固定中心样例记录模板、字段、字体、渲染器、DM8、环境、预期实际文件对照和问题编号；未确认模板环境不升级验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-12-AC-010"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "templateUpload",
+      "required": true,
+      "rules": [
+        "DOCX 文件、中心来源版本、适用范围和内容摘要"
+      ]
+    },
+    {
+      "name": "fieldConfiguration",
+      "required": true,
+      "rules": [
+        "占位符、类型、必填、重复段落和展示格式"
+      ]
+    },
+    {
+      "name": "sampleData",
+      "required": "预览时",
+      "rules": [
+        "明确模拟真实标识并覆盖长文本表格重复段落"
+      ]
+    },
+    {
+      "name": "lifecycleAction",
+      "required": "发布停用时",
+      "rules": [
+        "模板版本、动作、意见、可信身份和并发版本"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "templateVersion",
+      "fields": [
+        "templateId",
+        "version",
+        "name",
+        "scope",
+        "stage",
+        "fileRef",
+        "contentDigest",
+        "fields",
+        "format",
+        "status",
+        "audit"
+      ]
+    },
+    {
+      "name": "validationResult",
+      "fields": [
+        "undefinedPlaceholders",
+        "missingPlaceholders",
+        "duplicateIds",
+        "tableErrors",
+        "dependencyErrors"
+      ]
+    },
+    {
+      "name": "previewTask",
+      "fields": [
+        "taskId",
+        "status",
+        "templateVersion",
+        "renderVersion",
+        "docxRef",
+        "pdfPreviewRef",
+        "errors",
+        "requestId"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "upload_or_edit",
+      "enforcement": "模板配置角色、机构程序和文件权限"
+    },
+    {
+      "action": "preview",
+      "enforcement": "模板样例字体渲染资源权限"
+    },
+    {
+      "action": "publish_or_disable",
+      "enforcement": "授权发布角色、中心确认和当前版本"
+    },
+    {
+      "action": "download_history",
+      "enforcement": "当前模板范围及历史文件权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "template",
+      "allowedNext": [
+        "已发布",
+        "已停用"
+      ]
+    },
+    {
+      "name": "已发布",
+      "kind": "template",
+      "allowedNext": [
+        "已停用"
+      ],
+      "invariant": "不可原地修改"
+    },
+    {
+      "name": "已停用",
+      "kind": "template",
+      "allowedNext": []
+    },
+    {
+      "name": "排队",
+      "kind": "preview_task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "preview_task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "preview_task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "preview_task",
+      "allowedNext": [],
+      "invariant": "未完整文件不得标成功"
+    },
+    {
+      "name": "失败",
+      "kind": "preview_task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "preview_task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "模板版本固定中心来源、文件摘要、字段、版式、适用范围和渲染依赖。",
+    "发布版本不可变，历史文书使用原模板版本。",
+    "模板配置、预览任务和正式文书状态分开。",
+    "DOCX 输出与 PDF 预览角色分开。",
+    "模拟模板样例数据库渲染与真实验收隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "unsupported_or_unsafe_file",
+      "result": "拒绝文件且不执行宏脚本外链"
+    },
+    {
+      "case": "placeholder_mismatch",
+      "result": "返回精确占位和字段错误并阻止发布"
+    },
+    {
+      "case": "render_partial_or_failed",
+      "result": "返回段落表格字体错误，不标完整成功"
+    },
+    {
+      "case": "scope_not_applicable",
+      "result": "拒绝运行并返回机构地区程序环节不匹配"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前模板版本"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露模板文件预览历史"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-12-DEC-001",
+      "owner": "AI",
+      "description": "本模块不由 AI 决定正式模板、字段、版式、文号或签章；仅可辅助解释校验错误。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-12-DEC-002",
+      "owner": "RULE",
+      "description": "执行文件安全、占位字段一致性、必填格式、适用范围、版本权限和发布校验。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-12-DEC-003",
+      "owner": "HUMAN",
+      "description": "中心人员提供确认模板填写说明和样例，授权人员配置预览发布停用。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-12-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供模板样例、适用范围、正式文号签章来源、角色和环境规范。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-12-AC-001",
+      "given": [
+        "中心确认和内部未确认模板"
+      ],
+      "when": "接入配置",
+      "then": [
+        "确认来源范围完整",
+        "内部模板不冒充正式模板"
+      ],
+      "sourceClauseIds": [
+        "ENF-12-MUST-001",
+        "ENF-12-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-12-AC-002",
+      "given": [
+        "DOCX 模板和自定义调整"
+      ],
+      "when": "维护版式",
+      "then": [
+        "上传新版本并输出 DOCX",
+        "PDF 仅预览",
+        "不建设在线设计器"
+      ],
+      "sourceClauseIds": [
+        "ENF-12-MUST-002",
+        "ENF-12-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-12-AC-003",
+      "given": [
+        "占位字段和中心填写说明"
+      ],
+      "when": "保存配置",
+      "then": [
+        "元数据范围版本完整",
+        "占位符唯一一致",
+        "模型不补版式字段"
+      ],
+      "sourceClauseIds": [
+        "ENF-12-MUST-003",
+        "ENF-12-MUST-004",
+        "ENF-12-MUST-005",
+        "ENF-12-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ENF-12-AC-004",
+      "given": [
+        "未定义遗漏重复占位、长文本重复段落和异常表格"
+      ],
+      "when": "样例渲染",
+      "then": [
+        "精确错误可定位",
+        "未完成不标成功"
+      ],
+      "sourceClauseIds": [
+        "ENF-12-MUST-006",
+        "ENF-12-MUST-007"
+      ]
+    },
+    {
+      "id": "ENF-12-AC-005",
+      "given": [
+        "不完整模板和已发布模板修改停用"
+      ],
+      "when": "发布变更",
+      "then": [
+        "完整校验后发布",
+        "新版本不改旧文书",
+        "停用只限新使用"
+      ],
+      "sourceClauseIds": [
+        "ENF-12-MUST-008",
+        "ENF-12-MUST-009"
+      ]
+    },
+    {
+      "id": "ENF-12-AC-006",
+      "given": [
+        "无正式文号签章输入"
+      ],
+      "when": "配置预览",
+      "then": [
+        "只保留占位区域",
+        "不自动生成分配签署"
+      ],
+      "sourceClauseIds": [
+        "ENF-12-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ENF-12-AC-007",
+      "given": [
+        "危险附件、版本冲突和无权用户"
+      ],
+      "when": "直接调用服务",
+      "then": [
+        "文件安全幂等权限错误准确",
+        "不执行附件指令"
+      ],
+      "sourceClauseIds": [
+        "ENF-12-MUST-011"
+      ]
+    },
+    {
+      "id": "ENF-12-AC-009",
+      "given": [
+        "真实 DM8 和目标国产 DOCX/PDF 环境"
+      ],
+      "when": "保存渲染恢复",
+      "then": [
+        "文件引用版本事务完整",
+        "中文表格按样例",
+        "非目标环境不替代验收"
+      ],
+      "sourceClauseIds": [
+        "ENF-12-MUST-014"
+      ]
+    },
+    {
+      "id": "ENF-12-AC-010",
+      "given": [
+        "固定中心模板样例"
+      ],
+      "when": "业务验收",
+      "then": [
+        "字段字体环境预期实际文件问题齐全",
+        "未确认模板环境不标通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-12-MUST-015"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-12-OQ-001",
+      "type": "business_semantics",
+      "question": "首批文书类型、环节、机构地区程序、字段必填和填写规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "模板实现"
+      ]
+    },
+    {
+      "id": "ENF-12-OQ-002",
+      "type": "format",
+      "question": "中心 DOCX 样例、版式、字体、表格、重复段落和 PDF 预览要求是什么？",
+      "blocks": [
+        "ARC-08",
+        "SPK-12"
+      ]
+    },
+    {
+      "id": "ENF-12-OQ-003",
+      "type": "authorization",
+      "question": "上传配置预览审核发布停用下载角色是什么？",
+      "blocks": [
+        "ARC-06"
+      ]
+    },
+    {
+      "id": "ENF-12-OQ-004",
+      "type": "integration",
+      "question": "文件渲染服务、正式文号签章字段来源和稳定接口是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "SPK-12"
+      ]
+    },
+    {
+      "id": "ENF-12-OQ-005",
+      "type": "environment",
+      "question": "DM8、文件存储、渲染器、字体和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-12-DD-001",
+      "decision": "Document Template 领域拥有模板字段版本，File/Render 管理 DOCX 与预览，Authority System 提供正式样例；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-12-DD-002",
+      "decision": "模板生命周期与预览任务状态分离，正式文号签章不属于模板发布。",
+      "basis": "原文明确边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-12-DD-003",
+      "decision": "具体 API、占位语法、渲染器、字体、角色和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心样例环境接口未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Template configuration, preview rendering, document generation, formal numbering and signing remain distinct.",
+      "The first release remains DOCX upload and field configuration, not a generic online designer.",
+      "No template, field, format, font, renderer, role, number or signature behavior was guessed."
+    ]
+  }
+}

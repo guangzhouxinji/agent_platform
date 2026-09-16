@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>知识产权智能助手 · 项目执行控制台</title>
+<style>
+:root{color-scheme:light;--bg:#f5f6f3;--surface:#fff;--ink:#18201c;--muted:#647069;--line:#d9ded9;--accent:#126b54;--accent-soft:#e0f0e9;--blue:#236799;--blue-soft:#e4eff7;--amber:#9a6508;--amber-soft:#fff0cc;--red:#a33434;--red-soft:#f9e1df;--grey:#68706b;--grey-soft:#ecefed;--shadow:0 12px 34px rgba(25,48,38,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 Inter,"Microsoft YaHei",system-ui,sans-serif;letter-spacing:0}button,select,input{font:inherit}button,select{min-height:36px}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid rgba(18,107,84,.25);outline-offset:2px}
+.shell{min-height:100vh}.topbar{background:#173e32;color:#fff;padding:22px max(22px,calc((100% - 1480px)/2));display:grid;grid-template-columns:minmax(280px,1fr) auto;gap:24px;align-items:end}.brand h1{margin:0 0 5px;font-size:24px;font-weight:500}.brand p{margin:0;color:#c8d7d1}.stamp{text-align:right;color:#c8d7d1;font-size:12px}.stamp strong{display:block;color:#fff;font-size:14px;font-weight:500}
+.layout{max-width:1480px;margin:0 auto;padding:22px;display:grid;gap:18px}.overview{display:grid;grid-template-columns:1.6fr repeat(4,minmax(110px,.65fr));background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}.overview>div{padding:18px;border-right:1px solid var(--line)}.overview>div:last-child{border-right:0}.overview .progress-cell{display:grid;gap:10px}.metric-label{color:var(--muted);font-size:12px}.metric-value{font-size:24px;font-weight:500;line-height:1.1}.metric-value.small{font-size:18px}.progress-track{height:9px;background:var(--grey-soft);overflow:hidden}.progress-fill{height:100%;background:var(--accent);transition:width .3s ease}.truth-note{border-left:4px solid var(--amber);background:var(--amber-soft);padding:13px 16px}.truth-note strong{font-weight:600}.truth-note p{margin:3px 0 0;color:#664506}
+.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.summary-card{background:var(--surface);border:1px solid var(--line);padding:18px;min-width:0}.summary-card h2{font-size:16px;font-weight:500;margin:3px 0 12px}.summary-card.current{border-top:4px solid var(--blue)}.summary-card.warning{border-top:4px solid var(--amber)}.summary-list{margin:0;padding-left:18px;display:grid;gap:10px}.summary-list li{padding-left:2px}.summary-list strong,.summary-list span{display:block}.summary-list span{margin-top:2px;color:var(--muted);font-size:12px}.advanced{border:1px solid var(--line);background:transparent}.advanced>summary{cursor:pointer;background:var(--surface);padding:15px 18px;font-weight:500;list-style:none}.advanced>summary::-webkit-details-marker{display:none}.advanced>summary::after{content:"展开";float:right;color:var(--accent);font-size:12px;font-weight:400}.advanced[open]>summary{border-bottom:1px solid var(--line)}.advanced[open]>summary::after{content:"收起"}.advanced-body{padding:18px;display:grid;gap:18px}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.panel{background:var(--surface);border:1px solid var(--line);padding:18px;min-width:0}.panel h2{font-size:16px;font-weight:500;margin:0 0 14px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.section-head h2{margin:0}.eyebrow{color:var(--accent);font-weight:500;font-size:12px}.current-task{border-left:4px solid var(--accent);padding:2px 0 2px 16px}.current-task h3{font-size:20px;font-weight:500;margin:3px 0}.current-task p{margin:4px 0;color:var(--muted)}.meta-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.tag{display:inline-flex;align-items:center;min-height:26px;padding:2px 8px;border:1px solid var(--line);background:var(--bg);font-size:12px}.tag.status-进行中{color:var(--blue);background:var(--blue-soft);border-color:transparent}.tag.status-阻塞{color:var(--red);background:var(--red-soft);border-color:transparent}.tag.status-已完成{color:var(--accent);background:var(--accent-soft);border-color:transparent}
+.queue{display:grid;gap:8px}.queue-item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}.queue-item:first-child{border-top:0}.dot{width:9px;height:9px;background:var(--accent);margin-top:6px}.queue-item.blocked .dot{background:var(--red)}.queue-item strong{font-weight:500}.queue-item small{display:block;color:var(--muted)}
+.queue-item.waiting .dot{background:var(--amber)}.queue-item.conflict .dot{background:var(--red)}.reason-list{margin:4px 0 0;padding-left:18px;color:var(--muted)}.reason-list li{margin:2px 0}.health-summary{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}.health-score{font-size:30px;font-weight:500}.health-ok{color:var(--accent)}.health-warning{color:var(--amber)}.health-error{color:var(--red)}.health-list{display:grid;gap:8px}.health-item{border-left:3px solid var(--amber);padding-left:10px}.health-item.error{border-color:var(--red)}.health-item p{margin:2px 0;color:var(--muted)}.critical-node{min-width:170px;border-top:4px solid var(--line);background:var(--bg);padding:10px}.critical-node.active{border-color:var(--blue);background:var(--blue-soft)}
+.roadmap{display:grid;grid-template-columns:repeat(8,minmax(150px,1fr));gap:8px;overflow-x:auto;padding-bottom:4px}.phase{border-top:4px solid var(--line);background:var(--bg);padding:12px;min-height:134px}.phase.active{border-color:var(--blue);background:var(--blue-soft)}.phase.done{border-color:var(--accent)}.phase h3{font-size:14px;font-weight:500;margin:5px 0}.phase p{color:var(--muted);font-size:12px;margin:6px 0}.phase-stat{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.mini-track{height:5px;background:var(--grey-soft);margin:8px 0}.mini-track span{display:block;height:100%;background:var(--accent)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap}.toolbar select,.toolbar input{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 9px}.toolbar input{min-width:220px}.tree{display:grid;gap:8px}.tree details{border:1px solid var(--line);background:var(--surface)}.tree summary{cursor:pointer;padding:12px 14px;font-weight:500;display:flex;justify-content:space-between;gap:10px}.tree summary::-webkit-details-marker{display:none}.tree-body{border-top:1px solid var(--line);padding:0 14px}.milestone{padding:14px 0;border-top:1px solid var(--line)}.milestone:first-child{border-top:0}.milestone-title{display:flex;justify-content:space-between;gap:10px;margin-bottom:7px}.task-row{display:grid;grid-template-columns:130px minmax(180px,1fr) 86px 80px;gap:10px;padding:9px 0;border-top:1px dashed var(--line);align-items:center}.task-row[hidden]{display:none}.task-id{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--blue)}.task-name button{border:0;background:transparent;color:inherit;padding:0;text-align:left;cursor:pointer}.task-name button:hover{text-decoration:underline}.status{font-size:12px}.status::before{content:"";display:inline-block;width:8px;height:8px;margin-right:6px;background:var(--grey)}.status.已完成::before{background:var(--accent)}.status.进行中::before{background:var(--blue)}.status.阻塞::before{background:var(--red)}.status.准备中::before{background:var(--amber)}
+.dependency-chain{display:flex;align-items:center;gap:7px;overflow-x:auto;padding:4px 0 12px}.node{min-width:150px;border:1px solid var(--line);padding:10px;background:var(--bg)}.node.active{border-color:var(--blue);background:var(--blue-soft)}.arrow{color:var(--muted);font-size:18px}.detail-box{border-top:1px solid var(--line);padding-top:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.detail-box div{min-width:0}.detail-box dt{color:var(--muted);font-size:12px}.detail-box dd{margin:3px 0;overflow-wrap:anywhere}.risks{display:grid;gap:10px}.risk{border-left:3px solid var(--amber);padding-left:11px}.risk.block{border-color:var(--red)}.risk h3{font-size:14px;font-weight:500;margin:0}.risk p{margin:3px 0;color:var(--muted);overflow-wrap:anywhere}.log{display:grid}.log-item{display:grid;grid-template-columns:145px 190px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.log-item:first-child{border-top:0}.log time{color:var(--muted);font-variant-numeric:tabular-nums}.empty{color:var(--muted);padding:12px 0}
+@media(max-width:900px){.topbar{grid-template-columns:1fr}.stamp{text-align:left}.overview{grid-template-columns:repeat(2,1fr)}.overview .progress-cell{grid-column:1/-1}.overview>div{border-bottom:1px solid var(--line)}.grid,.summary-grid{grid-template-columns:1fr}.roadmap{grid-template-columns:repeat(8,170px)}.task-row{grid-template-columns:110px minmax(160px,1fr) 76px}.task-row .priority{display:none}}
+@media(max-width:560px){.layout{padding:12px}.topbar{padding:18px 14px}.overview{grid-template-columns:1fr 1fr}.overview>div{padding:14px}.metric-value{font-size:20px}.toolbar{display:grid;grid-template-columns:1fr}.toolbar input{min-width:0;width:100%}.task-row{grid-template-columns:94px 1fr}.task-row .status,.task-row .priority{grid-column:2}.detail-box{grid-template-columns:1fr}.log-item{grid-template-columns:1fr;gap:2px}.queue-item{grid-template-columns:auto 1fr}.queue-item>.tag{grid-column:2}.brand h1{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar"><div class="brand"><h1>三类知识产权智能助手</h1><p>项目执行控制台 · 真实状态来自总开发实现计划</p></div><div class="stamp"><span>最后更新时间</span><strong id="generated-at"></strong></div></header>
+  <main class="layout">
+    <section class="overview" aria-label="正式业务需求总体进度">
+      <div class="progress-cell"><div><span class="metric-label">正式需求已验证</span><div class="metric-value" id="formal-progress-value"></div></div><div class="progress-track" aria-hidden="true"><div class="progress-fill" id="formal-progress-fill"></div></div><div class="metric-label" id="formal-progress-caption"></div></div>
+      <div><div class="metric-label">详细设计 D</div><div class="metric-value" id="formal-designed-count"></div></div>
+      <div><div class="metric-label">真实接入</div><div class="metric-value" id="real-integration-count"></div></div>
+      <div><div class="metric-label">业务验收 A</div><div class="metric-value" id="formal-accepted-count"></div></div>
+      <div><div class="metric-label">当前正式试点</div><div class="metric-value small" id="formal-pilot"></div></div>
+    </section>
+    <section class="truth-note" id="truth-note"><strong>合成 V0 ≠ 正式需求完成</strong><p>本地技术闭环只证明代码链路可运行；正式进度只取自总计划第 8 节的 D、代码、V、真实接入与 A 证据。</p></section>
+    <section class="summary-grid" aria-label="当前项目结论">
+      <article class="summary-card"><div class="eyebrow">已经做了什么</div><h2>本地技术闭环</h2><div id="local-proof"></div></article>
+      <article class="summary-card current"><div class="eyebrow">现在在做什么</div><div class="current-task" id="current-task"></div></article>
+      <article class="summary-card warning"><div class="eyebrow">为什么不能继续</div><h2>需要外部确认</h2><div id="current-blocker"></div></article>
+    </section>
+    <details class="advanced">
+      <summary>查看完整执行详情、任务树和技术证据</summary>
+      <div class="advanced-body">
+    <section class="panel"><div class="section-head"><h2>计划健康度</h2><span class="metric-label" id="health-status"></span></div><div id="health-summary"></div><div class="health-list" id="health-list"></div></section>
+    <section class="panel"><div class="section-head"><h2>READY 队列</h2><span class="metric-label">依赖、Gate、阻塞、优先级与关键路径综合计算</span></div><div class="queue" id="ready-queue"></div></section>
+    <section class="panel"><div class="section-head"><h2>Critical Path</h2><span class="metric-label" id="critical-basis"></span></div><div class="dependency-chain" id="critical-path"></div></section>
+    <section class="grid">
+      <article class="panel"><div class="section-head"><h2>可并行任务</h2><span class="metric-label">依赖、模块与独占资源自动判断</span></div><div class="queue" id="parallel-queue"></div></article>
+      <article class="panel"><div class="section-head"><h2>等待前置条件</h2><span class="metric-label" id="waiting-count"></span></div><div class="queue" id="waiting-queue"></div></article>
+    </section>
+    <section class="panel"><div class="section-head"><h2>BLOCKED 任务</h2><span class="metric-label" id="blocked-list-count"></span></div><div class="risks" id="blocked-list"></div></section>
+    <section class="panel"><div class="section-head"><h2>最近执行记录</h2><span class="metric-label">最新 8 条真实事件</span></div><div class="log" id="recent-log"></div></section>
+    <section class="overview" aria-label="技术执行任务进度">
+      <div class="progress-cell"><div><span class="metric-label">技术执行任务进度（次要指标）</span><div class="metric-value" id="progress-value"></div></div><div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div><div class="metric-label" id="progress-caption"></div></div>
+      <div><div class="metric-label">任务已完成</div><div class="metric-value" id="done-count"></div></div>
+      <div><div class="metric-label">任务进行中</div><div class="metric-value" id="active-count"></div></div>
+      <div><div class="metric-label">未开始/准备</div><div class="metric-value" id="pending-count"></div></div>
+      <div><div class="metric-label">任务阻塞</div><div class="metric-value" id="blocked-count"></div></div>
+    </section>
+    <section class="panel"><div class="section-head"><h2>项目路线图</h2><span class="metric-label">P0 → P7</span></div><div class="roadmap" id="roadmap"></div></section>
+    <section class="panel"><div class="section-head"><h2>当前依赖链</h2><span class="metric-label">点击任务查看完整字段</span></div><div class="dependency-chain" id="dependency-chain"></div><dl class="detail-box" id="task-detail" aria-live="polite"></dl></section>
+    <section class="panel"><div class="section-head"><h2>任务树</h2><div class="toolbar"><input id="task-search" type="search" placeholder="搜索任务编号或名称" aria-label="搜索任务"><select id="status-filter" aria-label="按状态筛选"><option value="">全部状态</option></select></div></div><div class="tree" id="task-tree"></div></section>
+    <section class="panel"><div class="section-head"><h2>执行日志</h2><span class="metric-label">只保留真实事件</span></div><div class="log" id="execution-log"></div></section>
+      </div>
+    </details>
+  </main>
+</div>
+<script type="module">
+const response=await fetch("./project-plan.json",{cache:"no-store"});
+if(!response.ok)throw new Error("project-plan.json 加载失败："+response.status);
+const DATA=await response.json();
+const statusOrder=["进行中","准备中","未开始","阻塞","已完成","跳过"];
+const doneStatuses=new Set(["已完成","已验证","已验收"]);
+const taskById=new Map(DATA.tasks.map(t=>[t.id,t]));
+const count=s=>DATA.tasks.filter(t=>s.includes(t.status)).length;
+const completed=count(["已完成"]), active=count(["进行中"]), blocked=count(["阻塞"]), pending=DATA.tasks.length-completed-active-blocked;
+const progress=Math.round(completed/DATA.tasks.length*100);
+document.getElementById("generated-at").textContent=DATA.generatedAt;
+const maturity=DATA.derived.requirementMaturity;
+const formalProgress=maturity.total?Math.round(maturity.verified/maturity.total*100):0;
+document.getElementById("formal-progress-value").textContent=formalProgress+"%";
+document.getElementById("formal-progress-fill").style.width=formalProgress+"%";
+document.getElementById("formal-progress-caption").textContent=maturity.verified+" / "+maturity.total+" 项正式需求通过测试 V";
+document.getElementById("formal-designed-count").textContent=maturity.designed+" / "+maturity.total;
+document.getElementById("real-integration-count").textContent=maturity.realIntegrated;
+document.getElementById("formal-accepted-count").textContent=maturity.accepted+" / "+maturity.total;
+document.getElementById("formal-pilot").textContent=maturity.pilotRequirementId||"未指定";
+document.getElementById("progress-value").textContent=progress+"%";
+document.getElementById("progress-fill").style.width=progress+"%";
+document.getElementById("progress-caption").textContent=completed+" / "+DATA.tasks.length+" 个 L3 技术执行任务满足退出条件，不代表正式需求完成";
+document.getElementById("done-count").textContent=completed;
+document.getElementById("active-count").textContent=active;
+document.getElementById("pending-count").textContent=pending;
+document.getElementById("blocked-count").textContent=blocked;
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const current=DATA.tasks.find(t=>t.id===DATA.currentTaskId)||DATA.tasks.find(t=>t.status==="进行中");
+const currentPhase=current?.path.split("/")[0]||"-";
+const currentPhaseData=DATA.stages.find(p=>p.id===currentPhase);
+document.getElementById("current-task").innerHTML=current?'<span class="metric-label">'+esc(currentPhase)+' · '+esc(currentPhaseData?.name)+'</span><h3>'+esc(current.id)+' · '+esc(current.name)+'</h3><p>先补齐正式试点详细设计并通过 D 门。</p><div class="meta-row"><span class="tag status-'+esc(current.status)+'">'+esc(current.status)+'</span><span class="tag">优先级 '+esc(current.priority)+'</span></div>':"<p class='empty'>当前没有进行中的任务</p>";
+const localProofIds=["MVP-CON-V0-05","CON-04-SYNTH-VERIFY","MVP-ENF-V0-05"];
+const localProofs=localProofIds.map(id=>taskById.get(id)).filter(Boolean);
+document.getElementById("local-proof").innerHTML=localProofs.length?'<ul class="summary-list">'+localProofs.map(task=>'<li><strong>'+esc(task.id)+'：'+esc(task.name)+'</strong><span>'+esc(task.notes)+'</span></li>').join("")+"</ul>":"<p class='empty'>尚无已登记的本地技术闭环。</p>";
+document.getElementById("current-blocker").innerHTML=current?.blocker&&current.blocker!=="-"?'<strong>当前需要确认</strong><p>'+esc(current.blocker)+'</p>':"<p>当前任务未登记外部阻塞；请按验收标准继续推进。</p>";
+
+function phaseTasks(id){return DATA.tasks.filter(t=>t.path.startsWith(id+"/"))}
+document.getElementById("roadmap").innerHTML=DATA.stages.map(stage=>{const list=phaseTasks(stage.id), done=list.filter(t=>doneStatuses.has(t.status)).length, pct=list.length?Math.round(done/list.length*100):0;const cls=stage.id===currentPhase?"active":pct===100?"done":"";return '<article class="phase '+cls+'"><div class="phase-stat"><span>'+esc(stage.id)+'</span><span>'+pct+'%</span></div><h3>'+esc(stage.name)+'</h3><div class="mini-track"><span style="width:'+pct+'%"></span></div><p>'+done+'/'+list.length+' 个任务完成</p><span class="metric-label">'+esc(stage.prerequisite==="-"?"无前置阶段":"前置 "+stage.prerequisite)+'</span></article>'}).join("");
+
+const readyTasks=DATA.derived.readyTaskIds.map(id=>taskById.get(id)).filter(Boolean);
+document.getElementById("ready-queue").innerHTML=readyTasks.length?readyTasks.map((t,i)=>'<div class="queue-item"><span class="dot"></span><div><strong>'+(i+1)+'. '+esc(t.id)+' · '+esc(t.name)+'</strong><ul class="reason-list">'+t.readinessReasons.map(reason=>'<li>'+esc(reason)+'</li>').join("")+'</ul></div><span class="tag">READY'+(t.onCriticalPath?' · CP':'')+'</span></div>').join(""):"<p class='empty'>当前没有新的 READY 任务；先完成正在执行的主任务或解除列出的前置条件。</p>";
+
+document.getElementById("critical-basis").textContent=DATA.derived.criticalPathBasis;
+document.getElementById("critical-path").innerHTML=DATA.derived.criticalPath.map((id,i)=>{const t=taskById.get(id);return(i?'<span class="arrow" aria-hidden="true">→</span>':'')+'<button class="critical-node state-'+esc((t?.executionState||"").toLowerCase())+' '+(id===current?.id?'active':'')+'" data-task="'+esc(id)+'"><strong>'+esc(id)+'</strong><br><span class="metric-label">'+esc(t?.executionState||"")+' · 工期 '+esc(t?.estimate?.durationPoints||0)+' · 风险 '+esc(t?.estimate?.riskWeight||0)+'</span></button>'}).join("")||"<p class='empty'>依赖图存在错误或没有未完成任务，无法计算关键路径。</p>";
+
+const levelLabel={green:"🟢 可以立即并行",yellow:"🟡 理论可并行但等待",red:"🔴 不可并行"};
+const parallel=DATA.derived.parallelAssessment.sort((a,b)=>({green:0,yellow:1,red:2}[a.level]-{green:0,yellow:1,red:2}[b.level])).slice(0,12);
+document.getElementById("parallel-queue").innerHTML=parallel.map(item=>{const t=taskById.get(item.taskId);return'<div class="queue-item '+(item.level==='yellow'?'waiting':item.level==='red'?'conflict':'')+'"><span class="dot"></span><div><strong>'+esc(t.id)+' · '+esc(t.name)+'</strong><small>'+esc(item.reason)+'</small></div><span class="tag">'+levelLabel[item.level]+'</span></div>'}).join("")||"<p class='empty'>当前无可评估任务</p>";
+
+const waitingTasks=DATA.derived.waitingTaskIds.map(id=>taskById.get(id)).filter(Boolean).slice(0,10);
+document.getElementById("waiting-count").textContent=DATA.derived.waitingTaskIds.length+" 项";
+document.getElementById("waiting-queue").innerHTML=waitingTasks.map(t=>'<div class="queue-item waiting"><span class="dot"></span><div><strong>'+esc(t.id)+' · '+esc(t.name)+'</strong><small>'+esc(t.readinessReasons.join("；"))+'</small></div><span class="tag">WAITING</span></div>').join("")||"<p class='empty'>当前没有等待前置条件的任务</p>";
+
+const blockedTasks=DATA.tasks.filter(t=>t.executionState==="BLOCKED");
+document.getElementById("blocked-list-count").textContent=blockedTasks.length+" 项";
+document.getElementById("blocked-list").innerHTML=blockedTasks.map(t=>'<article class="risk block"><h3>'+esc(t.id)+' · '+esc(t.name)+'</h3><p>'+esc(t.blocker||"已标记阻塞但未记录原因")+'</p></article>').join("")||"<p class='empty'>当前没有 BLOCKED 任务</p>";
+
+const health=DATA.derived.health,healthClass=health.status==="HEALTHY"?"health-ok":health.status==="WARNING"?"health-warning":"health-error";
+document.getElementById("health-status").textContent=health.status;
+document.getElementById("health-summary").innerHTML='<div class="health-summary"><span class="health-score '+healthClass+'">'+health.score+'</span><span>错误 '+health.errorCount+' · 警告 '+health.warningCount+'</span></div>';
+document.getElementById("health-list").innerHTML=health.issues.slice(0,12).map(item=>'<article class="health-item '+esc(item.severity)+'"><strong>'+esc(item.code)+(item.taskId?' · '+esc(item.taskId):'')+'</strong><p>'+esc(item.message)+'</p></article>').join("")||"<p class='empty'>未发现计划结构、状态或已登记实现证据问题</p>";
+
+function showTask(task){if(!task)return;document.getElementById("task-detail").innerHTML=[["任务",task.id+" · "+task.name],["计划/执行状态",task.status+" / "+task.executionState+" / "+task.priority],["工期/风险权重",task.estimate.durationPoints+" / "+task.estimate.riskWeight+"（加权 "+task.estimate.weightedPoints+"）"],["阶段 Gate",task.stageGate.reason],["前置任务",task.predecessors],["后续任务",task.successors],["模块/资源",[...task.modules,...task.resources].join("、")||"-"],["READY 判定",task.readinessReasons.join("；")],["验收标准",task.acceptance],["完成时间",task.completedAt],["备注",task.notes],["风险/阻塞",[task.risk,task.blocker].filter(x=>x&&x!=="-").join("；")||"-"]].map(([k,v])=>'<div><dt>'+esc(k)+'</dt><dd>'+esc(v)+'</dd></div>').join("")}
+const chainIds=[],chainSeen=new Set();
+function appendDependencyChain(task,depth=0){if(!task||depth>8||chainSeen.has(task.id))return;const ids=task.predecessors.match(/[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+/g)||[];ids.map(id=>taskById.get(id)).filter(Boolean).forEach(value=>appendDependencyChain(value,depth+1));chainSeen.add(task.id);chainIds.push(task.id)}
+appendDependencyChain(current);
+const visibleChain=chainIds.slice(-10);
+document.getElementById("dependency-chain").innerHTML=visibleChain.map((id,i)=>{const t=taskById.get(id);return (i?'<span class="arrow" aria-hidden="true">→</span>':'')+'<button class="node '+(id===current?.id?'active':'')+'" data-task="'+esc(id)+'"><strong>'+esc(id)+'</strong><br><span class="metric-label">'+esc(t?.status||"")+'</span></button>'}).join("");
+
+const statuses=[...new Set(DATA.tasks.map(t=>t.status))].sort((a,b)=>statusOrder.indexOf(a)-statusOrder.indexOf(b));
+document.getElementById("status-filter").insertAdjacentHTML("beforeend",statuses.map(s=>'<option>'+esc(s)+'</option>').join(""));
+const tree=document.getElementById("task-tree");
+tree.innerHTML=DATA.stages.map(stage=>{const ms=DATA.milestones.filter(m=>m.phase===stage.id);return '<details '+(stage.id===currentPhase?'open':'')+'><summary><span>'+esc(stage.id)+' · '+esc(stage.name)+'</span><span class="metric-label">'+phaseTasks(stage.id).length+' 个任务</span></summary><div class="tree-body">'+ms.map(m=>{const list=DATA.tasks.filter(t=>t.path===stage.id+"/"+m.id);return '<section class="milestone"><div class="milestone-title"><strong>'+esc(m.id)+' · '+esc(m.name)+'</strong><span class="tag status-'+esc(m.status)+'">'+esc(m.status)+'</span></div>'+(list.map(t=>'<div class="task-row" data-status="'+esc(t.status)+'" data-search="'+esc((t.id+" "+t.name).toLowerCase())+'"><span class="task-id">'+esc(t.id)+'</span><span class="task-name"><button data-task="'+esc(t.id)+'">'+esc(t.name)+'</button></span><span class="status '+esc(t.status)+'">'+esc(t.status)+'</span><span class="priority">'+esc(t.priority)+'</span></div>').join("")||'<p class="empty">任务由范围门禁后拆分</p>')+'</section>'}).join("")+'</div></details>'}).join("");
+document.addEventListener("click",event=>{const button=event.target.closest("[data-task]");if(button){showTask(taskById.get(button.dataset.task));document.getElementById("task-detail").scrollIntoView({behavior:"smooth",block:"nearest"})}});
+function filterTasks(){const q=document.getElementById("task-search").value.trim().toLowerCase(),s=document.getElementById("status-filter").value;document.querySelectorAll(".task-row").forEach(row=>{row.hidden=!!((q&&!row.dataset.search.includes(q))||(s&&row.dataset.status!==s))})}
+document.getElementById("task-search").addEventListener("input",filterTasks);document.getElementById("status-filter").addEventListener("change",filterTasks);
+document.getElementById("execution-log").innerHTML=[...DATA.logs].reverse().map(l=>'<div class="log-item"><time>'+esc(l.time)+'</time><strong>'+esc(l.event)+'</strong><span>'+esc(l.detail)+'</span></div>').join("");
+document.getElementById("recent-log").innerHTML=[...DATA.logs].reverse().slice(0,8).map(l=>'<div class="log-item"><time>'+esc(l.time)+'</time><strong>'+esc(l.event)+'</strong><span>'+esc(l.detail)+'</span></div>').join("");
+showTask(current);
+</script>
+</body>
+</html>

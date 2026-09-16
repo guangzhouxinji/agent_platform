@@ -1,0 +1,929 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-11",
+  "title": "专利裁决报告生成",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/11-专利裁决报告生成需求文档.md",
+    "sha256": "e725f9c11b23e757bda63264860745911afa24df66c4fb4a811f02a694bd0776",
+    "sections": [
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 字段与输入快照",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 生成及修订流程",
+        "purpose": "generation_and_review"
+      },
+      {
+        "anchor": "4. 版本变更与文件生成",
+        "purpose": "version_and_export"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "7. 国产化与 DM8 要求",
+        "purpose": "database_and_runtime"
+      },
+      {
+        "anchor": "8. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "9. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 建设与交付范围",
+        "4. 行政裁决业务边界",
+        "5. 数据、版本与变更规则",
+        "6. 通用服务与内部页面",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-11-MUST-001",
+      "type": "MUST",
+      "statement": "基于固定案件、人工确认法律引用、专利解析、有效性与证据分析以及指定已发布模板生成可修订的专利裁决报告初稿。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 字段与输入快照"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "模型任务成功、草稿生成成功、文件导出成功或人工复核通过均不得自动成为正式裁决文件、正式签发或办结。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 生成及修订流程",
+        "4. 版本变更与文件生成"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-001",
+        "ADJ-11-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-002",
+      "type": "MUST",
+      "statement": "生成前固定案件资料、模板、实际采用的引用、解析、有效性、证据分析、模型和规则版本及各自确认状态。",
+      "sourceAnchors": [
+        "2. 字段与输入快照",
+        "3. 生成及修订流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-003",
+      "type": "MUST",
+      "statement": "准备阶段列出缺失必填字段、待复核分析、引用冲突、无权材料、模板不适用项和依赖版本。",
+      "sourceAnchors": [
+        "3. 生成及修订流程",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-004",
+      "type": "MUST",
+      "statement": "模板不需要的分析项按配置标为不适用；模板需要但缺失的内容形成缺项，可生成明确标识的不完整草稿但不得提交正式复核。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 生成及修订流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "不得用模型推测、默认值、相似案件或其他来源补齐缺失事实、调查过程、质证记录、办理日期、事实认定、裁决结果、签章或正式文号。",
+      "sourceAnchors": [
+        "文首通用约束",
+        "1. 功能概述",
+        "3. 生成及修订流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-005",
+      "type": "MUST",
+      "statement": "案件事实、数字、主体和法条原文使用确定性数据填充；解释性段落可辅助生成，但每个关键事实、法条和意见必须关联实际来源及版本。",
+      "sourceAnchors": [
+        "2. 字段与输入快照",
+        "3. 生成及修订流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-006",
+      "type": "MUST",
+      "statement": "未复核的证据分析在报告中保持辅助意见身份，不得叙述成机关认定事实或裁决结论。",
+      "sourceAnchors": [
+        "3. 生成及修订流程",
+        "总览/4. 行政裁决业务边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-007",
+      "type": "MUST",
+      "statement": "保存结构化报告、稳定章节与段落 ID、引用锚点、来源映射、完整性状态、审核状态、人工责任人和模型执行主体。",
+      "sourceAnchors": [
+        "2. 字段与输入快照",
+        "3. 生成及修订流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-008",
+      "type": "MUST",
+      "statement": "人工编辑产生新修订版本并保留原生成内容和差异；整篇或单章节重新生成先形成候选修订，预览差异并由人工确认采用。",
+      "sourceAnchors": [
+        "3. 生成及修订流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "重新生成不得覆盖人工修改、既有报告版本、来源映射或已确认引用。",
+      "sourceAnchors": [
+        "3. 生成及修订流程",
+        "总览/5. 数据、版本与变更规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-009",
+      "type": "MUST",
+      "statement": "内容和来源校验通过后才可提交 ADJ-12 人工复核；实质内容修改创建新报告版本并重新审核。",
+      "sourceAnchors": [
+        "3. 生成及修订流程",
+        "4. 版本变更与文件生成"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-010",
+      "type": "MUST",
+      "statement": "复核通过版本只锁定为待签发或办结确认材料，正式状态必须来自授权签发动作或中心权威系统真实回执。",
+      "sourceAnchors": [
+        "3. 生成及修订流程",
+        "4. 版本变更与文件生成"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-006",
+        "ADJ-11-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-011",
+      "type": "MUST",
+      "statement": "案件、证据、引用、分析或模板变化后新报告使用新输入并使受影响草稿待复核，历史报告保持原输入快照。",
+      "sourceAnchors": [
+        "4. 版本变更与文件生成",
+        "总览/5. 数据、版本与变更规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-007"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-012",
+      "type": "MUST",
+      "statement": "首版提供结构化报告、DOCX 和 PDF；每次输出固定同一内容版本、摘要值、模板和渲染配置，重复导出不得混入其他版本。",
+      "sourceAnchors": [
+        "4. 版本变更与文件生成"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-013",
+      "type": "MUST",
+      "statement": "草稿文件显式标注草稿，复核通过未签发文件标注对应状态；仅在中心认可模板及真实签发状态下形成终版输出。",
+      "sourceAnchors": [
+        "4. 版本变更与文件生成"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-014",
+      "type": "MUST",
+      "statement": "渲染失败只标记输出任务失败，不丢失结构化草稿；生成失败通过事务或可追踪补偿避免已采用孤立引用。",
+      "sourceAnchors": [
+        "3. 生成及修订流程",
+        "4. 版本变更与文件生成",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-009"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-016",
+      "type": "MUST",
+      "statement": "准备、生成、编辑、重生成、提交审核、导出、下载和历史查看均由后端实时检查案件、各输入来源、报告和文件权限。",
+      "sourceAnchors": [
+        "3. 生成及修订流程",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-011"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "旧文件链接、缓存、历史版本或页面按钮状态不得绕过当前权限。",
+      "sourceAnchors": [
+        "6. 服务契约",
+        "总览/5. 数据、版本与变更规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-011"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "内部页面不得承载生成、权限、审核或签发规则，也不得作为对外交付页面。",
+      "sourceAnchors": [
+        "文首交付边界",
+        "总览/1. 建设与交付范围"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-012"
+      ]
+    },
+    {
+      "id": "ADJ-11-MUST-019",
+      "type": "MUST",
+      "statement": "模型、渲染器、字体、DOCX/PDF 和文件访问必须在目标国产环境按确认样例和规模验证。",
+      "sourceAnchors": [
+        "7. 国产化与 DM8 要求",
+        "8. 验收要求",
+        "9. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-11-AC-013"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "generationSelection",
+      "required": true,
+      "rules": [
+        "案件版本、用途、固定发布模板和选定输入版本"
+      ]
+    },
+    {
+      "name": "confirmedManifest",
+      "required": true,
+      "rules": [
+        "准备结果、缺项接受范围、权限检查和所有依赖摘要"
+      ]
+    },
+    {
+      "name": "revision",
+      "required": "编辑时",
+      "rules": [
+        "报告版本、结构化内容、来源映射、人工身份和并发版本"
+      ]
+    },
+    {
+      "name": "regeneration",
+      "required": "重生成时",
+      "rules": [
+        "整篇或章节范围、原版本、冻结输入和采用确认"
+      ]
+    },
+    {
+      "name": "exportRequest",
+      "required": "导出时",
+      "rules": [
+        "固定报告版本、DOCX/PDF 格式、模板和渲染配置"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定调用方、操作及完整输入"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "preparation",
+      "fields": [
+        "completenessItems",
+        "dependencyManifest",
+        "reviewWarnings",
+        "conflicts",
+        "permissionGaps"
+      ]
+    },
+    {
+      "name": "generationTask",
+      "fields": [
+        "taskId",
+        "status",
+        "requestId",
+        "inputManifest",
+        "failedSteps"
+      ]
+    },
+    {
+      "name": "reportVersion",
+      "fields": [
+        "reportId",
+        "version",
+        "purpose",
+        "structure",
+        "content",
+        "sourceMap",
+        "completenessStatus",
+        "reviewStatus",
+        "signingStatus",
+        "author",
+        "modelActor"
+      ]
+    },
+    {
+      "name": "candidateRevision",
+      "fields": [
+        "baseVersion",
+        "scope",
+        "generatedCandidate",
+        "diff",
+        "adoptionStatus"
+      ]
+    },
+    {
+      "name": "exportTask",
+      "fields": [
+        "taskId",
+        "reportVersion",
+        "contentDigest",
+        "renderConfig",
+        "format",
+        "fileRef",
+        "status"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "prepare_or_generate",
+      "enforcement": "案件、模板及每项输入来源的当前权限"
+    },
+    {
+      "action": "edit_or_regenerate",
+      "enforcement": "报告编辑角色、当前版本和来源读取权限"
+    },
+    {
+      "action": "submit_review",
+      "enforcement": "内容来源校验、完整性和 ADJ-12 复核权限"
+    },
+    {
+      "action": "export_or_download",
+      "enforcement": "报告、模板、引用及文件的实时权限"
+    },
+    {
+      "action": "sign_or_complete",
+      "enforcement": "仅授权签发动作或中心权威回执可推进正式状态"
+    }
+  ],
+  "states": [
+    {
+      "name": "完整",
+      "kind": "completeness",
+      "allowedNext": [
+        "受影响待复核"
+      ]
+    },
+    {
+      "name": "不完整",
+      "kind": "completeness",
+      "allowedNext": [
+        "完整",
+        "受影响待复核"
+      ],
+      "invariant": "不得提交正式复核"
+    },
+    {
+      "name": "受影响待复核",
+      "kind": "completeness",
+      "allowedNext": [
+        "完整",
+        "不完整"
+      ]
+    },
+    {
+      "name": "草稿",
+      "kind": "review",
+      "allowedNext": [
+        "待复核"
+      ]
+    },
+    {
+      "name": "待复核",
+      "kind": "review",
+      "allowedNext": [
+        "草稿",
+        "复核通过"
+      ]
+    },
+    {
+      "name": "复核通过",
+      "kind": "review",
+      "allowedNext": [
+        "待复核"
+      ],
+      "invariant": "实质修改必须创建新版本重新审核"
+    },
+    {
+      "name": "未签发",
+      "kind": "signing",
+      "allowedNext": [
+        "待签发"
+      ]
+    },
+    {
+      "name": "待签发",
+      "kind": "signing",
+      "allowedNext": [
+        "已签发"
+      ],
+      "invariant": "复核通过但不是正式文件"
+    },
+    {
+      "name": "已签发",
+      "kind": "signing",
+      "allowedNext": [],
+      "invariant": "必须有授权动作或中心真实回执"
+    },
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "列出缺失步骤且不提升报告正式状态"
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "每个报告版本固定案件、模板、引用、解析、有效性、证据、模型和规则版本及确认状态。",
+    "关键事实、法条和意见逐项关联来源；确定性内容和辅助生成内容分开。",
+    "人工修订、候选重生成和采用结果分版本保存，重生成不覆盖人工内容。",
+    "输入变化传播待复核，历史报告及其快照不被新输入改写。",
+    "完整性、审核、签发和生成/导出任务状态分别保存。",
+    "结构化正文是输出基准，DOCX/PDF 绑定同一摘要和渲染配置。",
+    "模拟与真实案件、模型、渲染、DM8 和验收证据隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "required_input_missing",
+      "result": "返回完整缺项；可保存不完整草稿但阻止正式复核"
+    },
+    {
+      "case": "template_not_applicable_or_revoked",
+      "result": "拒绝正常生成并返回模板状态或用途错误"
+    },
+    {
+      "case": "source_conflict_or_pending_review",
+      "result": "保留冲突和辅助意见身份，不生成确定事实"
+    },
+    {
+      "case": "generation_partial_or_failed",
+      "result": "明确失败步骤并补偿孤立引用，不提升报告状态"
+    },
+    {
+      "case": "revision_conflict",
+      "result": "拒绝覆盖并返回当前报告版本和差异"
+    },
+    {
+      "case": "render_failure",
+      "result": "输出任务失败但结构化草稿保持可用"
+    },
+    {
+      "case": "dependency_changed",
+      "result": "标记受影响版本待复核，历史快照保留"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不通过缓存、历史或旧文件链接泄露内容"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-11-DEC-001",
+      "owner": "AI",
+      "description": "仅在授权模板范围内辅助生成解释性草稿和候选修订；不得补事实、生成正式认定裁决签章文号、通过复核或签发。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 生成及修订流程"
+      ]
+    },
+    {
+      "id": "ADJ-11-DEC-002",
+      "owner": "RULE",
+      "description": "执行模板适用、输入完整性、确定性填充、来源版本、任务、差异、状态、依赖变化、导出摘要和事务补偿。",
+      "sourceAnchors": [
+        "3. 生成及修订流程",
+        "4. 版本变更与文件生成",
+        "6. 服务契约"
+      ]
+    },
+    {
+      "id": "ADJ-11-DEC-003",
+      "owner": "HUMAN",
+      "description": "撰写人选择输入、接受不完整草稿、编辑及采用重生成差异；复核人员执行 ADJ-12；授权人员执行签发。",
+      "sourceAnchors": [
+        "2. 字段与输入快照",
+        "3. 生成及修订流程"
+      ]
+    },
+    {
+      "id": "ADJ-11-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供权威案件和输入版本、正式模板、签发动作或回执及办结状态。",
+      "sourceAnchors": [
+        "3. 生成及修订流程",
+        "9. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-11-AC-001",
+      "given": [
+        "固定案件、发布模板和各分析引用版本"
+      ],
+      "when": "准备并生成报告",
+      "then": [
+        "输入和确认状态冻结",
+        "生成结果为草稿",
+        "任务成功不改变正式状态"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST-001",
+        "ADJ-11-MUST_NOT-001",
+        "ADJ-11-MUST-002"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-002",
+      "given": [
+        "模板不适用项、可选项、必填缺项和待复核分析"
+      ],
+      "when": "执行生成前检查",
+      "then": [
+        "不适用与缺失分开",
+        "缺项清单完整",
+        "不完整草稿可保存但不能正式复核"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST-003",
+        "ADJ-11-MUST-004"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-003",
+      "given": [
+        "事实缺失和未复核证据分析"
+      ],
+      "when": "组装报告内容",
+      "then": [
+        "确定性字段不被模型补造",
+        "每项内容可回到来源",
+        "未复核分析保持辅助意见身份"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST_NOT-002",
+        "ADJ-11-MUST-005",
+        "ADJ-11-MUST-006"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-004",
+      "given": [
+        "多章节报告及人工和模型参与"
+      ],
+      "when": "保存结构化草稿",
+      "then": [
+        "稳定锚点和来源映射完整",
+        "责任人与模型主体分开",
+        "完整性和审核状态分开"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST-007"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-005",
+      "given": [
+        "已有人工修订和整篇或章节重生成请求"
+      ],
+      "when": "预览并采用候选修订",
+      "then": [
+        "差异可见",
+        "人工明确确认采用",
+        "既有人工修改和版本不被覆盖"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST-008",
+        "ADJ-11-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-006",
+      "given": [
+        "来源完整报告和复核后实质修改"
+      ],
+      "when": "提交或重新提交复核",
+      "then": [
+        "仅满足条件版本可提交",
+        "实质修改创建新版本",
+        "复核通过只到待签发材料"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST-009",
+        "ADJ-11-MUST-010"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-007",
+      "given": [
+        "案件、证据、引用、分析或模板版本发生变化"
+      ],
+      "when": "检测依赖并新建报告",
+      "then": [
+        "受影响草稿待复核",
+        "新报告用新输入",
+        "历史报告保持原快照"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST-011"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-008",
+      "given": [
+        "草稿、复核通过未签发和真实签发三种报告"
+      ],
+      "when": "重复导出 DOCX/PDF",
+      "then": [
+        "文件绑定同一内容摘要和配置",
+        "状态标识准确",
+        "仅真实回执可标正式签发"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST_NOT-001",
+        "ADJ-11-MUST-010",
+        "ADJ-11-MUST-012",
+        "ADJ-11-MUST-013"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-009",
+      "given": [
+        "生成中引用绑定失败及渲染器故障"
+      ],
+      "when": "任务失败和恢复",
+      "then": [
+        "无已采用孤立引用",
+        "结构化草稿不丢失",
+        "任务状态与报告状态分开"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST-014"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-011",
+      "given": [
+        "无权材料、权限撤回和旧文件链接"
+      ],
+      "when": "生成、编辑、导出、下载或历史查看",
+      "then": [
+        "所有入口实时鉴权",
+        "旧链接缓存和历史不绕过权限"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST-016",
+        "ADJ-11-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-012",
+      "given": [
+        "内部页面和直接 API 客户端"
+      ],
+      "when": "执行生成修订审核导出流程",
+      "then": [
+        "页面与服务一致且进度可恢复",
+        "缺项和各类失败分开",
+        "页面不承载规则且不对外交付"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ADJ-11-AC-013",
+      "given": [
+        "真实 DM8、目标国产模型渲染环境和确认样例规模"
+      ],
+      "when": "生成大报告、并发编辑、故障恢复和 DOCX/PDF 导出",
+      "then": [
+        "正文版本文件关系一致",
+        "重启恢复不重复",
+        "全部环境版本和对照证据齐全",
+        "模拟结果不冒充验收"
+      ],
+      "sourceClauseIds": [
+        "ADJ-11-MUST-019"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-11-OQ-001",
+      "type": "business_semantics",
+      "question": "首批模板强制项、不适用条件、允许辅助生成的章节和正式报告用途是什么？",
+      "blocks": [
+        "ARC-04",
+        "生成规则设计",
+        "MVP-ADJ"
+      ]
+    },
+    {
+      "id": "ADJ-11-OQ-002",
+      "type": "authority_workflow",
+      "question": "复核通过后的签发、文号、签章、办结动作、职责角色和中心回执契约是什么？",
+      "blocks": [
+        "ARC-05",
+        "ARC-06",
+        "正式状态实现"
+      ]
+    },
+    {
+      "id": "ADJ-11-OQ-003",
+      "type": "integration",
+      "question": "04—10 各输入稳定 ID、版本、确认状态、变更事件、读取权限和批次补偿接口是什么？",
+      "blocks": [
+        "ARC-08",
+        "ARC-09",
+        "SPK-03",
+        "真实联调"
+      ]
+    },
+    {
+      "id": "ADJ-11-OQ-004",
+      "type": "model_boundary",
+      "question": "批准模型、允许输入输出、数据出域、章节提示词、内容过滤和效果样例如何确认？",
+      "blocks": [
+        "ARC-07",
+        "ARC-11",
+        "SPK-10"
+      ]
+    },
+    {
+      "id": "ADJ-11-OQ-005",
+      "type": "format_and_scale",
+      "question": "DOCX/PDF 样例、字体、渲染配置、报告大小、并发、时限和保留期限是什么？",
+      "blocks": [
+        "SPK-12",
+        "SPK-16",
+        "性能与格式验收"
+      ]
+    },
+    {
+      "id": "ADJ-11-OQ-006",
+      "type": "environment",
+      "question": "DM8、文件存储、模型和渲染器在目标国产环境的实际版本及参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-11-DD-001",
+      "decision": "Report 领域拥有结构化正文和修订版本，Citation/Evidence/Legal Knowledge 提供来源，Review 管理复核，File/Render 管理输出；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-11-DD-002",
+      "decision": "完整性、审核、签发和异步任务使用分离状态机；候选重生成作为待人工采用的独立对象。",
+      "basis": "原文明确缺项、复核、签发、生成导出和人工采用互不等价。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-11-DD-003",
+      "decision": "具体 REST 路径、结构化报告 schema、模型提示词、渲染器、签发适配和 DM8 类型延后至 D 门禁及 Spike。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心输入、模板、角色、签发、模型和环境尚未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable adjudication overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Generation success, completeness, review approval, export success, signing and case completion remain separate states.",
+      "Deterministic facts and verbatim law cannot be model-filled; unreviewed analysis remains auxiliary opinion.",
+      "No mandatory section, content permission, signing workflow, formal number, model, threshold, renderer or performance target was guessed."
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "CON-04-PUBLIC-DATA-REVIEW-V0",
+  "createdAt": "2026-09-16T04:20:00.000Z",
+  "purpose": "Development-only retrieval ranking and regression fixture for the coating / aqueous binder / staged drying consultation example.",
+  "sourceDataset": {
+    "datasetId": "CON-04-PUBLIC-PILOT-V1",
+    "recordsFile": "records.json",
+    "recordsSha256": "ce0bbd902a4b306de740b338e18e00002a3a9eea923b8d38f6c1356b36099039"
+  },
+  "boundaries": {
+    "dataClass": "PUBLIC_PILOT_REVIEW_FIXTURE",
+    "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT",
+    "centerAuthoritative": false,
+    "expertLabeled": false,
+    "externalModelUseAllowed": false,
+    "formalDesignEvidence": false,
+    "formalVerificationEvidence": false,
+    "businessAcceptanceEvidence": false,
+    "formalRecallMetricEligible": false,
+    "replaceBeforeProduction": true
+  },
+  "requiredQueryProfile": {
+    "technologyFeatures": ["water-based binder", "coating", "two-stage drying"],
+    "purpose": "technical reference",
+    "origin": "V0 consultation product example; not an expert search strategy"
+  },
+  "entries": [
+    {
+      "sourceRecordId": "US-20130157136-A1",
+      "sourceVersion": "US-20130157136-A1@20130620",
+      "expectedDiscoveryBand": "STRONG_CANDIDATE",
+      "observedSignals": ["water-based binder slurry", "electrode coating", "partial drying then higher-temperature full drying"],
+      "sourceLocators": ["abstract", "claims:18", "claims:19"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "EP-3044822-A2",
+      "sourceVersion": "EP-3044822-A2@20160720",
+      "expectedDiscoveryBand": "GENERAL_CANDIDATE",
+      "observedSignals": ["water-based cathode slurry"],
+      "sourceLocators": ["title"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "US-20160218356-A1",
+      "sourceVersion": "US-20160218356-A1@20160728",
+      "expectedDiscoveryBand": "GENERAL_CANDIDATE",
+      "observedSignals": ["water-based cathode slurry"],
+      "sourceLocators": ["title"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "WO-2015036882-A2",
+      "sourceVersion": "WO-2015036882-A2@20150319",
+      "expectedDiscoveryBand": "GENERAL_CANDIDATE",
+      "observedSignals": ["water-based cathode slurry"],
+      "sourceLocators": ["title"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "CN-108767259-B",
+      "sourceVersion": "CN-108767259-B@20211231",
+      "expectedDiscoveryBand": "GENERAL_CANDIDATE",
+      "observedSignals": ["water-based binder", "lithium-ion battery"],
+      "sourceLocators": ["abstract", "claims"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "CN-109957360-B",
+      "sourceVersion": "CN-109957360-B@20200915",
+      "expectedDiscoveryBand": "GENERAL_CANDIDATE",
+      "observedSignals": ["aqueous binder", "battery electrode coating mentioned in claims"],
+      "sourceLocators": ["abstract", "claims"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "CN-109957361-B",
+      "sourceVersion": "CN-109957361-B@20210209",
+      "expectedDiscoveryBand": "GENERAL_CANDIDATE",
+      "observedSignals": ["aqueous binder", "secondary battery"],
+      "sourceLocators": ["abstract", "claims"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "CN-108276937-A",
+      "sourceVersion": "CN-108276937-A@20180713",
+      "expectedDiscoveryBand": "GENERAL_CANDIDATE",
+      "observedSignals": ["aqueous binder"],
+      "sourceLocators": ["abstract", "claims"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "CN-112920747-A",
+      "sourceVersion": "CN-112920747-A@20210608",
+      "expectedDiscoveryBand": "GENERAL_CANDIDATE",
+      "observedSignals": ["water-based binder", "lithium-ion battery separator"],
+      "sourceLocators": ["title"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "EP-3581679-A1",
+      "sourceVersion": "EP-3581679-A1@20191218",
+      "expectedDiscoveryBand": "NEGATIVE_CONTROL",
+      "observedSignals": ["slurry-based coating system repair", "no confirmed aqueous-binder or staged-drying evidence in captured record"],
+      "sourceLocators": ["title"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "EP-4326082-A1",
+      "sourceVersion": "EP-4326082-A1@20240228",
+      "expectedDiscoveryBand": "NEGATIVE_CONTROL",
+      "observedSignals": ["confectionery coating context"],
+      "sourceLocators": ["title"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "US-20230219853-A1",
+      "sourceVersion": "US-20230219853-A1@20230713",
+      "expectedDiscoveryBand": "NEGATIVE_CONTROL",
+      "observedSignals": ["firing setters context"],
+      "sourceLocators": ["title"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    },
+    {
+      "sourceRecordId": "US-5250383-A",
+      "sourceVersion": "US-5250383-A@19931005",
+      "expectedDiscoveryBand": "NEGATIVE_CONTROL",
+      "observedSignals": ["multilayer coating title only", "no confirmed aqueous-binder or staged-drying evidence in captured record"],
+      "sourceLocators": ["title"],
+      "labelNature": "V0_DEVELOPMENT_HEURISTIC_NON_EXPERT"
+    }
+  ],
+  "limitations": [
+    "Expected discovery bands are development heuristics derived from the captured title, abstract, or claim excerpt only.",
+    "This is not an expert relevance set, a patentability or infringement conclusion, a legal opinion, or a formal Recall@K benchmark.",
+    "A public source record must not be retained, indexed, redistributed, or sent to a model beyond its approved scope.",
+    "Production use requires separately authorized, cleaned, versioned real data and expert-defined evaluation criteria."
+  ]
+}

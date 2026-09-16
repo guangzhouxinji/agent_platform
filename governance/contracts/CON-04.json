@@ -1,0 +1,945 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-04",
+  "title": "专利相似度检索",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权咨询助手/专利相似度检索需求文档.md",
+    "sha256": "c3d499a1d90d79badac09dac1618ff70a185b71a8bc937577e1f21f419f04718",
+    "sections": [
+      {
+        "anchor": "国产化与达梦 DM8 适配要求",
+        "purpose": "deployment_and_storage"
+      },
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 输入输出字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 检索流程与规则",
+        "purpose": "workflow_and_rules"
+      },
+      {
+        "anchor": "4. 评分与证据",
+        "purpose": "scoring_and_evidence"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约与异常",
+        "purpose": "service_and_states"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "dependencies_and_delivery"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sections": [
+        "1. 项目定位与交付口径",
+        "3.1 API 数据与本地内容",
+        "3.2 来源、版本和权限",
+        "3.3 异步任务契约",
+        "3.5 评分及专业意见",
+        "3.6 默认值与未决条件",
+        "3.7 国产化部署与达梦 DM8 数据库",
+        "6. 验收资料与共同口径"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-04-MUST-001",
+      "type": "MUST",
+      "statement": "系统根据技术方案、核心技术特征或专利号码三种输入之一检索相关专利，并返回可追溯候选、排序依据及可传递至专利相似度判断的选中文献版本。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 输入输出字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-001",
+        "CON-04-AC-010"
+      ]
+    },
+    {
+      "id": "CON-04-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "检索相关度不得表述为侵权概率、新颖性结论或授权成功率，也不得与专利比对评分混用。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "4. 评分与证据",
+        "总目录/3.5 评分及专业意见"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-007"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-002",
+      "type": "MUST",
+      "statement": "发明及实用新型按技术文本检索；外观设计名称或分类可复用专利库，外观图片相似检索仅在中心接口或经确认的独立图像能力可用时提供。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "总目录/3.6 默认值与未决条件"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-008"
+      ]
+    },
+    {
+      "id": "CON-04-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "不得用文本检索冒充外观图片相似检索，也不得在图像能力未确认时标记该能力已实现。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "8. 依赖与交付",
+        "总目录/3.6 默认值与未决条件"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-008"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-003",
+      "type": "MUST",
+      "statement": "技术方案或核心特征输入保留用户原文且不能为空；号码输入解析到具体文献版本，多候选时必须先由用户选择。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-001"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-004",
+      "type": "MUST",
+      "statement": "检索目的限定为技术参考、新颖性辅助准备或侵权风险辅助准备，并支持在实际数据能力范围内按专利类型、地域、分类和申请/公开日期筛选。",
+      "sourceAnchors": [
+        "2. 输入输出字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-003"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-005",
+      "type": "MUST",
+      "statement": "新颖性辅助准备必须确认拟分析的相关日期及依据，公开日期筛选与申请日期分开。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-003"
+      ]
+    },
+    {
+      "id": "CON-04-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "相关日期不得默认为今天；新颖性辅助检索不得默认只查有效专利。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-003"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-006",
+      "type": "MUST",
+      "statement": "专利号码方式先获取指定版本摘要和权利要求；全文不可用时必须披露实际使用的内容范围。",
+      "sourceAnchors": [
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-001",
+        "CON-04-AC-006"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-007",
+      "type": "MUST",
+      "statement": "系统提取关键词和技术特征并允许用户提交前修正，实际检索使用修正值，同时保留原输入和本次任务的不可混淆输入快照。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-002"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-008",
+      "type": "MUST",
+      "statement": "候选召回前执行当前权限和范围过滤；优先使用中心检索接口，自建关键词或语义索引必须先取得数据授权。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "总目录/3.1 API 数据与本地内容",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-003",
+        "CON-04-AC-011"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-009",
+      "type": "MUST",
+      "statement": "候选须去重并稳定排序；默认相关度降序，同分按稳定 ID 排序；同族仅在关系可靠时聚合且可展开具体文献版本。",
+      "sourceAnchors": [
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-004"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-010",
+      "type": "MUST",
+      "statement": "候选结果记录专利标识、号码、名称、文献版本、匹配特征或证据片段、任务时间、实际检索范围及可区分的结果数量口径。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-004",
+        "CON-04-AC-005"
+      ]
+    },
+    {
+      "id": "CON-04-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "仅有专利库时不得宣称穷尽全部现有技术；未查到候选不得解释为不存在相关技术。",
+      "sourceAnchors": [
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-005"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-011",
+      "type": "MUST",
+      "statement": "仅能在中心返回的有限候选内重排时，必须披露排序范围和候选数；发生上游截断时显示实际截断情况。",
+      "sourceAnchors": [
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-005"
+      ]
+    },
+    {
+      "id": "CON-04-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "有限候选重排不得称为全库语义检索，页面模拟或模型生成不得替代缺失的中心或自建检索能力。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "总目录/3.1 API 数据与本地内容"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-005",
+        "CON-04-AC-008"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-012",
+      "type": "MUST",
+      "statement": "建议最多返回 100 条且页面每页 20 条，仅作为可配置初版默认值；实际上游限制和最终参数必须可披露并通过联调确认。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "总目录/3.6 默认值与未决条件"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-005"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-013",
+      "type": "MUST",
+      "statement": "同一任务固定使用同一排序或评分版本；若输出 0 至 100 数值分，必须有固定映射规则和标尺说明，不同算法版本不得直接比较。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "4. 评分与证据"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-007"
+      ]
+    },
+    {
+      "id": "CON-04-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "大模型不得随意编造精确分数；无稳定评分能力时不得伪造数值评分。",
+      "sourceAnchors": [
+        "4. 评分与证据",
+        "总目录/3.5 评分及专业意见"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-007"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-014",
+      "type": "MUST",
+      "statement": "无稳定数值评分时返回稳定排序和相关程度标签并将数值评分标记为能力缺口；关键词命中和语义相关依据分开展示。",
+      "sourceAnchors": [
+        "4. 评分与证据"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-007"
+      ]
+    },
+    {
+      "id": "CON-04-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "缺少依据时不得伪造专利原文、匹配片段、法律条款或数据事实。",
+      "sourceAnchors": [
+        "4. 评分与证据",
+        "总目录/3.5 评分及专业意见"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-006"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-015",
+      "type": "MUST",
+      "statement": "检索任务状态限定为排队、处理中、成功、部分成功、失败和取消；部分成功列明失败的数据源或步骤，核心步骤未执行不得以成功掩盖。",
+      "sourceAnchors": [
+        "6. 服务契约与异常",
+        "总目录/3.3 异步任务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-009"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-016",
+      "type": "MUST",
+      "statement": "创建任务使用按调用方和操作作用域绑定的幂等键；同键同请求返回原任务，同键不同请求返回冲突；重试形成关联尝试且不覆盖完成结果。",
+      "sourceAnchors": [
+        "6. 服务契约与异常",
+        "总目录/3.3 异步任务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-009"
+      ]
+    },
+    {
+      "id": "CON-04-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "任务取消后，迟到结果不得把状态改回成功或继续对外发布。",
+      "sourceAnchors": [
+        "6. 服务契约与异常",
+        "总目录/3.3 异步任务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-009"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-018",
+      "type": "MUST",
+      "statement": "源超时、限流、文献不可用、权限不足和索引不可用必须返回可区分错误和追踪号；接口故障不得伪装为空结果。",
+      "sourceAnchors": [
+        "6. 服务契约与异常",
+        "国产化与达梦 DM8 适配要求"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-006",
+        "CON-04-AC-009"
+      ]
+    },
+    {
+      "id": "CON-04-MUST-019",
+      "type": "MUST",
+      "statement": "读取候选原文、匹配片段及向比对模块传递数据时重新校验当前权限；权限收紧或源撤回后不再泄露已缓存内容。",
+      "sourceAnchors": [
+        "5. 内部验证页面",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-011"
+      ]
+    },
+    {
+      "id": "CON-04-MUST_NOT-011",
+      "type": "MUST_NOT",
+      "statement": "未试测前不得自行承诺准确率、Recall、排序质量、响应时间或秒级性能阈值。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-04-AC-013"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "inputMode",
+      "required": true,
+      "rules": [
+        "technical_solution|core_features|patent_number 三选一"
+      ]
+    },
+    {
+      "name": "inputContent",
+      "required": true,
+      "rules": [
+        "保留原文",
+        "文本输入非空",
+        "号码多候选先选择具体文献版本"
+      ]
+    },
+    {
+      "name": "purpose",
+      "required": true,
+      "rules": [
+        "technical_reference|novelty_preparation|infringement_risk_preparation"
+      ]
+    },
+    {
+      "name": "scope",
+      "required": false,
+      "rules": [
+        "专利类型、地域、分类、申请日期、公开日期以实际能力为限"
+      ]
+    },
+    {
+      "name": "relevantDateAndBasis",
+      "required": "新颖性辅助准备时",
+      "rules": [
+        "不得默认今天"
+      ]
+    },
+    {
+      "name": "confirmedFeatures",
+      "required": true,
+      "rules": [
+        "允许用户修正并冻结到输入快照"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "按调用方和操作作用域绑定"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "task",
+      "fields": [
+        "taskId",
+        "status",
+        "attempt",
+        "traceId",
+        "taskTime"
+      ]
+    },
+    {
+      "name": "actualScope",
+      "fields": [
+        "sources",
+        "filters",
+        "candidateScope",
+        "truncation",
+        "failedSteps"
+      ]
+    },
+    {
+      "name": "candidate",
+      "fields": [
+        "stableId",
+        "patentNumbers",
+        "title",
+        "documentVersion",
+        "rank",
+        "scoreOrLabel",
+        "scoringVersion",
+        "matchedFeatures",
+        "evidenceFragments"
+      ]
+    },
+    {
+      "name": "counts",
+      "fields": [
+        "returnedCount",
+        "candidateCount",
+        "totalCountWhenSupported"
+      ]
+    },
+    {
+      "name": "comparisonHandoff",
+      "fields": [
+        "inputSnapshot",
+        "selectedDocumentVersions"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "create_search",
+      "enforcement": "服务端在召回前检查调用方及数据范围权限"
+    },
+    {
+      "action": "read_task_or_result",
+      "enforcement": "服务端检查任务访问及当前源数据权限"
+    },
+    {
+      "action": "view_source_or_evidence",
+      "enforcement": "每次读取原文或片段重新检查当前权限"
+    },
+    {
+      "action": "handoff_to_comparison",
+      "enforcement": "后端重新检查目标输入与选中文献版本权限"
+    },
+    {
+      "action": "cancel_task",
+      "enforcement": "仅授权调用方或管理主体可取消"
+    },
+    {
+      "action": "external_model_processing",
+      "enforcement": "仅走批准的数据处理通道，范围由部署配置决定"
+    }
+  ],
+  "states": [
+    {
+      "name": "排队",
+      "allowedNext": [
+        "处理中",
+        "取消",
+        "失败"
+      ]
+    },
+    {
+      "name": "处理中",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "allowedNext": []
+    },
+    {
+      "name": "失败",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "allowedNext": [],
+      "invariant": "迟到结果不得发布或转回成功"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "保留原始输入及确认后的输入快照，后续重检创建新任务且不覆盖旧任务。",
+    "候选必须指向可追溯的数据源、源记录及具体文献版本。",
+    "同一任务固定排序、评分、规则、模型及知识版本；不同评分版本不直接比较。",
+    "记录源更新时间、获取时间、任务时间和实际检索范围；源无版本时记录内容摘要快照。",
+    "有限候选、截断、缺失全文、部分失败和模拟数据必须显式标记。",
+    "派生索引与 DM8 中业务标识、版本和权限保持一致，陈旧或撤回数据不得继续返回。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "invalid_input_or_scope",
+      "result": "拒绝创建并返回可定位参数错误"
+    },
+    {
+      "case": "patent_number_ambiguous",
+      "result": "返回候选并等待选择，不自动猜测版本"
+    },
+    {
+      "case": "permission_denied",
+      "result": "拒绝召回或读取且不泄露缓存内容"
+    },
+    {
+      "case": "source_timeout_or_rate_limit",
+      "result": "返回失败或部分成功、失败范围和追踪号，不返回伪空结果"
+    },
+    {
+      "case": "document_or_fulltext_unavailable",
+      "result": "披露不可用状态及实际使用内容"
+    },
+    {
+      "case": "search_index_unavailable",
+      "result": "返回能力失败，不以模型结果代替"
+    },
+    {
+      "case": "idempotency_conflict",
+      "result": "同键不同请求返回冲突"
+    },
+    {
+      "case": "cancel_race",
+      "result": "取消获胜后丢弃或隔离迟到结果"
+    },
+    {
+      "case": "restart_interruption",
+      "result": "按幂等策略恢复或显式失败，不盲目重放"
+    },
+    {
+      "case": "unsupported_image_search",
+      "result": "标记未满足或待补齐，不转用文本结果冒充"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "CON-04-DEC-001",
+      "owner": "AI",
+      "description": "从用户原文提取关键词、技术特征和相关程度候选标签；输出仅为建议且允许用户修改。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "4. 评分与证据"
+      ]
+    },
+    {
+      "id": "CON-04-DEC-002",
+      "owner": "RULE",
+      "description": "校验输入、日期、幂等、权限、任务状态、稳定排序、截断披露以及评分版本一致性。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "4. 评分与证据",
+        "6. 服务契约与异常"
+      ]
+    },
+    {
+      "id": "CON-04-DEC-003",
+      "owner": "HUMAN",
+      "description": "用户确认号码候选、修正技术特征、相关日期与依据，并选择候选进入比对。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ]
+    },
+    {
+      "id": "CON-04-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心系统或经批准检索能力提供源专利、可检索范围、版本、全文、图像和召回结果。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 检索流程与规则",
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-04-AC-001",
+      "given": [
+        "三种合法输入及一个号码多候选样本"
+      ],
+      "when": "分别解析并创建检索任务",
+      "then": [
+        "均形成可追溯任务",
+        "多候选等待用户选择具体版本",
+        "全文缺失时披露实际使用内容"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST-001",
+        "CON-04-MUST-003",
+        "CON-04-MUST-006"
+      ]
+    },
+    {
+      "id": "CON-04-AC-002",
+      "given": [
+        "用户原始技术方案和系统提取特征"
+      ],
+      "when": "用户修改特征后提交",
+      "then": [
+        "实际检索使用修改值",
+        "原文与确认快照均可追溯"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST-007"
+      ]
+    },
+    {
+      "id": "CON-04-AC-003",
+      "given": [
+        "不同权限、类型和日期边界样本",
+        "新颖性辅助目的"
+      ],
+      "when": "执行检索",
+      "then": [
+        "权限及范围在召回前生效",
+        "申请与公开日期不混淆",
+        "要求用户确认相关日期而非默认今天",
+        "失效文献未被默认排除"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST-004",
+        "CON-04-MUST-005",
+        "CON-04-MUST_NOT-003",
+        "CON-04-MUST-008"
+      ]
+    },
+    {
+      "id": "CON-04-AC-004",
+      "given": [
+        "重复候选、同分候选及可靠同族关系"
+      ],
+      "when": "重复执行同版本检索",
+      "then": [
+        "去重和顺序稳定",
+        "同族可展开具体文献",
+        "证据指向正确版本"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST-009",
+        "CON-04-MUST-010"
+      ]
+    },
+    {
+      "id": "CON-04-AC-005",
+      "given": [
+        "中心仅返回有限候选、结果截断或零候选"
+      ],
+      "when": "查看结果",
+      "then": [
+        "披露实际范围、候选数和截断",
+        "不宣称全库检索或不存在相关技术",
+        "数量口径可区分"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST-010",
+        "CON-04-MUST_NOT-004",
+        "CON-04-MUST-011",
+        "CON-04-MUST_NOT-005",
+        "CON-04-MUST-012"
+      ]
+    },
+    {
+      "id": "CON-04-AC-006",
+      "given": [
+        "上游超时、文献不可用或缺少证据位置"
+      ],
+      "when": "执行并查询任务",
+      "then": [
+        "返回可区分状态和追踪号",
+        "不伪装为空结果",
+        "不编造原文或证据"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST-006",
+        "CON-04-MUST_NOT-007",
+        "CON-04-MUST-018"
+      ]
+    },
+    {
+      "id": "CON-04-AC-007",
+      "given": [
+        "有稳定评分和无稳定评分两种配置"
+      ],
+      "when": "展示并比较检索结果",
+      "then": [
+        "固定版本与标尺可见",
+        "无稳定评分时只给排序和标签",
+        "不输出模型编造精确分",
+        "不解释为法律或比对结论"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST_NOT-001",
+        "CON-04-MUST-013",
+        "CON-04-MUST_NOT-006",
+        "CON-04-MUST-014"
+      ]
+    },
+    {
+      "id": "CON-04-AC-008",
+      "given": [
+        "无外观图片检索能力的环境"
+      ],
+      "when": "请求外观图片相似检索",
+      "then": [
+        "明确能力未满足",
+        "不返回文本检索结果冒充",
+        "不标记已实现"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST-002",
+        "CON-04-MUST_NOT-002",
+        "CON-04-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "CON-04-AC-009",
+      "given": [
+        "重复请求、同键不同请求、部分源失败、取消竞争和页面关闭"
+      ],
+      "when": "操作异步任务",
+      "then": [
+        "幂等和冲突符合契约",
+        "部分成功列明缺失步骤",
+        "关闭页面不影响执行",
+        "取消后迟到结果不发布"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST-015",
+        "CON-04-MUST-016",
+        "CON-04-MUST_NOT-008",
+        "CON-04-MUST-018"
+      ]
+    },
+    {
+      "id": "CON-04-AC-010",
+      "given": [
+        "内部页面和直接 API 客户端"
+      ],
+      "when": "完成检索并选择候选进入比对",
+      "then": [
+        "两种入口行为一致",
+        "服务不依赖页面",
+        "传递冻结输入与具体文献版本",
+        "页面明确为内部产物"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST-001"
+      ]
+    },
+    {
+      "id": "CON-04-AC-011",
+      "given": [
+        "任务创建后权限被撤回或源内容撤回"
+      ],
+      "when": "查询结果、打开原文或传递比对",
+      "then": [
+        "所有内容入口重新校验并阻断",
+        "缓存及片段不泄露"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST-008",
+        "CON-04-MUST-019"
+      ]
+    },
+    {
+      "id": "CON-04-AC-013",
+      "given": [
+        "冻结且有专家标注的样本集"
+      ],
+      "when": "计算 Recall@K、排序质量和性能",
+      "then": [
+        "记录分母、失败、资料不足、数据及算法版本",
+        "阈值由试测和业务确认产生",
+        "不使用自行承诺值"
+      ],
+      "sourceClauseIds": [
+        "CON-04-MUST_NOT-011"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "CON-04-DD-001",
+      "decision": "检索编排归属 Consultation 上下文的 PatentSearchWorkflow，专利源数据由 IP Resource Knowledge 通过端口提供。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-04-DD-002",
+      "decision": "具体 REST 路径、字段名、召回算法、索引产品、评分公式和 DM8 类型延后至 D 门禁并依据联调及技术验证确定。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "原文将这些能力或参数列为待确认，不允许当前猜测。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CON-04-OQ-001",
+      "type": "implementation_dependency",
+      "question": "中心检索 API 的认证、字段、错误码、检索语义、分页、筛选、全文和限流能力是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "MVP-CON真实检索"
+      ]
+    },
+    {
+      "id": "CON-04-OQ-002",
+      "type": "data_authorization",
+      "question": "专利全文、用户技术方案、派生特征、缓存、持久化、索引和模型处理分别允许到什么范围及保留多久？",
+      "blocks": [
+        "ARC-10",
+        "ARC-11",
+        "SPK-05",
+        "MVP-CON数据链路"
+      ]
+    },
+    {
+      "id": "CON-04-OQ-003",
+      "type": "capability",
+      "question": "中心是否支持全库文本或语义召回、外观图片检索、同族关系和稳定版本标识；若不支持，补建责任和范围决定是什么？",
+      "blocks": [
+        "检索设计",
+        "外观图片能力验收",
+        "MVP-CON范围"
+      ]
+    },
+    {
+      "id": "CON-04-OQ-004",
+      "type": "business_semantics",
+      "question": "新颖性辅助准备的相关日期输入口径与依据类型由业务如何确认？",
+      "blocks": [
+        "ARC-05",
+        "新颖性辅助场景"
+      ]
+    },
+    {
+      "id": "CON-04-OQ-005",
+      "type": "acceptance_parameter",
+      "question": "最大返回数、分页、数据量、并发、响应时间、Recall@K、排序质量和专家样本规模的最终值是什么？",
+      "blocks": [
+        "最终配置",
+        "效果与性能验收"
+      ]
+    },
+    {
+      "id": "CON-04-OQ-006",
+      "type": "environment",
+      "question": "DM8 小版本、实例参数、JDK/驱动和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实 DM8 验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "All source defaults remain configurable or open; no API, algorithm, score threshold, performance target or external product was invented.",
+      "AI extraction is separated from deterministic permission, state, idempotency and scoring-version rules; legal conclusions remain outside this retrieval module.",
+      "Open questions block only affected D-gate artifacts and real acceptance, not the R-gate fidelity result."
+    ]
+  }
+}

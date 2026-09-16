@@ -1,0 +1,623 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-08",
+  "title": "执法流程合规性校验规则配置",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/08-执法流程合规性校验规则配置需求文档.md",
+    "sha256": "bd3b12aa55732e7f9e43f7934721f67a9d4aabdb2710b23a5889c2c8f9765171",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "rules"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付范围",
+        "2. 数据、身份、权限与审计",
+        "3. 时间、版本与变更",
+        "4. 服务、任务与错误契约",
+        "5. AI、规则与人工边界",
+        "6. 页面验证",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-08-MUST-001",
+      "type": "MUST",
+      "statement": "配置中心确认的执法程序、环节前置要求、必要字段材料和时限计算规则，并按地区、机构、程序及有效期间限定适用范围。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖",
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "不得预设未核实法定期限、地区口径、程序顺序、例外或工作日历，也不得将一套规则默认用于所有程序。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-001",
+        "ENF-08-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST-002",
+      "type": "MUST",
+      "statement": "规则保存唯一编号、名称、适用环节与范围、校验内容、条件时限、依据有效期、例外、不可变发布版本、机构和审计信息。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST-003",
+      "type": "MUST",
+      "statement": "规范、地区口径、工作日历及法规条文均保存稳定 ID 与版本；接入校验关联、有效性和权限，缺失与源调用失败分开。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "规则来源、法律依据、日历、事件时间和业务编号不得由模型生成或替换。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST-004",
+      "type": "MUST",
+      "statement": "必填校验、环节顺序、适用条件和日期计算必须作为可审计的确定性规则执行；模型只可解释已有规则和计算步骤。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST-005",
+      "type": "MUST",
+      "statement": "时限规则明确自然日或工作日、起算事件、起算日是否计入、截止调整、延期和中止条件及恢复方式。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "模型输出、提示词、当前日期或通用日历不得参与确定期限数值、起算点、截止调整或例外是否成立。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST-006",
+      "type": "MUST",
+      "statement": "日期试算固定事件、例外、规则和工作日历版本，输出截止时间、逐步计算轨迹、适用依据和缺口。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST-007",
+      "type": "MUST",
+      "statement": "发布前执行边界样例试算，并检查同一适用范围的冲突规则、起算点、日历、完整公式、依据和有效期间。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST-008",
+      "type": "MUST",
+      "statement": "冲突、缺少起算点或日历、公式不完整、依据失效和适用范围不明均阻止发布并返回具体位置。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST-009",
+      "type": "MUST",
+      "statement": "发布版本不可原地修改，编辑创建新草稿；停用或过期规则不用于新校验，历史结果继续引用原规则和日历版本。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST-010",
+      "type": "MUST",
+      "statement": "历史案件按事件时点筛选候选规则版本并保留人工业务确认，不因存在现行规则自动认定历史适用版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-08-MUST-014",
+      "type": "MUST",
+      "statement": "固定边界样例记录输入事件、例外、地区程序、规则日历依据版本、中心预期、实际轨迹和问题编号；未确认规则不升级验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-08-AC-010"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "ruleDraft",
+      "required": true,
+      "rules": [
+        "环节、范围、校验条件、时限公式、例外、依据及日历版本"
+      ]
+    },
+    {
+      "name": "calculationSample",
+      "required": "试算时",
+      "rules": [
+        "事件时间、延期中止等例外事件和明确日历版本"
+      ]
+    },
+    {
+      "name": "lifecycleAction",
+      "required": "发布停用时",
+      "rules": [
+        "规则版本、动作、意见、可信身份和并发版本"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "ruleVersion",
+      "fields": [
+        "ruleId",
+        "version",
+        "scope",
+        "stage",
+        "requirements",
+        "deadlineFormula",
+        "calendarVersion",
+        "exceptions",
+        "basisVersions",
+        "effectivePeriod",
+        "status",
+        "audit"
+      ]
+    },
+    {
+      "name": "calculationResult",
+      "fields": [
+        "deadline",
+        "steps",
+        "events",
+        "exceptionsApplied",
+        "ruleVersion",
+        "calendarVersion",
+        "basis",
+        "gaps"
+      ]
+    },
+    {
+      "name": "validationResult",
+      "fields": [
+        "conflicts",
+        "missingInputs",
+        "formulaErrors",
+        "expiredDependencies",
+        "boundaryResults"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "create_or_edit",
+      "enforcement": "规则配置角色、地区程序及依据日历读取权限"
+    },
+    {
+      "action": "calculate",
+      "enforcement": "规则版本、案件事件和例外数据权限"
+    },
+    {
+      "action": "publish_or_disable",
+      "enforcement": "中心授权发布角色、依赖有效性和当前版本"
+    },
+    {
+      "action": "read_history",
+      "enforcement": "机构程序、依据、日历和历史结果权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "rule",
+      "allowedNext": [
+        "已发布",
+        "已停用"
+      ]
+    },
+    {
+      "name": "已发布",
+      "kind": "rule",
+      "allowedNext": [
+        "已停用",
+        "已过期"
+      ],
+      "invariant": "发布版本不可原地修改"
+    },
+    {
+      "name": "已停用",
+      "kind": "rule",
+      "allowedNext": []
+    },
+    {
+      "name": "已过期",
+      "kind": "rule",
+      "allowedNext": [],
+      "invariant": "不用于新校验"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "规则版本固定程序环节、地区机构、公式、例外、依据、有效期和工作日历版本。",
+    "事件时间、计算时间和配置发布时间分别保存。",
+    "相同输入、规则与日历版本必须产生相同轨迹和结果。",
+    "发布版本不可变，历史计算引用原规则与日历。",
+    "时点筛选候选与人工确认历史适用性分开。",
+    "模拟规则日历数据库与真实验收证据隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "start_event_or_calendar_missing",
+      "result": "阻止发布或试算并列出缺口"
+    },
+    {
+      "case": "overlapping_rule_conflict",
+      "result": "阻止发布并列出冲突规则和范围"
+    },
+    {
+      "case": "basis_expired_or_unavailable",
+      "result": "阻止新发布或标记现有规则待复核"
+    },
+    {
+      "case": "rule_not_applicable",
+      "result": "返回地区、机构、程序或时点不匹配"
+    },
+    {
+      "case": "historical_version_ambiguous",
+      "result": "返回候选版本待人工确认，不默认现行规则"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露规则、案件事件或日历"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-08-DEC-001",
+      "owner": "AI",
+      "description": "仅可解释已确定规则和计算轨迹；不得确定期限、程序、例外、地区或适用版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-08-DEC-002",
+      "owner": "RULE",
+      "description": "确定性执行必填、顺序、范围、日期公式、日历、例外、冲突、版本和发布校验。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-08-DEC-003",
+      "owner": "HUMAN",
+      "description": "中心专业人员确认规范、地区程序、法定期限、日历、例外、历史适用版本和样例预期。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-08-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供法规版本、工作日历、程序地区字典、角色权限和权威事件时间。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-08-AC-001",
+      "given": [
+        "确认和未确认的程序地区期限"
+      ],
+      "when": "新建规则",
+      "then": [
+        "只配置确认范围",
+        "未确认值不被预设",
+        "不同程序不互用"
+      ],
+      "sourceClauseIds": [
+        "ENF-08-MUST-001",
+        "ENF-08-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-08-AC-002",
+      "given": [
+        "规范、法规、日历和事件来源"
+      ],
+      "when": "保存规则",
+      "then": [
+        "字段版本关联权限完整",
+        "缺失与源失败分开",
+        "模型不补来源或时间"
+      ],
+      "sourceClauseIds": [
+        "ENF-08-MUST-002",
+        "ENF-08-MUST-003",
+        "ENF-08-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-08-AC-003",
+      "given": [
+        "自然日工作日、起算计入、延期中止样例"
+      ],
+      "when": "配置计算规则",
+      "then": [
+        "全部语义显式确定",
+        "规则确定性执行",
+        "模型只解释不决定"
+      ],
+      "sourceClauseIds": [
+        "ENF-08-MUST-004",
+        "ENF-08-MUST-005",
+        "ENF-08-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ENF-08-AC-004",
+      "given": [
+        "同一事件例外规则和日历版本"
+      ],
+      "when": "重复试算",
+      "then": [
+        "截止时间相同",
+        "逐步轨迹依据和版本完整"
+      ],
+      "sourceClauseIds": [
+        "ENF-08-MUST-006"
+      ]
+    },
+    {
+      "id": "ENF-08-AC-005",
+      "given": [
+        "冲突范围、缺起算日历、公式缺项和失效依据"
+      ],
+      "when": "发布校验",
+      "then": [
+        "边界样例执行",
+        "逐项阻止发布并定位"
+      ],
+      "sourceClauseIds": [
+        "ENF-08-MUST-007",
+        "ENF-08-MUST-008"
+      ]
+    },
+    {
+      "id": "ENF-08-AC-006",
+      "given": [
+        "发布规则修改停用过期和历史案件"
+      ],
+      "when": "选择规则",
+      "then": [
+        "新草稿不覆盖历史",
+        "过期规则不用于新案",
+        "历史候选待人工确认"
+      ],
+      "sourceClauseIds": [
+        "ENF-08-MUST-009",
+        "ENF-08-MUST-010"
+      ]
+    },
+    {
+      "id": "ENF-08-AC-007",
+      "given": [
+        "不适用规则、重复写和版本冲突"
+      ],
+      "when": "直接调用服务",
+      "then": [
+        "幂等版本权限错误准确",
+        "未确认期限不被默认"
+      ],
+      "sourceClauseIds": [
+        "ENF-08-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-08-AC-010",
+      "given": [
+        "节假日延期中止固定中心样例"
+      ],
+      "when": "业务验收",
+      "then": [
+        "输入规则日历依据预期实际轨迹问题齐全",
+        "未确认规则和模拟证据不标通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-08-MUST-014"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-08-OQ-001",
+      "type": "business_semantics",
+      "question": "首批地区机构程序环节、前置材料、法定期限、起算截止延期中止规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "合规规则实现"
+      ]
+    },
+    {
+      "id": "ENF-08-OQ-002",
+      "type": "authority_api",
+      "question": "法规、程序字典、工作日历和权威事件时间接口及版本是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "真实联调"
+      ]
+    },
+    {
+      "id": "ENF-08-OQ-003",
+      "type": "authorization",
+      "question": "配置试算审核发布停用和历史确认角色是什么？",
+      "blocks": [
+        "ARC-06",
+        "权限实现"
+      ]
+    },
+    {
+      "id": "ENF-08-OQ-004",
+      "type": "acceptance_data",
+      "question": "节假日延期中止边界样例和中心预期如何冻结？",
+      "blocks": [
+        "SPK-10",
+        "验收"
+      ]
+    },
+    {
+      "id": "ENF-08-OQ-005",
+      "type": "environment",
+      "question": "DM8、时间服务和国产环境参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-08-DD-001",
+      "decision": "Enforcement Rule 领域拥有流程与时限规则，Calendar/Legal Knowledge 提供版本资源，Agent 仅编排解释。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-08-DD-002",
+      "decision": "日期计算输出完整步骤和版本清单，历史适用性另由人工确认，不隐藏在模型推理中。",
+      "basis": "原文确定性规则和历史候选要求。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-08-DD-003",
+      "decision": "具体 API、规则 DSL、期限值、日历协议、角色和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心规范规则接口和环境未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Procedural prerequisites, deadlines, calendars, exceptions and historical applicability remain deterministic and versioned.",
+      "AI may explain a calculation but cannot supply or alter any legal time rule.",
+      "No deadline, jurisdiction, procedure, exception, calendar, role, sample expectation or environment was guessed."
+    ]
+  }
+}

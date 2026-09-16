@@ -1,0 +1,865 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-05",
+  "title": "商标相似度检索",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权咨询助手/商标相似度检索需求文档.md",
+    "sha256": "c4e57d19694742b371150cf3dd38f2bbe0f01366aa658cbfa8879e234fdf2bb4",
+    "sections": [
+      {
+        "anchor": "国产化与达梦 DM8 适配要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 输入输出字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 检索流程与规则",
+        "purpose": "retrieval"
+      },
+      {
+        "anchor": "4. 评分规则",
+        "purpose": "scoring"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sections": [
+        "1. 项目定位与交付口径",
+        "3. 共用业务规则",
+        "4. 共用支撑能力与估工方式",
+        "5. 建议开发与集成顺序",
+        "6. 验收资料与共同口径",
+        "7. 评审状态记录"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-05-MUST-001",
+      "type": "MUST",
+      "statement": "根据商标文字、图形或组合输入及确认的商品服务范围，从授权数据召回并排序候选，向 CON-07 传递固定输入。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-001"
+      ]
+    },
+    {
+      "id": "CON-05-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "候选相关度、高相关标签或无结果不得表述为法律近似结论、注册成功率或可以注册。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "4. 评分规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-001",
+        "CON-05-AC-007"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-002",
+      "type": "MUST",
+      "statement": "文字、读音、含义、图形和组合是可区分能力，仅执行实际具备并明确启用的维度，逐项记录是否执行。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 输入输出字段",
+        "4. 评分规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-002"
+      ]
+    },
+    {
+      "id": "CON-05-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "图形能力缺失时不得用 OCR 文字查询、伪图形分数或组合分数冒充图形相似检索。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "5. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-002"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-003",
+      "type": "MUST",
+      "statement": "文字检索保留原始字符和标准化值；图形检索保留原图；组合检索同时保存文字与图样及实际识别元素。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-003"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-004",
+      "type": "MUST",
+      "statement": "OCR、拼音、含义或分类建议有歧义时由用户修正并确认，修正不覆盖原文字或原图。",
+      "sourceAnchors": [
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-003"
+      ]
+    },
+    {
+      "id": "CON-05-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "模型不得猜测商品服务项目、类似群、跨类别范围或把标准化结果写回原始输入。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则",
+        "总目录/3.5 评分及专业意见"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-003",
+        "CON-05-AC-004"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-005",
+      "type": "MUST",
+      "statement": "检索前至少确认商品服务类别及项目；类似群和分类版本可建议但保持待确认，项目不明确时返回补充要求。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-004"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-006",
+      "type": "MUST",
+      "statement": "类别相同不等于商品服务类似；仅能检索同类别时披露未覆盖范围，跨类别扩展必须有确认规则或用户选择。",
+      "sourceAnchors": [
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-004"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-007",
+      "type": "MUST",
+      "statement": "状态过滤必须由用户明确选择，不得静默排除非有效记录；候选保存源状态和更新时间。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-004"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-008",
+      "type": "MUST",
+      "statement": "后端校验上传文件实际类型、大小、可解码性和 EXIF 方向，保留原图；首版 JPG/PNG、10 MB 上限作为可配置初值。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "总目录/3.6 默认值与未决条件"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-005"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-009",
+      "type": "MUST",
+      "statement": "上传图样及派生图像仅当前用户或授权调用方可访问，访问和历史任务由后端实时鉴权并按确认保留策略清理。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "6. 服务契约",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-005",
+        "CON-05-AC-010"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-010",
+      "type": "MUST",
+      "statement": "使用中心接口或获授权索引按权限、类别、状态、地域和数据源范围召回，返回实际覆盖、返回数和截断情况。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-006"
+      ]
+    },
+    {
+      "id": "CON-05-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "有限候选重排不得宣称全库检索，上游失败或能力缺失不得伪装为无结果。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "5. 内部验证页面",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-006",
+        "CON-05-AC-007"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-011",
+      "type": "MUST",
+      "statement": "默认最多 100 条、每页 20 条并按相关度及稳定 ID 排序；默认值和性能范围须经中心能力与试测确认。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "总目录/3.6 默认值与未决条件"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-006"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-012",
+      "type": "MUST",
+      "statement": "文字、读音、含义和图形评分或等级分开；组合权重、缺失维度和分值映射版本化，未执行维度显示未分析而非零。",
+      "sourceAnchors": [
+        "4. 评分规则"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-007"
+      ]
+    },
+    {
+      "id": "CON-05-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "无可靠标定不得编造 0—100 分、精确概率或用模型自评分替代检索指标和专家评测。",
+      "sourceAnchors": [
+        "4. 评分规则",
+        "总目录/3.5 评分及专业意见"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-007",
+        "CON-05-AC-009"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-013",
+      "type": "MUST",
+      "statement": "异步服务覆盖图样上传、输入解析、创建任务、查询结果和取消，并遵守排队、处理中、成功、部分成功、失败、取消及幂等恢复规则。",
+      "sourceAnchors": [
+        "6. 服务契约",
+        "总目录/3.3 异步任务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-008"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-014",
+      "type": "MUST",
+      "statement": "无效上传、维度不可用、分类缺失、权限、限流、超时、源故障和无结果返回不同错误或状态及追踪号。",
+      "sourceAnchors": [
+        "5. 内部验证页面",
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-008"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-016",
+      "type": "MUST",
+      "statement": "选定候选和目标原始/确认输入、分类、范围、检索维度、评分版本及来源快照完整传递给 CON-07。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-012"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-018",
+      "type": "MUST",
+      "statement": "使用中心参与标注的固定样本分别评估文字和图形 Recall@K，记录分母失败、数据、分类、检索、评分与模型版本，阈值试测后确认。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-009",
+        "CON-05-AC-014"
+      ]
+    },
+    {
+      "id": "CON-05-MUST-019",
+      "type": "MUST",
+      "statement": "图样授权、分类版本、跨类规则、图像能力、缓存权限、并发性能和国产环境未确认时对应能力保持待补齐，不升级为真实验收。",
+      "sourceAnchors": [
+        "8. 依赖与交付",
+        "总目录/7. 评审状态记录"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-AC-014"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "target",
+      "required": true,
+      "rules": [
+        "文字、受控原图或组合；原始值与确认标准化值分开"
+      ]
+    },
+    {
+      "name": "classification",
+      "required": true,
+      "rules": [
+        "至少确认类别和商品服务项目，类似群及版本可待确认"
+      ]
+    },
+    {
+      "name": "dimensions",
+      "required": true,
+      "rules": [
+        "仅选择实际可用的文字、读音、含义、图形或组合"
+      ]
+    },
+    {
+      "name": "scope",
+      "required": true,
+      "rules": [
+        "类别、跨类、状态、地域和数据源范围明确"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定用户调用方、固定输入和操作"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "inputPreview",
+      "fields": [
+        "originalText",
+        "normalizedText",
+        "originalImageRef",
+        "recognizedElements",
+        "pronunciationCandidates",
+        "classificationSuggestions",
+        "confirmationState"
+      ]
+    },
+    {
+      "name": "searchTask",
+      "fields": [
+        "taskId",
+        "status",
+        "requestId",
+        "inputManifest",
+        "actualScope",
+        "failedDimensions"
+      ]
+    },
+    {
+      "name": "candidate",
+      "fields": [
+        "sourceId",
+        "trademarkId",
+        "registrationNumber",
+        "name",
+        "imageRef",
+        "classes",
+        "items",
+        "sourceStatus",
+        "sourceUpdatedAt",
+        "dimensionScoresOrLabels",
+        "rankingVersion",
+        "matchReasons"
+      ]
+    },
+    {
+      "name": "handoffSnapshot",
+      "fields": [
+        "targetSnapshot",
+        "selectedCandidates",
+        "classification",
+        "scope",
+        "dimensions",
+        "sourceVersions",
+        "scoreVersion"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "upload_or_parse",
+      "enforcement": "用户身份、文件访问、模型通道和数据出域权限"
+    },
+    {
+      "action": "search",
+      "enforcement": "检索前过滤商标数据源、图样、类别地域和状态范围"
+    },
+    {
+      "action": "read_candidate_or_task",
+      "enforcement": "当前商标、图样、历史任务和来源权限"
+    },
+    {
+      "action": "handoff_to_comparison",
+      "enforcement": "目标及候选仍可访问且由调用方明确选择"
+    }
+  ],
+  "states": [
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "列出未完成维度、来源和覆盖"
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "未分析",
+      "kind": "dimension",
+      "allowedNext": [
+        "已分析",
+        "不可用"
+      ]
+    },
+    {
+      "name": "已分析",
+      "kind": "dimension",
+      "allowedNext": []
+    },
+    {
+      "name": "不可用",
+      "kind": "dimension",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "目标原始文字原图、标准化和人工确认值分开保存。",
+    "固定分类版本、检索范围、数据源、候选、评分组合、模型和任务版本。",
+    "各维度是否执行及评分分别保存，未分析不等于零。",
+    "实际范围、有限候选、截断和失败维度显式披露。",
+    "选定候选向下游传递固定源版本和输入快照。",
+    "模拟图像检索、数据、DM8 和真实评测证据隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "classification_or_item_missing",
+      "result": "返回补充要求，不猜测类别项目"
+    },
+    {
+      "case": "invalid_or_unauthorized_image",
+      "result": "拒绝上传或访问且不泄露文件"
+    },
+    {
+      "case": "requested_dimension_unavailable",
+      "result": "明确不可用，可继续其他维度并标部分成功"
+    },
+    {
+      "case": "source_failure_or_limit",
+      "result": "返回失败来源和实际覆盖，不伪装无结果"
+    },
+    {
+      "case": "no_result",
+      "result": "仅说明确认范围内无候选，不输出注册结论"
+    },
+    {
+      "case": "score_mapping_unavailable",
+      "result": "返回稳定排序和标签，不编造数值"
+    },
+    {
+      "case": "permission_revoked",
+      "result": "阻止候选图样历史任务和下游快照读取"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "CON-05-DEC-001",
+      "owner": "AI",
+      "description": "可建议文字标准化、读音含义、OCR 元素和候选解释；不得修改原图、猜分类、伪造维度分数或给出注册法律结论。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "4. 评分规则"
+      ]
+    },
+    {
+      "id": "CON-05-DEC-002",
+      "owner": "RULE",
+      "description": "执行文件校验、权限、分类范围、状态过滤、任务幂等、去重排序、维度组合和评分映射版本。",
+      "sourceAnchors": [
+        "3. 检索流程与规则",
+        "4. 评分规则",
+        "6. 服务契约"
+      ]
+    },
+    {
+      "id": "CON-05-DEC-003",
+      "owner": "HUMAN",
+      "description": "用户确认文字图像解析、类别项目、类似群、范围维度并选择候选；专家确认样本和阈值。",
+      "sourceAnchors": [
+        "2. 输入输出字段",
+        "3. 检索流程与规则",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "CON-05-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供授权商标数据、分类字典、文字图形检索能力、状态和权限范围。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-05-AC-001",
+      "given": [
+        "确认文字图形组合和商品服务范围"
+      ],
+      "when": "创建检索",
+      "then": [
+        "从授权数据召回",
+        "固定输入可传下游",
+        "相关度不成为法律或注册结论"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST-001",
+        "CON-05-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "CON-05-AC-002",
+      "given": [
+        "文字、图形、组合输入和未配置图形能力"
+      ],
+      "when": "选择检索维度",
+      "then": [
+        "各能力分别执行和标记",
+        "OCR 不冒充图形检索",
+        "不返回伪图形分数"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST-002",
+        "CON-05-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "CON-05-AC-003",
+      "given": [
+        "多音字、含义歧义、OCR 元素和原图"
+      ],
+      "when": "预览并确认输入",
+      "then": [
+        "原始与标准化分开",
+        "用户可修正建议",
+        "模型不猜项目或覆盖原始值"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST-003",
+        "CON-05-MUST-004",
+        "CON-05-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "CON-05-AC-004",
+      "given": [
+        "项目不明、同类不类似、跨类和状态过滤场景"
+      ],
+      "when": "确认范围",
+      "then": [
+        "缺项需补充",
+        "跨类依据范围可见",
+        "状态不被静默排除"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST_NOT-003",
+        "CON-05-MUST-005",
+        "CON-05-MUST-006",
+        "CON-05-MUST-007"
+      ]
+    },
+    {
+      "id": "CON-05-AC-005",
+      "given": [
+        "有效、伪装类型、超限、损坏和 EXIF 图样及越权读取"
+      ],
+      "when": "上传处理图样",
+      "then": [
+        "后端验证真实内容",
+        "原图方向和快照可核对",
+        "无权访问被阻止"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST-008",
+        "CON-05-MUST-009"
+      ]
+    },
+    {
+      "id": "CON-05-AC-006",
+      "given": [
+        "全库能力、有限候选和上游截断"
+      ],
+      "when": "召回排序",
+      "then": [
+        "实际范围数量和截断披露",
+        "有限重排不冒充全库",
+        "分页排序稳定"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST-010",
+        "CON-05-MUST_NOT-004",
+        "CON-05-MUST-011"
+      ]
+    },
+    {
+      "id": "CON-05-AC-007",
+      "given": [
+        "缺失维度、未标定评分、无结果和源失败"
+      ],
+      "when": "返回结果",
+      "then": [
+        "未分析不记零",
+        "只返回可靠标签排序",
+        "无结果不输出可注册且失败不伪装无结果"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST_NOT-001",
+        "CON-05-MUST_NOT-004",
+        "CON-05-MUST-012",
+        "CON-05-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "CON-05-AC-008",
+      "given": [
+        "重复请求、取消、限流、超时和部分维度失败"
+      ],
+      "when": "调用异步服务",
+      "then": [
+        "幂等任务和状态准确",
+        "迟到结果不恢复取消",
+        "错误和 request_id 可区分"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST-013",
+        "CON-05-MUST-014"
+      ]
+    },
+    {
+      "id": "CON-05-AC-009",
+      "given": [
+        "冻结专家文字和图形标注集"
+      ],
+      "when": "分别评测召回",
+      "then": [
+        "Recall@K 含分母失败和版本",
+        "阈值试测确认",
+        "模型自评分不冒充指标"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST_NOT-005",
+        "CON-05-MUST-018"
+      ]
+    },
+    {
+      "id": "CON-05-AC-010",
+      "given": [
+        "图样、历史任务和权限撤回"
+      ],
+      "when": "查询候选或历史",
+      "then": [
+        "后端实时鉴权",
+        "缓存文件和历史不泄露"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST-009"
+      ]
+    },
+    {
+      "id": "CON-05-AC-012",
+      "given": [
+        "已选择候选和目标输入"
+      ],
+      "when": "交给 CON-07",
+      "then": [
+        "所有原始确认输入、候选源版本、范围维度和评分版本完整固定"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST-016"
+      ]
+    },
+    {
+      "id": "CON-05-AC-014",
+      "given": [
+        "图样分类规则能力环境仍未确认"
+      ],
+      "when": "检查验收状态",
+      "then": [
+        "受影响场景保持待补齐",
+        "固定版本和预期实际问题记录完整"
+      ],
+      "sourceClauseIds": [
+        "CON-05-MUST-018",
+        "CON-05-MUST-019"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CON-05-OQ-001",
+      "type": "search_capability",
+      "question": "中心文字、读音、含义、图形和组合检索的覆盖、候选规模、筛选、排序、分页及接口是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-11",
+        "真实检索"
+      ]
+    },
+    {
+      "id": "CON-05-OQ-002",
+      "type": "business_semantics",
+      "question": "分类类似群版本、商品服务项目、跨类别扩展、状态范围及组合权重规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "检索范围和评分设计"
+      ]
+    },
+    {
+      "id": "CON-05-OQ-003",
+      "type": "authorization",
+      "question": "商标图样、上传文件、缓存索引、模型处理、历史任务的授权与保留规则是什么？",
+      "blocks": [
+        "ARC-06",
+        "ARC-10",
+        "文件和数据设计"
+      ]
+    },
+    {
+      "id": "CON-05-OQ-004",
+      "type": "acceptance_data",
+      "question": "文字和图形专家标注集、各维度预期、Recall@K 与性能阈值如何冻结？",
+      "blocks": [
+        "SPK-10",
+        "SPK-16",
+        "效果验收"
+      ]
+    },
+    {
+      "id": "CON-05-OQ-005",
+      "type": "environment",
+      "question": "DM8、文件存储、图像检索、模型和国产环境实际组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "SPK-11"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "CON-05-DD-001",
+      "decision": "Search 能力拥有任务和候选，Trademark Knowledge 提供源数据，File 管理受控原图，CON-07 消费固定快照；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-05-DD-002",
+      "decision": "维度可用性、执行状态和评分分别表示，图形失败可形成部分成功但不能生成替代分值。",
+      "basis": "原文要求不同能力、未分析和部分失败显式区分。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-05-DD-003",
+      "decision": "具体 REST 路径、文件限制最终值、检索产品、评分权重、阈值和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心能力、分类规则、授权、样本和环境尚未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Text, pronunciation, meaning, image and combined retrieval remain distinct capabilities; OCR does not satisfy image retrieval.",
+      "Retrieval relevance, expert recall, legal similarity and registration probability remain distinct measures and conclusions.",
+      "No classification rule, cross-class scope, search engine, weight, score mapping, authorization, threshold or environment was guessed."
+    ]
+  }
+}

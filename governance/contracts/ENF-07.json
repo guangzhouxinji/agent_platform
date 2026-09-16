@@ -1,0 +1,792 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-07",
+  "title": "违法证据链自动整理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/07-违法证据链自动整理需求文档.md",
+    "sha256": "c56b75e81bdd5bfbda9b024736b2cc7fb8d8d3ef4c27217104ef53adfd861667",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope_and_delivery"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "source_and_dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "chain_rules"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付口径",
+        "1.1 已确认的国产化与数据库要求",
+        "3. 通用接口约定",
+        "4. 信息字段说明",
+        "5. 审核与版本通用要求",
+        "6. 内部前端通用要求",
+        "7. API 与业务材料依赖清单",
+        "9. 验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-07-MUST-001",
+      "type": "MUST",
+      "statement": "按已发布规则整理证据与待证明事实的关联、时间线、缺口和矛盾清单，形成供人工审核的版本化结果。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-001",
+        "ENF-07-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "自动整理结果不得表述为完整有效证据链、事实已获证明或正式执法结论。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-003",
+      "type": "MUST",
+      "statement": "整理仅使用有权读取的固定案件快照、证据版本集合和规则版本，并在任务前校验编号、关联、版本和权限。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-001",
+        "ENF-07-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "来源、案件事实、证据内容、规则版本和缺失信息不得由模型生成、替换或补造。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "总览/4. 信息字段说明"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-004",
+        "ENF-07-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-005",
+      "type": "MUST",
+      "statement": "每个待证明事项分别记录支持、反对或冲突的证据关系及理由，并保留无支持材料的未证实状态。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-002",
+        "ENF-07-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-006",
+      "type": "MUST",
+      "statement": "时间线区分事实发生时间、证据收集时间和上传时间，保留原始时间表达和标准化结果。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "未知时间不得补造，不同时间语义不得互相替代或合并为一个时间。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-007",
+      "type": "MUST",
+      "statement": "每条事实或关系指向具体证据编号、固定版本以及页码、文本片段、字段路径或音视频时间点。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-008",
+      "type": "MUST",
+      "statement": "相互矛盾材料同时保留，分别展示来源、版本、冲突位置和待人工核验状态。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "模型不得静默选择一份矛盾材料、消除冲突或把推断写成已确认事实。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-009",
+      "type": "MUST",
+      "statement": "材料不足时仍返回有依据的部分结果、逐项缺口和未处理材料，完整性状态只能为存在缺口、存在冲突或待人工核验等实际状态。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "部分结果、不可解析材料或源失败不得伪装为完整成功、无证据或事项已证实。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-004",
+        "ENF-07-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-010",
+      "type": "MUST",
+      "statement": "审核状态为待审核、已确认和退回；授权人员可修订事实证据关系并提交、确认或退回，保留前后值、理由、人员和时间。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-011",
+      "type": "MUST",
+      "statement": "证据或规则版本变化后旧结果标记需复核；重跑生成新机器版本，不覆盖人工修订、审核记录或历史引用。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-005",
+        "ENF-07-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-012",
+      "type": "MUST",
+      "statement": "证据被排除后，旧结果保留且标记需复核，新结果不得继续把该版本作为有效支持。",
+      "sourceAnchors": [
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-017",
+      "type": "MUST",
+      "statement": "音视频只使用有来源的转写或可定位时间点；不支持格式或转写不可用时列入未处理材料。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "不可解析的音视频不得由模型臆测内容或从结果中静默排除。",
+      "sourceAnchors": [
+        "8. 联调前需确认的条件",
+        "总览/7. API 与业务材料依赖清单"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST-018",
+      "type": "MUST",
+      "statement": "效果验收使用中心确认的案件、证据、规则和期望关系，记录来源定位、缺口、冲突、输入与模型版本和人工复核结果。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-07-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "模型自评分、模拟材料或静态页面不得替代专家标注的业务验收和真实服务验证。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件",
+        "总览/6. 内部前端通用要求",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-07-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "caseReference",
+      "required": true,
+      "rules": [
+        "中心案件稳定编号和固定快照版本"
+      ]
+    },
+    {
+      "name": "evidenceVersions",
+      "required": true,
+      "rules": [
+        "有权读取的具体证据版本集合"
+      ]
+    },
+    {
+      "name": "ruleVersion",
+      "required": true,
+      "rules": [
+        "已发布且适用的固定证据链规则版本"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定主体、操作和完整输入"
+      ]
+    },
+    {
+      "name": "humanRevision",
+      "required": "修订或审核时",
+      "rules": [
+        "预期结果版本、前后关系、理由和可信身份"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "chainTask",
+      "fields": [
+        "taskId",
+        "status",
+        "requestId",
+        "inputVersion",
+        "ruleVersion",
+        "attempts",
+        "unprocessedItems"
+      ]
+    },
+    {
+      "name": "factEvidenceRelation",
+      "fields": [
+        "factId",
+        "factStatus",
+        "evidenceId",
+        "evidenceVersion",
+        "relationType",
+        "reason",
+        "sourceAnchor"
+      ]
+    },
+    {
+      "name": "timelineItem",
+      "fields": [
+        "timeKind",
+        "rawTime",
+        "normalizedTime",
+        "sourceAnchor",
+        "unknownReason"
+      ]
+    },
+    {
+      "name": "chainResult",
+      "fields": [
+        "chainId",
+        "version",
+        "gaps",
+        "conflicts",
+        "completenessStatus",
+        "reviewStatus",
+        "needsReview"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "submit_chain_task",
+      "enforcement": "校验机构、案件、全部证据和规则版本权限"
+    },
+    {
+      "action": "read_chain_or_source",
+      "enforcement": "每次读取重新检查案件、证据及原件权限"
+    },
+    {
+      "action": "revise_relations",
+      "enforcement": "授权业务人员和预期版本校验"
+    },
+    {
+      "action": "confirm_or_return",
+      "enforcement": "中心授权审核角色，模型和 Agent 不得执行"
+    }
+  ],
+  "states": [
+    {
+      "name": "queued",
+      "kind": "task",
+      "allowedNext": [
+        "running",
+        "failed",
+        "cancelled"
+      ]
+    },
+    {
+      "name": "running",
+      "kind": "task",
+      "allowedNext": [
+        "succeeded",
+        "partial_failed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    {
+      "name": "succeeded",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "partial_failed",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "列出未处理材料或步骤"
+    },
+    {
+      "name": "failed",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "cancelled",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "待审核",
+      "kind": "review",
+      "allowedNext": [
+        "已确认",
+        "退回"
+      ]
+    },
+    {
+      "name": "退回",
+      "kind": "review",
+      "allowedNext": [
+        "待审核"
+      ],
+      "invariant": "重新提交产生新版本"
+    },
+    {
+      "name": "已确认",
+      "kind": "review",
+      "allowedNext": [],
+      "invariant": "重跑不得覆盖"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "任务固定案件快照、证据版本集合、规则、模型和解析版本。",
+    "每个事实关系和时间节点引用具体证据版本与稳定位置。",
+    "支持、反对、冲突、缺口和未处理材料分别记录，不能互相覆盖。",
+    "人工修订形成可追溯新版本，保留机器原始输出。",
+    "证据排除、撤回或规则变化使历史结果标记需复核，不重写历史。",
+    "模拟、转写及真实来源证据分别标记并隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "case_or_evidence_unauthorized",
+      "result": "拒绝任务或读取且不泄露材料"
+    },
+    {
+      "case": "source_missing_or_unavailable",
+      "result": "记录缺口或失败，不表示无证据"
+    },
+    {
+      "case": "unsupported_media",
+      "result": "列入未处理材料并保留文件引用"
+    },
+    {
+      "case": "rule_not_applicable",
+      "result": "明确返回不适用，不执行猜测整理"
+    },
+    {
+      "case": "partial_chain",
+      "result": "返回有依据部分、缺口、冲突和未处理项"
+    },
+    {
+      "case": "version_or_state_conflict",
+      "result": "拒绝覆盖并返回当前版本或状态"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-07-DEC-001",
+      "owner": "AI",
+      "description": "提出事实证据关联、时间候选、缺口和冲突候选；不得补造材料、消除冲突或确认完整有效证据链。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-07-DEC-002",
+      "owner": "RULE",
+      "description": "执行输入版本、权限、证据状态、已发布规则、来源定位、任务和审核状态及需复核传播。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-07-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权人员修订关系、核实矛盾与缺口、确认或退回；中心人员确认待证明事项和验收预期。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "ENF-07-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心案件、证据和权限系统提供真实快照、证据状态、来源及可访问范围。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-07-AC-001",
+      "given": [
+        "固定案件、证据集合和已发布规则"
+      ],
+      "when": "提交整理任务",
+      "then": [
+        "输入版本与身份锁定",
+        "结果和任务可追踪",
+        "仅使用有权材料"
+      ],
+      "sourceClauseIds": [
+        "ENF-07-MUST-001",
+        "ENF-07-MUST-003"
+      ]
+    },
+    {
+      "id": "ENF-07-AC-002",
+      "given": [
+        "支持、反对和相互矛盾的证据"
+      ],
+      "when": "整理事实关系",
+      "then": [
+        "全部材料及冲突保留",
+        "每个事实可跳转固定证据位置",
+        "模型不静默裁决冲突"
+      ],
+      "sourceClauseIds": [
+        "ENF-07-MUST-005",
+        "ENF-07-MUST-007",
+        "ENF-07-MUST-008",
+        "ENF-07-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ENF-07-AC-003",
+      "given": [
+        "事实、收集、上传时间不同且部分未知的材料"
+      ],
+      "when": "生成时间线",
+      "then": [
+        "三类时间分开",
+        "原始与标准化值可追溯",
+        "未知不补造"
+      ],
+      "sourceClauseIds": [
+        "ENF-07-MUST-006",
+        "ENF-07-MUST_NOT-004"
+      ]
+    },
+    {
+      "id": "ENF-07-AC-004",
+      "given": [
+        "缺少核心材料和无支持材料的事项"
+      ],
+      "when": "生成结果",
+      "then": [
+        "返回部分结果、未证实事项和缺口",
+        "不补造来源",
+        "不表述为完整证据链或完整成功"
+      ],
+      "sourceClauseIds": [
+        "ENF-07-MUST_NOT-001",
+        "ENF-07-MUST_NOT-003",
+        "ENF-07-MUST-005",
+        "ENF-07-MUST-009",
+        "ENF-07-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ENF-07-AC-005",
+      "given": [
+        "旧报告引用随后被排除的证据"
+      ],
+      "when": "查看旧报告并重新整理",
+      "then": [
+        "旧报告标记需复核",
+        "新报告不把排除证据作为有效支持",
+        "历史仍可审计"
+      ],
+      "sourceClauseIds": [
+        "ENF-07-MUST-011",
+        "ENF-07-MUST-012"
+      ]
+    },
+    {
+      "id": "ENF-07-AC-006",
+      "given": [
+        "待审核机器结果"
+      ],
+      "when": "授权人员修订、确认或退回",
+      "then": [
+        "状态转换合法",
+        "前后关系、理由、人员和时间完整",
+        "自动结果不成为正式结论"
+      ],
+      "sourceClauseIds": [
+        "ENF-07-MUST-001",
+        "ENF-07-MUST-010"
+      ]
+    },
+    {
+      "id": "ENF-07-AC-007",
+      "given": [
+        "已有人工作业和审核记录的结果"
+      ],
+      "when": "证据或规则更新后重跑",
+      "then": [
+        "生成新版本",
+        "旧人工修订、审核和引用不被覆盖",
+        "受影响结果提示需复核"
+      ],
+      "sourceClauseIds": [
+        "ENF-07-MUST-011"
+      ]
+    },
+    {
+      "id": "ENF-07-AC-008",
+      "given": [
+        "无权限、源失败、解析失败、规则不适用和部分失败"
+      ],
+      "when": "调用任务和详情服务",
+      "then": [
+        "错误和 request_id 可区分",
+        "未处理项完整",
+        "失败不伪装无证据或成功"
+      ],
+      "sourceClauseIds": [
+        "ENF-07-MUST-003",
+        "ENF-07-MUST_NOT-003",
+        "ENF-07-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ENF-07-AC-010",
+      "given": [
+        "支持和不支持的音视频格式及有无转写来源"
+      ],
+      "when": "整理材料",
+      "then": [
+        "可用内容引用真实转写或时间点",
+        "不可解析内容列未处理",
+        "不臆测或静默排除"
+      ],
+      "sourceClauseIds": [
+        "ENF-07-MUST-017",
+        "ENF-07-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ENF-07-AC-011",
+      "given": [
+        "中心确认的独立案件样例"
+      ],
+      "when": "评测固定版本",
+      "then": [
+        "关系、位置、缺口、冲突和人工复核均有记录",
+        "模型自评分和模拟材料不替代验收"
+      ],
+      "sourceClauseIds": [
+        "ENF-07-MUST-018",
+        "ENF-07-MUST_NOT-008"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-07-DD-001",
+      "decision": "证据链结果与审核归属 Enforcement；共享 Evidence/SourceSnapshot/Citation/Review 保存位置、版本和人工动作；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-07-DD-002",
+      "decision": "具体 REST 路径、关系类型字典、图结构、转写组件和 DM8 表型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "原文未指定且转写能力待确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-07-OQ-001",
+      "type": "business_semantics",
+      "question": "中心确认的待证明事项、支持/反对/冲突关系、完整性状态和审核标准是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "证据链规则"
+      ]
+    },
+    {
+      "id": "ENF-07-OQ-002",
+      "type": "dependency",
+      "question": "ENF-06 的已发布规则结构、适用条件和版本契约是什么？",
+      "blocks": [
+        "ARC-09",
+        "整理实现"
+      ]
+    },
+    {
+      "id": "ENF-07-OQ-003",
+      "type": "media_capability",
+      "question": "音视频支持格式、转写来源、时间点映射、质量状态和不可解析处理能力是什么？",
+      "blocks": [
+        "SPK-14",
+        "音视频证据验收"
+      ]
+    },
+    {
+      "id": "ENF-07-OQ-004",
+      "type": "authorization",
+      "question": "发起、查看、修订、提交、确认和退回分别由哪些案件角色执行？",
+      "blocks": [
+        "ARC-06",
+        "正式审核设计"
+      ]
+    },
+    {
+      "id": "ENF-07-OQ-005",
+      "type": "acceptance_data",
+      "question": "包含缺口、冲突、排除和音视频的中心专家样例如何标注并冻结？",
+      "blocks": [
+        "SPK-09",
+        "效果验收"
+      ]
+    },
+    {
+      "id": "ENF-07-OQ-006",
+      "type": "environment",
+      "question": "DM8、文件存储、转写组件、JDK/驱动及国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "SPK-14",
+        "真实验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "The chain remains a reviewable relation draft; evidence gaps and contradictions cannot be silently resolved by AI.",
+      "Fact occurrence, evidence collection and upload time remain separate, and every assertion requires a versioned source location.",
+      "No relation taxonomy, completeness rule, review role, media format, transcription product or graph implementation was guessed."
+    ]
+  }
+}

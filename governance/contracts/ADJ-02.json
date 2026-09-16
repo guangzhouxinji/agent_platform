@@ -1,0 +1,620 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-02",
+  "title": "条文解析",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/02-条文解析需求文档.md",
+    "sha256": "427bcb14a59d7e69f8343e92582af959ed2e8aeb190010b84c49e8be7ae87378",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与既有规则",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 字段与关联",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 功能与审核流程",
+        "purpose": "workflow"
+      },
+      {
+        "anchor": "4. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "5. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 国产化与 DM8 要求",
+        "purpose": "environment"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 总体范围与交付边界",
+        "2. 统一数据与来源原则",
+        "3. AI、规则与人工边界",
+        "4. 服务、任务、审核与错误约定",
+        "5. 国产化、DM8 与验证"
+      ]
+    },
+    {
+      "path": "requirements/知识产权咨询助手/条文解析管理需求文档.md",
+      "sha256": "83be8c0ac243906c6b54ef4e6e3265a8495ae237b5ad8e8b70f4dad351ef88c3",
+      "sections": [
+        "1. 功能概述",
+        "2. 数据来源与导入",
+        "3. 条文解析信息管理",
+        "4. 条文解析列表",
+        "5. 条文解析审核",
+        "6. 验收要求"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-02-MUST-001",
+      "type": "MUST",
+      "statement": "统一承接既有条文解析的一次性结构化导入、解析适配器接收、维护、完整列表和独立审核，不重复建设另一套来源库。",
+      "sourceAnchors": [
+        "1. 功能概述与既有规则",
+        "既有/1. 功能概述",
+        "既有/2. 数据来源与导入"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "只有导入页面不得宣称端到端智能解析已验证，法规更新也不得默认自动重算。",
+      "sourceAnchors": [
+        "1. 功能概述与既有规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST-002",
+      "type": "MUST",
+      "statement": "解析唯一关联法规稳定编号、具体法规版本、条文 ID/条号及原文摘要；名称仅辅助定位，不一致、歧义或案例不存在逐项报错。",
+      "sourceAnchors": [
+        "2. 字段与关联",
+        "3. 功能与审核流程",
+        "既有/2.2 导入校验"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST-003",
+      "type": "MUST",
+      "statement": "原文快照与解析、核心含义、范围、要件、例外、场景和案例分开；机器和人员、解析和导入时间分开记录，未涉及内容不编造。",
+      "sourceAnchors": [
+        "2. 字段与关联"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST-004",
+      "type": "MUST",
+      "statement": "新导入和外部结果默认待审核；外部已审核标志不得冒用本系统审核身份，审核人和时间仅由真实审核动作产生。",
+      "sourceAnchors": [
+        "3. 功能与审核流程",
+        "既有/5. 条文解析审核"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST-005",
+      "type": "MUST",
+      "statement": "通过、驳回、退回修改及重提完整留痕，驳回和退回必填原因；普通编辑不能直接填写已审核，修改已审核内容生成新版本并重审。",
+      "sourceAnchors": [
+        "3. 功能与审核流程",
+        "既有/5. 条文解析审核"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST-006",
+      "type": "MUST",
+      "statement": "仅已审核且来源版本有效的解析可作为已校核知识；草稿、待复核、驳回和来源变化结果只供授权内部查看。",
+      "sourceAnchors": [
+        "3. 功能与审核流程"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "同条文不同版本、已审核解析或原始生成结果不得被重复导入、普通编辑或法规变化破坏性覆盖。",
+      "sourceAnchors": [
+        "3. 功能与审核流程",
+        "既有/3.2 信息维护"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST-007",
+      "type": "MUST",
+      "statement": "法规正文变化使受影响解析标为来源已变更/待复核，旧版保留；新解析通过新任务或导入产生。",
+      "sourceAnchors": [
+        "3. 功能与审核流程",
+        "既有/3.2 信息维护"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST-008",
+      "type": "MUST",
+      "statement": "列表与独立审核页完整展示原文、解析、场景、案例和审核信息，支持规定检索筛选排序分页、版本比较和适配器进度。",
+      "sourceAnchors": [
+        "4. 内部验证页面",
+        "既有/4. 条文解析列表",
+        "既有/5. 条文解析审核"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "外部解析失败、事实缺失或依赖不可用不得写成解析成功，也不得由模型推测补齐必填。",
+      "sourceAnchors": [
+        "前言",
+        "5. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-02-MUST-011",
+      "type": "MUST",
+      "statement": "中心确认外部通道、输出结构、模型版本、审核口径和专家样本，未确认项不得升级相应验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-008"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "structuredImport",
+      "required": "导入模式",
+      "rules": [
+        "批次、法规条文版本、原文摘要、结构化解析和幂等键"
+      ]
+    },
+    {
+      "name": "parseRequest",
+      "required": "适配器模式",
+      "rules": [
+        "固定条文版本和解析配置"
+      ]
+    },
+    {
+      "name": "reviewAction",
+      "required": "审核时",
+      "rules": [
+        "解析版本、通过驳回退回、意见和可信身份"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "analysisVersion",
+      "fields": [
+        "analysisId",
+        "version",
+        "regulationVersion",
+        "articleId",
+        "originalSnapshot",
+        "meaning",
+        "scope",
+        "elements",
+        "exceptions",
+        "scenarios",
+        "cases",
+        "executor",
+        "reviewStatus",
+        "sourceStatus"
+      ]
+    },
+    {
+      "name": "importOrParseTask",
+      "fields": [
+        "taskId",
+        "status",
+        "successCount",
+        "failureCount",
+        "itemErrors",
+        "requestId"
+      ]
+    },
+    {
+      "name": "reviewEvent",
+      "fields": [
+        "analysisVersion",
+        "action",
+        "reviewer",
+        "reviewTime",
+        "opinion"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "import_or_parse",
+      "enforcement": "法规版本、解析适配器和机构权限"
+    },
+    {
+      "action": "edit_or_submit",
+      "enforcement": "维护角色和当前草稿版本"
+    },
+    {
+      "action": "review",
+      "enforcement": "独立审核角色、状态和机构范围"
+    },
+    {
+      "action": "consume",
+      "enforcement": "仅已审核有效版本或授权内部状态"
+    }
+  ],
+  "states": [
+    {
+      "name": "待审核",
+      "kind": "review",
+      "allowedNext": [
+        "已审核",
+        "驳回",
+        "退回修改"
+      ]
+    },
+    {
+      "name": "已审核",
+      "kind": "review",
+      "allowedNext": [
+        "来源已变更"
+      ],
+      "invariant": "修改产生新版本"
+    },
+    {
+      "name": "驳回",
+      "kind": "review",
+      "allowedNext": []
+    },
+    {
+      "name": "退回修改",
+      "kind": "review",
+      "allowedNext": [
+        "待审核"
+      ]
+    },
+    {
+      "name": "来源已变更",
+      "kind": "review",
+      "allowedNext": [],
+      "invariant": "旧版可追溯但非当前已校核知识"
+    },
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "原文、外部生成、人工修订和审核版本分层保存。",
+    "法规条文稳定 ID 与版本是关联主键，名称不是唯一依据。",
+    "已审核版本不可覆盖，来源变化只标待复核。",
+    "任务状态、解析状态和审核状态分离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "ambiguous_or_mismatched_article",
+      "result": "逐项失败并返回法规版本条号摘要差异"
+    },
+    {
+      "case": "external_parser_failure",
+      "result": "任务失败或部分成功，不写解析成功"
+    },
+    {
+      "case": "duplicate_import",
+      "result": "按确认策略跳过或新修订，仅未审核草稿可更新"
+    },
+    {
+      "case": "source_changed",
+      "result": "标待复核并保留旧版"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露未授权原文解析"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-02-DEC-001",
+      "owner": "AI",
+      "description": "外部解析可生成候选解释结构，但不能确认法律含义、审核或适用。",
+      "sourceAnchors": [
+        "1. 功能概述与既有规则",
+        "3. 功能与审核流程"
+      ]
+    },
+    {
+      "id": "ADJ-02-DEC-002",
+      "owner": "RULE",
+      "description": "校验法规条文版本、字段、状态、权限、幂等和来源变化。",
+      "sourceAnchors": [
+        "3. 功能与审核流程",
+        "5. 服务契约"
+      ]
+    },
+    {
+      "id": "ADJ-02-DEC-003",
+      "owner": "HUMAN",
+      "description": "维护并审核解析，确认专业样本预期。",
+      "sourceAnchors": [
+        "3. 功能与审核流程",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "ADJ-02-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "提供法规原文版本、案例资源和外部解析通道。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-02-AC-001",
+      "given": [
+        "导入和适配器模式"
+      ],
+      "when": "接收解析",
+      "then": [
+        "统一格式和来源",
+        "不把页面冒充智能解析"
+      ],
+      "sourceClauseIds": [
+        "ADJ-02-MUST-001",
+        "ADJ-02-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ADJ-02-AC-002",
+      "given": [
+        "版本歧义、内容不一致和可选字段"
+      ],
+      "when": "导入",
+      "then": [
+        "准确关联或逐项失败",
+        "未涉及不编造"
+      ],
+      "sourceClauseIds": [
+        "ADJ-02-MUST-002",
+        "ADJ-02-MUST-003"
+      ]
+    },
+    {
+      "id": "ADJ-02-AC-003",
+      "given": [
+        "外部已审核标志"
+      ],
+      "when": "导入审核修改",
+      "then": [
+        "默认待审核",
+        "真实动作和重审留痕"
+      ],
+      "sourceClauseIds": [
+        "ADJ-02-MUST-004",
+        "ADJ-02-MUST-005"
+      ]
+    },
+    {
+      "id": "ADJ-02-AC-004",
+      "given": [
+        "已审核解析和法规变化"
+      ],
+      "when": "更新",
+      "then": [
+        "旧版不覆盖",
+        "待复核不作为当前知识"
+      ],
+      "sourceClauseIds": [
+        "ADJ-02-MUST-006",
+        "ADJ-02-MUST_NOT-002",
+        "ADJ-02-MUST-007"
+      ]
+    },
+    {
+      "id": "ADJ-02-AC-005",
+      "given": [
+        "长内容场景案例"
+      ],
+      "when": "查询列表审核页",
+      "then": [
+        "完整内容可见",
+        "筛选排序一致"
+      ],
+      "sourceClauseIds": [
+        "ADJ-02-MUST-008"
+      ]
+    },
+    {
+      "id": "ADJ-02-AC-006",
+      "given": [
+        "外部失败和部分批次"
+      ],
+      "when": "调用服务",
+      "then": [
+        "任务审核分离",
+        "失败不写成功"
+      ],
+      "sourceClauseIds": [
+        "ADJ-02-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ADJ-02-AC-008",
+      "given": [
+        "中心专家样本"
+      ],
+      "when": "业务验收",
+      "then": [
+        "含义要件定位预期实际齐全",
+        "未确认不标通过"
+      ],
+      "sourceClauseIds": [
+        "ADJ-02-MUST-011"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-02-OQ-001",
+      "type": "integration",
+      "question": "实际外部解析通道、输出结构、幂等和故障协议是什么？",
+      "blocks": [
+        "ARC-09",
+        "解析实现"
+      ]
+    },
+    {
+      "id": "ADJ-02-OQ-002",
+      "type": "business_semantics",
+      "question": "中心审核口径、重复导入策略和来源变化处置是什么？",
+      "blocks": [
+        "ARC-04"
+      ]
+    },
+    {
+      "id": "ADJ-02-OQ-003",
+      "type": "authorization",
+      "question": "导入维护提交审核消费各角色是什么？",
+      "blocks": [
+        "ARC-06"
+      ]
+    },
+    {
+      "id": "ADJ-02-OQ-004",
+      "type": "model",
+      "question": "批准模型程序版本、数据处理范围和专家基准是什么？",
+      "blocks": [
+        "ARC-07",
+        "SPK-07"
+      ]
+    },
+    {
+      "id": "ADJ-02-OQ-005",
+      "type": "environment",
+      "question": "真实 DM8 和国产解析环境参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-02-DD-001",
+      "decision": "复用统一法规源，Article Analysis 管理派生解析版本，Review 管理本地真实审核。",
+      "basis": "ADJ-01 与双来源边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-02-DD-002",
+      "decision": "外部生成、人工修订和已校核知识采用显式版本与状态隔离。",
+      "basis": "原文审核流程。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-02-DD-003",
+      "decision": "具体输出字段映射、角色、模型、API 和 DM8 类型延后至 D 门。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心条件未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against the adjudication requirement, adjudication overview and complete existing consultation requirement",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "The existing import/list/review scope is preserved and merged rather than duplicated.",
+      "No parser, model, review rule, role, API or legal interpretation was guessed."
+    ]
+  }
+}

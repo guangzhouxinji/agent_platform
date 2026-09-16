@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-06",
+  "title": "违法证据链整理规则管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/06-违法证据链整理规则管理需求文档.md",
+    "sha256": "72f1480b53a17d1bbc31a9b25e3526f52732df833157ec9e0c0ea67ed2c1487c",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "rules"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付范围",
+        "2. 数据、身份、权限与审计",
+        "3. 时间、版本与变更",
+        "4. 服务、任务与错误契约",
+        "5. AI、规则与人工边界",
+        "6. 页面验证",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-06-MUST-001",
+      "type": "MUST",
+      "statement": "维护中心确认案件类型对应的待证明事项、必要性、预期证据、可替代材料、关系和缺项判据。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "系统或模型不得自行发明通用证据模板、法律要件、必要性或把未经中心确认规则用于所有案件。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST-002",
+      "type": "MUST",
+      "statement": "规则保存唯一编号、名称、受控案件类型、构成要素、整理逻辑、不可变发布版本、依据来源版本、机构和审计。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST-003",
+      "type": "MUST",
+      "statement": "依据及案件类型字典必须来自授权资源，接入校验稳定 ID、关联、版本和权限，缺失与调用失败分开。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "来源、依据、业务编号和案件类型不得由模型生成替换，失效依据不得用于发布。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-002",
+        "ENF-06-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST-004",
+      "type": "MUST",
+      "statement": "按待证明事项配置预期证据、可替代材料和必需性，同一证据可关联多个事项且分别说明作用。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "证据链完整性不得仅按附件数量、文件存在或模型摘要判定。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST-005",
+      "type": "MUST",
+      "statement": "关系类型至少区分证明、补强、矛盾和无关，并精确关联证据支持或冲突的事实项。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST-006",
+      "type": "MUST",
+      "statement": "样例试运行固定规则与证据版本，输出逐要素覆盖、缺失、冲突、无关及未处理项，不产生业务处置。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST-007",
+      "type": "MUST",
+      "statement": "发布前校验必需事项、重复要素、空映射、关系、依据有效性和适用类型；缺少必需事项阻止发布。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST-008",
+      "type": "MUST",
+      "statement": "发布规则不可原地修改，编辑创建新草稿，停用限制新整理，历史整理持续引用旧版本。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST-009",
+      "type": "MUST",
+      "statement": "规则说明和法律依据由授权业务人员确认，发布停用和修订保留操作人、意见、前后状态和版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-06-MUST-013",
+      "type": "MUST",
+      "statement": "仅确认案件类型可进入首版真实使用；固定样例记录规则证据、预期实际、版本和问题，专业预期由中心确认。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-06-AC-010"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "ruleDraft",
+      "required": true,
+      "rules": [
+        "案件类型、事项、材料、必要性、关系缺项判据和依据版本"
+      ]
+    },
+    {
+      "name": "evidenceSample",
+      "required": "试运行时",
+      "rules": [
+        "明确模拟真实标识及证据版本"
+      ]
+    },
+    {
+      "name": "lifecycleAction",
+      "required": "发布停用时",
+      "rules": [
+        "规则版本、动作、意见、可信身份和并发版本"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "ruleVersion",
+      "fields": [
+        "ruleId",
+        "version",
+        "caseType",
+        "proofItems",
+        "materialMappings",
+        "relationships",
+        "gapCriteria",
+        "basisVersions",
+        "status",
+        "audit"
+      ]
+    },
+    {
+      "name": "dryRunResult",
+      "fields": [
+        "coverageByItem",
+        "missingItems",
+        "conflicts",
+        "irrelevantItems",
+        "unprocessedItems",
+        "ruleVersion"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "create_or_edit",
+      "enforcement": "规则配置角色、案件类型和依据读取权限"
+    },
+    {
+      "action": "dry_run",
+      "enforcement": "规则和证据样例权限"
+    },
+    {
+      "action": "publish_or_disable",
+      "enforcement": "专业确认角色、依赖有效性和当前版本"
+    },
+    {
+      "action": "read_history",
+      "enforcement": "机构、案件类型、依据和版本权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "rule",
+      "allowedNext": [
+        "已发布",
+        "已停用"
+      ]
+    },
+    {
+      "name": "已发布",
+      "kind": "rule",
+      "allowedNext": [
+        "已停用"
+      ],
+      "invariant": "不可原地修改"
+    },
+    {
+      "name": "已停用",
+      "kind": "rule",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "规则版本固定案件类型字典、待证明事项、材料关系、缺项判据和依据版本。",
+    "发布版本不可变，历史整理引用原版本。",
+    "源依据变化不自动改写规则，需新草稿审核。",
+    "试运行输入规则输出完整版本化。",
+    "模拟规则证据数据库与真实验收隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "required_proof_item_missing",
+      "result": "阻止发布并列出事项"
+    },
+    {
+      "case": "duplicate_or_empty_mapping",
+      "result": "阻止发布并定位冲突"
+    },
+    {
+      "case": "basis_missing_or_expired",
+      "result": "阻止发布或标待复核"
+    },
+    {
+      "case": "rule_not_applicable",
+      "result": "返回案件类型不匹配"
+    },
+    {
+      "case": "partial_dry_run",
+      "result": "列出未处理项不标完整成功"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露规则依据证据"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-06-DEC-001",
+      "owner": "AI",
+      "description": "可辅助解释规则和试运行结果；不得创建待证明事项、必要性、法律依据或确认完整性。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-06-DEC-002",
+      "owner": "RULE",
+      "description": "执行结构校验、关系映射、覆盖缺口冲突、适用性、版本权限和发布状态。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-06-DEC-003",
+      "owner": "HUMAN",
+      "description": "中心专业人员提供并确认事项材料必要性依据案件类型和样例预期，授权人员发布停用。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-06-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供案件类型字典、法律依据版本、人员权限和规则确认结果。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-06-AC-001",
+      "given": [
+        "中心确认与未确认案件类型"
+      ],
+      "when": "配置规则",
+      "then": [
+        "只用确认事项材料",
+        "不生成通用模板",
+        "未确认类型不进入真实使用"
+      ],
+      "sourceClauseIds": [
+        "ENF-06-MUST-001",
+        "ENF-06-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-06-AC-002",
+      "given": [
+        "案件字典和有效失效依据"
+      ],
+      "when": "保存规则",
+      "then": [
+        "稳定字段版本审计完整",
+        "关联权限校验",
+        "模型不补来源且失效依据不发布"
+      ],
+      "sourceClauseIds": [
+        "ENF-06-MUST-002",
+        "ENF-06-MUST-003",
+        "ENF-06-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-06-AC-003",
+      "given": [
+        "多事项、一证多用及多附件缺关键事项"
+      ],
+      "when": "配置关系",
+      "then": [
+        "必要替代材料逐项明确",
+        "证明补强矛盾无关可追踪",
+        "数量不代表完整"
+      ],
+      "sourceClauseIds": [
+        "ENF-06-MUST-004",
+        "ENF-06-MUST_NOT-003",
+        "ENF-06-MUST-005"
+      ]
+    },
+    {
+      "id": "ENF-06-AC-004",
+      "given": [
+        "固定证据样例"
+      ],
+      "when": "试运行",
+      "then": [
+        "逐要素覆盖缺失冲突无关完整",
+        "不产生处置结论"
+      ],
+      "sourceClauseIds": [
+        "ENF-06-MUST-006"
+      ]
+    },
+    {
+      "id": "ENF-06-AC-005",
+      "given": [
+        "缺必需事项、重复空映射和失效依据"
+      ],
+      "when": "发布校验",
+      "then": [
+        "逐项阻止并定位错误"
+      ],
+      "sourceClauseIds": [
+        "ENF-06-MUST_NOT-002",
+        "ENF-06-MUST-007"
+      ]
+    },
+    {
+      "id": "ENF-06-AC-006",
+      "given": [
+        "已发布规则修改停用"
+      ],
+      "when": "变更生命周期",
+      "then": [
+        "新草稿不覆盖旧版",
+        "历史整理不变",
+        "专业确认和留痕完整"
+      ],
+      "sourceClauseIds": [
+        "ENF-06-MUST-008",
+        "ENF-06-MUST-009"
+      ]
+    },
+    {
+      "id": "ENF-06-AC-010",
+      "given": [
+        "固定中心专业样例"
+      ],
+      "when": "验收",
+      "then": [
+        "确认类型规则证据版本预期实际问题齐全",
+        "模拟不算真实通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-06-MUST-013"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-06-OQ-001",
+      "type": "business_semantics",
+      "question": "首批案件类型、待证明事项、必要性、替代材料、关系和缺项判据是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "规则实现"
+      ]
+    },
+    {
+      "id": "ENF-06-OQ-002",
+      "type": "authority_api",
+      "question": "案件类型字典和法律依据版本接口状态是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03"
+      ]
+    },
+    {
+      "id": "ENF-06-OQ-003",
+      "type": "authorization",
+      "question": "配置试运行审核发布停用角色是什么？",
+      "blocks": [
+        "ARC-06",
+        "权限实现"
+      ]
+    },
+    {
+      "id": "ENF-06-OQ-004",
+      "type": "acceptance_data",
+      "question": "中心证据样例和逐要素预期如何冻结？",
+      "blocks": [
+        "SPK-10",
+        "验收"
+      ]
+    },
+    {
+      "id": "ENF-06-OQ-005",
+      "type": "environment",
+      "question": "DM8 和国产环境参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-06-DD-001",
+      "decision": "Enforcement Rule 领域拥有证据链规则版本，Legal Knowledge 提供依据，Review 管理发布确认；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-06-DD-002",
+      "decision": "证据材料关系采用显式多对多和关系类型，附件计数不作为完整性。",
+      "basis": "原文规则要求。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-06-DD-003",
+      "decision": "具体 API、规则 DSL、字典、角色和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心清单制度环境未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Proof items, evidence materials, relationship types and completeness decisions remain explicit and versioned.",
+      "Attachment count and AI interpretation cannot define evidence-chain completeness.",
+      "No case type, proof item, necessity, substitution rule, legal basis, role or environment was guessed."
+    ]
+  }
+}

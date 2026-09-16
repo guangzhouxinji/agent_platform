@@ -1,0 +1,566 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-15",
+  "title": "处罚建议规则配置",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/15-处罚建议规则配置需求文档.md",
+    "sha256": "e7aed1d6fe27b8e0f337aa00f409f63ae22970e8b937ee1e1a2b4c69094fd889",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "rule_logic"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付范围",
+        "2. 数据、身份、权限与审计",
+        "3. 时间、版本与变更",
+        "4. 服务、任务与错误契约",
+        "5. AI、规则与人工边界",
+        "6. 页面验证",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-15-MUST-001",
+      "type": "MUST",
+      "statement": "仅维护中心确认的处罚依据、行政处罚程序适用条件、法定幅度、地方裁量因素、证据要求、有效期间和地区程序范围。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖",
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "AI 或开发人员不得预置、推断或补充未经中心核实的处罚数值、裁量公式、惯例、条件或法律适用结论。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST-002",
+      "type": "MUST",
+      "statement": "处罚依据关联 ENF-17 的具体条文版本，来源字段固定稳定标识和版本并校验权限；缺失与源调用失败分开。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST-003",
+      "type": "MUST",
+      "statement": "先确定该行为和机关程序是否适用行政处罚，不适用时规则不得生成罚款匹配。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST-004",
+      "type": "MUST",
+      "statement": "法定幅度与裁量基准分开维护；无适用裁量基准时返回缺口而非使用惯例。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST-005",
+      "type": "MUST",
+      "statement": "金额规则采用确定性公式，明确违法经营额、违法所得等口径、币种、精度、上下限、单位、舍入和逐步计算。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "缺少金额口径、边界或舍入规则时不得发布金额规则，也不得默认按零或任意口径试算。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST-006",
+      "type": "MUST",
+      "statement": "减轻、从轻、不予处罚等情形分别配置条件、证据要求和依据；冲突或依据不清转人工判断。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST-007",
+      "type": "MUST",
+      "statement": "发布前执行适用性、上下限和边界试算；重叠规则必须有中心确认的优先关系，否则阻止发布并列出冲突。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "冲突规则不得静默选择处罚更重、更轻、最新或模型评分最高的一条。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST-008",
+      "type": "MUST",
+      "statement": "发布规则为不可变快照，编辑创建新草稿版本，停用限制新任务，历史建议保留原规则版本。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-15-MUST-012",
+      "type": "MUST",
+      "statement": "固定专业样例记录输入、规则版本、预期、逐步实际、依据和问题，专业预期由中心确认。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-15-AC-009"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "penaltyRuleDraft",
+      "required": true,
+      "rules": [
+        "行为、职权程序、依据版本、法定幅度、裁量条件、证据要求、地区和有效期"
+      ]
+    },
+    {
+      "name": "calculationDefinition",
+      "required": "涉及金额时",
+      "rules": [
+        "口径币种精度上下限单位舍入及公式"
+      ]
+    },
+    {
+      "name": "lifecycleAction",
+      "required": "发布停用时",
+      "rules": [
+        "规则版本、动作、意见、可信身份和并发版本"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "penaltyRuleVersion",
+      "fields": [
+        "ruleId",
+        "version",
+        "scope",
+        "legalBasis",
+        "statutoryRange",
+        "discretionFactors",
+        "evidenceRequirements",
+        "calculation",
+        "effectivePeriod",
+        "status",
+        "audit"
+      ]
+    },
+    {
+      "name": "applicabilityResult",
+      "fields": [
+        "applicable",
+        "matchedConditions",
+        "missingFacts",
+        "conflicts",
+        "basis"
+      ]
+    },
+    {
+      "name": "trialCalculation",
+      "fields": [
+        "inputs",
+        "steps",
+        "statutoryRange",
+        "candidateRanges",
+        "boundaryErrors",
+        "conflicts"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "create_or_edit",
+      "enforcement": "规则配置角色、机构地区和法律来源权限"
+    },
+    {
+      "action": "check_or_trial",
+      "enforcement": "规则及样例访问权限"
+    },
+    {
+      "action": "publish_or_disable",
+      "enforcement": "授权发布角色、中心确认、冲突清零和当前版本"
+    },
+    {
+      "action": "view_history",
+      "enforcement": "规则范围及历史版本权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "草稿",
+      "kind": "rule",
+      "allowedNext": [
+        "已发布",
+        "已停用"
+      ]
+    },
+    {
+      "name": "已发布",
+      "kind": "rule",
+      "allowedNext": [
+        "已停用"
+      ],
+      "invariant": "不可原地修改"
+    },
+    {
+      "name": "已停用",
+      "kind": "rule",
+      "allowedNext": []
+    },
+    {
+      "name": "待人工判断",
+      "kind": "evaluation",
+      "allowedNext": [],
+      "invariant": "冲突或依据不清不得自动决断"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "规则版本固定处罚依据、法定幅度、裁量基准、地区程序和有效期。",
+    "发布版本不可变，历史建议引用原版本。",
+    "规则来源、试算输入和计算轨迹可追溯。",
+    "模拟规则与中心确认规则隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "procedure_not_applicable",
+      "result": "返回不适用且不匹配罚款规则"
+    },
+    {
+      "case": "missing_calculation_semantics",
+      "result": "阻止发布金额规则"
+    },
+    {
+      "case": "overlapping_rules_without_priority",
+      "result": "列出冲突并阻止发布"
+    },
+    {
+      "case": "unclear_basis",
+      "result": "转人工判断，不补惯例"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前版本"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露规则和专业数据"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-15-DEC-001",
+      "owner": "AI",
+      "description": "本模块不由 AI 决定处罚数值、公式、适用性、优先级或发布；仅可解释结构化试算。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-15-DEC-002",
+      "owner": "RULE",
+      "description": "执行中心确认的适用条件、公式、边界、冲突、版本和权限校验。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-15-DEC-003",
+      "owner": "HUMAN",
+      "description": "中心专业人员确认数值公式、裁量条件、冲突优先关系和专业样例。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-15-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "提供法律依据、地方裁量基准、适用日期、程序范围和角色。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-15-AC-001",
+      "given": [
+        "中心确认和未确认处罚规则"
+      ],
+      "when": "配置",
+      "then": [
+        "只接收确认内容",
+        "AI 开发人员不补规则"
+      ],
+      "sourceClauseIds": [
+        "ENF-15-MUST-001",
+        "ENF-15-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-15-AC-002",
+      "given": [
+        "法律来源缺失失败无权"
+      ],
+      "when": "关联规则",
+      "then": [
+        "版本权限错误分开",
+        "不生成来源"
+      ],
+      "sourceClauseIds": [
+        "ENF-15-MUST-002"
+      ]
+    },
+    {
+      "id": "ENF-15-AC-003",
+      "given": [
+        "程序不适用或无裁量基准"
+      ],
+      "when": "检查",
+      "then": [
+        "不匹配罚款",
+        "返回缺口不补惯例"
+      ],
+      "sourceClauseIds": [
+        "ENF-15-MUST-003",
+        "ENF-15-MUST-004"
+      ]
+    },
+    {
+      "id": "ENF-15-AC-004",
+      "given": [
+        "上下限和缺口径样例"
+      ],
+      "when": "试算发布",
+      "then": [
+        "边界符合确认值",
+        "缺口径阻止发布"
+      ],
+      "sourceClauseIds": [
+        "ENF-15-MUST-005",
+        "ENF-15-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-15-AC-005",
+      "given": [
+        "减轻从轻不予和冲突规则"
+      ],
+      "when": "验证发布",
+      "then": [
+        "条件依据分开",
+        "无优先关系阻断"
+      ],
+      "sourceClauseIds": [
+        "ENF-15-MUST-006",
+        "ENF-15-MUST-007",
+        "ENF-15-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ENF-15-AC-006",
+      "given": [
+        "已发布规则修改停用"
+      ],
+      "when": "执行服务",
+      "then": [
+        "新版本不改历史",
+        "输出计算冲突审计"
+      ],
+      "sourceClauseIds": [
+        "ENF-15-MUST-008"
+      ]
+    },
+    {
+      "id": "ENF-15-AC-009",
+      "given": [
+        "中心固定边界样例"
+      ],
+      "when": "业务验收",
+      "then": [
+        "逐步预期实际依据齐全",
+        "未确认不标通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-15-MUST-012"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-15-OQ-001",
+      "type": "business_semantics",
+      "question": "适用行为、职权程序、法定幅度、地方裁量条件和冲突优先关系是什么？",
+      "blocks": [
+        "ARC-05",
+        "规则实现"
+      ]
+    },
+    {
+      "id": "ENF-15-OQ-002",
+      "type": "calculation",
+      "question": "金额口径、币种、精度、单位、舍入、上下限和计算公式是什么？",
+      "blocks": [
+        "ARC-05",
+        "SPK-06"
+      ]
+    },
+    {
+      "id": "ENF-15-OQ-003",
+      "type": "authorization",
+      "question": "配置试算审核发布停用角色是什么？",
+      "blocks": [
+        "ARC-06"
+      ]
+    },
+    {
+      "id": "ENF-15-OQ-004",
+      "type": "integration",
+      "question": "法律依据、裁量基准和有效期的稳定接口与版本语义是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03"
+      ]
+    },
+    {
+      "id": "ENF-15-OQ-005",
+      "type": "validation",
+      "question": "中心确认的边界冲突专业样例是什么？",
+      "blocks": [
+        "REL-03",
+        "SPK-06"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-15-DD-001",
+      "decision": "Penalty Rule 领域拥有确定性规则；Agent 和模型不拥有数值、阈值或法律适用。",
+      "basis": "原文明确规则与专业确认。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-15-DD-002",
+      "decision": "法定幅度、裁量基准和计算轨迹分别建模，冲突显式阻断。",
+      "basis": "原文试算和冲突要求。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-15-DD-003",
+      "decision": "具体规则值、公式、API、角色和 DM8 类型延后至 D 门。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心条件未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Statutory range, discretion baseline and final decision remain distinct.",
+      "No penalty number, formula, threshold, customary rule, role or legal conclusion was guessed."
+    ]
+  }
+}

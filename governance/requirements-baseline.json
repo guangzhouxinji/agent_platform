@@ -1,0 +1,279 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "requirements-2026-09-14-v1",
+  "createdAt": "2026-09-14T00:00:00+08:00",
+  "archive": {
+    "sha256": "11644cb520bd76e537aacf8a8e049f916c3116828376ca927118dd6094b2b9de",
+    "path": "requirements.rar"
+  },
+  "requirementFileCount": 47,
+  "supportingFiles": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "role": "consultation_overview",
+      "consumers": ["CON-01", "CON-02", "CON-03", "CON-04", "CON-05", "CON-06", "CON-07", "CON-08", "CON-09", "CON-10", "CON-11", "CON-12"]
+    },
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "role": "enforcement_overview",
+      "consumers": ["ENF-01", "ENF-02", "ENF-03", "ENF-04", "ENF-05", "ENF-06", "ENF-07", "ENF-08", "ENF-09", "ENF-10", "ENF-11", "ENF-12", "ENF-13", "ENF-14", "ENF-15", "ENF-16", "ENF-17"]
+    },
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "role": "adjudication_overview",
+      "consumers": ["ADJ-01", "ADJ-02", "ADJ-03", "ADJ-04", "ADJ-05", "ADJ-06", "ADJ-07", "ADJ-08", "ADJ-09", "ADJ-10", "ADJ-11", "ADJ-12"]
+    },
+    {
+      "path": "requirements/知识产权咨询助手/法律法规管理需求文档.md",
+      "role": "existing_regulation_requirement",
+      "consumers": ["ADJ-01"]
+    },
+    {
+      "path": "requirements/知识产权咨询助手/条文解析管理需求文档.md",
+      "role": "existing_article_analysis_requirement",
+      "consumers": ["ADJ-02"]
+    },
+    {
+      "path": "requirements/知识产权咨询助手/条文要点管理需求文档.md",
+      "role": "existing_article_keypoint_requirement",
+      "consumers": ["ADJ-03"]
+    }
+  ],
+  "files": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "bytes": 15392
+    },
+    {
+      "path": "requirements/知识产权裁决助手/01-法律法规管理需求文档.md",
+      "sha256": "30cc22ea536bde89cf027e7238099fc2502dc549e43e8e621dc07771707a2200",
+      "bytes": 5976
+    },
+    {
+      "path": "requirements/知识产权裁决助手/02-条文解析需求文档.md",
+      "sha256": "427bcb14a59d7e69f8343e92582af959ed2e8aeb190010b84c49e8be7ae87378",
+      "bytes": 6017
+    },
+    {
+      "path": "requirements/知识产权裁决助手/03-条文要点管理需求文档.md",
+      "sha256": "98bc8509dd29cd71704944d46669f86ae03324df45aa948aa7868d1bfef9e5a3",
+      "bytes": 5390
+    },
+    {
+      "path": "requirements/知识产权裁决助手/04-裁决任务管理需求文档.md",
+      "sha256": "3821e08f6afdfef8818a1a2c626f4c943072b8f9ede1552541a938c9350b43a2",
+      "bytes": 6284
+    },
+    {
+      "path": "requirements/知识产权裁决助手/05-法律条文匹配需求文档.md",
+      "sha256": "34268b74307ce6ae27e5ed1722b2024bd268b6d0f84e228f44387c2351411b70",
+      "bytes": 5351
+    },
+    {
+      "path": "requirements/知识产权裁决助手/06-法律条文引用需求文档.md",
+      "sha256": "8d5437ee21df11ac2ba4520a7f268bbad5e7d14cf00c3f3ed43bf487a159f44a",
+      "bytes": 5383
+    },
+    {
+      "path": "requirements/知识产权裁决助手/07-专利解析需求文档.md",
+      "sha256": "e955e1530324b9b0cf2997a5f0606b107fe630f992a28b7c4bbe02553acbf2ac",
+      "bytes": 5843
+    },
+    {
+      "path": "requirements/知识产权裁决助手/08-专利有效性分析需求文档.md",
+      "sha256": "ff1efb86fa1d48278d5864d3f87afb751861ca2ce819a68bd1f816c4222ade85",
+      "bytes": 5899
+    },
+    {
+      "path": "requirements/知识产权裁决助手/09-专利侵权证据分析需求文档.md",
+      "sha256": "5ba05bd3261bafc7a6f205c5ea01804cfddd0a72576ead5aec65778ba0ecdb54",
+      "bytes": 6355
+    },
+    {
+      "path": "requirements/知识产权裁决助手/10-专利裁决报告模板配置需求文档.md",
+      "sha256": "435a005f3c49ecb6379799a187148eb56f66851bb3756509756788d02647ba7c",
+      "bytes": 5650
+    },
+    {
+      "path": "requirements/知识产权裁决助手/11-专利裁决报告生成需求文档.md",
+      "sha256": "e725f9c11b23e757bda63264860745911afa24df66c4fb4a811f02a694bd0776",
+      "bytes": 6356
+    },
+    {
+      "path": "requirements/知识产权裁决助手/12-人工复核需求文档.md",
+      "sha256": "af7d803c37430efe22e148281862dbcbf0179558dee7b478291d0ba24a5ad9ef",
+      "bytes": 7009
+    },
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "bytes": 11576
+    },
+    {
+      "path": "requirements/知识产权执法助手/01-违法线索数据源管理需求文档.md",
+      "sha256": "f3f6200f420f3af00d7539e722eb06d7aea93acf1735e8810a2e1bbee2b96257",
+      "bytes": 5246
+    },
+    {
+      "path": "requirements/知识产权执法助手/02-违法线索发现规则管理需求文档.md",
+      "sha256": "9b6b94f5bb8ca7513e889736c8d38cd16ee15e4666968aea77a744575dd70b47",
+      "bytes": 4935
+    },
+    {
+      "path": "requirements/知识产权执法助手/03-违法线索发现需求文档.md",
+      "sha256": "ac774a2e00e78896abdd09d03c58fbb114094a1868056a95f321a355ecf6f042",
+      "bytes": 5050
+    },
+    {
+      "path": "requirements/知识产权执法助手/04-违法线索解析需求文档.md",
+      "sha256": "3f418dede2841208e3f7a3fdacaaa0c63795a38458b2994d6d8df69816d54b20",
+      "bytes": 4873
+    },
+    {
+      "path": "requirements/知识产权执法助手/05-违法证据管理需求文档.md",
+      "sha256": "3c819aa9a3c75f7c8bc44a299198b2c50ea8512483dd7fd91cd2962a6194b463",
+      "bytes": 5299
+    },
+    {
+      "path": "requirements/知识产权执法助手/06-违法证据链整理规则管理需求文档.md",
+      "sha256": "72f1480b53a17d1bbc31a9b25e3526f52732df833157ec9e0c0ea67ed2c1487c",
+      "bytes": 4670
+    },
+    {
+      "path": "requirements/知识产权执法助手/07-违法证据链自动整理需求文档.md",
+      "sha256": "c56b75e81bdd5bfbda9b024736b2cc7fb8d8d3ef4c27217104ef53adfd861667",
+      "bytes": 4979
+    },
+    {
+      "path": "requirements/知识产权执法助手/08-执法流程合规性校验规则配置需求文档.md",
+      "sha256": "bd3b12aa55732e7f9e43f7934721f67a9d4aabdb2710b23a5889c2c8f9765171",
+      "bytes": 4888
+    },
+    {
+      "path": "requirements/知识产权执法助手/09-执法流程合规性校验需求文档.md",
+      "sha256": "68a3c59eca60d3fa9bb876223ff6012d10067f99b7b7641470d649adada1863f",
+      "bytes": 4847
+    },
+    {
+      "path": "requirements/知识产权执法助手/10-侵权行为分析规则配置需求文档.md",
+      "sha256": "680768968af5d322881dcf72ba944bcd719370ad938eab33d9d0b274ba8eb2e4",
+      "bytes": 4788
+    },
+    {
+      "path": "requirements/知识产权执法助手/11-侵权行为分析需求文档.md",
+      "sha256": "5823ecfd71581d83d62c624f280bafbee9e6f0a7b542d3596de7d01b34ec9f44",
+      "bytes": 4959
+    },
+    {
+      "path": "requirements/知识产权执法助手/12-执法文书模板配置需求文档.md",
+      "sha256": "885f1e276413d11dc569681e1cee971af14a6b90f2169df2a635845795afbe5d",
+      "bytes": 4760
+    },
+    {
+      "path": "requirements/知识产权执法助手/13-执法文书生成规则配置需求文档.md",
+      "sha256": "d1a16c5c9c6929fb13223f6a5d21a273794461edd76cfabec81d58b19af599c9",
+      "bytes": 4710
+    },
+    {
+      "path": "requirements/知识产权执法助手/14-执法文书自动生成需求文档.md",
+      "sha256": "8a29caa91be4f8b948c66ca7b88c301edd4ffd0312f7d6282aa44d5b3ed28333",
+      "bytes": 4969
+    },
+    {
+      "path": "requirements/知识产权执法助手/15-处罚建议规则配置需求文档.md",
+      "sha256": "e7aed1d6fe27b8e0f337aa00f409f63ae22970e8b937ee1e1a2b4c69094fd889",
+      "bytes": 4852
+    },
+    {
+      "path": "requirements/知识产权执法助手/16-处罚建议生成需求文档.md",
+      "sha256": "6ef4d66074915d72ccb4bb2b94537bdb51b4666e398b32ad6b040ed344606b9e",
+      "bytes": 4892
+    },
+    {
+      "path": "requirements/知识产权执法助手/17-法律依据引用需求文档.md",
+      "sha256": "499e938a36e1d72404e8d624d5154bb5a43410226e06c92b61b098a7f1616e69",
+      "bytes": 5046
+    },
+    {
+      "path": "requirements/知识产权咨询助手/案例库管理需求文档.md",
+      "sha256": "f6932bc13e986ba6343b46cccda6a21b58892820f1182535ca9786d6a916620e",
+      "bytes": 9161
+    },
+    {
+      "path": "requirements/知识产权咨询助手/法律法规管理需求文档.md",
+      "sha256": "f4d0afedb7bb0a969ea531f99685285d2fa38893df39b088e958d8deb6656bdb",
+      "bytes": 5542
+    },
+    {
+      "path": "requirements/知识产权咨询助手/商标库管理需求文档.md",
+      "sha256": "0bf6834dcec865fec5fbbc4f25c5b2b85125b3c9ea5a98dc064c19a8dced1301",
+      "bytes": 16755
+    },
+    {
+      "path": "requirements/知识产权咨询助手/商标相似度检索需求文档.md",
+      "sha256": "c4e57d19694742b371150cf3dd38f2bbe0f01366aa658cbfa8879e234fdf2bb4",
+      "bytes": 7470
+    },
+    {
+      "path": "requirements/知识产权咨询助手/商标相似度判断需求文档.md",
+      "sha256": "e6f79c6c4e05f1d9b78a53d157120fe5c919ab620e835336a97ca2ae8502f58c",
+      "bytes": 7554
+    },
+    {
+      "path": "requirements/知识产权咨询助手/条文解析管理需求文档.md",
+      "sha256": "83be8c0ac243906c6b54ef4e6e3265a8495ae237b5ad8e8b70f4dad351ef88c3",
+      "bytes": 6173
+    },
+    {
+      "path": "requirements/知识产权咨询助手/条文要点管理需求文档.md",
+      "sha256": "90ec6740f3e3b4229f509d92eb7b9f19267c2f94a727c107e369b22d2b7d1c12",
+      "bytes": 4451
+    },
+    {
+      "path": "requirements/知识产权咨询助手/相似案例检索需求文档.md",
+      "sha256": "defb85600e08997f878cccda6c391153a2e06b5ae70e9bc4e546deda801712f9",
+      "bytes": 7152
+    },
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询对话流管理需求文档.md",
+      "sha256": "c588b76216b490309858e20fcc5390619cb9f1076a93fd6984284825e6985918",
+      "bytes": 9573
+    },
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询提示词管理需求文档.md",
+      "sha256": "aaf278a2b3c8dd263541431baf951369354bfd8234e5fe91d3786499a70353e5",
+      "bytes": 7580
+    },
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询意图管理需求文档.md",
+      "sha256": "f664676e22be212fdeee532d2f8ccb897fa0da2f54a2980b52c38fe00c9aa9e2",
+      "bytes": 7892
+    },
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询智能体管理需求文档.md",
+      "sha256": "b4468a52b36bcd303a2faa9a2b89434cac2d035542f534ab5f29b632c01cc416",
+      "bytes": 8037
+    },
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "bytes": 18003
+    },
+    {
+      "path": "requirements/知识产权咨询助手/专利库管理需求文档.md",
+      "sha256": "7381109c0561f3c2591e5f5e71cc4127308d90465cbf003274682e3ad6526e2b",
+      "bytes": 8931
+    },
+    {
+      "path": "requirements/知识产权咨询助手/专利相似度检索需求文档.md",
+      "sha256": "c3d499a1d90d79badac09dac1618ff70a185b71a8bc937577e1f21f419f04718",
+      "bytes": 7979
+    },
+    {
+      "path": "requirements/知识产权咨询助手/专利相似度判断需求文档.md",
+      "sha256": "90437563c6599d8b42ab28e636077ef5a0de4c96e5c0f6996bbc3a61462bd675",
+      "bytes": 8257
+    }
+  ]
+}

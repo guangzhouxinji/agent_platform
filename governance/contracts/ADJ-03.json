@@ -1,0 +1,564 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ADJ-03",
+  "title": "条文要点管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权裁决助手/03-条文要点管理需求文档.md",
+    "sha256": "98bc8509dd29cd71704944d46669f86ae03324df45aa948aa7868d1bfef9e5a3",
+    "sections": [
+      {
+        "anchor": "1. 功能概述",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 字段与内容约束",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 导入与维护规则",
+        "purpose": "workflow"
+      },
+      {
+        "anchor": "4. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "5. 服务契约",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 国产化与 DM8 要求",
+        "purpose": "environment"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权裁决助手/00-需求总览与通用约定.md",
+      "sha256": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+      "sections": [
+        "1. 总体范围与交付边界",
+        "2. 统一数据与来源原则",
+        "3. AI、规则与人工边界",
+        "4. 服务、任务、审核与错误约定",
+        "5. 国产化、DM8 与验证"
+      ]
+    },
+    {
+      "path": "requirements/知识产权咨询助手/条文要点管理需求文档.md",
+      "sha256": "90ec6740f3e3b4229f509d92eb7b9f19267c2f94a727c107e369b22d2b7d1c12",
+      "sections": [
+        "1. 功能概述",
+        "2. 数据来源与导入",
+        "3. 条文要点信息管理",
+        "4. 条文要点列表",
+        "5. 验收要求"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ADJ-03-MUST-001",
+      "type": "MUST",
+      "statement": "统一承接既有外部一次性要点生成导入、关联校验、维护和完整列表；要点关联法规、条文及 ADJ-02 来源解析的具体版本。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "2. 字段与内容约束",
+        "既有/1. 功能概述",
+        "既有/2. 数据来源与导入"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-03-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "要点不是法规原文或正式法律引用，不得仅凭要点内容生成正式依据；正式引用必须回到具体条文版本。",
+      "sourceAnchors": [
+        "1. 功能概述"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-001"
+      ]
+    },
+    {
+      "id": "ADJ-03-MUST-002",
+      "type": "MUST",
+      "statement": "要点唯一编号编辑不变，版本保存来源解析、法规条文、内容类别、程序场景、案例版本、提取与导入主体时间及变更原因。",
+      "sourceAnchors": [
+        "2. 字段与内容约束",
+        "既有/3. 条文要点信息管理"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-03-MUST-003",
+      "type": "MUST",
+      "statement": "导入逐项校验必填、编号重复、来源解析、法规条文关系、类别字典、场景、案例和日期并返回成功失败及原因。",
+      "sourceAnchors": [
+        "3. 导入与维护规则",
+        "既有/2.2 导入校验"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-03-MUST-004",
+      "type": "MUST",
+      "statement": "仅来源为已审核且一致的解析、原文支持充分并经校核的要点可标可用；否则待核实。",
+      "sourceAnchors": [
+        "2. 字段与内容约束",
+        "3. 导入与维护规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-03-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "未审核、来源已变更、缺原文支持、停用或越权要点不得作为当前已校核知识进入检索、匹配或报告。",
+      "sourceAnchors": [
+        "2. 字段与内容约束",
+        "3. 导入与维护规则",
+        "5. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-003"
+      ]
+    },
+    {
+      "id": "ADJ-03-MUST-005",
+      "type": "MUST",
+      "statement": "处罚标准要点仅在来源存在且程序匹配时展示，不得因含处罚内容自动用于行政裁决报告。",
+      "sourceAnchors": [
+        "2. 字段与内容约束"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-03-MUST-006",
+      "type": "MUST",
+      "statement": "重复导入可跳过、更新草稿或创建新版本；已引用版本不得覆盖，改变来源条文须新版本重新校验。",
+      "sourceAnchors": [
+        "3. 导入与维护规则",
+        "既有/2.2 导入校验",
+        "既有/3.2 信息维护"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-03-MUST-007",
+      "type": "MUST",
+      "statement": "来源解析或法规变化标记待核实并保留历史引用；人工停用保留历史，外部更新不得无确认自动启用。",
+      "sourceAnchors": [
+        "3. 导入与维护规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-005"
+      ]
+    },
+    {
+      "id": "ADJ-03-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "事实或关联缺失不得由模型推测补齐，外部故障不得写成空结果或成功。",
+      "sourceAnchors": [
+        "前言",
+        "5. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-006"
+      ]
+    },
+    {
+      "id": "ADJ-03-MUST-011",
+      "type": "MUST",
+      "statement": "中心确认类别场景程序字典、校核人员、外部生成通道、规模和专业样例，未确认不升级验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-03-AC-008"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "keyPointBatch",
+      "required": true,
+      "rules": [
+        "要点、法规条文版本、来源解析版本、类别场景案例及幂等键"
+      ]
+    },
+    {
+      "name": "maintenanceAction",
+      "required": "编辑校核停用时",
+      "rules": [
+        "当前版本、动作、变更原因和可信身份"
+      ]
+    },
+    {
+      "name": "sourceChange",
+      "required": "来源变化时",
+      "rules": [
+        "稳定来源 ID、旧新版本和事件"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "keyPointVersion",
+      "fields": [
+        "keyPointId",
+        "version",
+        "regulationVersion",
+        "articleId",
+        "analysisVersion",
+        "content",
+        "category",
+        "procedureScope",
+        "scenarios",
+        "cases",
+        "availability",
+        "audit"
+      ]
+    },
+    {
+      "name": "batchResult",
+      "fields": [
+        "successCount",
+        "failureCount",
+        "itemResults",
+        "errors",
+        "requestId"
+      ]
+    },
+    {
+      "name": "sourceImpact",
+      "fields": [
+        "affectedVersions",
+        "newStatuses",
+        "historicalReferences"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "import",
+      "enforcement": "来源解析、字典和机构权限"
+    },
+    {
+      "action": "edit_or_calibrate",
+      "enforcement": "维护校核角色和当前版本"
+    },
+    {
+      "action": "disable",
+      "enforcement": "授权停用角色和原因"
+    },
+    {
+      "action": "consume",
+      "enforcement": "运行时仅返回范围内可用要点"
+    }
+  ],
+  "states": [
+    {
+      "name": "待核实",
+      "kind": "availability",
+      "allowedNext": [
+        "可用",
+        "停用"
+      ]
+    },
+    {
+      "name": "可用",
+      "kind": "availability",
+      "allowedNext": [
+        "来源已变更",
+        "停用"
+      ]
+    },
+    {
+      "name": "来源已变更",
+      "kind": "availability",
+      "allowedNext": [
+        "停用"
+      ],
+      "invariant": "不得作为当前可用知识"
+    },
+    {
+      "name": "停用",
+      "kind": "availability",
+      "allowedNext": [],
+      "invariant": "外部导入不得自动启用"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "要点、来源解析、法规条文和案例均固定稳定 ID 与版本。",
+    "要点是派生知识，不替代原文引用。",
+    "已引用版本和人工停用状态不可破坏性覆盖。",
+    "来源变化保留旧版并传播待核实。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "missing_or_invalid_relation",
+      "result": "逐项失败并说明法规条文解析案例差异"
+    },
+    {
+      "case": "source_not_approved_or_changed",
+      "result": "保存为待核实且不进入当前消费"
+    },
+    {
+      "case": "procedure_mismatch",
+      "result": "过滤并阻止处罚要点误用"
+    },
+    {
+      "case": "duplicate",
+      "result": "按确认策略跳过、草稿更新或新版本"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露要点来源"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ADJ-03-DEC-001",
+      "owner": "AI",
+      "description": "外部程序可提取候选要点，但不能确认可用、程序适用或正式法律引用。",
+      "sourceAnchors": [
+        "1. 功能概述",
+        "3. 导入与维护规则"
+      ]
+    },
+    {
+      "id": "ADJ-03-DEC-002",
+      "owner": "RULE",
+      "description": "校验来源版本、字典、程序范围、状态、权限和来源变化。",
+      "sourceAnchors": [
+        "2. 字段与内容约束",
+        "5. 服务契约"
+      ]
+    },
+    {
+      "id": "ADJ-03-DEC-003",
+      "owner": "HUMAN",
+      "description": "校核、编辑、停用要点并确认专业样例。",
+      "sourceAnchors": [
+        "3. 导入与维护规则",
+        "8. 依赖与交付"
+      ]
+    },
+    {
+      "id": "ADJ-03-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "提供法规解析、案例、类别场景字典和外部生成通道。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ADJ-03-AC-001",
+      "given": [
+        "外部要点和条文版本"
+      ],
+      "when": "导入",
+      "then": [
+        "统一关联来源",
+        "要点不冒充原文引用"
+      ],
+      "sourceClauseIds": [
+        "ADJ-03-MUST-001",
+        "ADJ-03-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ADJ-03-AC-002",
+      "given": [
+        "合法和错误关联记录"
+      ],
+      "when": "批量导入",
+      "then": [
+        "字段版本完整",
+        "逐项错误可见"
+      ],
+      "sourceClauseIds": [
+        "ADJ-03-MUST-002",
+        "ADJ-03-MUST-003"
+      ]
+    },
+    {
+      "id": "ADJ-03-AC-003",
+      "given": [
+        "未审核变更或缺支持来源"
+      ],
+      "when": "校核消费",
+      "then": [
+        "仅合格项可用",
+        "不合格项过滤"
+      ],
+      "sourceClauseIds": [
+        "ADJ-03-MUST-004",
+        "ADJ-03-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ADJ-03-AC-004",
+      "given": [
+        "处罚类要点用于裁决场景"
+      ],
+      "when": "消费",
+      "then": [
+        "程序不匹配被阻止"
+      ],
+      "sourceClauseIds": [
+        "ADJ-03-MUST-005"
+      ]
+    },
+    {
+      "id": "ADJ-03-AC-005",
+      "given": [
+        "重复导入、来源变化和人工停用"
+      ],
+      "when": "更新",
+      "then": [
+        "历史引用保留",
+        "停用不自动启用"
+      ],
+      "sourceClauseIds": [
+        "ADJ-03-MUST-006",
+        "ADJ-03-MUST-007"
+      ]
+    },
+    {
+      "id": "ADJ-03-AC-006",
+      "given": [
+        "页面和直接 API"
+      ],
+      "when": "查询维护",
+      "then": [
+        "完整内容及门禁一致",
+        "故障不冒充成功"
+      ],
+      "sourceClauseIds": [
+        "ADJ-03-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ADJ-03-AC-008",
+      "given": [
+        "中心固定样例字典"
+      ],
+      "when": "业务验收",
+      "then": [
+        "关联程序状态预期实际齐全",
+        "未确认不标通过"
+      ],
+      "sourceClauseIds": [
+        "ADJ-03-MUST-011"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ADJ-03-OQ-001",
+      "type": "business_semantics",
+      "question": "要点类别、场景和裁决处罚程序字典是什么？",
+      "blocks": [
+        "ARC-04",
+        "要点实现"
+      ]
+    },
+    {
+      "id": "ADJ-03-OQ-002",
+      "type": "integration",
+      "question": "外部生成通道、来源变化事件和案例接口是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03"
+      ]
+    },
+    {
+      "id": "ADJ-03-OQ-003",
+      "type": "authorization",
+      "question": "导入维护校核停用消费角色是什么？",
+      "blocks": [
+        "ARC-06"
+      ]
+    },
+    {
+      "id": "ADJ-03-OQ-004",
+      "type": "validation",
+      "question": "中心确认的关联、程序隔离和规模样例是什么？",
+      "blocks": [
+        "REL-03"
+      ]
+    },
+    {
+      "id": "ADJ-03-OQ-005",
+      "type": "environment",
+      "question": "真实 DM8 和国产全文检索环境参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ADJ-03-DD-001",
+      "decision": "Article Key Point 是带来源版本和程序范围的派生索引，Citation 始终回溯法规原文。",
+      "basis": "原文明示边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-03-DD-002",
+      "decision": "Availability 与外部生成任务、人工校核和历史引用分离。",
+      "basis": "原文状态与版本要求。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ADJ-03-DD-003",
+      "decision": "具体字典、角色、API、规模和 DM8 类型延后至 D 门。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心条件未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against the adjudication requirement, adjudication overview and complete existing consultation requirement",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "The existing import/list/edit scope is preserved and merged rather than duplicated.",
+      "No category, scenario, procedure mapping, role, API or generation behavior was guessed."
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-00",
+  "baselineId": "requirements-2026-09-14-v1",
+  "status": "failed",
+  "reviewMethod": "independent source-to-implementation review",
+  "reviewedArtifacts": [],
+  "counts": {
+    "uncoveredMust": 0,
+    "violatedMustNot": 0,
+    "unsupportedBusinessBehavior": 0,
+    "brokenEvidenceLinks": 0,
+    "contradictions": 0,
+    "weakenedConstraints": 0,
+    "openHighRiskDecisions": 0
+  },
+  "findings": [],
+  "reviewedAt": null,
+  "reviewEvidence": []
+}

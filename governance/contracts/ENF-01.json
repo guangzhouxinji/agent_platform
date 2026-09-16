@@ -1,0 +1,905 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-01",
+  "title": "违法线索数据源管理",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/01-违法线索数据源管理需求文档.md",
+    "sha256": "f3f6200f420f3af00d7539e722eb06d7aea93acf1735e8810a2e1bbee2b96257",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope_and_delivery"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "source_and_dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "sync_rules"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付口径",
+        "1.1 已确认的国产化与数据库要求",
+        "3. 通用接口约定",
+        "4. 信息字段说明",
+        "5. 审核与版本通用要求",
+        "6. 内部前端通用要求",
+        "7. API 与业务材料依赖清单",
+        "9. 验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-01-MUST-001",
+      "type": "MUST",
+      "statement": "统一配置中心提供的违法线索 API，并管理连接、同步和运行状态。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-001",
+        "ENF-01-AC-008"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "首版不得自行抓取电商或社交平台，也不得将已接入范围宣称为全网实时发现。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "总览/7. API 与业务材料依赖清单"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-003",
+      "type": "MUST",
+      "statement": "接入依赖中心 API 文档、凭证引用、样例以及中心确认的数据授权、覆盖范围和更新条件。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-004",
+      "type": "MUST",
+      "statement": "接入时校验源资源编号、关联关系、版本和访问权限，并分开记录源数据缺失与调用失败。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-002",
+        "ENF-01-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "来源字段、源记录标识、源版本和缺失事实不得由模型生成、替换或推断。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "总览/4. 信息字段说明"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-005",
+      "type": "MUST",
+      "statement": "数据源配置至少记录唯一编号、名称、数据类型、API 接入方式、受控地址、认证配置引用、字段映射、负责人、所属机构及创建更新审计。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-006",
+      "type": "MUST",
+      "statement": "定时模式必须记录带分钟或小时单位的同步周期；启用或停用状态与连接健康状态分开记录。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-001",
+        "ENF-01-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-007",
+      "type": "MUST",
+      "statement": "同步记录最近成功游标和可为空的最近成功时间，详情返回来源及历史配置版本；已有来源字段和业务编号不得随意改写。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-002",
+        "ENF-01-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-008",
+      "type": "MUST",
+      "statement": "新增配置的连接测试须校验认证、分页方式、时间字段、唯一键和返回结构；测试结果不替代配置保存或真实同步结果。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-001",
+        "ENF-01-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-009",
+      "type": "MUST",
+      "statement": "支持编辑、启停、手动同步和定时同步，同一数据源不得并发执行重复同步。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-003",
+        "ENF-01-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-010",
+      "type": "MUST",
+      "statement": "按源记录 ID 与源版本幂等接入，同一批数据重复同步不得重复创建业务记录。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-011",
+      "type": "MUST",
+      "statement": "同步失败逐项记录原因；重试不得重复产生业务记录；成功游标只能推进到连续完成位置。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "不得静默跳过失败记录后推进同步游标，也不得把超时或限流表示为成功但无数据。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-004",
+        "ENF-01-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-012",
+      "type": "MUST",
+      "statement": "中心 API 无增量能力时按双方约定窗口重新拉取并去重，同步频率不得突破上游限流。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-013",
+      "type": "MUST",
+      "statement": "源记录更新保留旧快照、源更新时间和获取时间；删除或撤回按接口实际能力标记。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "源记录删除、撤回、暂时不可用或接口失败不得被推断为业务对象不存在。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-006",
+        "ENF-01-AC-009"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-017",
+      "type": "MUST",
+      "statement": "配置变更、人工修订及审核记录真实操作人、前后状态和版本；编辑使用预期版本并拒绝并发覆盖。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-018",
+      "type": "MUST",
+      "statement": "同步任务状态采用 queued、running、succeeded、partial_failed、failed、cancelled；部分失败必须列出未处理项。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "部分结果不得伪装为完整成功，运行中任务也不得因数据源停用而显示含糊或错误状态。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-005",
+        "ENF-01-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-020",
+      "type": "MUST",
+      "statement": "停用后不再创建新的定时同步任务；运行中任务必须按已确认策略继续、取消或完成，并保持明确状态和审计。",
+      "sourceAnchors": [
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-023",
+      "type": "MUST",
+      "statement": "未确认中心协议、分页、增量、限流、附件和撤回机制时，只允许使用明确标记且与真实环境隔离的模拟数据推进可逆开发。",
+      "sourceAnchors": [
+        "8. 联调前需确认的条件",
+        "总览/3. 通用接口约定"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST_NOT-009",
+      "type": "MUST_NOT",
+      "statement": "未确认或仅模拟的 API 能力不得标记为真实联调、验证或业务验收通过。",
+      "sourceAnchors": [
+        "8. 联调前需确认的条件",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-01-MUST-024",
+      "type": "MUST",
+      "statement": "固定验收样例记录需求编号、请求、输入和配置版本、预期、实际、页面、证据及问题编号；涉及专业判断的预期由中心确认。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-01-AC-013"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "sourceConfiguration",
+      "required": true,
+      "rules": [
+        "名称、类型、API 地址、凭证引用、字段映射、负责人、机构和预期版本"
+      ]
+    },
+    {
+      "name": "schedule",
+      "required": "定时模式时",
+      "rules": [
+        "周期数值及分钟或小时单位，不得突破限流"
+      ]
+    },
+    {
+      "name": "syncRequest",
+      "required": "同步时",
+      "rules": [
+        "数据源编号、模式、幂等键、可选约定窗口"
+      ]
+    },
+    {
+      "name": "trustedIdentity",
+      "required": true,
+      "rules": [
+        "来自认证上下文，不信任调用方人员名称"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "source",
+      "fields": [
+        "sourceId",
+        "version",
+        "enabledStatus",
+        "healthStatus",
+        "lastSuccessCursor",
+        "lastSuccessAt",
+        "audit"
+      ]
+    },
+    {
+      "name": "connectionTest",
+      "fields": [
+        "authentication",
+        "pagination",
+        "timeField",
+        "uniqueKey",
+        "responseShape",
+        "requestId",
+        "result"
+      ]
+    },
+    {
+      "name": "syncTask",
+      "fields": [
+        "taskId",
+        "status",
+        "requestId",
+        "inputVersion",
+        "configurationVersion",
+        "counts",
+        "cursor",
+        "errors",
+        "attempts"
+      ]
+    },
+    {
+      "name": "sourceSnapshot",
+      "fields": [
+        "sourceRecordId",
+        "sourceVersion",
+        "sourceUpdatedAt",
+        "fetchedAt",
+        "contentDigest",
+        "withdrawalStatus"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "manage_source",
+      "enforcement": "服务端按机构、资源范围和配置管理角色校验"
+    },
+    {
+      "action": "test_connection",
+      "enforcement": "服务端使用凭证引用解析密钥，结果仅返回脱敏状态"
+    },
+    {
+      "action": "start_or_cancel_sync",
+      "enforcement": "服务端校验数据源状态、权限、幂等和并发"
+    },
+    {
+      "action": "read_task_or_failure",
+      "enforcement": "按所属机构、数据源和敏感范围过滤"
+    },
+    {
+      "action": "view_credentials",
+      "enforcement": "接口和页面均不得返回密钥，仅返回受控引用或脱敏标识"
+    }
+  ],
+  "states": [
+    {
+      "name": "启用",
+      "kind": "configuration",
+      "allowedNext": [
+        "停用"
+      ]
+    },
+    {
+      "name": "停用",
+      "kind": "configuration",
+      "allowedNext": [
+        "启用"
+      ],
+      "invariant": "不再创建新定时任务；不自动改写历史任务"
+    },
+    {
+      "name": "连接健康",
+      "kind": "health",
+      "allowedNext": [
+        "连接异常"
+      ]
+    },
+    {
+      "name": "连接异常",
+      "kind": "health",
+      "allowedNext": [
+        "连接健康"
+      ]
+    },
+    {
+      "name": "queued",
+      "kind": "task",
+      "allowedNext": [
+        "running",
+        "cancelled",
+        "failed"
+      ]
+    },
+    {
+      "name": "running",
+      "kind": "task",
+      "allowedNext": [
+        "succeeded",
+        "partial_failed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    {
+      "name": "succeeded",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "partial_failed",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "列出未处理项，游标不跨越缺口"
+    },
+    {
+      "name": "failed",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "cancelled",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "配置使用稳定数据源编号和版本；编辑记录预期版本、操作者及前后状态。",
+    "源记录按源 ID 与源版本幂等，更新形成新快照而不覆盖历史。",
+    "源更新时间、获取时间、任务时间和配置时间分开记录。",
+    "同步结果绑定输入、配置、映射和源版本；上游变化不重写历史结果。",
+    "成功游标只覆盖连续成功处理范围，失败明细与尝试关联。",
+    "模拟与真实来源、凭证、任务和验证证据隔离并显式标记。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "authentication_failed",
+      "result": "返回脱敏认证失败和 request_id，不泄露凭证"
+    },
+    {
+      "case": "source_unavailable_or_rate_limited",
+      "result": "返回可重试性和明确失败，不表示无数据"
+    },
+    {
+      "case": "success_with_no_data",
+      "result": "与调用失败分开表示并记录实际范围"
+    },
+    {
+      "case": "mapping_or_parse_failure",
+      "result": "逐项失败，不推进越过该项的游标"
+    },
+    {
+      "case": "duplicate_sync",
+      "result": "拒绝并发重复任务或幂等返回原任务"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前配置版本"
+    },
+    {
+      "case": "resource_missing_or_unauthorized",
+      "result": "拒绝操作且不泄露敏感详情"
+    },
+    {
+      "case": "partial_result",
+      "result": "返回 partial_failed、已处理及未处理项"
+    },
+    {
+      "case": "source_withdrawn_or_deleted",
+      "result": "按源能力标记，不推断业务不存在"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-01-DEC-001",
+      "owner": "AI",
+      "description": "无业务决定权；不得生成来源、映射、源事实、同步状态或缺失原因。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ]
+    },
+    {
+      "id": "ENF-01-DEC-002",
+      "owner": "RULE",
+      "description": "执行配置校验、权限、版本冲突、幂等、同步并发、限流、状态和连续成功游标规则。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-01-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权运维或中心人员维护配置、字段映射、同步模式、负责人、启停和运行中任务处置策略。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-01-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心 API 提供真实源记录、版本、覆盖、分页、增量、撤回和限流语义；身份系统提供可信主体和授权范围。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "8. 联调前需确认的条件"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-01-AC-001",
+      "given": [
+        "合法和非法认证、分页、时间、唯一键及结构样例"
+      ],
+      "when": "保存配置并测试连接",
+      "then": [
+        "完整校验并区分配置与健康状态",
+        "定时周期带单位",
+        "只返回凭证引用或脱敏结果"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-001",
+        "ENF-01-MUST-005",
+        "ENF-01-MUST-006",
+        "ENF-01-MUST-008"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-002",
+      "given": [
+        "有关联、版本或权限异常的源记录"
+      ],
+      "when": "执行接入",
+      "then": [
+        "异常记录被拒绝或逐项失败",
+        "缺失与调用失败分开",
+        "游标和历史可定位"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-004",
+        "ENF-01-MUST-007"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-003",
+      "given": [
+        "同一批源 ID 和版本数据",
+        "并发及顺序重复同步"
+      ],
+      "when": "多次创建同步",
+      "then": [
+        "不并发重复执行",
+        "不重复创建业务记录",
+        "幂等返回可追踪任务"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-009",
+        "ENF-01-MUST-010"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-004",
+      "given": [
+        "中间记录解析失败、限流和无增量能力"
+      ],
+      "when": "同步并重试",
+      "then": [
+        "失败明细保留",
+        "游标不跨越失败",
+        "窗口重拉去重",
+        "频率遵守限流",
+        "失败不伪装无数据"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-011",
+        "ENF-01-MUST_NOT-004",
+        "ENF-01-MUST-012"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-005",
+      "given": [
+        "启用数据源及运行中同步"
+      ],
+      "when": "停用数据源",
+      "then": [
+        "不再产生新定时任务",
+        "运行中任务按确认策略处理且状态明确",
+        "启停与健康不混用"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-006",
+        "ENF-01-MUST-009",
+        "ENF-01-MUST_NOT-006",
+        "ENF-01-MUST-020"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-006",
+      "given": [
+        "认证失败、接口不可用、成功无数据、解析失败及源字段缺失"
+      ],
+      "when": "测试连接或同步",
+      "then": [
+        "各种结果可区分并有 request_id",
+        "不泄露凭证",
+        "不由模型补造来源",
+        "失败不推断不存在"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-004",
+        "ENF-01-MUST_NOT-003",
+        "ENF-01-MUST-008",
+        "ENF-01-MUST_NOT-004",
+        "ENF-01-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-007",
+      "given": [
+        "成功、部分失败、失败和取消任务"
+      ],
+      "when": "查询同步状态和结果",
+      "then": [
+        "状态、计数、版本和错误完整",
+        "部分失败列出未处理项且不冒充成功"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-018",
+        "ENF-01-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-008",
+      "given": [
+        "内部页面和直接 API 客户端",
+        "有权和无权用户"
+      ],
+      "when": "执行配置、查询、启停、连接测试和同步",
+      "then": [
+        "行为与权限一致",
+        "页面状态完整且不承载业务规则",
+        "详情不是摘要",
+        "服务可脱离页面工作"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-001"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-009",
+      "given": [
+        "源记录的更新、删除、撤回和暂时不可用"
+      ],
+      "when": "重新同步并查看历史",
+      "then": [
+        "旧快照与时间保留",
+        "按真实源能力标记",
+        "不改写编号或推断不存在"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-007",
+        "ENF-01-MUST-013",
+        "ENF-01-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-010",
+      "given": [
+        "中心协议尚未确认的环境和显式模拟环境"
+      ],
+      "when": "执行开发验证和状态升级",
+      "then": [
+        "只实现已接入范围",
+        "模拟与真实隔离",
+        "不自行抓取平台",
+        "不标记真实联调或验收通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST_NOT-001",
+        "ENF-01-MUST-003",
+        "ENF-01-MUST-023",
+        "ENF-01-MUST_NOT-009"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-011",
+      "given": [
+        "两个管理人员基于相同旧版本编辑"
+      ],
+      "when": "先后保存或审核",
+      "then": [
+        "后提交被版本冲突阻断",
+        "真实操作人和前后状态留痕",
+        "已发布历史不被覆盖"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-017"
+      ]
+    },
+    {
+      "id": "ENF-01-AC-013",
+      "given": [
+        "功能交付检查"
+      ],
+      "when": "核对服务、接口和验收材料",
+      "then": [
+        "每个场景具备需求、请求、版本、预期、实际、页面、证据和问题编号",
+        "专业预期具有中心确认",
+        "内部页面未冒充对外交付"
+      ],
+      "sourceClauseIds": [
+        "ENF-01-MUST-024"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-01-DD-001",
+      "decision": "数据源配置和同步策略归属 Enforcement 上下文，中心连接实现位于外部适配器；Task、Version、IAM 和 Audit 提供共享能力。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-01-DD-002",
+      "decision": "具体 REST 路径、字段英文名、凭证产品、DM8 类型和调度组件延后至 D 门禁及环境验证。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "原文明确留待技术设计和联调，不允许当前预设。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-01-OQ-001",
+      "type": "external_integration",
+      "question": "中心线索 API 的协议、认证、字段、唯一键、版本、错误码和样例是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "真实接入"
+      ]
+    },
+    {
+      "id": "ENF-01-OQ-002",
+      "type": "source_semantics",
+      "question": "分页或推送、增量游标、源更新时间、删除和撤回分别如何表达？",
+      "blocks": [
+        "ARC-04",
+        "ARC-09",
+        "同步与历史设计"
+      ]
+    },
+    {
+      "id": "ENF-01-OQ-003",
+      "type": "data_authorization",
+      "question": "源原文、附件、快照、缓存、索引、模型处理和审计分别允许保存或使用多久？",
+      "blocks": [
+        "ARC-10",
+        "ARC-11",
+        "正式数据链路"
+      ]
+    },
+    {
+      "id": "ENF-01-OQ-004",
+      "type": "runtime_policy",
+      "question": "停用时已经 queued 或 running 的同步任务应继续、取消还是完成当前批次？",
+      "blocks": [
+        "ARC-05",
+        "ENG-06",
+        "停用验收"
+      ]
+    },
+    {
+      "id": "ENF-01-OQ-005",
+      "type": "acceptance_parameter",
+      "question": "同步频率、窗口、最大重试、数据量、并发和响应时间的确认值是什么？",
+      "blocks": [
+        "配置默认值",
+        "性能验收"
+      ]
+    },
+    {
+      "id": "ENF-01-OQ-006",
+      "type": "authorization",
+      "question": "配置、测试连接、启停、同步、取消、查看失败明细和审核分别由哪些角色执行？",
+      "blocks": [
+        "ARC-06",
+        "正式权限设计"
+      ]
+    },
+    {
+      "id": "ENF-01-OQ-007",
+      "type": "environment",
+      "question": "DM8 小版本、兼容模式、字符集、JDK/驱动、网络和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实 DM8 验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "AI has no decision role in source ingestion; source facts and failure meaning remain authoritative-system outputs.",
+      "Configuration enabled state, connection health and synchronization task state remain separate.",
+      "No API protocol, mapping, schedule, retry limit, stop-running-task policy, role, retention or performance value was guessed."
+    ]
+  }
+}

@@ -1,0 +1,818 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-04",
+  "title": "违法线索解析",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/04-违法线索解析需求文档.md",
+    "sha256": "3f418dede2841208e3f7a3fdacaaa0c63795a38458b2994d6d8df69816d54b20",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope_and_delivery"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "source_and_dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "extraction_and_review"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付口径",
+        "1.1 已确认的国产化与数据库要求",
+        "3. 通用接口约定",
+        "4. 信息字段说明",
+        "5. 审核与版本通用要求",
+        "6. 内部前端通用要求",
+        "7. API 与业务材料依赖清单",
+        "9. 验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-04-MUST-001",
+      "type": "MUST",
+      "statement": "从有权访问的固定线索原文版本中提取疑似主体、事实、时间、地点和证据引用，并给出分类及优先级建议。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-001",
+        "ENF-04-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "解析输出不得表述为违法主体认定、违法成立、正式优先处置决定或其他正式执法结论。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-003",
+        "ENF-04-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-003",
+      "type": "MUST",
+      "statement": "解析前校验线索编号、输入版本、关联关系、机构和当前访问权限；源数据缺失与接口调用失败分开记录。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "来源、源版本、原文事实和缺失信息不得由模型生成、替换或为了满足字段而编造。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则",
+        "总览/4. 信息字段说明"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-001",
+        "ENF-04-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-004",
+      "type": "MUST",
+      "statement": "主体核验仅在中心提供并授权企业主体查询 API 时执行，核验结果保留来源、版本和时间。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-002",
+        "ENF-04-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-005",
+      "type": "MUST",
+      "statement": "每个抽取字段保留输入原文片段以及页码、字段路径或等效稳定定位；无法确定时字段留空并列出缺失项。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-006",
+      "type": "MUST",
+      "statement": "主体候选支持多个并区分投诉人、经营者、权利人等原文角色，提示授权人员核实。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "不得把原文提及主体直接认定为违法主体，也不得把不同角色合并为一个无角色主体。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-007",
+      "type": "MUST",
+      "statement": "统一社会信用代码仅来自输入原文或有来源的主体核验结果；未提供或未核实时保持为空。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "不得根据主体名称、地址或其他线索推算、生成或猜测统一社会信用代码。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-008",
+      "type": "MUST",
+      "statement": "发生时间同时保留原始表述和标准化值，地点同时保留原文和标准化地址；标准化失败不覆盖原值。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-009",
+      "type": "MUST",
+      "statement": "关联证据仅记录真实材料编号或明确的待接入引用，不得将无来源描述伪装成已接入证据。",
+      "sourceAnchors": [
+        "3. 信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-010",
+      "type": "MUST",
+      "statement": "优先级只能依据中心确认的因素和规则计算，并输出高、中、低或待评估以及可追溯理由。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-003",
+        "ENF-04-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "缺少必要优先级因素时不得猜测高、中、低，优先级或模型分值不得表示违法成立概率。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-012",
+      "type": "MUST",
+      "statement": "审核状态为待审核、已确认和退回；授权人员可以修订、确认或退回，所有动作保留前后值、人员、时间和理由。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-013",
+      "type": "MUST",
+      "statement": "重新解析创建新的机器结果版本并关联原结果，不覆盖已人工修订或确认版本。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST_NOT-007",
+      "type": "MUST_NOT",
+      "statement": "模型重跑不得改变人工确认结果、审核记录或历史引用。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST_NOT-008",
+      "type": "MUST_NOT",
+      "statement": "部分解析不得伪装完整成功，源接口失败不得伪装字段为空或规则不适用。",
+      "sourceAnchors": [
+        "5. 服务接口需求",
+        "总览/3. 通用接口约定",
+        "总览/5. 审核与版本通用要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-007"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-018",
+      "type": "MUST",
+      "statement": "模型效果使用中心专家标注的独立样本集评测，记录样本量、输入和模型版本、字段级指标、来源定位正确性、缺失处理及复核结果。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-010"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST_NOT-009",
+      "type": "MUST_NOT",
+      "statement": "模型置信度、自评分、静态演示或模拟结果不得作为解析准确率或真实业务验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件",
+        "总览/6. 内部前端通用要求",
+        "总览/9. 验收组织"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-010",
+        "ENF-04-AC-011"
+      ]
+    },
+    {
+      "id": "ENF-04-MUST-020",
+      "type": "MUST",
+      "statement": "未确认优先级因素和主体核验接口时允许显式模拟的可逆开发，但相关能力保持未联调或待确认状态。",
+      "sourceAnchors": [
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-04-AC-011"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "clueReference",
+      "required": true,
+      "rules": [
+        "有权限的线索稳定编号和固定输入版本"
+      ]
+    },
+    {
+      "name": "parseConfiguration",
+      "required": true,
+      "rules": [
+        "固定模型、规则和字段版本"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定主体、操作和输入"
+      ]
+    },
+    {
+      "name": "humanRevision",
+      "required": "修订或审核时",
+      "rules": [
+        "预期结果版本、字段前后值、理由和可信身份"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "parseTask",
+      "fields": [
+        "taskId",
+        "status",
+        "requestId",
+        "inputVersion",
+        "parseVersion",
+        "attempts",
+        "unprocessedItems"
+      ]
+    },
+    {
+      "name": "candidateSubject",
+      "fields": [
+        "name",
+        "role",
+        "creditCode",
+        "sourceAnchor",
+        "verificationStatus",
+        "verificationSource"
+      ]
+    },
+    {
+      "name": "extractedFact",
+      "fields": [
+        "value",
+        "rawValue",
+        "normalizedValue",
+        "sourceFragment",
+        "pageOrFieldPath",
+        "missingReason"
+      ]
+    },
+    {
+      "name": "prioritySuggestion",
+      "fields": [
+        "levelOrPending",
+        "factors",
+        "reason",
+        "ruleVersion",
+        "notLegalProbability"
+      ]
+    },
+    {
+      "name": "reviewedResult",
+      "fields": [
+        "resultId",
+        "version",
+        "reviewStatus",
+        "machineVersion",
+        "revisions",
+        "reviewer",
+        "reviewedAt"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "submit_parse",
+      "enforcement": "校验机构、线索和固定输入版本访问权限"
+    },
+    {
+      "action": "read_result_or_source",
+      "enforcement": "每次读取重新检查线索、来源和结果权限"
+    },
+    {
+      "action": "revise",
+      "enforcement": "授权业务人员及预期版本校验"
+    },
+    {
+      "action": "confirm_or_return",
+      "enforcement": "中心授权审核角色，不能由模型或 Agent 触发"
+    },
+    {
+      "action": "verify_subject",
+      "enforcement": "仅调用中心批准主体接口且遵守数据范围"
+    }
+  ],
+  "states": [
+    {
+      "name": "queued",
+      "kind": "task",
+      "allowedNext": [
+        "running",
+        "cancelled",
+        "failed"
+      ]
+    },
+    {
+      "name": "running",
+      "kind": "task",
+      "allowedNext": [
+        "succeeded",
+        "partial_failed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    {
+      "name": "succeeded",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "partial_failed",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "列出未处理字段或来源"
+    },
+    {
+      "name": "failed",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "cancelled",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "待审核",
+      "kind": "review",
+      "allowedNext": [
+        "已确认",
+        "退回"
+      ]
+    },
+    {
+      "name": "退回",
+      "kind": "review",
+      "allowedNext": [
+        "待审核"
+      ],
+      "invariant": "重新提交形成新结果版本"
+    },
+    {
+      "name": "已确认",
+      "kind": "review",
+      "allowedNext": [],
+      "invariant": "模型重跑不得覆盖"
+    }
+  ],
+  "sourceAndVersionRules": [
+    "解析固定线索输入、原文内容摘要、模型、规则和字段配置版本。",
+    "每个抽取值关联原文片段及页码或字段路径，缺失有明确原因。",
+    "主体核验值绑定权威接口记录、版本和时间，不覆盖原文候选。",
+    "机器重跑形成新版本，人工修订及确认结果形成独立可追溯版本。",
+    "上游变化不重写历史结果，受影响结果标记需复核。",
+    "模拟输入、主体核验及评测证据与真实环境隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "clue_missing_or_unauthorized",
+      "result": "拒绝任务且不泄露线索内容"
+    },
+    {
+      "case": "source_data_missing",
+      "result": "字段留空并列缺失项，不由模型补造"
+    },
+    {
+      "case": "source_or_model_failure",
+      "result": "返回失败或部分失败，不伪装为空字段"
+    },
+    {
+      "case": "subject_api_unavailable",
+      "result": "保留候选并标记未核验，不推算信用代码"
+    },
+    {
+      "case": "priority_factors_missing",
+      "result": "返回待评估及缺失因素"
+    },
+    {
+      "case": "version_or_state_conflict",
+      "result": "拒绝覆盖并返回当前版本或状态"
+    },
+    {
+      "case": "partial_parse",
+      "result": "列出已处理字段、未处理字段和来源失败"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-04-DEC-001",
+      "owner": "AI",
+      "description": "提取候选主体、事实、时间、地点、证据引用并生成分类或优先级候选理由；不得确认违法或补造缺失事实。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-04-DEC-002",
+      "owner": "RULE",
+      "description": "执行权限、输入版本、字段校验、来源定位、优先级因素、任务状态和审核状态转换。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-04-DEC-003",
+      "owner": "HUMAN",
+      "description": "授权人员核实主体与字段、修订结果、确认或退回，并由中心确认优先级业务因素和专业预期。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ]
+    },
+    {
+      "id": "ENF-04-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心线索与主体系统提供真实原文、主体核验、版本和权限；其回执不能由 AI 替代。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-04-AC-001",
+      "given": [
+        "含事实、原始时间地点及缺失字段的固定线索"
+      ],
+      "when": "执行解析",
+      "then": [
+        "每个结果可定位原文",
+        "原值与标准化值并存",
+        "无法确定字段为空并列缺失",
+        "不补造来源"
+      ],
+      "sourceClauseIds": [
+        "ENF-04-MUST-001",
+        "ENF-04-MUST_NOT-003",
+        "ENF-04-MUST-005",
+        "ENF-04-MUST-008"
+      ]
+    },
+    {
+      "id": "ENF-04-AC-002",
+      "given": [
+        "多个投诉人、经营者和权利人且没有信用代码"
+      ],
+      "when": "提取并可选核验主体",
+      "then": [
+        "候选及角色全部保留",
+        "不认定违法主体",
+        "信用代码为空且不推算"
+      ],
+      "sourceClauseIds": [
+        "ENF-04-MUST-004",
+        "ENF-04-MUST-006",
+        "ENF-04-MUST_NOT-004",
+        "ENF-04-MUST-007",
+        "ENF-04-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "ENF-04-AC-003",
+      "given": [
+        "中心确认因素齐全和缺失两种样例"
+      ],
+      "when": "计算优先级",
+      "then": [
+        "齐全样例按固定规则输出理由",
+        "缺失样例返回待评估",
+        "分值不表示违法概率或正式决定"
+      ],
+      "sourceClauseIds": [
+        "ENF-04-MUST_NOT-001",
+        "ENF-04-MUST-010",
+        "ENF-04-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "ENF-04-AC-004",
+      "given": [
+        "含真实材料引用和无来源证据描述的线索"
+      ],
+      "when": "生成解析结果",
+      "then": [
+        "只关联真实编号或待接入引用",
+        "固定输入与解析版本可追溯",
+        "输出仍为候选建议"
+      ],
+      "sourceClauseIds": [
+        "ENF-04-MUST-001",
+        "ENF-04-MUST-009"
+      ]
+    },
+    {
+      "id": "ENF-04-AC-005",
+      "given": [
+        "待审核机器解析"
+      ],
+      "when": "授权人员修订、确认或退回",
+      "then": [
+        "状态转换合法",
+        "前后值、人员、时间和理由完整",
+        "机器结果不自动成为正式结论"
+      ],
+      "sourceClauseIds": [
+        "ENF-04-MUST_NOT-001",
+        "ENF-04-MUST-012"
+      ]
+    },
+    {
+      "id": "ENF-04-AC-006",
+      "given": [
+        "已有人工确认版本"
+      ],
+      "when": "使用相同或更新输入重新解析",
+      "then": [
+        "生成新机器版本",
+        "人工确认版本和历史引用不被覆盖"
+      ],
+      "sourceClauseIds": [
+        "ENF-04-MUST-013",
+        "ENF-04-MUST_NOT-007"
+      ]
+    },
+    {
+      "id": "ENF-04-AC-007",
+      "given": [
+        "无权限、源缺失、接口失败、解析失败、规则不适用和部分解析"
+      ],
+      "when": "调用解析服务",
+      "then": [
+        "错误、缺失与不适用可区分",
+        "部分结果列未处理项",
+        "失败不伪装空值",
+        "request_id 可追踪"
+      ],
+      "sourceClauseIds": [
+        "ENF-04-MUST-003",
+        "ENF-04-MUST_NOT-003",
+        "ENF-04-MUST_NOT-008"
+      ]
+    },
+    {
+      "id": "ENF-04-AC-010",
+      "given": [
+        "中心专家独立标注集"
+      ],
+      "when": "评测固定解析版本",
+      "then": [
+        "字段级指标、来源正确性、缺失处理、分母和复核结果完整",
+        "置信度不冒充准确率"
+      ],
+      "sourceClauseIds": [
+        "ENF-04-MUST-018",
+        "ENF-04-MUST_NOT-009"
+      ]
+    },
+    {
+      "id": "ENF-04-AC-011",
+      "given": [
+        "优先级因素或主体接口尚未确认"
+      ],
+      "when": "检查状态和验收",
+      "then": [
+        "保持待评估或未核验",
+        "模拟明确隔离",
+        "不标记真实业务通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-04-MUST-004",
+        "ENF-04-MUST-010",
+        "ENF-04-MUST_NOT-009",
+        "ENF-04-MUST-020"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-04-DD-001",
+      "decision": "解析业务与人工确认归属 Enforcement；模型通过 Agent Runtime 工具调用，Review 保存独立复核记录，Source/Evidence 保存字段定位。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-04-DD-002",
+      "decision": "具体 REST 路径、抽取模型、地址标准化方式、优先级公式和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "原文未指定且优先级因素与主体接口待中心确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-04-OQ-001",
+      "type": "business_semantics",
+      "question": "分类和优先级的中心确认因素、规则、缺失处理和边界样例是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "优先级实现"
+      ]
+    },
+    {
+      "id": "ENF-04-OQ-002",
+      "type": "external_integration",
+      "question": "线索和企业主体 API 的字段、版本、认证、错误及主体唯一标识是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "主体核验"
+      ]
+    },
+    {
+      "id": "ENF-04-OQ-003",
+      "type": "acceptance_data",
+      "question": "中心专家标注集的字段、来源定位、缺失和角色标准如何定义并冻结？",
+      "blocks": [
+        "SPK-08",
+        "模型效果验收"
+      ]
+    },
+    {
+      "id": "ENF-04-OQ-004",
+      "type": "authorization",
+      "question": "解析、主体核验、修订、提交、确认、退回和历史访问分别由哪些角色执行？",
+      "blocks": [
+        "ARC-06",
+        "正式审核设计"
+      ]
+    },
+    {
+      "id": "ENF-04-OQ-005",
+      "type": "model_boundary",
+      "question": "批准模型、允许输入数据、字段输出、上下文长度及出域边界是什么？",
+      "blocks": [
+        "ARC-07",
+        "ARC-11",
+        "SPK-08"
+      ]
+    },
+    {
+      "id": "ENF-04-OQ-006",
+      "type": "environment",
+      "question": "DM8 小版本、实例参数、JDK/驱动及国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Candidate extraction, deterministic validation, human confirmation and authoritative subject lookup are separated.",
+      "Priority remains an operational suggestion and never becomes an offense probability or formal conclusion.",
+      "No priority factors, subject-lookup behavior, model, metric threshold, role or normalization rule was guessed."
+    ]
+  }
+}

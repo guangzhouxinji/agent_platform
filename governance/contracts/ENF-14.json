@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "ENF-14",
+  "title": "执法文书自动生成",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权执法助手/14-执法文书自动生成需求文档.md",
+    "sha256": "8a29caa91be4f8b948c66ca7b88c301edd4ffd0312f7d6282aa44d5b3ed28333",
+    "sections": [
+      {
+        "anchor": "1. 功能概述与交付范围",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 数据来源与依赖",
+        "purpose": "dependencies"
+      },
+      {
+        "anchor": "3. 信息字段",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "4. 功能与处理规则",
+        "purpose": "generation_review"
+      },
+      {
+        "anchor": "5. 服务接口需求",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "6. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 联调前需确认的条件",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权执法助手/00-需求总览与通用约定.md",
+      "sha256": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+      "sections": [
+        "1. 建设与交付范围",
+        "2. 数据、身份、权限与审计",
+        "3. 时间、版本与变更",
+        "4. 服务、任务与错误契约",
+        "5. AI、规则与人工边界",
+        "6. 页面验证",
+        "7. 国产化与达梦 DM8",
+        "8. 依赖与待落实材料",
+        "9. 开发与验收组织"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "ENF-14-MUST-001",
+      "type": "MUST",
+      "statement": "仅按固定 ENF-12 模板版本、ENF-13 规则版本及授权案件事实、证据、分析、处罚建议和法律引用生成各文书所需的可编辑初稿。",
+      "sourceAnchors": [
+        "1. 功能概述与交付范围",
+        "2. 数据来源与依赖"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-001"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "不得把系统草稿编号、生成完成或内部内容审核冒充正式文号、签发、送达或法定程序完成。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-001",
+        "ENF-14-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST-002",
+      "type": "MUST",
+      "statement": "生成前固定并校验案件、模板、规则及全部输入版本、适用范围、关联关系和访问权限；缺失与源调用失败分别记录。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-002"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "模型不得生成或替换来源字段、业务编号、金额、日期、正式处罚结论或其他确定性输入。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-002",
+        "ENF-14-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST-003",
+      "type": "MUST",
+      "statement": "金额和日期仅由确认输入及确定性逻辑填充，字段和段落保存可核验来源；系统辅助内容必须明显标识。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST-004",
+      "type": "MUST",
+      "statement": "必填缺失保留占位和缺失清单，状态为不完整草稿并阻止提交审核；部分结果附未处理项。",
+      "sourceAnchors": [
+        "3. 信息字段",
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-003"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST-005",
+      "type": "MUST",
+      "statement": "修订保存新版本及操作者和前后变化，重新生成创建新版本且不覆盖人工修改、旧版本或旧来源。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST-006",
+      "type": "MUST",
+      "statement": "来源或配置变化标记相关草稿待重新核对，不自动改写已保存文书。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-004"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST-007",
+      "type": "MUST",
+      "statement": "正式处罚结论和金额只使用已确认输入；未确认内容标为待确认且不得写成已决定事项。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "AI、生成规则或审核流程不得自行确认处罚结论、金额、签章、签发或送达。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "总览/5. AI、规则与人工边界"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-005"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST-009",
+      "type": "MUST",
+      "statement": "导出和预览使用同一已审核内容版本并保留中文、表格与模板版式；失败或不完整文件不得标完整成功。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求",
+        "7. 验收要求"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-006"
+      ]
+    },
+    {
+      "id": "ENF-14-MUST-012",
+      "type": "MUST",
+      "statement": "中心逐类确认首批文书和必填字段，专业样例记录请求、预期、实际、证据及问题；未确认项不升级验收。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 联调前需确认的条件"
+      ],
+      "acceptanceScenarioIds": [
+        "ENF-14-AC-009"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "generationRequest",
+      "required": true,
+      "rules": [
+        "案件、模板和规则固定版本",
+        "各文书仅用所需输入",
+        "幂等键"
+      ]
+    },
+    {
+      "name": "revision",
+      "required": "人工修订时",
+      "rules": [
+        "基于文书版本、修改内容、理由和可信身份"
+      ]
+    },
+    {
+      "name": "reviewAction",
+      "required": "提交或审核时",
+      "rules": [
+        "文书版本、动作、意见和并发版本"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "documentDraft",
+      "fields": [
+        "documentId",
+        "version",
+        "caseId",
+        "templateVersion",
+        "ruleVersion",
+        "content",
+        "fileRef",
+        "sourceMap",
+        "missingItems",
+        "assistLabel",
+        "reviewStatus"
+      ]
+    },
+    {
+      "name": "generationTask",
+      "fields": [
+        "taskId",
+        "status",
+        "progress",
+        "resultVersion",
+        "unprocessedItems",
+        "errors",
+        "requestId"
+      ]
+    },
+    {
+      "name": "auditTrail",
+      "fields": [
+        "inputManifest",
+        "revisionHistory",
+        "reviewEvents",
+        "exportManifest"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "generate_or_view",
+      "enforcement": "案件、全部输入、模板规则及文件权限实时交集"
+    },
+    {
+      "action": "edit_or_submit",
+      "enforcement": "文书维护角色、案件范围和当前版本"
+    },
+    {
+      "action": "review",
+      "enforcement": "独立审核角色、状态和机构范围"
+    },
+    {
+      "action": "export",
+      "enforcement": "已授权内容版本和文件权限"
+    }
+  ],
+  "states": [
+    {
+      "name": "不完整草稿",
+      "kind": "document",
+      "allowedNext": [
+        "待审核"
+      ],
+      "invariant": "补齐必填并重新校验前不得提交"
+    },
+    {
+      "name": "待审核",
+      "kind": "document",
+      "allowedNext": [
+        "退回",
+        "已审核"
+      ]
+    },
+    {
+      "name": "退回",
+      "kind": "document",
+      "allowedNext": [
+        "待审核"
+      ]
+    },
+    {
+      "name": "已审核",
+      "kind": "document",
+      "allowedNext": [],
+      "invariant": "不等于正式签发送达"
+    },
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    }
+  ],
+  "sourceAndVersionRules": [
+    "每次运行冻结案件、模板、规则、证据、分析、处罚建议、引用和模型提示词版本。",
+    "原始输入、模型辅助内容、人工修订、审核和导出版本分层保存。",
+    "来源变更只触发待核对，不覆盖旧稿。",
+    "文书审核状态与生成任务、正式签发送达状态分离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "missing_required_input",
+      "result": "生成不完整草稿并阻止提交审核"
+    },
+    {
+      "case": "source_failure",
+      "result": "记录源失败，不伪装字段为空"
+    },
+    {
+      "case": "not_applicable",
+      "result": "拒绝生成并说明模板或规则范围"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前版本"
+    },
+    {
+      "case": "render_partial",
+      "result": "保留诊断和未处理项，不标完整成功"
+    },
+    {
+      "case": "unauthorized",
+      "result": "拒绝且不泄露案件文书和来源"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "ENF-14-DEC-001",
+      "owner": "AI",
+      "description": "仅基于允许来源辅助撰写叙述和解释，不决定确定性字段、处罚、审核或正式程序。",
+      "sourceAnchors": [
+        "4. 功能与处理规则"
+      ]
+    },
+    {
+      "id": "ENF-14-DEC-002",
+      "owner": "RULE",
+      "description": "校验适用范围、版本权限、必填项、确定性金额日期、状态和导出一致性。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "5. 服务接口需求"
+      ]
+    },
+    {
+      "id": "ENF-14-DEC-003",
+      "owner": "HUMAN",
+      "description": "修订和审核文书，确认处罚输入及专业预期。",
+      "sourceAnchors": [
+        "4. 功能与处理规则",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "ENF-14-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "提供案件、正式处罚输入及未来签章签发送达权威状态。",
+      "sourceAnchors": [
+        "2. 数据来源与依赖",
+        "8. 联调前需确认的条件"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "ENF-14-AC-001",
+      "given": [
+        "固定案件模板规则"
+      ],
+      "when": "生成文书",
+      "then": [
+        "仅形成可编辑初稿",
+        "草稿编号和审核不冒充法定动作"
+      ],
+      "sourceClauseIds": [
+        "ENF-14-MUST-001",
+        "ENF-14-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "ENF-14-AC-002",
+      "given": [
+        "源缺失、失败、无权和金额日期字段"
+      ],
+      "when": "生成前检查",
+      "then": [
+        "版本权限错误分开",
+        "模型不补确定性输入"
+      ],
+      "sourceClauseIds": [
+        "ENF-14-MUST-002",
+        "ENF-14-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-14-AC-003",
+      "given": [
+        "必填缺失"
+      ],
+      "when": "生成草稿",
+      "then": [
+        "保留来源占位缺失",
+        "标不完整且禁止提交"
+      ],
+      "sourceClauseIds": [
+        "ENF-14-MUST-003",
+        "ENF-14-MUST-004"
+      ]
+    },
+    {
+      "id": "ENF-14-AC-004",
+      "given": [
+        "人工修订后重跑或来源变化"
+      ],
+      "when": "保存新结果",
+      "then": [
+        "旧版本不覆盖",
+        "相关结果待核对"
+      ],
+      "sourceClauseIds": [
+        "ENF-14-MUST-005",
+        "ENF-14-MUST-006",
+        "ENF-14-MUST_NOT-002"
+      ]
+    },
+    {
+      "id": "ENF-14-AC-005",
+      "given": [
+        "未确认处罚建议"
+      ],
+      "when": "生成和审核",
+      "then": [
+        "标待确认",
+        "不写成正式决定"
+      ],
+      "sourceClauseIds": [
+        "ENF-14-MUST-007",
+        "ENF-14-MUST_NOT-003"
+      ]
+    },
+    {
+      "id": "ENF-14-AC-006",
+      "given": [
+        "已审核版本及渲染异常"
+      ],
+      "when": "导出预览",
+      "then": [
+        "DOCX 版式一致",
+        "异常不标成功",
+        "不产生签发送达"
+      ],
+      "sourceClauseIds": [
+        "ENF-14-MUST_NOT-001",
+        "ENF-14-MUST-009"
+      ]
+    },
+    {
+      "id": "ENF-14-AC-009",
+      "given": [
+        "中心固定文书样例"
+      ],
+      "when": "业务验收",
+      "then": [
+        "必填预期实际证据齐全",
+        "未确认不标通过"
+      ],
+      "sourceClauseIds": [
+        "ENF-14-MUST-012"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "ENF-14-OQ-001",
+      "type": "business_semantics",
+      "question": "首批文书类型、适用环节和逐类必填字段是什么？",
+      "blocks": [
+        "ARC-04",
+        "文书实现"
+      ]
+    },
+    {
+      "id": "ENF-14-OQ-002",
+      "type": "authorization",
+      "question": "生成修订提交审核审核导出角色及分离要求是什么？",
+      "blocks": [
+        "ARC-06"
+      ]
+    },
+    {
+      "id": "ENF-14-OQ-003",
+      "type": "integration",
+      "question": "案件事实证据分析处罚建议法律引用和文件服务的稳定接口是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03"
+      ]
+    },
+    {
+      "id": "ENF-14-OQ-004",
+      "type": "format",
+      "question": "目标 DOCX/PDF 版式字体渲染器及验收样例是什么？",
+      "blocks": [
+        "ARC-08",
+        "SPK-12"
+      ]
+    },
+    {
+      "id": "ENF-14-OQ-005",
+      "type": "environment",
+      "question": "真实 DM8、受控文件存储和国产环境参数是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "ENF-14-DD-001",
+      "decision": "Document Generation 编排模板规则及输入快照；Document、Review、File 和 Authority 状态分离。",
+      "basis": "原文生成、审核和正式动作边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-14-DD-002",
+      "decision": "重跑采用新版本，不覆盖人工修订；导出绑定确定内容版本。",
+      "basis": "原文版本和导出要求。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "ENF-14-DD-003",
+      "decision": "具体文书字段、API、角色、渲染和 DM8 类型延后至 D 门。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "中心材料未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable enforcement overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Draft generation, content review and formal issuance/delivery remain separate.",
+      "No document type, required field, role, official number, signature, API, renderer or business rule was guessed."
+    ]
+  }
+}

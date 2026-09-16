@@ -1,0 +1,812 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "CON-06",
+  "title": "专利相似度判断",
+  "status": "ready",
+  "baselineId": "requirements-2026-09-14-v1",
+  "source": {
+    "path": "requirements/知识产权咨询助手/专利相似度判断需求文档.md",
+    "sha256": "90437563c6599d8b42ab28e636077ef5a0de4c96e5c0f6996bbc3a61462bd675",
+    "sections": [
+      {
+        "anchor": "国产化与达梦 DM8 适配要求",
+        "purpose": "database"
+      },
+      {
+        "anchor": "1. 功能概述与边界",
+        "purpose": "scope"
+      },
+      {
+        "anchor": "2. 字段与输入校验",
+        "purpose": "data_contract"
+      },
+      {
+        "anchor": "3. 分析流程",
+        "purpose": "analysis"
+      },
+      {
+        "anchor": "4. 输出与评分",
+        "purpose": "report_and_scoring"
+      },
+      {
+        "anchor": "5. 内部验证页面",
+        "purpose": "validation_ui"
+      },
+      {
+        "anchor": "6. 服务契约与异常",
+        "purpose": "service_contract"
+      },
+      {
+        "anchor": "7. 验收要求",
+        "purpose": "acceptance"
+      },
+      {
+        "anchor": "8. 依赖与交付",
+        "purpose": "open_dependencies"
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sections": [
+        "1. 项目定位与交付口径",
+        "3. 共用业务规则",
+        "4. 共用支撑能力与估工方式",
+        "5. 建议开发与集成顺序",
+        "6. 验收资料与共同口径",
+        "7. 评审状态记录"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "CON-06-MUST-001",
+      "type": "MUST",
+      "statement": "对目标技术方案或专利与人工选定文献逐项比对技术特征，输出原文证据、差异、缺口和辅助意见；检索只提供候选入口。",
+      "sourceAnchors": [
+        "1. 功能概述与边界"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-001"
+      ]
+    },
+    {
+      "id": "CON-06-MUST_NOT-001",
+      "type": "MUST_NOT",
+      "statement": "检索相关度、技术对照或任务成功不得直接表述为新颖性、侵权、落入保护范围或其他确定法律结论。",
+      "sourceAnchors": [
+        "1. 功能概述与边界",
+        "3. 分析流程",
+        "4. 输出与评分"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-001",
+        "CON-06-AC-006"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-002",
+      "type": "MUST",
+      "statement": "区分技术相似辅助、权利要求对产品方案、新颖性辅助和外观设计辅助目的，使用与对象类型相符的独立流程。",
+      "sourceAnchors": [
+        "1. 功能概述与边界",
+        "2. 字段与输入校验"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-002"
+      ]
+    },
+    {
+      "id": "CON-06-MUST_NOT-002",
+      "type": "MUST_NOT",
+      "statement": "发明实用新型文本流程不得复用于外观设计；外观缺少可比视图、图像能力或独立规则时不得形成完整结论。",
+      "sourceAnchors": [
+        "1. 功能概述与边界",
+        "3. 分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-002"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-003",
+      "type": "MUST",
+      "statement": "固定分析目的、技术对象、目标和候选文献版本、选定权利要求、相关日期地域、规则模型及权限。",
+      "sourceAnchors": [
+        "2. 字段与输入校验",
+        "3. 分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-003"
+      ]
+    },
+    {
+      "id": "CON-06-MUST_NOT-003",
+      "type": "MUST_NOT",
+      "statement": "涉及法律问题时不得默认当前日期或法域，资料不足不得通过提示词、摘要或模型推测补事实。",
+      "sourceAnchors": [
+        "1. 功能概述与边界",
+        "2. 字段与输入校验",
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-003"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-004",
+      "type": "MUST",
+      "statement": "必要全文或权利要求缺失、OCR 质量不足、依赖解析失败和视图不足分别形成补充项和未执行范围。",
+      "sourceAnchors": [
+        "3. 分析流程",
+        "6. 服务契约与异常"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-003"
+      ]
+    },
+    {
+      "id": "CON-06-MUST_NOT-004",
+      "type": "MUST_NOT",
+      "statement": "摘要不得冒充权利要求，未找到仅表示已分析材料中未找到，无法判断不得改写为未对应或不相似。",
+      "sourceAnchors": [
+        "3. 分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-004"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-005",
+      "type": "MUST",
+      "statement": "提取特征保留 ID、逐字原文、层级依赖和来源定位，展开所选从属权利要求引用的前项特征并由用户确认修订。",
+      "sourceAnchors": [
+        "2. 字段与输入校验",
+        "3. 分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-004"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-006",
+      "type": "MUST",
+      "statement": "对每个候选逐对、逐特征记录对应、部分对应、未找到或无法判断、原文位置、差异和原因。",
+      "sourceAnchors": [
+        "2. 字段与输入校验",
+        "3. 分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-004"
+      ]
+    },
+    {
+      "id": "CON-06-MUST_NOT-005",
+      "type": "MUST_NOT",
+      "statement": "新颖性辅助不得把多篇文献拼接覆盖特征当作单篇已公开，技术文本相似不得自动等同权利要求落入。",
+      "sourceAnchors": [
+        "3. 分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-005"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-007",
+      "type": "MUST",
+      "statement": "外观子流程逐候选核对相应视图，列出缺失视图并仅基于实际可见内容描述整体和局部差异。",
+      "sourceAnchors": [
+        "3. 分析流程"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-002"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-008",
+      "type": "MUST",
+      "statement": "报告固定输入版本、完整性、逐项对照、证据、差异、辅助意见、缺口、实际范围、规则模型和审核记录。",
+      "sourceAnchors": [
+        "4. 输出与评分"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-006"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-009",
+      "type": "MUST",
+      "statement": "技术对照评分与检索分数分开，固定分母、权重、部分对应和缺失处理及规则版本；未分析不得计为不相似。",
+      "sourceAnchors": [
+        "2. 字段与输入校验",
+        "4. 输出与评分"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-006"
+      ]
+    },
+    {
+      "id": "CON-06-MUST_NOT-006",
+      "type": "MUST_NOT",
+      "statement": "未标定时不得由模型猜测百分数，必须输出对照表与有依据标签并标数值能力未完成。",
+      "sourceAnchors": [
+        "4. 输出与评分"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-006"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-010",
+      "type": "MUST",
+      "statement": "算法原始结果与人工意见分开留痕，报告默认未复核，正式采用意见须中心专业人员审核且不变为自动裁决。",
+      "sourceAnchors": [
+        "3. 分析流程",
+        "4. 输出与评分"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-007"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-011",
+      "type": "MUST",
+      "statement": "每个候选保存独立状态，单个失败不掩盖其他结果；修改输入创建新任务，失败对象可产生关联重试。",
+      "sourceAnchors": [
+        "5. 内部验证页面",
+        "总目录/3.3 异步任务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-008"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-012",
+      "type": "MUST",
+      "statement": "异步服务覆盖准备、创建、任务报告查询、人工复核和取消，重要材料不足返回不完整报告及未执行项而非完整成功。",
+      "sourceAnchors": [
+        "6. 服务契约与异常"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-008"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-013",
+      "type": "MUST",
+      "statement": "输入、原文、证据、报告和历史在后端实时鉴权，源撤回或权限收紧后禁止重新打开且不从缓存泄露。",
+      "sourceAnchors": [
+        "3. 分析流程",
+        "5. 内部验证页面",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-009"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-016",
+      "type": "MUST",
+      "statement": "专家固定样本分别评估特征完整性、证据准确性和意见合理性，记录分母失败、全部输入模型规则版本，阈值试测确认。",
+      "sourceAnchors": [
+        "7. 验收要求",
+        "8. 依赖与交付",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-012"
+      ]
+    },
+    {
+      "id": "CON-06-MUST-017",
+      "type": "MUST",
+      "statement": "全文质量、外观视图图像能力、法律资源、复核人员、对象上限性能和环境未确认时相应能力保持待补齐。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-06-AC-012"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "analysisPurpose",
+      "required": true,
+      "rules": [
+        "技术相似、新颖性辅助、权利要求对照或外观辅助"
+      ]
+    },
+    {
+      "name": "targetSnapshot",
+      "required": true,
+      "rules": [
+        "技术方案或专利至少一项，侵权相关必须有实际产品方案"
+      ]
+    },
+    {
+      "name": "candidateVersions",
+      "required": true,
+      "rules": [
+        "一个或多个具体文献版本"
+      ]
+    },
+    {
+      "name": "scope",
+      "required": "法律问题时",
+      "rules": [
+        "相关日期、地域和依据版本"
+      ]
+    },
+    {
+      "name": "confirmedFeatures",
+      "required": true,
+      "rules": [
+        "特征原文、层级依赖、定位和人工修订"
+      ]
+    },
+    {
+      "name": "idempotencyKey",
+      "required": true,
+      "rules": [
+        "绑定调用方、目的和完整输入"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "preparation",
+      "fields": [
+        "documentAvailability",
+        "missingItems",
+        "featureSuggestions",
+        "viewCompleteness"
+      ]
+    },
+    {
+      "name": "analysisTask",
+      "fields": [
+        "taskId",
+        "status",
+        "inputManifest",
+        "candidateStatuses",
+        "requestId"
+      ]
+    },
+    {
+      "name": "pairResult",
+      "fields": [
+        "candidateVersion",
+        "featureMappings",
+        "evidence",
+        "differences",
+        "unknownReasons",
+        "technicalScoreOrLabel"
+      ]
+    },
+    {
+      "name": "reportVersion",
+      "fields": [
+        "reportId",
+        "version",
+        "completeness",
+        "pairs",
+        "scope",
+        "ruleVersion",
+        "modelVersion",
+        "reviewStatus",
+        "reviewRecords"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "action": "prepare_or_analyze",
+      "enforcement": "目标候选全文、视图、模型通道和目的权限"
+    },
+    {
+      "action": "read_evidence_or_report",
+      "enforcement": "当前文献、定位、报告和历史权限"
+    },
+    {
+      "action": "review",
+      "enforcement": "专业复核角色和固定报告版本"
+    },
+    {
+      "action": "persist",
+      "enforcement": "按文献与用户技术方案授权和保留范围"
+    }
+  ],
+  "states": [
+    {
+      "name": "排队",
+      "kind": "task",
+      "allowedNext": [
+        "处理中",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "处理中",
+      "kind": "task",
+      "allowedNext": [
+        "成功",
+        "部分成功",
+        "失败",
+        "取消"
+      ]
+    },
+    {
+      "name": "成功",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "部分成功",
+      "kind": "task",
+      "allowedNext": [],
+      "invariant": "列出失败候选和未执行项目"
+    },
+    {
+      "name": "失败",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "取消",
+      "kind": "task",
+      "allowedNext": []
+    },
+    {
+      "name": "未复核",
+      "kind": "review",
+      "allowedNext": [
+        "已复核"
+      ]
+    },
+    {
+      "name": "已复核",
+      "kind": "review",
+      "allowedNext": [
+        "待复核"
+      ]
+    },
+    {
+      "name": "待复核",
+      "kind": "review",
+      "allowedNext": [
+        "已复核"
+      ]
+    }
+  ],
+  "sourceAndVersionRules": [
+    "固定目标候选原文、权利要求、视图、日期地域、特征、模型和规则版本。",
+    "特征原文与人工修订分开，逐项结果定位具体文献版本。",
+    "检索相关度、技术对照分数、法律结论和专家评测分开。",
+    "每个候选独立状态，重试和新输入不覆盖历史结果。",
+    "模型原始报告与人工复核意见分开保存。",
+    "模拟数据、模型、DM8 和真实验收证据隔离。"
+  ],
+  "errorsAndExceptions": [
+    {
+      "case": "claim_or_fulltext_missing",
+      "result": "返回缺口，不用摘要替代"
+    },
+    {
+      "case": "claim_dependency_parse_failed",
+      "result": "标记未执行并要求人工核对层级"
+    },
+    {
+      "case": "design_views_insufficient",
+      "result": "列出缺失视图，不形成完整外观意见"
+    },
+    {
+      "case": "candidate_partial_failure",
+      "result": "保留其他候选结果并标部分成功"
+    },
+    {
+      "case": "score_not_calibrated",
+      "result": "返回标签和对照表，不编数值"
+    },
+    {
+      "case": "version_conflict",
+      "result": "拒绝覆盖并返回当前报告版本"
+    },
+    {
+      "case": "unauthorized_or_withdrawn",
+      "result": "拒绝且不从历史或缓存泄露"
+    }
+  ],
+  "decisionPoints": [
+    {
+      "id": "CON-06-DEC-001",
+      "owner": "AI",
+      "description": "提取候选技术特征、逐项对应和辅助解释；不得补全文视图日期、拼接文献、猜分或作法律结论。",
+      "sourceAnchors": [
+        "1. 功能概述与边界",
+        "3. 分析流程"
+      ]
+    },
+    {
+      "id": "CON-06-DEC-002",
+      "owner": "RULE",
+      "description": "执行对象类型流程、输入完整性、权利要求依赖、权限、逐对状态、评分规则、版本和任务。",
+      "sourceAnchors": [
+        "2. 字段与输入校验",
+        "3. 分析流程",
+        "6. 服务契约与异常"
+      ]
+    },
+    {
+      "id": "CON-06-DEC-003",
+      "owner": "HUMAN",
+      "description": "用户确认对象范围特征和修订，中心专业人员复核意见并确认评分与验收标准。",
+      "sourceAnchors": [
+        "3. 分析流程",
+        "4. 输出与评分",
+        "7. 验收要求"
+      ]
+    },
+    {
+      "id": "CON-06-DEC-004",
+      "owner": "AUTHORITY_SYSTEM",
+      "description": "中心提供专利全文版本、视图、法规审查资料、权限和正式采用渠道。",
+      "sourceAnchors": [
+        "1. 功能概述与边界",
+        "8. 依赖与交付"
+      ]
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "CON-06-AC-001",
+      "given": [
+        "检索候选或用户直接指定文献"
+      ],
+      "when": "创建技术对照",
+      "then": [
+        "选定版本重新鉴权",
+        "逐项解释而非再次检索",
+        "不输出确定法律结论"
+      ],
+      "sourceClauseIds": [
+        "CON-06-MUST-001",
+        "CON-06-MUST_NOT-001"
+      ]
+    },
+    {
+      "id": "CON-06-AC-002",
+      "given": [
+        "发明实用新型及视图完整或不足的外观设计"
+      ],
+      "when": "选择流程",
+      "then": [
+        "对象流程分离",
+        "外观不复用文本分数",
+        "视图不足阻止完整结论"
+      ],
+      "sourceClauseIds": [
+        "CON-06-MUST-002",
+        "CON-06-MUST_NOT-002",
+        "CON-06-MUST-007"
+      ]
+    },
+    {
+      "id": "CON-06-AC-003",
+      "given": [
+        "法律目的但日期地域缺失、权利要求缺失或 OCR 差"
+      ],
+      "when": "分析准备",
+      "then": [
+        "固定已有版本",
+        "逐项返回缺口",
+        "不默认法域日期或用摘要模型补齐"
+      ],
+      "sourceClauseIds": [
+        "CON-06-MUST-003",
+        "CON-06-MUST_NOT-003",
+        "CON-06-MUST-004"
+      ]
+    },
+    {
+      "id": "CON-06-AC-004",
+      "given": [
+        "含从属权利要求和未找到无法判断特征"
+      ],
+      "when": "确认特征并逐项分析",
+      "then": [
+        "前项特征完整展开",
+        "原文定位可核对",
+        "未找到与无法判断分开"
+      ],
+      "sourceClauseIds": [
+        "CON-06-MUST_NOT-004",
+        "CON-06-MUST-005",
+        "CON-06-MUST-006"
+      ]
+    },
+    {
+      "id": "CON-06-AC-005",
+      "given": [
+        "两篇文献分别覆盖不同特征和技术文本相似样例"
+      ],
+      "when": "生成辅助意见",
+      "then": [
+        "逐篇结果分开",
+        "不拼接成单篇公开",
+        "不把文本相似变成落入保护范围"
+      ],
+      "sourceClauseIds": [
+        "CON-06-MUST_NOT-005"
+      ]
+    },
+    {
+      "id": "CON-06-AC-006",
+      "given": [
+        "未分析项、固定评分规则和未标定规则"
+      ],
+      "when": "生成报告和评分",
+      "then": [
+        "输入证据范围版本完整",
+        "技术分与检索分分开",
+        "未分析不记不相似且未标定不编百分数"
+      ],
+      "sourceClauseIds": [
+        "CON-06-MUST_NOT-001",
+        "CON-06-MUST-008",
+        "CON-06-MUST-009",
+        "CON-06-MUST_NOT-006"
+      ]
+    },
+    {
+      "id": "CON-06-AC-007",
+      "given": [
+        "模型原始报告和专业人员意见"
+      ],
+      "when": "复核",
+      "then": [
+        "两类内容分开留痕",
+        "默认未复核",
+        "审核不变成自动裁决"
+      ],
+      "sourceClauseIds": [
+        "CON-06-MUST-010"
+      ]
+    },
+    {
+      "id": "CON-06-AC-008",
+      "given": [
+        "多个候选含失败对象、重复任务、修改输入和取消"
+      ],
+      "when": "运行异步分析",
+      "then": [
+        "逐候选状态可见",
+        "其他成功不被掩盖",
+        "新任务重试和不完整报告可追踪"
+      ],
+      "sourceClauseIds": [
+        "CON-06-MUST-011",
+        "CON-06-MUST-012"
+      ]
+    },
+    {
+      "id": "CON-06-AC-009",
+      "given": [
+        "权限撤回或文献撤回"
+      ],
+      "when": "打开输入原文证据报告历史",
+      "then": [
+        "各入口实时鉴权",
+        "缓存历史不泄露"
+      ],
+      "sourceClauseIds": [
+        "CON-06-MUST-013"
+      ]
+    },
+    {
+      "id": "CON-06-AC-012",
+      "given": [
+        "固定专家样本和未确认外观能力环境"
+      ],
+      "when": "执行效果与交付检查",
+      "then": [
+        "三类指标分别评测且含失败版本",
+        "阈值试测确认",
+        "未确认能力保持待补齐"
+      ],
+      "sourceClauseIds": [
+        "CON-06-MUST-016",
+        "CON-06-MUST-017"
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "CON-06-OQ-001",
+      "type": "business_semantics",
+      "question": "四类分析目的、特征拆分依赖、对应标签、新颖性及权利要求对照的确定规则是什么？",
+      "blocks": [
+        "ARC-04",
+        "ARC-05",
+        "分析规则实现"
+      ]
+    },
+    {
+      "id": "CON-06-OQ-002",
+      "type": "authority_api",
+      "question": "专利全文权利要求历史版本外观视图和法规审查资源接口及权限是什么？",
+      "blocks": [
+        "ARC-09",
+        "SPK-03",
+        "真实联调"
+      ]
+    },
+    {
+      "id": "CON-06-OQ-003",
+      "type": "model_boundary",
+      "question": "批准文本与图像模型、数据出域、输入输出结构和外观独立评价能力是什么？",
+      "blocks": [
+        "ARC-07",
+        "ARC-11",
+        "SPK-10"
+      ]
+    },
+    {
+      "id": "CON-06-OQ-004",
+      "type": "acceptance_data",
+      "question": "专家样本、特征权重分母部分对应规则、阈值、单任务上限和性能目标是什么？",
+      "blocks": [
+        "SPK-10",
+        "SPK-16",
+        "效果验收"
+      ]
+    },
+    {
+      "id": "CON-06-OQ-005",
+      "type": "environment",
+      "question": "DM8、文件解析、图像能力、模型和国产环境组合是什么？",
+      "blocks": [
+        "ARC-10",
+        "SPK-01",
+        "真实验证"
+      ]
+    }
+  ],
+  "derivedDesignDecisions": [
+    {
+      "id": "CON-06-DD-001",
+      "decision": "Patent Analysis 拥有特征对照与报告，Patent Knowledge 提供版本原文，Evidence/Citation 管理定位，Review 管理意见；Agent 仅编排。",
+      "basis": "ARC-03",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-06-DD-002",
+      "decision": "候选逐对结果独立状态，发明实用新型流程与外观流程分开，报告审核与法律结论状态分开。",
+      "basis": "原文明确逐对、对象类型和辅助意见边界。",
+      "changesBusinessMeaning": false
+    },
+    {
+      "id": "CON-06-DD-003",
+      "decision": "具体 API、特征 schema、算法权重、外观模型和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
+      "basis": "规则、资源、模型、样本和环境未确认。",
+      "changesBusinessMeaning": false
+    }
+  ],
+  "independentReview": {
+    "status": "passed",
+    "reviewedBaselineId": "requirements-2026-09-14-v1",
+    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "missingClauses": [],
+    "contradictions": [],
+    "weakenedConstraints": [],
+    "unsupportedExtensions": [],
+    "notes": [
+      "Retrieval ranking, technical comparison, novelty assistance, claim coverage and legal conclusions remain distinct.",
+      "Documents cannot be mosaicked into a single disclosure and design comparison cannot reuse text scoring.",
+      "No legal rule, feature weight, model, view standard, role, threshold, limit or environment was guessed."
+    ]
+  }
+}

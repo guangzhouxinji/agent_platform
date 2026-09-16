@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>知识产权咨询助手</title>
+  <link rel="stylesheet" href="/css/consultation.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">知</span>
+        <span>知识产权智能服务</span>
+      </div>
+      <nav>
+        <button class="nav-item active" type="button" aria-current="page" data-workspace="consultation">
+          <span aria-hidden="true">咨</span>
+          咨询助手
+        </button>
+        <button class="nav-item" type="button" data-workspace="patent-search">
+          <span aria-hidden="true">搜</span>
+          专利检索
+        </button>
+        <button class="nav-item" type="button" data-workspace="trademark-search">
+          <span aria-hidden="true">标</span>
+          商标检索
+        </button>
+        <button class="nav-item" type="button" data-workspace="trademark-library">
+          <span aria-hidden="true">库</span>
+          商标库
+        </button>
+        <button class="nav-item" type="button" data-workspace="patent-library">
+          <span aria-hidden="true">专</span>
+          专利库
+        </button>
+        <button class="nav-item" type="button" data-workspace="case-library">
+          <span aria-hidden="true">案</span>
+          案例库
+        </button>
+        <button class="nav-item" type="button" data-workspace="enforcement">
+          <span aria-hidden="true">核</span>
+          执法验证
+        </button>
+        <button class="nav-item" type="button" data-workspace="adjudication">
+          <span aria-hidden="true">裁</span>
+          裁决验证
+        </button>
+      </nav>
+      <div class="sidebar-note">
+        <span class="status-dot" aria-hidden="true"></span>
+        V0 合成数据环境
+      </div>
+    </aside>
+
+    <main id="consultation-workspace" class="workspace" data-workspace-panel="consultation">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">专利技术参考</p>
+          <h1>咨询工作台</h1>
+        </div>
+        <button id="new-consultation" class="secondary-button" type="button">新建咨询</button>
+      </header>
+
+      <section id="conversation" class="conversation" aria-live="polite">
+        <div id="empty-state" class="empty-state">
+          <div class="empty-symbol" aria-hidden="true">检</div>
+          <h2>开始一次专利技术检索</h2>
+          <p>提交技术问题后，结果会在这里按来源和版本展示。</p>
+        </div>
+      </section>
+
+      <section class="composer-region" aria-label="咨询输入">
+        <form id="supplement-form" class="supplement-form" hidden>
+          <label for="supplement-input">补充所需信息</label>
+          <div class="inline-composer">
+            <textarea id="supplement-input" rows="2" maxlength="2000" placeholder="补充技术特征、材料、参数范围或检索目的"></textarea>
+            <button class="primary-button" type="submit">提交补充</button>
+          </div>
+        </form>
+
+        <form id="question-form" class="question-form">
+          <label for="question-input">咨询问题</label>
+          <textarea id="question-input" rows="3" maxlength="4000" placeholder="例如：帮我查一下涂布工艺相关专利。" required></textarea>
+          <div class="form-actions">
+            <label class="purpose-field" for="purpose-input">
+              <span>检索目的</span>
+              <select id="purpose-input">
+                <option value="">尚未确定</option>
+                <option value="TECHNICAL_REFERENCE">技术参考</option>
+              </select>
+            </label>
+            <button id="submit-question" class="primary-button" type="submit">开始检索</button>
+          </div>
+        </form>
+        <p class="boundary-note">结果仅作技术参考，不构成新颖性、侵权、有效性或授权结论。</p>
+      </section>
+    </main>
+
+    <main id="patent-search-workspace" class="workspace patent-search-workspace" data-workspace-panel="patent-search" hidden>
+      <header class="topbar patent-search-topbar">
+        <div>
+          <p class="eyebrow">CON-04 · 内部验证</p>
+          <h1>专利相似度检索</h1>
+        </div>
+        <div class="scope-badges" aria-label="当前数据模式">
+          <span>SYNTHETIC DATA</span>
+          <span>SYNTHETIC-RANK-V1</span>
+        </div>
+      </header>
+
+      <section class="patent-search-console" aria-live="polite">
+        <aside class="patent-search-controls" aria-label="专利检索条件">
+          <form id="patent-search-form" class="control-section">
+            <label for="patent-input-mode">输入方式</label>
+            <select id="patent-input-mode">
+              <option value="TECHNICAL_SOLUTION">技术方案</option>
+              <option value="CORE_FEATURES">核心特征</option>
+              <option value="PATENT_NUMBER">专利号码</option>
+            </select>
+            <label for="patent-search-input">输入内容</label>
+            <textarea id="patent-search-input" rows="4" maxlength="4000" required>水性粘结剂、双区烘干、在线测厚反馈</textarea>
+            <label for="patent-purpose">检索目的</label>
+            <select id="patent-purpose">
+              <option value="TECHNICAL_REFERENCE">技术参考</option>
+              <option value="NOVELTY_PREPARATION">新颖性辅助准备</option>
+              <option value="INFRINGEMENT_PREPARATION">侵权风险辅助准备</option>
+            </select>
+            <label for="patent-features">确认后的检索特征</label>
+            <input id="patent-features" type="text" placeholder="以逗号分隔；留空则自动提取">
+            <fieldset class="scope-fieldset">
+              <legend>专利类型</legend>
+              <label class="check-option"><input type="checkbox" name="patent-type" value="发明" checked>发明</label>
+              <label class="check-option"><input type="checkbox" name="patent-type" value="实用新型" checked>实用新型</label>
+              <label class="check-option"><input type="checkbox" name="patent-type" value="外观设计">外观设计</label>
+            </fieldset>
+            <div class="filter-grid">
+              <label for="patent-region">地域<select id="patent-region"><option value="CN">CN</option><option value="">全部</option><option value="EP">EP</option></select></label>
+              <label for="patent-classification">分类<input id="patent-classification" type="text" placeholder="如 H01M"></label>
+              <label for="patent-application-from">申请日起<input id="patent-application-from" type="date"></label>
+              <label for="patent-application-to">申请日止<input id="patent-application-to" type="date"></label>
+              <label for="patent-publication-from">公开日起<input id="patent-publication-from" type="date"></label>
+              <label for="patent-publication-to">公开日止<input id="patent-publication-to" type="date"></label>
+            </div>
+            <button id="create-patent-search" class="primary-button" type="submit">创建检索任务</button>
+          </form>
+          <button id="load-patent-history" class="secondary-button full-button" type="button">刷新历史任务</button>
+          <div id="patent-history" class="patent-history"></div>
+        </aside>
+
+        <div class="patent-search-results">
+          <section id="patent-search-empty" class="empty-state compact-empty">
+            <div class="empty-symbol" aria-hidden="true">搜</div>
+            <h2>尚未创建检索任务</h2>
+            <p>当前目录包含 120 条明确标识的拟真合成专利文献。</p>
+          </section>
+          <section id="patent-task-summary" class="result-section" hidden></section>
+          <section id="patent-task-candidates" class="result-section" hidden></section>
+        </div>
+      </section>
+    </main>
+
+    <main id="trademark-search-workspace" class="workspace patent-search-workspace" data-workspace-panel="trademark-search" hidden>
+      <header class="topbar patent-search-topbar">
+        <div>
+          <p class="eyebrow">CON-05 · 内部验证</p>
+          <h1>商标相似度检索</h1>
+        </div>
+        <div class="scope-badges" aria-label="当前数据模式">
+          <span>SYNTHETIC DATA</span>
+          <span>TEXT / PHONETIC ONLY</span>
+        </div>
+      </header>
+
+      <section class="patent-search-console" aria-live="polite">
+        <aside class="patent-search-controls" aria-label="商标检索条件">
+          <form id="trademark-search-form" class="control-section">
+            <label for="trademark-name">商标名称</label>
+            <input id="trademark-name" type="text" maxlength="200" value="清源" required>
+            <label for="trademark-categories">国际类别</label>
+            <input id="trademark-categories" type="text" value="3" placeholder="以逗号分隔" required>
+            <label for="trademark-goods-services">商品或服务项目</label>
+            <input id="trademark-goods-services" type="text" value="化妆品" placeholder="以逗号分隔" required>
+            <fieldset class="scope-fieldset">
+              <legend>检索维度</legend>
+              <label class="check-option"><input type="checkbox" name="trademark-dimension" value="TEXT" checked>文字</label>
+              <label class="check-option"><input type="checkbox" name="trademark-dimension" value="PHONETIC" checked>读音</label>
+              <label class="check-option"><input type="checkbox" name="trademark-dimension" value="SEMANTIC" checked>含义（未配置）</label>
+            </fieldset>
+            <p class="capability-note">图形和组合检索当前未配置。不会以 OCR 或文字结果替代图形结果。</p>
+            <div class="filter-grid">
+              <label for="trademark-status">状态<select id="trademark-status"><option value="">不筛选</option><option value="有效">有效</option><option value="待审">待审</option><option value="已失效">已失效</option></select></label>
+              <label for="trademark-region">地域<select id="trademark-region"><option value="">不筛选</option><option value="CN">CN</option></select></label>
+            </div>
+            <button class="primary-button" type="submit">创建检索任务</button>
+          </form>
+          <button id="load-trademark-history" class="secondary-button full-button" type="button">刷新历史任务</button>
+          <div id="trademark-history" class="patent-history"></div>
+        </aside>
+
+        <div class="patent-search-results">
+          <section id="trademark-search-empty" class="empty-state compact-empty">
+            <div class="empty-symbol" aria-hidden="true">标</div>
+            <h2>尚未创建检索任务</h2>
+            <p>当前目录包含 120 条拟真合成商标记录，供内部功能验证。</p>
+          </section>
+          <section id="trademark-task-summary" class="result-section" hidden></section>
+          <section id="trademark-task-candidates" class="result-section" hidden></section>
+        </div>
+      </section>
+    </main>
+
+    <main id="trademark-library-workspace" class="workspace patent-search-workspace" data-workspace-panel="trademark-library" hidden>
+      <header class="topbar patent-search-topbar">
+        <div><p class="eyebrow">CON-01 · 内部验证</p><h1>商标库</h1></div>
+        <div class="scope-badges" aria-label="商标库数据模式"><span>SYNTHETIC_V0</span><span>READ ONLY</span></div>
+      </header>
+      <section class="patent-search-console" aria-live="polite">
+        <aside class="patent-search-controls" aria-label="商标库查询条件">
+          <form id="trademark-library-form" class="control-section">
+            <label for="library-registration">注册号</label><input id="library-registration" type="text" placeholder="精确匹配，保留内部字符">
+            <label for="library-name">商标名称</label><input id="library-name" type="text" placeholder="包含查询，不扩展相似语义">
+            <label for="library-applicant">注册人</label><input id="library-applicant" type="text" placeholder="注册人名称包含查询">
+            <div class="filter-grid">
+              <label for="library-category">类别<input id="library-category" type="text" placeholder="如 3,35"></label>
+              <label for="library-status">状态<select id="library-status"><option value="">全部</option><option value="有效">有效</option><option value="待审">待审</option><option value="已失效">已失效</option></select></label>
+              <label for="library-date-from">注册日起<input id="library-date-from" type="date"></label>
+              <label for="library-date-to">注册日止<input id="library-date-to" type="date"></label>
+              <label for="library-page-size">每页<select id="library-page-size"><option>10</option><option selected>20</option><option>50</option></select></label>
+            </div>
+            <div class="stacked-actions"><button class="primary-button" type="submit">查询商标库</button><button id="trademark-library-reset" class="secondary-button" type="button">重置条件</button></div>
+          </form>
+          <p class="capability-note">仅浏览合成只读记录，不提供新增、编辑、删除、相似判断或注册建议。</p>
+        </aside>
+        <div class="patent-search-results">
+          <div id="trademark-library-status" class="result-status" hidden></div>
+          <section id="trademark-library-summary" class="result-section" hidden></section>
+          <section id="trademark-library-results" class="result-section" hidden></section>
+          <nav id="trademark-library-pages" class="library-pages" aria-label="商标库分页" hidden></nav>
+          <section id="trademark-library-detail" class="result-section" hidden></section>
+        </div>
+      </section>
+    </main>
+
+    <main id="patent-library-workspace" class="workspace patent-search-workspace" data-workspace-panel="patent-library" hidden>
+      <header class="topbar patent-search-topbar">
+        <div><p class="eyebrow">CON-02 · 内部验证</p><h1>专利库</h1></div>
+        <div class="scope-badges" aria-label="专利库数据模式"><span>SYNTHETIC_V0</span><span>READ ONLY</span></div>
+      </header>
+      <section class="patent-search-console" aria-live="polite">
+        <aside class="patent-search-controls" aria-label="专利库查询条件">
+          <form id="patent-library-form" class="control-section">
+            <label for="patent-library-application">申请号</label><input id="patent-library-application" type="text" placeholder="精确匹配，不与公开号混用">
+            <label for="patent-library-publication">公开 / 公告号</label><input id="patent-library-publication" type="text" placeholder="精确匹配源格式">
+            <label for="patent-library-title">专利名称</label><input id="patent-library-title" type="text" placeholder="名称包含查询">
+            <label for="patent-library-applicant">申请人</label><input id="patent-library-applicant" type="text" placeholder="申请人名称包含查询">
+            <label for="patent-library-inventor">发明人</label><input id="patent-library-inventor" type="text" placeholder="发明人姓名包含查询">
+            <div class="filter-grid">
+              <label for="patent-library-type">类型<select id="patent-library-type"><option value="">全部</option><option>发明</option><option>实用新型</option><option>外观设计</option></select></label>
+              <label for="patent-library-classification">IPC / CPC<input id="patent-library-classification" type="text" placeholder="如 H01M"></label>
+              <label class="check-option"><input id="patent-library-descendants" type="checkbox">包含子级范围</label>
+              <label for="patent-library-status-filter">状态<select id="patent-library-status-filter"><option value="">全部</option><option>申请公开</option><option>专利权有效</option><option>专利权终止</option></select></label>
+              <label for="patent-library-date-from">申请日起<input id="patent-library-date-from" type="date"></label>
+              <label for="patent-library-date-to">申请日止<input id="patent-library-date-to" type="date"></label>
+              <label for="patent-library-page-size">每页<select id="patent-library-page-size"><option>10</option><option selected>20</option><option>50</option></select></label>
+            </div>
+            <div class="stacked-actions"><button class="primary-button" type="submit">查询专利库</button><button id="patent-library-reset" class="secondary-button" type="button">重置条件</button></div>
+          </form>
+          <p class="capability-note">仅浏览合成只读记录，不提供写入、下载、相似度、新颖性或侵权判断。</p>
+        </aside>
+        <div class="patent-search-results">
+          <div id="patent-library-status" class="result-status" hidden></div>
+          <section id="patent-library-summary" class="result-section" hidden></section>
+          <section id="patent-library-results" class="result-section" hidden></section>
+          <nav id="patent-library-pages" class="library-pages" aria-label="专利库分页" hidden></nav>
+          <section id="patent-library-detail" class="result-section" hidden></section>
+        </div>
+      </section>
+    </main>
+
+    <main id="case-library-workspace" class="workspace patent-search-workspace" data-workspace-panel="case-library" hidden>
+      <header class="topbar patent-search-topbar"><div><p class="eyebrow">CON-03 · 内部验证</p><h1>案例库</h1></div><div class="scope-badges" aria-label="案例库数据模式"><span>SYNTHETIC_V0</span><span>READ ONLY</span></div></header>
+      <section class="patent-search-console" aria-live="polite">
+        <aside class="patent-search-controls" aria-label="案例库查询条件"><form id="case-library-form" class="control-section">
+          <label for="case-library-number">案例编号</label><input id="case-library-number" type="text" placeholder="精确匹配">
+          <label for="case-library-docket">案号</label><input id="case-library-docket" type="text" placeholder="精确匹配，无案号不补造">
+          <label for="case-library-title">案例名称</label><input id="case-library-title" type="text" placeholder="名称包含查询">
+          <div class="filter-grid">
+            <label for="case-library-ip-type">知识产权类型<select id="case-library-ip-type"><option value="">全部</option><option>专利</option><option>商标</option><option>著作权</option></select></label>
+            <label for="case-library-procedure">程序<select id="case-library-procedure"><option value="">全部</option><option>一审</option><option>二审</option><option>行政裁决</option><option>行政复议</option></select></label>
+            <label for="case-library-annotation-state">标注状态<select id="case-library-annotation-state"><option value="">全部</option><option value="PUBLISHED">已发布</option><option value="PENDING_REVIEW">待审核</option><option value="NEEDS_REVIEW">待复核</option></select></label>
+            <label for="case-library-date-from">决定日起<input id="case-library-date-from" type="date"></label><label for="case-library-date-to">决定日止<input id="case-library-date-to" type="date"></label>
+            <label for="case-library-page-size">每页<select id="case-library-page-size"><option>10</option><option selected>20</option><option>50</option></select></label>
+          </div><div class="stacked-actions"><button class="primary-button" type="submit">查询案例库</button><button id="case-library-reset" class="secondary-button" type="button">重置条件</button></div>
+        </form><p class="capability-note">只读展示合成案例、原文定位和可用发布标注，不提供提取、编辑、审核、发布、撤回或附件下载。</p></aside>
+        <div class="patent-search-results"><div id="case-library-status" class="result-status" hidden></div><section id="case-library-summary" class="result-section" hidden></section><section id="case-library-results" class="result-section" hidden></section><nav id="case-library-pages" class="library-pages" aria-label="案例库分页" hidden></nav><section id="case-library-detail" class="result-section" hidden></section></div>
+      </section>
+    </main>
+
+    <main id="enforcement-workspace" class="workspace enforcement-workspace" data-workspace-panel="enforcement" hidden>
+      <header class="topbar enforcement-topbar">
+        <div>
+          <p class="eyebrow">合成数据内部验证</p>
+          <h1>执法辅助工作台</h1>
+        </div>
+        <div class="scope-badges" aria-label="当前范围限制">
+          <span>SYNTHETIC_V0</span>
+          <span>NOT_OFFICIAL_DECISION</span>
+        </div>
+      </header>
+
+      <section class="enforcement-console" aria-live="polite">
+        <aside class="enforcement-controls" aria-label="执法验证操作">
+          <form id="enforcement-open-form" class="control-section">
+            <h2>工作项</h2>
+            <label for="enforcement-clue">合成线索</label>
+            <select id="enforcement-clue">
+              <option value="V0-SYN-CLUE-001">正常样例 · CLUE-001</option>
+              <option value="V0-SYN-CLUE-002">冲突样例 · CLUE-002</option>
+            </select>
+            <label for="enforcement-actor">操作身份</label>
+            <select id="enforcement-actor">
+              <option value="v0-enforcement-user">合成经办人</option>
+              <option value="v0-enforcement-reviewer">合成审核人</option>
+              <option value="unknown">无权限身份</option>
+            </select>
+            <button class="primary-button" type="submit">创建工作项</button>
+          </form>
+
+          <form id="enforcement-process-form" class="control-section" hidden>
+            <h2>证据处理</h2>
+            <fieldset id="evidence-options">
+              <legend>合成证据</legend>
+            </fieldset>
+            <button class="primary-button" type="submit">生成辅助分析</button>
+          </form>
+
+          <section id="enforcement-actions" class="control-section" hidden>
+            <h2>人工操作</h2>
+            <label for="enforcement-reason">操作理由</label>
+            <textarea id="enforcement-reason" rows="2" maxlength="500">合成样例内部核验</textarea>
+            <div class="stacked-actions">
+              <button id="revise-clue" class="secondary-button" type="button">修订线索分析</button>
+              <button id="confirm-analysis" class="secondary-button" type="button">确认辅助分析</button>
+              <button id="return-analysis" class="secondary-button" type="button">退回辅助分析</button>
+            </div>
+          </section>
+        </aside>
+
+        <div class="enforcement-results">
+          <section id="enforcement-empty" class="empty-state compact-empty">
+            <div class="empty-symbol" aria-hidden="true">核</div>
+            <h2>尚未创建工作项</h2>
+            <p>当前仅使用固定合成线索与证据。</p>
+          </section>
+          <div id="enforcement-status" class="result-status" hidden></div>
+          <section id="enforcement-summary" class="result-section" hidden></section>
+          <section id="enforcement-fields" class="result-section" hidden></section>
+          <section id="enforcement-evidence" class="result-section" hidden></section>
+          <section id="enforcement-relations" class="result-section" hidden></section>
+          <section id="enforcement-analysis" class="result-section" hidden></section>
+          <section id="enforcement-history" class="result-section" hidden></section>
+        </div>
+      </section>
+    </main>
+
+    <main id="adjudication-workspace" class="workspace enforcement-workspace" data-workspace-panel="adjudication" hidden>
+      <header class="topbar enforcement-topbar">
+        <div>
+          <p class="eyebrow">合成数据内部验证</p>
+          <h1>裁决辅助工作台</h1>
+        </div>
+        <div class="scope-badges" aria-label="当前范围限制">
+          <span>SYNTHETIC_V0</span>
+          <span>NOT_OFFICIAL_DECISION</span>
+        </div>
+      </header>
+
+      <section class="enforcement-console" aria-live="polite">
+        <aside class="enforcement-controls" aria-label="裁决验证操作">
+          <form id="adjudication-open-form" class="control-section">
+            <h2>工作项</h2>
+            <label for="adjudication-case">合成案件</label>
+            <select id="adjudication-case">
+              <option value="V0-SYN-ADJ-CASE-001" data-version="v1">合成案件 · CASE-001</option>
+            </select>
+            <label for="adjudication-material">合成材料</label>
+            <select id="adjudication-material">
+              <option value="V0-SYN-ADJ-MAT-001">正常样例 · MAT-001</option>
+              <option value="V0-SYN-ADJ-MAT-002">缺项 / 冲突 · MAT-002</option>
+              <option value="V0-SYN-ADJ-MAT-003">来源不可用 · MAT-003</option>
+            </select>
+            <label for="adjudication-actor">裁决身份</label>
+            <select id="adjudication-actor">
+              <option value="v0-adjudication-user">合成经办人</option>
+              <option value="v0-adjudication-reviewer">合成复核人</option>
+              <option value="unknown">无权限身份</option>
+            </select>
+            <button class="primary-button" type="submit">创建裁决工作项</button>
+          </form>
+
+          <section id="adjudication-process" class="control-section" hidden>
+            <h2>合成处理</h2>
+            <div class="stacked-actions">
+              <button id="inspect-materials" class="primary-button" type="button">检查材料</button>
+              <button id="match-legal" class="secondary-button" type="button">生成法规候选</button>
+              <button id="select-citation" class="secondary-button" type="button">选择法规引用</button>
+              <button id="create-draft" class="secondary-button" type="button">生成合成草稿</button>
+            </div>
+          </section>
+
+          <section id="adjudication-actions" class="control-section" hidden>
+            <h2>人工测试操作</h2>
+            <label for="adjudication-reason">操作理由</label>
+            <textarea id="adjudication-reason" rows="2" maxlength="500">合成样例内部核验</textarea>
+            <label for="adjudication-replacement">草稿修订内容</label>
+            <textarea id="adjudication-replacement" rows="3" maxlength="2000">人工修订的合成事实段落</textarea>
+            <div class="stacked-actions">
+              <button id="revise-draft" class="secondary-button" type="button">修订草稿</button>
+              <button id="confirm-draft" class="secondary-button" type="button">确认测试复核</button>
+              <button id="return-draft" class="secondary-button" type="button">退回测试复核</button>
+            </div>
+          </section>
+        </aside>
+
+        <div class="enforcement-results">
+          <section id="adjudication-empty" class="empty-state compact-empty">
+            <div class="empty-symbol" aria-hidden="true">裁</div>
+            <h2>尚未创建裁决工作项</h2>
+            <p>从合成中心目录选择案件及其归属材料。</p>
+          </section>
+          <div id="adjudication-status" class="result-status" hidden></div>
+          <section id="adjudication-summary" class="result-section" hidden></section>
+          <section id="adjudication-materials" class="result-section" hidden></section>
+          <section id="adjudication-candidates" class="result-section" hidden></section>
+          <section id="adjudication-drafts" class="result-section" hidden></section>
+          <section id="adjudication-reviews" class="result-section" hidden></section>
+          <section id="adjudication-history" class="result-section" hidden></section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="source-dialog" class="source-dialog" aria-labelledby="source-title">
+    <div class="dialog-heading">
+      <h2 id="source-title">来源定位</h2>
+      <button id="close-source" class="icon-button" type="button" aria-label="关闭来源详情" title="关闭">×</button>
+    </div>
+    <dl id="source-details"></dl>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="/js/consultation.js" defer></script>
+  <script src="/js/patent-search.js" defer></script>
+  <script src="/js/trademark-search.js" defer></script>
+  <script src="/js/trademark-library.js" defer></script>
+  <script src="/js/patent-library.js" defer></script>
+  <script src="/js/case-library.js" defer></script>
+  <script src="/js/enforcement.js" defer></script>
+  <script src="/js/adjudication.js" defer></script>
+</body>
+</html>

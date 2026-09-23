@@ -1,0 +1,591 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-18 12:03:30 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 77666,
+      "documents": [
+        {
+          "docId": "CN-117434507-A",
+          "metadata": {
+            "pd": "20240123",
+            "pn": "CN-117434507-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Training of machine learning algorithms using interpretable artificial intelligence"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "使用可解释人工智能对机器学习算法的训练"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "INFINEON TECHNOLOGIES AG"
+        },
+        {
+          "docId": "CN-119743770-A",
+          "metadata": {
+            "pd": "20250401",
+            "pn": "CN-119743770-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence and machine learning techniques for wireless communications"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "用于无线通信的人工智能和机器学习技术"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "APPLE INC."
+        },
+        {
+          "docId": "CN-113805940-B",
+          "metadata": {
+            "pd": "20240809",
+            "pn": "CN-113805940-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Vector accelerator for artificial intelligence and machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "用于人工智能和机器学习的向量加速器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Alibaba Group Holding Ltd."
+        },
+        {
+          "docId": "CN-113805940-A",
+          "metadata": {
+            "pd": "20211217",
+            "pn": "CN-113805940-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Vector accelerator for artificial intelligence and machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "用于人工智能和机器学习的向量加速器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ALIBABA GROUP HOLDING LTD"
+        },
+        {
+          "docId": "CN-117668701-B",
+          "metadata": {
+            "pd": "20240412",
+            "pn": "CN-117668701-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "AI artificial intelligence machine learning system and method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "AI人工智能机器学习系统及方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Yunnan Xunsheng Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-117668701-A",
+          "metadata": {
+            "pd": "20240308",
+            "pn": "CN-117668701-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "AI artificial intelligence machine learning system and method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "AI人工智能机器学习系统及方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "YUNNAN XUNSHENG TECH CO LTD"
+        },
+        {
+          "docId": "CN-114787833-A",
+          "metadata": {
+            "pd": "20220722",
+            "pn": "CN-114787833-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Distributed Artificial Intelligence (AI)/machine learning training system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "分散式人工智能(AI)/机器学习训练系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "PRESAGEN PTY LTD"
+        },
+        {
+          "docId": "CN-109409532-B",
+          "metadata": {
+            "pd": "20220315",
+            "pn": "CN-109409532-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Product development based on artificial intelligence and machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "基于人工智能和机器学习的产品开发"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ACCENTURE GLOBAL SOLUTIONS LTD."
+        },
+        {
+          "docId": "CN-109409532-A",
+          "metadata": {
+            "pd": "20190301",
+            "pn": "CN-109409532-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Product development based on artificial intelligence and machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "基于人工智能和机器学习的产品开发"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ACCENTURE GLOBAL SOLUTIONS LTD"
+        },
+        {
+          "docId": "CN-116644817-A",
+          "metadata": {
+            "pd": "20230825",
+            "pn": "CN-116644817-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence model machine learning method and server"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种人工智能模型机器学习方法及服务器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BEIJING HAIZHI TECH GROUP CO LTD"
+        },
+        {
+          "docId": "CN-120113266-A",
+          "metadata": {
+            "pd": "20250606",
+            "pn": "CN-120113266-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Group-based management of artificial intelligence and machine learning models"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "人工智能和机器学习模型的基于组的管理"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "QUALCOMM INC"
+        },
+        {
+          "docId": "CN-119174205-A",
+          "metadata": {
+            "pd": "20241220",
+            "pn": "CN-119174205-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Updated artificial intelligence or machine learning capability reporting"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "更新的人工智能或机器学习能力报告"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "QUALCOMM INC"
+        },
+        {
+          "docId": "CN-120917794-A",
+          "metadata": {
+            "pd": "20251107",
+            "pn": "CN-120917794-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Data collection enhancement for artificial intelligence and machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "用于人工智能和机器学习的数据收集增强"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "INTERDIGITAL PATENT HOLDINGS INC"
+        },
+        {
+          "docId": "CN-215073411-U",
+          "metadata": {
+            "pd": "20211207",
+            "pn": "CN-215073411-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Special demonstration board for artificial intelligence machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种人工智能机器学习用专用演示板"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUNAN CHEMICAL VOCATIONAL TECH COLLEGE HUNAN INDUSTRIAL SENIOR TECHNICIAN SCHOOL"
+        },
+        {
+          "docId": "CN-220123164-U",
+          "metadata": {
+            "pd": "20231201",
+            "pn": "CN-220123164-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Data acquisition device for artificial intelligent machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于人工智能机器学习的数据采集装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "JIUJIANG VOCATIONAL & TECHNICAL COLLEGE"
+        },
+        {
+          "docId": "CN-109711794-B",
+          "metadata": {
+            "pd": "20230630",
+            "pn": "CN-109711794-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Project management assistance based on artificial intelligence and machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "基于人工智能和机器学习的项目管理辅助"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ACCENTURE GLOBAL SOLUTIONS LTD."
+        },
+        {
+          "docId": "CN-117063243-A",
+          "metadata": {
+            "pd": "20231114",
+            "pn": "CN-117063243-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning for improving artificial intelligence algorithm iterations"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "用于改善人工智能算法迭代的机器学习"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CILAG GMBH INT"
+        },
+        {
+          "docId": "CN-121128268-A",
+          "metadata": {
+            "pd": "20251212",
+            "pn": "CN-121128268-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence/machine learning round trip positioning method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "人工智能/机器学习往返定位方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NOKIA TECHNOLOGIES OY"
+        },
+        {
+          "docId": "CN-215872387-U",
+          "metadata": {
+            "pd": "20220218",
+            "pn": "CN-215872387-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Text processing terminal based on artificial intelligence machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种基于人工智能机器学习的文本处理终端"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "STATE GRID SHANXI ELECTRIC POWER CO INFORMATION & TELECOMMUNICATION BRANCH"
+        },
+        {
+          "docId": "CN-122556112-A",
+          "metadata": {
+            "pd": "20260811",
+            "pn": "CN-122556112-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Member user equipment selection for artificial intelligence/machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "用于人工智能/机器学习的成员用户设备选择"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SAMSUNG ELECTRONICS CO.,LTD."
+        },
+        {
+          "docId": "CN-122421079-A",
+          "metadata": {
+            "pd": "20260717",
+            "pn": "CN-122421079-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Random access procedure based on artificial intelligence/machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "基于人工智能/机器学习的随机接入过程"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "INTEL CORP."
+        },
+        {
+          "docId": "CN-117130660-A",
+          "metadata": {
+            "pd": "20231128",
+            "pn": "CN-117130660-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial Intelligence (AI)/Machine Learning (ML) Tensor Processor"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "人工智能(AI)/机器学习(ML)张量处理器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SYNOPSYS INC"
+        },
+        {
+          "docId": "CN-121925828-A",
+          "metadata": {
+            "pd": "20260424",
+            "pn": "CN-121925828-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Cross-node Artificial Intelligence (AI)/Machine Learning (ML) services"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "跨节点人工智能（AI）/机器学习（ML）服务"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "QUALCOMM INC"
+        },
+        {
+          "docId": "CN-120712569-A",
+          "metadata": {
+            "pd": "20250926",
+            "pn": "CN-120712569-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Quantization of artificial intelligence AI/machine learning ML models"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "人工智能AI/机器学习ML模型的量化"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "MEDIATEK INC"
+        },
+        {
+          "docId": "CN-122423239-A",
+          "metadata": {
+            "pd": "20260717",
+            "pn": "CN-122423239-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "System and method for artificial intelligence/machine learning positioning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "用于人工智能/机器学习定位的系统和方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZTE CORP."
+        }
+      ],
+      "query": "(pnctry:CN AND (ttl:\"人工智能\" OR ttl:\"机器学习\"))"
+    },
+    "query": ""
+  }
+}

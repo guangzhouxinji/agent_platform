@@ -1,0 +1,591 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-18 12:03:35 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 66710,
+      "documents": [
+        {
+          "docId": "CN-106654351-B",
+          "metadata": {
+            "pd": "20210105",
+            "pn": "CN-106654351-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Panasonic Intellectual Property Management Co.,Ltd."
+        },
+        {
+          "docId": "CN-216648362-U",
+          "metadata": {
+            "pd": "20220531",
+            "pn": "CN-216648362-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUIZHOU LIWEI ELECTRONIC TECH CO LTD"
+        },
+        {
+          "docId": "CN-110970621-B",
+          "metadata": {
+            "pd": "20210226",
+            "pn": "CN-110970621-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-110504479-B",
+          "metadata": {
+            "pd": "20210504",
+            "pn": "CN-110504479-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-111326732-B",
+          "metadata": {
+            "pd": "20210709",
+            "pn": "CN-111326732-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-111326718-B",
+          "metadata": {
+            "pd": "20211001",
+            "pn": "CN-111326718-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-112349962-B",
+          "metadata": {
+            "pd": "20211109",
+            "pn": "CN-112349962-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-108987680-B",
+          "metadata": {
+            "pd": "20200703",
+            "pn": "CN-108987680-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-109994706-B",
+          "metadata": {
+            "pd": "20200828",
+            "pn": "CN-109994706-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-109728340-B",
+          "metadata": {
+            "pd": "20201120",
+            "pn": "CN-109728340-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-108933296-B",
+          "metadata": {
+            "pd": "20201124",
+            "pn": "CN-108933296-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery pack"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池包"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-104868096-B",
+          "metadata": {
+            "pd": "20170405",
+            "pn": "CN-104868096-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-106299507-B",
+          "metadata": {
+            "pd": "20180914",
+            "pn": "CN-106299507-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-105845978-B",
+          "metadata": {
+            "pd": "20180918",
+            "pn": "CN-105845978-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-112151702-B",
+          "metadata": {
+            "pd": "20220419",
+            "pn": "CN-112151702-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-111354949-B",
+          "metadata": {
+            "pd": "20211207",
+            "pn": "CN-111354949-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Contemporary Amperex Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-216436076-U",
+          "metadata": {
+            "pd": "20220503",
+            "pn": "CN-216436076-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENZHEN GEREMP BATTERY CO LTD"
+        },
+        {
+          "docId": "CN-216958145-U",
+          "metadata": {
+            "pd": "20220712",
+            "pn": "CN-216958145-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUIZHOU EVE ENERGY CO LTD"
+        },
+        {
+          "docId": "CN-111769329-B",
+          "metadata": {
+            "pd": "20220712",
+            "pn": "CN-111769329-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NINGDE AMPEREX TECHNOLOGY LTD."
+        },
+        {
+          "docId": "CN-217035725-U",
+          "metadata": {
+            "pd": "20220722",
+            "pn": "CN-217035725-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "APOWER ELECTRONICS CO LTD"
+        },
+        {
+          "docId": "CN-213340462-U",
+          "metadata": {
+            "pd": "20210601",
+            "pn": "CN-213340462-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TIANJIN RISESUN MGL NEW ENERGY TECH CO LTD"
+        },
+        {
+          "docId": "CN-107528086-A",
+          "metadata": {
+            "pd": "20171229",
+            "pn": "CN-107528086-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV BAR ILAN"
+        },
+        {
+          "docId": "CN-107528086-B",
+          "metadata": {
+            "pd": "20200922",
+            "pn": "CN-107528086-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BAR-ILAN UNIVERSITY"
+        },
+        {
+          "docId": "CN-113066975-B",
+          "metadata": {
+            "pd": "20220617",
+            "pn": "CN-113066975-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZHUHAI SMOOTHWAY ELECTRONIC MATERIALS Co.,Ltd."
+        },
+        {
+          "docId": "CN-115020814-B",
+          "metadata": {
+            "pd": "20221206",
+            "pn": "CN-115020814-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENZHEN CAPCHEM TECHNOLOGY CO.，LTD."
+        }
+      ],
+      "query": "(pnctry:CN AND (ttl:\"锂离子电池\" OR ttl:\"固态电池\"))"
+    },
+    "query": ""
+  }
+}

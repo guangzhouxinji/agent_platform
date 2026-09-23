@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "enforcement-authorized-package-v1",
+  "batchId": "ENF-CNIPA-OFFICIAL-AUTHORIZED-V1",
+  "datasetId": "ENF-CNIPA-OFFICIAL-INTERNAL-DEVELOPMENT",
+  "datasetVersion": "2026-09-20.1",
+  "sourceName": "国家知识产权局公开执法指导资料",
+  "sourceType": "OFFICIAL_PUBLIC_DOCUMENTS",
+  "approvalDecisionId": "ENF-CNIPA-OFFICIAL-V1-INTERNAL-DEVELOPMENT-CONVERSION",
+  "approvedBy": "PROJECT_OWNER_AND_DATA_LEGAL_RESPONSIBLE_PARTY",
+  "approvedAt": "2026-09-20T00:00:00Z",
+  "allowedUse": "INTERNAL_DEVELOPMENT_ENFORCEMENT_ASSISTANCE_UNTIL_PILOT_END",
+  "recordScope": "1 historical public sample clue, 1 public official document material, 1 narrow official reply, 0 right statuses; reviewDecisionSha256=c60a8c9943d4ff287540a39edefff59b83799bd60b1b6bca607a56c7ccf7fcb7",
+  "retentionPolicy": "UNTIL_DEVELOPMENT_PILOT_END",
+  "retentionUntil": null,
+  "withdrawalContact": "PROJECT_OWNER_AND_DATA_LEGAL_RESPONSIBLE_PARTY",
+  "withdrawalProcess": "Stop new use, mark the affected package unavailable, remove content from current indexes, and retain only non-content audit digests.",
+  "externalModelAllowed": false,
+  "files": {
+    "clues.json": {
+      "sha256": "16095d88138d33a152bd5c2955c82817a6741c379264911f1f77882be7bebba5",
+      "recordCount": 1
+    },
+    "evidence.json": {
+      "sha256": "6032a46784c14979eb8161e71fdf262b5816e040ddbbd8b1222fe41e33d91375",
+      "recordCount": 1
+    },
+    "rules.json": {
+      "sha256": "3538658dfcd4c14cd5fdc72a7ec8a46e79176902c86220430ada2b49405e8a6c",
+      "recordCount": 1
+    },
+    "right-statuses.json": {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "recordCount": 0
+    }
+  }
+}

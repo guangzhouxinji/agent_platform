@@ -1,0 +1,3 @@
+DROP TABLE adj_public_reference_snapshot;
+DROP TABLE adj_public_reference_batch;
+DROP TABLE adj_public_source_registration;

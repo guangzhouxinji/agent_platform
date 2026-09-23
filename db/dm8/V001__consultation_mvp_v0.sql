@@ -88,6 +88,7 @@ CREATE TABLE con_assisted_answer (
     professional_review_required CHAR(1) NOT NULL,
     professional_review_reason VARCHAR(1000),
     answer_version INT NOT NULL,
+    retrieval_task_id VARCHAR(36),
     created_at TIMESTAMP NOT NULL,
     CONSTRAINT pk_con_assisted_answer PRIMARY KEY (answer_id),
     CONSTRAINT uq_con_answer_version UNIQUE (consultation_id, answer_version),
@@ -183,6 +184,7 @@ CREATE INDEX ix_con_issue_consultation ON con_information_issue (consultation_id
 CREATE INDEX ix_con_request_consultation ON con_retrieval_request (consultation_id, created_at);
 CREATE INDEX ix_con_candidate_request ON con_retrieval_candidate (retrieval_request_id);
 CREATE INDEX ix_con_answer_consultation ON con_assisted_answer (consultation_id, answer_version);
+CREATE INDEX ix_con_answer_retrieval_task ON con_assisted_answer (retrieval_task_id);
 CREATE INDEX ix_con_patent_search_owner ON con_patent_search_task (requester_ref, created_at);
 CREATE INDEX ix_con_patent_search_status ON con_patent_search_task (status, updated_at);
 

@@ -1,0 +1,539 @@
+{
+  "schemaVersion": "public-domain-projection-set-v1",
+  "domain": "ADJUDICATION",
+  "mappingPolicyVersion": "CNIPA-DOMAIN-MAPPING-V1",
+  "sourceWorksetId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+  "sourceCatalogVersion": "2026-09-21.1",
+  "sourceBatchSha256": "90b1a65ccebc40db001d30f7d949f5ad1445b0d044edadf441b22b1228240c9d",
+  "projectionStatus": "ISOLATED_INTERNAL_DEVELOPMENT_ONLY",
+  "records": [
+    {
+      "domainProjectionId": "ADJ-A875DFDB93E681BB7C5FE1AF",
+      "domain": "ADJUDICATION",
+      "projectionKind": "DOCUMENT_PARSING_AND_DRAFT_STRUCTURE_INPUT",
+      "sourceSnapshotId": "CNIPA_2025_DRUG_ADJUDICATION_0077",
+      "sourceSha256": "0835914753ec10cfc256ad45ff1eefe6221efa484f0c773eb29f6ad969ba204d",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208054.html",
+      "sourceTitle": "国家知识产权局 执法指导 （2025）国知药裁0077号",
+      "sourcePublishedAt": "2026-09-08 14:42",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0077.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208054.html",
+        "limitation": "The captured page only links to the decision PDF; the PDF body is not present in this batch."
+      },
+      "documentBodyAvailable": false,
+      "recordKind": "HISTORICAL_ADJUDICATION_DECISION",
+      "allowedUses": [
+        "ADJUDICATION_DOCUMENT_PARSING",
+        "ADJUDICATION_DRAFT_STRUCTURE_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2025_DRUG_ADJUDICATION_0077:0835914753ec10cfc256ad45ff1eefe6221efa484f0c773eb29f6ad969ba204d",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-2FA83C796A692A8EF2258E0B",
+      "domain": "ADJUDICATION",
+      "projectionKind": "DOCUMENT_PARSING_AND_DRAFT_STRUCTURE_INPUT",
+      "sourceSnapshotId": "CNIPA_2025_DRUG_ADJUDICATION_0076",
+      "sourceSha256": "d432e5e23c51b058f49587433cf9af443f5c2a14643e5339c079a7cb566a32a1",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208053.html",
+      "sourceTitle": "国家知识产权局 执法指导 （2025）国知药裁0076号",
+      "sourcePublishedAt": "2026-09-08 14:41",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0076.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208053.html",
+        "limitation": "The captured page only links to the decision PDF; the PDF body is not present in this batch."
+      },
+      "documentBodyAvailable": false,
+      "recordKind": "HISTORICAL_ADJUDICATION_DECISION",
+      "allowedUses": [
+        "ADJUDICATION_DOCUMENT_PARSING",
+        "ADJUDICATION_DRAFT_STRUCTURE_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2025_DRUG_ADJUDICATION_0076:d432e5e23c51b058f49587433cf9af443f5c2a14643e5339c079a7cb566a32a1",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-FC8B45271AA565A184211F57",
+      "domain": "ADJUDICATION",
+      "projectionKind": "DOCUMENT_PARSING_AND_DRAFT_STRUCTURE_INPUT",
+      "sourceSnapshotId": "CNIPA_2025_DRUG_ADJUDICATION_0075",
+      "sourceSha256": "150b9096922573f51f6f26f5f6081d9dceadd7c087f5d4c66da28eb41a2fe7b6",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208052.html",
+      "sourceTitle": "国家知识产权局 执法指导 （2025）国知药裁0075号",
+      "sourcePublishedAt": "2026-09-08 14:40",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0075.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208052.html",
+        "limitation": "The captured page only links to the decision PDF; the PDF body is not present in this batch."
+      },
+      "documentBodyAvailable": false,
+      "recordKind": "HISTORICAL_ADJUDICATION_DECISION",
+      "allowedUses": [
+        "ADJUDICATION_DOCUMENT_PARSING",
+        "ADJUDICATION_DRAFT_STRUCTURE_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2025_DRUG_ADJUDICATION_0075:150b9096922573f51f6f26f5f6081d9dceadd7c087f5d4c66da28eb41a2fe7b6",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-7112F65B52DD8B00A966C6B9",
+      "domain": "ADJUDICATION",
+      "projectionKind": "DOCUMENT_PARSING_AND_DRAFT_STRUCTURE_INPUT",
+      "sourceSnapshotId": "CNIPA_2025_DRUG_ADJUDICATION_0074",
+      "sourceSha256": "1fdbed104a03d279a6238e51e94c81b22f40eb83ff83e16984ad9215584cf753",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208051.html",
+      "sourceTitle": "国家知识产权局 执法指导 （2025）国知药裁0074号",
+      "sourcePublishedAt": "2026-09-08 14:39",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0074.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208051.html",
+        "limitation": "The captured page only links to the decision PDF; the PDF body is not present in this batch."
+      },
+      "documentBodyAvailable": false,
+      "recordKind": "HISTORICAL_ADJUDICATION_DECISION",
+      "allowedUses": [
+        "ADJUDICATION_DOCUMENT_PARSING",
+        "ADJUDICATION_DRAFT_STRUCTURE_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2025_DRUG_ADJUDICATION_0074:1fdbed104a03d279a6238e51e94c81b22f40eb83ff83e16984ad9215584cf753",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-9E05542A9611CEA5F9F26946",
+      "domain": "ADJUDICATION",
+      "projectionKind": "DOCUMENT_PARSING_AND_DRAFT_STRUCTURE_INPUT",
+      "sourceSnapshotId": "CNIPA_2025_DRUG_ADJUDICATION_0073",
+      "sourceSha256": "281455ec6bc69901f7ff34e608a02877cee0ce5f00f876db9bb2999df3057072",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208050.html",
+      "sourceTitle": "国家知识产权局 执法指导 （2025）国知药裁0073号",
+      "sourcePublishedAt": "2026-09-08 14:38",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0073.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208050.html",
+        "limitation": "The captured page only links to the decision PDF; the PDF body is not present in this batch."
+      },
+      "documentBodyAvailable": false,
+      "recordKind": "HISTORICAL_ADJUDICATION_DECISION",
+      "allowedUses": [
+        "ADJUDICATION_DOCUMENT_PARSING",
+        "ADJUDICATION_DRAFT_STRUCTURE_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2025_DRUG_ADJUDICATION_0073:281455ec6bc69901f7ff34e608a02877cee0ce5f00f876db9bb2999df3057072",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-8209B9A2E2624693089B4225",
+      "domain": "ADJUDICATION",
+      "projectionKind": "DOCUMENT_PARSING_AND_DRAFT_STRUCTURE_INPUT",
+      "sourceSnapshotId": "CNIPA_2025_DRUG_ADJUDICATION_0072",
+      "sourceSha256": "7abeae794e72d94719258988461f407442972b78ec18ea5e721ae744b6cd665a",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208049.html",
+      "sourceTitle": "国家知识产权局 执法指导 （2025）国知药裁0072号",
+      "sourcePublishedAt": "2026-09-08 14:36",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0072.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208049.html",
+        "limitation": "The captured page only links to the decision PDF; the PDF body is not present in this batch."
+      },
+      "documentBodyAvailable": false,
+      "recordKind": "HISTORICAL_ADJUDICATION_DECISION",
+      "allowedUses": [
+        "ADJUDICATION_DOCUMENT_PARSING",
+        "ADJUDICATION_DRAFT_STRUCTURE_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2025_DRUG_ADJUDICATION_0072:7abeae794e72d94719258988461f407442972b78ec18ea5e721ae744b6cd665a",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-F70C8065BF1B719044EFE85B",
+      "domain": "ADJUDICATION",
+      "projectionKind": "DOCUMENT_PARSING_AND_DRAFT_STRUCTURE_INPUT",
+      "sourceSnapshotId": "CNIPA_2026_DRUG_ADJUDICATION_0062",
+      "sourceSha256": "36f6eb85cbfec82b1bb52525ae49bae22ae1e3d6373beb4e9bc4ad4dd26c8529",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207823.html",
+      "sourceTitle": "国家知识产权局 执法指导 （2026）国知药裁0062号",
+      "sourcePublishedAt": "2026-08-20 14:39",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2026-drug-adjudication-0062.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207823.html",
+        "limitation": "The captured page only links to the decision PDF; the PDF body is not present in this batch."
+      },
+      "documentBodyAvailable": false,
+      "recordKind": "HISTORICAL_ADJUDICATION_DECISION",
+      "allowedUses": [
+        "ADJUDICATION_DOCUMENT_PARSING",
+        "ADJUDICATION_DRAFT_STRUCTURE_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2026_DRUG_ADJUDICATION_0062:36f6eb85cbfec82b1bb52525ae49bae22ae1e3d6373beb4e9bc4ad4dd26c8529",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-018F34B0A02B27C06D9455DC",
+      "domain": "ADJUDICATION",
+      "projectionKind": "DOCUMENT_PARSING_AND_DRAFT_STRUCTURE_INPUT",
+      "sourceSnapshotId": "CNIPA_2026_DRUG_ADJUDICATION_0061",
+      "sourceSha256": "66784fa698ad995d505497aa48f2ca8d500567fe43b0811856ab0cec1be3feef",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207822.html",
+      "sourceTitle": "国家知识产权局 执法指导 （2026）国知药裁0061号",
+      "sourcePublishedAt": "2026-08-20 14:37",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2026-drug-adjudication-0061.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207822.html",
+        "limitation": "The captured page only links to the decision PDF; the PDF body is not present in this batch."
+      },
+      "documentBodyAvailable": false,
+      "recordKind": "HISTORICAL_ADJUDICATION_DECISION",
+      "allowedUses": [
+        "ADJUDICATION_DOCUMENT_PARSING",
+        "ADJUDICATION_DRAFT_STRUCTURE_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2026_DRUG_ADJUDICATION_0061:66784fa698ad995d505497aa48f2ca8d500567fe43b0811856ab0cec1be3feef",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-39DCC526FFBFD0AD12648BD7",
+      "domain": "ADJUDICATION",
+      "projectionKind": "DOCUMENT_PARSING_AND_DRAFT_STRUCTURE_INPUT",
+      "sourceSnapshotId": "CNIPA_2026_DRUG_ADJUDICATION_0021",
+      "sourceSha256": "68af5c0584d9aaaeabbcf84a28c48432a92a92e4e267ac4b4d142941dd8935bd",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207820.html",
+      "sourceTitle": "国家知识产权局 执法指导 （2026）国知药裁0021号",
+      "sourcePublishedAt": "2026-08-20 14:33",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2026-drug-adjudication-0021.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207820.html",
+        "limitation": "The captured page only links to the decision PDF; the PDF body is not present in this batch."
+      },
+      "documentBodyAvailable": false,
+      "recordKind": "HISTORICAL_ADJUDICATION_DECISION",
+      "allowedUses": [
+        "ADJUDICATION_DOCUMENT_PARSING",
+        "ADJUDICATION_DRAFT_STRUCTURE_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2026_DRUG_ADJUDICATION_0021:68af5c0584d9aaaeabbcf84a28c48432a92a92e4e267ac4b4d142941dd8935bd",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-B4877A8E9CFC8484DEFE3D7E",
+      "domain": "ADJUDICATION",
+      "projectionKind": "DOCUMENT_PARSING_AND_DRAFT_STRUCTURE_INPUT",
+      "sourceSnapshotId": "CNIPA_2025_DRUG_ADJUDICATION_0060",
+      "sourceSha256": "b784e8fd2724cfd8ca9170da4af58899927863dc4a6329a13b9550cabd439cb2",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207821.html",
+      "sourceTitle": "国家知识产权局 执法指导 （2025）国知药裁0060号",
+      "sourcePublishedAt": "2026-08-20 14:35",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0060.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207821.html",
+        "limitation": "The captured page only links to the decision PDF; the PDF body is not present in this batch."
+      },
+      "documentBodyAvailable": false,
+      "recordKind": "HISTORICAL_ADJUDICATION_DECISION",
+      "allowedUses": [
+        "ADJUDICATION_DOCUMENT_PARSING",
+        "ADJUDICATION_DRAFT_STRUCTURE_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2025_DRUG_ADJUDICATION_0060:b784e8fd2724cfd8ca9170da4af58899927863dc4a6329a13b9550cabd439cb2",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-CF16416B2D8D8FA368ACCF73",
+      "domain": "ADJUDICATION",
+      "projectionKind": "RULE_SOURCE_DISPLAY_AND_WORKFLOW_TEST_FIXTURE",
+      "sourceSnapshotId": "CNIPA_2026_ADJUDICATION_DEADLINE_REPLY",
+      "sourceSha256": "5842dbdf1c297aca04e6226febccadc01746734f46c3a4c3329426a96464be3d",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/18/art_2432_207774.html",
+      "sourceTitle": "国家知识产权局 执法指导 国家知识产权局关于专利侵权纠纷行政裁决案件追加当事人后重新计算办案期限的批复",
+      "sourcePublishedAt": "2026-08-18 09:30",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2026-adjudication-deadline-reply.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/8/18/art_2432_207774.html",
+        "limitation": "The captured HTML page is the finest verified locator in this batch."
+      },
+      "documentBodyAvailable": true,
+      "recordKind": "OFFICIAL_REPLY",
+      "allowedUses": [
+        "RULE_SOURCE_DISPLAY",
+        "WORKFLOW_BRANCH_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2026_ADJUDICATION_DEADLINE_REPLY:5842dbdf1c297aca04e6226febccadc01746734f46c3a4c3329426a96464be3d",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    },
+    {
+      "domainProjectionId": "ADJ-32E0FAC98EB184337212AE3D",
+      "domain": "ADJUDICATION",
+      "projectionKind": "RULE_SOURCE_DISPLAY_AND_WORKFLOW_TEST_FIXTURE",
+      "sourceSnapshotId": "CNIPA_2026_ADJUDICATION_PUBLICATION_REPLY",
+      "sourceSha256": "baf4ec6ca977454ffa75393920cbf833c5be8eed894cc1d28a5ec9dc3fef2345",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/4/art_2432_207541.html",
+      "sourceTitle": "国家知识产权局 执法指导 国家知识产权局关于专利行政裁决案件信息可否停止公示有关问题的批复",
+      "sourcePublishedAt": "2026-08-04 14:50",
+      "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2026-adjudication-publication-reply.html",
+      "sourceLocator": {
+        "granularity": "SOURCE_PAGE_ONLY",
+        "locator": "https://www.cnipa.gov.cn/art/2026/8/4/art_2432_207541.html",
+        "limitation": "The captured HTML page is the finest verified locator in this batch."
+      },
+      "documentBodyAvailable": true,
+      "recordKind": "OFFICIAL_REPLY",
+      "allowedUses": [
+        "RULE_SOURCE_DISPLAY",
+        "WORKFLOW_BRANCH_TEST",
+        "SOURCE_CITATION_TEST"
+      ],
+      "developmentUseStatus": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalReference": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+      "approvalDecidedAt": "2026-09-21",
+      "professionalEffectivityStatus": "PENDING_PROFESSIONAL_REVIEW",
+      "availabilityStatus": "AVAILABLE_FOR_INTERNAL_DEVELOPMENT",
+      "withdrawalKey": "CNIPA_2026_ADJUDICATION_PUBLICATION_REPLY:baf4ec6ca977454ffa75393920cbf833c5be8eed894cc1d28a5ec9dc3fef2345",
+      "prohibitedClaims": [
+        "NOT_CURRENT_CASE",
+        "NOT_UNDERLYING_EVIDENCE",
+        "NOT_ACCEPTED_EVIDENCE",
+        "NOT_CURRENT_RIGHT_STATUS",
+        "NOT_AUTOMATIC_LEGAL_CONCLUSION",
+        "NOT_FORMAL_DECISION"
+      ],
+      "boundaries": {
+        "directBusinessImportAllowed": false,
+        "executableRuleAllowed": false,
+        "evidenceAcceptanceAllowed": false,
+        "formalDecisionAllowed": false,
+        "externalModelAllowed": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+package cn.xinji.agentplatform.consultation.trademarksearch.adapter.out.synthetic;
+
+import cn.xinji.agentplatform.consultation.trademarksearch.application.TrademarkCatalogPort;
+import cn.xinji.agentplatform.consultation.trademarkcomparison.application.TrademarkComparisonSourcePort;
+import cn.xinji.agentplatform.consultation.trademarksearch.domain.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Profile;
+
+@Component
+@Profile("test-synthetic")
+public final class SyntheticTrademarkCatalogAdapter implements TrademarkCatalogPort, TrademarkComparisonSourcePort {
+    private static final String CATALOG_VERSION = "synthetic-trademark-catalog-v2";
+    private final AtomicBoolean failNext = new AtomicBoolean();
+    private final List<TrademarkDocument> documents = catalog();
+    @Override public CatalogResult search(TrademarkSearchCommand command) { if(failNext.compareAndSet(true,false))throw new IllegalStateException("synthetic catalog failure"); List<Scored> all=documents.stream().filter(v->include(v,command)).map(v->new Scored(v,rank(v,command))).filter(v->v.rank>0).sorted(Comparator.comparingInt(Scored::rank).reversed().thenComparing(v->v.document.sourceId())).toList(); int from=Math.min((command.page()-1)*command.pageSize(),all.size()),to=Math.min(from+command.pageSize(),all.size()); return new CatalogResult("拟真合成商标目录 "+CATALOG_VERSION+"；类别="+String.join("、",command.categories())+"；状态="+(command.scope().statuses().isEmpty()?"未过滤":String.join("、",command.scope().statuses())),all.size(),to<all.size(),all.subList(from,to).stream().map(v->candidate(v.document,command,v.rank)).toList(),"仅检索 120 条拟真合成商标；含义维度未配置，图形能力未配置。",false); }
+    public void failNextSearch(){failNext.set(true);}
+    public List<TrademarkDocument> documents() { return documents; }
+    @Override public Optional<TrademarkDocument> findTrademark(String sourceId) { return documents.stream().filter(document -> document.sourceId().equals(sourceId)).findFirst(); }
+    @Override public String comparisonSourceVersion() { return CATALOG_VERSION; }
+    private static boolean include(TrademarkDocument v,TrademarkSearchCommand c){return !Collections.disjoint(v.categories(),c.categories())&&(c.scope().statuses().isEmpty()||c.scope().statuses().contains(v.status()))&&(c.scope().regions().isEmpty()||c.scope().regions().contains(v.region()))&&(c.scope().dataSources().isEmpty()||c.scope().dataSources().contains(v.dataSource()));}
+    private static int rank(TrademarkDocument v,TrademarkSearchCommand c){String q=c.normalizedName(),n=v.name().toUpperCase(Locale.ROOT);int r=n.equals(q)?5:n.contains(q)||q.contains(n)?4:0;return c.dimensions().contains(TrademarkSearchCommand.Dimension.PHONETIC)&&phonetic(c.originalName()).equals(v.phonetic())?Math.max(r,3):r;}
+    private static TrademarkSearchCandidate candidate(TrademarkDocument v,TrademarkSearchCommand c,int rank){List<TrademarkSearchCandidate.DimensionResult> d=c.dimensions().stream().map(x->switch(x){case TEXT->new TrademarkSearchCandidate.DimensionResult(x,TrademarkSearchCandidate.State.EXECUTED,v.name().equalsIgnoreCase(c.originalName())?"受控文字完全匹配":"受控文字近形/包含候选");case PHONETIC->new TrademarkSearchCandidate.DimensionResult(x,TrademarkSearchCandidate.State.EXECUTED,"受控读音候选："+v.phonetic());case SEMANTIC->new TrademarkSearchCandidate.DimensionResult(x,TrademarkSearchCandidate.State.NOT_ANALYZED,"合成目录未配置含义分析能力");case IMAGE->throw new IllegalArgumentException("image dimension must be rejected before catalog search");}).toList();return new TrademarkSearchCandidate(v.sourceId(),v.registrationNumber(),v.name(),v.categories(),v.goodsServices(),v.status(),v.region(),v.dataSource(),v.version(),v.updatedAt(),rank>=4?"值得进一步比对":"读音候选",d);}
+    private static String phonetic(String n){return switch(n.trim()){case "清源","青源","晴原","晴园","清元"->"qing yuan";default->n.toLowerCase(Locale.ROOT);};}
+    private static List<TrademarkDocument> catalog(){List<TrademarkDocument> values=new ArrayList<>(List.of(doc("001","清源","qing yuan","3","化妆品；洗发液","有效"),doc("002","青源","qing yuan","3","洗涤剂；香精油","有效"),doc("003","晴原","qing yuan","3","护肤品；香水","待审"),doc("004","源清","yuan qing","3","洗面奶；化妆品","已失效"),doc("005","清源工坊","qing yuan gong fang","35","广告；商业管理辅助","有效"),doc("006","青原科技","qing yuan ke ji","42","技术研究；软件服务","有效"),doc("007","源青","yuan qing","3","牙膏；香料","有效"),doc("008","清源茶舍","qing yuan cha she","30","茶；茶饮料","有效"),doc("009","源泉","yuan quan","32","饮用水；果汁","有效"),doc("010","晴园","qing yuan","3","美容面膜；香皂","待审"),doc("011","澄源","cheng yuan","3","洗发液；护发素","有效"),doc("012","清元","qing yuan","3","化妆品；香水","有效")));String[] prefixes={"衡越","澜序","知禾","云岑","瑞陌","星沐","川屿","启衡","墨川"};String[] suffixes={"智造","优选","新材","生活","科技","工坊"};String[] categories={"7","9","10","11","21","25","29","30","35","42"};String[] goods={"工业机器人；自动化设备","传感器；数据处理设备","医疗器械；诊断设备","照明设备；空气调节装置","家用器皿；玻璃制品","服装；鞋；帽","加工食品；乳制品","咖啡；茶；糕点","广告；商业管理辅助","技术研究；软件服务"};String[] statuses={"有效","有效","有效","待审","已失效"};for(int i=13;i<=120;i++){int x=i-13,ci=x%categories.length;values.add(doc(String.format("%03d",i),prefixes[x%prefixes.length]+suffixes[(x/prefixes.length)%suffixes.length],"synthetic mark "+i,categories[ci],goods[ci],statuses[x%statuses.length]));}return List.copyOf(values);}
+    private static TrademarkDocument doc(String id,String name,String p,String category,String goods,String status){return new TrademarkDocument("TM-SYN-"+id,"76810"+id,name,p,List.of(category),List.of(goods.split("；")),status,"CN","SYNTHETIC_TRADEMARK_CATALOG","synthetic-v1","2026-09-16");}
+    private record Scored(TrademarkDocument document,int rank){}
+}

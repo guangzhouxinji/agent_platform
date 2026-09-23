@@ -1,0 +1,250 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "CON-04-CN-TOPIC-PUBLIC-PILOT-V1",
+  "generatedAt": "2026-09-18T12:03:19.942Z",
+  "purpose": "CON-04 Chinese topic patent public-data development pilot",
+  "source": {
+    "name": "SureChEMBL",
+    "websiteUrl": "https://www.surechembl.org/",
+    "apiBaseUrl": "https://surechembl.org/api",
+    "accessMode": "PUBLIC_WEB_API",
+    "authorityStatus": "NON_CENTER_PUBLIC_SOURCE",
+    "licenseReviewStatus": "REVIEW_REQUIRED",
+    "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+  },
+  "boundaries": {
+    "dataClass": "PUBLIC_PILOT",
+    "centerAuthoritative": false,
+    "expertLabeled": false,
+    "externalModelUseAllowed": false,
+    "formalDesignEvidence": false,
+    "formalVerificationEvidence": false,
+    "businessAcceptanceEvidence": false
+  },
+  "topics": [
+    {
+      "id": "AI_ML",
+      "labelZh": "人工智能与机器学习",
+      "query": "(pnctry:CN AND (ttl:\"人工智能\" OR ttl:\"机器学习\"))",
+      "quota": 100
+    },
+    {
+      "id": "BATTERY",
+      "labelZh": "锂离子与固态电池",
+      "query": "(pnctry:CN AND (ttl:\"锂离子电池\" OR ttl:\"固态电池\"))",
+      "quota": 100
+    },
+    {
+      "id": "SEMICONDUCTOR",
+      "labelZh": "半导体与集成电路",
+      "query": "(pnctry:CN AND (ttl:\"半导体\" OR ttl:\"集成电路\"))",
+      "quota": 100
+    },
+    {
+      "id": "BIOTECH",
+      "labelZh": "基因与生物技术",
+      "query": "(pnctry:CN AND (ttl:\"基因\" OR ttl:\"生物\"))",
+      "quota": 100
+    }
+  ],
+  "selection": {
+    "total": 400,
+    "quotaPerTopic": 100,
+    "requiresChineseTitle": true,
+    "excludesExistingPilotRecords": true,
+    "maximumPagesPerTopic": 10
+  },
+  "recordCount": 400,
+  "recordsFile": "records.json",
+  "recordsSha256": "26859539c29aa157af514ffc23ff5c00de6e87518b1a4720c5979d638869ec00",
+  "rawResponses": [
+    {
+      "queryId": "AI_ML",
+      "page": 1,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%22+OR+ttl%3A%22%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%22%29%29&page=1&itemsPerPage=25",
+      "file": "raw/search-ai_ml-page-01.json",
+      "sha256": "bbee32b05b471ca80b2f59366306b9c750a8edbfb4ce54d3a1d820f0dccc4151",
+      "responseSha256": "ccb30df79ae5338c605642dc4d67f2b9f1bcfcda3c9bcb21aac45a5b1a3b5049",
+      "sourceTotalHits": 77666,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "AI_ML",
+      "page": 2,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%22+OR+ttl%3A%22%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%22%29%29&page=2&itemsPerPage=25",
+      "file": "raw/search-ai_ml-page-02.json",
+      "sha256": "d8af5929defa7e2bcd572663c15fd4f5f7088b54fd22cf7681d19ae775a8dc81",
+      "responseSha256": "d1da4a7c33170954641fc1830ace76275cacd954c25da0d123c5395ceba8c528",
+      "sourceTotalHits": 77666,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "AI_ML",
+      "page": 3,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%22+OR+ttl%3A%22%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%22%29%29&page=3&itemsPerPage=25",
+      "file": "raw/search-ai_ml-page-03.json",
+      "sha256": "37ea689c721d48f88fba2ba890aa94ad10a6b924df07da07ed6556030900b0fb",
+      "responseSha256": "dbd9c96929fddf1669f6107661d32949cd255bf6e60705b0f2b40559069fd0bb",
+      "sourceTotalHits": 77666,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "AI_ML",
+      "page": 4,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%22+OR+ttl%3A%22%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%22%29%29&page=4&itemsPerPage=25",
+      "file": "raw/search-ai_ml-page-04.json",
+      "sha256": "3b4688d1cdc7c7942279bb2141434b05d81cd4ca9bc4d7505d39ac23c2def07a",
+      "responseSha256": "b846c5a8ca638f62c568e909511212c7f3bd592648639790dd390f3e8cd07619",
+      "sourceTotalHits": 77666,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "BATTERY",
+      "page": 1,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E9%94%82%E7%A6%BB%E5%AD%90%E7%94%B5%E6%B1%A0%22+OR+ttl%3A%22%E5%9B%BA%E6%80%81%E7%94%B5%E6%B1%A0%22%29%29&page=1&itemsPerPage=25",
+      "file": "raw/search-battery-page-01.json",
+      "sha256": "48da895fa6d7e61505324a494eb11b7cfbc9253239dc0b11d79c967ea3f56f05",
+      "responseSha256": "3ce2f129498a40ef86c87b7c5d68ccdca63ce321f48d401977c7405aab68c19f",
+      "sourceTotalHits": 66710,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "BATTERY",
+      "page": 2,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E9%94%82%E7%A6%BB%E5%AD%90%E7%94%B5%E6%B1%A0%22+OR+ttl%3A%22%E5%9B%BA%E6%80%81%E7%94%B5%E6%B1%A0%22%29%29&page=2&itemsPerPage=25",
+      "file": "raw/search-battery-page-02.json",
+      "sha256": "369e8a38eaae1979c65eba363b4cd6012d2e4d84d9e2f84d1333fef752d78e41",
+      "responseSha256": "e1720b35766a4c65334cbd980797b22b9cbb256574435ce0c4200ca26b2d7400",
+      "sourceTotalHits": 66710,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "BATTERY",
+      "page": 3,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E9%94%82%E7%A6%BB%E5%AD%90%E7%94%B5%E6%B1%A0%22+OR+ttl%3A%22%E5%9B%BA%E6%80%81%E7%94%B5%E6%B1%A0%22%29%29&page=3&itemsPerPage=25",
+      "file": "raw/search-battery-page-03.json",
+      "sha256": "791031d6aceadb7d7654d279547dbf3e935477afbc2512b88ab8fa5af5e28e74",
+      "responseSha256": "b7ff85bfb2fdd82f7fe061db8ca23e9c0a199cb465078efec4bd170319c88934",
+      "sourceTotalHits": 66710,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "BATTERY",
+      "page": 4,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E9%94%82%E7%A6%BB%E5%AD%90%E7%94%B5%E6%B1%A0%22+OR+ttl%3A%22%E5%9B%BA%E6%80%81%E7%94%B5%E6%B1%A0%22%29%29&page=4&itemsPerPage=25",
+      "file": "raw/search-battery-page-04.json",
+      "sha256": "e0968c9ac583c8e210a0a41543f43d264729c6b1d5c35ba202c278d6e361ad96",
+      "responseSha256": "6bac83b8aa22c6ffbbed7272b5ef64a49b3912c7fbdd217c000722d7970c4fba",
+      "sourceTotalHits": 66710,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "SEMICONDUCTOR",
+      "page": 1,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E5%8D%8A%E5%AF%BC%E4%BD%93%22+OR+ttl%3A%22%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%22%29%29&page=1&itemsPerPage=25",
+      "file": "raw/search-semiconductor-page-01.json",
+      "sha256": "38069802893493eda22a2574829bf58c821abe3224a0c0fc94307a4b0017e16b",
+      "responseSha256": "1642953a0739987f18dbd9f8350bb1438db74f477ec79883464fcff57bce05dc",
+      "sourceTotalHits": 218080,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "SEMICONDUCTOR",
+      "page": 2,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E5%8D%8A%E5%AF%BC%E4%BD%93%22+OR+ttl%3A%22%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%22%29%29&page=2&itemsPerPage=25",
+      "file": "raw/search-semiconductor-page-02.json",
+      "sha256": "81be8f44e83a5f1cc748a2195f9b2e66647040c64642c9e6a06f90c2294a7f15",
+      "responseSha256": "8a76912812fe216a9bd0a6a8e5622f310aa928010c5a92de22ee3270c4689c47",
+      "sourceTotalHits": 218080,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "SEMICONDUCTOR",
+      "page": 3,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E5%8D%8A%E5%AF%BC%E4%BD%93%22+OR+ttl%3A%22%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%22%29%29&page=3&itemsPerPage=25",
+      "file": "raw/search-semiconductor-page-03.json",
+      "sha256": "9f7bdef93990800527275d22c581ac6a15a8e231d9fa21b617fd79c3e530e9e8",
+      "responseSha256": "7570e842102bed4c7497b0016068d88640c74ee2df1f5d9801cfaf0ac1fdbb78",
+      "sourceTotalHits": 218080,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "SEMICONDUCTOR",
+      "page": 4,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E5%8D%8A%E5%AF%BC%E4%BD%93%22+OR+ttl%3A%22%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%22%29%29&page=4&itemsPerPage=25",
+      "file": "raw/search-semiconductor-page-04.json",
+      "sha256": "69af26c3e2df5900fb07688062b62ca306dfe3050fd6f1e5c52f987a727d922d",
+      "responseSha256": "771d06d579cdaf4feb1ce08e4b24b155a3a5d0d0cafbdc11523e5ea1399939f6",
+      "sourceTotalHits": 218080,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "BIOTECH",
+      "page": 1,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E5%9F%BA%E5%9B%A0%22+OR+ttl%3A%22%E7%94%9F%E7%89%A9%22%29%29&page=1&itemsPerPage=25",
+      "file": "raw/search-biotech-page-01.json",
+      "sha256": "2c139141c0e1339bb517ad674ccac60c42c183ae97de0eb6a6c5428502f9898d",
+      "responseSha256": "119f0243a9b0d09d47252c949ad48b369dd6a209e8ad231b6e12f0fa0dc11845",
+      "sourceTotalHits": 459486,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "BIOTECH",
+      "page": 2,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E5%9F%BA%E5%9B%A0%22+OR+ttl%3A%22%E7%94%9F%E7%89%A9%22%29%29&page=2&itemsPerPage=25",
+      "file": "raw/search-biotech-page-02.json",
+      "sha256": "3d1832af4940d80e78851ea8d43195a69006cd8efe6089236fe9ef1dc38ac5cb",
+      "responseSha256": "c5a6562a62d87aad9eec18f22d8f1550817f2a927ed818459d2f7606ca5bf11a",
+      "sourceTotalHits": 459486,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "BIOTECH",
+      "page": 3,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E5%9F%BA%E5%9B%A0%22+OR+ttl%3A%22%E7%94%9F%E7%89%A9%22%29%29&page=3&itemsPerPage=25",
+      "file": "raw/search-biotech-page-03.json",
+      "sha256": "07b916aa2182465a1102ccc89db1b57184dab4309055fc038a590e21536a1163",
+      "responseSha256": "9dd436493796c49a9c329a563aca5929e751d0449154daad5884546566c2ef86",
+      "sourceTotalHits": 459486,
+      "returnedCount": 25
+    },
+    {
+      "queryId": "BIOTECH",
+      "page": 4,
+      "requestUrl": "https://surechembl.org/api/search/content?query=%28pnctry%3ACN+AND+%28ttl%3A%22%E5%9F%BA%E5%9B%A0%22+OR+ttl%3A%22%E7%94%9F%E7%89%A9%22%29%29&page=4&itemsPerPage=25",
+      "file": "raw/search-biotech-page-04.json",
+      "sha256": "0645d9c7187469994fdba9c530f18a99100c3e5a09ab4ca4a08ae8bd93cd10fb",
+      "responseSha256": "89f68be68d54ef201391015cb232ab73078f774e8e215933b77e43c2fe57313c",
+      "sourceTotalHits": 459486,
+      "returnedCount": 25
+    }
+  ],
+  "fieldCoverage": {
+    "available": [
+      "publicationNumber",
+      "publicationDate",
+      "titleZh",
+      "titleEn when supplied",
+      "applicant",
+      "topicId",
+      "sourceRef"
+    ],
+    "unavailable": [
+      "filingDate",
+      "inventor",
+      "abstractExcerpt",
+      "claimsExcerpt",
+      "cpcClassifications",
+      "authoritativeCurrentLegalStatus"
+    ]
+  },
+  "limitations": [
+    "Search matches are deterministic topic candidates, not expert relevance labels or legal conclusions.",
+    "Topic assignment records the query that selected the result; it is not an authoritative patent classification.",
+    "Public accessibility does not establish permission for production indexing, retention, redistribution, or external model processing.",
+    "This source is not the project's center authoritative patent system.",
+    "No PDF, full description, abstract, claims, or current legal status is stored in this dataset."
+  ],
+  "detailedRecordCount": 100,
+  "detailScope": "BIOTECH topic only; raw source responses are development evidence, not model or production authorization."
+}

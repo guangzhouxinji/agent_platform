@@ -1,0 +1,591 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-18 12:03:41 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 459486,
+      "documents": [
+        {
+          "docId": "CN-216233702-U",
+          "metadata": {
+            "pd": "20220408",
+            "pn": "CN-216233702-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene save set"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因保存装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "YU XIAOFEI"
+        },
+        {
+          "docId": "CN-216237032-U",
+          "metadata": {
+            "pd": "20220408",
+            "pn": "CN-216237032-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biotechnological gene detection device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物技术基因检测装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANGHAI ELERY BIOTECHNOLOGY CO LTD"
+        },
+        {
+          "docId": "CN-216427278-U",
+          "metadata": {
+            "pd": "20220503",
+            "pn": "CN-216427278-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection equipment"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANGHAI MEIKEVL PURE BIOTECHNOLOGY LTD COMPANY"
+        },
+        {
+          "docId": "CN-217297796-U",
+          "metadata": {
+            "pd": "20220826",
+            "pn": "CN-217297796-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene extraction instrument"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因提取仪器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZHEER GENE TECH SHANGHAI CO LTD"
+        },
+        {
+          "docId": "CN-106554919-A",
+          "metadata": {
+            "pd": "20170405",
+            "pn": "CN-106554919-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Microorganism gene detection analyzer"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "种微生物基因检测分析仪"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TIANJIN FUDE XINTAI BIOLOGY TECH CO LTD"
+        },
+        {
+          "docId": "CN-109134002-A",
+          "metadata": {
+            "pd": "20190104",
+            "pn": "CN-109134002-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "A kind of biological gene organic fertilizer"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "种生物基因有机肥"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "XU XIAOKUN"
+        },
+        {
+          "docId": "CN-218262518-U",
+          "metadata": {
+            "pd": "20230110",
+            "pn": "CN-218262518-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANGHAI SUMAOTE BIOLOGICAL TECH CO LTD"
+        },
+        {
+          "docId": "CN-210287298-U",
+          "metadata": {
+            "pd": "20200410",
+            "pn": "CN-210287298-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHONGQING INT TRAVEL HEALTH CARE CENTER"
+        },
+        {
+          "docId": "CN-211946990-U",
+          "metadata": {
+            "pd": "20201117",
+            "pn": "CN-211946990-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene extraction instrument"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因提取仪器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SICHUAN COLLEGE TRADITIONAL CHINESE MEDICINE"
+        },
+        {
+          "docId": "CN-218690531-U",
+          "metadata": {
+            "pd": "20230324",
+            "pn": "CN-218690531-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene extraction instrument"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因提取仪器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "GUO DANYANG"
+        },
+        {
+          "docId": "CN-218710472-U",
+          "metadata": {
+            "pd": "20230324",
+            "pn": "CN-218710472-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biotechnological gene detection device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物技术基因检测装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "DECODING SHANGHAI PHARMACEUTICAL CO LTD"
+        },
+        {
+          "docId": "CN-106434318-A",
+          "metadata": {
+            "pd": "20170222",
+            "pn": "CN-106434318-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection device adopting biotechnology"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "种生物技术基因检测装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "QUANZHOU ZHICHAN MAOYE IND DESIGN CO LTD"
+        },
+        {
+          "docId": "CN-105907632-A",
+          "metadata": {
+            "pd": "20160831",
+            "pn": "CN-105907632-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Genetic engineering biological indicator"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "基因工程生物指示剂"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NANJING JUSHA DISPLAY TECH CO LTD"
+        },
+        {
+          "docId": "CN-211445728-U",
+          "metadata": {
+            "pd": "20200908",
+            "pn": "CN-211445728-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene rapid sampler"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因快速取样器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUACHENYANG SHENZHEN TECH CO LTD"
+        },
+        {
+          "docId": "CN-211445692-U",
+          "metadata": {
+            "pd": "20200908",
+            "pn": "CN-211445692-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection probe"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测探针"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUACHENYANG SHENZHEN TECH CO LTD"
+        },
+        {
+          "docId": "CN-211921554-U",
+          "metadata": {
+            "pd": "20201113",
+            "pn": "CN-211921554-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene rapid sampler"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因快速取样器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUACHENYANG SHENZHEN TECH CO LTD"
+        },
+        {
+          "docId": "CN-215828773-U",
+          "metadata": {
+            "pd": "20220215",
+            "pn": "CN-215828773-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Microbial gene detection device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种微生物基因检测装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHUXIONG MEDICAL COLLEGE"
+        },
+        {
+          "docId": "CN-220098957-U",
+          "metadata": {
+            "pd": "20231128",
+            "pn": "CN-220098957-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene extraction instrument"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因提取仪器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NANJING SIFAN BIOTECHNOLOGY CO LTD"
+        },
+        {
+          "docId": "CN-218531344-U",
+          "metadata": {
+            "pd": "20230228",
+            "pn": "CN-218531344-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene extraction instrument"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因提取仪器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHEN CAIHUA"
+        },
+        {
+          "docId": "CN-222132072-U",
+          "metadata": {
+            "pd": "20241210",
+            "pn": "CN-222132072-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene extraction grinding device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "生物基因提取研磨装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHONGQING LIANGYI BIOTECHNOLOGY CO LTD"
+        },
+        {
+          "docId": "CN-113186078-B",
+          "metadata": {
+            "pd": "20240809",
+            "pn": "CN-113186078-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene extraction device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因提取装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Nantong Puli Biotechnology Co.,Ltd."
+        },
+        {
+          "docId": "CN-113186078-A",
+          "metadata": {
+            "pd": "20210730",
+            "pn": "CN-113186078-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene extraction device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因提取装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NANTONG PULI BIOLOGICAL TECH CO LTD"
+        },
+        {
+          "docId": "CN-220951809-U",
+          "metadata": {
+            "pd": "20240514",
+            "pn": "CN-220951809-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection probe"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测探针"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENYANG SHENGQIYUAN BIOLOGICAL TECH CO LTD"
+        },
+        {
+          "docId": "CN-111363674-A",
+          "metadata": {
+            "pd": "20200703",
+            "pn": "CN-111363674-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection equipment"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZHEJIANG CANCER HOSPITAL"
+        },
+        {
+          "docId": "CN-214142362-U",
+          "metadata": {
+            "pd": "20210907",
+            "pn": "CN-214142362-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biotechnological gene detection device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物技术基因检测装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "YUEYANG VOCATIONAL TECHNICAL COLLEGE"
+        }
+      ],
+      "query": "(pnctry:CN AND (ttl:\"基因\" OR ttl:\"生物\"))"
+    },
+    "query": ""
+  }
+}

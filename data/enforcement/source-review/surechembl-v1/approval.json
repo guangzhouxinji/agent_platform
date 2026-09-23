@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "approvalId": "ENF-SURECHEMBL-INTERNAL-DEVELOPMENT-V1",
+  "reviewId": "ENF-SOURCE-REVIEW-SURECHEMBL-V1",
+  "decisionVersion": "1",
+  "responsibleParty": {
+    "role": "PROJECT_OWNER_AND_DATA_LEGAL_RESPONSIBLE_PARTY",
+    "identityReference": "Current workspace user",
+    "evidenceSource": "Explicit confirmation in the current Codex thread"
+  },
+  "decisionDate": "2026-09-19",
+  "scope": {
+    "sourceSystem": "SURECHEMBL_PUBLIC_SEARCH",
+    "sourceDatasetId": "CON-04-CN-TOPIC-PUBLIC-PILOT-V1",
+    "recordCount": 400,
+    "allowedUses": [
+      "INTERNAL_DEVELOPMENT_PILOT",
+      "LOCAL_DM8_STORAGE",
+      "LOCAL_DM8_INDEXING"
+    ],
+    "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+    "attribution": "Identify SureChEMBL and EMBL-EBI, link CC BY 4.0 and the source URL, and indicate that records were transformed for this internal development catalog.",
+    "forbiddenUses": [
+      "EXTERNAL_MODEL_PROCESSING",
+      "PRODUCTION_USE",
+      "EXTERNAL_REDISTRIBUTION",
+      "FORMAL_ENFORCEMENT_EVIDENCE",
+      "CURRENT_OR_HISTORICAL_RIGHT_STATUS_DETERMINATION",
+      "ENFORCEMENT_WORKFLOW_INPUT"
+    ]
+  },
+  "decision": "APPROVED",
+  "revocationTriggers": [
+    "DEVELOPMENT_PILOT_END",
+    "SOURCE_AUTHORIZATION_WITHDRAWN",
+    "SOURCE_TERMS_CHANGED",
+    "PROJECT_RESPONSIBLE_PARTY_REVOCATION"
+  ],
+  "conclusion": "Approved only for internal development storage and indexing in the isolated enforcement public-reference catalog until the development pilot ends. No external model, production, redistribution, formal evidence, right-status determination, or enforcement workflow use is approved."
+}

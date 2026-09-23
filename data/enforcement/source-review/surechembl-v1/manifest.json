@@ -1,0 +1,166 @@
+{
+  "schemaVersion": "1.0",
+  "reviewId": "ENF-SOURCE-REVIEW-SURECHEMBL-V1",
+  "capturedAt": "2026-09-19T13:21:35.259Z",
+  "source": {
+    "sourceSystem": "SURECHEMBL_PUBLIC_SEARCH",
+    "provider": "EMBL-EBI SureChEMBL",
+    "websiteUrl": "https://www.surechembl.org/",
+    "apiBaseUrl": "https://surechembl.org/api",
+    "supportContact": "surechembl-help@ebi.ac.uk"
+  },
+  "evidenceAssessment": {
+    "dataLicenseIdentified": "CC-BY-4.0",
+    "licenseLocationScope": "SURECHEMBL_BULK_DATA_DIRECTORY",
+    "apiProgrammaticAccessDocumented": true,
+    "apiDataLicenseApplicability": "PENDING_RESPONSIBLE_PARTY_CONFIRMATION",
+    "attributionRequired": true,
+    "thirdPartyRightsRemainUserResponsibility": true,
+    "dataHostRobotsPolicy": "NOT_PUBLISHED_AT_PROBED_PATH",
+    "documentationHostRobotsPolicy": "ALLOW_ALL_WITH_PUBLISHED_CONTENT_SIGNALS",
+    "termsLastRevised": "2024-02-05"
+  },
+  "intendedUse": {
+    "dataMode": "PUBLIC_PILOT",
+    "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+    "categories": [
+      "PUBLIC_RIGHT_STATUS_SNAPSHOT"
+    ],
+    "fields": [
+      "publicationNumber",
+      "publicationDate",
+      "title",
+      "sourceUrl",
+      "capturedAt"
+    ],
+    "excludes": [
+      "applicant",
+      "inventor",
+      "abstract",
+      "claims",
+      "personalInformation",
+      "currentLegalStatusInference"
+    ],
+    "externalModelAllowed": false,
+    "productionUseAllowed": false,
+    "redistributionAllowedByProject": false
+  },
+  "unresolvedApproval": {
+    "responsibleParty": null,
+    "decisionDate": null,
+    "retentionPeriod": null,
+    "indexingPermission": null,
+    "apiLicenseScopeConfirmed": false,
+    "attributionImplementationConfirmed": false
+  },
+  "reviewStatus": "REVIEW_REQUIRED",
+  "importDecision": "BLOCKED_SOURCE_REVIEW",
+  "approvalStatus": "NOT_APPROVED",
+  "snapshots": [
+    {
+      "id": "SURECHEMBL_LICENSE",
+      "requestedUrl": "https://ftp.ebi.ac.uk/pub/databases/chembl/SureChEMBL/bulk_data/LICENCE",
+      "finalUrl": "https://ftp.ebi.ac.uk/pub/databases/chembl/SureChEMBL/bulk_data/LICENCE",
+      "httpStatus": 200,
+      "contentType": null,
+      "etag": "\"48e1-650bebf4c4743\"",
+      "lastModified": "Fri, 01 May 2026 10:07:23 GMT",
+      "capturedAt": "2026-09-19T13:21:35.259Z",
+      "file": "raw/surechembl-licence.txt",
+      "bytes": 18657,
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "id": "SURECHEMBL_BULK_README",
+      "requestedUrl": "https://ftp.ebi.ac.uk/pub/databases/chembl/SureChEMBL/bulk_data/README.txt",
+      "finalUrl": "https://ftp.ebi.ac.uk/pub/databases/chembl/SureChEMBL/bulk_data/README.txt",
+      "httpStatus": 200,
+      "contentType": "text/plain; charset=UTF-8",
+      "etag": "\"827-6563ed5424f0a\"",
+      "lastModified": "Fri, 10 Jul 2026 10:02:06 GMT",
+      "capturedAt": "2026-09-19T13:21:35.259Z",
+      "file": "raw/surechembl-bulk-readme.txt",
+      "bytes": 2087,
+      "sha256": "8b7153af4c5c03e0ad821a242e18525d8950a7f72c4c486cc647eebe3664fb19"
+    },
+    {
+      "id": "SURECHEMBL_API_DOC",
+      "requestedUrl": "https://chembl.gitbook.io/surechembl/api.md",
+      "finalUrl": "https://chembl.gitbook.io/surechembl/api.md",
+      "httpStatus": 200,
+      "contentType": "text/markdown; charset=utf-8",
+      "etag": "W/\"b4c5bce2917c284bf5dce0da3146e569\"",
+      "lastModified": null,
+      "capturedAt": "2026-09-19T13:21:35.259Z",
+      "file": "raw/surechembl-api.md",
+      "bytes": 354,
+      "sha256": "3faae8ee65e725fa6d71549a7466382900fb04176f8d2e51e5b6b75a15bcc080"
+    },
+    {
+      "id": "SURECHEMBL_DOWNLOADS_DOC",
+      "requestedUrl": "https://chembl.gitbook.io/surechembl/downloads.md",
+      "finalUrl": "https://chembl.gitbook.io/surechembl/downloads.md",
+      "httpStatus": 200,
+      "contentType": "text/markdown; charset=utf-8",
+      "etag": "W/\"f318412a9eb2e172883af945e15d6b80\"",
+      "lastModified": null,
+      "capturedAt": "2026-09-19T13:21:35.259Z",
+      "file": "raw/surechembl-downloads.md",
+      "bytes": 458,
+      "sha256": "4ae1cebdead8f291b72e29290de462437326edaacbb564735f1dcfb15cbe0cbd"
+    },
+    {
+      "id": "SURECHEMBL_BULK_DOC",
+      "requestedUrl": "https://chembl.gitbook.io/surechembl/downloads/bulk-data.md",
+      "finalUrl": "https://chembl.gitbook.io/surechembl/downloads/bulk-data.md",
+      "httpStatus": 200,
+      "contentType": "text/markdown; charset=utf-8",
+      "etag": "W/\"d7b5eb8947fc70d49a2bfdd378774fe1\"",
+      "lastModified": null,
+      "capturedAt": "2026-09-19T13:21:35.259Z",
+      "file": "raw/surechembl-bulk-data.md",
+      "bytes": 10646,
+      "sha256": "7a18f02077bcf21525169aceacd52e0fed9be12c5bbaeeb68066203a09c30b2c"
+    },
+    {
+      "id": "SURECHEMBL_DOCS_ROBOTS",
+      "requestedUrl": "https://chembl.gitbook.io/surechembl/robots.txt",
+      "finalUrl": "https://chembl.gitbook.io/surechembl/robots.txt",
+      "httpStatus": 200,
+      "contentType": "text/plain",
+      "etag": "W/\"64564b0de05305cc4cbc620a2fcf95d3\"",
+      "lastModified": null,
+      "capturedAt": "2026-09-19T13:21:35.259Z",
+      "file": "raw/surechembl-docs-robots.txt",
+      "bytes": 205,
+      "sha256": "6db9a1e9a9c1123e41311eaa1996dc2cb0c9827dda7ffc1d1f9e83f4e3ba8670"
+    },
+    {
+      "id": "SURECHEMBL_DATA_HOST_ROBOTS_PROBE",
+      "requestedUrl": "https://www.surechembl.org/robots.txt",
+      "finalUrl": "https://www.surechembl.org/robots.txt",
+      "httpStatus": 404,
+      "contentType": "application/json",
+      "etag": null,
+      "lastModified": null,
+      "capturedAt": "2026-09-19T13:21:35.259Z",
+      "file": "raw/surechembl-data-host-robots-probe.json",
+      "bytes": 135,
+      "sha256": "349e1ebb2fba7b2ae2cd6a64eab2f87b5681ce8fa4cf5eceab95cedbdc4ce42f"
+    },
+    {
+      "id": "EMBL_EBI_TERMS",
+      "requestedUrl": "https://www.ebi.ac.uk/about/terms-of-use/",
+      "finalUrl": "https://www.ebi.ac.uk/about/terms-of-use/",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "etag": "\"7530-65bd441c6b5c0-gzip\"",
+      "lastModified": "Sat, 19 Sep 2026 11:24:15 GMT",
+      "capturedAt": "2026-09-19T13:21:35.259Z",
+      "file": "raw/embl-ebi-terms.html",
+      "bytes": 30000,
+      "sha256": "d31124072c8369e79faf00dd5622bcdca5518525b22282e62226fe768965c060"
+    }
+  ],
+  "conclusion": "Public documentation supports programmatic access and identifies CC BY 4.0 for SureChEMBL bulk data, but it does not by itself approve this project's API-derived staging data. Responsible-party confirmation of API license scope, retention, indexing, and attribution remains required."
+}

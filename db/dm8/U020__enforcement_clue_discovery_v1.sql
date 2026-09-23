@@ -1,0 +1,12 @@
+DROP TABLE enf_clue_discovery_audit;
+DROP TABLE enf_discovered_lead_duplicate;
+DROP TABLE enf_discovered_lead_status_history;
+DROP TABLE enf_discovered_lead_condition;
+DROP TABLE enf_discovered_lead_match;
+DROP TABLE enf_clue_discovery_task_lead;
+DROP TABLE enf_discovered_lead;
+DROP TABLE enf_clue_discovery_item;
+DROP TABLE enf_clue_discovery_input_rule;
+DROP TABLE enf_clue_discovery_input_snapshot;
+DROP TABLE enf_clue_discovery_input_sync;
+DROP TABLE enf_clue_discovery_task;

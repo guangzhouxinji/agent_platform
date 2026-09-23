@@ -20,7 +20,7 @@ function run(label, command, args) {
 }
 
 function testSummary() {
-  const reportDir = path.join(rootDir, "target", "surefire-reports");
+  const reportDir = path.join(rootDir, "backend", "apps", "platform-api", "target", "surefire-reports");
   if (!existsSync(reportDir)) return null;
   return readdirSync(reportDir)
     .filter((name) => name.startsWith("TEST-") && name.endsWith(".xml"))
@@ -35,6 +35,9 @@ function testSummary() {
 }
 
 run("Governance and project-plan checks", node, ["scripts/verify-all.mjs"]);
+run("React frontend component tests", npm, ["run", "frontend:test"]);
+run("React frontend production build", npm, ["run", "frontend:build"]);
+run("React frontend browser shell", npm, ["run", "test:frontend-browser"]);
 run("Java unit and integration tests", maven, ["-q", "test"]);
 const summary = testSummary();
 if (summary) {
@@ -43,5 +46,4 @@ if (summary) {
     : `DM8 JVM tests enabled (${summary.dm8Reports} DM8 report files)`;
   console.log(`[result] Java: ${summary.tests} tests, ${summary.failures} failures, ${summary.errors} errors, ${summary.skipped} skipped. ${dm8State}`);
 }
-run("Browser workbench regression", npm, ["run", "test:browser"]);
 console.log("\nQuality gates passed.");

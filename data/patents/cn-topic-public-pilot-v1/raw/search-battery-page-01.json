@@ -1,0 +1,591 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-18 12:03:34 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 66710,
+      "documents": [
+        {
+          "docId": "CN-119994177-A",
+          "metadata": {
+            "pd": "20250513",
+            "pn": "CN-119994177-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery electrolyte, lithium ion battery pack and lithium ion battery pack"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池电解液、锂离子电池、锂离子电池组及锂离子电池包"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HEFEI GUOXUAN HIGH TECH POWER ENERGY CO LTD"
+        },
+        {
+          "docId": "CN-113054162-A",
+          "metadata": {
+            "pd": "20210629",
+            "pn": "CN-113054162-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery and lithium ion battery pack"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池及锂离子电池组"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "QINGTING LABORATORY SHENZHEN CO LTD"
+        },
+        {
+          "docId": "CN-114464961-B",
+          "metadata": {
+            "pd": "20240329",
+            "pn": "CN-114464961-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery and lithium ion battery pack"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池及锂离子电池组"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Dragonfly Laboratory (Shenzhen) Co.,Ltd."
+        },
+        {
+          "docId": "CN-114464961-A",
+          "metadata": {
+            "pd": "20220510",
+            "pn": "CN-114464961-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery and lithium ion battery pack"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池及锂离子电池组"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "DRAGONFLY LABORATORY SHENZHEN LTD COMPANY"
+        },
+        {
+          "docId": "CN-118104059-A",
+          "metadata": {
+            "pd": "20240528",
+            "pn": "CN-118104059-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery diaphragm and lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池隔膜、锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NINGDE AMPEREX TECHNOLOGY LTD"
+        },
+        {
+          "docId": "CN-209357821-U",
+          "metadata": {
+            "pd": "20190906",
+            "pn": "CN-209357821-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Li-ion batteries piles"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池组"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENZHEN GREPOW BATTERY CO LTD"
+        },
+        {
+          "docId": "CN-208548423-U",
+          "metadata": {
+            "pd": "20190226",
+            "pn": "CN-208548423-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV TSINGHUA"
+        },
+        {
+          "docId": "CN-207199803-U",
+          "metadata": {
+            "pd": "20180406",
+            "pn": "CN-207199803-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Li-ion batteries piles"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池组"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "WUHAN LIWEI NEW ENERGY TECH CO LTD"
+        },
+        {
+          "docId": "CN-207353420-U",
+          "metadata": {
+            "pd": "20180511",
+            "pn": "CN-207353420-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Li-ion batteries piles"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池组"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "WUHAN LEVIN NEW ENERGY TECH CO LTD"
+        },
+        {
+          "docId": "CN-211238444-U",
+          "metadata": {
+            "pd": "20200811",
+            "pn": "CN-211238444-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZHANGZHOU HUAWEI POWER SUPPLY TECH CO LTD"
+        },
+        {
+          "docId": "CN-211555946-U",
+          "metadata": {
+            "pd": "20200922",
+            "pn": "CN-211555946-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "APOWER ELECTRONICS CO LTD"
+        },
+        {
+          "docId": "CN-209418576-U",
+          "metadata": {
+            "pd": "20190920",
+            "pn": "CN-209418576-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Li-ion batteries piles"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池组"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV TSINGHUA"
+        },
+        {
+          "docId": "CN-208806333-U",
+          "metadata": {
+            "pd": "20190430",
+            "pn": "CN-208806333-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV TSINGHUA"
+        },
+        {
+          "docId": "CN-212182374-U",
+          "metadata": {
+            "pd": "20201218",
+            "pn": "CN-212182374-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "XINYI POWER SOURCE SUZHOU CO LTD"
+        },
+        {
+          "docId": "CN-108346803-B",
+          "metadata": {
+            "pd": "20200717",
+            "pn": "CN-108346803-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HE'NAN OLEFINIC-CARBON SYNTHETIC MATERIAL Co.,Ltd."
+        },
+        {
+          "docId": "CN-103296305-B",
+          "metadata": {
+            "pd": "20170208",
+            "pn": "CN-103296305-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "DONGGUAN AMPEREX TECHNOLOGY CO., LTD."
+        },
+        {
+          "docId": "CN-211789109-U",
+          "metadata": {
+            "pd": "20201027",
+            "pn": "CN-211789109-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "APOWER ELECTRONICS CO LTD"
+        },
+        {
+          "docId": "CN-211017308-U",
+          "metadata": {
+            "pd": "20200714",
+            "pn": "CN-211017308-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV ELECTRONIC SCI & TECH CHINA"
+        },
+        {
+          "docId": "CN-210403892-U",
+          "metadata": {
+            "pd": "20200424",
+            "pn": "CN-210403892-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "GUANGDONG SHUNYINGSEN ENERGY CO LTD"
+        },
+        {
+          "docId": "CN-209515919-U",
+          "metadata": {
+            "pd": "20191018",
+            "pn": "CN-209515919-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV TSINGHUA"
+        },
+        {
+          "docId": "CN-208548429-U",
+          "metadata": {
+            "pd": "20190226",
+            "pn": "CN-208548429-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV TSINGHUA"
+        },
+        {
+          "docId": "CN-103579667-B",
+          "metadata": {
+            "pd": "20170524",
+            "pn": "CN-103579667-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "DONGGUAN AMPEREX TECHNOLOGY CO., LTD."
+        },
+        {
+          "docId": "CN-210837945-U",
+          "metadata": {
+            "pd": "20200623",
+            "pn": "CN-210837945-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "WUHU ETC BATTERY LTD"
+        },
+        {
+          "docId": "CN-210668585-U",
+          "metadata": {
+            "pd": "20200602",
+            "pn": "CN-210668585-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUIZHOU LIWINON NEW ENERGY TECH CO LTD"
+        },
+        {
+          "docId": "CN-211743324-U",
+          "metadata": {
+            "pd": "20201023",
+            "pn": "CN-211743324-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Lithium ion battery"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种锂离子电池"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BYD CO LTD"
+        }
+      ],
+      "query": "(pnctry:CN AND (ttl:\"锂离子电池\" OR ttl:\"固态电池\"))"
+    },
+    "query": ""
+  }
+}

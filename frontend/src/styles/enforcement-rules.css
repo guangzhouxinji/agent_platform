@@ -1,0 +1,51 @@
+.rule-admin-workspace { padding: 20px 28px 30px; }
+.rule-admin-toolbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding-bottom: 16px; }
+.rule-admin-toolbar h3.ant-typography { margin: 0 0 3px; font-size: 20px; }
+.rule-admin-layout { display: grid; grid-template-columns: minmax(500px, 1.25fr) minmax(330px, .75fr); min-height: 560px; border: 1px solid #dfe6e3; }
+.rule-list-panel { min-width: 0; border-right: 1px solid #dfe6e3; }
+.rule-list-panel .ant-table-row { cursor: pointer; }
+.rule-list-panel .selected-row > td { background: #edf6f4 !important; }
+.rule-name-cell { display: grid; gap: 2px; min-width: 0; }
+.rule-name-cell span { color: #64736e; font-size: 12px; overflow-wrap: anywhere; }
+.rule-detail-panel { min-width: 0; padding: 20px; background: #fbfcfc; }
+.rule-detail-heading, .rule-run-list article, .rule-run-result-heading, .rule-editor-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.rule-detail-heading h4.ant-typography { margin: 0 0 2px; font-size: 17px; }
+.rule-condition-summary { display: grid; gap: 8px; margin-top: 18px; padding: 13px; background: #fff; border: 1px solid #dfe6e3; }
+.rule-condition-summary > div { display: flex; min-width: 0; align-items: center; gap: 7px; }
+.rule-condition-summary span { min-width: 0; overflow-wrap: anywhere; color: #4f5f5b; font-size: 13px; }
+.rule-detail-actions { margin: 18px 0 2px; }
+.rule-run-list { display: grid; gap: 8px; }
+.rule-run-list article { align-items: center; padding: 10px 11px; background: #fff; border: 1px solid #e0e6e4; }
+.rule-run-list article > div { display: grid; gap: 2px; }
+.rule-run-list span { color: #64736e; font-size: 12px; }
+.rule-editor-form, .rule-sample-form { margin-top: 18px; }
+.rule-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+.rule-form-grid .ant-input-number { width: 100%; }
+.rule-condition-editor { display: grid; gap: 10px; margin-bottom: 18px; padding: 14px; background: #f7f9f8; border: 1px solid #dfe6e3; }
+.rule-editor-heading { align-items: center; }
+.rule-condition-row { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(150px, .9fr) minmax(130px, .8fr) 40px; gap: 10px; align-items: end; padding-top: 10px; border-top: 1px solid #e0e6e4; }
+.rule-condition-row .ant-form-item { min-width: 0; margin-bottom: 0; }
+.rule-condition-row .ant-input-number { width: 100%; }
+.rule-value-empty { display: grid; min-height: 54px; align-items: center; color: #71807c; font-size: 12px; }
+.rule-remove-condition { width: 40px; min-width: 40px; height: 40px; margin-bottom: 1px; }
+.rule-run-result { margin-top: 18px; padding-top: 16px; border-top: 1px solid #dfe6e3; }
+.rule-run-result-heading { align-items: center; margin-bottom: 10px; }
+
+@media (max-width: 900px) {
+  .rule-admin-layout { grid-template-columns: 1fr; }
+  .rule-list-panel { border-right: 0; border-bottom: 1px solid #dfe6e3; }
+}
+@media (max-width: 560px) {
+  .rule-admin-workspace { padding: 14px 12px 22px; }
+  .rule-admin-toolbar { align-items: stretch; flex-direction: column; }
+  .rule-admin-toolbar .ant-space { width: 100%; }
+  .rule-admin-toolbar .ant-btn { min-height: 44px; }
+  .rule-admin-layout { min-height: 0; }
+  .rule-detail-panel { padding: 16px 12px; }
+  .rule-detail-heading { align-items: flex-start; }
+  .rule-form-grid, .rule-condition-row { grid-template-columns: 1fr; }
+  .rule-condition-row { gap: 8px; }
+  .rule-value-empty { min-height: 36px; }
+  .rule-remove-condition { width: 44px; height: 44px; }
+  .rule-detail-actions .ant-btn { min-height: 44px; }
+}

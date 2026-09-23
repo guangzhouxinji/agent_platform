@@ -1,0 +1,23 @@
+.source-admin-workspace { padding: 20px 28px 30px; }
+.source-admin-toolbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding-bottom: 16px; }
+.source-admin-toolbar h3.ant-typography { margin: 0 0 3px; font-size: 20px; }
+.source-admin-layout { display: grid; grid-template-columns: minmax(520px, 1.35fr) minmax(300px, .65fr); min-height: 520px; border: 1px solid #dfe6e3; }
+.source-list-panel { min-width: 0; border-right: 1px solid #dfe6e3; }
+.source-list-panel .ant-table-cell { overflow-wrap: anywhere; }
+.source-list-panel .ant-table-row { cursor: pointer; }
+.source-list-panel .selected-row > td { background: #edf6f4 !important; }
+.source-name-cell { display: grid; gap: 2px; }
+.source-name-cell span { color: #64736e; font-size: 12px; }
+.source-detail-panel { min-width: 0; padding: 20px; background: #fbfcfc; }
+.source-detail-heading, .source-task-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.source-detail-heading h4.ant-typography { margin: 0 0 2px; font-size: 17px; }
+.source-detail-actions { margin: 18px 0 22px; }
+.source-task-heading { align-items: center; padding-top: 16px; border-top: 1px solid #e1e7e4; }
+.source-task-heading > div { display: flex; align-items: center; gap: 7px; }
+.source-task-list { display: grid; gap: 10px; margin-top: 12px; }
+.source-task-list article { display: grid; gap: 8px; padding: 11px 12px; background: #fff; border: 1px solid #e0e6e4; }
+.source-task-list article > div:first-child { display: grid; gap: 2px; }
+.source-task-list article span { color: #64736e; font-size: 12px; }
+.source-config-form { margin-top: 18px; }
+.source-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+.source-form-grid .ant-input-number { width: 100%; }

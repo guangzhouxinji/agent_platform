@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "cnipa-domain-consumption-manifest-v1",
+  "datasetId": "CNIPA-DECISION-CORPUS-DOMAIN-CONSUMPTION-V1",
+  "generatedAt": "2026-09-21T13:43:56.030Z",
+  "sourceMappingId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+  "sourceMappingManifestSha256": "335455a551886e68ed8a1ef2db98a1372439a039882140f58fe719ee17284b3c",
+  "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+  "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+  "boundaries": {
+    "dm8Tables": [
+      "enf_public_source_registration",
+      "enf_public_reference_batch",
+      "enf_public_reference_snapshot",
+      "adj_public_source_registration",
+      "adj_public_reference_batch",
+      "adj_public_reference_snapshot"
+    ],
+    "businessWorkflowInputAllowed": false,
+    "externalModelAllowed": false,
+    "executableRuleAllowed": false,
+    "documentParsingAllowed": false,
+    "draftGenerationAllowed": false
+  },
+  "counts": {
+    "enforcement": 12,
+    "adjudication": 12,
+    "consultation": 0
+  },
+  "files": [
+    {
+      "file": "enforcement-records.json",
+      "sha256": "73daf75face609bd2bf443fdc8bd730b34a867dbc090c36f180ad87e1b5e63bb"
+    },
+    {
+      "file": "adjudication-records.json",
+      "sha256": "d60240f8a7507211f5b5f860e11c89f1666bb7ca5537cf87429d4dfb2508bacc"
+    }
+  ]
+}

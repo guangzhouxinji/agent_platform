@@ -1,0 +1,591 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-18 12:03:29 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 77666,
+      "documents": [
+        {
+          "docId": "CN-216017435-U",
+          "metadata": {
+            "pd": "20220311",
+            "pn": "CN-216017435-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning equipment of artificial intelligence"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种人工智能的机器学习设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HARBIN SCIENCE AND ENGINEERING UNIV"
+        },
+        {
+          "docId": "CN-119497860-A",
+          "metadata": {
+            "pd": "20250221",
+            "pn": "CN-119497860-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence and machine learning entity testing"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "人工智能和机器学习实体测试"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "INTEL CORP"
+        },
+        {
+          "docId": "CN-120997531-A",
+          "metadata": {
+            "pd": "20251121",
+            "pn": "CN-120997531-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning system based on artificial intelligence"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "基于人工智能的机器学习系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "GUANGXI POWER GRID CO LTD"
+        },
+        {
+          "docId": "CN-121620762-A",
+          "metadata": {
+            "pd": "20260306",
+            "pn": "CN-121620762-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence capability based on machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "基于机器学习的人工智能能力"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ORACLE INT CORP"
+        },
+        {
+          "docId": "CN-121666845-A",
+          "metadata": {
+            "pd": "20260313",
+            "pn": "CN-121666845-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Improved artificial intelligence or machine learning positioning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "改进人工智能或机器学习定位"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Nokia communication shanghai co ltd"
+        },
+        {
+          "docId": "CN-121666583-A",
+          "metadata": {
+            "pd": "20260313",
+            "pn": "CN-121666583-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence/machine learning model update"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "人工智能/机器学习模型更新"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Nokia communication shanghai co ltd"
+        },
+        {
+          "docId": "CN-122700621-A",
+          "metadata": {
+            "pd": "20260904",
+            "pn": "CN-122700621-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence or machine learning positioning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "人工智能或机器学习定位"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NOKIA SOLUTIONS AND NETWORKS OY"
+        },
+        {
+          "docId": "CN-107516134-A",
+          "metadata": {
+            "pd": "20171226",
+            "pn": "CN-107516134-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "The machine learning of a artificial intelligence, using class online game"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "款人工智能的机器学习、应用类网络游戏"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZHANG XIAO"
+        },
+        {
+          "docId": "CN-209839579-U",
+          "metadata": {
+            "pd": "20191224",
+            "pn": "CN-209839579-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Data acquisition device for artificial intelligence machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于人工智能机器学习的数据采集装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "LI JUN"
+        },
+        {
+          "docId": "CN-216053099-U",
+          "metadata": {
+            "pd": "20220315",
+            "pn": "CN-216053099-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device based on artificial intelligence"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种基于人工智能的机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BEIJING HAICHUAN SCIENCE AND TECH CO LTD"
+        },
+        {
+          "docId": "CN-111190581-B",
+          "metadata": {
+            "pd": "20210528",
+            "pn": "CN-111190581-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Visual flowsheet machine learning and artificial intelligence system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "可视化流图机器学习与人工智能系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHINA UNIVERSITY OF GEOSCIENCES (WUHAN CITY)"
+        },
+        {
+          "docId": "CN-109284819-A",
+          "metadata": {
+            "pd": "20190129",
+            "pn": "CN-109284819-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "A kind of artificial intelligence machine learning calligraphy points-scoring system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "种人工智能机器学习书法评分系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SUZHOU MITE XISAIER ARTIFICIAL INTELLIGENCE CO LTD"
+        },
+        {
+          "docId": "CN-213017483-U",
+          "metadata": {
+            "pd": "20210420",
+            "pn": "CN-213017483-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning equipment based on artificial intelligence"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种基于人工智能的机器学习设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV SHANDONG SCIENCE & TECH"
+        },
+        {
+          "docId": "CN-214675365-U",
+          "metadata": {
+            "pd": "20211109",
+            "pn": "CN-214675365-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Data acquisition device for artificial intelligence machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种人工智能机器学习的数据采集装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHONGQING CITY MAN COLLEGE"
+        },
+        {
+          "docId": "CN-111190581-A",
+          "metadata": {
+            "pd": "20200522",
+            "pn": "CN-111190581-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Visual flowsheet machine learning and artificial intelligence platform"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "可视化流图机器学习与人工智能平台"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV CHINA GEOSCIENCES WUHAN"
+        },
+        {
+          "docId": "CN-109241539-B",
+          "metadata": {
+            "pd": "20230908",
+            "pn": "CN-109241539-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Updating method of machine learning artificial intelligence translation database"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习人工智能翻译数据库的更新方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Aiyunbao (Shanghai) Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-109241539-A",
+          "metadata": {
+            "pd": "20190118",
+            "pn": "CN-109241539-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "The update method of machine learning artificial intelligence translation database"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习人工智能翻译数据库的更新方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "WANG DAJIANG"
+        },
+        {
+          "docId": "CN-115527198-A",
+          "metadata": {
+            "pd": "20221227",
+            "pn": "CN-115527198-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence technology for machine learning modeling image recognition"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习建模图像识别的人工智能技术"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANDONG BEIKE INFORMATION TECH CO LTD"
+        },
+        {
+          "docId": "CN-115942672-A",
+          "metadata": {
+            "pd": "20230407",
+            "pn": "CN-115942672-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Data acquisition device for artificial intelligence machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种人工智能机器学习的数据采集装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV NORTHWESTERN POLYTECHNICAL"
+        },
+        {
+          "docId": "CN-115942672-B",
+          "metadata": {
+            "pd": "20240917",
+            "pn": "CN-115942672-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Data acquisition device for artificial intelligence machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种人工智能机器学习的数据采集装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NORTHWESTERN POLYTECHNICAL UNIVERSITY"
+        },
+        {
+          "docId": "CN-221884498-U",
+          "metadata": {
+            "pd": "20241022",
+            "pn": "CN-221884498-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Special demonstration board for artificial intelligence machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种人工智能机器学习用专用演示板"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HANGZHOU OUYOU ROBOT TECH CO LTD"
+        },
+        {
+          "docId": "CN-214248998-U",
+          "metadata": {
+            "pd": "20210921",
+            "pn": "CN-214248998-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Data acquisition device for artificial intelligence machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于人工智能机器学习的数据采集装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "WANG JIJUN"
+        },
+        {
+          "docId": "CN-117371561-A",
+          "metadata": {
+            "pd": "20240109",
+            "pn": "CN-117371561-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Industrial production artificial intelligence system based on machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "基于机器学习的工业生产人工智能系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HANGZHOU ASIA PACIFIC CHEMICAL EQUIPMENT CO LTD"
+        },
+        {
+          "docId": "CN-120091073-A",
+          "metadata": {
+            "pd": "20250603",
+            "pn": "CN-120091073-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "AI artificial intelligence machine learning system and intelligent gateway"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种AI人工智能机器学习系统及智能网关"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZOKINRE XIAMEN ENVIRONMENT TECH CO LTD"
+        },
+        {
+          "docId": "CN-120091073-B",
+          "metadata": {
+            "pd": "20250808",
+            "pn": "CN-120091073-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "AI artificial intelligence machine learning system and intelligent gateway"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种AI人工智能机器学习系统及智能网关"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZOKINRE (XIAMEN) ENVIRONMENT TECHNOLOGY Co.,Ltd."
+        }
+      ],
+      "query": "(pnctry:CN AND (ttl:\"人工智能\" OR ttl:\"机器学习\"))"
+    },
+    "query": ""
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "public-domain-mapping-manifest-v1",
+  "mappingId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+  "mappingPolicyVersion": "CNIPA-DOMAIN-MAPPING-V1",
+  "sourceReviewId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+  "sourceWorksetId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+  "sourceWorksetSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+  "sourceCatalogId": "ENF-CNIPA-OFFICIAL-SOURCES-V1",
+  "sourceCatalogVersion": "2026-09-21.1",
+  "sourceCatalogSha256": "81c6f513a58271f1e14e2b0dff2600c0f8d8dbed42d4a6e0e9de8efb5704f9f4",
+  "sourceBatchSha256": "90b1a65ccebc40db001d30f7d949f5ad1445b0d044edadf441b22b1228240c9d",
+  "generatedAt": "2026-09-21T13:43:56.030Z",
+  "authorizationRef": "docs/02-待确认事项清单.md#19-三域公开数据优先的开发功能覆盖",
+  "counts": {
+    "eligibleSourceRecords": 12,
+    "enforcementRecords": 12,
+    "adjudicationRecords": 12,
+    "consultationRecords": 0
+  },
+  "boundaries": {
+    "isolatedDevelopmentProjectionOnly": true,
+    "directDm8WriteAllowed": false,
+    "externalModelAllowed": false,
+    "executableRuleAllowed": false,
+    "evidenceAcceptanceAllowed": false,
+    "formalDecisionAllowed": false
+  },
+  "files": [
+    {
+      "file": "enforcement-records.json",
+      "sha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139"
+    },
+    {
+      "file": "adjudication-records.json",
+      "sha256": "9a16b2c66980c771af1bd9ef66de78a452ed54196a83738dc8a2eeb9c38f8aea"
+    },
+    {
+      "file": "consultation-records.json",
+      "sha256": "7585201c4217d5ce64b6eb37f699a0ff888b4f7b552824f99c18fb7acde34c96"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0",
+  "approvalId": "ADJ-SPC-IP-COURT-INTERNAL-DEVELOPMENT-V1",
+  "reviewId": "ADJ-SOURCE-REVIEW-SPC-IP-COURT-V1",
+  "decisionVersion": "1",
+  "responsibleParty": {
+    "role": "PROJECT_OWNER_AND_DATA_LEGAL_RESPONSIBLE_PARTY",
+    "identityReference": "Current workspace user",
+    "evidenceSource": "Explicit confirmation in the current Codex thread"
+  },
+  "decisionDate": "2026-09-20",
+  "scope": {
+    "sourceSystem": "SPC_IP_COURT_SELECTED_JUDGMENTS",
+    "sourceDatasetId": "ADJ-PUBLIC-REFERENCE-PILOT-V1",
+    "recordCount": 100,
+    "allowedUses": [
+      "INTERNAL_DEVELOPMENT_PILOT",
+      "LOCAL_DM8_STORAGE",
+      "LOCAL_DM8_INDEXING"
+    ],
+    "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+    "withdrawalHandling": "Immediately mark unavailable, remove from local indexes and stop query/use; retain only non-content audit digests until the development pilot ends.",
+    "attribution": "Identify the Supreme People's Court Intellectual Property Court, preserve each original source URL, and preserve the source copyright notice: 中华人民共和国最高人民法院 版权所有.",
+    "forbiddenUses": [
+      "EXTERNAL_MODEL_PROCESSING",
+      "PRODUCTION_USE",
+      "EXTERNAL_REDISTRIBUTION",
+      "FORMAL_CASE_INPUT",
+      "FORMAL_MATERIAL_INPUT",
+      "LEGAL_APPLICABILITY_INPUT",
+      "FORMAL_DRAFT_INPUT",
+      "ADJUDICATION_WORKFLOW_INPUT"
+    ]
+  },
+  "decision": "APPROVED",
+  "revocationTriggers": [
+    "DEVELOPMENT_PILOT_END",
+    "SOURCE_AUTHORIZATION_WITHDRAWN",
+    "SOURCE_TERMS_CHANGED",
+    "PROJECT_RESPONSIBLE_PARTY_REVOCATION"
+  ],
+  "conclusion": "Approved only for internal development storage and indexing of the current 100 document-locator records in the isolated adjudication public-reference catalog until the development pilot ends. No document body, external model, production, redistribution, formal case/material, legal-applicability, draft, or adjudication workflow use is approved."
+}

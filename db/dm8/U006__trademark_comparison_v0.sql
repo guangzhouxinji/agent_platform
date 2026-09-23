@@ -1,0 +1,3 @@
+DROP TABLE con_trademark_compare_dimension;
+DROP TABLE con_trademark_compare_candidate;
+DROP TABLE con_trademark_compare_task;

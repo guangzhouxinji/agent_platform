@@ -1,0 +1,638 @@
+{
+  "schemaVersion": "cnipa-domain-consumption-v1",
+  "domain": "ENFORCEMENT",
+  "records": [
+    {
+      "sourceSnapshotId": "ENF-916F1F597BB991074FD20CF7",
+      "sourceSystem": "CNIPA_DECISION_PAGES_2026",
+      "stableSourceId": "CNIPA_2025_DRUG_ADJUDICATION_0060",
+      "sourceVersion": "b784e8fd2724cfd8ca9170da4af58899927863dc4a6329a13b9550cabd439cb2",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207821.html",
+      "title": "国家知识产权局 执法指导 （2025）国知药裁0060号",
+      "publicationDate": "2026-08-20 14:35",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207821.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "8cbc946c95b16e177fbca425c81d5b7102d4cf6ffd3b0ca70047b1bca0618b2b",
+        "sourceSnapshotRefs": [
+          "CNIPA_2025_DRUG_ADJUDICATION_0060"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2025_DRUG_ADJUDICATION_0060",
+            "rawResponseSha256": "b784e8fd2724cfd8ca9170da4af58899927863dc4a6329a13b9550cabd439cb2",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0060.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "DECISION_PDF_BODY",
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "usageLimitation": "历史页面参考；PDF 正文未采集；非当前案件、非证据、非执法工作流输入。",
+      "businessCategory": "ADMINISTRATIVE_ADJUDICATION_DECISION_PAGE",
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": "国家知识产权局公开历史裁决页面：国家知识产权局 执法指导 （2025）国知药裁0060号；PDF 正文未采集。",
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "cde82a45c66f6b23c69086fecfaae9a597e27e0f391221f20755a6aa05c3d8c8"
+    },
+    {
+      "sourceSnapshotId": "ENF-0088073D76184C8C18619540",
+      "sourceSystem": "CNIPA_DECISION_PAGES_2026",
+      "stableSourceId": "CNIPA_2025_DRUG_ADJUDICATION_0072",
+      "sourceVersion": "7abeae794e72d94719258988461f407442972b78ec18ea5e721ae744b6cd665a",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208049.html",
+      "title": "国家知识产权局 执法指导 （2025）国知药裁0072号",
+      "publicationDate": "2026-09-08 14:36",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208049.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "c4e4f9f046b85050b5925dc959cc274e70cc50a9b347622a31ece17386ea5613",
+        "sourceSnapshotRefs": [
+          "CNIPA_2025_DRUG_ADJUDICATION_0072"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2025_DRUG_ADJUDICATION_0072",
+            "rawResponseSha256": "7abeae794e72d94719258988461f407442972b78ec18ea5e721ae744b6cd665a",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0072.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "DECISION_PDF_BODY",
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "usageLimitation": "历史页面参考；PDF 正文未采集；非当前案件、非证据、非执法工作流输入。",
+      "businessCategory": "ADMINISTRATIVE_ADJUDICATION_DECISION_PAGE",
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": "国家知识产权局公开历史裁决页面：国家知识产权局 执法指导 （2025）国知药裁0072号；PDF 正文未采集。",
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "389824f545e57c112a6c7488389fb7ef92c25229d3d0e957105465a8bb802e7c"
+    },
+    {
+      "sourceSnapshotId": "ENF-66F587267894E2F6DC85CA7D",
+      "sourceSystem": "CNIPA_DECISION_PAGES_2026",
+      "stableSourceId": "CNIPA_2025_DRUG_ADJUDICATION_0073",
+      "sourceVersion": "281455ec6bc69901f7ff34e608a02877cee0ce5f00f876db9bb2999df3057072",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208050.html",
+      "title": "国家知识产权局 执法指导 （2025）国知药裁0073号",
+      "publicationDate": "2026-09-08 14:38",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208050.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "569c38489fd63c474120d0fcc314ffb8159c1b9c6bec8bbc733281a3b3c22ebd",
+        "sourceSnapshotRefs": [
+          "CNIPA_2025_DRUG_ADJUDICATION_0073"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2025_DRUG_ADJUDICATION_0073",
+            "rawResponseSha256": "281455ec6bc69901f7ff34e608a02877cee0ce5f00f876db9bb2999df3057072",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0073.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "DECISION_PDF_BODY",
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "usageLimitation": "历史页面参考；PDF 正文未采集；非当前案件、非证据、非执法工作流输入。",
+      "businessCategory": "ADMINISTRATIVE_ADJUDICATION_DECISION_PAGE",
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": "国家知识产权局公开历史裁决页面：国家知识产权局 执法指导 （2025）国知药裁0073号；PDF 正文未采集。",
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "f18cc9babf9369fee1930b966f7738c042dcd6036035ac09afb767d1d755426d"
+    },
+    {
+      "sourceSnapshotId": "ENF-19682A5FCB0D4F084E2EC5CA",
+      "sourceSystem": "CNIPA_DECISION_PAGES_2026",
+      "stableSourceId": "CNIPA_2025_DRUG_ADJUDICATION_0074",
+      "sourceVersion": "1fdbed104a03d279a6238e51e94c81b22f40eb83ff83e16984ad9215584cf753",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208051.html",
+      "title": "国家知识产权局 执法指导 （2025）国知药裁0074号",
+      "publicationDate": "2026-09-08 14:39",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208051.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "f34797b43b4ea61944f8e3a92cfccec493108567de217a2a6494805d0b003e97",
+        "sourceSnapshotRefs": [
+          "CNIPA_2025_DRUG_ADJUDICATION_0074"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2025_DRUG_ADJUDICATION_0074",
+            "rawResponseSha256": "1fdbed104a03d279a6238e51e94c81b22f40eb83ff83e16984ad9215584cf753",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0074.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "DECISION_PDF_BODY",
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "usageLimitation": "历史页面参考；PDF 正文未采集；非当前案件、非证据、非执法工作流输入。",
+      "businessCategory": "ADMINISTRATIVE_ADJUDICATION_DECISION_PAGE",
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": "国家知识产权局公开历史裁决页面：国家知识产权局 执法指导 （2025）国知药裁0074号；PDF 正文未采集。",
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "7d0120cdb8a9d3ce4b7a030992c294d460e33f0643071095263b4f751ed70d8d"
+    },
+    {
+      "sourceSnapshotId": "ENF-E2185E207164BB0C301BCE09",
+      "sourceSystem": "CNIPA_DECISION_PAGES_2026",
+      "stableSourceId": "CNIPA_2025_DRUG_ADJUDICATION_0075",
+      "sourceVersion": "150b9096922573f51f6f26f5f6081d9dceadd7c087f5d4c66da28eb41a2fe7b6",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208052.html",
+      "title": "国家知识产权局 执法指导 （2025）国知药裁0075号",
+      "publicationDate": "2026-09-08 14:40",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208052.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "4668b4d239878dfba8dc71d005dd869378a76cdac729c65d172e45735460a988",
+        "sourceSnapshotRefs": [
+          "CNIPA_2025_DRUG_ADJUDICATION_0075"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2025_DRUG_ADJUDICATION_0075",
+            "rawResponseSha256": "150b9096922573f51f6f26f5f6081d9dceadd7c087f5d4c66da28eb41a2fe7b6",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0075.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "DECISION_PDF_BODY",
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "usageLimitation": "历史页面参考；PDF 正文未采集；非当前案件、非证据、非执法工作流输入。",
+      "businessCategory": "ADMINISTRATIVE_ADJUDICATION_DECISION_PAGE",
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": "国家知识产权局公开历史裁决页面：国家知识产权局 执法指导 （2025）国知药裁0075号；PDF 正文未采集。",
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "222aac9fdde04809471d7878b4a3d290519319c423552dc8e0f5880610f13fd5"
+    },
+    {
+      "sourceSnapshotId": "ENF-93A5AA85A1460919D6A37760",
+      "sourceSystem": "CNIPA_DECISION_PAGES_2026",
+      "stableSourceId": "CNIPA_2025_DRUG_ADJUDICATION_0076",
+      "sourceVersion": "d432e5e23c51b058f49587433cf9af443f5c2a14643e5339c079a7cb566a32a1",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208053.html",
+      "title": "国家知识产权局 执法指导 （2025）国知药裁0076号",
+      "publicationDate": "2026-09-08 14:41",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208053.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "44b163c28c87ae98f67d4cc346ec6ada501c87e9a9d03567e6148837c30e92d5",
+        "sourceSnapshotRefs": [
+          "CNIPA_2025_DRUG_ADJUDICATION_0076"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2025_DRUG_ADJUDICATION_0076",
+            "rawResponseSha256": "d432e5e23c51b058f49587433cf9af443f5c2a14643e5339c079a7cb566a32a1",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0076.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "DECISION_PDF_BODY",
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "usageLimitation": "历史页面参考；PDF 正文未采集；非当前案件、非证据、非执法工作流输入。",
+      "businessCategory": "ADMINISTRATIVE_ADJUDICATION_DECISION_PAGE",
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": "国家知识产权局公开历史裁决页面：国家知识产权局 执法指导 （2025）国知药裁0076号；PDF 正文未采集。",
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "cd01a9bde77de2a1ef680b55fd8093021109884c1dd2e13d5d5d55bb68a79e52"
+    },
+    {
+      "sourceSnapshotId": "ENF-D177C623D887D1C97851FB0B",
+      "sourceSystem": "CNIPA_DECISION_PAGES_2026",
+      "stableSourceId": "CNIPA_2025_DRUG_ADJUDICATION_0077",
+      "sourceVersion": "0835914753ec10cfc256ad45ff1eefe6221efa484f0c773eb29f6ad969ba204d",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208054.html",
+      "title": "国家知识产权局 执法指导 （2025）国知药裁0077号",
+      "publicationDate": "2026-09-08 14:42",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208054.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "fd97c6f1e0894ffc4ef413bb200322c18450c0be645feb433f0d05d513de970c",
+        "sourceSnapshotRefs": [
+          "CNIPA_2025_DRUG_ADJUDICATION_0077"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2025_DRUG_ADJUDICATION_0077",
+            "rawResponseSha256": "0835914753ec10cfc256ad45ff1eefe6221efa484f0c773eb29f6ad969ba204d",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2025-drug-adjudication-0077.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "DECISION_PDF_BODY",
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "usageLimitation": "历史页面参考；PDF 正文未采集；非当前案件、非证据、非执法工作流输入。",
+      "businessCategory": "ADMINISTRATIVE_ADJUDICATION_DECISION_PAGE",
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": "国家知识产权局公开历史裁决页面：国家知识产权局 执法指导 （2025）国知药裁0077号；PDF 正文未采集。",
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "dfeefae1c7af0adb9306957224489db8f9edd61c11ca39a65495ec9820352eb4"
+    },
+    {
+      "sourceSnapshotId": "ENF-E63E43D93F8F0E54CA6F6193",
+      "sourceSystem": "CNIPA_OFFICIAL_REPLIES_2026",
+      "stableSourceId": "CNIPA_2026_ADJUDICATION_DEADLINE_REPLY",
+      "sourceVersion": "5842dbdf1c297aca04e6226febccadc01746734f46c3a4c3329426a96464be3d",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/8/18/art_2432_207774.html",
+      "title": "国家知识产权局 执法指导 国家知识产权局关于专利侵权纠纷行政裁决案件追加当事人后重新计算办案期限的批复",
+      "publicationDate": "2026-08-18 09:30",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/18/art_2432_207774.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "41dd6fb61b03a16728d5cad5df07f72cf37975aa4035c774def7c56fd0dc55de",
+        "sourceSnapshotRefs": [
+          "CNIPA_2026_ADJUDICATION_DEADLINE_REPLY"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2026_ADJUDICATION_DEADLINE_REPLY",
+            "rawResponseSha256": "5842dbdf1c297aca04e6226febccadc01746734f46c3a4c3329426a96464be3d",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2026-adjudication-deadline-reply.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_LEGAL_REFERENCE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "PROFESSIONAL_EFFECTIVITY_REVIEW",
+        "EXECUTABLE_RULE",
+        "CURRENT_CASE_APPLICABILITY"
+      ],
+      "usageLimitation": "官方批复来源展示/流程测试；专业效力待复核；不得生成或执行规则。",
+      "businessCategory": null,
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": null,
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "5b36296ba25f84ec755f24634de644a1105ec55d2947c4b7594d280300299265"
+    },
+    {
+      "sourceSnapshotId": "ENF-4D0B417C9BC0DFB018C8C4B2",
+      "sourceSystem": "CNIPA_OFFICIAL_REPLIES_2026",
+      "stableSourceId": "CNIPA_2026_ADJUDICATION_PUBLICATION_REPLY",
+      "sourceVersion": "baf4ec6ca977454ffa75393920cbf833c5be8eed894cc1d28a5ec9dc3fef2345",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/8/4/art_2432_207541.html",
+      "title": "国家知识产权局 执法指导 国家知识产权局关于专利行政裁决案件信息可否停止公示有关问题的批复",
+      "publicationDate": "2026-08-04 14:50",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/4/art_2432_207541.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "990f0158d487190de9c09e3759c49242359492beed1fdca1366a5e6ac091be1c",
+        "sourceSnapshotRefs": [
+          "CNIPA_2026_ADJUDICATION_PUBLICATION_REPLY"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2026_ADJUDICATION_PUBLICATION_REPLY",
+            "rawResponseSha256": "baf4ec6ca977454ffa75393920cbf833c5be8eed894cc1d28a5ec9dc3fef2345",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2026-adjudication-publication-reply.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_LEGAL_REFERENCE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "PROFESSIONAL_EFFECTIVITY_REVIEW",
+        "EXECUTABLE_RULE",
+        "CURRENT_CASE_APPLICABILITY"
+      ],
+      "usageLimitation": "官方批复来源展示/流程测试；专业效力待复核；不得生成或执行规则。",
+      "businessCategory": null,
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": null,
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "e7bcbcad2c002ba5f81574e3a53de3f2a04d8399947b257f8424fa1519cf9c86"
+    },
+    {
+      "sourceSnapshotId": "ENF-7CF11666B5140834821C36C7",
+      "sourceSystem": "CNIPA_DECISION_PAGES_2026",
+      "stableSourceId": "CNIPA_2026_DRUG_ADJUDICATION_0021",
+      "sourceVersion": "68af5c0584d9aaaeabbcf84a28c48432a92a92e4e267ac4b4d142941dd8935bd",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207820.html",
+      "title": "国家知识产权局 执法指导 （2026）国知药裁0021号",
+      "publicationDate": "2026-08-20 14:33",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207820.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "b53e6465c1f73581952b7aff4b72bb914db8fd79a2d13f520867ce7d1bacd9c5",
+        "sourceSnapshotRefs": [
+          "CNIPA_2026_DRUG_ADJUDICATION_0021"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2026_DRUG_ADJUDICATION_0021",
+            "rawResponseSha256": "68af5c0584d9aaaeabbcf84a28c48432a92a92e4e267ac4b4d142941dd8935bd",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2026-drug-adjudication-0021.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "DECISION_PDF_BODY",
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "usageLimitation": "历史页面参考；PDF 正文未采集；非当前案件、非证据、非执法工作流输入。",
+      "businessCategory": "ADMINISTRATIVE_ADJUDICATION_DECISION_PAGE",
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": "国家知识产权局公开历史裁决页面：国家知识产权局 执法指导 （2026）国知药裁0021号；PDF 正文未采集。",
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "786e019f9274b6b9e9d8a31170a6592b1efb12d6b68bdb37e098cc065cd2401a"
+    },
+    {
+      "sourceSnapshotId": "ENF-EA747ACB7D10462C9E8C4EB4",
+      "sourceSystem": "CNIPA_DECISION_PAGES_2026",
+      "stableSourceId": "CNIPA_2026_DRUG_ADJUDICATION_0061",
+      "sourceVersion": "66784fa698ad995d505497aa48f2ca8d500567fe43b0811856ab0cec1be3feef",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207822.html",
+      "title": "国家知识产权局 执法指导 （2026）国知药裁0061号",
+      "publicationDate": "2026-08-20 14:37",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207822.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "d0e51cadec6475db435a49dc8ae90647db9a16b38b6d01c83aae5bc2a3ea7620",
+        "sourceSnapshotRefs": [
+          "CNIPA_2026_DRUG_ADJUDICATION_0061"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2026_DRUG_ADJUDICATION_0061",
+            "rawResponseSha256": "66784fa698ad995d505497aa48f2ca8d500567fe43b0811856ab0cec1be3feef",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2026-drug-adjudication-0061.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "DECISION_PDF_BODY",
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "usageLimitation": "历史页面参考；PDF 正文未采集；非当前案件、非证据、非执法工作流输入。",
+      "businessCategory": "ADMINISTRATIVE_ADJUDICATION_DECISION_PAGE",
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": "国家知识产权局公开历史裁决页面：国家知识产权局 执法指导 （2026）国知药裁0061号；PDF 正文未采集。",
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "8e177a591ee8df027643e1c191d4582122e2551868bbce5b19a19ed86d5b2c47"
+    },
+    {
+      "sourceSnapshotId": "ENF-2930121A835575C56E3DF9E9",
+      "sourceSystem": "CNIPA_DECISION_PAGES_2026",
+      "stableSourceId": "CNIPA_2026_DRUG_ADJUDICATION_0062",
+      "sourceVersion": "36f6eb85cbfec82b1bb52525ae49bae22ae1e3d6373beb4e9bc4ad4dd26c8529",
+      "sourceLocator": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207823.html",
+      "title": "国家知识产权局 执法指导 （2026）国知药裁0062号",
+      "publicationDate": "2026-08-20 14:39",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207823.html",
+      "capturedAt": "2026-09-21T13:43:56.030Z",
+      "availability": "AVAILABLE",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "approvalId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+      "approvalSha256": "90e093da1c17c94b816d5a40cd97c2a5a553fb8056b6bf4c3a83d2bee29ff5fc",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开页面；仅限内部开发试点；https://www.cnipa.gov.cn",
+      "sourceTrace": {
+        "sourceDatasetId": "CNIPA-DECISION-CORPUS-DOMAIN-MAPPING-V1",
+        "sourceRecordsSha256": "be296568793c55e2ef619d0e47291026361654013c21621153dac1f823f60139",
+        "sourceRecordSha256": "f08b75af679c641857a0c7e9f11817baf38d130297f1b9608c2687655fa79579",
+        "sourceSnapshotRefs": [
+          "CNIPA_2026_DRUG_ADJUDICATION_0062"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "CNIPA_2026_DRUG_ADJUDICATION_0062",
+            "rawResponseSha256": "36f6eb85cbfec82b1bb52525ae49bae22ae1e3d6373beb4e9bc4ad4dd26c8529",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/raw/cnipa-2026-drug-adjudication-0062.html"
+          }
+        ]
+      },
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceStatusLabel": null,
+      "missingFields": [
+        "DECISION_PDF_BODY",
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "usageLimitation": "历史页面参考；PDF 正文未采集；非当前案件、非证据、非执法工作流输入。",
+      "businessCategory": "ADMINISTRATIVE_ADJUDICATION_DECISION_PAGE",
+      "sourcePageStart": null,
+      "sourcePageEnd": null,
+      "historicalCaseSummary": "国家知识产权局公开历史裁决页面：国家知识产权局 执法指导 （2026）国知药裁0062号；PDF 正文未采集。",
+      "titleExtractionNote": "标题来自已验证 CNIPA 页面快照。",
+      "businessWorkflowInputAllowed": false,
+      "sourcePayloadSha256": "d1d0f4aaa99fa994cb14bb1a3c80bf44322767e5f4e0401351f44d3f2bb1ebf2"
+    }
+  ]
+}

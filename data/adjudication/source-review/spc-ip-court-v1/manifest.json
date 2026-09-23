@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "1.0",
+  "reviewId": "ADJ-SOURCE-REVIEW-SPC-IP-COURT-V1",
+  "capturedAt": "2026-09-19T15:43:57.356Z",
+  "source": {
+    "sourceSystem": "SPC_IP_COURT_SELECTED_JUDGMENTS",
+    "provider": "最高人民法院知识产权法庭",
+    "websiteUrl": "https://ipc.court.gov.cn/zh-cn/index.html",
+    "categoryUrl": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html"
+  },
+  "evidenceAssessment": {
+    "officialJudicialPublicationSite": true,
+    "selectedJudgmentsPublished": true,
+    "copyrightNoticePresent": true,
+    "explicitProjectReuseLicenseIdentified": false,
+    "robotsPolicy": "NOT_PUBLISHED_AT_PROBED_PATH",
+    "publicAccessDoesNotEstablishIndexingPermission": true
+  },
+  "intendedUse": {
+    "dataMode": "PUBLIC_PILOT",
+    "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+    "categories": [
+      "PUBLIC_JUDGMENT_REFERENCE"
+    ],
+    "fields": [
+      "stableSourceId",
+      "publicDocketNumber",
+      "publicationDate",
+      "institution",
+      "documentType",
+      "sourceUrl",
+      "capturedAt"
+    ],
+    "excludes": [
+      "fullText",
+      "parties",
+      "personalInformation",
+      "facts",
+      "evidence",
+      "holdings",
+      "reasoning",
+      "outcome",
+      "legalCitations"
+    ],
+    "externalModelAllowed": false,
+    "productionUseAllowed": false,
+    "dm8ImportAllowed": false
+  },
+  "unresolvedApproval": {
+    "responsibleParty": null,
+    "decisionDate": null,
+    "indexingPermission": null,
+    "retentionPeriod": null,
+    "withdrawalHandling": null,
+    "attribution": null
+  },
+  "reviewStatus": "REVIEW_REQUIRED",
+  "approvalStatus": "NOT_APPROVED",
+  "importDecision": "BLOCKED_SOURCE_REVIEW",
+  "snapshots": [
+    {
+      "id": "SPC_IP_COURT_HOME",
+      "requestedUrl": "https://ipc.court.gov.cn/zh-cn/index.html",
+      "finalUrl": "https://ipc.court.gov.cn/zh-cn/index.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "etag": null,
+      "lastModified": null,
+      "capturedAt": "2026-09-19T15:43:57.356Z",
+      "file": "raw/home.html",
+      "bytes": 67222,
+      "sha256": "612b7d93775f9b621dae6406c4964370c3b1fab9152f70db96780683c17a20e1"
+    },
+    {
+      "id": "SPC_SELECTED_JUDGMENTS",
+      "requestedUrl": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html",
+      "finalUrl": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "etag": null,
+      "lastModified": null,
+      "capturedAt": "2026-09-19T15:43:57.356Z",
+      "file": "raw/selected-judgments.html",
+      "bytes": 18139,
+      "sha256": "61e1ba01e46a3f672cf8576cd4c6cc78fc327763243d79bbd4784c86a8330722"
+    },
+    {
+      "id": "SPC_IP_COURT_ROBOTS_PROBE",
+      "requestedUrl": "https://ipc.court.gov.cn/robots.txt",
+      "finalUrl": "https://ipc.court.gov.cn/robots.txt",
+      "httpStatus": 404,
+      "contentType": "text/html; charset=UTF-8",
+      "etag": null,
+      "lastModified": null,
+      "capturedAt": "2026-09-19T15:43:57.356Z",
+      "file": "raw/robots-probe.html",
+      "bytes": 13890,
+      "sha256": "1e270baf1f0527f97f7e6ec451a013fca79597f9e92155694f95df19b82e8221"
+    }
+  ],
+  "conclusion": "The captured pages establish an official public judgment source and a copyright notice, but do not establish this project's permission to index and retain the derived catalog. Responsible-party approval remains required before DM8 import."
+}

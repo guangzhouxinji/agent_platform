@@ -237,8 +237,8 @@
     },
     {
       "path": "requirements/知识产权咨询助手/知识产权咨询对话流管理需求文档.md",
-      "sha256": "c588b76216b490309858e20fcc5390619cb9f1076a93fd6984284825e6985918",
-      "bytes": 9573
+      "sha256": "fc252383a9a4af34b49e722dd6e2e8a768ad93db2be97bf377d261c6bc3e809d",
+      "bytes": 11526
     },
     {
       "path": "requirements/知识产权咨询助手/知识产权咨询提示词管理需求文档.md",
@@ -247,33 +247,33 @@
     },
     {
       "path": "requirements/知识产权咨询助手/知识产权咨询意图管理需求文档.md",
-      "sha256": "f664676e22be212fdeee532d2f8ccb897fa0da2f54a2980b52c38fe00c9aa9e2",
-      "bytes": 7892
+      "sha256": "cf5de743f119e0b256dc16c93fe0b1411f0e37bdf075d8f49b664dac1a4daa41",
+      "bytes": 9192
     },
     {
       "path": "requirements/知识产权咨询助手/知识产权咨询智能体管理需求文档.md",
-      "sha256": "b4468a52b36bcd303a2faa9a2b89434cac2d035542f534ab5f29b632c01cc416",
-      "bytes": 8037
+      "sha256": "0fa680e63b12b5199c7a023dadf3692f4e550602960b20070c4e7a308b5720bf",
+      "bytes": 9575
     },
     {
       "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
-      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
-      "bytes": 18003
+      "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee",
+      "bytes": 20777
     },
     {
       "path": "requirements/知识产权咨询助手/专利库管理需求文档.md",
-      "sha256": "7381109c0561f3c2591e5f5e71cc4127308d90465cbf003274682e3ad6526e2b",
-      "bytes": 8931
+      "sha256": "5e295da3d1f11bf71f8a72ebd3369598f92f5584717db4503300422ed91c0770",
+      "bytes": 10043
     },
     {
       "path": "requirements/知识产权咨询助手/专利相似度检索需求文档.md",
-      "sha256": "c3d499a1d90d79badac09dac1618ff70a185b71a8bc937577e1f21f419f04718",
-      "bytes": 7979
+      "sha256": "b2136efb65b7ff2f81621b3a1fe98dad6835c8a2652ee62a00c1520dae8b5fe4",
+      "bytes": 9608
     },
     {
       "path": "requirements/知识产权咨询助手/专利相似度判断需求文档.md",
-      "sha256": "90437563c6599d8b42ab28e636077ef5a0de4c96e5c0f6996bbc3a61462bd675",
-      "bytes": 8257
+      "sha256": "70d50051b6022b05e44c4f2536c7c9bb296a3f27b35c248b383dbc3d717b654a",
+      "bytes": 9457
     }
   ]
 }

@@ -1,0 +1,3 @@
+ALTER TABLE enf_local_authorization DROP CONSTRAINT ck_enf_local_authorization_retention;
+ALTER TABLE enf_local_authorization MODIFY retention_until NOT NULL;
+ALTER TABLE enf_local_authorization DROP COLUMN retention_policy;

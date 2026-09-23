@@ -1,0 +1,3 @@
+DROP TABLE enf_public_reference_snapshot;
+DROP TABLE enf_public_reference_batch;
+DROP TABLE enf_public_source_registration;

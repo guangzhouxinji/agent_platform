@@ -1,0 +1,591 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-18 12:03:31 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 77666,
+      "documents": [
+        {
+          "docId": "CN-120660333-A",
+          "metadata": {
+            "pd": "20250916",
+            "pn": "CN-120660333-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence/machine learning model identifier usage"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "人工智能/机器学习模型标识符使用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NOKIA TECHNOLOGIES OY"
+        },
+        {
+          "docId": "CN-122533616-A",
+          "metadata": {
+            "pd": "20260807",
+            "pn": "CN-122533616-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence/machine learning model mechanism for beam management"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "用于波束管理的人工智能/机器学习模型机制"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NOKIA TECHNOLOGIES OY"
+        },
+        {
+          "docId": "CN-122533617-A",
+          "metadata": {
+            "pd": "20260807",
+            "pn": "CN-122533617-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Artificial intelligence/machine learning model mechanism for beam management"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "用于波束管理的人工智能/机器学习模型机制"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NOKIA TECHNOLOGIES OY"
+        },
+        {
+          "docId": "CN-122616766-A",
+          "metadata": {
+            "pd": "20260821",
+            "pn": "CN-122616766-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Data acquisition device based on artificial intelligence machine study"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种基于人工智能机器学习的数据采集装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHONGQING ELECTRIC POWER COLLEGE"
+        },
+        {
+          "docId": "CN-122526547-A",
+          "metadata": {
+            "pd": "20260807",
+            "pn": "CN-122526547-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning development method and system based on artificial intelligence"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "基于人工智能的机器学习开发方法及系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Guangdong Jinshang Network Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-117952161-A",
+          "metadata": {
+            "pd": "20240430",
+            "pn": "CN-117952161-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NOKIA TECHNOLOGIES OY"
+        },
+        {
+          "docId": "CN-120179129-A",
+          "metadata": {
+            "pd": "20250620",
+            "pn": "CN-120179129-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning system and machine learning method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习系统和机器学习方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TAIXING ENERGY SOLUTIONS CO LTD"
+        },
+        {
+          "docId": "CN-114578687-A",
+          "metadata": {
+            "pd": "20220603",
+            "pn": "CN-114578687-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning method and machine learning system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习方法及机器学习系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CO LTD"
+        },
+        {
+          "docId": "CN-114077193-A",
+          "metadata": {
+            "pd": "20220222",
+            "pn": "CN-114077193-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device and machine learning system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置及机器学习系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CORP"
+        },
+        {
+          "docId": "CN-114578687-B",
+          "metadata": {
+            "pd": "20250715",
+            "pn": "CN-114578687-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning method and machine learning system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习方法及机器学习系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CORP."
+        },
+        {
+          "docId": "CN-114902060-B",
+          "metadata": {
+            "pd": "20250704",
+            "pn": "CN-114902060-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device and machine learning method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置及机器学习方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "MITSUBISHI ELECTRIC CORP."
+        },
+        {
+          "docId": "CN-112262394-B",
+          "metadata": {
+            "pd": "20240116",
+            "pn": "CN-112262394-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning method and machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习方法、机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHIMADZU CORP."
+        },
+        {
+          "docId": "CN-115668283-A",
+          "metadata": {
+            "pd": "20230131",
+            "pn": "CN-115668283-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device and machine learning system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置和机器学习系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "FANUC CORP"
+        },
+        {
+          "docId": "CN-114902060-A",
+          "metadata": {
+            "pd": "20220812",
+            "pn": "CN-114902060-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device and machine learning method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置及机器学习方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "MITSUBISHI ELECTRIC CORP"
+        },
+        {
+          "docId": "CN-119183571-A",
+          "metadata": {
+            "pd": "20241224",
+            "pn": "CN-119183571-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning method and machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习方法及机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "EBARA CORP"
+        },
+        {
+          "docId": "CN-112995417-A",
+          "metadata": {
+            "pd": "20210618",
+            "pn": "CN-112995417-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Method for converting artificial intelligence into artificial intelligence"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "人工智能转人工智能的方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZHEJIANG BRAIN THINKING TECH CO LTD"
+        },
+        {
+          "docId": "CN-113821101-A",
+          "metadata": {
+            "pd": "20211221",
+            "pn": "CN-113821101-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CORP"
+        },
+        {
+          "docId": "CN-113967747-A",
+          "metadata": {
+            "pd": "20220125",
+            "pn": "CN-113967747-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SEIKO EPSON CORP"
+        },
+        {
+          "docId": "CN-115285134-A",
+          "metadata": {
+            "pd": "20221104",
+            "pn": "CN-115285134-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Improved machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "改进的机器学习"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "FORD GLOBAL TECH LLC"
+        },
+        {
+          "docId": "CN-114054776-A",
+          "metadata": {
+            "pd": "20220218",
+            "pn": "CN-114054776-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SEIKO EPSON CORP"
+        },
+        {
+          "docId": "CN-114054776-B",
+          "metadata": {
+            "pd": "20240102",
+            "pn": "CN-114054776-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SEIKO EPSON CORP."
+        },
+        {
+          "docId": "CN-118260642-A",
+          "metadata": {
+            "pd": "20240628",
+            "pn": "CN-118260642-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HON HAI PREC IND CO LTD"
+        },
+        {
+          "docId": "CN-113821101-B",
+          "metadata": {
+            "pd": "20240514",
+            "pn": "CN-113821101-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CORP."
+        },
+        {
+          "docId": "CN-113967747-B",
+          "metadata": {
+            "pd": "20240223",
+            "pn": "CN-113967747-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SEIKO EPSON CORP."
+        },
+        {
+          "docId": "CN-116157828-A",
+          "metadata": {
+            "pd": "20230523",
+            "pn": "CN-116157828-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SUBARU CORP"
+        }
+      ],
+      "query": "(pnctry:CN AND (ttl:\"人工智能\" OR ttl:\"机器学习\"))"
+    },
+    "query": ""
+  }
+}

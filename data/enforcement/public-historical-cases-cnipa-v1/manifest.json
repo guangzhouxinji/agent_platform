@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "ENF-CNIPA-PUBLIC-HISTORICAL-CASES-V1",
+  "generatedAt": "2026-09-20T00:00:00Z",
+  "purpose": "Approved CNIPA public historical case samples for isolated internal-development reference; never an enforcement workflow input",
+  "sourceReview": {
+    "sourceReviewId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+    "originalReviewStatus": "REVIEW_REQUIRED",
+    "conversionDecisionId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+    "conversionDecisionSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed"
+  },
+  "boundaries": {
+    "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+    "dataMode": "PUBLIC_PILOT",
+    "authorityMarker": "NOT_CENTER_SOURCE",
+    "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+    "externalModelAllowed": false,
+    "businessWorkflowInputAllowed": false,
+    "dm8ImportAllowed": true,
+    "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END"
+  },
+  "recordCount": 33,
+  "categoryCounts": {
+    "ADMINISTRATIVE_PROTECTION_GUIDANCE": 3,
+    "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION": 10,
+    "PATENT_ADMINISTRATIVE_PROTECTION": 10,
+    "TRADEMARK_ADMINISTRATIVE_PROTECTION": 10
+  },
+  "recordsFile": "records.json",
+  "recordsSha256": "a4ff088a962f80e3b0869877ca2ce541548a1cb3cfe4318b6720b081e27f8397",
+  "batchSha256": "d544499ea9eff00e44189a7a66c5d30c985ae6eb2cbe7e947862ddf82f2882f2",
+  "stableSort": [
+    "stableSourceId"
+  ],
+  "sourceAttachments": [
+    {
+      "snapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT",
+      "sha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "publicationDate": "2024-04-26",
+      "pageCount": 47
+    },
+    {
+      "snapshotId": "CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT",
+      "sha256": "50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2023/12/28/art_2432_191156.html",
+      "publicationDate": "2023-12-28",
+      "pageCount": 7
+    }
+  ],
+  "limitations": [
+    "Historical public cases are not current violation clues or underlying case evidence.",
+    "No record asserts accepted evidence, current right status, an executable rule, professional acceptance, or a platform legal conclusion.",
+    "Records are isolated from enforcement workflow tables and are unavailable to external models."
+  ]
+}

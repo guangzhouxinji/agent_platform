@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "requirementId": "CON-02",
   "title": "专利库管理",
-  "status": "ready",
+  "status": "stale",
   "baselineId": "requirements-2026-09-14-v1",
   "source": {
     "path": "requirements/知识产权咨询助手/专利库管理需求文档.md",
-    "sha256": "7381109c0561f3c2591e5f5e71cc4127308d90465cbf003274682e3ad6526e2b",
+    "sha256": "5e295da3d1f11bf71f8a72ebd3369598f92f5584717db4503300422ed91c0770",
     "sections": [
       {
         "anchor": "国产化与达梦 DM8 适配要求",
@@ -49,7 +49,7 @@
   "supportingSources": [
     {
       "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
-      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee",
       "sections": [
         "1. 项目定位与交付口径",
         "3.1 API 数据与本地内容",
@@ -815,8 +815,19 @@
       ]
     }
   ],
+  "currentProductContract": {
+    "version": "consultation-product-contract-2026-09-22-v1",
+    "classification": "ADAPT",
+    "status": "stale",
+    "authoritativeDocument": "docs/37-咨询智能体契约重基线.md#con-02-专利库管理adapt",
+    "sourceRefs": ["requirements/知识产权咨询助手/专利库管理需求文档.md#9", "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8", "docs/35-咨询智能体产品行为待确认清单.md", "docs/36-咨询智能体R门需求变化影响评审.md#3"],
+    "mustIds": ["CON-02-RB-MUST-001", "CON-02-RB-MUST-002", "CON-02-RB-MUST-003", "CON-02-RB-MUST-004", "CON-02-RB-MUST-005", "CON-02-RB-MUST-006", "CON-02-RB-MUST-007"],
+    "mustNotIds": ["CON-02-RB-MUST_NOT-001", "CON-02-RB-MUST_NOT-002", "CON-02-RB-MUST_NOT-003", "CON-02-RB-MUST_NOT-004", "CON-02-RB-MUST_NOT-005"],
+    "rGateAssessment": "REBASED_D_DESIGN_CANDIDATE_NOT_READY",
+    "note": "旧 clauses 保留历史追踪；当前产品契约以 authoritativeDocument 对应章节为准。"
+  },
   "independentReview": {
-    "status": "passed",
+    "status": "superseded_by_rebase",
     "reviewedBaselineId": "requirements-2026-09-14-v1",
     "reviewMethod": "source-only second pass against the primary requirement and applicable consultation overview sections",
     "missingClauses": [],

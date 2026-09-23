@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "CON-01-TRADEMARK-PUBLIC-PILOT-V1",
+  "generatedAt": "2026-09-16T14:34:02.221Z",
+  "recordCount": 100,
+  "recordsSha256": "536e7afe87cfbb461c7eb217fcb6702e2d6edbe221dce48024609b848196edcd",
+  "source": {
+    "name": "USPTO Trademark Official Gazette word marks via trademark-watch snapshot",
+    "upstreamAuthority": "United States Patent and Trademark Office",
+    "upstreamDataset": "USPTO Official Gazette word marks",
+    "upstreamIssue": "2026-09-01",
+    "csvUrl": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv",
+    "sourceManifestUrl": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/manifest.json",
+    "repositoryUrl": "https://github.com/APVentureEngine/trademark-watch",
+    "snapshotCommit": "85b6fa5e2d7fa666c4ba746f519020eb14a60835",
+    "snapshotCommitUrl": "https://github.com/APVentureEngine/trademark-watch/commit/85b6fa5e2d7fa666c4ba746f519020eb14a60835",
+    "accessMode": "PUBLIC_STATIC_DOWNLOAD",
+    "authorityStatus": "NON_CENTER_PUBLIC_DERIVED_SOURCE",
+    "declaredDatasetLicense": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "repositoryLicenseStatus": "NOT_DECLARED",
+    "licenseReviewStatus": "REVIEW_REQUIRED",
+    "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+  },
+  "selection": {
+    "count": 100,
+    "niceClasses": [
+      "9",
+      "35",
+      "42",
+      "45"
+    ],
+    "rule": "First 100 unique serials containing Nice class 9, 35, 42, or 45 in source order"
+  },
+  "boundaries": {
+    "dataClass": "PUBLIC_PILOT",
+    "centerAuthoritative": false,
+    "expertLabeled": false,
+    "externalModelUseAllowed": false,
+    "formalDesignEvidence": false,
+    "formalVerificationEvidence": false,
+    "businessAcceptanceEvidence": false
+  },
+  "rawResponses": [
+    {
+      "file": "raw/latest.csv",
+      "url": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv",
+      "sha256": "3cb94e2a18b6c290c3c8437b26c356c5a4f1ac14f80d3afcae4cdac90c6194dd",
+      "bytes": 1966122
+    },
+    {
+      "file": "raw/source-manifest.json",
+      "url": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/manifest.json",
+      "sha256": "e4953903ce1f2ed9dc81ba227d9fb935337f6bcfcb032cd1dca2745bbb78d032"
+    }
+  ],
+  "fieldCoverage": {
+    "available": [
+      "serialNumber",
+      "name",
+      "applicants",
+      "classes.code",
+      "filingDate",
+      "gazetteEvent",
+      "sourceStatusCode",
+      "publicationDate",
+      "transactionDate"
+    ],
+    "unavailable": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ]
+  },
+  "limitations": [
+    "The snapshot contains USPTO Gazette word marks, not China National Intellectual Property Administration records.",
+    "The source repository declares its dataset CC0, but the repository itself has no detected license; reuse beyond this internal pilot requires review.",
+    "Gazette event and status code are preserved as source fields and are not interpreted as a current authoritative legal status.",
+    "Live status must be checked in USPTO TSDR using officialStatusRef."
+  ]
+}

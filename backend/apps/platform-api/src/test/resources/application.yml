@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: test-synthetic
+
+consultation:
+  search:
+    provider: synthetic
+
+patent-search:
+  catalog: synthetic

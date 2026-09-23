@@ -1,0 +1,591 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-18 12:03:42 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 459486,
+      "documents": [
+        {
+          "docId": "CN-214193297-U",
+          "metadata": {
+            "pd": "20210914",
+            "pn": "CN-214193297-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological incubator of genetic engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种基因工程生物培养箱"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV JILIN"
+        },
+        {
+          "docId": "CN-210419915-U",
+          "metadata": {
+            "pd": "20200428",
+            "pn": "CN-210419915-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测器具"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUAIAN BOAO BIOGENE SCIENCE CO LTD"
+        },
+        {
+          "docId": "CN-208440604-U",
+          "metadata": {
+            "pd": "20190129",
+            "pn": "CN-208440604-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "A kind of biological gene detection utensil"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "种生物基因检测器具"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUIZHOU FANGZHOU TESTING TECH CO LTD"
+        },
+        {
+          "docId": "CN-119470949-A",
+          "metadata": {
+            "pd": "20250218",
+            "pn": "CN-119470949-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene analysis device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因分析装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "UNIV ZHENGZHOU AERONAUTICS"
+        },
+        {
+          "docId": "CN-219880002-U",
+          "metadata": {
+            "pd": "20231024",
+            "pn": "CN-219880002-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene test tube rack"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因试管架"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "WANG XIAOXUE"
+        },
+        {
+          "docId": "CN-219526633-U",
+          "metadata": {
+            "pd": "20230815",
+            "pn": "CN-219526633-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection probe"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测探针"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "WUHAN LUTIAN TECH CO LTD"
+        },
+        {
+          "docId": "CN-213266489-U",
+          "metadata": {
+            "pd": "20210525",
+            "pn": "CN-213266489-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological incubator of genetic engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种基因工程生物培养箱"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANGHAI SANTN INSTR CO LTD"
+        },
+        {
+          "docId": "CN-222961425-U",
+          "metadata": {
+            "pd": "20250610",
+            "pn": "CN-222961425-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene extraction device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因提取装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANGHAI WANLIN BIOTECHNOLOGY CO LTD"
+        },
+        {
+          "docId": "CN-111225978-A",
+          "metadata": {
+            "pd": "20200602",
+            "pn": "CN-111225978-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene knockout of WOOD-LJUNGDAHL microorganism"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "WOOD-LJUNGDAHL微生物的基因敲除"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "LANZATECH INC"
+        },
+        {
+          "docId": "CN-114907959-A",
+          "metadata": {
+            "pd": "20220816",
+            "pn": "CN-114907959-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection probe"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测探针"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NANJING FANGHUA GENE TECH CO LTD"
+        },
+        {
+          "docId": "CN-215517363-U",
+          "metadata": {
+            "pd": "20220114",
+            "pn": "CN-215517363-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "LUAN KANGHENG BIOLOGICAL TECH CO LTD"
+        },
+        {
+          "docId": "CN-223292545-U",
+          "metadata": {
+            "pd": "20250902",
+            "pn": "CN-223292545-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection instrument"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测器具"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "WUHAN SAIRUI BIOMEDICAL TECH CO LTD"
+        },
+        {
+          "docId": "CN-206188789-U",
+          "metadata": {
+            "pd": "20170524",
+            "pn": "CN-206188789-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene sample access storehouse"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "种生物基因样本存取仓"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHENGDU DINGDANG AUTOMATION EQUIPMENT CO LTD"
+        },
+        {
+          "docId": "CN-223481145-U",
+          "metadata": {
+            "pd": "20251028",
+            "pn": "CN-223481145-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection probe"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测探针"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HUAIAN BOAO BIOGENE SCIENCE CO LTD"
+        },
+        {
+          "docId": "CN-217922112-U",
+          "metadata": {
+            "pd": "20221129",
+            "pn": "CN-217922112-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection probe"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测探针"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENZHEN WONDERFUL WEAVING CLOTHING CO LTD"
+        },
+        {
+          "docId": "CN-105505954-B",
+          "metadata": {
+            "pd": "20190122",
+            "pn": "CN-105505954-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Colimycin biosynthesis gene cluster"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "可利霉素生物合成基因簇"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENYANG TONGLIAN GROUP CO.,LTD."
+        },
+        {
+          "docId": "CN-220467972-U",
+          "metadata": {
+            "pd": "20240209",
+            "pn": "CN-220467972-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene detection probe"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因检测探针"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HEFEI ZHONGTONGLANBO MEDICAL LABORATORY CO LTD"
+        },
+        {
+          "docId": "CN-107868789-A",
+          "metadata": {
+            "pd": "20180403",
+            "pn": "CN-107868789-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Rokitamycin biological synthesis gene cluster"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "可利霉素生物合成基因簇"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENYANG FUYANG PHARMACEUTICAL TECH CO LTD"
+        },
+        {
+          "docId": "CN-107868789-B",
+          "metadata": {
+            "pd": "20201117",
+            "pn": "CN-107868789-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Colimycin biosynthesis gene cluster"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "可利霉素生物合成基因簇"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENYANG FUYANG PHARMACEUTICAL TECHNOLOGY Co.,Ltd."
+        },
+        {
+          "docId": "CN-213032695-U",
+          "metadata": {
+            "pd": "20210423",
+            "pn": "CN-213032695-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene draws grinder"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因提取研磨装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NANJING LYUZHENG BIOTECHNOLOGY CO LTD"
+        },
+        {
+          "docId": "CN-211896969-U",
+          "metadata": {
+            "pd": "20201110",
+            "pn": "CN-211896969-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological incubator of genetic engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种基因工程生物培养箱"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "GUANGDONG INSTITUTE OF PREVENTIVE MEDICINE AND HEALTH LP"
+        },
+        {
+          "docId": "CN-216738368-U",
+          "metadata": {
+            "pd": "20220614",
+            "pn": "CN-216738368-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene extraction device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因提取装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANDONG POLYSHENG BIOTECHNOLOGY CO LTD"
+        },
+        {
+          "docId": "CN-106697580-A",
+          "metadata": {
+            "pd": "20170524",
+            "pn": "CN-106697580-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biogenic sample storage device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "种生物基因样本存储装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHENGDU DINGDANG AUTOMATION EQUIPMENT CO LTD"
+        },
+        {
+          "docId": "CN-218321406-U",
+          "metadata": {
+            "pd": "20230117",
+            "pn": "CN-218321406-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological gene analysis device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因分析装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CERTUS HAINAN BIOMEDICAL CO LTD"
+        },
+        {
+          "docId": "CN-116997664-A",
+          "metadata": {
+            "pd": "20231103",
+            "pn": "CN-116997664-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Metagenomic analysis of microbiota"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "微生物丛的宏基因组分析"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "VARINOS CO LTD"
+        }
+      ],
+      "query": "(pnctry:CN AND (ttl:\"基因\" OR ttl:\"生物\"))"
+    },
+    "query": ""
+  }
+}

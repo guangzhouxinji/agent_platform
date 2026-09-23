@@ -1,0 +1,1017 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "CON-03-CASE-PUBLIC-PILOT-V1",
+  "generatedAt": "2026-09-16T14:36:08.983Z",
+  "recordCount": 100,
+  "recordsSha256": "e416af324861ca53596b9a90685ae32768a3fdf1cab99d5f5248d6822c69367c",
+  "source": {
+    "name": "最高人民法院知识产权法庭 - 精品裁判",
+    "categoryUrl": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html",
+    "accessMode": "PUBLIC_WEB_PAGES",
+    "authorityStatus": "PUBLIC_JUDICIAL_WEBSITE_NON_CENTER_SOURCE",
+    "licenseReviewStatus": "REVIEW_REQUIRED",
+    "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+  },
+  "selection": {
+    "count": 100,
+    "pages": "1-20",
+    "rule": "First 100 unique detail links in category page order",
+    "capturedDetailPages": 100
+  },
+  "boundaries": {
+    "dataClass": "PUBLIC_PILOT",
+    "centerAuthoritative": false,
+    "expertLabeled": false,
+    "externalModelUseAllowed": false,
+    "formalDesignEvidence": false,
+    "formalVerificationEvidence": false,
+    "businessAcceptanceEvidence": false
+  },
+  "rawResponses": [
+    {
+      "type": "LIST",
+      "page": 1,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html",
+      "file": "raw/list-page-01.html",
+      "sha256": "713b222528d18eee9294d284a095671035198e36ad728acbae12d97799f1f310",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 2,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=2",
+      "file": "raw/list-page-02.html",
+      "sha256": "f58e085bfcfb4589bb3093367f917f04c4a983c85035796c68422ab3fcc296d7",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 3,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=3",
+      "file": "raw/list-page-03.html",
+      "sha256": "f667e89531843273817ba66f7dbfef499d1949ca884382ddc0976f0d4a46327e",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 4,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=4",
+      "file": "raw/list-page-04.html",
+      "sha256": "e441909f40fb1db45688a76ba7c5e4e2c8ededf7dfd3f7e7fa660d10c5273575",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 5,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=5",
+      "file": "raw/list-page-05.html",
+      "sha256": "9b1f78348b1a2969d1b63da49f794344ad4c3e7800c0ff6cc83b6333cb394873",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 6,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=6",
+      "file": "raw/list-page-06.html",
+      "sha256": "3bdde9f4ccee91c94d17f24f708643785050a6f497919b3fb025e8ac1dbd930d",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 7,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=7",
+      "file": "raw/list-page-07.html",
+      "sha256": "9b8c4330a6d765fb991528dd0d9c25ca8bbd8aa78a5bf48f7861b9d06b94a771",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 8,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=8",
+      "file": "raw/list-page-08.html",
+      "sha256": "b6495e2de298709e3f94e9665a285fe148d6c36744e11248d7ba7461f0ef824e",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 9,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=9",
+      "file": "raw/list-page-09.html",
+      "sha256": "3d98f0f5449125ae719096d0cc86ed2fdbd7ce73898f996369c5574f32188a34",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 10,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=10",
+      "file": "raw/list-page-10.html",
+      "sha256": "422e35811abcb8da90dadb650c63e99db888a576099390d15e5c57df181d649b",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 11,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=11",
+      "file": "raw/list-page-11.html",
+      "sha256": "4f7013b1277da31eafeec3a6174dcad1de66ce4dc715e23795c05bcc87c77768",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 12,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=12",
+      "file": "raw/list-page-12.html",
+      "sha256": "72c5885926a86ccca85019019723b458600ee6a9803e1ab7ccf82cc37aefb1c6",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 13,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=13",
+      "file": "raw/list-page-13.html",
+      "sha256": "0eac5127a273e7aeff936df23e8abff0a68f3cceb09dbae157bdfc044a380511",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 14,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=14",
+      "file": "raw/list-page-14.html",
+      "sha256": "219b869b9c28eddd04789781e26b95cf3705da4f17d18bd877063a4a8abf5e5a",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 15,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=15",
+      "file": "raw/list-page-15.html",
+      "sha256": "3ba0393294a321f7f1de694dab151a0b674c0763d9230af50289e0d99a77fa08",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 16,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=16",
+      "file": "raw/list-page-16.html",
+      "sha256": "c532f7e61d1e455a63395ea0fd1941dbabab6d18f7c02d21d7afaec6b754e30a",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 17,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=17",
+      "file": "raw/list-page-17.html",
+      "sha256": "388f0cca6da80dda67ac2fb362151152822f287c7f40aafd5a8dc3b0168e05a5",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 18,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=18",
+      "file": "raw/list-page-18.html",
+      "sha256": "675d173c1bbfeacb215b85b4f41f186fb9c6e1a807dd6cdf04d96b20a109563b",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 19,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=19",
+      "file": "raw/list-page-19.html",
+      "sha256": "ab857307f773ac68f6c81efac04fd6cf89d5b8aaae9fc29798ac2c87d1fc7437",
+      "itemCount": 5
+    },
+    {
+      "type": "LIST",
+      "page": 20,
+      "url": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html?page=20",
+      "file": "raw/list-page-20.html",
+      "sha256": "80e1900b13793056b76ee843e1f689a4c883b9f2d74a54e03a54a780d745af06",
+      "itemCount": 5
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6071",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6071.html",
+      "file": "raw/detail-6071.html",
+      "sha256": "866649f84a2579a68d062ff14c1d5c599c9cd8bb3ce389f67df7b1de817431b0",
+      "bytes": 57813
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6070",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6070.html",
+      "file": "raw/detail-6070.html",
+      "sha256": "9954b2098fff5b329d0b7b5fb514a8e03bc31eb9320f731be23ff1feb09ff3f4",
+      "bytes": 59665
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6069",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6069.html",
+      "file": "raw/detail-6069.html",
+      "sha256": "ccc00cd0d3ed21106ab15b6f1a5c87deb37253c89a6eb4e15240251ec3e44cb9",
+      "bytes": 43055
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6068",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6068.html",
+      "file": "raw/detail-6068.html",
+      "sha256": "df2864cdac27560df500762e6260912ccf60bd4d5acf302224ac3cd885f5b1c6",
+      "bytes": 47454
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6067",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6067.html",
+      "file": "raw/detail-6067.html",
+      "sha256": "4eed5c4d345109288d6b6ffb56d8f339d6b6d59277f081cce83fd7bb7307a032",
+      "bytes": 66480
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6066",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6066.html",
+      "file": "raw/detail-6066.html",
+      "sha256": "5147fce5cdd01e36e1d19ecde14151bb6c84e6292678b55fd439951335d1bf65",
+      "bytes": 45577
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6062",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6062.html",
+      "file": "raw/detail-6062.html",
+      "sha256": "fbcd89b788faf293212ed22e26e616715b9fa0fe496afffb00d9ab8d05d35399",
+      "bytes": 58033
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6061",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6061.html",
+      "file": "raw/detail-6061.html",
+      "sha256": "e5515fe3168953e285034fca343695e9c6849b2f7ec3807c9b47c985bd7d706e",
+      "bytes": 64596
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6060",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6060.html",
+      "file": "raw/detail-6060.html",
+      "sha256": "1406d1f4360a06c871c50984d17d30858e9c4756947f4de6454be34d0e3ec907",
+      "bytes": 110534
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6021",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6021.html",
+      "file": "raw/detail-6021.html",
+      "sha256": "fd6ad3d4caa6374017428afa5de0b1d5267e626606f7cab21b013113bda05da6",
+      "bytes": 90472
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6020",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6020.html",
+      "file": "raw/detail-6020.html",
+      "sha256": "771f71ff0bcfb4226790f5b13e9afa1bb3922754bdfa5fd10d0bf0fbced0c265",
+      "bytes": 55231
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6019",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6019.html",
+      "file": "raw/detail-6019.html",
+      "sha256": "d8227358d5dab6fa1b4ec6734535ac8ca89fd6d7b6c8bdf2e8ac40b068f933c6",
+      "bytes": 68855
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6018",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6018.html",
+      "file": "raw/detail-6018.html",
+      "sha256": "6a2b36810c6f3cd4cf19483f6271ce1e8faca91ad6e5a8947623c9e23cdf3bf3",
+      "bytes": 75414
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6017",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6017.html",
+      "file": "raw/detail-6017.html",
+      "sha256": "884f8cfef8673f2c48bdc8ac31b5b2fc2ab11b6b92c775b801d0ef6980f5c2f2",
+      "bytes": 71161
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6016",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6016.html",
+      "file": "raw/detail-6016.html",
+      "sha256": "cf6718d31ac499a2dcd1a482440543dec865893ee219273dec474e895d3dde62",
+      "bytes": 81141
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6015",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6015.html",
+      "file": "raw/detail-6015.html",
+      "sha256": "60fa07a2aeca6b63197227a12806fc856be7d22bc63dc2f34cfaf0f64d10b97c",
+      "bytes": 55267
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6014",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6014.html",
+      "file": "raw/detail-6014.html",
+      "sha256": "5b246c0f9882dba5756cd0c7b01443868371ce8fc21dfb04228dcfda8969c075",
+      "bytes": 42765
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "6013",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-6013.html",
+      "file": "raw/detail-6013.html",
+      "sha256": "1aded56a00d6fa2ead86da4158a060f1c575a9c8723646a1f9d66b9f8fd67251",
+      "bytes": 162818
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5988",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5988.html",
+      "file": "raw/detail-5988.html",
+      "sha256": "5a514fbd61d29e02007f3dad8731933d31e2b9588755656bb7d0cf7e1ab98118",
+      "bytes": 48956
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5989",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5989.html",
+      "file": "raw/detail-5989.html",
+      "sha256": "9166f1e43262c9e4a94c2e8193a1e93c8eae7419f4348af70d6e8f0b2e2f421c",
+      "bytes": 32717
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5983",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5983.html",
+      "file": "raw/detail-5983.html",
+      "sha256": "61932ac871d5a4a1cbea15aecc0035e4ac3d45f6605dac20cd2e531c4c2d87b9",
+      "bytes": 51181
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5984",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5984.html",
+      "file": "raw/detail-5984.html",
+      "sha256": "eba0215ae8def4d57f6454d0fc3ad66b8fae159d207bbbfeb6768430185ae3d6",
+      "bytes": 61444
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5985",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5985.html",
+      "file": "raw/detail-5985.html",
+      "sha256": "4da311e3ed0b5afd20a10069a0027d2a5119fe4b12a0b0916662241f19a4c764",
+      "bytes": 72329
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5986",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5986.html",
+      "file": "raw/detail-5986.html",
+      "sha256": "e3411b85bde75d9bdbafef87afb417b6415956afef106ade29dcde4635c1198e",
+      "bytes": 54964
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5970",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5970.html",
+      "file": "raw/detail-5970.html",
+      "sha256": "1e938680840884afebd23c76b18fbd2fb4de8e7e461a5927f4673c49b73a2276",
+      "bytes": 72138
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5917",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5917.html",
+      "file": "raw/detail-5917.html",
+      "sha256": "c218cae330c5a909513243106c4a98a51a957c81bee1138243ce3717b8f47a21",
+      "bytes": 65993
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5918",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5918.html",
+      "file": "raw/detail-5918.html",
+      "sha256": "76a6e3ae46d505b483a249dc2f098ad2a4cc5221efea05e4777beb6c8803df4c",
+      "bytes": 51181
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5919",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5919.html",
+      "file": "raw/detail-5919.html",
+      "sha256": "63ba0b62e49f07457e20952f15995946200b7af91d1d67a057b94e5b877bfac8",
+      "bytes": 42985
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5920",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5920.html",
+      "file": "raw/detail-5920.html",
+      "sha256": "1421dcad620a7c3a8ed0d92586fc269f9147c15693a0661c17cb39a4c46936ef",
+      "bytes": 54958
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5894",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5894.html",
+      "file": "raw/detail-5894.html",
+      "sha256": "4151f1bdc17b23e54b42d56818ccc5e80bf472c0704ed4915d9baffaa0fa1594",
+      "bytes": 33370
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5895",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5895.html",
+      "file": "raw/detail-5895.html",
+      "sha256": "96fd85e7091b4c61feb80d98cc30847f3f4861a2bcbdff116aeb0572e4044575",
+      "bytes": 149078
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5896",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5896.html",
+      "file": "raw/detail-5896.html",
+      "sha256": "7fdd57ec379e98a0ab537ff125381d38570263701a9216d49bfa4e2b481fc764",
+      "bytes": 44065
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5897",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5897.html",
+      "file": "raw/detail-5897.html",
+      "sha256": "3e65bbe763729cc6d7d79d808d28bc111ef4713c15cf33e95c8f51cfdcf13071",
+      "bytes": 88305
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5882",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5882.html",
+      "file": "raw/detail-5882.html",
+      "sha256": "b522254853ad7d55c5c4826d6a8fb78af506474b1216139a3aa7e2f3a2aae250",
+      "bytes": 74283
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5883",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5883.html",
+      "file": "raw/detail-5883.html",
+      "sha256": "6cfd816475fa21f2f35fb6fe6e7078e9bf0483deb496d3c4da760cd8d17374f4",
+      "bytes": 102620
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5852",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5852.html",
+      "file": "raw/detail-5852.html",
+      "sha256": "3a646047f3bc75c640fc7d06601f20f78a524a1ce572568abccd24548c75fbfc",
+      "bytes": 44706
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5853",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5853.html",
+      "file": "raw/detail-5853.html",
+      "sha256": "856b67ef4be18a1aa5b92260bf2c36502ae513356123c59eb3c6bc3e26d0120f",
+      "bytes": 44769
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5831",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5831.html",
+      "file": "raw/detail-5831.html",
+      "sha256": "7361d2ef7d09592d0ae5f66dc6364ffc896e49cac361b74ad2eb6421516bfe27",
+      "bytes": 70372
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5830",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5830.html",
+      "file": "raw/detail-5830.html",
+      "sha256": "d28b00db695d83f1e0d1bfdc6140123cb6cdc34a4ec2a435a34227ace7b7fbfe",
+      "bytes": 99526
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5829",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5829.html",
+      "file": "raw/detail-5829.html",
+      "sha256": "57c2c257dbeb90ebe96611c5eede3dfb407ffb3471deb24f139db96e89544cc0",
+      "bytes": 46634
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5828",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5828.html",
+      "file": "raw/detail-5828.html",
+      "sha256": "748028414966dde780ab2c54f1965bc3388b12f240d15238f5230f0a9d957103",
+      "bytes": 61340
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5827",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5827.html",
+      "file": "raw/detail-5827.html",
+      "sha256": "2b9c120a8eb279f462c507c4e29312a72a3a6faddd06d461e3c7f1c7674ce110",
+      "bytes": 166559
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5826",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5826.html",
+      "file": "raw/detail-5826.html",
+      "sha256": "42445858c61a5a39f8a21b4b52eba8dc8720fbe3e656dc53e82fff36851af2dd",
+      "bytes": 52674
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5793",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5793.html",
+      "file": "raw/detail-5793.html",
+      "sha256": "3ca8ffda45fa8b0d28a97406597c41acd020005b5e0f2f909de72a47d692e73b",
+      "bytes": 38214
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5777",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5777.html",
+      "file": "raw/detail-5777.html",
+      "sha256": "a9e75d1a040f5e10f7ca85cff09fa26d16b841d4e05ed4978ddb9e407bc608c5",
+      "bytes": 50213
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5721",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5721.html",
+      "file": "raw/detail-5721.html",
+      "sha256": "be7891873d9b8864c8f2024dcc7150fc8cfd33ef1fa87623d52f70dc1b0d0b64",
+      "bytes": 109414
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5698",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5698.html",
+      "file": "raw/detail-5698.html",
+      "sha256": "f53a45efe29fe0a538442679aeb4a9d76da634f79156ac5653a58b965d748e13",
+      "bytes": 50189
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5697",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5697.html",
+      "file": "raw/detail-5697.html",
+      "sha256": "4e1428e4501db1a2724f46cbf647c84e815730386adbbee77c8f2f71a749b5b4",
+      "bytes": 104001
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5696",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5696.html",
+      "file": "raw/detail-5696.html",
+      "sha256": "6b72c56e1da886a4d27f7bf5d38191271f6006eefdbcf3af994f88a3e4d2787e",
+      "bytes": 72341
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5695",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5695.html",
+      "file": "raw/detail-5695.html",
+      "sha256": "abc2bcda426611017fa37bd787eedb05b715c348711eac3528103fdc1f6db824",
+      "bytes": 74836
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5535",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5535.html",
+      "file": "raw/detail-5535.html",
+      "sha256": "cc2d93699bb382b337fa439efd5651e4b66910373772eaa88aedfdbad5da76a9",
+      "bytes": 53660
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5534",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5534.html",
+      "file": "raw/detail-5534.html",
+      "sha256": "4da724d7767151feaee90f9daed17cb91958ee28c9d99563e85f5bf7c21fb583",
+      "bytes": 134858
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5530",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5530.html",
+      "file": "raw/detail-5530.html",
+      "sha256": "3575f58cecbd91d7493cc852e157b766d80875f4b9ac56aae39970b651a84774",
+      "bytes": 40145
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5502",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5502.html",
+      "file": "raw/detail-5502.html",
+      "sha256": "7d0550063ebfe4c29f8a6359fb3e4b03ceb0162b8f4772270460e81a57eed68f",
+      "bytes": 67172
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5503",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5503.html",
+      "file": "raw/detail-5503.html",
+      "sha256": "ae956a3bb428eab3ea9d8b8c692ae0d848ee760cd2bc6c01ad7fc936c39ff788",
+      "bytes": 45296
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5493",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5493.html",
+      "file": "raw/detail-5493.html",
+      "sha256": "945cdd4f892e25259617d511222334aa1c2fccc35ea9fb6d80610b7aa83226b7",
+      "bytes": 50888
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5491",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5491.html",
+      "file": "raw/detail-5491.html",
+      "sha256": "0e6bc270b0619ec2cac68f017d78cb84da9877101c35115d7966516cd31fc3d5",
+      "bytes": 62387
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5455",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5455.html",
+      "file": "raw/detail-5455.html",
+      "sha256": "57bd39e4e51fdd1464b4e57d5709aea2dc68b2358d7c4924ef0d751f23a8966e",
+      "bytes": 74589
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5434",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5434.html",
+      "file": "raw/detail-5434.html",
+      "sha256": "ae9f13b6a0c367420207272e2a120b588e2b011ae7d158b2aa3be25540d55e3a",
+      "bytes": 45179
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5433",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5433.html",
+      "file": "raw/detail-5433.html",
+      "sha256": "157e82dce541c46c701c2bfc87ddf07e25ee548d82b22a36974a115006991147",
+      "bytes": 83921
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5431",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5431.html",
+      "file": "raw/detail-5431.html",
+      "sha256": "8d014cee81edd894a4ad0134c293940c206965950c38708f535263939e64a0d4",
+      "bytes": 58173
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5430",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5430.html",
+      "file": "raw/detail-5430.html",
+      "sha256": "d77fbb9d400e8428b2e606a2cbd2a1636b08258036723c57457dd938c6496116",
+      "bytes": 142649
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5417",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5417.html",
+      "file": "raw/detail-5417.html",
+      "sha256": "2ec6654d9eeb48bef780f5a4790e338c6adda4acb8de595b4b6be0d3a5494b55",
+      "bytes": 52080
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5343",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5343.html",
+      "file": "raw/detail-5343.html",
+      "sha256": "62331a019d58659f52d065281c472ff12e871a6aec80f0f8653bb688f66fe9d7",
+      "bytes": 83430
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5342",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5342.html",
+      "file": "raw/detail-5342.html",
+      "sha256": "9d65d7d48d4b8197ae9bf7d6ff374de5a5fdf27fdd37fd8a300ea72d02c7f14b",
+      "bytes": 89984
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5341",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5341.html",
+      "file": "raw/detail-5341.html",
+      "sha256": "4e3941350eb595b113d93a25bf1355ad85099a2114c74756a2e49c0d121616a6",
+      "bytes": 51311
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5255",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5255.html",
+      "file": "raw/detail-5255.html",
+      "sha256": "833bace7692d370769615f5fc18fcd60a7d564686aa1f5a490a9cc2240c94a78",
+      "bytes": 116933
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5253",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5253.html",
+      "file": "raw/detail-5253.html",
+      "sha256": "b94531316371b4197075eb93d95ee7662f3e7bcc61aebb89a7d208319032c7a8",
+      "bytes": 156124
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5252",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5252.html",
+      "file": "raw/detail-5252.html",
+      "sha256": "484f120739e8c1b533870c5b954f473874d6c23e6d58a205cdd93da4d1811b89",
+      "bytes": 39484
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5251",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5251.html",
+      "file": "raw/detail-5251.html",
+      "sha256": "a0cd26040ee7be6110276632a605ad2b72110b6d80d9d156564c544f3252e5f8",
+      "bytes": 85244
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5250",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5250.html",
+      "file": "raw/detail-5250.html",
+      "sha256": "ce45395608eb4c2447aa346ae92243b21d961c87ded26562a630df919f8b814c",
+      "bytes": 67663
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5249",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5249.html",
+      "file": "raw/detail-5249.html",
+      "sha256": "35abae7ac6cd8d06f44567b9c9478dc0a4bfb52cdd5a9270135036e67e8c7889",
+      "bytes": 71036
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5236",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5236.html",
+      "file": "raw/detail-5236.html",
+      "sha256": "28ea214d01499ac74f8a6f315f95b970c310e51a145e2ba01b898d21efc8f589",
+      "bytes": 68085
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5174",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5174.html",
+      "file": "raw/detail-5174.html",
+      "sha256": "ae22f8aa89b3a5407b231c350c85388d0225c93d2b7f9186ec2de801888f1827",
+      "bytes": 41424
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5124",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5124.html",
+      "file": "raw/detail-5124.html",
+      "sha256": "44c3fbe6dfcce606351c3eb1ea0dfd356cf88c3e23e44ab00436aba759c50230",
+      "bytes": 89394
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5123",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5123.html",
+      "file": "raw/detail-5123.html",
+      "sha256": "1f11e1b8f0062d831540207f8ca8e5bb5ce206a670f68a7b5de07881638dae9e",
+      "bytes": 52505
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5122",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5122.html",
+      "file": "raw/detail-5122.html",
+      "sha256": "1d33f53cf728d731510beb126fdd7c49b37c48a5ab048278bfbf14c87441db6e",
+      "bytes": 64757
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5121",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5121.html",
+      "file": "raw/detail-5121.html",
+      "sha256": "200c50dfa239f8fc26d0eb32b552dbeb58d737a7b15aa5c7130ff7c840967cb8",
+      "bytes": 37520
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5068",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5068.html",
+      "file": "raw/detail-5068.html",
+      "sha256": "e679572b39d54bbedc408d286cf0ad3517624bcae069070a47d6cd69ba22c75e",
+      "bytes": 57882
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5045",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5045.html",
+      "file": "raw/detail-5045.html",
+      "sha256": "c784cc36a0a77ab7536b35696b7b606c612bfe484c73b2b87196ac15203e7f81",
+      "bytes": 86231
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5026",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5026.html",
+      "file": "raw/detail-5026.html",
+      "sha256": "1a7254e1bef63bbf6360ee8a6d69f5f88561ccbab6fd22e22a5a5369c6e86d97",
+      "bytes": 65626
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4931",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4931.html",
+      "file": "raw/detail-4931.html",
+      "sha256": "a549097ee7e14a6aa328e9e71bfb16d0f14f429fd2e358156702ec20079eed32",
+      "bytes": 42825
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4830",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4830.html",
+      "file": "raw/detail-4830.html",
+      "sha256": "d547b86a3106b4eb57f741b8e96122917275aaa1278eb713f382d5ed6fc86db2",
+      "bytes": 36413
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4774",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4774.html",
+      "file": "raw/detail-4774.html",
+      "sha256": "41f6bc9a470015efd1b969c7249429a82081fa0040a4d77b7244d5cd763058a4",
+      "bytes": 42883
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "5115",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-5115.html",
+      "file": "raw/detail-5115.html",
+      "sha256": "5b02a2eed2610fc4a069f6e33dd542f12d218926ef5fe7347c78afe3724a648e",
+      "bytes": 146354
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4715",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4715.html",
+      "file": "raw/detail-4715.html",
+      "sha256": "c4824e8a5d2c9238fa018fc76066b04160bc4645630f5f84ae1830af877a41bf",
+      "bytes": 258700
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4714",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4714.html",
+      "file": "raw/detail-4714.html",
+      "sha256": "06e988415b691ac95aafdc9b976fd8474e0d6ca0d7b8e63da47c4c14472a4fa3",
+      "bytes": 51020
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4664",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4664.html",
+      "file": "raw/detail-4664.html",
+      "sha256": "6cf619e3b482428f472ea01a5a91ed1e02316108a48425405dc4d4704af4ebaf",
+      "bytes": 79278
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4663",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4663.html",
+      "file": "raw/detail-4663.html",
+      "sha256": "6d3a4d2aa17cf30bb9e7f3cd9bbea689215382ec3bc772d477d6dbfe31db0ecc",
+      "bytes": 83134
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4662",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4662.html",
+      "file": "raw/detail-4662.html",
+      "sha256": "454f3249b755d2a52dcf0df2db2b82bbddd8c63a036be1af6cd0bf698de492c5",
+      "bytes": 39971
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4661",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4661.html",
+      "file": "raw/detail-4661.html",
+      "sha256": "dafe4b0f9082cb89cde7a216d4c3f3e3dda250fa8e1d5418368ee97f5b76e1ab",
+      "bytes": 41424
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4660",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4660.html",
+      "file": "raw/detail-4660.html",
+      "sha256": "a4f9f26fb59c6f992a6a70669168674b705dc3fcf77b0ff1cf6ab4cc40312eb6",
+      "bytes": 42759
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4659",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4659.html",
+      "file": "raw/detail-4659.html",
+      "sha256": "72167f46aab1437271b366c83c2f6931e71608069ba6f873e4dca7f2085780d9",
+      "bytes": 70865
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4658",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4658.html",
+      "file": "raw/detail-4658.html",
+      "sha256": "1663ba310a1baecd31837b5a6569c3f9dc1b0bbd7ae8781c9f3bf8f77e541fd5",
+      "bytes": 198060
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4657",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4657.html",
+      "file": "raw/detail-4657.html",
+      "sha256": "d875d4a3030d8e18b8f2ff225f772de8b0240996ac59f89d2adc0abb431d35cb",
+      "bytes": 148661
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4656",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4656.html",
+      "file": "raw/detail-4656.html",
+      "sha256": "650d5348c449e70516205d6f30b431e3e066707cd8c77f551b44856811e9a246",
+      "bytes": 58983
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4655",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4655.html",
+      "file": "raw/detail-4655.html",
+      "sha256": "85fb6247b56a5e1d8c7ec6624fcdb8bb40fad01571d8f5813c900678328484d4",
+      "bytes": 45452
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4654",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4654.html",
+      "file": "raw/detail-4654.html",
+      "sha256": "2f7fe9c13a14e923a67782013c1d23f29dc7a5e39ece0dc7b41cba6a383d946c",
+      "bytes": 58953
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4653",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4653.html",
+      "file": "raw/detail-4653.html",
+      "sha256": "0c050cb28955f30d54f3995f2f3e46cf18602cd93a5baa7eab581cee334959e2",
+      "bytes": 90178
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "4652",
+      "url": "https://ipc.court.gov.cn/zh-cn/news/view-4652.html",
+      "file": "raw/detail-4652.html",
+      "sha256": "3d99a19ec0685ed884af58a6e625b081bd6229ae6b63d4d743cf70d036cd24b3",
+      "bytes": 58618
+    }
+  ],
+  "fieldCoverage": {
+    "available": [
+      "docketNumber",
+      "title",
+      "caseType when explicit",
+      "intellectualPropertyType when explicit",
+      "institution",
+      "sourcePublishedAt",
+      "source full text",
+      "sourceRef"
+    ],
+    "unavailableUnlessExplicitlyParsed": [
+      "procedure",
+      "hearingDate",
+      "decisionDate",
+      "outcomeExcerpt",
+      "reviewedAnnotations"
+    ]
+  },
+  "limitations": [
+    "Website publication time is preserved as sourcePublishedAt and is not treated as the hearing or decision date.",
+    "Document and IP type are populated only when explicit source-text keywords are present.",
+    "No facts, issues, holdings, legal citations, outcomes, or expert annotations are generated.",
+    "Public pages do not establish permission for production redistribution, indexing, or external-model processing; legal/data-use review remains required."
+  ]
+}

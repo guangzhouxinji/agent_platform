@@ -1,0 +1,930 @@
+[
+  {
+    "sourceRecordId": "PUBLIC-PAT-001",
+    "publicationNumber": "CN115481234A",
+    "applicationNumber": "CN202211312098A",
+    "title": "基于 Elasticsearch 的专利检索统计引擎",
+    "applicants": [
+      "SHAANXI RONGSHENG INTELLECTUAL PROPERTY PLATFORM CO LTD"
+    ],
+    "inventors": [
+      "LEE KUOLA"
+    ],
+    "applicationDate": "2022-10-25",
+    "publicationDate": "2022-12-16",
+    "ipc": [
+      "G06F16/33",
+      "G06F16/35",
+      "G06F16/31",
+      "G06F16/332",
+      "G06F40/216",
+      "G06F40/253",
+      "G06F40/279",
+      "G06F40/30"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN115481234A",
+    "abstract": "机器摘要：定义标准请求和响应，将请求转换为 Elasticsearch 查询，支持复杂条件检索、多维统计、文献去重合并和异步检索。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-002",
+    "publicationNumber": "CN117591681A",
+    "applicationNumber": "CN202311556869A",
+    "title": "基于知识图谱的专利检索方法及系统",
+    "applicants": [
+      "SHENZHEN INST OF ADV TECH CAS"
+    ],
+    "inventors": [
+      "BAI YUELIN",
+      "YANG MIN"
+    ],
+    "applicationDate": "2023-11-20",
+    "publicationDate": "2024-02-23",
+    "ipc": [
+      "G06F16/33",
+      "G06F16/35",
+      "G06F16/36",
+      "G06F16/38"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN117591681A",
+    "abstract": "机器摘要：构建专利知识图谱并训练检索模型，对候选专利重排后返回，以知识图谱信息辅助检索和分析。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-003",
+    "publicationNumber": "CN110147438A",
+    "applicationNumber": "CN201710951357A",
+    "title": "专利检索方法",
+    "applicants": [
+      "NANJING CHANGYUAN INFORMATION TECH CO LTD"
+    ],
+    "inventors": [
+      "PENG YAN",
+      "HUANG HONGHUA",
+      "ZHOU YUJIE"
+    ],
+    "applicationDate": "2017-10-13",
+    "publicationDate": "2019-08-20",
+    "ipc": [
+      "G06F16/335",
+      "G06F16/338",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN110147438A",
+    "abstract": "机器摘要：对预设的关联检索条件定期后台检索；用户发起请求时可直接返回后台结果，以缩短等待时间。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-004",
+    "publicationNumber": "CN121388143A",
+    "applicationNumber": "CN202511829444A",
+    "title": "专利检索多智能体系统的构建方法",
+    "applicants": [
+      "BEIJING XINGHE ZHIYUAN TECH CO LTD"
+    ],
+    "inventors": [
+      "XU QINGWEI",
+      "DU YINCHEN",
+      "FAN EMEI",
+      "PEI FEI",
+      "YAN CHANGCHUN"
+    ],
+    "applicationDate": "2025-12-05",
+    "publicationDate": "2026-01-23",
+    "ipc": [
+      "G06F16/334",
+      "G06F16/338",
+      "G06N3/092",
+      "G06N5/04"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN121388143A",
+    "abstract": "机器摘要：基于开源基础模型组建检索、深度分析、新颖性判断、报告和调度等智能体，使用各自训练语料协同生成检索结果。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-005",
+    "publicationNumber": "CN102117274A",
+    "applicationNumber": "CN200910216835A",
+    "title": "专利检索方法及系统",
+    "applicants": [
+      "XIAOMEI PAN"
+    ],
+    "inventors": [
+      "XIAOMEI PAN"
+    ],
+    "applicationDate": "2009-12-31",
+    "publicationDate": "2011-07-06",
+    "ipc": [
+      "G06F17/30"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN102117274A",
+    "abstract": "机器摘要：预先设置检索条件并定期在后台执行；收到请求后优先提供已完成的后台检索结果。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-006",
+    "publicationNumber": "CN115658748A",
+    "applicationNumber": "CN202211301262A",
+    "title": "支持图形点击交互界面的专利检索方法及装置",
+    "applicants": [
+      "BEIJING ZHONGZHI ZHIHUI TECH CO LTD"
+    ],
+    "inventors": [
+      "ZHANG QIUYI",
+      "LI CHENG",
+      "ZHU XINYU",
+      "WANG HONGJI",
+      "LIU QI"
+    ],
+    "applicationDate": "2022-10-24",
+    "publicationDate": "2023-01-31",
+    "ipc": [
+      "G06F16/2457",
+      "G06F16/248",
+      "G06F16/28",
+      "G06F9/451"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN115658748A",
+    "abstract": "机器摘要：以图表表达筛选项和筛选值，用户点击图表区块后生成检索条件并查询专利库，实现可视化检索。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-007",
+    "publicationNumber": "CN104504046A",
+    "applicationNumber": "CN201410787225A",
+    "title": "专利检索系统及专利检索方法",
+    "applicants": [
+      "JIANGSU RAINPAT DATA SERVICE CO LTD"
+    ],
+    "inventors": [
+      "SONG GUOHUA",
+      "GAO PEIHUAN",
+      "LIU FENG"
+    ],
+    "applicationDate": "2014-12-17",
+    "publicationDate": "2015-04-08",
+    "ipc": [
+      "G06F17/30"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN104504046A",
+    "abstract": "机器摘要：提供简单、高级和表达式检索模式，支持输入检索词、选择呈现方式及二次筛选以调整检索精度。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-008",
+    "publicationNumber": "CN116361300A",
+    "applicationNumber": "CN202111630837A",
+    "title": "基于大数据实时更新的专利检索数据库",
+    "applicants": [
+      "TIANJIN ALPHA SOFTWARE TECH CO LTD"
+    ],
+    "inventors": [
+      "MA GUSHEN"
+    ],
+    "applicationDate": "2021-12-28",
+    "publicationDate": "2023-06-30",
+    "ipc": [
+      "G06F16/22",
+      "G06F16/23"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN116361300A",
+    "abstract": "机器摘要：由检索库和数据服务器组成，结合本地与网络专利文件，并定期、实时更新本地存储内容。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-009",
+    "publicationNumber": "CN105426369A",
+    "applicationNumber": "CN201410446871A",
+    "title": "用于专利检索的语义解码方法",
+    "applicants": [
+      "SHANGHAI YAOBO INFORMATION TECH CO LTD"
+    ],
+    "inventors": [
+      "YAO WANGPING"
+    ],
+    "applicationDate": "2014-09-04",
+    "publicationDate": "2016-03-23",
+    "ipc": [
+      "G06F17/30"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN105426369A",
+    "abstract": "机器摘要：前端输入专利检索关键词，后端检索模块和语义库处理数据；检索结果可形成链表并导出。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-010",
+    "publicationNumber": "CN115357795A",
+    "applicationNumber": "CN202211030662A",
+    "title": "专利检索方法、装置、计算机设备及存储介质",
+    "applicants": [
+      "WEIZHENG INTELLECTUAL PROPERTY TECH CO LTD"
+    ],
+    "inventors": [
+      "ZHANG XIAONING",
+      "HONG YAN",
+      "HAN AIZHEN"
+    ],
+    "applicationDate": "2022-08-26",
+    "publicationDate": "2022-11-18",
+    "ipc": [
+      "G06F16/9535",
+      "G06F40/151",
+      "G06F40/279",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN115357795A",
+    "abstract": "机器摘要：根据输入数据格式自动生成检索式，在专利库检索后利用 NLP 将技术性较强的原始专利转化为易理解的表述。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-011",
+    "publicationNumber": "CN115878760A",
+    "applicationNumber": "CN202310147690A",
+    "title": "基于图匹配的跨语言专利检索方法及系统",
+    "applicants": [
+      "BEIJING ZHIGUAGUA TECH SERVICE CO LTD",
+      "ZHIGUAGUA TIANJIN BIG DATA TECH CO LTD"
+    ],
+    "inventors": [
+      "XU QINGWEI",
+      "YAN CHANGCHUN",
+      "PEI FEI",
+      "FAN EMEI",
+      "CAI MINGRUI"
+    ],
+    "applicationDate": "2023-02-10",
+    "publicationDate": "2023-03-31",
+    "ipc": [
+      "G06F16/33",
+      "G06F16/901",
+      "G06F40/194",
+      "G06F40/216",
+      "G06F40/253",
+      "G06F40/289",
+      "G06F40/30",
+      "G06N3/0455",
+      "G06N3/048",
+      "G06N3/08",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN115878760A",
+    "abstract": "机器摘要：基于不同语言专利文本的章节、段落和文本片段构图，结合图注意力与最优传输算法进行跨语言图匹配检索。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-012",
+    "publicationNumber": "CN110569273A",
+    "applicationNumber": "CN201910682137A",
+    "title": "基于关联排序的专利检索系统及方法",
+    "applicants": [
+      "UNIV NANJING POSTS & TELECOMMUNICATIONS",
+      "NUPT INSTITUTE OF BIG DATA RES AT YANCHENG"
+    ],
+    "inventors": [
+      "ZHU ZIWEI",
+      "LIU ZHENG",
+      "XIA BIN",
+      "XU WEIKANG"
+    ],
+    "applicationDate": "2019-07-26",
+    "publicationDate": "2019-12-13",
+    "ipc": [
+      "G06F16/2458",
+      "G06F16/28",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN110569273A",
+    "abstract": "机器摘要：建立搜索引擎和关系库，先粗粒度召回再按关联性排序，并可聚合统计机构或地区的公开、授权情况。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-013",
+    "publicationNumber": "CN115587162A",
+    "applicationNumber": "CN202211201513A",
+    "title": "将专利检索表达式转换为搜索引擎查询语句的方法",
+    "applicants": [
+      "SHAANXI RONGSHENG INTELLECTUAL PROPERTY PLATFORM CO LTD"
+    ],
+    "inventors": [
+      "LEE KUOLA"
+    ],
+    "applicationDate": "2022-09-29",
+    "publicationDate": "2023-01-10",
+    "ipc": [
+      "G06F16/33",
+      "G06F40/253",
+      "G06F40/289"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN115587162A",
+    "abstract": "机器摘要：将专利检索表达式分词、解析为标准语法节点和语法树，再转换为目标搜索引擎查询语句，适配异构数据和不同引擎。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-014",
+    "publicationNumber": "CN114090876A",
+    "applicationNumber": "CN202111288650A",
+    "title": "专利检索系统及其检索方法",
+    "applicants": [
+      "SHANGHAI XIANGQING INTELLECTUAL PROPERTY AGENCY CO LTD"
+    ],
+    "inventors": [
+      "ZHU KAIMIN"
+    ],
+    "applicationDate": "2021-11-02",
+    "publicationDate": "2022-02-25",
+    "ipc": [
+      "G06F16/532",
+      "G06F16/55",
+      "G06F16/9532",
+      "G06F16/9535",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN114090876A",
+    "abstract": "机器摘要：系统包含文字和图片输入、已公开文献记录及对比分析模块；按输入特征检索数据库和外部链接后进行筛选与评价。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-015",
+    "publicationNumber": "CN105138643A",
+    "applicationNumber": "CN201510526898A",
+    "title": "专利检索系统及其检索方法",
+    "applicants": [
+      "CHANGSHA LUZHI INFORMATION TECHNOLOGY CO LTD"
+    ],
+    "inventors": [
+      "THE INVENTOR HAS WAIVED THE RIGHT TO BE MENTIONED"
+    ],
+    "applicationDate": "2015-08-25",
+    "publicationDate": "2015-12-09",
+    "ipc": [
+      "G06F17/30"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN105138643A",
+    "abstract": "机器摘要：提供产品、方法、综合和说明项等检索模式，支持输入检索词、选择展示或二次筛选，以控制检索范围和精度。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-016",
+    "publicationNumber": "CN114996532A",
+    "applicationNumber": "CN202210558919A",
+    "title": "专利检索方法、装置、计算机设备及存储介质",
+    "applicants": [
+      "QIZHIDAO NETWORK TECHNOLOGY CO LTD"
+    ],
+    "inventors": [
+      "WANG YING"
+    ],
+    "applicationDate": "2022-05-21",
+    "publicationDate": "2022-09-02",
+    "ipc": [
+      "G06F16/903"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN114996532A",
+    "abstract": "机器摘要：先按输入从专利池检索，再以用户选中的专利为依据迭代产生新的检索结果。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-017",
+    "publicationNumber": "CN117407487A",
+    "applicationNumber": "CN202311343703A",
+    "title": "用于专利检索的相似性分析方法及系统",
+    "applicants": [
+      "SHENZHEN YIQUNREN ELECTRONIC NETWORK CO LTD"
+    ],
+    "inventors": [
+      "HE KUI",
+      "CHEN WEI",
+      "XIANG YUANZHOU"
+    ],
+    "applicationDate": "2023-10-17",
+    "publicationDate": "2024-01-16",
+    "ipc": [
+      "G06F16/33",
+      "G06F16/35",
+      "G06F18/22"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN117407487A",
+    "abstract": "机器摘要：按技术领域召回候选，从目标专利提取技术问题和技术方案两类关键词，分别计算相似度、阈值分级并排序。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-018",
+    "publicationNumber": "CN118296102A",
+    "applicationNumber": "CN202410365115A",
+    "title": "多阶段专利检索模型训练方法及系统",
+    "applicants": [
+      "SHENZHEN INST OF ADV TECH CAS"
+    ],
+    "inventors": [
+      "BAI YUELIN",
+      "YANG MIN"
+    ],
+    "applicationDate": "2024-03-28",
+    "publicationDate": "2024-07-05",
+    "ipc": [
+      "G06F16/33",
+      "G06F40/30",
+      "G06N3/045",
+      "G06N3/0455",
+      "G06N3/09"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN118296102A",
+    "abstract": "机器摘要：先预训练编码器-解码器模型，再用对比学习微调检索任务；提取文本特征并经重排模型计算查询专利和候选专利的特征相似度。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-019",
+    "publicationNumber": "CN116303873A",
+    "applicationNumber": "CN202111484652A",
+    "title": "专利检索系统及方法",
+    "applicants": [
+      "KE KE LABORATORY CO LTD"
+    ],
+    "inventors": [
+      "LU SHIJUN",
+      "LIN SHIHONG",
+      "LIN SHENG-FU"
+    ],
+    "applicationDate": "2021-12-07",
+    "publicationDate": "2023-06-23",
+    "ipc": [
+      "G06F16/33",
+      "G06F40/216",
+      "G06F40/295"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN116303873A",
+    "abstract": "机器摘要：服务器根据初始检索条件返回候选；用户选中某文献后提取关键词，生成包含该关键词的新条件继续检索。",
+    "abstractState": "PARTIAL",
+    "topic": "专利检索"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-020",
+    "publicationNumber": "CN117076952A",
+    "applicationNumber": "CN202311149713A",
+    "title": "专利相似度预测模型构建方法、装置及专利相似度预测方法、装置",
+    "applicants": [
+      "CHAOMU TECH BEIJING CO LTD"
+    ],
+    "inventors": [
+      "WANG LEJIN",
+      "XIAO ZHEN",
+      "WANG TIANFANG",
+      "SHEN PENGFEI",
+      "ZHANG XUBIN",
+      "WANG DUO"
+    ],
+    "applicationDate": "2023-09-07",
+    "publicationDate": "2023-11-17",
+    "ipc": [
+      "G06F18/22",
+      "G06N3/0464",
+      "G06N3/08",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN117076952A",
+    "abstract": "机器摘要：以已知相似度的专利公开文本与比对文件构建训练集，训练神经网络输出相似度预测分数，用于辅助判断二者关联度。",
+    "abstractState": "PARTIAL",
+    "topic": "专利相似度"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-021",
+    "publicationNumber": "CN109684630A",
+    "applicationNumber": "CN201811480412A",
+    "title": "专利相似度对比分析方法",
+    "applicants": [
+      "UNIV NANJING POSTS & TELECOMMUNICATIONS"
+    ],
+    "inventors": [
+      "WANG YUNXIAO",
+      "QIN TINGTING",
+      "LIU ZHENG"
+    ],
+    "applicationDate": "2018-12-05",
+    "publicationDate": "2019-04-26",
+    "ipc": [
+      "G06F17/27",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN109684630A",
+    "abstract": "机器摘要：通过自然语言处理建立语义依存树，提取技术特征并建立重要性评分和特征-文献二部图，计算相似度并支持一对多比对分析。",
+    "abstractState": "PARTIAL",
+    "topic": "专利相似度"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-022",
+    "publicationNumber": "CN120492950A",
+    "applicationNumber": "CN202510575624A",
+    "title": "基于 CPC 分类的专利相似度判断方法",
+    "applicants": [
+      "UNIV NANJING POSTS & TELECOMMUNICATIONS"
+    ],
+    "inventors": [
+      "RUI BIN",
+      "XIA BIN"
+    ],
+    "applicationDate": "2025-05-06",
+    "publicationDate": "2025-08-15",
+    "ipc": [
+      "G06F16/31",
+      "G06F16/334",
+      "G06F16/353",
+      "G06F18/22",
+      "G06F18/241",
+      "G06F40/295",
+      "G06N3/042",
+      "G06N3/084"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN120492950A",
+    "abstract": "机器摘要：基于 CPC 分类构建多分类任务，抽取专利实体并用图神经网络学习节点关系；结合权利要求的层级与依存结构进行专利相似度判断。",
+    "abstractState": "PARTIAL",
+    "topic": "专利相似度"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-023",
+    "publicationNumber": "CN113821646A",
+    "applicationNumber": "CN202111372547A",
+    "title": "基于语义检索的智能专利相似度检索方法及装置",
+    "applicants": [
+      "DAERGUAN TECH BEIJING CO LTD"
+    ],
+    "inventors": [
+      "XU HUAWEI",
+      "XU HONG",
+      "ZAN YUNFEI",
+      "CHEN YUNWEN",
+      "JI DAQI",
+      "WANG BAIHAN"
+    ],
+    "applicationDate": "2021-11-19",
+    "publicationDate": "2021-12-21",
+    "ipc": [
+      "G06F16/33",
+      "G06F16/36",
+      "G06F40/194",
+      "G06F40/247",
+      "G06F40/289",
+      "G06F40/30",
+      "G06K9/62"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN113821646A",
+    "abstract": "机器摘要：对目标专利文本分词并扩展同义词，构造 Elasticsearch 查询召回候选，再按与目标专利的余弦相似度排序；同义词模型可随增量数据优化。",
+    "abstractState": "PARTIAL",
+    "topic": "专利相似度"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-024",
+    "publicationNumber": "CN104731810A",
+    "applicationNumber": "CN201310716690A",
+    "title": "专利检索相似度排序方法",
+    "applicants": [
+      "SHANGHAI BINGFEI SOFTWARE CO LTD"
+    ],
+    "inventors": [
+      "YAO XIAOBING"
+    ],
+    "applicationDate": "2013-12-20",
+    "publicationDate": "2015-06-24",
+    "ipc": [
+      "G06F17/30"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN104731810A",
+    "abstract": "机器摘要：接收并分析一个或多个检索关键词，从数据库返回相关专利，计算专利两两相似度并按相似度降序排列。",
+    "abstractState": "PARTIAL",
+    "topic": "专利相似度"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-025",
+    "publicationNumber": "CN119397288A",
+    "applicationNumber": "CN202411408542A",
+    "title": "基于对比学习的外观设计专利相似度判定方法及终端设备",
+    "applicants": [
+      "RESEARCH INSTITUTE OF SUN YAT SEN UNIV IN SHENZHEN",
+      "UNIV SUN YAT SEN"
+    ],
+    "inventors": [
+      "CHEN XIAOYAN",
+      "LIU YU",
+      "ZHANG YI",
+      "ZHOU FAN",
+      "XUE KAIJUN"
+    ],
+    "applicationDate": "2024-10-10",
+    "publicationDate": "2025-02-07",
+    "ipc": [
+      "G06F18/22",
+      "G06N3/0464",
+      "G06N3/0895",
+      "G06Q50/18",
+      "G06V10/74",
+      "G06V10/82",
+      "G06V30/422"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN119397288A",
+    "abstract": "机器摘要：针对两件外观设计专利，综合分类号、名称和各产品视图的匹配相似度，按预先学习的视图权重得到总体相似度。",
+    "abstractState": "PARTIAL",
+    "topic": "专利相似度"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-026",
+    "publicationNumber": "CN117370648A",
+    "applicationNumber": "CN202311257644A",
+    "title": "基于 Transform 编码器和正则化策略的专利推荐方法",
+    "applicants": [
+      "QILU UNIV OF TECHNOLOGY SHANDONG ACADEMY OF SCIENCES",
+      "SHANDONG COMPUTER SCIENCE CT NAT SUPERCOMPUTER CT JINAN"
+    ],
+    "inventors": [
+      "DING QINGYAN",
+      "ZHENG WAN",
+      "LI NA",
+      "PAN YU",
+      "DONG XUECHENG"
+    ],
+    "applicationDate": "2023-09-26",
+    "publicationDate": "2024-01-09",
+    "ipc": [
+      "G06F16/33",
+      "G06F40/289",
+      "G06F16/335",
+      "G06F16/9535",
+      "G06F18/22",
+      "G06F18/2431",
+      "G06F40/211",
+      "G06N3/0455",
+      "G06N3/08",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN117370648A",
+    "abstract": "机器摘要：按检索文本构建和分类专利数据集，对检索文本与专利文本预处理；使用 Transformer 编码器及正则化策略分别处理词、句粒度结果并线性加权推荐。",
+    "abstractState": "PARTIAL",
+    "topic": "专利相似度"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-027",
+    "publicationNumber": "CN116795789A",
+    "applicationNumber": "CN202311070189A",
+    "title": "专利检索报告自动生成方法及装置",
+    "applicants": [
+      "ASPIRE INFORMATION TECH BEIJING LIMITED"
+    ],
+    "inventors": [
+      "LI XIAOLEI"
+    ],
+    "applicationDate": "2023-08-24",
+    "publicationDate": "2023-09-22",
+    "ipc": [
+      "G06F16/14",
+      "G06N3/0442",
+      "G06N3/0464",
+      "G06N3/048",
+      "G06N3/08"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN116795789A",
+    "abstract": "机器摘要：提取比对文件文本并切分为不同粒度的信息单元，输入预训练对比分析模型后，将分析结果、方案信息和比对文件填入报告模板生成检索报告。",
+    "abstractState": "PARTIAL",
+    "topic": "专利比对"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-028",
+    "publicationNumber": "CN119760388A",
+    "applicationNumber": "CN202411626855A",
+    "title": "基于人工智能的专利分析方法、系统、设备及存储介质",
+    "applicants": [
+      "SHENZHEN HUAXIA TAIHE INTELLECTUAL PROPERTY CO LTD"
+    ],
+    "inventors": [
+      "LI BIN",
+      "WANG WENHUI",
+      "ZHANG XIAOTONG",
+      "ZUO HUAN",
+      "XIAO JUNJIE"
+    ],
+    "applicationDate": "2024-11-14",
+    "publicationDate": "2025-04-04",
+    "ipc": [
+      "G06F18/213",
+      "G06F18/2431",
+      "G06F18/25",
+      "G06N20/00"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN119760388A",
+    "abstract": "机器摘要：从专利文本提取技术领域、特征和问题；通过三类评分模型获得生命周期、关联专利数和基于比对文件的稳定性分析，再融合输出分析结果。",
+    "abstractState": "PARTIAL",
+    "topic": "专利比对"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-029",
+    "publicationNumber": "CN109903198A",
+    "applicationNumber": "CN201910067706A",
+    "title": "专利对比分析方法",
+    "applicants": [
+      "UNIV NANJING POSTS & TELECOMMUNICATIONS"
+    ],
+    "inventors": [
+      "WANG YUNXIAO",
+      "QIN TINGTING",
+      "LIU ZHENG"
+    ],
+    "applicationDate": "2019-01-24",
+    "publicationDate": "2019-06-18",
+    "ipc": [
+      "G06F16/33",
+      "G06F16/953",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN109903198A",
+    "abstract": "机器摘要：对专利文献分词建立候选短语集，提取重要短语并计算其与目标、比对专利的相似度和差异度，输出相似和差异短语集。",
+    "abstractState": "PARTIAL",
+    "topic": "专利比对"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-030",
+    "publicationNumber": "CN110852921A",
+    "applicationNumber": "CN201911074651A",
+    "title": "知识产权保护系统",
+    "applicants": [
+      "JIANGXI YUFUBAO INTERNET TECH CO LTD"
+    ],
+    "inventors": [
+      "QIU DANGUANG"
+    ],
+    "applicationDate": "2019-11-06",
+    "publicationDate": "2020-02-28",
+    "ipc": [
+      "G06F16/35",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN110852921A",
+    "abstract": "机器摘要：系统包含信息分类、系统与人工复核、咨询、取证、维权和跟踪模块，并以版权、专利、图像文件比对辅助初审；不代表本项目已实现这些能力。",
+    "abstractState": "PARTIAL",
+    "topic": "专利比对"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-031",
+    "publicationNumber": "CN112667917A",
+    "applicationNumber": "CN201910980382A",
+    "title": "目标专利比对文件检索方法、服务器及终端",
+    "applicants": [
+      "QINGDAO CHENGERHUI TECH SERVICE CO LTD"
+    ],
+    "inventors": [
+      "ZHANG RUIHUA",
+      "XUE REN"
+    ],
+    "applicationDate": "2019-10-15",
+    "publicationDate": "2021-04-16",
+    "ipc": [
+      "G06F16/9536",
+      "G06Q10/06",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN112667917A",
+    "abstract": "机器摘要：面向专利无效技术领域，根据目标专利至少一个权利技术特征组合检索比对文件，并向客户端分发疑似比对文件信息。",
+    "abstractState": "PARTIAL",
+    "topic": "专利比对"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-032",
+    "publicationNumber": "CN110046243A",
+    "applicationNumber": "CN201910328109A",
+    "title": "基于大数据的专利个性化检索与分析系统",
+    "applicants": [
+      "BEIJING HENGGUAN NETWORK DATA PROC CO LTD"
+    ],
+    "inventors": [
+      "ZHANG FANGKUN",
+      "XIA XINXIN"
+    ],
+    "applicationDate": "2019-04-23",
+    "publicationDate": "2019-07-23",
+    "ipc": [
+      "G06F16/33",
+      "G06F16/332",
+      "G06Q50/18"
+    ],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=CN110046243A",
+    "abstract": "机器摘要：系统包括检索、个性化和分析模块，分析模块涉及文件比对、重复检查和创新程度分析，并以用户行为和偏好支持个性化服务。",
+    "abstractState": "PARTIAL",
+    "topic": "专利比对"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-033",
+    "publicationNumber": "CN109670989A",
+    "applicationNumber": null,
+    "title": "专利侵权提醒系统",
+    "applicants": [
+      "NANJING CHANGYUAN INFORMATION TECH CO LTD"
+    ],
+    "inventors": [],
+    "applicationDate": null,
+    "publicationDate": "2019-04-23",
+    "ipc": [],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=%22patent%20infringement%22",
+    "abstract": "页面结果片段：包含专利检索模块与专利侵权分析模块；片段不足以确认具体判断规则或法律结论。",
+    "abstractState": "PARTIAL",
+    "topic": "侵权风险辅助"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-034",
+    "publicationNumber": "CN111488480A",
+    "applicationNumber": null,
+    "title": "外观设计专利侵权证据获取方法及系统",
+    "applicants": [
+      "SHANGHAI YUTENG TECH CO LTD"
+    ],
+    "inventors": [],
+    "applicationDate": null,
+    "publicationDate": "2020-08-04",
+    "ipc": [],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=%22patent%20infringement%22",
+    "abstract": "页面结果片段：针对外观设计专利，通过比对结果并结合预设标准获取侵权证据；不采集或认可其预设标准。",
+    "abstractState": "PARTIAL",
+    "topic": "侵权风险辅助"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-035",
+    "publicationNumber": "CN112446624A",
+    "applicationNumber": null,
+    "title": "专利侵权风险评估系统及方法",
+    "applicants": [
+      "GUIZHOU POWER GRID CO LTD"
+    ],
+    "inventors": [],
+    "applicationDate": null,
+    "publicationDate": "2021-03-05",
+    "ipc": [],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=%22patent%20infringement%22",
+    "abstract": "页面结果片段：专利数据采集子系统与侵权风险评估方法；未采集数据来源、评估公式及阈值。",
+    "abstractState": "PARTIAL",
+    "topic": "侵权风险辅助"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-036",
+    "publicationNumber": "CN111242494A",
+    "applicationNumber": null,
+    "title": "基于博弈论的专利侵权检测方法及系统",
+    "applicants": [
+      "UNIV INNER MONGOLIA"
+    ],
+    "inventors": [],
+    "applicationDate": null,
+    "publicationDate": "2020-06-05",
+    "ipc": [],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=%22patent%20infringement%22",
+    "abstract": "页面结果片段：涉及权利要求与专利之间的关系及侵权风险；未采集算法细节或风险解释。",
+    "abstractState": "PARTIAL",
+    "topic": "侵权风险辅助"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-037",
+    "publicationNumber": "CN109977362A",
+    "applicationNumber": null,
+    "title": "基于权利要求的专利侵权检测方法",
+    "applicants": [
+      "UNIV BEIJING INF SCI & TECH"
+    ],
+    "inventors": [],
+    "applicationDate": null,
+    "publicationDate": "2019-07-05",
+    "ipc": [],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=%22patent%20infringement%22",
+    "abstract": "页面结果片段：以专利文本中重要权利要求为主要依据进行检测；未采集原文权利要求或具体判定逻辑。",
+    "abstractState": "PARTIAL",
+    "topic": "侵权风险辅助"
+  },
+  {
+    "sourceRecordId": "PUBLIC-PAT-038",
+    "publicationNumber": "CN113420198A",
+    "applicationNumber": null,
+    "title": "面向网络商品的专利侵权线索网络爬取方法",
+    "applicants": [
+      "UNIV JIANGSU"
+    ],
+    "inventors": [],
+    "applicationDate": null,
+    "publicationDate": "2021-09-21",
+    "ipc": [],
+    "sourceUrl": "https://worldwide.espacenet.com/patent/search?q=%22patent%20infringement%22",
+    "abstract": "页面结果片段：根据高风险产品自动选择关键词、图片和技术特征，以分析网络侵权线索；不采集外部网页数据。",
+    "abstractState": "PARTIAL",
+    "topic": "侵权风险辅助"
+  }
+]

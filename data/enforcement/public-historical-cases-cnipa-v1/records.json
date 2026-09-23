@@ -1,0 +1,1755 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "ENF-CNIPA-PUBLIC-HISTORICAL-CASES-V1",
+  "records": [
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-GI-MARK-01",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-GI-MARK-01",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "广东省深圳市市场监督管理局（知识产权局）南山监管局查处擅自使用“南山荔枝”地理标志产品名称案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION",
+      "sourcePageStart": 34,
+      "sourcePageEnd": 34,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:34",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：广东省深圳市市场监督管理局（知识产权局）南山监管局查处擅自使用“南山荔枝”地理标志产品名称案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "714d85d440f4829a9b2209b85809d58d8525522c51af391a691a77c1e52e89f2",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:34"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:34",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "00cb71141f7bb7a6f99b48018ffbdeed775f52b9c1ea3743b08b3efd0edee4e1"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-GI-MARK-02",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-GI-MARK-02",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "广东省珠海市香洲区市场监督管理局（知识产权局）查处擅自使用“慕尼黑啤酒”地理标志产品名称案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION",
+      "sourcePageStart": 35,
+      "sourcePageEnd": 35,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:35",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：广东省珠海市香洲区市场监督管理局（知识产权局）查处擅自使用“慕尼黑啤酒”地理标志产品名称案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "a8400de1fae6633884cd37cb1f7064450d3140d8948989dcea4606471eeae027",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:35"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:35",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "fe29a8a1b1e861d8ae8d7b73633f1d6e93534c285cc10f5755ff532175e07013"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-GI-MARK-03",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-GI-MARK-03",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "浙江省舟山市市场监督管理局（知识产权局）查处侵犯“舟山带鱼”证明商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION",
+      "sourcePageStart": 36,
+      "sourcePageEnd": 36,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:36",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：浙江省舟山市市场监督管理局（知识产权局）查处侵犯“舟山带鱼”证明商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "59f51cc21cfe8543b63c0ee16cdd9e087252fd97ba0f0b4f4a8cb3ed10948c0b",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:36"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:36",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "4d4a82446cc670103fb7f4ad03383c657b277819e7dec8092abf76b7bc46adde"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-GI-MARK-04",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-GI-MARK-04",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "江西省景德镇市市场监督管理局（知识产权局）查处侵犯“景德镇”证明商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION",
+      "sourcePageStart": 37,
+      "sourcePageEnd": 38,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:37-38",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：江西省景德镇市市场监督管理局（知识产权局）查处侵犯“景德镇”证明商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "2d38d038e02a8dacd20692e83d72b8cb47690ff9491e22527660923486a69046",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:37-38"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:37-38",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "3405fc3f3bca3f58b08ccdddcd27f0a5156a271f9568c45eef57f86247c49d6d"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-GI-MARK-05",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-GI-MARK-05",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "四川省宜宾市市场监督管理局（知识产权局）查处侵犯“宜宾芽菜”证明商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION",
+      "sourcePageStart": 39,
+      "sourcePageEnd": 39,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:39",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：四川省宜宾市市场监督管理局（知识产权局）查处侵犯“宜宾芽菜”证明商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "d7c24527cad4ce05b7924d67b3ea5ded51fae5d9961f02cae20172cd2e2d2dcc",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:39"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:39",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "c7231d35d95b33d70fea4d8089ea066542c7280658d31c6c86764365e4983ade"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-GI-MARK-06",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-GI-MARK-06",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "广东省广州市、江门市市场监督管理局（知识产权局）查处冒用地理标志专用标志系列案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION",
+      "sourcePageStart": 40,
+      "sourcePageEnd": 40,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:40",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：广东省广州市、江门市市场监督管理局（知识产权局）查处冒用地理标志专用标志系列案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "62872e4b618e1c974a1bea5521e85bab65b4597e62a674d5290d41bc7b0874e2",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:40"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:40",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "b62315ffd9762551f97921f0a9515f5e0c969ec62c602f442cedd63f9f3bfebb"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-GI-MARK-07",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-GI-MARK-07",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "海南省海口市市场监督管理局（知识产权局）龙华分局查处冒用地理标志专用标志案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION",
+      "sourcePageStart": 41,
+      "sourcePageEnd": 42,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:41-42",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：海南省海口市市场监督管理局（知识产权局）龙华分局查处冒用地理标志专用标志案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "37d2e2d79af997fcda9cc51ec2e1938ed0f7d2a41d21376919b1dda5905c4d08",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:41-42"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:41-42",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "355ac41a6cef5543b516b1c6c85352c332f37f140875f10e893642a3d043868b"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-GI-MARK-08",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-GI-MARK-08",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "浙江省绍兴市市场监督管理局（知识产权局）查处侵犯“杭州亚运会”等特殊标志专有权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION",
+      "sourcePageStart": 43,
+      "sourcePageEnd": 43,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:43",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：浙江省绍兴市市场监督管理局（知识产权局）查处侵犯“杭州亚运会”等特殊标志专有权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "a0907b571b164cff40db247b4dfeaea75bd2ff3263992952d0192703f20a1079",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:43"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:43",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "8d1d51e342899c3700570da4bea33e92aa72d5221905d314590e07ba00b5a8f9"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-GI-MARK-09",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-GI-MARK-09",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "安徽省黄山市屯溪区市场监督管理局查处侵犯杭州亚运会吉祥物等特殊标志专有权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION",
+      "sourcePageStart": 44,
+      "sourcePageEnd": 44,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:44",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：安徽省黄山市屯溪区市场监督管理局查处侵犯杭州亚运会吉祥物等特殊标志专有权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "b3ee90990856f340557d0e39f4f1c8b33314b4a4aa44f179b409158f15d33aa7",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:44"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:44",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "6693026aa3f66d859e9339ec85c3c4f291ba45e43f521c463c8bbf025ad7e829"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-GI-MARK-10",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-GI-MARK-10",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "重庆市两江新区市场监督管理局查处侵犯“第31届世界大学生夏季运动会会徽”和“成都大运会”特殊标志专有权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION",
+      "sourcePageStart": 45,
+      "sourcePageEnd": 47,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:45-47",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：重庆市两江新区市场监督管理局查处侵犯“第31届世界大学生夏季运动会会徽”和“成都大运会”特殊标志专有权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "a2b7b7cf4990c166a38270a38454c19ce06971ec022b820723375f49cb68d46a",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:45-47"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:45-47",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "87027bf35709eeca743a1f77a20da7ae5bc495978eb68f39c6f71b9bba999ee4"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-PATENT-01",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-PATENT-01",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "广东省广州市知识产权局、浙江省温州市知识产权局联合处理“贴窗机切膜预压紧装置”实用新型专利侵权纠纷案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 1,
+      "sourcePageEnd": 1,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:1",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：广东省广州市知识产权局、浙江省温州市知识产权局联合处理“贴窗机切膜预压紧装置”实用新型专利侵权纠纷案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "a4d394bbd2c0b18917154584122c79b90ac98e6d3d939b5f10fe34c479925c24",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:1"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:1",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "f73d78df91c049a076248c298e599452fab0a8f0cf3559aa915affe6ffab071e"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-PATENT-02",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-PATENT-02",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "北京市知识产权局处理“调色剂盒及图像形成装置”发明专利侵权纠纷案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 2,
+      "sourcePageEnd": 3,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:2-3",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：北京市知识产权局处理“调色剂盒及图像形成装置”发明专利侵权纠纷案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "653e126e062ebb713871a54dcd877c56fa5eec09c4a37fe04d6bbb0ae0ec23fc",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:2-3"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:2-3",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "336e415c06da2d6802f44a75b1c6887eb527a2c1f45f0a74dcbcb61124019f8d"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-PATENT-03",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-PATENT-03",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "江苏省南京市知识产权局处理“一种新型的截污式环保雨水口”实用新型专利侵权纠纷案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 4,
+      "sourcePageEnd": 6,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:4-6",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：江苏省南京市知识产权局处理“一种新型的截污式环保雨水口”实用新型专利侵权纠纷案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "d1d97858ff57555e15b92b12b3e455b3fba3cd898d0938efc9a58757469192d3",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:4-6"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:4-6",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "18fb185acd62a9d041e5d78ef6d5a6f14dd694eb564bc37cf1d9aa28fd2e6571"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-PATENT-04",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-PATENT-04",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "河北省石家庄市知识产权局处理“药瓶标签”外观设计专利侵权纠纷案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 7,
+      "sourcePageEnd": 7,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:7",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：河北省石家庄市知识产权局处理“药瓶标签”外观设计专利侵权纠纷案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "bb58b18af79a65cb5feb2d40236747292d0e2ee88d63766a662859493a0c1ace",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:7"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:7",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "41a8758e64c75badc3c99f874d9d283f22d08bc7d51fe6917a34f7f87751130a"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-PATENT-05",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-PATENT-05",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "上海市知识产权局处理“含有达格列嗪丙二醇水合物的药物制剂”发明专利侵权纠纷案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 8,
+      "sourcePageEnd": 10,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:8-10",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：上海市知识产权局处理“含有达格列嗪丙二醇水合物的药物制剂”发明专利侵权纠纷案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "fbc77eb89d157b75f63f41a4c99a69ad8417ae533daa930aaf74fc9dd5e4dcd4",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:8-10"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:8-10",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "2d90f0f394dfeb5714f47160169573b52f052339880b0fa20c45ecd4473f7446"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-PATENT-06",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-PATENT-06",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "福建省平和县知识产权局、山东省无棣县知识产权局协同处理赖某某与无棣语蕊电子商务有限公司等五起外观设计专利侵权纠纷系列案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 11,
+      "sourcePageEnd": 11,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:11",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：福建省平和县知识产权局、山东省无棣县知识产权局协同处理赖某某与无棣语蕊电子商务有限公司等五起外观设计专利侵权纠纷系列案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "a81dd0a408f955f8e443733ab1ee89ec635661fcec48e027a25577c6397e9afd",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:11"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:11",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "bf2be9698048e65b7739d58b9d6ba1fdbaaf7c77a8df166e1175270718f8eba9"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-PATENT-07",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-PATENT-07",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "浙江省杭州市知识产权局调解“甘草酸二铵的组合物”发明专利侵权纠纷案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 12,
+      "sourcePageEnd": 13,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:12-13",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：浙江省杭州市知识产权局调解“甘草酸二铵的组合物”发明专利侵权纠纷案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "9aef0e2c39877d6c6e2d3761ffd028a0bab00c62b6e0f7d342edccde5e200c38",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:12-13"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:12-13",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "26feb7e4630fc690b9b59a963b102f282e4d51ddeac8452f7b8771eccce2a9fd"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-PATENT-08",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-PATENT-08",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "天津滨海高新技术产业开发区市场监督管理局查处天津瑞泰科技发展有限公司外观设计专利重复侵权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 14,
+      "sourcePageEnd": 14,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:14",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：天津滨海高新技术产业开发区市场监督管理局查处天津瑞泰科技发展有限公司外观设计专利重复侵权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "19fc49d2beed69d36d84c2fc456b312e972f2bdf75f1fe8908714b264977ad65",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:14"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:14",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "986fdd41b50d09d1ae2633086b876a1f42c29861f9cdba8dec406465272294a5"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-PATENT-09",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-PATENT-09",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "安徽省马鞍山市知识产权局处理“一种不规则机箱结构”实用新型专利侵权纠纷案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 15,
+      "sourcePageEnd": 16,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:15-16",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：安徽省马鞍山市知识产权局处理“一种不规则机箱结构”实用新型专利侵权纠纷案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "2e3c63b0631bae9243d33b5a902c946f167261ad82d536e7791a5713d0ddfb28",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:15-16"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:15-16",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "ee995768e4bc3bb75d5eebd6a721486d69288249a4e7c744e5ac75bb1ada6d1e"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-PATENT-10",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-PATENT-10",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "江西省景德镇市知识产权局处理“陶瓷花器（奇异）”外观设计专利侵权纠纷案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 17,
+      "sourcePageEnd": 18,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:17-18",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：江西省景德镇市知识产权局处理“陶瓷花器（奇异）”外观设计专利侵权纠纷案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "b1b7091966a31140a5ad8ded5ec2fa9715ff014a7e8ed7482373745fec4fe8ea",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:17-18"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:17-18",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "7d449b4934bc6202cad5abf09b01d4e1c0c2d5736b385ea3e4214882d47888bd"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-TRADEMARK-01",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-TRADEMARK-01",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "广东省深圳市市场监督管理局（知识产权局）查处侵犯“小米”注册商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 19,
+      "sourcePageEnd": 19,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:19",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：广东省深圳市市场监督管理局（知识产权局）查处侵犯“小米”注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "26f0b6356e2e3fb3e62db8b3adc0591d0347795599bd0560a5075ee47071f8d1",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:19"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:19",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "a133599ef496628acee089215f7115ac6c1a5d0ab24ac0df28a98ae74ed88811"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-TRADEMARK-02",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-TRADEMARK-02",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "安徽省合肥市市场监督管理局（知识产权局）查处侵犯“嘉实多”注册商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 20,
+      "sourcePageEnd": 21,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:20-21",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：安徽省合肥市市场监督管理局（知识产权局）查处侵犯“嘉实多”注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "a7dcc5b916bb14a29d21a5cc370781c38b872a231823e51b5cdf13e2531223c6",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:20-21"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:20-21",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "540c19723d932253e361d96bea92273850518b0204443f40513cedde5e322b87"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-TRADEMARK-03",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-TRADEMARK-03",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "浙江省丽水市遂昌县市场监督管理局查处侵犯（图形商标）注册商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 22,
+      "sourcePageEnd": 22,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:22",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：浙江省丽水市遂昌县市场监督管理局查处侵犯（图形商标）注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": "The source title contains a graphic mark that is not represented as text.",
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "e5fa3bcdf8d59836c21e64a28944d6f0b665e8941e950125d97437b7d8433669",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:22"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:22",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "a256be3110515545ec45b192f1a8132d6c7bb2293fd0210884198b3081998282"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-TRADEMARK-04",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-TRADEMARK-04",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "广西壮族自治区河池市天峨县市场监督管理局查处侵犯（图形商标）注册商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 23,
+      "sourcePageEnd": 24,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:23-24",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：广西壮族自治区河池市天峨县市场监督管理局查处侵犯（图形商标）注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": "The source title contains a graphic mark that is not represented as text.",
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "9dab2c133219351daed3cf28c288dc045ca469e1d1fa28f32ef689138f9eecb7",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:23-24"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:23-24",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "6d13f5a9f8aea6f7b7426532f7a75d47a26f9f2f21456424b6ba852e6edd8816"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-TRADEMARK-05",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-TRADEMARK-05",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "广西壮族自治区贺州市市场监督管理局查处侵犯（图形商标）注册商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 25,
+      "sourcePageEnd": 25,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:25",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：广西壮族自治区贺州市市场监督管理局查处侵犯（图形商标）注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": "The source title contains a graphic mark that is not represented as text.",
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "3ae119a081ad0af920ae935e4bde79e355f4f7bdefd77471fa95d1c11bfd60c9",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:25"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:25",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "a27808b67e8cca2eea46b0bacc4805e9e0da7e774b5cfac09872581db7b23cf0"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-TRADEMARK-06",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-TRADEMARK-06",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "四川省成都市成华区市场监督管理局查处侵犯（图形商标）注册商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 26,
+      "sourcePageEnd": 27,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:26-27",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：四川省成都市成华区市场监督管理局查处侵犯（图形商标）注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": "The source title contains a graphic mark that is not represented as text.",
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "56cacf7d7756bd9cbcc600e8aff50816f7fffa2bdd798a8848ca6a36e9f01dfb",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:26-27"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:26-27",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "907e8498df45c1c96abf71a49bcf908a1cd8fc19a197d0d4e19b340c75e739b9"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-TRADEMARK-07",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-TRADEMARK-07",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "江苏省南通市通州区市场监督管理局（知识产权局）查处侵犯（图形商标）注册商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 28,
+      "sourcePageEnd": 28,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:28",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：江苏省南通市通州区市场监督管理局（知识产权局）查处侵犯（图形商标）注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": "The source title contains a graphic mark that is not represented as text.",
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "688c9176efcf6b44e41ea8a506a44df8c5030f128c8376837fe1ade95541a8af",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:28"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:28",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "b4647f49e6d45b81efe390b7f9e81b37f7d90dee58c5d0f0d205f94fd6012701"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-TRADEMARK-08",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-TRADEMARK-08",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "辽宁省沈阳市市场监督管理局（知识产权局）查处侵犯“贵州茅台”等注册商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 29,
+      "sourcePageEnd": 29,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#page:29",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：辽宁省沈阳市市场监督管理局（知识产权局）查处侵犯“贵州茅台”等注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "faac512a751b1ee517391d72f9af104887150efd9099e0b17458f87a35111349",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:29"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:page:29",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "a1ae9102872661779ce627a66b5390debbe23dd242a510a66c7ebc16bf088164"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-TRADEMARK-09",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-TRADEMARK-09",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "浙江省桐乡市市场监督管理局查处侵犯（图形商标）注册商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 30,
+      "sourcePageEnd": 31,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:30-31",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：浙江省桐乡市市场监督管理局查处侵犯（图形商标）注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": "The source title contains graphic marks that are not represented as text.",
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "9261f57735d9f257f7afed5d85dfc5c2e2912f33bc6d54732e48cc46e35f1924",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:30-31"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:30-31",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "8e1214240ff58b3df2e3bbfb884da3ce33da2162bfb10523d318cd9e82d5e836"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-2023-TRADEMARK-10",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-2023-TRADEMARK-10",
+      "sourceVersion": "2026-09-20.1@ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "title": "重庆市大渡口区市场监督管理局查处侵犯（图形商标）注册商标专用权案",
+      "publicationDate": "2024-04-26",
+      "sourceStatusLabel": null,
+      "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION",
+      "sourcePageStart": 32,
+      "sourcePageEnd": 33,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "sourceLocator": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT#pages:32-33",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：重庆市大渡口区市场监督管理局查处侵犯（图形商标）注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": "The source title contains a graphic mark that is not represented as text.",
+      "sourceDocumentSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "1316320b523061925ff6e46f8f3a1eb96273c9dafea37a370757c741ebd6721b",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:32-33"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT:pages:32-33",
+            "rawResponseSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "8ed25630d7376642ed148feba8e83850348fad073cd83162340db1ac9bd7aaf2"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-GUIDANCE-09",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-GUIDANCE-09",
+      "sourceVersion": "2026-09-20.1@50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+      "title": "北京市知识产权局处理“用于重新定位牙齿的系统及其制作方法”发明专利侵权纠纷案",
+      "publicationDate": "2023-12-28",
+      "sourceStatusLabel": null,
+      "businessCategory": "ADMINISTRATIVE_PROTECTION_GUIDANCE",
+      "sourcePageStart": 1,
+      "sourcePageEnd": 2,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2023/12/28/art_2432_191156.html",
+      "sourceLocator": "CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT#pages:1-2",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：北京市知识产权局处理“用于重新定位牙齿的系统及其制作方法”发明专利侵权纠纷案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "2e18b59bf92c4f084c1ce22d0a439ca3096fa856eb6701d97e3920098f0a3c1c",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT:pages:1-2"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT:pages:1-2",
+            "rawResponseSha256": "50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "c7072bc5081d47749ed97df431c9f930c37c16dd3a90c954f76736392c50e94a"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-GUIDANCE-10",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-GUIDANCE-10",
+      "sourceVersion": "2026-09-20.1@50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+      "title": "重庆市渝中区市场监督管理局（知识产权局）查处侵犯“洞子”等注册商标专用权案",
+      "publicationDate": "2023-12-28",
+      "sourceStatusLabel": null,
+      "businessCategory": "ADMINISTRATIVE_PROTECTION_GUIDANCE",
+      "sourcePageStart": 3,
+      "sourcePageEnd": 4,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2023/12/28/art_2432_191156.html",
+      "sourceLocator": "CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT#pages:3-4",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：重庆市渝中区市场监督管理局（知识产权局）查处侵犯“洞子”等注册商标专用权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "44bbba957efd03933bc2904fcee1f995d1eef5501cbed6b10959788be2230878",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT:pages:3-4"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT:pages:3-4",
+            "rawResponseSha256": "50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "c6cf1bdd9ec76a1e86d5cf107e256eeb3a27e9a5c7cf576dac607f5d3f2ea0a0"
+    },
+    {
+      "sourceSnapshotId": "ENF-HIST-CNIPA-GUIDANCE-11",
+      "category": "PUBLIC_HISTORICAL_CASE_SAMPLE",
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC_CASES",
+      "stableSourceId": "CNIPA-GUIDANCE-11",
+      "sourceVersion": "2026-09-20.1@50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+      "title": "天津市和平区市场监督管理局（知识产权局）查处天津市麦购商业管理有限公司麦购休闲广场商标侵权案",
+      "publicationDate": "2023-12-28",
+      "sourceStatusLabel": null,
+      "businessCategory": "ADMINISTRATIVE_PROTECTION_GUIDANCE",
+      "sourcePageStart": 5,
+      "sourcePageEnd": 7,
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2023/12/28/art_2432_191156.html",
+      "sourceLocator": "CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT#pages:5-7",
+      "capturedAt": "2026-09-20T01:57:59.337Z",
+      "historicalCaseSummary": "国家知识产权局公开历史案例记载：天津市和平区市场监督管理局（知识产权局）查处天津市麦购商业管理有限公司麦购休闲广场商标侵权案。本记录只保存公开案例定位和历史上下文，不代表平台对当前事实、证据或权利状态作出认定。",
+      "titleExtractionNote": null,
+      "sourceDocumentSha256": "50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+      "missingFields": [
+        "CURRENT_CASE_STATUS",
+        "UNDERLYING_CASE_EVIDENCE",
+        "CURRENT_RIGHT_STATUS",
+        "PROFESSIONAL_ACCEPTANCE"
+      ],
+      "availability": "AVAILABLE",
+      "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+      "dataMode": "PUBLIC_PILOT",
+      "authorityMarker": "NOT_CENTER_SOURCE",
+      "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+      "externalModelAllowed": false,
+      "businessWorkflowInputAllowed": false,
+      "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+      "sourceTrace": {
+        "sourceDatasetId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+        "sourceRecordsSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+        "sourceRecordSha256": "e5613e60f8cc9a91e3b063c3e773248e661ad44d8833f84a1c76611b4561ca56",
+        "sourceSnapshotRefs": [
+          "attachment:CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT:pages:5-7"
+        ],
+        "sourceSnapshots": [
+          {
+            "ref": "attachment:CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT:pages:5-7",
+            "rawResponseSha256": "50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+            "sourceFile": "data/enforcement/source-review/cnipa-official-v1/CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT"
+          }
+        ]
+      },
+      "approvalId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+      "approvalSha256": "3a3170999aea58365a1f0dce641afbf2195dd4ffff55b9e80d89456abe32c4ed",
+      "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+      "attribution": "国家知识产权局公开行政保护案例；内部开发期历史参考；https://www.cnipa.gov.cn",
+      "payloadSha256": "45456cbf5ccfa81fa519a987d9b5d3e1d970b246d3ed39f438a8d8a7225fe67a"
+    }
+  ]
+}

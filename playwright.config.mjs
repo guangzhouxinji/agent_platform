@@ -1,7 +1,7 @@
 import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
-  testDir: "./src/test/browser",
+  testDir: "./backend/apps/platform-api/src/test/browser",
   outputDir: "./target/playwright",
   reporter: "line",
   use: {
@@ -11,7 +11,7 @@ export default defineConfig({
     trace: "retain-on-failure"
   },
   webServer: {
-    command: "mvn spring-boot:run",
+    command: "mvn -f backend/apps/platform-api/pom.xml spring-boot:run",
     url: "http://127.0.0.1:18081",
     reuseExistingServer: false,
     timeout: 120000,

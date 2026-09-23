@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>知识产权智能服务 - 咨询对话原型</title>
+    <style>
+      :root {
+        --ink: #13243c;
+        --muted: #6b7c90;
+        --line: #dce5ee;
+        --paper: #f6f8fb;
+        --blue: #1558d5;
+        --blue-soft: #edf4ff;
+        --green: #087867;
+        --green-soft: #e9f7f3;
+        --amber: #9b5b11;
+        --amber-soft: #fff4e5;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        min-width: 320px;
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font:
+          14px/1.5 "Microsoft YaHei UI",
+          "PingFang SC",
+          system-ui,
+          sans-serif;
+      }
+      button,
+      textarea {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:focus-visible,
+      textarea:focus-visible {
+        outline: 3px solid rgba(21, 88, 213, 0.25);
+        outline-offset: 2px;
+      }
+      .topbar {
+        height: 64px;
+        display: flex;
+        align-items: stretch;
+        gap: 30px;
+        padding: 0 max(24px, calc((100vw - 1280px) / 2));
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 16px;
+        font-weight: 750;
+        white-space: nowrap;
+      }
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 27px;
+        height: 27px;
+        color: #fff;
+        background: var(--blue);
+        font:
+          700 17px Georgia,
+          serif;
+      }
+      .nav {
+        display: flex;
+        overflow: auto;
+      }
+      .nav button {
+        position: relative;
+        min-height: 64px;
+        padding: 0 12px;
+        color: #57687d;
+        background: none;
+        border: 0;
+        white-space: nowrap;
+      }
+      .nav button.active {
+        color: var(--ink);
+        font-weight: 750;
+      }
+      .nav button.active::after {
+        content: "";
+        position: absolute;
+        right: 12px;
+        bottom: 0;
+        left: 12px;
+        height: 3px;
+        background: var(--blue);
+      }
+      .account {
+        display: grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        margin: auto 0 auto auto;
+        color: var(--blue);
+        background: var(--blue-soft);
+        border-radius: 50%;
+        font-weight: 750;
+      }
+      .page {
+        max-width: 1280px;
+        height: calc(100dvh - 64px);
+        margin: auto;
+        padding: 24px 0 28px;
+      }
+      .page-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 44px;
+        margin-bottom: 16px;
+      }
+      .page-head h1 {
+        margin: 0;
+        font-size: 22px;
+      }
+      .page-head p {
+        margin: 3px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .scope {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 6px 9px;
+        color: var(--green);
+        background: var(--green-soft);
+        border-radius: 3px;
+        font-size: 12px;
+        font-weight: 750;
+        white-space: nowrap;
+      }
+      .scope::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+      .workspace {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 338px;
+        height: calc(100% - 60px);
+        min-height: 520px;
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+      .chat {
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        min-width: 0;
+        border-right: 1px solid var(--line);
+      }
+      .chat-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px 13px;
+        border-bottom: 1px solid var(--line);
+      }
+      .chat-top b {
+        font-size: 15px;
+      }
+      .chat-top span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .conversation {
+        overflow-y: auto;
+        padding: 24px 24px 18px;
+        scrollbar-color: #c4d0de transparent;
+      }
+      .message {
+        display: flex;
+        gap: 10px;
+        max-width: 800px;
+        margin-bottom: 20px;
+      }
+      .message.user {
+        flex-direction: row-reverse;
+        margin-left: auto;
+      }
+      .avatar {
+        display: grid;
+        flex: 0 0 29px;
+        place-items: center;
+        width: 29px;
+        height: 29px;
+        color: var(--green);
+        background: var(--green-soft);
+        border-radius: 50%;
+        font-size: 11px;
+        font-weight: 800;
+      }
+      .message.user .avatar {
+        color: var(--blue);
+        background: var(--blue-soft);
+      }
+      .message-body {
+        min-width: 0;
+      }
+      .message-meta {
+        margin: 1px 0 5px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .message.user .message-meta {
+        text-align: right;
+      }
+      .bubble {
+        padding: 11px 13px;
+        color: #263950;
+        background: #f3f6fa;
+        border-radius: 3px 10px 10px 10px;
+      }
+      .message.user .bubble {
+        color: #173d75;
+        background: var(--blue-soft);
+        border-radius: 10px 3px 10px 10px;
+      }
+      .bubble p {
+        margin: 0;
+      }
+      .answer {
+        padding: 15px 16px;
+        border-left: 3px solid var(--green);
+        background: #f4fbf9;
+      }
+      .answer .tag {
+        display: inline-block;
+        padding: 3px 6px;
+        color: var(--green);
+        background: var(--green-soft);
+        border-radius: 3px;
+        font-size: 11px;
+        font-weight: 750;
+      }
+      .answer h2 {
+        margin: 7px 0 6px;
+        font-size: 17px;
+        line-height: 1.35;
+      }
+      .answer p {
+        color: #4c6562;
+      }
+      .citations {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 11px;
+      }
+      .citations button {
+        min-height: 29px;
+        padding: 4px 8px;
+        color: #1d548d;
+        background: #fff;
+        border: 1px solid #cbddeb;
+        border-radius: 3px;
+        font-size: 11px;
+      }
+      .composer {
+        padding: 14px 16px 16px;
+        background: #f4f7fb;
+        border-top: 1px solid var(--line);
+      }
+      .composer label {
+        display: block;
+        margin-bottom: 6px;
+        color: #687a8e;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .input-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+      }
+      .input-row textarea {
+        width: 100%;
+        min-height: 47px;
+        padding: 11px;
+        color: var(--ink);
+        background: #fff;
+        border: 1px solid #cbd7e4;
+        border-radius: 3px;
+        resize: none;
+      }
+      .input-row button {
+        min-width: 106px;
+        color: #fff;
+        background: var(--blue);
+        border: 0;
+        border-radius: 3px;
+        font-weight: 750;
+      }
+      .quick {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 8px;
+      }
+      .quick button {
+        padding: 0;
+        color: #65788d;
+        background: none;
+        border: 0;
+        font-size: 11px;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .quick button:hover {
+        color: var(--blue);
+      }
+      .context {
+        overflow-y: auto;
+        padding: 18px 16px;
+      }
+      .context-section + .context-section {
+        margin-top: 24px;
+      }
+      .section-title {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--ink);
+      }
+      .section-title h2 {
+        margin: 0;
+        font-size: 15px;
+      }
+      .section-title button {
+        padding: 0;
+        color: var(--blue);
+        background: none;
+        border: 0;
+        font-size: 11px;
+      }
+      .current-query {
+        margin: 12px 0 0;
+        padding: 12px;
+        color: #3a506b;
+        background: #f2f5f9;
+        border-left: 3px solid var(--blue);
+        font-size: 13px;
+      }
+      .source {
+        display: grid;
+        grid-template-columns: 27px minmax(0, 1fr) auto;
+        gap: 8px;
+        align-items: center;
+        min-height: 60px;
+        border-bottom: 1px solid var(--line);
+      }
+      .number {
+        color: var(--green);
+        font:
+          700 17px Georgia,
+          serif;
+      }
+      .source b {
+        display: block;
+        font-size: 12px;
+      }
+      .source small {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .source button {
+        padding: 0;
+        color: var(--blue);
+        background: none;
+        border: 0;
+        font-size: 11px;
+      }
+      .notice {
+        margin-top: 18px;
+        padding: 11px 12px;
+        color: var(--amber);
+        background: var(--amber-soft);
+        border-left: 3px solid #e49436;
+        font-size: 11px;
+      }
+      .notice b {
+        display: block;
+        margin-bottom: 3px;
+      }
+      @media (max-width: 1328px) {
+        .topbar,
+        .page {
+          margin-inline: 24px;
+        }
+        .topbar {
+          padding-inline: 0;
+        }
+      }
+      @media (max-width: 760px) {
+        .page {
+          height: auto;
+          min-height: calc(100dvh - 57px);
+          padding-block: 15px;
+        }
+        .workspace {
+          grid-template-columns: 1fr;
+          height: auto;
+          min-height: 650px;
+        }
+        .chat {
+          min-height: 650px;
+          border-right: 0;
+        }
+        .context {
+          border-top: 1px solid var(--line);
+        }
+        .context-section:first-child {
+          display: none;
+        }
+        .page-head {
+          align-items: flex-start;
+        }
+        .scope {
+          font-size: 11px;
+        }
+        .context {
+          padding: 16px;
+        }
+        .context-section {
+          margin-top: 0 !important;
+        }
+        .notice {
+          display: none;
+        }
+      }
+      @media (max-width: 540px) {
+        .topbar {
+          height: 57px;
+          margin: 0 13px;
+          gap: 11px;
+        }
+        .brand {
+          font-size: 0;
+        }
+        .nav {
+          flex: 1;
+        }
+        .nav button {
+          min-height: 57px;
+          padding: 0 9px;
+          font-size: 13px;
+        }
+        .nav button:nth-child(n + 4) {
+          display: none;
+        }
+        .nav button.active::after {
+          right: 9px;
+          left: 9px;
+        }
+        .page {
+          margin-inline: 13px;
+        }
+        .page-head h1 {
+          font-size: 19px;
+        }
+        .page-head p {
+          max-width: 220px;
+        }
+        .chat-top {
+          padding: 13px 14px;
+        }
+        .conversation {
+          padding: 18px 14px;
+        }
+        .message {
+          margin-bottom: 16px;
+        }
+        .bubble {
+          padding: 10px 11px;
+        }
+        .answer {
+          padding: 13px;
+        }
+        .answer h2 {
+          font-size: 16px;
+        }
+        .composer {
+          padding: 12px;
+        }
+        .input-row {
+          grid-template-columns: 1fr;
+        }
+        .input-row button {
+          min-height: 44px;
+        }
+        .quick {
+          display: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand"><span class="mark">知</span>知识产权智能服务</div>
+      <nav class="nav" aria-label="业务模块">
+        <button class="active" type="button">咨询</button
+        ><button type="button">检索分析</button
+        ><button type="button">资料库</button
+        ><button type="button">业务验证</button
+        ><button type="button">内部调试</button>
+      </nav>
+      <span class="account" aria-label="当前用户">李</span>
+    </header>
+    <main class="page">
+      <div class="page-head">
+        <div>
+          <h1>知识产权咨询</h1>
+          <p>围绕问题、候选与可核对来源持续对话</p>
+        </div>
+        <span class="scope">PUBLIC_LOCAL · 公开资料</span>
+      </div>
+      <div class="workspace">
+        <section class="chat" aria-label="咨询对话">
+          <header class="chat-top">
+            <b>本次咨询</b><span>来源核对中</span>
+          </header>
+          <div class="conversation">
+            <article class="message">
+              <span class="avatar">智</span>
+              <div class="message-body">
+                <div class="message-meta">咨询助手</div>
+                <div class="bubble">
+                  <p>
+                    请描述需要查询、检索、比对或参考案例的问题。我会在信息不足时追问。
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article class="message user">
+              <span class="avatar">李</span>
+              <div class="message-body">
+                <div class="message-meta">你</div>
+                <div class="bubble">
+                  <p>请查找水性粘结剂和双区烘干相关的专利，用于技术参考。</p>
+                </div>
+              </div>
+            </article>
+            <article class="message">
+              <span class="avatar">智</span>
+              <div class="message-body">
+                <div class="message-meta">咨询助手 · 已整理候选</div>
+                <div class="answer">
+                  <span class="tag">10 条公开资料候选</span>
+                  <h2>候选与输入的技术对象存在可进一步核对的关联</h2>
+                  <p>
+                    当前只呈现可核对的公开资料候选、来源版本和范围说明。需要逐项比较时，可进入专利对照工作面。
+                  </p>
+                  <div class="citations">
+                    <button type="button">CN-公开专利 01</button
+                    ><button type="button">CN-公开专利 02</button
+                    ><button type="button">CN-公开专利 03</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <form class="composer">
+            <label for="question">继续咨询</label>
+            <div class="input-row">
+              <textarea
+                id="question"
+                placeholder="补充技术特征、对象或希望重点核对的内容"
+              ></textarea
+              ><button type="button">发送咨询</button>
+            </div>
+            <div class="quick">
+              <button type="button" data-value="我想检索一项技术方案的相似专利">
+                检索相似专利</button
+              ><button type="button" data-value="帮我查询商标名称的近似参考">
+                查询商标近似</button
+              ><button type="button" data-value="查找与争议事实相关的案例资料">
+                查找案例资料
+              </button>
+            </div>
+          </form>
+        </section>
+        <aside class="context" aria-label="本轮咨询上下文">
+          <section class="context-section">
+            <div class="section-title"><h2>当前问题</h2></div>
+            <p class="current-query">
+              水性粘结剂与双区烘干相关专利，用于技术参考。
+            </p>
+          </section>
+          <section class="context-section">
+            <div class="section-title">
+              <h2>本轮来源</h2>
+              <button type="button">全部 10 条</button>
+            </div>
+            <div class="source">
+              <span class="number">01</span
+              ><span
+                ><b>CN-公开专利 01</b
+                ><small>申请公开文本 · 版本可核对</small></span
+              ><button type="button">打开</button>
+            </div>
+            <div class="source">
+              <span class="number">02</span
+              ><span
+                ><b>CN-公开专利 02</b
+                ><small>申请公开文本 · 版本可核对</small></span
+              ><button type="button">打开</button>
+            </div>
+            <div class="source">
+              <span class="number">03</span
+              ><span
+                ><b>CN-公开专利 03</b
+                ><small>申请公开文本 · 版本可核对</small></span
+              ><button type="button">打开</button>
+            </div>
+          </section>
+          <div class="notice">
+            <b>资料范围说明</b
+            >本地公开资料不代表中心权威全库；当前输出不构成专业结论。
+          </div>
+        </aside>
+      </div>
+    </main>
+    <script>
+      document.querySelectorAll(".quick button").forEach((button) =>
+        button.addEventListener("click", () => {
+          document.querySelector("#question").value = button.dataset.value;
+          document.querySelector("#question").focus();
+        }),
+      );
+      document
+        .querySelectorAll(".nav button")
+        .forEach((button) =>
+          button.addEventListener("click", () =>
+            button.parentElement
+              .querySelectorAll("button")
+              .forEach((item) =>
+                item.classList.toggle("active", item === button),
+              ),
+          ),
+        );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "source": {
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC",
+      "sourceId": "CNIPA-2026-REPLY-ADDED-PARTY-DEADLINE",
+      "version": "2026-07-27@5842dbdf1c297aca04e6226febccadc01746734f46c3a4c3329426a96464be3d",
+      "location": "https://www.cnipa.gov.cn/art/2026/8/18/art_2432_207774.html#ContentStart"
+    },
+    "status": "PUBLISHED",
+    "approvedBy": "PROJECT_OWNER_AND_DATA_LEGAL_RESPONSIBLE_PARTY",
+    "approvedAt": "2026-09-20T00:00:00Z",
+    "effectiveFrom": null,
+    "effectivityStatus": "NO_EXPLICIT_EFFECTIVE_DATE",
+    "effectivityBasis": "国家知识产权局批复原文记载落款日期为2026年7月27日、页面发布日期为2026年8月18日，但未明示生效日期。",
+    "applicability": "仅适用于专利侵权纠纷行政裁决案件追加被请求人后的办案期限计算及批复明确列出的延长举证期限、和解期间情形。",
+    "ruleType": "OFFICIAL_INTERPRETIVE_REPLY",
+    "content": "《专利纠纷行政裁决和调解办法》第三十七条第二款规定的案件处理期限计算中，追加被请求人不属于不计入期限的所列情形，对其送达及等待答辩的时间应计入案件处理期限；新追加的被请求人申请延长举证期限或者请求和解时，申请延长的举证期限以及和解期间不计入案件处理期限。",
+    "contentSha256": "4dca782b1c61ffe58776eae05bcc6c48c84309b83ca57f7d5454013b7c9536d2"
+  }
+]

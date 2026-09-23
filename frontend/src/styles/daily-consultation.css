@@ -1,0 +1,17 @@
+.daily-route-list { display: grid; gap: 10px; margin-top: 10px; }
+.daily-route-result { padding: 13px 14px; background: #f8fafc; border: 1px solid var(--ui-line); border-left: 3px solid var(--ui-green); }
+.daily-route-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.daily-route-heading > div { display: grid; min-width: 0; gap: 2px; }
+.daily-route-heading .ant-typography-secondary { overflow: hidden; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.daily-route-result > .ant-typography-paragraph { margin: 8px 0; padding: 0; background: transparent; }
+.daily-route-result .daily-scope { margin-top: 0; font-size: 12px; }
+.daily-route-result .ant-alert { margin-top: 8px; }
+.daily-route-result .reply-evidence { background: #fff; }
+.daily-next-action { display: flex; min-height: 44px; align-items: center; justify-content: space-between; gap: 12px; margin-top: 9px; padding-top: 9px; border-top: 1px solid var(--ui-line); }
+.daily-next-action .ant-btn { flex: 0 0 auto; min-height: 40px; }
+.source-actions a.source-open-button { display: flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; }
+@media (max-width: 640px) {
+  .daily-route-result { padding: 11px 10px; }
+  .daily-route-heading, .daily-next-action { align-items: stretch; flex-direction: column; }
+  .daily-next-action .ant-btn { width: 100%; }
+}

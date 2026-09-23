@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "ADJ-PUBLIC-REFERENCE-PILOT-V1",
+  "generatedAt": "2026-09-16T14:36:08.983Z",
+  "purpose": "Approved adjudication-domain judgment locator import set for isolated internal development; not business input",
+  "origin": {
+    "sourceDatasetId": "CON-03-CASE-PUBLIC-PILOT-V1",
+    "sourceDatasetRelativePath": "data/cases/public-pilot-v1",
+    "sourceRecordsSha256": "e416af324861ca53596b9a90685ae32768a3fdf1cab99d5f5248d6822c69367c",
+    "sourceReviewId": "ADJ-SOURCE-REVIEW-SPC-IP-COURT-V1",
+    "sourceReviewManifest": "data/adjudication/source-review/spc-ip-court-v1/manifest.json",
+    "sourceReviewManifestSha256": "7428d1dc502e425c2f9832c895dfb37ff99ceccd63a08abf92e2fd05ed17ca25",
+    "sourceApproval": "data/adjudication/source-review/spc-ip-court-v1/approval.json",
+    "sourceApprovalSha256": "bb23f00ce9662f6fa8a047929ef18133cedaf2184a4fadf11597b4e951101dc9"
+  },
+  "sourceReview": {
+    "sourceName": "最高人民法院知识产权法庭 - 精品裁判",
+    "licenseReviewStatus": "APPROVED_BY_PROJECT_RESPONSIBLE_PARTY",
+    "approvalStatus": "APPROVED",
+    "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT"
+  },
+  "boundaries": {
+    "category": "PUBLIC_JUDGMENT_REFERENCE",
+    "dataMode": "PUBLIC_PILOT",
+    "authorityMarker": "NOT_CENTER_SOURCE",
+    "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+    "externalModelAllowed": false,
+    "dm8ImportAllowed": true,
+    "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+    "businessWorkflowInputAllowed": false
+  },
+  "recordCount": 100,
+  "recordsFile": "records.json",
+  "recordsSha256": "bb2aa6fe12ea06ec6bba5497335610a7aa3383928475c6c24e574cb84f7754a4",
+  "batchSha256": "d34c8d6d0659e506a327e48dbb247928ae4b9d82bddd854e063167eac3229e99",
+  "omittedSourceFields": [
+    "documents",
+    "fullText",
+    "parties",
+    "facts",
+    "evidence",
+    "holdings",
+    "reasoning",
+    "outcome",
+    "legalCitations",
+    "annotations"
+  ],
+  "limitations": [
+    "DM8 import is approved only for this isolated internal-development public-reference catalog until the development pilot ends.",
+    "Source withdrawal or authorization revocation makes records unavailable and removes them from local indexes; only non-content audit digests remain until pilot end.",
+    "Records are public document locators, not current-case facts, evidence, legal rules, precedent determinations, or draft inputs.",
+    "No source full text, party data, factual findings, evidence, reasoning, outcome, or generated summary is copied."
+  ]
+}

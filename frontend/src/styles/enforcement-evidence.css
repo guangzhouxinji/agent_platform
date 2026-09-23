@@ -1,0 +1,30 @@
+.evidence-workspace { display: grid; gap: 16px; padding: 20px 28px 30px; }
+.evidence-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.evidence-toolbar h3, .evidence-detail-heading h4 { margin: 0; }
+.evidence-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 220px)); gap: 12px; }
+.evidence-layout { display: grid; grid-template-columns: minmax(420px, 1fr) minmax(360px, .9fr); gap: 16px; min-height: 520px; }
+.evidence-layout > section, .evidence-detail { min-width: 0; border: 1px solid #dfe4e2; background: #fff; }
+.evidence-name { display: grid; gap: 3px; }
+.evidence-name span, .evidence-version-list span { color: #687773; font-size: 12px; overflow-wrap: anywhere; }
+.evidence-detail { padding: 18px; display: grid; align-content: start; gap: 16px; }
+.evidence-detail-heading, .evidence-digest { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.evidence-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.evidence-detail h5 { display: flex; align-items: center; gap: 6px; margin: 4px 0 0; }
+.evidence-version-list { display: grid; gap: 10px; }
+.evidence-version-list article { border-top: 1px solid #dfe4e2; padding-top: 10px; display: grid; gap: 8px; }
+.evidence-version-list article > div:first-child { display: grid; gap: 3px; }
+.evidence-digest > span { font-size: 12px; overflow-wrap: anywhere; min-width: 0; }
+.evidence-history { display: grid; gap: 8px; }
+.evidence-history > div { display: grid; gap: 4px; }
+.evidence-history span { color: #687773; }
+.evidence-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+@media (max-width: 900px) { .evidence-layout { grid-template-columns: 1fr; } .evidence-filters { grid-template-columns: 1fr 1fr 1fr; } }
+@media (max-width: 520px) {
+  .evidence-workspace { padding: 14px 12px 22px; }
+  .evidence-toolbar { align-items: flex-start; flex-direction: column; }
+  .evidence-filters, .evidence-form-grid { grid-template-columns: 1fr; }
+  .evidence-layout { min-height: 0; }
+  .evidence-detail { padding: 14px; }
+  .evidence-detail-heading, .evidence-digest { align-items: stretch; flex-direction: column; }
+  .evidence-actions .ant-btn { width: 100%; min-height: 44px; }
+}

@@ -1,0 +1,591 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-18 12:03:39 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 218080,
+      "documents": [
+        {
+          "docId": "CN-109417033-A",
+          "metadata": {
+            "pd": "20190301",
+            "pn": "CN-109417033-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor device and semiconductor integrated circuit"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体装置以及半导体集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SOCIONEXT INC"
+        },
+        {
+          "docId": "CN-109417033-B",
+          "metadata": {
+            "pd": "20220318",
+            "pn": "CN-109417033-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor device and semiconductor integrated circuit"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体装置以及半导体集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SOCIONEXT INC."
+        },
+        {
+          "docId": "CN-102737703-B",
+          "metadata": {
+            "pd": "20160803",
+            "pn": "CN-102737703-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit and the semiconductor system including semiconductor integrated circuit"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路和包括半导体集成电路的半导体系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HAIRYOKSA SEMICONDUCTOR CO., LTD."
+        },
+        {
+          "docId": "CN-103887288-B",
+          "metadata": {
+            "pd": "20180727",
+            "pn": "CN-103887288-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit and semiconductor system with semiconductor integrated circuit"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路和具有半导体集成电路的半导体系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HYNIX SEMICONDUCTOR CO., LTD."
+        },
+        {
+          "docId": "CN-107968087-A",
+          "metadata": {
+            "pd": "20180427",
+            "pn": "CN-107968087-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit and the semiconductor devices including the semiconductor integrated circuit"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路和包括该半导体集成电路的半导体器件"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "RENESAS ELECTRONICS CORP"
+        },
+        {
+          "docId": "CN-211375640-U",
+          "metadata": {
+            "pd": "20200828",
+            "pn": "CN-211375640-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit card"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种半导体集成电路卡"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHENZHEN DONGLIANFA TECH CO LTD"
+        },
+        {
+          "docId": "CN-208904025-U",
+          "metadata": {
+            "pd": "20190524",
+            "pn": "CN-208904025-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor devices and integrated circuit"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体器件和集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "YANGTZE MEMORY TECH CO LTD"
+        },
+        {
+          "docId": "CN-1534428-A",
+          "metadata": {
+            "pd": "20041006",
+            "pn": "CN-1534428-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit apparatus"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NEC ELECTRIC CO LTD"
+        },
+        {
+          "docId": "CN-1534687-A",
+          "metadata": {
+            "pd": "20041006",
+            "pn": "CN-1534687-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "RENESAS TECH CORP"
+        },
+        {
+          "docId": "CN-104022715-B",
+          "metadata": {
+            "pd": "20170412",
+            "pn": "CN-104022715-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路器件"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "RENESAS ELECTRONICS CORPORATION"
+        },
+        {
+          "docId": "CN-1171131-C",
+          "metadata": {
+            "pd": "20041013",
+            "pn": "CN-1171131-C",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HITACHI LTD"
+        },
+        {
+          "docId": "CN-106155156-B",
+          "metadata": {
+            "pd": "20191112",
+            "pn": "CN-106155156-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit for regulator"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "稳压器用半导体集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Sanbisu Corporation"
+        },
+        {
+          "docId": "CN-107015593-B",
+          "metadata": {
+            "pd": "20191227",
+            "pn": "CN-107015593-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit for regulator"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "调节器用半导体集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SANMEI ELECTRIC CO., LTD."
+        },
+        {
+          "docId": "CN-1551068-A",
+          "metadata": {
+            "pd": "20041201",
+            "pn": "CN-1551068-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路器件"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "RIZA TECH KK"
+        },
+        {
+          "docId": "CN-211265968-U",
+          "metadata": {
+            "pd": "20200814",
+            "pn": "CN-211265968-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种半导体集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NANTONG HUALONG MICROELECTRONICS CO LTD"
+        },
+        {
+          "docId": "CN-1145212-C",
+          "metadata": {
+            "pd": "20040407",
+            "pn": "CN-1145212-C",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SEIKO INSTR INC"
+        },
+        {
+          "docId": "CN-1477707-A",
+          "metadata": {
+            "pd": "20040225",
+            "pn": "CN-1477707-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Integrated circuit for semiconductor"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SEIKO EPSON CORP"
+        },
+        {
+          "docId": "CN-1536666-A",
+          "metadata": {
+            "pd": "20041013",
+            "pn": "CN-1536666-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路器件"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ROHM CO LTD"
+        },
+        {
+          "docId": "CN-1175424-C",
+          "metadata": {
+            "pd": "20041110",
+            "pn": "CN-1175424-C",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路器件"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HITACHI LTD"
+        },
+        {
+          "docId": "CN-1492585-A",
+          "metadata": {
+            "pd": "20040428",
+            "pn": "CN-1492585-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Switch semiconductor integrated circuit"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "开关半导体集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NEW JAPAN RADIO CO LTD"
+        },
+        {
+          "docId": "CN-1560998-A",
+          "metadata": {
+            "pd": "20050105",
+            "pn": "CN-1560998-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Film semiconductor integrated circuit"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "薄膜半导体集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SEMICONDUCTOR ENERGY LAB"
+        },
+        {
+          "docId": "CN-1144229-C",
+          "metadata": {
+            "pd": "20040331",
+            "pn": "CN-1144229-C",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路器件"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NEC CORP"
+        },
+        {
+          "docId": "CN-1144228-C",
+          "metadata": {
+            "pd": "20040331",
+            "pn": "CN-1144228-C",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路器件"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NEC CORP"
+        },
+        {
+          "docId": "CN-107885270-B",
+          "metadata": {
+            "pd": "20200703",
+            "pn": "CN-107885270-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit for regulator"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "调节器用半导体集成电路"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "MITSUMI ELECTRIC CO.,LTD."
+        },
+        {
+          "docId": "CN-106533395-A",
+          "metadata": {
+            "pd": "20170322",
+            "pn": "CN-106533395-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Semiconductor integrated circuit and trigger"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "半导体集成电路和触发器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SAMSUNG ELECTRONICS CO LTD"
+        }
+      ],
+      "query": "(pnctry:CN AND (ttl:\"半导体\" OR ttl:\"集成电路\"))"
+    },
+    "query": ""
+  }
+}

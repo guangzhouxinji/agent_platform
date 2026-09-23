@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "1.0",
+  "importId": "CON-PUBLIC-DATA-IMPORT-V1",
+  "generatedAt": "2026-09-18T13:18:17.943Z",
+  "mode": "PUBLIC_PILOT",
+  "sources": [
+    {
+      "datasetId": "CON-04-PUBLIC-PILOT-V1",
+      "sourceSha256": "3eb751bb88c715952308c9ba38f09f0b0c1261385bb6910d2781ed328b6c1b63",
+      "source": {
+        "name": "SureChEMBL",
+        "websiteUrl": "https://www.surechembl.org/",
+        "apiBaseUrl": "https://surechembl.org/api",
+        "accessMode": "PUBLIC_WEB_API",
+        "authorityStatus": "NON_CENTER_PUBLIC_SOURCE",
+        "licenseReviewStatus": "REVIEW_REQUIRED",
+        "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+      }
+    },
+    {
+      "datasetId": "CON-04-EPO-CN-PILOT-V1",
+      "sourceSha256": "a3ae46209b958b0c861c2425b23d5410df5ab45b45eb499662f1e677c7965579",
+      "source": {
+        "name": "EPO Linked Open Data",
+        "websiteUrl": "https://data.epo.org/linked-data/",
+        "apiBaseUrl": "https://data.epo.org/linked-data/data",
+        "accessMode": "PUBLIC_LINKED_DATA_NO_AUTH",
+        "authorityStatus": "NON_CENTER_PUBLIC_SOURCE",
+        "licenseReviewStatus": "REVIEW_REQUIRED",
+        "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+      }
+    },
+    {
+      "datasetId": "CON-04-CN-TOPIC-PUBLIC-PILOT-V1",
+      "sourceSha256": "26859539c29aa157af514ffc23ff5c00de6e87518b1a4720c5979d638869ec00",
+      "source": {
+        "name": "SureChEMBL",
+        "websiteUrl": "https://www.surechembl.org/",
+        "apiBaseUrl": "https://surechembl.org/api",
+        "accessMode": "PUBLIC_WEB_API",
+        "authorityStatus": "NON_CENTER_PUBLIC_SOURCE",
+        "licenseReviewStatus": "REVIEW_REQUIRED",
+        "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+      }
+    },
+    {
+      "datasetId": "CON-01-TRADEMARK-PUBLIC-PILOT-V1",
+      "sourceSha256": "536e7afe87cfbb461c7eb217fcb6702e2d6edbe221dce48024609b848196edcd",
+      "source": {
+        "name": "USPTO Trademark Official Gazette word marks via trademark-watch snapshot",
+        "upstreamAuthority": "United States Patent and Trademark Office",
+        "upstreamDataset": "USPTO Official Gazette word marks",
+        "upstreamIssue": "2026-09-01",
+        "csvUrl": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv",
+        "sourceManifestUrl": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/manifest.json",
+        "repositoryUrl": "https://github.com/APVentureEngine/trademark-watch",
+        "snapshotCommit": "85b6fa5e2d7fa666c4ba746f519020eb14a60835",
+        "snapshotCommitUrl": "https://github.com/APVentureEngine/trademark-watch/commit/85b6fa5e2d7fa666c4ba746f519020eb14a60835",
+        "accessMode": "PUBLIC_STATIC_DOWNLOAD",
+        "authorityStatus": "NON_CENTER_PUBLIC_DERIVED_SOURCE",
+        "declaredDatasetLicense": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "repositoryLicenseStatus": "NOT_DECLARED",
+        "licenseReviewStatus": "REVIEW_REQUIRED",
+        "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+      }
+    },
+    {
+      "datasetId": "CON-03-CASE-PUBLIC-PILOT-V1",
+      "sourceSha256": "e416af324861ca53596b9a90685ae32768a3fdf1cab99d5f5248d6822c69367c",
+      "source": {
+        "name": "最高人民法院知识产权法庭 - 精品裁判",
+        "categoryUrl": "https://ipc.court.gov.cn/zh-cn/news/more-5-25.html",
+        "accessMode": "PUBLIC_WEB_PAGES",
+        "authorityStatus": "PUBLIC_JUDICIAL_WEBSITE_NON_CENTER_SOURCE",
+        "licenseReviewStatus": "REVIEW_REQUIRED",
+        "usageDecision": "INTERNAL_DEVELOPMENT_PILOT_ONLY"
+      }
+    }
+  ],
+  "generated": [
+    {
+      "file": "public-patents-local-v1.json",
+      "recordCount": 474,
+      "sha256": "1bbe9d4bc3774193d740a1f610c71788918f237fdee8ebbc86116bc8c0368a2b"
+    },
+    {
+      "file": "public-trademarks-v1.json",
+      "recordCount": 100,
+      "sha256": "c3df37e6e125becc66e7f56ea725b56d3aafae2931b2a25c7836205aeb30677d"
+    },
+    {
+      "file": "public-cases-v1.json",
+      "recordCount": 100,
+      "sha256": "f4a0530ce8c6ca4102b7d7e8ee93be34f1755052dd0bc4d2b89d5eacb5748887"
+    }
+  ],
+  "boundaries": {
+    "centerAuthoritative": false,
+    "formalVerificationEvidence": false,
+    "businessAcceptanceEvidence": false
+  }
+}

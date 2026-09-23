@@ -1,0 +1,2973 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "ENF-PUBLIC-REFERENCE-PILOT-V1",
+  "generatedAt": "2026-09-18T12:03:19.942Z",
+  "purpose": "Approved enforcement-domain public reference import set for internal development; not business input",
+  "sourceReview": {
+    "sourceName": "SureChEMBL",
+    "licenseReviewStatus": "APPROVED",
+    "importDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT",
+    "approvalStatus": "APPROVED"
+  },
+  "origin": {
+    "sourceDatasetId": "CON-04-CN-TOPIC-PUBLIC-PILOT-V1",
+    "sourceDatasetRelativePath": "data/patents/cn-topic-public-pilot-v1",
+    "sourceRecordsSha256": "26859539c29aa157af514ffc23ff5c00de6e87518b1a4720c5979d638869ec00",
+    "sourceReviewId": "ENF-SOURCE-REVIEW-SURECHEMBL-V1",
+    "sourceReviewManifest": "data/enforcement/source-review/surechembl-v1/manifest.json",
+    "sourceReviewManifestSha256": "ff59a5b8ed9661d5e2f97b3691def30fd055e251c2fd4e13f1f4618a09a0eb78",
+    "sourceApproval": "data/enforcement/source-review/surechembl-v1/approval.json",
+    "sourceApprovalSha256": "0567dccfe43e65175c44e499132c5e37b56ba9b8321678cc7b2184a445c63838"
+  },
+  "boundaries": {
+    "category": "PUBLIC_RIGHT_STATUS_SNAPSHOT",
+    "dataMode": "PUBLIC_PILOT",
+    "authorityMarker": "NOT_CENTER_SOURCE",
+    "usageLimitation": "INTERNAL_DEVELOPMENT_PILOT_ONLY",
+    "professionalUse": "NOT_PROFESSIONAL_EVIDENCE",
+    "externalModelAllowed": false,
+    "dm8ImportAllowed": true,
+    "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+    "businessWorkflowInputAllowed": false
+  },
+  "recordCount": 400,
+  "recordsFile": "records.json",
+  "recordsSha256": "1c444c5116ee27f7ccba694b0990de22c5d6448e851a229608f4f0c42b395382",
+  "batchSha256": "9265caaf9c579b89cfb4fcbc78d3f9c4af14bbf8ab239ec789a9ca3ee4e1e7ff",
+  "stableSort": [
+    "stableSourceId",
+    "sourceVersion"
+  ],
+  "sourceSnapshots": [
+    {
+      "ref": "detail:CN-102708924-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-102708924-B.json",
+      "fileSha256": "0fbc1f2c28ffbd503de8013e3fc9c7369e1da8e5f0c180e3e5af2dd80bb859c9",
+      "responseSha256": "0fbc1f2c28ffbd503de8013e3fc9c7369e1da8e5f0c180e3e5af2dd80bb859c9"
+    },
+    {
+      "ref": "detail:CN-102737703-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-102737703-B.json",
+      "fileSha256": "939acb6fac2c2601f2a2a85b23219cb57856bbf65dfd94a1f1f9de31a3bf8c91",
+      "responseSha256": "939acb6fac2c2601f2a2a85b23219cb57856bbf65dfd94a1f1f9de31a3bf8c91"
+    },
+    {
+      "ref": "detail:CN-102751258-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-102751258-B.json",
+      "fileSha256": "ded461dade64fbe2889a1bb2984158354a9bda3c60dbf3d6e50c820f975a0ba7",
+      "responseSha256": "ded461dade64fbe2889a1bb2984158354a9bda3c60dbf3d6e50c820f975a0ba7"
+    },
+    {
+      "ref": "detail:CN-102841308-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-102841308-B.json",
+      "fileSha256": "a8c55740a8330521793a7bdda19300815f675451b0b5d285e29cf6ddb0ae9860",
+      "responseSha256": "a8c55740a8330521793a7bdda19300815f675451b0b5d285e29cf6ddb0ae9860"
+    },
+    {
+      "ref": "detail:CN-102903715-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-102903715-B.json",
+      "fileSha256": "aac6f3b7298122e0b2b1302572666addb0953d343f5a965c2486ce4f4d820c71",
+      "responseSha256": "aac6f3b7298122e0b2b1302572666addb0953d343f5a965c2486ce4f4d820c71"
+    },
+    {
+      "ref": "detail:CN-102970217-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-102970217-B.json",
+      "fileSha256": "65896c7c1448dabbebf0eff22f72762e0e1568ee9f5ed598efab4ce34b7242b6",
+      "responseSha256": "65896c7c1448dabbebf0eff22f72762e0e1568ee9f5ed598efab4ce34b7242b6"
+    },
+    {
+      "ref": "detail:CN-103023480-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-103023480-B.json",
+      "fileSha256": "455847d933c6367889db46e5b35b90b762376f9860b085d122c6c7c514051664",
+      "responseSha256": "455847d933c6367889db46e5b35b90b762376f9860b085d122c6c7c514051664"
+    },
+    {
+      "ref": "detail:CN-103105882-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-103105882-B.json",
+      "fileSha256": "b7f468c3299cd88f82de49adf6ca4b9d64fa2499c036d82e559f4857372debfb",
+      "responseSha256": "b7f468c3299cd88f82de49adf6ca4b9d64fa2499c036d82e559f4857372debfb"
+    },
+    {
+      "ref": "detail:CN-103248354-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-103248354-B.json",
+      "fileSha256": "67fdabc43815a39df8a65baed4c5882c362af6f455b95a066a5f1338dd63f23e",
+      "responseSha256": "67fdabc43815a39df8a65baed4c5882c362af6f455b95a066a5f1338dd63f23e"
+    },
+    {
+      "ref": "detail:CN-103280597-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-103280597-B.json",
+      "fileSha256": "c4d07ec65436aacd3fdbc0fccc5e2e924ef325d65224ec34e3e7d680c60b9616",
+      "responseSha256": "c4d07ec65436aacd3fdbc0fccc5e2e924ef325d65224ec34e3e7d680c60b9616"
+    },
+    {
+      "ref": "detail:CN-103296305-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-103296305-B.json",
+      "fileSha256": "96912c75fe4d262cab94c21465dc23e4b189959764911de7a61babe9f47022c5",
+      "responseSha256": "96912c75fe4d262cab94c21465dc23e4b189959764911de7a61babe9f47022c5"
+    },
+    {
+      "ref": "detail:CN-103368569-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-103368569-B.json",
+      "fileSha256": "9fdf2f8331a3dec52e9d6bcc12fd847c59111c1dc2235c61785b3a0fc1890eaa",
+      "responseSha256": "9fdf2f8331a3dec52e9d6bcc12fd847c59111c1dc2235c61785b3a0fc1890eaa"
+    },
+    {
+      "ref": "detail:CN-103460159-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-103460159-B.json",
+      "fileSha256": "17a703f49685b0227bccae41ee0307378e800372c4f9d1d61e6d599318d967ac",
+      "responseSha256": "17a703f49685b0227bccae41ee0307378e800372c4f9d1d61e6d599318d967ac"
+    },
+    {
+      "ref": "detail:CN-103533219-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-103533219-B.json",
+      "fileSha256": "880796b37a8d91cc54b19f870f0a5f314acd81f77c9a4461b1a2f86542e3d21d",
+      "responseSha256": "880796b37a8d91cc54b19f870f0a5f314acd81f77c9a4461b1a2f86542e3d21d"
+    },
+    {
+      "ref": "detail:CN-103579667-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-103579667-B.json",
+      "fileSha256": "4f3e758337e205eb78ce6bafb247c3fc4bfc0e825c125933be72fadc59904674",
+      "responseSha256": "4f3e758337e205eb78ce6bafb247c3fc4bfc0e825c125933be72fadc59904674"
+    },
+    {
+      "ref": "detail:CN-103679011-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-103679011-B.json",
+      "fileSha256": "83cc5ea61da8e445f07cc51faf39c92485e5086ef30543ac7ce0ed104d0a6059",
+      "responseSha256": "83cc5ea61da8e445f07cc51faf39c92485e5086ef30543ac7ce0ed104d0a6059"
+    },
+    {
+      "ref": "detail:CN-103838292-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-103838292-B.json",
+      "fileSha256": "ca83b6943e13b7c642750d354675578a4ea7e0b9a2893d41a1cb849667e1f9f3",
+      "responseSha256": "ca83b6943e13b7c642750d354675578a4ea7e0b9a2893d41a1cb849667e1f9f3"
+    },
+    {
+      "ref": "detail:CN-103887288-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-103887288-B.json",
+      "fileSha256": "5ed388462ccc7bc36745c20749e696a6dd6cd929e9de04c30b2e0e1a24bea42b",
+      "responseSha256": "5ed388462ccc7bc36745c20749e696a6dd6cd929e9de04c30b2e0e1a24bea42b"
+    },
+    {
+      "ref": "detail:CN-104022715-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-104022715-B.json",
+      "fileSha256": "f5b45e2807dd84f752affc03dfbd0878e4ec64e275859c53f93ac239888e8eb9",
+      "responseSha256": "f5b45e2807dd84f752affc03dfbd0878e4ec64e275859c53f93ac239888e8eb9"
+    },
+    {
+      "ref": "detail:CN-104036553-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-104036553-B.json",
+      "fileSha256": "0b5eb7151de3858d3306f1cfe6383f9b5efc37b6634da6d04cc7f74d4e6341d9",
+      "responseSha256": "0b5eb7151de3858d3306f1cfe6383f9b5efc37b6634da6d04cc7f74d4e6341d9"
+    },
+    {
+      "ref": "detail:CN-104113321-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-104113321-B.json",
+      "fileSha256": "9bc91b39b656778563fda697ed1d942ec5e60e998b1c56b73601c3a6c904102e",
+      "responseSha256": "9bc91b39b656778563fda697ed1d942ec5e60e998b1c56b73601c3a6c904102e"
+    },
+    {
+      "ref": "detail:CN-104200839-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-104200839-B.json",
+      "fileSha256": "99e3c3e88119976a0be721fdcd38ded16cad45bd14dfa994a5347cb0bcb99e30",
+      "responseSha256": "99e3c3e88119976a0be721fdcd38ded16cad45bd14dfa994a5347cb0bcb99e30"
+    },
+    {
+      "ref": "detail:CN-104200840-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-104200840-B.json",
+      "fileSha256": "c0d17aa4282bfb1a9bfbef085300e51914e7614e6bf149e1bcf231ac3fd26f6d",
+      "responseSha256": "c0d17aa4282bfb1a9bfbef085300e51914e7614e6bf149e1bcf231ac3fd26f6d"
+    },
+    {
+      "ref": "detail:CN-104200841-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-104200841-B.json",
+      "fileSha256": "18ab2a9d52f73eef9ddc51f28175d98b913e6879422c8b7ebebb2a3bc70925c1",
+      "responseSha256": "18ab2a9d52f73eef9ddc51f28175d98b913e6879422c8b7ebebb2a3bc70925c1"
+    },
+    {
+      "ref": "detail:CN-104252875-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-104252875-B.json",
+      "fileSha256": "1461052cb03e16b632c945b4f6ceea88fd786b295dde766aa232223ed09dfd85",
+      "responseSha256": "1461052cb03e16b632c945b4f6ceea88fd786b295dde766aa232223ed09dfd85"
+    },
+    {
+      "ref": "detail:CN-104375970-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-104375970-B.json",
+      "fileSha256": "091aec8d6190be6ea7b0220b946697a91c1e9fedfc2c97a85a56a29718bda9bb",
+      "responseSha256": "091aec8d6190be6ea7b0220b946697a91c1e9fedfc2c97a85a56a29718bda9bb"
+    },
+    {
+      "ref": "detail:CN-104466085-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-104466085-B.json",
+      "fileSha256": "bf1e485b5dc28e9645c0a887675fc5d39df25e50224d9daf5bc599ebadf5c59d",
+      "responseSha256": "bf1e485b5dc28e9645c0a887675fc5d39df25e50224d9daf5bc599ebadf5c59d"
+    },
+    {
+      "ref": "detail:CN-104868096-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-104868096-B.json",
+      "fileSha256": "b2ace8d497fd7f51bf8b94e0d92c33d8d153070b637539971ed26ba1767519e2",
+      "responseSha256": "b2ace8d497fd7f51bf8b94e0d92c33d8d153070b637539971ed26ba1767519e2"
+    },
+    {
+      "ref": "detail:CN-104937711-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-104937711-B.json",
+      "fileSha256": "a5804e5501ee02e9231400fafe2501d6dcfddbc8975d8bc26d82d5da1af5deff",
+      "responseSha256": "a5804e5501ee02e9231400fafe2501d6dcfddbc8975d8bc26d82d5da1af5deff"
+    },
+    {
+      "ref": "detail:CN-105280223-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-105280223-B.json",
+      "fileSha256": "b9601888546698791668a728bd1c52f1c9af6e38df4e0f19a92bd8b73e5dd060",
+      "responseSha256": "b9601888546698791668a728bd1c52f1c9af6e38df4e0f19a92bd8b73e5dd060"
+    },
+    {
+      "ref": "detail:CN-105505954-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-105505954-B.json",
+      "fileSha256": "8ca9791ca74280055605153f02fc30769d1fdca451b66f447e9f5c3807b67aaf",
+      "responseSha256": "8ca9791ca74280055605153f02fc30769d1fdca451b66f447e9f5c3807b67aaf"
+    },
+    {
+      "ref": "detail:CN-105590899-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-105590899-B.json",
+      "fileSha256": "e0f9247f0e429ce785bcbf2e787d466f24cc3172582f995cf57463ea111583b8",
+      "responseSha256": "e0f9247f0e429ce785bcbf2e787d466f24cc3172582f995cf57463ea111583b8"
+    },
+    {
+      "ref": "detail:CN-105680808-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-105680808-A.json",
+      "fileSha256": "4445b3cbd823c360333c19ca33a092bb272fdc86bd282a66a937507bb06aa75e",
+      "responseSha256": "4445b3cbd823c360333c19ca33a092bb272fdc86bd282a66a937507bb06aa75e"
+    },
+    {
+      "ref": "detail:CN-105680808-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-105680808-B.json",
+      "fileSha256": "1410123b6689a67f70dab9d0939a34619168e5c400a760b593d70a8cc5dfab93",
+      "responseSha256": "1410123b6689a67f70dab9d0939a34619168e5c400a760b593d70a8cc5dfab93"
+    },
+    {
+      "ref": "detail:CN-105718020-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-105718020-A.json",
+      "fileSha256": "9f32a9bb2f30b152e474e63faa0e0fdd46acb64b0842b8b71bd738ba7a8c5a8f",
+      "responseSha256": "9f32a9bb2f30b152e474e63faa0e0fdd46acb64b0842b8b71bd738ba7a8c5a8f"
+    },
+    {
+      "ref": "detail:CN-105718020-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-105718020-B.json",
+      "fileSha256": "ebfc59a71e1ba288abbfad63bb7470447d4261ac965656062bbf7a6da2922df0",
+      "responseSha256": "ebfc59a71e1ba288abbfad63bb7470447d4261ac965656062bbf7a6da2922df0"
+    },
+    {
+      "ref": "detail:CN-105811517-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-105811517-A.json",
+      "fileSha256": "d4d318f4281e7c9b4622c10423fb4efa18940c716696c1c1606d6d00cf8b05c4",
+      "responseSha256": "d4d318f4281e7c9b4622c10423fb4efa18940c716696c1c1606d6d00cf8b05c4"
+    },
+    {
+      "ref": "detail:CN-105811517-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-105811517-B.json",
+      "fileSha256": "a3995fd891fcb7ac79c45515a07409f78ecaef325ff0d610ba423ff39a774d6e",
+      "responseSha256": "a3995fd891fcb7ac79c45515a07409f78ecaef325ff0d610ba423ff39a774d6e"
+    },
+    {
+      "ref": "detail:CN-105845978-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-105845978-B.json",
+      "fileSha256": "174d2746c58bf450209df862121c3e7502f615f30070982787f3cbbd80135481",
+      "responseSha256": "174d2746c58bf450209df862121c3e7502f615f30070982787f3cbbd80135481"
+    },
+    {
+      "ref": "detail:CN-105907632-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-105907632-A.json",
+      "fileSha256": "2a3de446d672043fd68d5239c0a06abc776cf2cd311bf9608976a56a1c057591",
+      "responseSha256": "2a3de446d672043fd68d5239c0a06abc776cf2cd311bf9608976a56a1c057591"
+    },
+    {
+      "ref": "detail:CN-105907632-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-105907632-B.json",
+      "fileSha256": "63ad11669bb51397030be7dafb844de56abea98b6f0bb14d097d7c21bb512f2e",
+      "responseSha256": "63ad11669bb51397030be7dafb844de56abea98b6f0bb14d097d7c21bb512f2e"
+    },
+    {
+      "ref": "detail:CN-106155156-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-106155156-B.json",
+      "fileSha256": "42f92e2bbc34c91332bd97e26e235dbcd35ac9cd35ee2b181d1108daf7f1d30d",
+      "responseSha256": "42f92e2bbc34c91332bd97e26e235dbcd35ac9cd35ee2b181d1108daf7f1d30d"
+    },
+    {
+      "ref": "detail:CN-106299507-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-106299507-B.json",
+      "fileSha256": "819e7145bfb1cb16cfebca8ec05c566badcd81c9e285e094664a7586d1fe8367",
+      "responseSha256": "819e7145bfb1cb16cfebca8ec05c566badcd81c9e285e094664a7586d1fe8367"
+    },
+    {
+      "ref": "detail:CN-106434318-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-106434318-A.json",
+      "fileSha256": "ce21b666467b6c2976b8c53043f0bac7436e41b840a87717251f16adf34723a5",
+      "responseSha256": "ce21b666467b6c2976b8c53043f0bac7436e41b840a87717251f16adf34723a5"
+    },
+    {
+      "ref": "detail:CN-106533395-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-106533395-A.json",
+      "fileSha256": "a1e7fc0a776c366a3c85c3a79829893413ff147c213afa7463268e03724dc318",
+      "responseSha256": "a1e7fc0a776c366a3c85c3a79829893413ff147c213afa7463268e03724dc318"
+    },
+    {
+      "ref": "detail:CN-106554919-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-106554919-A.json",
+      "fileSha256": "b79b44fd32d1872765ee91d3022ecd9978e848e73fb89a3e2e1730c78e2b966f",
+      "responseSha256": "b79b44fd32d1872765ee91d3022ecd9978e848e73fb89a3e2e1730c78e2b966f"
+    },
+    {
+      "ref": "detail:CN-106654351-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-106654351-B.json",
+      "fileSha256": "0da4b38b0d3111d9e4186dd7320f9c215c6790d3bf587a25163647b556d94460",
+      "responseSha256": "0da4b38b0d3111d9e4186dd7320f9c215c6790d3bf587a25163647b556d94460"
+    },
+    {
+      "ref": "detail:CN-106663658-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-106663658-A.json",
+      "fileSha256": "df28f90f34b21218d1c86ff55ffa4dc5c825d1e16575c8d1b3850d171205067e",
+      "responseSha256": "df28f90f34b21218d1c86ff55ffa4dc5c825d1e16575c8d1b3850d171205067e"
+    },
+    {
+      "ref": "detail:CN-106697580-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-106697580-A.json",
+      "fileSha256": "69d388343d532c52e76b63ec47f6ea6efb9ce4355faeb7f8449a33f039587fc2",
+      "responseSha256": "69d388343d532c52e76b63ec47f6ea6efb9ce4355faeb7f8449a33f039587fc2"
+    },
+    {
+      "ref": "detail:CN-106887423-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-106887423-A.json",
+      "fileSha256": "a8d171b59a2665dde8d98f964825d2a790f41ec22863834347647c96b170aef4",
+      "responseSha256": "a8d171b59a2665dde8d98f964825d2a790f41ec22863834347647c96b170aef4"
+    },
+    {
+      "ref": "detail:CN-106887423-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-106887423-B.json",
+      "fileSha256": "865598665290ab4ab5b32fcb9956fba0b6491e298654bb6b91afe95529523cbb",
+      "responseSha256": "865598665290ab4ab5b32fcb9956fba0b6491e298654bb6b91afe95529523cbb"
+    },
+    {
+      "ref": "detail:CN-107004159-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-107004159-B.json",
+      "fileSha256": "47c899cc9feaac5c9686533d0f620aa0bb3b100361f2aaddd886c58f3cb89f51",
+      "responseSha256": "47c899cc9feaac5c9686533d0f620aa0bb3b100361f2aaddd886c58f3cb89f51"
+    },
+    {
+      "ref": "detail:CN-107004638-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-107004638-A.json",
+      "fileSha256": "dcc3487e313d68c5340abb83b7abba4a7cd1bf5cde2ef7b89388d9b16cde22da",
+      "responseSha256": "dcc3487e313d68c5340abb83b7abba4a7cd1bf5cde2ef7b89388d9b16cde22da"
+    },
+    {
+      "ref": "detail:CN-107015593-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-107015593-B.json",
+      "fileSha256": "fd0a8d92ed9287096d46e1b497fe07ade0f3672a360a0878f6715b0b5fd8b2e1",
+      "responseSha256": "fd0a8d92ed9287096d46e1b497fe07ade0f3672a360a0878f6715b0b5fd8b2e1"
+    },
+    {
+      "ref": "detail:CN-107017024-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-107017024-A.json",
+      "fileSha256": "451bab31971398469144a2eb6a22731526f906869f8b1373afd969b913a3c519",
+      "responseSha256": "451bab31971398469144a2eb6a22731526f906869f8b1373afd969b913a3c519"
+    },
+    {
+      "ref": "detail:CN-107017024-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-107017024-B.json",
+      "fileSha256": "af53e8268de9450fb6eb0ee8ed33046cd9c684e2db4dcac5f19b255e5122eeee",
+      "responseSha256": "af53e8268de9450fb6eb0ee8ed33046cd9c684e2db4dcac5f19b255e5122eeee"
+    },
+    {
+      "ref": "detail:CN-107368145-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-107368145-A.json",
+      "fileSha256": "f3e47dcf7347ef7f7edecbb5f1950941991ee9a9d9da95be628005d33d426b55",
+      "responseSha256": "f3e47dcf7347ef7f7edecbb5f1950941991ee9a9d9da95be628005d33d426b55"
+    },
+    {
+      "ref": "detail:CN-107404310-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-107404310-A.json",
+      "fileSha256": "db34d06fb167658bcdb9b0a6d2637943404c6aa1836daa3285caf2ddfac18375",
+      "responseSha256": "db34d06fb167658bcdb9b0a6d2637943404c6aa1836daa3285caf2ddfac18375"
+    },
+    {
+      "ref": "detail:CN-107516134-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-107516134-A.json",
+      "fileSha256": "0bff4e6fab61cb481d4b22747b41fb847e2984712e795fe90c23114ea55451a1",
+      "responseSha256": "0bff4e6fab61cb481d4b22747b41fb847e2984712e795fe90c23114ea55451a1"
+    },
+    {
+      "ref": "detail:CN-107528085-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-107528085-A.json",
+      "fileSha256": "33912541667af3623712f908597ff947dbb2d824724e40ed187ac4796e0f291c",
+      "responseSha256": "33912541667af3623712f908597ff947dbb2d824724e40ed187ac4796e0f291c"
+    },
+    {
+      "ref": "detail:CN-107528085-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-107528085-B.json",
+      "fileSha256": "4e10a5937cc3b9d9a0b5ba473f1ac00bee3bd8f8e7aa342b2e32148c01df875a",
+      "responseSha256": "4e10a5937cc3b9d9a0b5ba473f1ac00bee3bd8f8e7aa342b2e32148c01df875a"
+    },
+    {
+      "ref": "detail:CN-107528086-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-107528086-A.json",
+      "fileSha256": "11649d3f9f445e6b1c269782ed57a23c9ec0193e0954847aa07f405bb21a56d4",
+      "responseSha256": "11649d3f9f445e6b1c269782ed57a23c9ec0193e0954847aa07f405bb21a56d4"
+    },
+    {
+      "ref": "detail:CN-107528086-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-107528086-B.json",
+      "fileSha256": "7bc83a12124e99668aa668cbe126111a994ecab5250df9a7a8830bbd9955d342",
+      "responseSha256": "7bc83a12124e99668aa668cbe126111a994ecab5250df9a7a8830bbd9955d342"
+    },
+    {
+      "ref": "detail:CN-107557288-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-107557288-A.json",
+      "fileSha256": "a813b7d7a27aa13a3d1747e4912e3460094aa82b2f6f669f379de2854484dfde",
+      "responseSha256": "a813b7d7a27aa13a3d1747e4912e3460094aa82b2f6f669f379de2854484dfde"
+    },
+    {
+      "ref": "detail:CN-107565155-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-107565155-B.json",
+      "fileSha256": "506ba270d39179acadc0d24c8c8ff5253fb4e39c1abf220db8f53d434774ade7",
+      "responseSha256": "506ba270d39179acadc0d24c8c8ff5253fb4e39c1abf220db8f53d434774ade7"
+    },
+    {
+      "ref": "detail:CN-107574118-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-107574118-A.json",
+      "fileSha256": "8c45621814d1366f61302189c41f9b03899ee4efb2582dd13720ff9f99b16e7b",
+      "responseSha256": "8c45621814d1366f61302189c41f9b03899ee4efb2582dd13720ff9f99b16e7b"
+    },
+    {
+      "ref": "detail:CN-107868789-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-107868789-A.json",
+      "fileSha256": "d0bc06a2d28280749aee138bbbb2fc2c141b15e3de94405e2876ad3c47440621",
+      "responseSha256": "d0bc06a2d28280749aee138bbbb2fc2c141b15e3de94405e2876ad3c47440621"
+    },
+    {
+      "ref": "detail:CN-107868789-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-107868789-B.json",
+      "fileSha256": "7f6af27496020b75249547334615983aaf3d05d6121e249f05cdd2038704e743",
+      "responseSha256": "7f6af27496020b75249547334615983aaf3d05d6121e249f05cdd2038704e743"
+    },
+    {
+      "ref": "detail:CN-107872082-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-107872082-A.json",
+      "fileSha256": "3dd3d3435f554208b2a5463e55c4f7879a120685db12b053ff5d289293756133",
+      "responseSha256": "3dd3d3435f554208b2a5463e55c4f7879a120685db12b053ff5d289293756133"
+    },
+    {
+      "ref": "detail:CN-107885270-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-107885270-B.json",
+      "fileSha256": "d8c32e92f98cc2306e0e432a5a64285fcfba8daa0e752e9da3dbb1894af39b81",
+      "responseSha256": "d8c32e92f98cc2306e0e432a5a64285fcfba8daa0e752e9da3dbb1894af39b81"
+    },
+    {
+      "ref": "detail:CN-107947763-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-107947763-A.json",
+      "fileSha256": "ababd676a0e6782843ee6807eaf08009ce451b130efdb0023f9b4385876cf9a8",
+      "responseSha256": "ababd676a0e6782843ee6807eaf08009ce451b130efdb0023f9b4385876cf9a8"
+    },
+    {
+      "ref": "detail:CN-107968087-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-107968087-A.json",
+      "fileSha256": "a0e4fefd1d79eaed71f2241890d59323471a4ebe75e02c688b160f5869638276",
+      "responseSha256": "a0e4fefd1d79eaed71f2241890d59323471a4ebe75e02c688b160f5869638276"
+    },
+    {
+      "ref": "detail:CN-108122578-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-108122578-A.json",
+      "fileSha256": "1f775bbb1b9851cf46dc7623a2b8b23d27ecd3965f0a5862b35de02f650d97ba",
+      "responseSha256": "1f775bbb1b9851cf46dc7623a2b8b23d27ecd3965f0a5862b35de02f650d97ba"
+    },
+    {
+      "ref": "detail:CN-108155330-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-108155330-A.json",
+      "fileSha256": "d1db51fc844893ece904906827668f085d510fbb1e16be30f8b203583f13eafc",
+      "responseSha256": "d1db51fc844893ece904906827668f085d510fbb1e16be30f8b203583f13eafc"
+    },
+    {
+      "ref": "detail:CN-108346803-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-108346803-B.json",
+      "fileSha256": "84d7ddab68bcb5272039151130a958f064ad9731684faeb6b6e0485ce6561c74",
+      "responseSha256": "84d7ddab68bcb5272039151130a958f064ad9731684faeb6b6e0485ce6561c74"
+    },
+    {
+      "ref": "detail:CN-108933296-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-108933296-B.json",
+      "fileSha256": "ec0c550012838cf512e22455db0a22c503105aa9d6364154924d69c66d2b0c19",
+      "responseSha256": "ec0c550012838cf512e22455db0a22c503105aa9d6364154924d69c66d2b0c19"
+    },
+    {
+      "ref": "detail:CN-108987680-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-108987680-B.json",
+      "fileSha256": "e514a4301acb9c4344d1f4e02622fbc2f3c13c22ece290fbd0b37144123ff323",
+      "responseSha256": "e514a4301acb9c4344d1f4e02622fbc2f3c13c22ece290fbd0b37144123ff323"
+    },
+    {
+      "ref": "detail:CN-109074642-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-109074642-A.json",
+      "fileSha256": "34dc3618c7ef8c65ba22fc8781f64521ad3490105b4ab194dfbf279795729c9f",
+      "responseSha256": "34dc3618c7ef8c65ba22fc8781f64521ad3490105b4ab194dfbf279795729c9f"
+    },
+    {
+      "ref": "detail:CN-109134002-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-109134002-A.json",
+      "fileSha256": "0c368e0d6a90e98ab9e77e86db85580b8537d421e722d43e7df243296ae9843e",
+      "responseSha256": "0c368e0d6a90e98ab9e77e86db85580b8537d421e722d43e7df243296ae9843e"
+    },
+    {
+      "ref": "detail:CN-109241539-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-109241539-A.json",
+      "fileSha256": "830d4429b8a33b21db8fc1085bd5a095d6427ec1bd09a113c88ee8ff3b76b252",
+      "responseSha256": "830d4429b8a33b21db8fc1085bd5a095d6427ec1bd09a113c88ee8ff3b76b252"
+    },
+    {
+      "ref": "detail:CN-109241539-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-109241539-B.json",
+      "fileSha256": "f82d38875dcb8eedb6791e1779571c1105ca4774852e0c65889b056337df5a2f",
+      "responseSha256": "f82d38875dcb8eedb6791e1779571c1105ca4774852e0c65889b056337df5a2f"
+    },
+    {
+      "ref": "detail:CN-109284819-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-109284819-A.json",
+      "fileSha256": "b6e391b7ae01f8eaa065ff399b9c9fb2be150d6a5c120017c5a43fedd6621120",
+      "responseSha256": "b6e391b7ae01f8eaa065ff399b9c9fb2be150d6a5c120017c5a43fedd6621120"
+    },
+    {
+      "ref": "detail:CN-109409532-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-109409532-A.json",
+      "fileSha256": "7b7a51fcd816ca43575859efcc5519ef1e434e537a67efbae5d4fa5f4b1dd9b5",
+      "responseSha256": "7b7a51fcd816ca43575859efcc5519ef1e434e537a67efbae5d4fa5f4b1dd9b5"
+    },
+    {
+      "ref": "detail:CN-109409532-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-109409532-B.json",
+      "fileSha256": "5af55f5868849587ec65abead9b47ef8640728970757bfc9ce92003087ef4e8d",
+      "responseSha256": "5af55f5868849587ec65abead9b47ef8640728970757bfc9ce92003087ef4e8d"
+    },
+    {
+      "ref": "detail:CN-109417033-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-109417033-A.json",
+      "fileSha256": "03fb987b1cfedf012be9d8fdcbda9502007b5b9bea749b9caeafc82bdf30968b",
+      "responseSha256": "03fb987b1cfedf012be9d8fdcbda9502007b5b9bea749b9caeafc82bdf30968b"
+    },
+    {
+      "ref": "detail:CN-109417033-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-109417033-B.json",
+      "fileSha256": "82a4e64647a4bb6e04f7339e9f05c26e01a718d0fc353e71ad9b190db57fbbdf",
+      "responseSha256": "82a4e64647a4bb6e04f7339e9f05c26e01a718d0fc353e71ad9b190db57fbbdf"
+    },
+    {
+      "ref": "detail:CN-109698330-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-109698330-B.json",
+      "fileSha256": "7c75fa4f82752d7240b084a1b79cdd9a5250428b27bf0804eb5c1f96361b9c5d",
+      "responseSha256": "7c75fa4f82752d7240b084a1b79cdd9a5250428b27bf0804eb5c1f96361b9c5d"
+    },
+    {
+      "ref": "detail:CN-109711794-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-109711794-B.json",
+      "fileSha256": "e3268fba05638a2f2f8909432e6c04695bc4b9f7de0b7e6d3c4270564f67ac96",
+      "responseSha256": "e3268fba05638a2f2f8909432e6c04695bc4b9f7de0b7e6d3c4270564f67ac96"
+    },
+    {
+      "ref": "detail:CN-109728340-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-109728340-B.json",
+      "fileSha256": "42539e2322518da5b5af80308de7990302d14f68856275c792a950186ed7fdf6",
+      "responseSha256": "42539e2322518da5b5af80308de7990302d14f68856275c792a950186ed7fdf6"
+    },
+    {
+      "ref": "detail:CN-109935794-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-109935794-B.json",
+      "fileSha256": "708858f5b22586974579ab58ebec8ca0e70220046a8e3594f53d7c3d9404824e",
+      "responseSha256": "708858f5b22586974579ab58ebec8ca0e70220046a8e3594f53d7c3d9404824e"
+    },
+    {
+      "ref": "detail:CN-109979875-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-109979875-A.json",
+      "fileSha256": "2e071c0eda283ac1e2435090d975d5bdcf173483ab3fdc615efc6cd3f6882858",
+      "responseSha256": "2e071c0eda283ac1e2435090d975d5bdcf173483ab3fdc615efc6cd3f6882858"
+    },
+    {
+      "ref": "detail:CN-109994706-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-109994706-B.json",
+      "fileSha256": "2e0a6a51d53a1cf6f3c86e41b371950cc58c96bc8654f12ef56dbd4c13014c55",
+      "responseSha256": "2e0a6a51d53a1cf6f3c86e41b371950cc58c96bc8654f12ef56dbd4c13014c55"
+    },
+    {
+      "ref": "detail:CN-110061741-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-110061741-A.json",
+      "fileSha256": "9733f8e04a8810b288b2146a34bc52ebc721c7ca9768884f034b9633ed8ec30b",
+      "responseSha256": "9733f8e04a8810b288b2146a34bc52ebc721c7ca9768884f034b9633ed8ec30b"
+    },
+    {
+      "ref": "detail:CN-110431629-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-110431629-A.json",
+      "fileSha256": "3df629fdac9bc8035adb2e1a6288970261c407f27502c5f3437bedf1c03e552a",
+      "responseSha256": "3df629fdac9bc8035adb2e1a6288970261c407f27502c5f3437bedf1c03e552a"
+    },
+    {
+      "ref": "detail:CN-110504479-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-110504479-B.json",
+      "fileSha256": "ceb3f56ebd93a81385a17170789b522cdd6fd94018fb184eda3ae179cb78bfa2",
+      "responseSha256": "ceb3f56ebd93a81385a17170789b522cdd6fd94018fb184eda3ae179cb78bfa2"
+    },
+    {
+      "ref": "detail:CN-110533189-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-110533189-A.json",
+      "fileSha256": "dcfd0cb8b4cabc09e88ed664c50df292c4f184ba53ab292cefc7c5dce43fc244",
+      "responseSha256": "dcfd0cb8b4cabc09e88ed664c50df292c4f184ba53ab292cefc7c5dce43fc244"
+    },
+    {
+      "ref": "detail:CN-110533189-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-110533189-B.json",
+      "fileSha256": "b8f70cdf4e50b4b857e94322d6b785c558ab24ee8ea95797aaaa2f72e72ffeee",
+      "responseSha256": "b8f70cdf4e50b4b857e94322d6b785c558ab24ee8ea95797aaaa2f72e72ffeee"
+    },
+    {
+      "ref": "detail:CN-110970621-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-110970621-B.json",
+      "fileSha256": "dfcf2c452745af884f9a057343732fc62ccfd2644213f6dd29ea242ff6eed0ed",
+      "responseSha256": "dfcf2c452745af884f9a057343732fc62ccfd2644213f6dd29ea242ff6eed0ed"
+    },
+    {
+      "ref": "detail:CN-111190581-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-111190581-A.json",
+      "fileSha256": "29555054e6ded277589fab9e2dbb95b1c10fbee67a6b0b3999438e83cc0d3411",
+      "responseSha256": "29555054e6ded277589fab9e2dbb95b1c10fbee67a6b0b3999438e83cc0d3411"
+    },
+    {
+      "ref": "detail:CN-111190581-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-111190581-B.json",
+      "fileSha256": "9a812b238e5c09d8b3b39f9643303094c5ea567af52230845399742a4e751ee7",
+      "responseSha256": "9a812b238e5c09d8b3b39f9643303094c5ea567af52230845399742a4e751ee7"
+    },
+    {
+      "ref": "detail:CN-111225978-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-111225978-A.json",
+      "fileSha256": "b62e44526390f299c8824f0fc6561d9ec2a180391603f20a73eeea6467adaeea",
+      "responseSha256": "b62e44526390f299c8824f0fc6561d9ec2a180391603f20a73eeea6467adaeea"
+    },
+    {
+      "ref": "detail:CN-111304225-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-111304225-B.json",
+      "fileSha256": "8dd956e5c629ab75acc041f462c8c6c7c77fa4b471685d8b1d532d3dd50b03c2",
+      "responseSha256": "8dd956e5c629ab75acc041f462c8c6c7c77fa4b471685d8b1d532d3dd50b03c2"
+    },
+    {
+      "ref": "detail:CN-111326718-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-111326718-B.json",
+      "fileSha256": "39ad23d5271c00488b9755456c26056c8b00a8ed09e768be9685d25abed17518",
+      "responseSha256": "39ad23d5271c00488b9755456c26056c8b00a8ed09e768be9685d25abed17518"
+    },
+    {
+      "ref": "detail:CN-111326728-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-111326728-A.json",
+      "fileSha256": "8f5505e954453f75d7c50fc73f0c4e3c4e952ba5dc006b3ad0decf3cb384fd21",
+      "responseSha256": "8f5505e954453f75d7c50fc73f0c4e3c4e952ba5dc006b3ad0decf3cb384fd21"
+    },
+    {
+      "ref": "detail:CN-111326728-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-111326728-B.json",
+      "fileSha256": "a5d5054b41ad1b9379c4de8b5141765812cf5d531360f0c8b748edf2b4930f7a",
+      "responseSha256": "a5d5054b41ad1b9379c4de8b5141765812cf5d531360f0c8b748edf2b4930f7a"
+    },
+    {
+      "ref": "detail:CN-111326732-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-111326732-B.json",
+      "fileSha256": "06d1e781a0332d7b70af1c2df49555ec2a9193950eec3a395467e6a9cc1f433e",
+      "responseSha256": "06d1e781a0332d7b70af1c2df49555ec2a9193950eec3a395467e6a9cc1f433e"
+    },
+    {
+      "ref": "detail:CN-111354949-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-111354949-B.json",
+      "fileSha256": "c900730e89380056fd18c7dff293c23e3189161d145cde775e54a387531a957c",
+      "responseSha256": "c900730e89380056fd18c7dff293c23e3189161d145cde775e54a387531a957c"
+    },
+    {
+      "ref": "detail:CN-111363674-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-111363674-A.json",
+      "fileSha256": "72977d971668c5428853261674c6f09fa9e03d78079e504faa1df9368103bdba",
+      "responseSha256": "72977d971668c5428853261674c6f09fa9e03d78079e504faa1df9368103bdba"
+    },
+    {
+      "ref": "detail:CN-111403672-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-111403672-B.json",
+      "fileSha256": "8deb72e9fe1a0d62f1791c1dec515ae6d2f25102975b5ceb7403b4e27c060822",
+      "responseSha256": "8deb72e9fe1a0d62f1791c1dec515ae6d2f25102975b5ceb7403b4e27c060822"
+    },
+    {
+      "ref": "detail:CN-111416145-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-111416145-B.json",
+      "fileSha256": "d72f4db59a0afb72508b6f0f735bd625ec2263f5e3c4ba1877ef89cd097603fa",
+      "responseSha256": "d72f4db59a0afb72508b6f0f735bd625ec2263f5e3c4ba1877ef89cd097603fa"
+    },
+    {
+      "ref": "detail:CN-111476345-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-111476345-A.json",
+      "fileSha256": "f39ee4da4a75bc692888855cc2bc4fc3c132e9978393c3adf69d06d04f95cf71",
+      "responseSha256": "f39ee4da4a75bc692888855cc2bc4fc3c132e9978393c3adf69d06d04f95cf71"
+    },
+    {
+      "ref": "detail:CN-111476345-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-111476345-B.json",
+      "fileSha256": "e942c984a5df7d409cad74379d25c30adc55a4b6d26c7b2b9424c383b7f6ab1b",
+      "responseSha256": "e942c984a5df7d409cad74379d25c30adc55a4b6d26c7b2b9424c383b7f6ab1b"
+    },
+    {
+      "ref": "detail:CN-111682216-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-111682216-B.json",
+      "fileSha256": "3c73c38c7a9e78cb52d02a8b785ff6dd2ddc2e471ccdfb2d94b19b22f201d41e",
+      "responseSha256": "3c73c38c7a9e78cb52d02a8b785ff6dd2ddc2e471ccdfb2d94b19b22f201d41e"
+    },
+    {
+      "ref": "detail:CN-111769329-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-111769329-B.json",
+      "fileSha256": "7b5186eda84e212dbcc09e6caf1b0356577366857390a5cd38cb82214c3ba6e9",
+      "responseSha256": "7b5186eda84e212dbcc09e6caf1b0356577366857390a5cd38cb82214c3ba6e9"
+    },
+    {
+      "ref": "detail:CN-111802246-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-111802246-A.json",
+      "fileSha256": "6cc885703d93927cbc8f6f7e6fbbd949d4b12c04ce2ba799d2e19c2818c71f07",
+      "responseSha256": "6cc885703d93927cbc8f6f7e6fbbd949d4b12c04ce2ba799d2e19c2818c71f07"
+    },
+    {
+      "ref": "detail:CN-111816854-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-111816854-B.json",
+      "fileSha256": "8a15581118576a750c686ca7bf31ed1b66f1d2b1489e651da41e348070dfe62a",
+      "responseSha256": "8a15581118576a750c686ca7bf31ed1b66f1d2b1489e651da41e348070dfe62a"
+    },
+    {
+      "ref": "detail:CN-111954582-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-111954582-B.json",
+      "fileSha256": "e6239306a1758c307c15987d6357d402ea4f553188670cfef9a48df25dc42af4",
+      "responseSha256": "e6239306a1758c307c15987d6357d402ea4f553188670cfef9a48df25dc42af4"
+    },
+    {
+      "ref": "detail:CN-112084836-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-112084836-A.json",
+      "fileSha256": "be9b4c34e6b24a424220c1fdb0c940193b170bea3b4e494854ef2893d6a6a186",
+      "responseSha256": "be9b4c34e6b24a424220c1fdb0c940193b170bea3b4e494854ef2893d6a6a186"
+    },
+    {
+      "ref": "detail:CN-112084836-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-112084836-B.json",
+      "fileSha256": "7bf5b91e905a7c62c7ac8f64cee3f3e86b45f8babdfa6ada49a4cee894ce57e1",
+      "responseSha256": "7bf5b91e905a7c62c7ac8f64cee3f3e86b45f8babdfa6ada49a4cee894ce57e1"
+    },
+    {
+      "ref": "detail:CN-112101513-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-112101513-A.json",
+      "fileSha256": "2b71fab2f6611776803ecd0d49fffeaec6dc275a93459aa712b0278fa8bd1f30",
+      "responseSha256": "2b71fab2f6611776803ecd0d49fffeaec6dc275a93459aa712b0278fa8bd1f30"
+    },
+    {
+      "ref": "detail:CN-112151702-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-112151702-B.json",
+      "fileSha256": "55e3b7f48c0a992a009d2e5cbe9d8ae98f3976725b45ad60c4c67f01de3ee3ab",
+      "responseSha256": "55e3b7f48c0a992a009d2e5cbe9d8ae98f3976725b45ad60c4c67f01de3ee3ab"
+    },
+    {
+      "ref": "detail:CN-112262394-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-112262394-B.json",
+      "fileSha256": "4ae1daf805304e5333005a5fa44e23fa65908588e3c2c4fcb95ab0d7fece9c1c",
+      "responseSha256": "4ae1daf805304e5333005a5fa44e23fa65908588e3c2c4fcb95ab0d7fece9c1c"
+    },
+    {
+      "ref": "detail:CN-112349962-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-112349962-B.json",
+      "fileSha256": "e43240ad8d05994656a9acd23f9f7dece217d9451a307ea8cdd3f151b5f8e5d7",
+      "responseSha256": "e43240ad8d05994656a9acd23f9f7dece217d9451a307ea8cdd3f151b5f8e5d7"
+    },
+    {
+      "ref": "detail:CN-112635822-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-112635822-B.json",
+      "fileSha256": "2ebe7aec169d6582d101054eab770f3194ec0a71e04cfb85613fdbb7b035fe2c",
+      "responseSha256": "2ebe7aec169d6582d101054eab770f3194ec0a71e04cfb85613fdbb7b035fe2c"
+    },
+    {
+      "ref": "detail:CN-112783252-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-112783252-A.json",
+      "fileSha256": "effeaac15049efd7a66f5a68e124b6ac95b98d347d8b1de7a773f94bb6b5f8cc",
+      "responseSha256": "effeaac15049efd7a66f5a68e124b6ac95b98d347d8b1de7a773f94bb6b5f8cc"
+    },
+    {
+      "ref": "detail:CN-112783252-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-112783252-B.json",
+      "fileSha256": "e89190602366120172cb77c9ee93fa093a287fbb94c0e989f67d75ba454bd54c",
+      "responseSha256": "e89190602366120172cb77c9ee93fa093a287fbb94c0e989f67d75ba454bd54c"
+    },
+    {
+      "ref": "detail:CN-112995417-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-112995417-A.json",
+      "fileSha256": "fb5bb7e21738ca3aa4b9645ff6f83b2d56fad6fa30e692cdac4a31ed58d178a3",
+      "responseSha256": "fb5bb7e21738ca3aa4b9645ff6f83b2d56fad6fa30e692cdac4a31ed58d178a3"
+    },
+    {
+      "ref": "detail:CN-113054162-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-113054162-A.json",
+      "fileSha256": "340b04aea668fef9832e858d132210d8ba916aed4ea2992b05294f933cdddf39",
+      "responseSha256": "340b04aea668fef9832e858d132210d8ba916aed4ea2992b05294f933cdddf39"
+    },
+    {
+      "ref": "detail:CN-113066975-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-113066975-B.json",
+      "fileSha256": "1e5e98cd5ace4c1f27f542443b46b197635023a35baed6b3d044d10ff5761fb7",
+      "responseSha256": "1e5e98cd5ace4c1f27f542443b46b197635023a35baed6b3d044d10ff5761fb7"
+    },
+    {
+      "ref": "detail:CN-113168575-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-113168575-A.json",
+      "fileSha256": "687a82707fa79d7b2107b835e8e07650fb8fdb101bdc0d8ff020a5ae96892b95",
+      "responseSha256": "687a82707fa79d7b2107b835e8e07650fb8fdb101bdc0d8ff020a5ae96892b95"
+    },
+    {
+      "ref": "detail:CN-113186078-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-113186078-A.json",
+      "fileSha256": "444155f8da2cd7152135742edf35eec32a68de186150a8ab7c85aa36d0e16ec7",
+      "responseSha256": "444155f8da2cd7152135742edf35eec32a68de186150a8ab7c85aa36d0e16ec7"
+    },
+    {
+      "ref": "detail:CN-113186078-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-113186078-B.json",
+      "fileSha256": "2f505737928bdcd19c36504eaff1ecdf5ad18f8933bc3efc245a471ee8f9eaea",
+      "responseSha256": "2f505737928bdcd19c36504eaff1ecdf5ad18f8933bc3efc245a471ee8f9eaea"
+    },
+    {
+      "ref": "detail:CN-113348771-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-113348771-B.json",
+      "fileSha256": "91da376c6d6c891a5d1ead65aac12bd94bfefe9a40004c32da5681bd3074cdd9",
+      "responseSha256": "91da376c6d6c891a5d1ead65aac12bd94bfefe9a40004c32da5681bd3074cdd9"
+    },
+    {
+      "ref": "detail:CN-113805940-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-113805940-A.json",
+      "fileSha256": "63088b7ef9ba488bcf6602fe2100c7506b145a48aa1d3fab242a137030709314",
+      "responseSha256": "63088b7ef9ba488bcf6602fe2100c7506b145a48aa1d3fab242a137030709314"
+    },
+    {
+      "ref": "detail:CN-113805940-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-113805940-B.json",
+      "fileSha256": "a8c81fea1075022233fd37a5a76b6a1cfc834e8cc70f22b83816938948ccacfd",
+      "responseSha256": "a8c81fea1075022233fd37a5a76b6a1cfc834e8cc70f22b83816938948ccacfd"
+    },
+    {
+      "ref": "detail:CN-113821101-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-113821101-A.json",
+      "fileSha256": "8f8ed9db249e2e832667929b66af3e621dd05721523a9d3d7e44578727f46a46",
+      "responseSha256": "8f8ed9db249e2e832667929b66af3e621dd05721523a9d3d7e44578727f46a46"
+    },
+    {
+      "ref": "detail:CN-113821101-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-113821101-B.json",
+      "fileSha256": "94ad14211ac340c0572029c6f17a0b17c99afbcca2696ba8b943171247ecd01a",
+      "responseSha256": "94ad14211ac340c0572029c6f17a0b17c99afbcca2696ba8b943171247ecd01a"
+    },
+    {
+      "ref": "detail:CN-113967747-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-113967747-A.json",
+      "fileSha256": "27f405ce34e82b3b3a73789588ba6a861f63bd091819f09228f5870488924254",
+      "responseSha256": "27f405ce34e82b3b3a73789588ba6a861f63bd091819f09228f5870488924254"
+    },
+    {
+      "ref": "detail:CN-113967747-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-113967747-B.json",
+      "fileSha256": "f6d4a84d14a6c76f8d958bf8f45a7c7e8be1e370758f9d0d26047010b12b63ef",
+      "responseSha256": "f6d4a84d14a6c76f8d958bf8f45a7c7e8be1e370758f9d0d26047010b12b63ef"
+    },
+    {
+      "ref": "detail:CN-1139988-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1139988-C.json",
+      "fileSha256": "b212b868342b0e9175987615c7d34bb10520de91252799cce953ddc8cfae19e7",
+      "responseSha256": "b212b868342b0e9175987615c7d34bb10520de91252799cce953ddc8cfae19e7"
+    },
+    {
+      "ref": "detail:CN-1139991-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1139991-C.json",
+      "fileSha256": "a8aad7d1a6dfe0ad9e3ef5f23d2393521491ed5c4a3f2094d26a2d98e028172a",
+      "responseSha256": "a8aad7d1a6dfe0ad9e3ef5f23d2393521491ed5c4a3f2094d26a2d98e028172a"
+    },
+    {
+      "ref": "detail:CN-114054776-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114054776-A.json",
+      "fileSha256": "d0244e34aba78f65d4d428ade7f0f20428f3e46f7472ab20abd6cee20c3eed75",
+      "responseSha256": "d0244e34aba78f65d4d428ade7f0f20428f3e46f7472ab20abd6cee20c3eed75"
+    },
+    {
+      "ref": "detail:CN-114054776-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114054776-B.json",
+      "fileSha256": "ea1216cfdb694fedb3d25ea443e31a4908e433bbf85272e5682c7ae2e8e8b4ae",
+      "responseSha256": "ea1216cfdb694fedb3d25ea443e31a4908e433bbf85272e5682c7ae2e8e8b4ae"
+    },
+    {
+      "ref": "detail:CN-114077193-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114077193-A.json",
+      "fileSha256": "d66b2a0c41ede2120110a53b4df2d50c0cebce2b968aaca16c379700ad63626a",
+      "responseSha256": "d66b2a0c41ede2120110a53b4df2d50c0cebce2b968aaca16c379700ad63626a"
+    },
+    {
+      "ref": "detail:CN-114077237-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114077237-A.json",
+      "fileSha256": "4d59f1e60a30e027ec5e39658ddf3ffc900c8a9557b9195feafad40765f2e576",
+      "responseSha256": "4d59f1e60a30e027ec5e39658ddf3ffc900c8a9557b9195feafad40765f2e576"
+    },
+    {
+      "ref": "detail:CN-114077237-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114077237-B.json",
+      "fileSha256": "0b31904905521dda06b1e27e09bcddc60c9666fd3df16429707a435f453c0c7e",
+      "responseSha256": "0b31904905521dda06b1e27e09bcddc60c9666fd3df16429707a435f453c0c7e"
+    },
+    {
+      "ref": "detail:CN-1141594-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1141594-C.json",
+      "fileSha256": "4c3ccbb355dd8d5978b3eec850e58c9b79b3950fc568957944ad386d3062d1d1",
+      "responseSha256": "4c3ccbb355dd8d5978b3eec850e58c9b79b3950fc568957944ad386d3062d1d1"
+    },
+    {
+      "ref": "detail:CN-114221024-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-114221024-B.json",
+      "fileSha256": "1dcefe12133a92cb3bd1594b1fc3db41e16504048575e7550f144853713a59b0",
+      "responseSha256": "1dcefe12133a92cb3bd1594b1fc3db41e16504048575e7550f144853713a59b0"
+    },
+    {
+      "ref": "detail:CN-114358107-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114358107-A.json",
+      "fileSha256": "f2a36c18f78f2a3ba6137c373605dff26b6402fc2b7f2c33b432fcdf126bdb0b",
+      "responseSha256": "f2a36c18f78f2a3ba6137c373605dff26b6402fc2b7f2c33b432fcdf126bdb0b"
+    },
+    {
+      "ref": "detail:CN-114358107-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114358107-B.json",
+      "fileSha256": "2ced99422ebc2b34f4eb93d82d67442323b32127244c6ea1accff72136ceb285",
+      "responseSha256": "2ced99422ebc2b34f4eb93d82d67442323b32127244c6ea1accff72136ceb285"
+    },
+    {
+      "ref": "detail:CN-1144228-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1144228-C.json",
+      "fileSha256": "87dda80772365ba3cd20e1f470bfb690dea209f1fe4a7e3d91d323b0d665cb12",
+      "responseSha256": "87dda80772365ba3cd20e1f470bfb690dea209f1fe4a7e3d91d323b0d665cb12"
+    },
+    {
+      "ref": "detail:CN-1144229-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1144229-C.json",
+      "fileSha256": "5d3840acbf60fb0f272bef24fee53718307090a89e71b516613330ad92cce9cc",
+      "responseSha256": "5d3840acbf60fb0f272bef24fee53718307090a89e71b516613330ad92cce9cc"
+    },
+    {
+      "ref": "detail:CN-114424218-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114424218-A.json",
+      "fileSha256": "3ffc26c47ef64d114491e887373f0298c6b2932daa28327aff1504f74a32c3d0",
+      "responseSha256": "3ffc26c47ef64d114491e887373f0298c6b2932daa28327aff1504f74a32c3d0"
+    },
+    {
+      "ref": "detail:CN-114424218-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114424218-B.json",
+      "fileSha256": "577edd2dbfe7add0a2c541b5d5a219532f4349e15674e094ba516b8778dcf720",
+      "responseSha256": "577edd2dbfe7add0a2c541b5d5a219532f4349e15674e094ba516b8778dcf720"
+    },
+    {
+      "ref": "detail:CN-114464961-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-114464961-A.json",
+      "fileSha256": "1147d80e0008a3104dd90c8c66267ca3e223284bb2ddbb16316e66044e8e46c9",
+      "responseSha256": "1147d80e0008a3104dd90c8c66267ca3e223284bb2ddbb16316e66044e8e46c9"
+    },
+    {
+      "ref": "detail:CN-114464961-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-114464961-B.json",
+      "fileSha256": "b73b6471f5867fded1b0546d732fc697f5883f290a1ba224449f6de9f0a30703",
+      "responseSha256": "b73b6471f5867fded1b0546d732fc697f5883f290a1ba224449f6de9f0a30703"
+    },
+    {
+      "ref": "detail:CN-1145212-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1145212-C.json",
+      "fileSha256": "8b2a9f20257570746c6753e36ec3d2458c72de9caf972ff758d81c4c95fa45d2",
+      "responseSha256": "8b2a9f20257570746c6753e36ec3d2458c72de9caf972ff758d81c4c95fa45d2"
+    },
+    {
+      "ref": "detail:CN-114578687-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114578687-A.json",
+      "fileSha256": "4f12e455d9f6f3dee203d1ac237fa8421ef6b58e0e56839a6972425f79db0d49",
+      "responseSha256": "4f12e455d9f6f3dee203d1ac237fa8421ef6b58e0e56839a6972425f79db0d49"
+    },
+    {
+      "ref": "detail:CN-114578687-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114578687-B.json",
+      "fileSha256": "c7d8c5a7f8fbe75d0366754eac01d1f1c11e6ae34dc6021533faaa2d29d737ab",
+      "responseSha256": "c7d8c5a7f8fbe75d0366754eac01d1f1c11e6ae34dc6021533faaa2d29d737ab"
+    },
+    {
+      "ref": "detail:CN-1146920-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1146920-C.json",
+      "fileSha256": "f272dce14f20e90066cd8f3506e173d36c8fe7385422619a4d84c519200a4f22",
+      "responseSha256": "f272dce14f20e90066cd8f3506e173d36c8fe7385422619a4d84c519200a4f22"
+    },
+    {
+      "ref": "detail:CN-1147790-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1147790-C.json",
+      "fileSha256": "0a6ea26dc6fd3b8097321d92149516f32160bc0c8c05ffa4bd402d2ee6c045ee",
+      "responseSha256": "0a6ea26dc6fd3b8097321d92149516f32160bc0c8c05ffa4bd402d2ee6c045ee"
+    },
+    {
+      "ref": "detail:CN-114787833-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114787833-A.json",
+      "fileSha256": "001cab8eb4105855215b057adb3dcf40afe5e4f94973f69057b80f41a1705560",
+      "responseSha256": "001cab8eb4105855215b057adb3dcf40afe5e4f94973f69057b80f41a1705560"
+    },
+    {
+      "ref": "detail:CN-114902060-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114902060-A.json",
+      "fileSha256": "70324eebb1c8ec9f23a0ddb0a7de023ac276973e7155d984774d9d4af1d3e602",
+      "responseSha256": "70324eebb1c8ec9f23a0ddb0a7de023ac276973e7155d984774d9d4af1d3e602"
+    },
+    {
+      "ref": "detail:CN-114902060-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-114902060-B.json",
+      "fileSha256": "3bbf95ce89093752a1e6a3b7db8d3b47f6d65ec72786997d339017a857eb0a4f",
+      "responseSha256": "3bbf95ce89093752a1e6a3b7db8d3b47f6d65ec72786997d339017a857eb0a4f"
+    },
+    {
+      "ref": "detail:CN-114907959-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-114907959-A.json",
+      "fileSha256": "f4dbce0e94218f0c337c84bd01ecd26612b857c2180d795507f25f90742c2c5a",
+      "responseSha256": "f4dbce0e94218f0c337c84bd01ecd26612b857c2180d795507f25f90742c2c5a"
+    },
+    {
+      "ref": "detail:CN-1149737-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1149737-C.json",
+      "fileSha256": "bf944963cd890161e7217e54fd39cd384ea5e4a890a86f8af5fa6609af1b4676",
+      "responseSha256": "bf944963cd890161e7217e54fd39cd384ea5e4a890a86f8af5fa6609af1b4676"
+    },
+    {
+      "ref": "detail:CN-115020814-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-115020814-B.json",
+      "fileSha256": "f2e10bf45ec65f3b618fb7b4560854f18372e6b3ecce4e0ce2d292e44b224d43",
+      "responseSha256": "f2e10bf45ec65f3b618fb7b4560854f18372e6b3ecce4e0ce2d292e44b224d43"
+    },
+    {
+      "ref": "detail:CN-115243842-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-115243842-A.json",
+      "fileSha256": "575abc18bb58dce52b9c05c659726cbedebb3e1eb724ec041b52ea570e0bf71b",
+      "responseSha256": "575abc18bb58dce52b9c05c659726cbedebb3e1eb724ec041b52ea570e0bf71b"
+    },
+    {
+      "ref": "detail:CN-115285134-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-115285134-A.json",
+      "fileSha256": "4cb09c620426cf037e9bbd73fd9a230b1aef2301a51c426f207bf7938615bac8",
+      "responseSha256": "4cb09c620426cf037e9bbd73fd9a230b1aef2301a51c426f207bf7938615bac8"
+    },
+    {
+      "ref": "detail:CN-1154722-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-1154722-C.json",
+      "fileSha256": "b3559dd016bbfbba4607a1bf36b2d9cda50d84eb465af21cc74f1c0efb2f1207",
+      "responseSha256": "b3559dd016bbfbba4607a1bf36b2d9cda50d84eb465af21cc74f1c0efb2f1207"
+    },
+    {
+      "ref": "detail:CN-115527198-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-115527198-A.json",
+      "fileSha256": "8a27003554626dfc8a51694de207180279097787701cd141218a02ed0857c2f1",
+      "responseSha256": "8a27003554626dfc8a51694de207180279097787701cd141218a02ed0857c2f1"
+    },
+    {
+      "ref": "detail:CN-115595247-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-115595247-A.json",
+      "fileSha256": "e61669a817e067c420de237935563fd16ac7cb7932f9d1d877243fbb2844425a",
+      "responseSha256": "e61669a817e067c420de237935563fd16ac7cb7932f9d1d877243fbb2844425a"
+    },
+    {
+      "ref": "detail:CN-115668283-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-115668283-A.json",
+      "fileSha256": "ded415bd8818922b66c0c09cf5443bdee82b999b2ed0bd94618c0ae55c1f38be",
+      "responseSha256": "ded415bd8818922b66c0c09cf5443bdee82b999b2ed0bd94618c0ae55c1f38be"
+    },
+    {
+      "ref": "detail:CN-1156911-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1156911-C.json",
+      "fileSha256": "accb592d1a5731c9ca92e4e755b1e2ae00633cdcb0528c30ef616023421c7b7a",
+      "responseSha256": "accb592d1a5731c9ca92e4e755b1e2ae00633cdcb0528c30ef616023421c7b7a"
+    },
+    {
+      "ref": "detail:CN-115942672-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-115942672-A.json",
+      "fileSha256": "8b71f533c09cef4c5a2c68e7cf2987d62981797f8661e492c9abc41ac73ad439",
+      "responseSha256": "8b71f533c09cef4c5a2c68e7cf2987d62981797f8661e492c9abc41ac73ad439"
+    },
+    {
+      "ref": "detail:CN-115942672-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-115942672-B.json",
+      "fileSha256": "e84ccb4259fa3668c88c998e8c7cb3908bd1c8f6430ba6168b2d2f146b7c9710",
+      "responseSha256": "e84ccb4259fa3668c88c998e8c7cb3908bd1c8f6430ba6168b2d2f146b7c9710"
+    },
+    {
+      "ref": "detail:CN-116072224-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-116072224-A.json",
+      "fileSha256": "59a10b6a88ce0186206866a696ae3d62e701d45dec060fd870c23f9379946f08",
+      "responseSha256": "59a10b6a88ce0186206866a696ae3d62e701d45dec060fd870c23f9379946f08"
+    },
+    {
+      "ref": "detail:CN-116157828-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-116157828-A.json",
+      "fileSha256": "aa78fea9935b47f31947e10def06117ac9fee525e49ddd303bda99b2d8520aa0",
+      "responseSha256": "aa78fea9935b47f31947e10def06117ac9fee525e49ddd303bda99b2d8520aa0"
+    },
+    {
+      "ref": "detail:CN-1162909-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1162909-C.json",
+      "fileSha256": "11ba5707e793678f12186db3f757394af33890e305ac2bb471e6d808fd13062b",
+      "responseSha256": "11ba5707e793678f12186db3f757394af33890e305ac2bb471e6d808fd13062b"
+    },
+    {
+      "ref": "detail:CN-116432764-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-116432764-A.json",
+      "fileSha256": "87987eb5899de927cc472a72a3faa5a3522640f5d394d09df81797bcb697ccb3",
+      "responseSha256": "87987eb5899de927cc472a72a3faa5a3522640f5d394d09df81797bcb697ccb3"
+    },
+    {
+      "ref": "detail:CN-116432764-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-116432764-B.json",
+      "fileSha256": "5964d15d3829c4aa2229081108cf2bcbdb2ab2b58bf7859194318b0888b38d25",
+      "responseSha256": "5964d15d3829c4aa2229081108cf2bcbdb2ab2b58bf7859194318b0888b38d25"
+    },
+    {
+      "ref": "detail:CN-116644817-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-116644817-A.json",
+      "fileSha256": "0cbac01e38a37e713e03a06395c919f046c2ed8efe83d5acff52b6af7f254ec5",
+      "responseSha256": "0cbac01e38a37e713e03a06395c919f046c2ed8efe83d5acff52b6af7f254ec5"
+    },
+    {
+      "ref": "detail:CN-116997664-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-116997664-A.json",
+      "fileSha256": "596cd910f37d8adf0c2c8bf9bc20dd6fbc0b0ed1083210a21d97853cb36d098d",
+      "responseSha256": "596cd910f37d8adf0c2c8bf9bc20dd6fbc0b0ed1083210a21d97853cb36d098d"
+    },
+    {
+      "ref": "detail:CN-1170312-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1170312-C.json",
+      "fileSha256": "366b20b779a2be1b1e7fdb7e4a302375517907f3b069b28a8da1a70a0b9f2b93",
+      "responseSha256": "366b20b779a2be1b1e7fdb7e4a302375517907f3b069b28a8da1a70a0b9f2b93"
+    },
+    {
+      "ref": "detail:CN-117063243-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-117063243-A.json",
+      "fileSha256": "e46131a128a577e7232e1a43ecd29de5a7afaf08b92a3d537177af79e0dcf7f4",
+      "responseSha256": "e46131a128a577e7232e1a43ecd29de5a7afaf08b92a3d537177af79e0dcf7f4"
+    },
+    {
+      "ref": "detail:CN-1171131-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1171131-C.json",
+      "fileSha256": "1d4d8c37a8a821f2739540c1ade9ddc2de15cf727f5017d7f82a40ea1fe26103",
+      "responseSha256": "1d4d8c37a8a821f2739540c1ade9ddc2de15cf727f5017d7f82a40ea1fe26103"
+    },
+    {
+      "ref": "detail:CN-117130660-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-117130660-A.json",
+      "fileSha256": "2204ec82d315f1e34642011a768f79acbf7f5360b8ea87857b6aa2ef6ac6c5dc",
+      "responseSha256": "2204ec82d315f1e34642011a768f79acbf7f5360b8ea87857b6aa2ef6ac6c5dc"
+    },
+    {
+      "ref": "detail:CN-1173402-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1173402-C.json",
+      "fileSha256": "097cfd575467abcc823a49cce1ba53435c98b531b42eb7ec7adde68439fb6fd6",
+      "responseSha256": "097cfd575467abcc823a49cce1ba53435c98b531b42eb7ec7adde68439fb6fd6"
+    },
+    {
+      "ref": "detail:CN-117371561-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-117371561-A.json",
+      "fileSha256": "dc2c870ffab3e2aafb8fe4ec1eb0b5402499055b378f18a3212340e54f0b2372",
+      "responseSha256": "dc2c870ffab3e2aafb8fe4ec1eb0b5402499055b378f18a3212340e54f0b2372"
+    },
+    {
+      "ref": "detail:CN-117434507-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-117434507-A.json",
+      "fileSha256": "7765bd7c3eeba1fd51f0e8d73eae25b17d450fdd1618b764ffe821171e971a15",
+      "responseSha256": "7765bd7c3eeba1fd51f0e8d73eae25b17d450fdd1618b764ffe821171e971a15"
+    },
+    {
+      "ref": "detail:CN-1174546-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1174546-C.json",
+      "fileSha256": "1fe9da3af3e1291936b723dda204dcf74b019b44c59af2929b9fc50e9a6d95d4",
+      "responseSha256": "1fe9da3af3e1291936b723dda204dcf74b019b44c59af2929b9fc50e9a6d95d4"
+    },
+    {
+      "ref": "detail:CN-1175424-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1175424-C.json",
+      "fileSha256": "7a0b6135ac51d3161133ef4e3e6338b6ac6802aa8590eb6dc7cc51a4b57be835",
+      "responseSha256": "7a0b6135ac51d3161133ef4e3e6338b6ac6802aa8590eb6dc7cc51a4b57be835"
+    },
+    {
+      "ref": "detail:CN-117668701-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-117668701-A.json",
+      "fileSha256": "7150feca59a02ba150ad66ba1c3758a954e2fe8a4fde7a572125fa03838fdb3f",
+      "responseSha256": "7150feca59a02ba150ad66ba1c3758a954e2fe8a4fde7a572125fa03838fdb3f"
+    },
+    {
+      "ref": "detail:CN-117668701-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-117668701-B.json",
+      "fileSha256": "3c68e0b0a72ab9144b9d9972e5619f432222b494bc2a8f743e23d6d88d46e4de",
+      "responseSha256": "3c68e0b0a72ab9144b9d9972e5619f432222b494bc2a8f743e23d6d88d46e4de"
+    },
+    {
+      "ref": "detail:CN-117746065-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-117746065-A.json",
+      "fileSha256": "9fa7e0b0c344b5a96e82caf285fb19499c65ea9d2f6c405c9d9e4ce1fecf18b1",
+      "responseSha256": "9fa7e0b0c344b5a96e82caf285fb19499c65ea9d2f6c405c9d9e4ce1fecf18b1"
+    },
+    {
+      "ref": "detail:CN-117952161-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-117952161-A.json",
+      "fileSha256": "3a120baddcfde7f7c8ad4c0c22fd5fddabeac15455d56e4975730d3279a81d0a",
+      "responseSha256": "3a120baddcfde7f7c8ad4c0c22fd5fddabeac15455d56e4975730d3279a81d0a"
+    },
+    {
+      "ref": "detail:CN-118104059-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-118104059-A.json",
+      "fileSha256": "122446b7b2199e15335acc70a367f3d6cb8832af61c22b6f5941368bea86c611",
+      "responseSha256": "122446b7b2199e15335acc70a367f3d6cb8832af61c22b6f5941368bea86c611"
+    },
+    {
+      "ref": "detail:CN-1181547-C",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1181547-C.json",
+      "fileSha256": "100372b460b1a7298f2e63593ed663fa87cad3f94ccfef007b3e8c94908981f3",
+      "responseSha256": "100372b460b1a7298f2e63593ed663fa87cad3f94ccfef007b3e8c94908981f3"
+    },
+    {
+      "ref": "detail:CN-118260642-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-118260642-A.json",
+      "fileSha256": "7e057e82966b2e88caf847597c96432ba18e829a7f04432a1234bb37883ed506",
+      "responseSha256": "7e057e82966b2e88caf847597c96432ba18e829a7f04432a1234bb37883ed506"
+    },
+    {
+      "ref": "detail:CN-118974833-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-118974833-A.json",
+      "fileSha256": "c60a89f1f9bfb58c1a5a83d865fcd0fac07acbe3477cfdac36854b6ec0a65cb4",
+      "responseSha256": "c60a89f1f9bfb58c1a5a83d865fcd0fac07acbe3477cfdac36854b6ec0a65cb4"
+    },
+    {
+      "ref": "detail:CN-118995383-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-118995383-A.json",
+      "fileSha256": "21ba0d5208694f69846968a4c71c4a6d393f74b0dcbdf7c29e44f7edafb209fd",
+      "responseSha256": "21ba0d5208694f69846968a4c71c4a6d393f74b0dcbdf7c29e44f7edafb209fd"
+    },
+    {
+      "ref": "detail:CN-118995383-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-118995383-B.json",
+      "fileSha256": "34ba73084306f2369851bb36a5333293fd70a395e112fe8b30fd5b8b7f5cbb58",
+      "responseSha256": "34ba73084306f2369851bb36a5333293fd70a395e112fe8b30fd5b8b7f5cbb58"
+    },
+    {
+      "ref": "detail:CN-119020156-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-119020156-A.json",
+      "fileSha256": "a3dd49adac1517619f796577d3a2c8f35b2ef6622a2ced8e31b73ffd3f19bd27",
+      "responseSha256": "a3dd49adac1517619f796577d3a2c8f35b2ef6622a2ced8e31b73ffd3f19bd27"
+    },
+    {
+      "ref": "detail:CN-119020156-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-119020156-B.json",
+      "fileSha256": "2132173663a2b8bc9573186328dde34fb5918ad732ab7da4bb4d81f49f2808e7",
+      "responseSha256": "2132173663a2b8bc9573186328dde34fb5918ad732ab7da4bb4d81f49f2808e7"
+    },
+    {
+      "ref": "detail:CN-119174205-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-119174205-A.json",
+      "fileSha256": "5eb0ba354bc0e76db0469117b4d277247e63dc919bb095b719032cab541d7302",
+      "responseSha256": "5eb0ba354bc0e76db0469117b4d277247e63dc919bb095b719032cab541d7302"
+    },
+    {
+      "ref": "detail:CN-119183571-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-119183571-A.json",
+      "fileSha256": "f2cdd35a9b9f277b2f6a8e58f2d80a4a1fc1412fedb5c24c0556cb6ed2991b4a",
+      "responseSha256": "f2cdd35a9b9f277b2f6a8e58f2d80a4a1fc1412fedb5c24c0556cb6ed2991b4a"
+    },
+    {
+      "ref": "detail:CN-119301625-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-119301625-A.json",
+      "fileSha256": "e81114920fdb9000242284edee250dae46ba27bd9eefe5feb17bc77c35379f26",
+      "responseSha256": "e81114920fdb9000242284edee250dae46ba27bd9eefe5feb17bc77c35379f26"
+    },
+    {
+      "ref": "detail:CN-119380815-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-119380815-A.json",
+      "fileSha256": "b79f646a48fc9956ffdd9d8b02c1f7ccc7e8badb77eb7b0f8aad69d615d061b9",
+      "responseSha256": "b79f646a48fc9956ffdd9d8b02c1f7ccc7e8badb77eb7b0f8aad69d615d061b9"
+    },
+    {
+      "ref": "detail:CN-119443195-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-119443195-A.json",
+      "fileSha256": "19fe6805632c9aa8271d63ea5628ab88101674b1ddc924a1c3b96d26e6f9894f",
+      "responseSha256": "19fe6805632c9aa8271d63ea5628ab88101674b1ddc924a1c3b96d26e6f9894f"
+    },
+    {
+      "ref": "detail:CN-119470949-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-119470949-A.json",
+      "fileSha256": "d60f3413ea9f89131bea2317008ffec7de884786c4f105c4464ef2d5395fd39b",
+      "responseSha256": "d60f3413ea9f89131bea2317008ffec7de884786c4f105c4464ef2d5395fd39b"
+    },
+    {
+      "ref": "detail:CN-119497860-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-119497860-A.json",
+      "fileSha256": "a7b8a62471bcbd4eaaca7449312c8c420cbdeb9af6c6ac2ceddcb6c6f5d692a6",
+      "responseSha256": "a7b8a62471bcbd4eaaca7449312c8c420cbdeb9af6c6ac2ceddcb6c6f5d692a6"
+    },
+    {
+      "ref": "detail:CN-119743770-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-119743770-A.json",
+      "fileSha256": "09a96ae7974cc4a0c1b730c5201c3471838154f112c8443379df898190fc8ae7",
+      "responseSha256": "09a96ae7974cc4a0c1b730c5201c3471838154f112c8443379df898190fc8ae7"
+    },
+    {
+      "ref": "detail:CN-119994177-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-119994177-A.json",
+      "fileSha256": "c43f51e36c0ff6a933bc78dbef844b7e75df2995007be2a41047c0d7f2f49d82",
+      "responseSha256": "c43f51e36c0ff6a933bc78dbef844b7e75df2995007be2a41047c0d7f2f49d82"
+    },
+    {
+      "ref": "detail:CN-120091073-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-120091073-A.json",
+      "fileSha256": "a7b25917f58124f78e58b48bd947e69b5232f2cb23afd301b23ead6c31d7fab7",
+      "responseSha256": "a7b25917f58124f78e58b48bd947e69b5232f2cb23afd301b23ead6c31d7fab7"
+    },
+    {
+      "ref": "detail:CN-120091073-B",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-120091073-B.json",
+      "fileSha256": "85f888e4802f75e19c6b22ff54b9e2e3329fd38a18b9132203a453855a40a88c",
+      "responseSha256": "85f888e4802f75e19c6b22ff54b9e2e3329fd38a18b9132203a453855a40a88c"
+    },
+    {
+      "ref": "detail:CN-120113266-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-120113266-A.json",
+      "fileSha256": "97830eb5daa397ad4e6dcd5b692ad96c31ecab8a5f4b410b2b42db3f6b484edf",
+      "responseSha256": "97830eb5daa397ad4e6dcd5b692ad96c31ecab8a5f4b410b2b42db3f6b484edf"
+    },
+    {
+      "ref": "detail:CN-120179129-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-120179129-A.json",
+      "fileSha256": "dd25ff55d4c77b50182d7311a3f2a028fe494b2daf2c0a7ef6865100c2b9bbba",
+      "responseSha256": "dd25ff55d4c77b50182d7311a3f2a028fe494b2daf2c0a7ef6865100c2b9bbba"
+    },
+    {
+      "ref": "detail:CN-120380467-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-120380467-A.json",
+      "fileSha256": "908a97f12b5ceb5af936cb4d316672bdc9678f4da0a392750b22c83e3b93563b",
+      "responseSha256": "908a97f12b5ceb5af936cb4d316672bdc9678f4da0a392750b22c83e3b93563b"
+    },
+    {
+      "ref": "detail:CN-120660333-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-120660333-A.json",
+      "fileSha256": "9c72240d9f113383c4524b97eb3eed9da4ce2e718c4c73eecead8188d00c6f8b",
+      "responseSha256": "9c72240d9f113383c4524b97eb3eed9da4ce2e718c4c73eecead8188d00c6f8b"
+    },
+    {
+      "ref": "detail:CN-120712569-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-120712569-A.json",
+      "fileSha256": "ccfc9092c49feec004f7aa5a8b8d7bbbe68e7aecda9f26b2338286b33d293653",
+      "responseSha256": "ccfc9092c49feec004f7aa5a8b8d7bbbe68e7aecda9f26b2338286b33d293653"
+    },
+    {
+      "ref": "detail:CN-120917794-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-120917794-A.json",
+      "fileSha256": "937b244b7200e30556923ffcdb7147d7125c9289fe8a4775c3f9b5473a403224",
+      "responseSha256": "937b244b7200e30556923ffcdb7147d7125c9289fe8a4775c3f9b5473a403224"
+    },
+    {
+      "ref": "detail:CN-120997531-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-120997531-A.json",
+      "fileSha256": "3b31f48b5bec15922e8f2e4dc5142fb734ac15a32cf48b46afb957d8ae31d2b9",
+      "responseSha256": "3b31f48b5bec15922e8f2e4dc5142fb734ac15a32cf48b46afb957d8ae31d2b9"
+    },
+    {
+      "ref": "detail:CN-121128268-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-121128268-A.json",
+      "fileSha256": "f206087fc7c1c29ce1967ef5eaf660563a0142d1a4f873e3eefcc5e3faca0c6e",
+      "responseSha256": "f206087fc7c1c29ce1967ef5eaf660563a0142d1a4f873e3eefcc5e3faca0c6e"
+    },
+    {
+      "ref": "detail:CN-121620762-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-121620762-A.json",
+      "fileSha256": "a5ba48174f8fa5f9e4af566c8cc6761a34073ea13a692d8a7f589edf983f9bb4",
+      "responseSha256": "a5ba48174f8fa5f9e4af566c8cc6761a34073ea13a692d8a7f589edf983f9bb4"
+    },
+    {
+      "ref": "detail:CN-121666583-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-121666583-A.json",
+      "fileSha256": "13748b337ac75f146e62097008747ebaff39661d083a877a1060a6bf7de4fb01",
+      "responseSha256": "13748b337ac75f146e62097008747ebaff39661d083a877a1060a6bf7de4fb01"
+    },
+    {
+      "ref": "detail:CN-121666845-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-121666845-A.json",
+      "fileSha256": "bacc0659ec5067da2d16ee6bff0e0543400c41222c7d142fa40960aca08576a2",
+      "responseSha256": "bacc0659ec5067da2d16ee6bff0e0543400c41222c7d142fa40960aca08576a2"
+    },
+    {
+      "ref": "detail:CN-121844334-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-121844334-A.json",
+      "fileSha256": "7492930458d92ea07fbf4a3a194e29c9e0a097ddffb221099e1c50c9de432f30",
+      "responseSha256": "7492930458d92ea07fbf4a3a194e29c9e0a097ddffb221099e1c50c9de432f30"
+    },
+    {
+      "ref": "detail:CN-121925828-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-121925828-A.json",
+      "fileSha256": "cd496d212a46e5cb0a87e2e47c46db5cd2dec30fe30494fa8a81d80a3256f243",
+      "responseSha256": "cd496d212a46e5cb0a87e2e47c46db5cd2dec30fe30494fa8a81d80a3256f243"
+    },
+    {
+      "ref": "detail:CN-122337317-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-122337317-A.json",
+      "fileSha256": "b886f202105c1fbbc2f69afdfd2218dbde0015c1d0be6671de76ae011da3cf32",
+      "responseSha256": "b886f202105c1fbbc2f69afdfd2218dbde0015c1d0be6671de76ae011da3cf32"
+    },
+    {
+      "ref": "detail:CN-122421079-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-122421079-A.json",
+      "fileSha256": "8a6cdce3bd66501cf332356b643128fcb03938474eeb0482ab6edd412239e402",
+      "responseSha256": "8a6cdce3bd66501cf332356b643128fcb03938474eeb0482ab6edd412239e402"
+    },
+    {
+      "ref": "detail:CN-122423239-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-122423239-A.json",
+      "fileSha256": "f8aa47c9daa7c25002bda079b5b1a0cdd7f5ee0dc2eb681751ead5255e6f3d4b",
+      "responseSha256": "f8aa47c9daa7c25002bda079b5b1a0cdd7f5ee0dc2eb681751ead5255e6f3d4b"
+    },
+    {
+      "ref": "detail:CN-122526547-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-122526547-A.json",
+      "fileSha256": "0b48d5d735058449dc00a2eef70cb5d7b4a87c07c2ec8f33743ead99faa52075",
+      "responseSha256": "0b48d5d735058449dc00a2eef70cb5d7b4a87c07c2ec8f33743ead99faa52075"
+    },
+    {
+      "ref": "detail:CN-122533616-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-122533616-A.json",
+      "fileSha256": "ef51455348f059d2f14fab31daf7ef40856a41eaf60dbfeb0da2ceb0a1875d43",
+      "responseSha256": "ef51455348f059d2f14fab31daf7ef40856a41eaf60dbfeb0da2ceb0a1875d43"
+    },
+    {
+      "ref": "detail:CN-122533617-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-122533617-A.json",
+      "fileSha256": "3a0734b1899ad247c297dfb9ec909cbcc72a26561ebdaaa098be9eb8d7a93ad9",
+      "responseSha256": "3a0734b1899ad247c297dfb9ec909cbcc72a26561ebdaaa098be9eb8d7a93ad9"
+    },
+    {
+      "ref": "detail:CN-122556112-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-122556112-A.json",
+      "fileSha256": "28c5900d6a44fdc6be66919a5be2371e510761d9f6b90eed51621c361f67a01d",
+      "responseSha256": "28c5900d6a44fdc6be66919a5be2371e510761d9f6b90eed51621c361f67a01d"
+    },
+    {
+      "ref": "detail:CN-122616766-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-122616766-A.json",
+      "fileSha256": "0abdc490906940c34e244f56fd82e3442e020c0a6103b0f0ac1b6696a048d95d",
+      "responseSha256": "0abdc490906940c34e244f56fd82e3442e020c0a6103b0f0ac1b6696a048d95d"
+    },
+    {
+      "ref": "detail:CN-122700621-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-122700621-A.json",
+      "fileSha256": "d07f555a535d00b3f8791eac70821c3cf8ca318d9f100f307c3632e2ff9b13da",
+      "responseSha256": "d07f555a535d00b3f8791eac70821c3cf8ca318d9f100f307c3632e2ff9b13da"
+    },
+    {
+      "ref": "detail:CN-1467839-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1467839-A.json",
+      "fileSha256": "441cd45f80e0a020b99f1f545b904e2bda28347fa546a74704ca4cf4dc46987c",
+      "responseSha256": "441cd45f80e0a020b99f1f545b904e2bda28347fa546a74704ca4cf4dc46987c"
+    },
+    {
+      "ref": "detail:CN-1469474-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1469474-A.json",
+      "fileSha256": "f5baa188cb67212b3c030ead46031053eb6f7e8cc48f94d80b0d6ecc3df8d3aa",
+      "responseSha256": "f5baa188cb67212b3c030ead46031053eb6f7e8cc48f94d80b0d6ecc3df8d3aa"
+    },
+    {
+      "ref": "detail:CN-1469550-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1469550-A.json",
+      "fileSha256": "61a9c67aa6317b5bc1211db45131aa44b631bfe496eaabc8ed7800132eb5b676",
+      "responseSha256": "61a9c67aa6317b5bc1211db45131aa44b631bfe496eaabc8ed7800132eb5b676"
+    },
+    {
+      "ref": "detail:CN-1471230-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1471230-A.json",
+      "fileSha256": "90271e1a7491aabb1fbc894746ed4b3b1fe089d7cde68032b490cbcc900dce8a",
+      "responseSha256": "90271e1a7491aabb1fbc894746ed4b3b1fe089d7cde68032b490cbcc900dce8a"
+    },
+    {
+      "ref": "detail:CN-1472810-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1472810-A.json",
+      "fileSha256": "2c131b2e5cfdddbb02576c93ac5e2d13485e3320040e13532ab426891f63c2a3",
+      "responseSha256": "2c131b2e5cfdddbb02576c93ac5e2d13485e3320040e13532ab426891f63c2a3"
+    },
+    {
+      "ref": "detail:CN-1474510-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1474510-A.json",
+      "fileSha256": "6cbc9af02c0b18c89ee9c519d2ad21ec97e5a91be3286c350e10f7ccd513a50f",
+      "responseSha256": "6cbc9af02c0b18c89ee9c519d2ad21ec97e5a91be3286c350e10f7ccd513a50f"
+    },
+    {
+      "ref": "detail:CN-1477707-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1477707-A.json",
+      "fileSha256": "ec6b8e058160406406ec8313443b8584b5ff15b183996f24a9c61d3392173784",
+      "responseSha256": "ec6b8e058160406406ec8313443b8584b5ff15b183996f24a9c61d3392173784"
+    },
+    {
+      "ref": "detail:CN-1484149-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1484149-A.json",
+      "fileSha256": "ddb6288143eeb80585b74d7c348027883e4689e1006ed84e8502e782fe0c82b7",
+      "responseSha256": "ddb6288143eeb80585b74d7c348027883e4689e1006ed84e8502e782fe0c82b7"
+    },
+    {
+      "ref": "detail:CN-1485917-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1485917-A.json",
+      "fileSha256": "807dc8c5749f3d8ec43a6ba101ce9ad6252004e3b2fb98a25cd443c51fc6436c",
+      "responseSha256": "807dc8c5749f3d8ec43a6ba101ce9ad6252004e3b2fb98a25cd443c51fc6436c"
+    },
+    {
+      "ref": "detail:CN-1489212-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1489212-A.json",
+      "fileSha256": "0ddae349f1beaafad75f90ca8e5cb3e3b7c8086fa5d0d400fd08c166ccd38b36",
+      "responseSha256": "0ddae349f1beaafad75f90ca8e5cb3e3b7c8086fa5d0d400fd08c166ccd38b36"
+    },
+    {
+      "ref": "detail:CN-1489846-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1489846-A.json",
+      "fileSha256": "d47029893f40d5577fb090b1c3c8d6f528c5fcfeb15b20b946564756737d74ca",
+      "responseSha256": "d47029893f40d5577fb090b1c3c8d6f528c5fcfeb15b20b946564756737d74ca"
+    },
+    {
+      "ref": "detail:CN-1492585-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1492585-A.json",
+      "fileSha256": "59bac66cfa760715c8ba77f49ac6b16ea3d98f80c7ecef979ef9b9d9f401e5d0",
+      "responseSha256": "59bac66cfa760715c8ba77f49ac6b16ea3d98f80c7ecef979ef9b9d9f401e5d0"
+    },
+    {
+      "ref": "detail:CN-1495792-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1495792-A.json",
+      "fileSha256": "09d93eb47e648b817533da9f538ceacb0203cadda32ac0a2f3ee5d80f8acaa65",
+      "responseSha256": "09d93eb47e648b817533da9f538ceacb0203cadda32ac0a2f3ee5d80f8acaa65"
+    },
+    {
+      "ref": "detail:CN-1516899-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1516899-A.json",
+      "fileSha256": "261c4c4f05443da043d931215d7206b6469bec7db03c5f1993027f593d6e2991",
+      "responseSha256": "261c4c4f05443da043d931215d7206b6469bec7db03c5f1993027f593d6e2991"
+    },
+    {
+      "ref": "detail:CN-1523034-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-1523034-A.json",
+      "fileSha256": "956e31b23ed8c0d68a0e3ac3e0397ddcdc14579beb46f61a6fd78e90f82638d3",
+      "responseSha256": "956e31b23ed8c0d68a0e3ac3e0397ddcdc14579beb46f61a6fd78e90f82638d3"
+    },
+    {
+      "ref": "detail:CN-1525487-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1525487-A.json",
+      "fileSha256": "c20bab88dbc687b97498fd25c4f4ba72d881e711752d23f1d3dd614515e6343c",
+      "responseSha256": "c20bab88dbc687b97498fd25c4f4ba72d881e711752d23f1d3dd614515e6343c"
+    },
+    {
+      "ref": "detail:CN-1527383-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1527383-A.json",
+      "fileSha256": "c2d92824125ef136ad067beeaf73f4fd88df9a630ae68eadb4b0d3207ab2c1fa",
+      "responseSha256": "c2d92824125ef136ad067beeaf73f4fd88df9a630ae68eadb4b0d3207ab2c1fa"
+    },
+    {
+      "ref": "detail:CN-1532933-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1532933-A.json",
+      "fileSha256": "8067875a3b3837191e18a67d4684119562841a5ee90a5096489d7c1d781a1aa7",
+      "responseSha256": "8067875a3b3837191e18a67d4684119562841a5ee90a5096489d7c1d781a1aa7"
+    },
+    {
+      "ref": "detail:CN-1534428-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1534428-A.json",
+      "fileSha256": "34d0860e50942185470984a4fd85bef58194eab282d8563ea9eb6aab89df4d86",
+      "responseSha256": "34d0860e50942185470984a4fd85bef58194eab282d8563ea9eb6aab89df4d86"
+    },
+    {
+      "ref": "detail:CN-1534687-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1534687-A.json",
+      "fileSha256": "b35f8f036ad1918f519583055bf998f66e0aaf585a7d260eabe5f068f0ac92ec",
+      "responseSha256": "b35f8f036ad1918f519583055bf998f66e0aaf585a7d260eabe5f068f0ac92ec"
+    },
+    {
+      "ref": "detail:CN-1536666-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1536666-A.json",
+      "fileSha256": "37cf4425dc25dd0839ed2d629eb946418aeadebab9b6e323f0cc754763ab057a",
+      "responseSha256": "37cf4425dc25dd0839ed2d629eb946418aeadebab9b6e323f0cc754763ab057a"
+    },
+    {
+      "ref": "detail:CN-1545760-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1545760-A.json",
+      "fileSha256": "f9f916b955f120fbb1b4859e650fab5e089d2664883cef95c2a11b3b4c50a01b",
+      "responseSha256": "f9f916b955f120fbb1b4859e650fab5e089d2664883cef95c2a11b3b4c50a01b"
+    },
+    {
+      "ref": "detail:CN-1550948-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1550948-A.json",
+      "fileSha256": "80aaa5530d7fff854230223a0fee2ec9c2b58692d2d1d4f9d61c7de87bc179a0",
+      "responseSha256": "80aaa5530d7fff854230223a0fee2ec9c2b58692d2d1d4f9d61c7de87bc179a0"
+    },
+    {
+      "ref": "detail:CN-1551068-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1551068-A.json",
+      "fileSha256": "9fb3560fcf248eece56847c644d4066d1172839f764a892e8ad4ee30a0ad0e24",
+      "responseSha256": "9fb3560fcf248eece56847c644d4066d1172839f764a892e8ad4ee30a0ad0e24"
+    },
+    {
+      "ref": "detail:CN-1560998-A",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-1560998-A.json",
+      "fileSha256": "22e5e56bd643e9aa85c0c776e3015d130b003ba2c8264e310090475be8ce6b1b",
+      "responseSha256": "22e5e56bd643e9aa85c0c776e3015d130b003ba2c8264e310090475be8ce6b1b"
+    },
+    {
+      "ref": "detail:CN-205863318-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-205863318-U.json",
+      "fileSha256": "251c9a834a1a449113d87d9f6ee1da39f5450c9d6d25d77bcaa6296e34531ad7",
+      "responseSha256": "251c9a834a1a449113d87d9f6ee1da39f5450c9d6d25d77bcaa6296e34531ad7"
+    },
+    {
+      "ref": "detail:CN-206014860-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-206014860-U.json",
+      "fileSha256": "8882d0ddbae861d9123def1eb70039b91cd954b96e7a0a352f158d7d9fb95638",
+      "responseSha256": "8882d0ddbae861d9123def1eb70039b91cd954b96e7a0a352f158d7d9fb95638"
+    },
+    {
+      "ref": "detail:CN-206014861-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-206014861-U.json",
+      "fileSha256": "1250360985903f3e96d65583fb2948e02a3364f8a1e755658200849151fe957a",
+      "responseSha256": "1250360985903f3e96d65583fb2948e02a3364f8a1e755658200849151fe957a"
+    },
+    {
+      "ref": "detail:CN-206014862-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-206014862-U.json",
+      "fileSha256": "128c0eabbd1f34f17f80b170834a2ecb359530d95e9ce90620d98795783b95ac",
+      "responseSha256": "128c0eabbd1f34f17f80b170834a2ecb359530d95e9ce90620d98795783b95ac"
+    },
+    {
+      "ref": "detail:CN-206014863-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-206014863-U.json",
+      "fileSha256": "cfd32f7a5ff4e68b89555fe84b69239d1bc6332f119c3f24bb0c34f90cd606ee",
+      "responseSha256": "cfd32f7a5ff4e68b89555fe84b69239d1bc6332f119c3f24bb0c34f90cd606ee"
+    },
+    {
+      "ref": "detail:CN-206014910-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-206014910-U.json",
+      "fileSha256": "2b16ed73b117cd037247342a4c0fb3dccd7e261b93bed3af06f0860cdeb94fb7",
+      "responseSha256": "2b16ed73b117cd037247342a4c0fb3dccd7e261b93bed3af06f0860cdeb94fb7"
+    },
+    {
+      "ref": "detail:CN-206089640-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-206089640-U.json",
+      "fileSha256": "e2bd8166a02ef2670d424a7046297ea10e36bba483ba9211067d3e76b2fbf900",
+      "responseSha256": "e2bd8166a02ef2670d424a7046297ea10e36bba483ba9211067d3e76b2fbf900"
+    },
+    {
+      "ref": "detail:CN-206188789-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-206188789-U.json",
+      "fileSha256": "82d4b6682390d2bd4d19fe5a1c63fb8528839be0173030ec04e651b299ff6130",
+      "responseSha256": "82d4b6682390d2bd4d19fe5a1c63fb8528839be0173030ec04e651b299ff6130"
+    },
+    {
+      "ref": "detail:CN-206210959-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-206210959-U.json",
+      "fileSha256": "523949baf89431bc423b3f053c064d2e066843157407bda9cc1b5b69494462dd",
+      "responseSha256": "523949baf89431bc423b3f053c064d2e066843157407bda9cc1b5b69494462dd"
+    },
+    {
+      "ref": "detail:CN-206313057-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-206313057-U.json",
+      "fileSha256": "f7f4dafa1f2f967cab0e91ff4d4ae83e3d6d93ff27a18b5180e00fa644fffabc",
+      "responseSha256": "f7f4dafa1f2f967cab0e91ff4d4ae83e3d6d93ff27a18b5180e00fa644fffabc"
+    },
+    {
+      "ref": "detail:CN-206758572-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-206758572-U.json",
+      "fileSha256": "8bb223b4cef6b3b1a40282f64505cbfe3cc33265f7fa342d9f201790f6679582",
+      "responseSha256": "8bb223b4cef6b3b1a40282f64505cbfe3cc33265f7fa342d9f201790f6679582"
+    },
+    {
+      "ref": "detail:CN-207199803-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-207199803-U.json",
+      "fileSha256": "4555984c2d94b8dc915b86f48427df7d2c278b5182c1c2c692baefc4f532f63a",
+      "responseSha256": "4555984c2d94b8dc915b86f48427df7d2c278b5182c1c2c692baefc4f532f63a"
+    },
+    {
+      "ref": "detail:CN-207303253-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-207303253-U.json",
+      "fileSha256": "cb7c5525b7c9a12c4186dcc1a379f117bfe1e5d6d58f2e0f7313a1a40359c982",
+      "responseSha256": "cb7c5525b7c9a12c4186dcc1a379f117bfe1e5d6d58f2e0f7313a1a40359c982"
+    },
+    {
+      "ref": "detail:CN-207353420-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-207353420-U.json",
+      "fileSha256": "660ed20d3c5be4bd95fa6ed82766864ac14e7f04d07a8621e56d8912fb21582f",
+      "responseSha256": "660ed20d3c5be4bd95fa6ed82766864ac14e7f04d07a8621e56d8912fb21582f"
+    },
+    {
+      "ref": "detail:CN-207602978-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-207602978-U.json",
+      "fileSha256": "9125cad21b5ed639ed7abf72a42f16ed61dd45b97db53b3169ba307ce51b3142",
+      "responseSha256": "9125cad21b5ed639ed7abf72a42f16ed61dd45b97db53b3169ba307ce51b3142"
+    },
+    {
+      "ref": "detail:CN-207646225-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-207646225-U.json",
+      "fileSha256": "2fd8373aecf5cb3249b08b636e97ab1487e7b849f86184c092c467e3270ac8a7",
+      "responseSha256": "2fd8373aecf5cb3249b08b636e97ab1487e7b849f86184c092c467e3270ac8a7"
+    },
+    {
+      "ref": "detail:CN-208328032-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-208328032-U.json",
+      "fileSha256": "b5dc04af5a3faf75dbbbdbce812c302464cf1da6731d4b246f485ceed496f7b1",
+      "responseSha256": "b5dc04af5a3faf75dbbbdbce812c302464cf1da6731d4b246f485ceed496f7b1"
+    },
+    {
+      "ref": "detail:CN-208433477-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-208433477-U.json",
+      "fileSha256": "d4c34a47ea0cc425b7537b3e603bbc70195ea22aeca869d3937b43b100b2d3b3",
+      "responseSha256": "d4c34a47ea0cc425b7537b3e603bbc70195ea22aeca869d3937b43b100b2d3b3"
+    },
+    {
+      "ref": "detail:CN-208440604-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-208440604-U.json",
+      "fileSha256": "5608b45d31214940d1c3f67dd97e4f5a8a688e3f1d742f02f2b84a31c55ac065",
+      "responseSha256": "5608b45d31214940d1c3f67dd97e4f5a8a688e3f1d742f02f2b84a31c55ac065"
+    },
+    {
+      "ref": "detail:CN-208548423-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-208548423-U.json",
+      "fileSha256": "e14cd75040bcabcb52142efcc95d6eb6a1f0be3e2e82c38e54741b44e477e896",
+      "responseSha256": "e14cd75040bcabcb52142efcc95d6eb6a1f0be3e2e82c38e54741b44e477e896"
+    },
+    {
+      "ref": "detail:CN-208548429-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-208548429-U.json",
+      "fileSha256": "ed4f262fe4cbcb67d533a01e1e7a2e6177d09d279b45c760ea3f37ff5c2b6844",
+      "responseSha256": "ed4f262fe4cbcb67d533a01e1e7a2e6177d09d279b45c760ea3f37ff5c2b6844"
+    },
+    {
+      "ref": "detail:CN-208806333-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-208806333-U.json",
+      "fileSha256": "eb6b84a1dea70ba106683ce1f92851a2fae76fd09ab828867cd728403f505bc2",
+      "responseSha256": "eb6b84a1dea70ba106683ce1f92851a2fae76fd09ab828867cd728403f505bc2"
+    },
+    {
+      "ref": "detail:CN-208904025-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-208904025-U.json",
+      "fileSha256": "0638bceb367e60b891767ec03748fa3c088e2501479a181c4b78ea0332540218",
+      "responseSha256": "0638bceb367e60b891767ec03748fa3c088e2501479a181c4b78ea0332540218"
+    },
+    {
+      "ref": "detail:CN-209232882-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-209232882-U.json",
+      "fileSha256": "09c50d9f0967c14a1b9c4d9c3b3ee0b0a1935cada51e3f3982067b1e78070655",
+      "responseSha256": "09c50d9f0967c14a1b9c4d9c3b3ee0b0a1935cada51e3f3982067b1e78070655"
+    },
+    {
+      "ref": "detail:CN-209282286-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-209282286-U.json",
+      "fileSha256": "30b14ca1f6bc4b87f2a5608a4cb1b12462734b1668b0185216dc122143c8a45f",
+      "responseSha256": "30b14ca1f6bc4b87f2a5608a4cb1b12462734b1668b0185216dc122143c8a45f"
+    },
+    {
+      "ref": "detail:CN-209357821-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-209357821-U.json",
+      "fileSha256": "eddf8abcc99654b204dd7ae9bef5be9ae6538fa7bc4a55285178cc2ba1bca51c",
+      "responseSha256": "eddf8abcc99654b204dd7ae9bef5be9ae6538fa7bc4a55285178cc2ba1bca51c"
+    },
+    {
+      "ref": "detail:CN-209418576-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-209418576-U.json",
+      "fileSha256": "5a41790cb2e565f746a4df75bfcf9c199ce99e276bf049f21fef2482ae666e8a",
+      "responseSha256": "5a41790cb2e565f746a4df75bfcf9c199ce99e276bf049f21fef2482ae666e8a"
+    },
+    {
+      "ref": "detail:CN-209515919-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-209515919-U.json",
+      "fileSha256": "270be9cf54c076b96144bd767775dfc26f5b94d124c50bed42ff5871295bdaaf",
+      "responseSha256": "270be9cf54c076b96144bd767775dfc26f5b94d124c50bed42ff5871295bdaaf"
+    },
+    {
+      "ref": "detail:CN-209839579-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-209839579-U.json",
+      "fileSha256": "45e64d5efec0546a28ea75f3be8125766f9719ed32d9913b6904103eb0305081",
+      "responseSha256": "45e64d5efec0546a28ea75f3be8125766f9719ed32d9913b6904103eb0305081"
+    },
+    {
+      "ref": "detail:CN-209872962-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-209872962-U.json",
+      "fileSha256": "087c428af1a6ac34d56777bc963250e7acc341321228724f943228190a22495a",
+      "responseSha256": "087c428af1a6ac34d56777bc963250e7acc341321228724f943228190a22495a"
+    },
+    {
+      "ref": "detail:CN-210200870-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-210200870-U.json",
+      "fileSha256": "b39febfbbadc6c19112088b57c23e359efb5f1284030f601ee24d9eb0cfe2eda",
+      "responseSha256": "b39febfbbadc6c19112088b57c23e359efb5f1284030f601ee24d9eb0cfe2eda"
+    },
+    {
+      "ref": "detail:CN-210287298-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-210287298-U.json",
+      "fileSha256": "ffa47a8dbd097ea67d65fdcc439fd68017cc29d5d9088518f90db7c911f564c5",
+      "responseSha256": "ffa47a8dbd097ea67d65fdcc439fd68017cc29d5d9088518f90db7c911f564c5"
+    },
+    {
+      "ref": "detail:CN-210403892-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-210403892-U.json",
+      "fileSha256": "d379f14be9e3993360a21a871edcd1c75b8967c517d25e946b6453639feb6e0a",
+      "responseSha256": "d379f14be9e3993360a21a871edcd1c75b8967c517d25e946b6453639feb6e0a"
+    },
+    {
+      "ref": "detail:CN-210419914-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-210419914-U.json",
+      "fileSha256": "7a969e10cc88ca2671f9b0ce96e3dbca9154e29557d12b20358896ea4e438797",
+      "responseSha256": "7a969e10cc88ca2671f9b0ce96e3dbca9154e29557d12b20358896ea4e438797"
+    },
+    {
+      "ref": "detail:CN-210419915-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-210419915-U.json",
+      "fileSha256": "e5590bb9359c5fba937c18f2e3f47eaac3719b2bcf764ccf9f229cb92ace75ba",
+      "responseSha256": "e5590bb9359c5fba937c18f2e3f47eaac3719b2bcf764ccf9f229cb92ace75ba"
+    },
+    {
+      "ref": "detail:CN-210489762-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-210489762-U.json",
+      "fileSha256": "84354b625e63c928491ab119fb327e7fa424c7030548001ccbd41cd7193cc50f",
+      "responseSha256": "84354b625e63c928491ab119fb327e7fa424c7030548001ccbd41cd7193cc50f"
+    },
+    {
+      "ref": "detail:CN-210576184-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-210576184-U.json",
+      "fileSha256": "f83387eb7ec8b9030159b534d010bb0965b0e88210276d76ede5c828150618a2",
+      "responseSha256": "f83387eb7ec8b9030159b534d010bb0965b0e88210276d76ede5c828150618a2"
+    },
+    {
+      "ref": "detail:CN-210620767-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-210620767-U.json",
+      "fileSha256": "cda9b0f6b2b81899226a1fc434678e55e2fcad59af871a985b7b8a7bff9e5282",
+      "responseSha256": "cda9b0f6b2b81899226a1fc434678e55e2fcad59af871a985b7b8a7bff9e5282"
+    },
+    {
+      "ref": "detail:CN-210668585-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-210668585-U.json",
+      "fileSha256": "91b2fbbb932a4a5082e9c17d2745f51b668b6fad684bd655a5171eef7e5b8459",
+      "responseSha256": "91b2fbbb932a4a5082e9c17d2745f51b668b6fad684bd655a5171eef7e5b8459"
+    },
+    {
+      "ref": "detail:CN-210837945-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-210837945-U.json",
+      "fileSha256": "3aa86f9053e6df239e713a819b433e18fb1ae576e76e6aa0a7bd8e969d3e451e",
+      "responseSha256": "3aa86f9053e6df239e713a819b433e18fb1ae576e76e6aa0a7bd8e969d3e451e"
+    },
+    {
+      "ref": "detail:CN-211017308-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-211017308-U.json",
+      "fileSha256": "18298bd990b7301bf8151809b6990005e35a7f1c093fc0c6b6ed1668096c48e7",
+      "responseSha256": "18298bd990b7301bf8151809b6990005e35a7f1c093fc0c6b6ed1668096c48e7"
+    },
+    {
+      "ref": "detail:CN-211238444-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-211238444-U.json",
+      "fileSha256": "34efff29273c8a716dbe18278183ac8e7d45b8edbd39b202da5e0d03a2af4b99",
+      "responseSha256": "34efff29273c8a716dbe18278183ac8e7d45b8edbd39b202da5e0d03a2af4b99"
+    },
+    {
+      "ref": "detail:CN-211265968-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-211265968-U.json",
+      "fileSha256": "4f0591997abac1446d7d4a11f609f7ceb9256457af9b69cccf1734be17e079c9",
+      "responseSha256": "4f0591997abac1446d7d4a11f609f7ceb9256457af9b69cccf1734be17e079c9"
+    },
+    {
+      "ref": "detail:CN-211375640-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-semiconductor/CN-211375640-U.json",
+      "fileSha256": "7acb3ffb05e34ad82a050287f708dc39691d7a7d805eb49a6a2a0ee152de0a26",
+      "responseSha256": "7acb3ffb05e34ad82a050287f708dc39691d7a7d805eb49a6a2a0ee152de0a26"
+    },
+    {
+      "ref": "detail:CN-211445692-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-211445692-U.json",
+      "fileSha256": "4ec2061f9d5de826dbb98998b1df3654384378f535485084cb4aa26062c46830",
+      "responseSha256": "4ec2061f9d5de826dbb98998b1df3654384378f535485084cb4aa26062c46830"
+    },
+    {
+      "ref": "detail:CN-211445728-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-211445728-U.json",
+      "fileSha256": "bf7cfa47ed4bc40c4e545f44ca01c941a5e2d9d730180e95bd694a0a9bcd79a8",
+      "responseSha256": "bf7cfa47ed4bc40c4e545f44ca01c941a5e2d9d730180e95bd694a0a9bcd79a8"
+    },
+    {
+      "ref": "detail:CN-211555946-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-211555946-U.json",
+      "fileSha256": "6dbdc16cbb4ec07e60191481375fa3b45e78ee383d378e5f6f81e8b62b434a83",
+      "responseSha256": "6dbdc16cbb4ec07e60191481375fa3b45e78ee383d378e5f6f81e8b62b434a83"
+    },
+    {
+      "ref": "detail:CN-211743318-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-211743318-U.json",
+      "fileSha256": "78f4fd8171ad72df190a12b873a98738127f2c648c49277bdd42646c8b09d79c",
+      "responseSha256": "78f4fd8171ad72df190a12b873a98738127f2c648c49277bdd42646c8b09d79c"
+    },
+    {
+      "ref": "detail:CN-211743324-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-211743324-U.json",
+      "fileSha256": "55b2da2cb1b3ed1bf00e2834061a77bc598506d731e39f3cbf2af5c93d9bbd04",
+      "responseSha256": "55b2da2cb1b3ed1bf00e2834061a77bc598506d731e39f3cbf2af5c93d9bbd04"
+    },
+    {
+      "ref": "detail:CN-211789108-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-211789108-U.json",
+      "fileSha256": "1874fd5d56def331f5704ea05da9e3adb22633a98be634db46c990d5758759e7",
+      "responseSha256": "1874fd5d56def331f5704ea05da9e3adb22633a98be634db46c990d5758759e7"
+    },
+    {
+      "ref": "detail:CN-211789109-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-211789109-U.json",
+      "fileSha256": "1a9da893ff940e575b2e504a83efb5ea037810815261f4c32eda7f32abc724d6",
+      "responseSha256": "1a9da893ff940e575b2e504a83efb5ea037810815261f4c32eda7f32abc724d6"
+    },
+    {
+      "ref": "detail:CN-211789337-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-211789337-U.json",
+      "fileSha256": "e041b6b872efcf2069fcc07b45c2858909c5e423b9a16152b08a05af8dd3ff8f",
+      "responseSha256": "e041b6b872efcf2069fcc07b45c2858909c5e423b9a16152b08a05af8dd3ff8f"
+    },
+    {
+      "ref": "detail:CN-211896969-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-211896969-U.json",
+      "fileSha256": "1976e7e48318abb75474cea389b19268338fa75fe18e5d2a358104dfc7bb0ca7",
+      "responseSha256": "1976e7e48318abb75474cea389b19268338fa75fe18e5d2a358104dfc7bb0ca7"
+    },
+    {
+      "ref": "detail:CN-211921554-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-211921554-U.json",
+      "fileSha256": "2ebad2e6bdbacc4d93b66bf8ab66f5b2d7b4b07453e84655fb62821aff3cfb53",
+      "responseSha256": "2ebad2e6bdbacc4d93b66bf8ab66f5b2d7b4b07453e84655fb62821aff3cfb53"
+    },
+    {
+      "ref": "detail:CN-211946990-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-211946990-U.json",
+      "fileSha256": "23621682a629e9f06cef227e54a652ce9702e766fa88e7d394b49030278f3bc5",
+      "responseSha256": "23621682a629e9f06cef227e54a652ce9702e766fa88e7d394b49030278f3bc5"
+    },
+    {
+      "ref": "detail:CN-212128166-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-212128166-U.json",
+      "fileSha256": "2a51f362d2c4c36b5221c5c4e9ad4f3cf98a3e4b9fd1c5feaf8d1ddb59fef6c1",
+      "responseSha256": "2a51f362d2c4c36b5221c5c4e9ad4f3cf98a3e4b9fd1c5feaf8d1ddb59fef6c1"
+    },
+    {
+      "ref": "detail:CN-212182374-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-212182374-U.json",
+      "fileSha256": "91c861955441c71124cfa059da7797cf5fdd5167841d3356ac90c86d4961c2ee",
+      "responseSha256": "91c861955441c71124cfa059da7797cf5fdd5167841d3356ac90c86d4961c2ee"
+    },
+    {
+      "ref": "detail:CN-212270100-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-212270100-U.json",
+      "fileSha256": "9109282084bdd4977f9b001ff46f898380f092ca7babc8a41cfe7783ab2ee6e4",
+      "responseSha256": "9109282084bdd4977f9b001ff46f898380f092ca7babc8a41cfe7783ab2ee6e4"
+    },
+    {
+      "ref": "detail:CN-212560211-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-212560211-U.json",
+      "fileSha256": "e9e5763c24917f4df8bc48bdaa7d39df27ee974e35cc0ba8bc2a820367cb23b4",
+      "responseSha256": "e9e5763c24917f4df8bc48bdaa7d39df27ee974e35cc0ba8bc2a820367cb23b4"
+    },
+    {
+      "ref": "detail:CN-212571083-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-212571083-U.json",
+      "fileSha256": "ca53d0d033543ecbe0ebb04694efba0adc74bd57568800fe2ecb782166b34548",
+      "responseSha256": "ca53d0d033543ecbe0ebb04694efba0adc74bd57568800fe2ecb782166b34548"
+    },
+    {
+      "ref": "detail:CN-212625828-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-212625828-U.json",
+      "fileSha256": "957632a9e47191a1d56a09ed9728a54415f0ff0d2acba086322c22339f92d4e3",
+      "responseSha256": "957632a9e47191a1d56a09ed9728a54415f0ff0d2acba086322c22339f92d4e3"
+    },
+    {
+      "ref": "detail:CN-212625971-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-212625971-U.json",
+      "fileSha256": "70af76e36eba2dd26c46aef291aacc55a093a0f6ccff6b7c48ffa1cba7d5e9b9",
+      "responseSha256": "70af76e36eba2dd26c46aef291aacc55a093a0f6ccff6b7c48ffa1cba7d5e9b9"
+    },
+    {
+      "ref": "detail:CN-212648337-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-212648337-U.json",
+      "fileSha256": "23e2abcfdb94d5644146a9278315e53d2e03bae32f985f15e92f70715b2bc23d",
+      "responseSha256": "23e2abcfdb94d5644146a9278315e53d2e03bae32f985f15e92f70715b2bc23d"
+    },
+    {
+      "ref": "detail:CN-212648338-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-212648338-U.json",
+      "fileSha256": "723d050bd856880c253d17189a18edb7eb345c30596fa05991162d872057040a",
+      "responseSha256": "723d050bd856880c253d17189a18edb7eb345c30596fa05991162d872057040a"
+    },
+    {
+      "ref": "detail:CN-212648339-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-212648339-U.json",
+      "fileSha256": "7af860ce5a0806cca29ed767d4706aac08d3c0d33d84bc6fff3a91d36409c968",
+      "responseSha256": "7af860ce5a0806cca29ed767d4706aac08d3c0d33d84bc6fff3a91d36409c968"
+    },
+    {
+      "ref": "detail:CN-212934696-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-212934696-U.json",
+      "fileSha256": "c8e8ce9ab1635c11769f5eac9cd99153e5b1f006c20344377d6d21dc34c65aa4",
+      "responseSha256": "c8e8ce9ab1635c11769f5eac9cd99153e5b1f006c20344377d6d21dc34c65aa4"
+    },
+    {
+      "ref": "detail:CN-213017483-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-213017483-U.json",
+      "fileSha256": "93d72aa43b1ff92975a4c993849a27e63b65a9173ea7681c61187ebc6886e739",
+      "responseSha256": "93d72aa43b1ff92975a4c993849a27e63b65a9173ea7681c61187ebc6886e739"
+    },
+    {
+      "ref": "detail:CN-213032695-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-213032695-U.json",
+      "fileSha256": "75019536fc25caa7440aa2a4cb1ee6472a1410010023a4c6f3bfe56a782fd9a8",
+      "responseSha256": "75019536fc25caa7440aa2a4cb1ee6472a1410010023a4c6f3bfe56a782fd9a8"
+    },
+    {
+      "ref": "detail:CN-213060853-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-213060853-U.json",
+      "fileSha256": "26596a68dc84c1347a522794d8f1db1542d9f298829c8c5c61e76cfa21fc0114",
+      "responseSha256": "26596a68dc84c1347a522794d8f1db1542d9f298829c8c5c61e76cfa21fc0114"
+    },
+    {
+      "ref": "detail:CN-213085982-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-213085982-U.json",
+      "fileSha256": "9e807d966c61a642da665a19b4be65de1808f20f5bd65b5a115289930b4db9b0",
+      "responseSha256": "9e807d966c61a642da665a19b4be65de1808f20f5bd65b5a115289930b4db9b0"
+    },
+    {
+      "ref": "detail:CN-213266489-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-213266489-U.json",
+      "fileSha256": "5bed8489d7cb241eac3374e0349c49eb7f063ed8fa5f5f0a3b4505934199a392",
+      "responseSha256": "5bed8489d7cb241eac3374e0349c49eb7f063ed8fa5f5f0a3b4505934199a392"
+    },
+    {
+      "ref": "detail:CN-213340462-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-213340462-U.json",
+      "fileSha256": "31a39ee435c1ce78d68c934e98ef51745847eaeb504d006ef003294aae68697e",
+      "responseSha256": "31a39ee435c1ce78d68c934e98ef51745847eaeb504d006ef003294aae68697e"
+    },
+    {
+      "ref": "detail:CN-213416832-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-213416832-U.json",
+      "fileSha256": "520b0baf1f97333155e4a2bf9da12dead326055557bd5982d600372351c10839",
+      "responseSha256": "520b0baf1f97333155e4a2bf9da12dead326055557bd5982d600372351c10839"
+    },
+    {
+      "ref": "detail:CN-213452558-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-213452558-U.json",
+      "fileSha256": "a30bb3e77955ef2000724545b16ef38ebf3c086d4f5277644fd6627f357fd6d4",
+      "responseSha256": "a30bb3e77955ef2000724545b16ef38ebf3c086d4f5277644fd6627f357fd6d4"
+    },
+    {
+      "ref": "detail:CN-213752913-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-213752913-U.json",
+      "fileSha256": "41550324708bb53d1e29888411b84886d46f7367f867b5e23fe69630be506840",
+      "responseSha256": "41550324708bb53d1e29888411b84886d46f7367f867b5e23fe69630be506840"
+    },
+    {
+      "ref": "detail:CN-213895869-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-213895869-U.json",
+      "fileSha256": "d0b4bc88aa0efe5f1fab47dd7a9ce75a0356ff3c49375f3fd415e5dd8f6d9964",
+      "responseSha256": "d0b4bc88aa0efe5f1fab47dd7a9ce75a0356ff3c49375f3fd415e5dd8f6d9964"
+    },
+    {
+      "ref": "detail:CN-213951177-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-213951177-U.json",
+      "fileSha256": "7609d6cc895330a5fa1079832d228eecea2f8243cf6505c249ba94d2086cdd1d",
+      "responseSha256": "7609d6cc895330a5fa1079832d228eecea2f8243cf6505c249ba94d2086cdd1d"
+    },
+    {
+      "ref": "detail:CN-214088505-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-214088505-U.json",
+      "fileSha256": "32467497eba7381e48204d02f44f2f39de717c2f3e7036b1513df61f38211a63",
+      "responseSha256": "32467497eba7381e48204d02f44f2f39de717c2f3e7036b1513df61f38211a63"
+    },
+    {
+      "ref": "detail:CN-214115533-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-214115533-U.json",
+      "fileSha256": "c89e2f71e1aa065c01c55971224b4b7c90990a51f53b161ecdc49e3cbaa3451b",
+      "responseSha256": "c89e2f71e1aa065c01c55971224b4b7c90990a51f53b161ecdc49e3cbaa3451b"
+    },
+    {
+      "ref": "detail:CN-214142362-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-214142362-U.json",
+      "fileSha256": "a6314501aaa3f80f2a2d919866cd7ade04297662138d8d135438dc413de4677b",
+      "responseSha256": "a6314501aaa3f80f2a2d919866cd7ade04297662138d8d135438dc413de4677b"
+    },
+    {
+      "ref": "detail:CN-214155591-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-214155591-U.json",
+      "fileSha256": "f722e2625cf42cce8f5e21606e14960c5a9874efeabf1e55183281f8dc6b27b2",
+      "responseSha256": "f722e2625cf42cce8f5e21606e14960c5a9874efeabf1e55183281f8dc6b27b2"
+    },
+    {
+      "ref": "detail:CN-214193297-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-214193297-U.json",
+      "fileSha256": "f548fa32017e8a1458e5eaafcfc17d34166a55bdfe2b5ae6be3d65bd75995c3d",
+      "responseSha256": "f548fa32017e8a1458e5eaafcfc17d34166a55bdfe2b5ae6be3d65bd75995c3d"
+    },
+    {
+      "ref": "detail:CN-214248998-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-214248998-U.json",
+      "fileSha256": "a381bfd3869c932e98d554fad67aa5fe703f3488bbe2862f69f1fce124d15592",
+      "responseSha256": "a381bfd3869c932e98d554fad67aa5fe703f3488bbe2862f69f1fce124d15592"
+    },
+    {
+      "ref": "detail:CN-214529030-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-214529030-U.json",
+      "fileSha256": "3891d8c9d184692a9f4d9fa5a5082f01ae9dc7c32e7ca6d97ad25b31ff6aeaaf",
+      "responseSha256": "3891d8c9d184692a9f4d9fa5a5082f01ae9dc7c32e7ca6d97ad25b31ff6aeaaf"
+    },
+    {
+      "ref": "detail:CN-214672724-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-214672724-U.json",
+      "fileSha256": "a1818d9169376fe0390424317b529ed4bd708564210dd23e8987cf2089776790",
+      "responseSha256": "a1818d9169376fe0390424317b529ed4bd708564210dd23e8987cf2089776790"
+    },
+    {
+      "ref": "detail:CN-214675365-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-214675365-U.json",
+      "fileSha256": "a92e38685dde4f8a05c4a36ac0ebd4cee139b06d6ce6d0f6c079f0f7933d134a",
+      "responseSha256": "a92e38685dde4f8a05c4a36ac0ebd4cee139b06d6ce6d0f6c079f0f7933d134a"
+    },
+    {
+      "ref": "detail:CN-215073411-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-215073411-U.json",
+      "fileSha256": "a47a4dfc1701ff1960f3d20d5d15280fcf0a51c7becaf2b97d1b2b2f9cf01615",
+      "responseSha256": "a47a4dfc1701ff1960f3d20d5d15280fcf0a51c7becaf2b97d1b2b2f9cf01615"
+    },
+    {
+      "ref": "detail:CN-215206014-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-215206014-U.json",
+      "fileSha256": "56573778b860de62ecf43351decc6d5cae203c4443e8c0225d6a151f639cabb2",
+      "responseSha256": "56573778b860de62ecf43351decc6d5cae203c4443e8c0225d6a151f639cabb2"
+    },
+    {
+      "ref": "detail:CN-215288793-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-215288793-U.json",
+      "fileSha256": "7c026e6fa51eba280a56814f648cd0ab51b91e969ca784186bfdf67638faaa19",
+      "responseSha256": "7c026e6fa51eba280a56814f648cd0ab51b91e969ca784186bfdf67638faaa19"
+    },
+    {
+      "ref": "detail:CN-215377534-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-215377534-U.json",
+      "fileSha256": "cd8be592d53e4a8f81376f267d938eabe30e28f777d7e422b8c00a6808529c4d",
+      "responseSha256": "cd8be592d53e4a8f81376f267d938eabe30e28f777d7e422b8c00a6808529c4d"
+    },
+    {
+      "ref": "detail:CN-215517363-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-215517363-U.json",
+      "fileSha256": "6f54d0ffc5480bbd507321e50036be6eac20fd246a795257f1b86ed8463b510c",
+      "responseSha256": "6f54d0ffc5480bbd507321e50036be6eac20fd246a795257f1b86ed8463b510c"
+    },
+    {
+      "ref": "detail:CN-215517420-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-215517420-U.json",
+      "fileSha256": "0d2ea60502fff803492fa2697910ef0834f4f3826c1ce41705e790483ec5a74d",
+      "responseSha256": "0d2ea60502fff803492fa2697910ef0834f4f3826c1ce41705e790483ec5a74d"
+    },
+    {
+      "ref": "detail:CN-215668018-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-215668018-U.json",
+      "fileSha256": "4fc3b7114f29effdc888ab65e602f1c050eb1b69821a025c285fd7c6cc46ca5b",
+      "responseSha256": "4fc3b7114f29effdc888ab65e602f1c050eb1b69821a025c285fd7c6cc46ca5b"
+    },
+    {
+      "ref": "detail:CN-215757361-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-215757361-U.json",
+      "fileSha256": "5003332c3bb70797bd6c63edd2b982a64d45ce01ad4e06845d0bae6d47a46a67",
+      "responseSha256": "5003332c3bb70797bd6c63edd2b982a64d45ce01ad4e06845d0bae6d47a46a67"
+    },
+    {
+      "ref": "detail:CN-215771449-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-215771449-U.json",
+      "fileSha256": "fabbfd04462cd1338a4267632e8c3494b854e31ed7cc2c695e7ece02030bade2",
+      "responseSha256": "fabbfd04462cd1338a4267632e8c3494b854e31ed7cc2c695e7ece02030bade2"
+    },
+    {
+      "ref": "detail:CN-215799496-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-215799496-U.json",
+      "fileSha256": "35969f3a8b053840d5aa3649ba5a820b4ceb5e1e8cfff424d0bca7b6565e3c54",
+      "responseSha256": "35969f3a8b053840d5aa3649ba5a820b4ceb5e1e8cfff424d0bca7b6565e3c54"
+    },
+    {
+      "ref": "detail:CN-215828773-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-215828773-U.json",
+      "fileSha256": "816539412e83e30765e9f10366a0a37fff54b1c2e42e40ae215e27a8c34d4414",
+      "responseSha256": "816539412e83e30765e9f10366a0a37fff54b1c2e42e40ae215e27a8c34d4414"
+    },
+    {
+      "ref": "detail:CN-215872387-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-215872387-U.json",
+      "fileSha256": "83b5caa305242df8c32ee3f8f960d9c874ef8b4feacb8c73f1ad9c16d9b89f06",
+      "responseSha256": "83b5caa305242df8c32ee3f8f960d9c874ef8b4feacb8c73f1ad9c16d9b89f06"
+    },
+    {
+      "ref": "detail:CN-215955383-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-215955383-U.json",
+      "fileSha256": "7934d861b57e2f4184cae6c9d8b5748596841b029ae73f761102552caa8dec3c",
+      "responseSha256": "7934d861b57e2f4184cae6c9d8b5748596841b029ae73f761102552caa8dec3c"
+    },
+    {
+      "ref": "detail:CN-216015633-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-216015633-U.json",
+      "fileSha256": "c94d732edad8e9ab507c21bf70a84f4c27c486820622ffb0660ac8ba8b7ffbf4",
+      "responseSha256": "c94d732edad8e9ab507c21bf70a84f4c27c486820622ffb0660ac8ba8b7ffbf4"
+    },
+    {
+      "ref": "detail:CN-216017435-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-216017435-U.json",
+      "fileSha256": "d3c0535cd86db58f55f91caaab88f72af018a5ad0e986505480ffeeb4f69a432",
+      "responseSha256": "d3c0535cd86db58f55f91caaab88f72af018a5ad0e986505480ffeeb4f69a432"
+    },
+    {
+      "ref": "detail:CN-216053099-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-216053099-U.json",
+      "fileSha256": "86589c173c7fe0168277fd47fb4787ce066c21eb23ce74f927634cfb1bcfcd75",
+      "responseSha256": "86589c173c7fe0168277fd47fb4787ce066c21eb23ce74f927634cfb1bcfcd75"
+    },
+    {
+      "ref": "detail:CN-216233702-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-216233702-U.json",
+      "fileSha256": "7969ef7235e786acaeebd4670bda3671053f3fda177690c6f35013d7173749a2",
+      "responseSha256": "7969ef7235e786acaeebd4670bda3671053f3fda177690c6f35013d7173749a2"
+    },
+    {
+      "ref": "detail:CN-216237032-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-216237032-U.json",
+      "fileSha256": "e74756486c9b45a66e88a8a5b364cbf1d07823069487ac2a5c6298288bddb9d9",
+      "responseSha256": "e74756486c9b45a66e88a8a5b364cbf1d07823069487ac2a5c6298288bddb9d9"
+    },
+    {
+      "ref": "detail:CN-216375822-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-216375822-U.json",
+      "fileSha256": "c36e2d5294dc193d578d611b7ea16cb99c271cd2bc254a53a28418a0b82f428a",
+      "responseSha256": "c36e2d5294dc193d578d611b7ea16cb99c271cd2bc254a53a28418a0b82f428a"
+    },
+    {
+      "ref": "detail:CN-216427278-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-216427278-U.json",
+      "fileSha256": "1b0e903706dc810525958f47722beec67f9093e657b52b267313d93f449e7640",
+      "responseSha256": "1b0e903706dc810525958f47722beec67f9093e657b52b267313d93f449e7640"
+    },
+    {
+      "ref": "detail:CN-216436076-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-216436076-U.json",
+      "fileSha256": "cf146b44ce13299782a91c7fa95a3673de6ea421a7d62dbe60b074e0eaa0ab5c",
+      "responseSha256": "cf146b44ce13299782a91c7fa95a3673de6ea421a7d62dbe60b074e0eaa0ab5c"
+    },
+    {
+      "ref": "detail:CN-216639489-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-216639489-U.json",
+      "fileSha256": "f3512854aa44429e012cd82224a52c0f09f93259a2ef6e442a3c23b6f53f8120",
+      "responseSha256": "f3512854aa44429e012cd82224a52c0f09f93259a2ef6e442a3c23b6f53f8120"
+    },
+    {
+      "ref": "detail:CN-216648362-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-216648362-U.json",
+      "fileSha256": "e33efbd24644e4d6926b6aa2922d1b93d7cc0ae07ae1d1d9a37f84d7914efc48",
+      "responseSha256": "e33efbd24644e4d6926b6aa2922d1b93d7cc0ae07ae1d1d9a37f84d7914efc48"
+    },
+    {
+      "ref": "detail:CN-216738368-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-216738368-U.json",
+      "fileSha256": "87525c1ece80503579ea1e857f10c349505d83030c5875e1a6f859e96ffb99c9",
+      "responseSha256": "87525c1ece80503579ea1e857f10c349505d83030c5875e1a6f859e96ffb99c9"
+    },
+    {
+      "ref": "detail:CN-216958145-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-216958145-U.json",
+      "fileSha256": "1a96be2252405e2d81438347ddb4186730154469c489b686a42ca488093a44a7",
+      "responseSha256": "1a96be2252405e2d81438347ddb4186730154469c489b686a42ca488093a44a7"
+    },
+    {
+      "ref": "detail:CN-216980651-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-216980651-U.json",
+      "fileSha256": "289f4ca0346247c065033069d6a4cf8cb37cce85c9b2afaa8e8deaec939b1e01",
+      "responseSha256": "289f4ca0346247c065033069d6a4cf8cb37cce85c9b2afaa8e8deaec939b1e01"
+    },
+    {
+      "ref": "detail:CN-217035725-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-217035725-U.json",
+      "fileSha256": "888288f432efc61d37bb9121e7ee74d07f273935de068718a5e5375152547b20",
+      "responseSha256": "888288f432efc61d37bb9121e7ee74d07f273935de068718a5e5375152547b20"
+    },
+    {
+      "ref": "detail:CN-217173738-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-217173738-U.json",
+      "fileSha256": "b6e445bde4677589f61a29c1843e56155d54d063782bcfaa643b90b14f938768",
+      "responseSha256": "b6e445bde4677589f61a29c1843e56155d54d063782bcfaa643b90b14f938768"
+    },
+    {
+      "ref": "detail:CN-217239676-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-217239676-U.json",
+      "fileSha256": "5c0b713b93e734053444f7d86b7356c422ee716706833d4d7aba36a28195e07d",
+      "responseSha256": "5c0b713b93e734053444f7d86b7356c422ee716706833d4d7aba36a28195e07d"
+    },
+    {
+      "ref": "detail:CN-217297796-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-217297796-U.json",
+      "fileSha256": "cbba395b48190a40873f93d6c3b47b24eba67412e2ab3b0d9300d451627dd2db",
+      "responseSha256": "cbba395b48190a40873f93d6c3b47b24eba67412e2ab3b0d9300d451627dd2db"
+    },
+    {
+      "ref": "detail:CN-217426918-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-217426918-U.json",
+      "fileSha256": "4f58ad4859da166a1d40040b026dc2517e65d10f973512bc945f3419168ee86a",
+      "responseSha256": "4f58ad4859da166a1d40040b026dc2517e65d10f973512bc945f3419168ee86a"
+    },
+    {
+      "ref": "detail:CN-217507547-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-217507547-U.json",
+      "fileSha256": "b1fd5da9ec27ce51c664a129331ab2aa99a7face7c9193b5d863c28836e10285",
+      "responseSha256": "b1fd5da9ec27ce51c664a129331ab2aa99a7face7c9193b5d863c28836e10285"
+    },
+    {
+      "ref": "detail:CN-217562763-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-217562763-U.json",
+      "fileSha256": "c3e1aae3fed3cc80b9ff910b449324615ea1ccc77166633e3ff6bedc1d0d27d7",
+      "responseSha256": "c3e1aae3fed3cc80b9ff910b449324615ea1ccc77166633e3ff6bedc1d0d27d7"
+    },
+    {
+      "ref": "detail:CN-217589229-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-battery/CN-217589229-U.json",
+      "fileSha256": "184aa99511a5633ddb2f295efb337b7dd88fd02f186ac1b906860034312cd62d",
+      "responseSha256": "184aa99511a5633ddb2f295efb337b7dd88fd02f186ac1b906860034312cd62d"
+    },
+    {
+      "ref": "detail:CN-217922112-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-217922112-U.json",
+      "fileSha256": "e8627dca479148102cef1b94bc7db5b73a6ab1983306ec96cd2435b727ff3fbd",
+      "responseSha256": "e8627dca479148102cef1b94bc7db5b73a6ab1983306ec96cd2435b727ff3fbd"
+    },
+    {
+      "ref": "detail:CN-218262518-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-218262518-U.json",
+      "fileSha256": "49757bdd0231d1160c9d9737b22cf2171cd3a6ea973c3f0f58d2587dc7238a43",
+      "responseSha256": "49757bdd0231d1160c9d9737b22cf2171cd3a6ea973c3f0f58d2587dc7238a43"
+    },
+    {
+      "ref": "detail:CN-218321406-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-218321406-U.json",
+      "fileSha256": "82389cef2c9e3410ac94eb20338679d5b0ad48005260c1edd0b26da010462d8b",
+      "responseSha256": "82389cef2c9e3410ac94eb20338679d5b0ad48005260c1edd0b26da010462d8b"
+    },
+    {
+      "ref": "detail:CN-218531344-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-218531344-U.json",
+      "fileSha256": "1f1f2c9141f9718d5177b958f6dbb1738a2475175d82acf4019c10c9840de3f4",
+      "responseSha256": "1f1f2c9141f9718d5177b958f6dbb1738a2475175d82acf4019c10c9840de3f4"
+    },
+    {
+      "ref": "detail:CN-218690531-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-218690531-U.json",
+      "fileSha256": "027f574a3b6301840a69f19642e5e19f4fc771021501b1f026f61853624322a3",
+      "responseSha256": "027f574a3b6301840a69f19642e5e19f4fc771021501b1f026f61853624322a3"
+    },
+    {
+      "ref": "detail:CN-218710472-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-218710472-U.json",
+      "fileSha256": "90578100ee201a6d4ea8e6805122a41b3dc5e599e9ead620f5fc742ebe6939d3",
+      "responseSha256": "90578100ee201a6d4ea8e6805122a41b3dc5e599e9ead620f5fc742ebe6939d3"
+    },
+    {
+      "ref": "detail:CN-219526633-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-219526633-U.json",
+      "fileSha256": "32c865d2314ba4db0ac4d11aeb9cf7511ef45ce33223670b5e40f802590d6c8c",
+      "responseSha256": "32c865d2314ba4db0ac4d11aeb9cf7511ef45ce33223670b5e40f802590d6c8c"
+    },
+    {
+      "ref": "detail:CN-219880002-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-219880002-U.json",
+      "fileSha256": "aa91a375677e34397406ca64a373cc3ae0cd51e7095da08240bdf6a128efb6de",
+      "responseSha256": "aa91a375677e34397406ca64a373cc3ae0cd51e7095da08240bdf6a128efb6de"
+    },
+    {
+      "ref": "detail:CN-220098957-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-220098957-U.json",
+      "fileSha256": "2c8d0a3a90997800e5da4d4c4a0d5a382753882f3a3ba66a0be87bc5e7cc92f1",
+      "responseSha256": "2c8d0a3a90997800e5da4d4c4a0d5a382753882f3a3ba66a0be87bc5e7cc92f1"
+    },
+    {
+      "ref": "detail:CN-220123164-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-220123164-U.json",
+      "fileSha256": "e337cd069972abeec5fd05a739a459fa17caa6f30e3206d3d817f179986f02cb",
+      "responseSha256": "e337cd069972abeec5fd05a739a459fa17caa6f30e3206d3d817f179986f02cb"
+    },
+    {
+      "ref": "detail:CN-220467972-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-220467972-U.json",
+      "fileSha256": "5a51c4f8474018a45ebf497472b0c99fac9630e191b6837f58539c104b5db55b",
+      "responseSha256": "5a51c4f8474018a45ebf497472b0c99fac9630e191b6837f58539c104b5db55b"
+    },
+    {
+      "ref": "detail:CN-220951809-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-220951809-U.json",
+      "fileSha256": "108d46750e140b363376094f917c33ae491744d6dbcaa8a21c7536527d4347a3",
+      "responseSha256": "108d46750e140b363376094f917c33ae491744d6dbcaa8a21c7536527d4347a3"
+    },
+    {
+      "ref": "detail:CN-221884498-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-ai_ml/CN-221884498-U.json",
+      "fileSha256": "dee1f112abb8eba60b3fcaa79743dcd4c6896a0aa764183e778939c20cdbc9b4",
+      "responseSha256": "dee1f112abb8eba60b3fcaa79743dcd4c6896a0aa764183e778939c20cdbc9b4"
+    },
+    {
+      "ref": "detail:CN-222132072-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-222132072-U.json",
+      "fileSha256": "1d0748efa678b7535d9fc77df529c03908e42eac04636c1d0f0716b7a488a8fc",
+      "responseSha256": "1d0748efa678b7535d9fc77df529c03908e42eac04636c1d0f0716b7a488a8fc"
+    },
+    {
+      "ref": "detail:CN-222961425-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-222961425-U.json",
+      "fileSha256": "8ef8d89292224354d513b7da1b673ffa3141225ad24a7b6dce9643b6ef307b73",
+      "responseSha256": "8ef8d89292224354d513b7da1b673ffa3141225ad24a7b6dce9643b6ef307b73"
+    },
+    {
+      "ref": "detail:CN-223292545-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-223292545-U.json",
+      "fileSha256": "672c95d958f1197bafa26aef94f47cc84a0ce316eec51b708916676b326678d8",
+      "responseSha256": "672c95d958f1197bafa26aef94f47cc84a0ce316eec51b708916676b326678d8"
+    },
+    {
+      "ref": "detail:CN-223481145-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-223481145-U.json",
+      "fileSha256": "4683b3a78897c89643ec30defc87650e7c33ce6622635af7abf25399b417c472",
+      "responseSha256": "4683b3a78897c89643ec30defc87650e7c33ce6622635af7abf25399b417c472"
+    },
+    {
+      "ref": "detail:CN-224171474-U",
+      "kind": "DETAIL_RESPONSE",
+      "sourceFile": "raw/detail-biotech/CN-224171474-U.json",
+      "fileSha256": "53748f41c9f58413f15ff1bf4745589a7e17e389c1ac4afba785d567805d9215",
+      "responseSha256": "53748f41c9f58413f15ff1bf4745589a7e17e389c1ac4afba785d567805d9215"
+    },
+    {
+      "ref": "search:AI_ML:1",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-ai_ml-page-01.json",
+      "fileSha256": "bbee32b05b471ca80b2f59366306b9c750a8edbfb4ce54d3a1d820f0dccc4151",
+      "responseSha256": "ccb30df79ae5338c605642dc4d67f2b9f1bcfcda3c9bcb21aac45a5b1a3b5049"
+    },
+    {
+      "ref": "search:AI_ML:2",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-ai_ml-page-02.json",
+      "fileSha256": "d8af5929defa7e2bcd572663c15fd4f5f7088b54fd22cf7681d19ae775a8dc81",
+      "responseSha256": "d1da4a7c33170954641fc1830ace76275cacd954c25da0d123c5395ceba8c528"
+    },
+    {
+      "ref": "search:AI_ML:3",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-ai_ml-page-03.json",
+      "fileSha256": "37ea689c721d48f88fba2ba890aa94ad10a6b924df07da07ed6556030900b0fb",
+      "responseSha256": "dbd9c96929fddf1669f6107661d32949cd255bf6e60705b0f2b40559069fd0bb"
+    },
+    {
+      "ref": "search:AI_ML:4",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-ai_ml-page-04.json",
+      "fileSha256": "3b4688d1cdc7c7942279bb2141434b05d81cd4ca9bc4d7505d39ac23c2def07a",
+      "responseSha256": "b846c5a8ca638f62c568e909511212c7f3bd592648639790dd390f3e8cd07619"
+    },
+    {
+      "ref": "search:BATTERY:1",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-battery-page-01.json",
+      "fileSha256": "48da895fa6d7e61505324a494eb11b7cfbc9253239dc0b11d79c967ea3f56f05",
+      "responseSha256": "3ce2f129498a40ef86c87b7c5d68ccdca63ce321f48d401977c7405aab68c19f"
+    },
+    {
+      "ref": "search:BATTERY:2",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-battery-page-02.json",
+      "fileSha256": "369e8a38eaae1979c65eba363b4cd6012d2e4d84d9e2f84d1333fef752d78e41",
+      "responseSha256": "e1720b35766a4c65334cbd980797b22b9cbb256574435ce0c4200ca26b2d7400"
+    },
+    {
+      "ref": "search:BATTERY:3",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-battery-page-03.json",
+      "fileSha256": "791031d6aceadb7d7654d279547dbf3e935477afbc2512b88ab8fa5af5e28e74",
+      "responseSha256": "b7ff85bfb2fdd82f7fe061db8ca23e9c0a199cb465078efec4bd170319c88934"
+    },
+    {
+      "ref": "search:BATTERY:4",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-battery-page-04.json",
+      "fileSha256": "e0968c9ac583c8e210a0a41543f43d264729c6b1d5c35ba202c278d6e361ad96",
+      "responseSha256": "6bac83b8aa22c6ffbbed7272b5ef64a49b3912c7fbdd217c000722d7970c4fba"
+    },
+    {
+      "ref": "search:BIOTECH:1",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-biotech-page-01.json",
+      "fileSha256": "2c139141c0e1339bb517ad674ccac60c42c183ae97de0eb6a6c5428502f9898d",
+      "responseSha256": "119f0243a9b0d09d47252c949ad48b369dd6a209e8ad231b6e12f0fa0dc11845"
+    },
+    {
+      "ref": "search:BIOTECH:2",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-biotech-page-02.json",
+      "fileSha256": "3d1832af4940d80e78851ea8d43195a69006cd8efe6089236fe9ef1dc38ac5cb",
+      "responseSha256": "c5a6562a62d87aad9eec18f22d8f1550817f2a927ed818459d2f7606ca5bf11a"
+    },
+    {
+      "ref": "search:BIOTECH:3",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-biotech-page-03.json",
+      "fileSha256": "07b916aa2182465a1102ccc89db1b57184dab4309055fc038a590e21536a1163",
+      "responseSha256": "9dd436493796c49a9c329a563aca5929e751d0449154daad5884546566c2ef86"
+    },
+    {
+      "ref": "search:BIOTECH:4",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-biotech-page-04.json",
+      "fileSha256": "0645d9c7187469994fdba9c530f18a99100c3e5a09ab4ca4a08ae8bd93cd10fb",
+      "responseSha256": "89f68be68d54ef201391015cb232ab73078f774e8e215933b77e43c2fe57313c"
+    },
+    {
+      "ref": "search:SEMICONDUCTOR:1",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-semiconductor-page-01.json",
+      "fileSha256": "38069802893493eda22a2574829bf58c821abe3224a0c0fc94307a4b0017e16b",
+      "responseSha256": "1642953a0739987f18dbd9f8350bb1438db74f477ec79883464fcff57bce05dc"
+    },
+    {
+      "ref": "search:SEMICONDUCTOR:2",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-semiconductor-page-02.json",
+      "fileSha256": "81be8f44e83a5f1cc748a2195f9b2e66647040c64642c9e6a06f90c2294a7f15",
+      "responseSha256": "8a76912812fe216a9bd0a6a8e5622f310aa928010c5a92de22ee3270c4689c47"
+    },
+    {
+      "ref": "search:SEMICONDUCTOR:3",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-semiconductor-page-03.json",
+      "fileSha256": "9f7bdef93990800527275d22c581ac6a15a8e231d9fa21b617fd79c3e530e9e8",
+      "responseSha256": "7570e842102bed4c7497b0016068d88640c74ee2df1f5d9801cfaf0ac1fdbb78"
+    },
+    {
+      "ref": "search:SEMICONDUCTOR:4",
+      "kind": "SEARCH_RESPONSE",
+      "sourceFile": "raw/search-semiconductor-page-04.json",
+      "fileSha256": "69af26c3e2df5900fb07688062b62ca306dfe3050fd6f1e5c52f987a727d922d",
+      "responseSha256": "771d06d579cdaf4feb1ce08e4b24b155a3a5d0d0cafbdc11523e5ea1399939f6"
+    }
+  ],
+  "omittedSourceFields": [
+    "applicant",
+    "titles",
+    "titleEn",
+    "abstractExcerpt",
+    "claimsExcerpt",
+    "cpcClassifications",
+    "expertLabel",
+    "topicId",
+    "topicLabelZh",
+    "matchedQueryIds"
+  ],
+  "limitations": [
+    "DM8 import is approved only for this isolated internal-development public-reference catalog until the development pilot ends.",
+    "Publication metadata is not an authoritative current or historical right-status determination.",
+    "Records are public development references, not enforcement clues, evidence, rules, findings, or workflow inputs.",
+    "No center source, external model, non-public case material, personal information, or applicant field is used."
+  ]
+}

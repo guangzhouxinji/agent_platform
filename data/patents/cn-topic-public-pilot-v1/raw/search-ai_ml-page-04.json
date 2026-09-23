@@ -1,0 +1,591 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-18 12:03:31 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 77666,
+      "documents": [
+        {
+          "docId": "CN-115243842-A",
+          "metadata": {
+            "pd": "20221025",
+            "pn": "CN-115243842-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "FANUC CORP"
+        },
+        {
+          "docId": "CN-109074642-A",
+          "metadata": {
+            "pd": "20181221",
+            "pn": "CN-109074642-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HITACHI LTD"
+        },
+        {
+          "docId": "CN-119443195-A",
+          "metadata": {
+            "pd": "20250214",
+            "pn": "CN-119443195-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HON HAI PREC IND CO LTD"
+        },
+        {
+          "docId": "CN-111954582-B",
+          "metadata": {
+            "pd": "20210903",
+            "pn": "CN-111954582-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "MITSUBISHI ELECTRIC CORP."
+        },
+        {
+          "docId": "CN-112084836-B",
+          "metadata": {
+            "pd": "20250502",
+            "pn": "CN-112084836-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Robert Bosch Ltd."
+        },
+        {
+          "docId": "CN-114077237-B",
+          "metadata": {
+            "pd": "20240426",
+            "pn": "CN-114077237-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CORP."
+        },
+        {
+          "docId": "CN-112084836-A",
+          "metadata": {
+            "pd": "20201215",
+            "pn": "CN-112084836-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BOSCH GMBH ROBERT"
+        },
+        {
+          "docId": "CN-112101513-A",
+          "metadata": {
+            "pd": "20201218",
+            "pn": "CN-112101513-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "AISIN SEIKI"
+        },
+        {
+          "docId": "CN-114077237-A",
+          "metadata": {
+            "pd": "20220222",
+            "pn": "CN-114077237-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CORP"
+        },
+        {
+          "docId": "CN-110533189-A",
+          "metadata": {
+            "pd": "20191203",
+            "pn": "CN-110533189-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BOSCH GMBH ROBERT"
+        },
+        {
+          "docId": "CN-114424218-A",
+          "metadata": {
+            "pd": "20220429",
+            "pn": "CN-114424218-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HIGH AND NEW JOINT STOCK AGENCY HITACHI TECH"
+        },
+        {
+          "docId": "CN-114358107-A",
+          "metadata": {
+            "pd": "20220415",
+            "pn": "CN-114358107-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CO LTD"
+        },
+        {
+          "docId": "CN-114358107-B",
+          "metadata": {
+            "pd": "20251212",
+            "pn": "CN-114358107-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CORP."
+        },
+        {
+          "docId": "CN-116432764-A",
+          "metadata": {
+            "pd": "20230714",
+            "pn": "CN-116432764-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning frame"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习框架"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ORIGIN QUANTUM COMPUTING TECH CO LTD"
+        },
+        {
+          "docId": "CN-119301625-A",
+          "metadata": {
+            "pd": "20250110",
+            "pn": "CN-119301625-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SIGNATURE SPACE CO LTD"
+        },
+        {
+          "docId": "CN-113168575-A",
+          "metadata": {
+            "pd": "20210723",
+            "pn": "CN-113168575-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Micro machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "微型机器学习"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ORACLE INT CORP"
+        },
+        {
+          "docId": "CN-111476345-A",
+          "metadata": {
+            "pd": "20200731",
+            "pn": "CN-111476345-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CO LTD"
+        },
+        {
+          "docId": "CN-111476345-B",
+          "metadata": {
+            "pd": "20230630",
+            "pn": "CN-111476345-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TOYOTA MOTOR CORP."
+        },
+        {
+          "docId": "CN-110533189-B",
+          "metadata": {
+            "pd": "20240426",
+            "pn": "CN-110533189-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning system"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Robert Bosch Ltd."
+        },
+        {
+          "docId": "CN-120380467-A",
+          "metadata": {
+            "pd": "20250725",
+            "pn": "CN-120380467-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning instantiation"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习实例化"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "MICROSOFT TECHNOLOGY LICENSING LLC"
+        },
+        {
+          "docId": "CN-116432764-B",
+          "metadata": {
+            "pd": "20240614",
+            "pn": "CN-116432764-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning frame"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习框架"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Benyuan Quantum Computing Technology (Hefei) Co.,Ltd."
+        },
+        {
+          "docId": "CN-117746065-A",
+          "metadata": {
+            "pd": "20240322",
+            "pn": "CN-117746065-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HON HAI PREC IND CO LTD"
+        },
+        {
+          "docId": "CN-114424218-B",
+          "metadata": {
+            "pd": "20250916",
+            "pn": "CN-114424218-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning device"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HITACHI HIGH-TECHNOLOGIES CORP."
+        },
+        {
+          "docId": "CN-121844334-A",
+          "metadata": {
+            "pd": "20260410",
+            "pn": "CN-121844334-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Machine learning receiver"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "机器学习接收器"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "NOKIA TECHNOLOGIES OY"
+        },
+        {
+          "docId": "CN-107004159-B",
+          "metadata": {
+            "pd": "20240301",
+            "pn": "CN-107004159-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Active machine learning"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "主动机器学习"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "MICROSOFT TECHNOLOGY LICENSING, LLC"
+        }
+      ],
+      "query": "(pnctry:CN AND (ttl:\"人工智能\" OR ttl:\"机器学习\"))"
+    },
+    "query": ""
+  }
+}

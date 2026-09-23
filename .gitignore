@@ -32,6 +32,7 @@ replay_pid*
 
 ### Node.js ###
 node_modules/
+frontend/dist/
 
 ### OS ###
 .DS_Store

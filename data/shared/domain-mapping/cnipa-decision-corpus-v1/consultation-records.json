@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "public-domain-projection-set-v1",
+  "domain": "CONSULTATION",
+  "mappingPolicyVersion": "CNIPA-DOMAIN-MAPPING-V1",
+  "sourceWorksetId": "CNIPA-DECISION-CORPUS-REVIEW-2026-09-21-V2",
+  "sourceCatalogVersion": "2026-09-21.1",
+  "sourceBatchSha256": "90b1a65ccebc40db001d30f7d949f5ad1445b0d044edadf441b22b1228240c9d",
+  "projectionStatus": "ISOLATED_INTERNAL_DEVELOPMENT_ONLY",
+  "records": [],
+  "emptyReason": "NO_APPROVED_CONSULTATION_DOMAIN_OR_USE_IN_SOURCE_WORKSET",
+  "boundaries": {
+    "crossDomainFallbackAllowed": false,
+    "externalModelAllowed": false
+  }
+}

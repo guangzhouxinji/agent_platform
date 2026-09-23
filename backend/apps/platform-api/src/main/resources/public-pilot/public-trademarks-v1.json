@@ -1,0 +1,6190 @@
+[
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50002442",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50002442",
+    "registrationNumber": null,
+    "name": "LEAKONOMICS",
+    "imageRef": null,
+    "applicants": [
+      "California Water Service Group"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-20",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50002442",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50002442&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50002451",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50002451",
+    "registrationNumber": null,
+    "name": "LEAK ONOMICS",
+    "imageRef": null,
+    "applicants": [
+      "California Water Service Group"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-20",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50002451",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50002451&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50002468",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50002468",
+    "registrationNumber": null,
+    "name": "FIXIQ",
+    "imageRef": null,
+    "applicants": [
+      "PT Intermediate Holdings IV, LLC"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-20",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50002468",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50002468&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50002892",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50002892",
+    "registrationNumber": null,
+    "name": "HTM OS",
+    "imageRef": null,
+    "applicants": [
+      "HOW TO MANAGE IP HOLDING COMPANY LLC"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-20",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50002892",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50002892&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50002953",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50002953",
+    "registrationNumber": null,
+    "name": "TOTAL OWNER BENEFITS",
+    "imageRef": null,
+    "applicants": [
+      "HOW TO MANAGE IP HOLDING COMPANY LLC"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-20",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50002953",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50002953&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50003171",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50003171",
+    "registrationNumber": null,
+    "name": "VIPERVERIFY",
+    "imageRef": null,
+    "applicants": [
+      "Edward Ray Ortiz"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-20",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50003171",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50003171&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50005538",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50005538",
+    "registrationNumber": null,
+    "name": "SOLTARA",
+    "imageRef": null,
+    "applicants": [
+      "Deku Studios LLC"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-21",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50005538",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50005538&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50005557",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50005557",
+    "registrationNumber": null,
+    "name": "NINES",
+    "imageRef": null,
+    "applicants": [
+      "Deku Studios LLC"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-21",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50005557",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50005557&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50007762",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50007762",
+    "registrationNumber": null,
+    "name": "BOVARO",
+    "imageRef": null,
+    "applicants": [
+      "Wenzheng Guo"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-22",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50007762",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50007762&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50012711",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50012711",
+    "registrationNumber": null,
+    "name": "SEARCH ONE AND DONE",
+    "imageRef": null,
+    "applicants": [
+      "OpenEvidence Inc."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-24",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50012711",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50012711&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50012713",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50012713",
+    "registrationNumber": null,
+    "name": "SEARCH ONE AND DONE",
+    "imageRef": null,
+    "applicants": [
+      "OpenEvidence Inc."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-24",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50012713",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50012713&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "50020458",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "50020458",
+    "registrationNumber": null,
+    "name": "ROBINHOOD",
+    "imageRef": null,
+    "applicants": [
+      "Robinhood Markets, Inc."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "36",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "39",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "43",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "45",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2026-07-29",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=50020458",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=50020458&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79318510",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79318510",
+    "registrationNumber": null,
+    "name": "KAIROS 365",
+    "imageRef": null,
+    "applicants": [
+      "NETBOSS COMUNICACIONES, S.L."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2021-07-29",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79318510",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79318510&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79321747",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79321747",
+    "registrationNumber": null,
+    "name": "SINCE 1978 SUPER PRO COMBAT GEAR",
+    "imageRef": null,
+    "applicants": [
+      "All4glory B.V."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2021-07-26",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79321747",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79321747&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79324559",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79324559",
+    "registrationNumber": null,
+    "name": "SOTEREA SMART SAFETY FOR EVERYONE",
+    "imageRef": null,
+    "applicants": [
+      "Tianjin Soterea Automotive Technology Co., Ltd."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2021-08-18",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79324559",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79324559&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79340258",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79340258",
+    "registrationNumber": null,
+    "name": "ZERO",
+    "imageRef": null,
+    "applicants": [
+      "Ngrave.IO, afgekort Ngrave, naamloze vennootschap"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2022-03-23",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79340258",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79340258&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79358836",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79358836",
+    "registrationNumber": null,
+    "name": "CAROLINA HERRERA",
+    "imageRef": null,
+    "applicants": [
+      "Carolina Herrera Ltd"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2022-10-19",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79358836",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79358836&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79362817",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79362817",
+    "registrationNumber": null,
+    "name": "META TECHNOLOGY BY LG DISPLAY",
+    "imageRef": null,
+    "applicants": [
+      "LG Corp."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2022-12-22",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79362817",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79362817&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79367121",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79367121",
+    "registrationNumber": null,
+    "name": "ACRELEC",
+    "imageRef": null,
+    "applicants": [
+      "AKSOR"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "37",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2022-08-22",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79367121",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79367121&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79369242",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79369242",
+    "registrationNumber": null,
+    "name": "ONTRACK",
+    "imageRef": null,
+    "applicants": [
+      "Schunk Transit Systems GmbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "1",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "17",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-01-30",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79369242",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79369242&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79370176",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79370176",
+    "registrationNumber": null,
+    "name": "DRAWRAY",
+    "imageRef": null,
+    "applicants": [
+      "Shenzhen Drawray Biotech Co., Ltd."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "5",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "10",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2022-12-21",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79370176",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79370176&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79379881",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79379881",
+    "registrationNumber": null,
+    "name": "BLUE STAR",
+    "imageRef": null,
+    "applicants": [
+      "BLUE STAR LIMITED"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "11",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "37",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-05-23",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79379881",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79379881&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79383599",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79383599",
+    "registrationNumber": null,
+    "name": "AUPEN",
+    "imageRef": null,
+    "applicants": [
+      "GRAND OCEAN BRANDS PTE. LTD."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "14",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "18",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-10-23",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79383599",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79383599&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79383853",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79383853",
+    "registrationNumber": null,
+    "name": "NEW WAVE",
+    "imageRef": null,
+    "applicants": [
+      "New Wave Group AB"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-09-20",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79383853",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79383853&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79385435",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79385435",
+    "registrationNumber": null,
+    "name": "WINSTONAI",
+    "imageRef": null,
+    "applicants": [
+      "Dotdigital Group plc"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-10-19",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79385435",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79385435&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79388406",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79388406",
+    "registrationNumber": null,
+    "name": "EMBIOLOGY",
+    "imageRef": null,
+    "applicants": [
+      "Elsevier Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-03-21",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79388406",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79388406&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79389322",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79389322",
+    "registrationNumber": null,
+    "name": "LACE LITHOGRAPHY",
+    "imageRef": null,
+    "applicants": [
+      "Lace Lithography AS"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-01-16",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79389322",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79389322&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79389729",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79389729",
+    "registrationNumber": null,
+    "name": "LIGHT-ON-YOGA",
+    "imageRef": null,
+    "applicants": [
+      "Rita Keller"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "44",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-01-22",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79389729",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79389729&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79390408",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79390408",
+    "registrationNumber": null,
+    "name": "HYPT",
+    "imageRef": null,
+    "applicants": [
+      "hypt GmbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-10-05",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79390408",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79390408&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79392506",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79392506",
+    "registrationNumber": null,
+    "name": "NEURIO",
+    "imageRef": null,
+    "applicants": [
+      "Guangzhou Aotea Biological Technology Pte Ltd."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "5",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "29",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "30",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-12-12",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79392506",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79392506&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79394195",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79394195",
+    "registrationNumber": null,
+    "name": "STANDING OVATION",
+    "imageRef": null,
+    "applicants": [
+      "STANDING OVATION"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "1",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "5",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "30",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "32",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "43",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-10-30",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79394195",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79394195&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79396456",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79396456",
+    "registrationNumber": null,
+    "name": "DUPLACH",
+    "imageRef": null,
+    "applicants": [
+      "DUPLACH GROUP SAU"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "11",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-01-05",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79396456",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79396456&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79396702",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79396702",
+    "registrationNumber": null,
+    "name": "PASSAVANT",
+    "imageRef": null,
+    "applicants": [
+      "Passvant-Geiger GmbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-03-26",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79396702",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79396702&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79399897",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79399897",
+    "registrationNumber": null,
+    "name": "ROYAL AIR MAROC",
+    "imageRef": null,
+    "applicants": [
+      "LA COMPAGNIE NATIONALE"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "1",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "2",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "3",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "4",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "5",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "6",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "8",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "10",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "11",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "12",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "13",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "14",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "15",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "17",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "18",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "19",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "20",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "21",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "22",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "23",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "24",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "26",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "27",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "29",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "30",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "31",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "32",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "33",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "34",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "36",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "37",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "39",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "40",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "43",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "44",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "45",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-05-31",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79399897",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79399897&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79401446",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79401446",
+    "registrationNumber": null,
+    "name": "RUARK",
+    "imageRef": null,
+    "applicants": [
+      "Ruark Audio Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-07-08",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79401446",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79401446&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79401583",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79401583",
+    "registrationNumber": null,
+    "name": "SMARTDROP",
+    "imageRef": null,
+    "applicants": [
+      "Hamilton Freiburg GmbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-11-17",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79401583",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79401583&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79403052",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79403052",
+    "registrationNumber": null,
+    "name": "LBC",
+    "imageRef": null,
+    "applicants": [
+      "LANGUAGE BOARD CO. LTD."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-05-08",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79403052",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79403052&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79404992",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79404992",
+    "registrationNumber": null,
+    "name": "LOOPER X",
+    "imageRef": null,
+    "applicants": [
+      "Ed Sheeran Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "15",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "18",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-04-11",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79404992",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79404992&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79404993",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79404993",
+    "registrationNumber": null,
+    "name": "LOOPER +",
+    "imageRef": null,
+    "applicants": [
+      "Ed Sheeran Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "15",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "18",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-04-11",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79404993",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79404993&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79406542",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79406542",
+    "registrationNumber": null,
+    "name": "TPS.LIVE",
+    "imageRef": null,
+    "applicants": [
+      "HaCon Ingenieurgesellschaft mbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "39",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-09-03",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79406542",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79406542&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79406816",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79406816",
+    "registrationNumber": null,
+    "name": "TPS.INTEGRATE",
+    "imageRef": null,
+    "applicants": [
+      "HaCon Ingenieurgesellschaft mbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "39",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-09-11",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79406816",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79406816&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79406819",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79406819",
+    "registrationNumber": null,
+    "name": "TPS.TRACKWORKS",
+    "imageRef": null,
+    "applicants": [
+      "HaCon Ingenieurgesellschaft mbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "39",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-09-11",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79406819",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79406819&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79406862",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79406862",
+    "registrationNumber": null,
+    "name": "TPS.PLAN",
+    "imageRef": null,
+    "applicants": [
+      "HaCon Ingenieurgesellschaft mbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "39",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-09-11",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79406862",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79406862&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79408409",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79408409",
+    "registrationNumber": null,
+    "name": "S STEAM THERMAL SOLUTIONS A SPIRAX GROUP BUSINESS",
+    "imageRef": null,
+    "applicants": [
+      "Spirax Group Plc"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "11",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "37",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-02-14",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79408409",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79408409&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79408413",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79408413",
+    "registrationNumber": null,
+    "name": "FONTAINES D.C.",
+    "imageRef": null,
+    "applicants": [
+      "Dead Beat Descendants LLP"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-02-08",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79408413",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79408413&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79408918",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79408918",
+    "registrationNumber": null,
+    "name": "ROOMMATE",
+    "imageRef": null,
+    "applicants": [
+      "SENSIO AS"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "10",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-10-11",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79408918",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79408918&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79409107",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79409107",
+    "registrationNumber": null,
+    "name": "QCG",
+    "imageRef": null,
+    "applicants": [
+      "ARPI Inc."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "10",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "44",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-09-13",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79409107",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79409107&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79409190",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79409190",
+    "registrationNumber": null,
+    "name": "TEREO",
+    "imageRef": null,
+    "applicants": [
+      "NuVision Biotherapies Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "44",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-10-01",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79409190",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79409190&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79410801",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79410801",
+    "registrationNumber": null,
+    "name": "20 CLOVER HIT",
+    "imageRef": null,
+    "applicants": [
+      "EGT DIGITAL LTD."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-07-19",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79410801",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79410801&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79410940",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79410940",
+    "registrationNumber": null,
+    "name": "KATO",
+    "imageRef": null,
+    "applicants": [
+      "Get Least Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "36",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "45",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-05-10",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79410940",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79410940&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79411045",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79411045",
+    "registrationNumber": null,
+    "name": "KOMBO",
+    "imageRef": null,
+    "applicants": [
+      "Kombo Technologies GmbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-10-23",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79411045",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79411045&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79411327",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79411327",
+    "registrationNumber": null,
+    "name": "HK >A",
+    "imageRef": null,
+    "applicants": [
+      "HKA Global Ltd"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "36",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "37",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "45",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-03-07",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79411327",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79411327&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79411493",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79411493",
+    "registrationNumber": null,
+    "name": "DMIX SAMPLR",
+    "imageRef": null,
+    "applicants": [
+      "ColorDigital GmbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-09-04",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79411493",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79411493&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79411999",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79411999",
+    "registrationNumber": null,
+    "name": "YOWANT",
+    "imageRef": null,
+    "applicants": [
+      "Hangzhou Yowant Network Technology Co., Ltd."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-11-05",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79411999",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79411999&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79412070",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79412070",
+    "registrationNumber": null,
+    "name": "CARRIWELL",
+    "imageRef": null,
+    "applicants": [
+      "Carriwell ApS"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "5",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "10",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-11-01",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79412070",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79412070&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79413114",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79413114",
+    "registrationNumber": null,
+    "name": "ST STADE TOULOUSAIN",
+    "imageRef": null,
+    "applicants": [
+      "STADE TOULOUSAIN RUGBY"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "18",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "43",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2023-10-24",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79413114",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79413114&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79413195",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79413195",
+    "registrationNumber": null,
+    "name": "POLAR BLUE",
+    "imageRef": null,
+    "applicants": [
+      "Polar Blue Services Pty Ltd"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "1",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "4",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "36",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "39",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "40",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-10-17",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79413195",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79413195&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79413596",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79413596",
+    "registrationNumber": null,
+    "name": "PLANTMAX",
+    "imageRef": null,
+    "applicants": [
+      "Plantma AB"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "12",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "37",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "44",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-11-15",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79413596",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79413596&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79413883",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79413883",
+    "registrationNumber": null,
+    "name": "LITTLE JOURNEY",
+    "imageRef": null,
+    "applicants": [
+      "Little Journey Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "44",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-10-29",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79413883",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79413883&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79414312",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79414312",
+    "registrationNumber": null,
+    "name": "B TRU BALANCE",
+    "imageRef": null,
+    "applicants": [
+      "\"CIMA - 99\" OOD"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "29",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "30",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "32",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-10-22",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79414312",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79414312&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79414751",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79414751",
+    "registrationNumber": null,
+    "name": "CHRYSALIS RENEWABLES",
+    "imageRef": null,
+    "applicants": [
+      "CHRYSALIS RENEWABLES GP LIMITED"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "36",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "39",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "40",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-07-01",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79414751",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79414751&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79414880",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79414880",
+    "registrationNumber": null,
+    "name": "ECO Y",
+    "imageRef": null,
+    "applicants": [
+      "Dürr Systems AG"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "11",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "12",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-09-24",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79414880",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79414880&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79415196",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79415196",
+    "registrationNumber": null,
+    "name": "ATOMADE",
+    "imageRef": null,
+    "applicants": [
+      "Digital Experiences Group GmbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-08-13",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79415196",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79415196&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79415339",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79415339",
+    "registrationNumber": null,
+    "name": "SUGAR VILLE",
+    "imageRef": null,
+    "applicants": [
+      "EGT DIGITAL LTD."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-08-27",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79415339",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79415339&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79415805",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79415805",
+    "registrationNumber": null,
+    "name": "QS7001",
+    "imageRef": null,
+    "applicants": [
+      "SEALSQ France"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-05",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79415805",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79415805&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79415814",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79415814",
+    "registrationNumber": null,
+    "name": "MOURITECH",
+    "imageRef": null,
+    "applicants": [
+      "MOURI TECH PRIVATE LIMITED"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-08-16",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79415814",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79415814&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79415895",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79415895",
+    "registrationNumber": null,
+    "name": "TRANSFORM",
+    "imageRef": null,
+    "applicants": [
+      "Transform Gaming (UK) Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-09-30",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79415895",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79415895&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79416121",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79416121",
+    "registrationNumber": null,
+    "name": "MATALP",
+    "imageRef": null,
+    "applicants": [
+      "MATALP"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "6",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-10",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79416121",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79416121&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79416122",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79416122",
+    "registrationNumber": null,
+    "name": "POLLUX",
+    "imageRef": null,
+    "applicants": [
+      "Dectris Ltd."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-11-18",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79416122",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79416122&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79416402",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79416402",
+    "registrationNumber": null,
+    "name": "WEE FREE MEN",
+    "imageRef": null,
+    "applicants": [
+      "Dunmanifestin Ltd"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "14",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "20",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "21",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-02-19",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79416402",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79416402&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79416680",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79416680",
+    "registrationNumber": null,
+    "name": "JELLYFISHBOT",
+    "imageRef": null,
+    "applicants": [
+      "IADYS"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "12",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-07-23",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79416680",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79416680&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79416787",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79416787",
+    "registrationNumber": null,
+    "name": "HǓPÒ SÈ FORTUNE LEGACY",
+    "imageRef": null,
+    "applicants": [
+      "ZITRO LABORATORY S.L.U."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-10-01",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79416787",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79416787&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79416901",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79416901",
+    "registrationNumber": null,
+    "name": "SHIPREALITY",
+    "imageRef": null,
+    "applicants": [
+      "ShipReality Research"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-06-20",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79416901",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79416901&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79417021",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79417021",
+    "registrationNumber": null,
+    "name": "CYBERSTICK",
+    "imageRef": null,
+    "applicants": [
+      "HAKA KOREA Co., Ltd."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "34",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-05",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79417021",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79417021&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79417234",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79417234",
+    "registrationNumber": null,
+    "name": "TENÍAS HARVESTER",
+    "imageRef": null,
+    "applicants": [
+      "TENIAS HARVESTER, S.L."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "37",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-11-14",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79417234",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79417234&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79417236",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79417236",
+    "registrationNumber": null,
+    "name": "FOUNDAXIS",
+    "imageRef": null,
+    "applicants": [
+      "Gonzalo Andrés Guiloff Bravo"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-16",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79417236",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79417236&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79417607",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79417607",
+    "registrationNumber": null,
+    "name": "LOCK'N ROLL",
+    "imageRef": null,
+    "applicants": [
+      "LS CABLE ? SYSTEM LTD."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2025-01-06",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79417607",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79417607&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79417819",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79417819",
+    "registrationNumber": null,
+    "name": "TRAILERMASTER",
+    "imageRef": null,
+    "applicants": [
+      "TRAILER MASTER CVS INC."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-12",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79417819",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79417819&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79417855",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79417855",
+    "registrationNumber": null,
+    "name": "KALEIDO",
+    "imageRef": null,
+    "applicants": [
+      "E Ink Corporation"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2025-01-28",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79417855",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79417855&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79417878",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79417878",
+    "registrationNumber": null,
+    "name": "CDE PROPRESS",
+    "imageRef": null,
+    "applicants": [
+      "CDE Global Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "37",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-09-18",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79417878",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79417878&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79418330",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79418330",
+    "registrationNumber": null,
+    "name": "METEOFOCUS",
+    "imageRef": null,
+    "applicants": [
+      "Weather Solutions Holding"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-08-30",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79418330",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79418330&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79418367",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79418367",
+    "registrationNumber": null,
+    "name": "DE GRUYTER BRILL",
+    "imageRef": null,
+    "applicants": [
+      "Walter De Gruyter GmbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "45",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2025-01-31",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79418367",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79418367&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79418520",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79418520",
+    "registrationNumber": null,
+    "name": "CALLAPP",
+    "imageRef": null,
+    "applicants": [
+      "CALLAPP SOFTWARE LTD"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-17",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79418520",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79418520&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79418609",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79418609",
+    "registrationNumber": null,
+    "name": "WWW SPOTAD",
+    "imageRef": null,
+    "applicants": [
+      "Spotad Pty Ltd"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "36",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "39",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "45",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-05",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79418609",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79418609&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79419840",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79419840",
+    "registrationNumber": null,
+    "name": "VETFAMILY",
+    "imageRef": null,
+    "applicants": [
+      "VetFamily Holding AB"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "44",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2025-02-20",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79419840",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79419840&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79420151",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79420151",
+    "registrationNumber": null,
+    "name": "DIE.AGILEN",
+    "imageRef": null,
+    "applicants": [
+      "die.agilen GmbH"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-20",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79420151",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79420151&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79420235",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79420235",
+    "registrationNumber": null,
+    "name": "HAPPY CHERRIES",
+    "imageRef": null,
+    "applicants": [
+      "Rigo Trading S.A."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "14",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "18",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "21",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "24",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-07-08",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79420235",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79420235&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79420312",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79420312",
+    "registrationNumber": null,
+    "name": "RITZ",
+    "imageRef": null,
+    "applicants": [
+      "KG Ritz Messwandler GmbH & Co"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "7",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "10",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "12",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "17",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2025-02-13",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79420312",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79420312&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79420419",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79420419",
+    "registrationNumber": null,
+    "name": "PLURI",
+    "imageRef": null,
+    "applicants": [
+      "PLURI BIOTECH LTD"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "1",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "5",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-01",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79420419",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79420419&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79420648",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79420648",
+    "registrationNumber": null,
+    "name": "SPORTRADAR SPORTS TECHNOLOGY. REIMAGINED.",
+    "imageRef": null,
+    "applicants": [
+      "Sportradar AG"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "38",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-09-13",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79420648",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79420648&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79420679",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79420679",
+    "registrationNumber": null,
+    "name": "NEUTRALI ZR",
+    "imageRef": null,
+    "applicants": [
+      "Heathcoat Fabrics Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "1",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "5",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "10",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "21",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "24",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "40",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-08-15",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79420679",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79420679&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79420740",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79420740",
+    "registrationNumber": null,
+    "name": "INVIVOID",
+    "imageRef": null,
+    "applicants": [
+      "TOPPAN Holdings Inc."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "5",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2025-02-13",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79420740",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79420740&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79420908",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79420908",
+    "registrationNumber": null,
+    "name": "ICOVER",
+    "imageRef": null,
+    "applicants": [
+      "iCOVER"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "36",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "45",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-11-28",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79420908",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79420908&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79421502",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79421502",
+    "registrationNumber": null,
+    "name": "DATABEYOND",
+    "imageRef": null,
+    "applicants": [
+      "Guangdong DataBeyond Technology Co., Ltd."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2025-03-06",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79421502",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79421502&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79422116",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79422116",
+    "registrationNumber": null,
+    "name": "RAGASCO A BUSINESS OF WORTHINGTON ENTERPRISES",
+    "imageRef": null,
+    "applicants": [
+      "Ragasco AS"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "6",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "20",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-19",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79422116",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79422116&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79422117",
+    "sourceVersion": "2026-09-01:2026-09-01:registered",
+    "serialNumber": "79422117",
+    "registrationNumber": null,
+    "name": "RAGASCO",
+    "imageRef": null,
+    "applicants": [
+      "Ragasco AS"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "6",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "20",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-19",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "registered",
+    "sourceStatusCode": "686",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79422117",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79422117&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79422190",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79422190",
+    "registrationNumber": null,
+    "name": "DECTRIS CLOUD",
+    "imageRef": null,
+    "applicants": [
+      "Dectris Ltd."
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "42",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "45",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-11-18",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79422190",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79422190&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79423045",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79423045",
+    "registrationNumber": null,
+    "name": "JELLYCAT FISH & CHIPS LONDON",
+    "imageRef": null,
+    "applicants": [
+      "Jellycat Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "6",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2025-01-10",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79423045",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79423045&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79423118",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79423118",
+    "registrationNumber": null,
+    "name": "JELLYFRIENDS",
+    "imageRef": null,
+    "applicants": [
+      "Jellycat Limited"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "3",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "5",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "6",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "8",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "12",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "14",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "15",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "16",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "18",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "20",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "21",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "24",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "25",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "26",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "27",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "28",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "29",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "30",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "35",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "41",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2024-12-03",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79423118",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79423118&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  },
+  {
+    "sourceId": "USPTO_TMOG_DERIVED_SNAPSHOT",
+    "sourceRecordId": "79423158",
+    "sourceVersion": "2026-09-01:2026-09-01:published",
+    "serialNumber": "79423158",
+    "registrationNumber": null,
+    "name": "SEPSIMATIC",
+    "imageRef": null,
+    "applicants": [
+      "Bruker Daltonics GmbH & Co. KG"
+    ],
+    "applicantAddress": null,
+    "classes": [
+      {
+        "code": "1",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "5",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      },
+      {
+        "code": "9",
+        "name": null,
+        "goodsServices": [],
+        "similarGroups": []
+      }
+    ],
+    "filingDate": "2025-03-25",
+    "registrationDate": null,
+    "validUntil": null,
+    "gazetteEvent": "published",
+    "sourceStatusCode": "681",
+    "publicationDate": "2026-09-01",
+    "transactionDate": "2026-09-01",
+    "sourceUpdatedAt": "2026-09-01",
+    "capturedAt": "2026-09-16T14:34:02.221Z",
+    "sourceRef": "https://raw.githubusercontent.com/APVentureEngine/trademark-watch/main/data/latest.csv#serial=79423158",
+    "officialStatusRef": "https://tsdr.uspto.gov/#caseNumber=79423158&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch",
+    "missingFields": [
+      "registrationNumber",
+      "imageRef",
+      "applicantAddress",
+      "classNames",
+      "goodsServices",
+      "similarGroups",
+      "registrationDate",
+      "validUntil",
+      "authoritativeCurrentLegalStatus"
+    ],
+    "rawRecordPath": "data/trademarks/public-pilot-v1/records.json"
+  }
+]

@@ -1,0 +1,83 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+internal-workbench:
+  development-sources-enabled: ${INTERNAL_DEVELOPMENT_SOURCES_ENABLED:true}
+
+enforcement:
+  source: ${ENFORCEMENT_SOURCE:database}
+  source-admin:
+    scheduling-enabled: ${ENFORCEMENT_SOURCE_SCHEDULING_ENABLED:false}
+    scan-delay-ms: ${ENFORCEMENT_SOURCE_SCAN_DELAY_MS:60000}
+  source-import:
+    enabled: ${ENFORCEMENT_SOURCE_IMPORT_ENABLED:false}
+  authorized-import:
+    enabled: ${ENFORCEMENT_AUTHORIZED_IMPORT_ENABLED:false}
+    directory: ${ENFORCEMENT_AUTHORIZED_IMPORT_DIRECTORY:}
+
+api-access:
+  enabled: ${API_ACCESS_ENABLED:false}
+  credentials:
+    - key-id: ${API_ACCESS_KEY_ID:development-key}
+      secret-sha256: ${API_ACCESS_KEY_SHA256:}
+      client-id: ${API_ACCESS_CLIENT_ID:development-client}
+      principal-ref: ${API_ACCESS_PRINCIPAL_REF:v0-authorized-user}
+      organization-ref: ${API_ACCESS_ORGANIZATION_REF:}
+      status: ${API_ACCESS_KEY_STATUS:ACTIVE}
+      expires-at: ${API_ACCESS_KEY_EXPIRES_AT:}
+      scopes: ${API_ACCESS_SCOPES:consultation:submit,consultation:read,source:read,enforcement:read,enforcement:work}
+      requests-per-minute: ${API_ACCESS_REQUESTS_PER_MINUTE:60}
+      requests-per-day: ${API_ACCESS_REQUESTS_PER_DAY:5000}
+
+consultation:
+  search:
+    provider: ${CONSULTATION_SEARCH_PROVIDER:task}
+
+consultation-agent:
+  runtime:
+    enabled: ${CONSULTATION_MODEL_RUNTIME_ENABLED:false}
+    model-chain: ${CONSULTATION_MODEL_CHAIN:deepseek:deepseek-chat}
+    switch-on: ${CONSULTATION_MODEL_SWITCH_ON:TIMEOUT,RATE_LIMITED,UPSTREAM_UNAVAILABLE}
+  models:
+    deepseek-chat:
+      model-id: deepseek:${DEEPSEEK_MODEL:deepseek-chat}
+      provider: deepseek
+      model-name: ${DEEPSEEK_MODEL:deepseek-chat}
+      display-name: ${DEEPSEEK_MODEL_DISPLAY_NAME:DeepSeek Chat}
+      endpoint: ${DEEPSEEK_API_URL:https://api.deepseek.com/chat/completions}
+      api-key: ${DEEPSEEK_API_KEY:}
+      enabled: ${DEEPSEEK_MODEL_ENABLED:true}
+      protocol: OPENAI_CHAT_COMPLETIONS
+      data-channel: ${DEEPSEEK_DATA_CHANNEL:PUBLIC_LOCAL}
+
+model-configuration:
+  master-key: ${MODEL_CONFIG_MASTER_KEY:}
+  admin-requester: ${MODEL_CONFIG_ADMIN_REQUESTER:v0-authorized-user}
+
+patent-assistant:
+  source:
+    provider: ${PATENT_ASSISTANT_SOURCE_PROVIDER:surechembl}
+    surechembl:
+      api-base-url: ${SURECHEMBL_API_BASE_URL:https://surechembl.org/api}
+      connect-timeout-ms: ${SURECHEMBL_CONNECT_TIMEOUT_MS:5000}
+      request-timeout-ms: ${SURECHEMBL_REQUEST_TIMEOUT_MS:15000}
+      result-limit: ${SURECHEMBL_RESULT_LIMIT:10}
+  model:
+    provider: ${PATENT_ASSISTANT_MODEL_PROVIDER:deepseek}
+    endpoint: ${DEEPSEEK_API_URL:https://api.deepseek.com/chat/completions}
+    name: ${DEEPSEEK_MODEL:deepseek-chat}
+    api-key: ${DEEPSEEK_API_KEY:}
+
+center:
+  patent:
+    base-url: ${CENTER_PATENT_BASE_URL:http://127.0.0.1:18082}
+    connect-timeout-ms: ${CENTER_PATENT_CONNECT_TIMEOUT_MS:3000}
+    request-timeout-ms: ${CENTER_PATENT_REQUEST_TIMEOUT_MS:10000}
+
+patent-search:
+  catalog: ${PATENT_SEARCH_CATALOG:public-local}
+
+knowledge-base:
+  provider: ${KNOWLEDGE_BASE_PROVIDER:dm8}
+  import:
+    enabled: ${KNOWLEDGE_BASE_IMPORT_ENABLED:false}

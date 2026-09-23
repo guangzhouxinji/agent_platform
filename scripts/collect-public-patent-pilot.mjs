@@ -104,26 +104,84 @@ function collectClassifications(value, result = new Set()) {
   return [...result];
 }
 
+function asArray(value) {
+  return Array.isArray(value) ? value : value ? [value] : [];
+}
+
+function normalizedDocumentId(value) {
+  if (!value || typeof value !== "object") return null;
+  const country = cleanText(value.country?.content ?? value.country);
+  const number = cleanText(value.docNumber);
+  const kind = cleanText(value.kind);
+  const date = normalizeDate(value.date);
+  if (!country && !number) return null;
+  return { country: country || null, number: number || null, kind: kind || null, date };
+}
+
+function collectDocumentIds(value, result = []) {
+  if (Array.isArray(value)) {
+    for (const item of value) collectDocumentIds(item, result);
+  } else if (value && typeof value === "object") {
+    const identifier = normalizedDocumentId(value);
+    if (identifier) result.push(identifier);
+    for (const item of Object.values(value)) collectDocumentIds(item, result);
+  }
+  return result.filter((item, index, all) => all.findIndex((candidate) => JSON.stringify(candidate) === JSON.stringify(item)) === index);
+}
+
+function collectPartyNames(parties, partyType) {
+  const values = [];
+  for (const group of asArray(parties)) {
+    for (const entry of asArray(group?.[partyType]?.[partyType.slice(0, -1)])) {
+      const name = cleanText(entry?.addressbook?.name ?? entry?.addressbook?.lastName);
+      if (name) values.push(name);
+    }
+  }
+  return [...new Set(values)];
+}
+
+function collectLegalEvents(value) {
+  const events = [];
+  for (const group of asArray(value)) {
+    for (const event of asArray(group?.["legal-event"])) {
+      const code = cleanText(event?.["@code"]);
+      const date = normalizeDate(event?.["@date"]);
+      const title = cleanText(event?.["legal-event-body"]?.["event-title"]?.$);
+      if (code || date || title) events.push({ code: code || null, date, title: title || null });
+    }
+  }
+  return events;
+}
+
 function truncate(value, maxLength) {
   const text = cleanText(value);
   return text.length <= maxLength ? text : `${text.slice(0, maxLength)}...`;
 }
 
 async function fetchText(url, options = {}) {
-  const response = await fetch(url, {
-    ...options,
-    signal: AbortSignal.timeout(60_000),
-    headers: {
-      Accept: "application/json",
-      Origin: "https://www.surechembl.org",
-      ...options.headers,
-    },
-  });
-  const text = await response.text();
-  if (!response.ok) {
-    throw new Error(`${response.status} ${response.statusText}: ${truncate(text, 300)}`);
+  let lastError;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        ...options,
+        signal: AbortSignal.timeout(60_000),
+        headers: {
+          Accept: "application/json",
+          Origin: "https://www.surechembl.org",
+          ...options.headers,
+        },
+      });
+      const text = await response.text();
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}: ${truncate(text, 300)}`);
+      }
+      return text;
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) await new Promise((resolveDelay) => setTimeout(resolveDelay, attempt * 1_000));
+    }
   }
-  return text;
+  throw lastError;
 }
 
 async function fetchSearch(query) {
@@ -142,29 +200,49 @@ async function fetchSearch(query) {
   return { text, payload, requestUrl: url.toString() };
 }
 
-async function fetchDetail(publicationNumber) {
-  const url = `${source.apiBaseUrl}/document/${encodeURIComponent(publicationNumber)}/contents`;
-  const text = await fetchText(url);
+function parseDetailResponse(text, publicationNumber = "unknown") {
   const payload = JSON.parse(text);
   if (payload.status !== "OK") {
     throw new Error(`Detail ${publicationNumber} returned status ${payload.status}`);
   }
   const patentDocument = payload?.data?.contents?.patentDocument ?? {};
+  const bibliographicData = patentDocument.bibliographicData ?? {};
+  const technicalData = bibliographicData.technicalData ?? {};
   const abstracts = collectSectionContent(patentDocument.abstracts).join(" ");
   const claims = collectSectionContent(patentDocument.claimResponses).join(" ");
-  const cpc = collectClassifications(
-    patentDocument?.bibliographicData?.technicalData?.classificationsCpc,
-  );
+  const cpc = collectClassifications(technicalData.classificationsCpc);
+  const ipc = collectClassifications(technicalData.classificationsIpcr);
+  const applicationIds = collectDocumentIds(bibliographicData.applicationReference);
+  const priorityIds = collectDocumentIds(bibliographicData.priorityClaims);
+  const citationIds = collectDocumentIds(technicalData.citations);
+  const publicationIds = collectDocumentIds(bibliographicData.publicationReference);
   return {
+    rawResponse: text,
     responseSha256: sha256(text),
     abstractExcerpt: truncate(abstracts, 1_500) || null,
     claimsExcerpt: truncate(claims, 5_000) || null,
     cpcClassifications: cpc.slice(0, 30),
+    ipcClassifications: ipc,
+    applicationNumbers: applicationIds.map((item) => item.number).filter(Boolean),
+    applicationDate: applicationIds.map((item) => item.date).find(Boolean) ?? null,
+    priorityClaims: priorityIds,
+    applicants: collectPartyNames(bibliographicData.parties, "applicants"),
+    inventors: collectPartyNames(bibliographicData.parties, "inventors"),
+    publicationReferences: publicationIds,
+    citationReferences: citationIds,
+    familyRecordIds: asArray(patentDocument.family).map((item) => cleanText(item)).filter(Boolean),
+    sourceLegalEvents: collectLegalEvents(patentDocument.legalStatus),
+    sourcePdfUrl: cleanText(patentDocument.pdfUrl) || null,
     sourceLocators: [
       ...(abstracts ? ["abstract"] : []),
       ...(claims ? ["claims"] : []),
     ],
   };
+}
+
+async function fetchDetail(publicationNumber) {
+  const url = `${source.apiBaseUrl}/document/${encodeURIComponent(publicationNumber)}/contents`;
+  return parseDetailResponse(await fetchText(url), publicationNumber);
 }
 
 function normalizeSearchRecord(document, queryId, capturedAt) {
@@ -194,6 +272,17 @@ function normalizeSearchRecord(document, queryId, capturedAt) {
     abstractExcerpt: null,
     claimsExcerpt: null,
     cpcClassifications: [],
+    ipcClassifications: [],
+    applicationNumbers: [],
+    applicationDate: null,
+    priorityClaims: [],
+    applicants: [],
+    inventors: [],
+    publicationReferences: [],
+    citationReferences: [],
+    familyRecordIds: [],
+    sourceLegalEvents: [],
+    sourcePdfUrl: null,
     sourceLocators: ["document-root"],
     detailResponseSha256: null,
     expertLabel: null,
@@ -240,17 +329,50 @@ async function collect() {
   const records = [...recordsById.values()].sort((left, right) =>
     left.publicationNumber.localeCompare(right.publicationNumber),
   );
-  const detailCandidates = [...records]
-    .sort((left, right) => rankForDetail(right) - rankForDetail(left))
-    .slice(0, 5);
-
-  for (const record of detailCandidates) {
-    const detail = await fetchDetail(record.sourceRecordId);
+  // Preserve a raw source response for every collected candidate. The normalized
+  // record remains deliberately small; raw responses are trace evidence, not an
+  // implicit authorization to use full text in a model or production index.
+  for (const record of records) {
+    const rawFile = `raw/detail-${record.sourceRecordId}.json`;
+    let detail;
+    try {
+      try {
+        detail = parseDetailResponse(await readFile(join(outputDir, rawFile), "utf8"), record.sourceRecordId);
+      } catch (error) {
+        if (error.code !== "ENOENT") throw error;
+        detail = await fetchDetail(record.sourceRecordId);
+        await writeFile(join(outputDir, rawFile), detail.rawResponse, "utf8");
+      }
+    } catch (error) {
+      record.detailCaptureFailure = String(error?.message ?? error);
+      record.sourceLocators = [...new Set([...record.sourceLocators, "document-root"] )];
+      continue;
+    }
     record.abstractExcerpt = detail.abstractExcerpt;
     record.claimsExcerpt = detail.claimsExcerpt;
     record.cpcClassifications = detail.cpcClassifications;
+    record.ipcClassifications = detail.ipcClassifications;
+    record.applicationNumbers = detail.applicationNumbers;
+    record.applicationDate = detail.applicationDate;
+    record.priorityClaims = detail.priorityClaims;
+    record.applicants = detail.applicants;
+    record.inventors = detail.inventors;
+    record.publicationReferences = detail.publicationReferences;
+    record.citationReferences = detail.citationReferences;
+    record.familyRecordIds = detail.familyRecordIds;
+    record.sourceLegalEvents = detail.sourceLegalEvents;
+    record.sourcePdfUrl = detail.sourcePdfUrl;
     record.sourceLocators = [...new Set([...record.sourceLocators, ...detail.sourceLocators])];
     record.detailResponseSha256 = detail.responseSha256;
+    record.detailRawFile = rawFile;
+    rawResponses.push({
+      type: "DETAIL",
+      sourceRecordId: record.sourceRecordId,
+      requestUrl: `${source.apiBaseUrl}/document/${encodeURIComponent(record.sourceRecordId)}/contents`,
+      file: rawFile,
+      sha256: sha256(detail.rawResponse),
+      responseSha256: detail.responseSha256,
+    });
   }
 
   const recordsDocument = {
@@ -273,6 +395,7 @@ async function collect() {
     queries,
     recordCount: records.length,
     detailedRecordCount: records.filter((record) => record.detailResponseSha256).length,
+    detailCaptureFailures: records.filter((record) => record.detailCaptureFailure).length,
     recordsFile: "records.json",
     recordsSha256: sha256(recordsText),
     rawResponses,
@@ -297,7 +420,10 @@ async function verify() {
   if (manifest.datasetId !== "CON-04-PUBLIC-PILOT-V1") errors.push("unexpected datasetId");
   if (manifest.recordCount !== records.length) errors.push("manifest recordCount mismatch");
   if (records.length < 10) errors.push(`expected at least 10 records, found ${records.length}`);
-  if (manifest.detailedRecordCount < 3) errors.push("expected at least 3 detailed records");
+  const failedDetails = records.filter((record) => record.detailCaptureFailure).length;
+  if (manifest.detailCaptureFailures !== failedDetails) {
+    errors.push("detailCaptureFailures mismatch");
+  }
   if (sha256(recordsText) !== manifest.recordsSha256) errors.push("records digest mismatch");
 
   const uniqueIds = new Set();
@@ -315,6 +441,9 @@ async function verify() {
       errors.push(`${prefix} boundary flags changed`);
     }
     if (record.expertLabel !== null) errors.push(`${prefix} must not contain an expert label`);
+    if (!record.detailResponseSha256 && !record.detailCaptureFailure) {
+      errors.push(`${prefix} missing detailed source capture`);
+    }
   }
 
   for (const raw of manifest.rawResponses ?? []) {

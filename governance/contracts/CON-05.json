@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "requirementId": "CON-05",
   "title": "商标相似度检索",
-  "status": "ready",
+  "status": "stale",
   "baselineId": "requirements-2026-09-14-v1",
   "source": {
     "path": "requirements/知识产权咨询助手/商标相似度检索需求文档.md",
@@ -49,7 +49,7 @@
   "supportingSources": [
     {
       "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
-      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee",
       "sections": [
         "1. 项目定位与交付口径",
         "3. 共用业务规则",
@@ -848,8 +848,19 @@
       "changesBusinessMeaning": false
     }
   ],
+  "currentProductContract": {
+    "version": "consultation-product-contract-2026-09-22-v1",
+    "classification": "DEFER",
+    "status": "stale",
+    "authoritativeDocument": "docs/37-咨询智能体契约重基线.md#con-05-商标相似度检索defer",
+    "sourceRefs": ["requirements/知识产权咨询助手/商标相似度检索需求文档.md", "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8", "docs/35-咨询智能体产品行为待确认清单.md", "docs/36-咨询智能体R门需求变化影响评审.md#3"],
+    "mustIds": ["CON-05-RB-MUST-001", "CON-05-RB-MUST-002", "CON-05-RB-MUST-003", "CON-05-RB-MUST-004", "CON-05-RB-MUST-005"],
+    "mustNotIds": ["CON-05-RB-MUST_NOT-001", "CON-05-RB-MUST_NOT-002", "CON-05-RB-MUST_NOT-003", "CON-05-RB-MUST_NOT-004"],
+    "rGateAssessment": "REBASED_DEFERRED_NOT_READY",
+    "note": "旧 clauses 保留历史追踪；当前产品契约以 authoritativeDocument 对应章节为准。"
+  },
   "independentReview": {
-    "status": "passed",
+    "status": "superseded_by_rebase",
     "reviewedBaselineId": "requirements-2026-09-14-v1",
     "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
     "missingClauses": [],

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "enforcement-cnipa-historical-case-decision-v1",
+  "decisionId": "ENF-CNIPA-HISTORICAL-CASES-INTERNAL-DEVELOPMENT-V1",
+  "decisionVersion": "2026-09-20.1",
+  "decidedAt": "2026-09-20T00:00:00Z",
+  "authorizedBy": "PROJECT_OWNER_AND_DATA_LEGAL_RESPONSIBLE_PARTY",
+  "authorizationRef": "docs/08-总开发实现计划.md#9139-cnipa-公开历史案例批次转换设计",
+  "sourceReviewId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+  "sourceBatchSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+  "allowedUse": "INTERNAL_DEVELOPMENT_PILOT,LOCAL_DM8_STORAGE,LOCAL_DM8_INDEXING",
+  "forbiddenUse": "EXTERNAL_MODEL_PROCESSING,PRODUCTION_USE,EXTERNAL_REDISTRIBUTION,FORMAL_ENFORCEMENT_EVIDENCE,CURRENT_OR_HISTORICAL_RIGHT_STATUS_DETERMINATION,ENFORCEMENT_WORKFLOW_INPUT",
+  "retentionPeriod": "UNTIL_DEVELOPMENT_PILOT_END",
+  "externalModelAllowed": false,
+  "businessWorkflowInputAllowed": false,
+  "professionalReviewStatus": "PENDING_NAMED_BUSINESS_ACCEPTANCE",
+  "withdrawalProcess": "Stop new use, remove the affected records from current reads, and retain only non-content audit digests.",
+  "sources": [
+    {
+      "snapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT",
+      "sha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "publicationDate": "2024-04-26",
+      "pageCount": 47
+    },
+    {
+      "snapshotId": "CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT",
+      "sha256": "50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+      "sourceUrl": "https://www.cnipa.gov.cn/art/2023/12/28/art_2432_191156.html",
+      "publicationDate": "2023-12-28",
+      "pageCount": 7
+    }
+  ],
+  "cases": [
+    { "caseId": "CNIPA-2023-PATENT-01", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION", "pageStart": 1, "pageEnd": 1, "title": "广东省广州市知识产权局、浙江省温州市知识产权局联合处理“贴窗机切膜预压紧装置”实用新型专利侵权纠纷案" },
+    { "caseId": "CNIPA-2023-PATENT-02", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION", "pageStart": 2, "pageEnd": 3, "title": "北京市知识产权局处理“调色剂盒及图像形成装置”发明专利侵权纠纷案" },
+    { "caseId": "CNIPA-2023-PATENT-03", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION", "pageStart": 4, "pageEnd": 6, "title": "江苏省南京市知识产权局处理“一种新型的截污式环保雨水口”实用新型专利侵权纠纷案" },
+    { "caseId": "CNIPA-2023-PATENT-04", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION", "pageStart": 7, "pageEnd": 7, "title": "河北省石家庄市知识产权局处理“药瓶标签”外观设计专利侵权纠纷案" },
+    { "caseId": "CNIPA-2023-PATENT-05", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION", "pageStart": 8, "pageEnd": 10, "title": "上海市知识产权局处理“含有达格列嗪丙二醇水合物的药物制剂”发明专利侵权纠纷案" },
+    { "caseId": "CNIPA-2023-PATENT-06", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION", "pageStart": 11, "pageEnd": 11, "title": "福建省平和县知识产权局、山东省无棣县知识产权局协同处理赖某某与无棣语蕊电子商务有限公司等五起外观设计专利侵权纠纷系列案" },
+    { "caseId": "CNIPA-2023-PATENT-07", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION", "pageStart": 12, "pageEnd": 13, "title": "浙江省杭州市知识产权局调解“甘草酸二铵的组合物”发明专利侵权纠纷案" },
+    { "caseId": "CNIPA-2023-PATENT-08", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION", "pageStart": 14, "pageEnd": 14, "title": "天津滨海高新技术产业开发区市场监督管理局查处天津瑞泰科技发展有限公司外观设计专利重复侵权案" },
+    { "caseId": "CNIPA-2023-PATENT-09", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION", "pageStart": 15, "pageEnd": 16, "title": "安徽省马鞍山市知识产权局处理“一种不规则机箱结构”实用新型专利侵权纠纷案" },
+    { "caseId": "CNIPA-2023-PATENT-10", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "PATENT_ADMINISTRATIVE_PROTECTION", "pageStart": 17, "pageEnd": 18, "title": "江西省景德镇市知识产权局处理“陶瓷花器（奇异）”外观设计专利侵权纠纷案" },
+
+    { "caseId": "CNIPA-2023-TRADEMARK-01", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION", "pageStart": 19, "pageEnd": 19, "title": "广东省深圳市市场监督管理局（知识产权局）查处侵犯“小米”注册商标专用权案" },
+    { "caseId": "CNIPA-2023-TRADEMARK-02", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION", "pageStart": 20, "pageEnd": 21, "title": "安徽省合肥市市场监督管理局（知识产权局）查处侵犯“嘉实多”注册商标专用权案" },
+    { "caseId": "CNIPA-2023-TRADEMARK-03", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION", "pageStart": 22, "pageEnd": 22, "title": "浙江省丽水市遂昌县市场监督管理局查处侵犯（图形商标）注册商标专用权案", "titleExtractionNote": "The source title contains a graphic mark that is not represented as text." },
+    { "caseId": "CNIPA-2023-TRADEMARK-04", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION", "pageStart": 23, "pageEnd": 24, "title": "广西壮族自治区河池市天峨县市场监督管理局查处侵犯（图形商标）注册商标专用权案", "titleExtractionNote": "The source title contains a graphic mark that is not represented as text." },
+    { "caseId": "CNIPA-2023-TRADEMARK-05", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION", "pageStart": 25, "pageEnd": 25, "title": "广西壮族自治区贺州市市场监督管理局查处侵犯（图形商标）注册商标专用权案", "titleExtractionNote": "The source title contains a graphic mark that is not represented as text." },
+    { "caseId": "CNIPA-2023-TRADEMARK-06", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION", "pageStart": 26, "pageEnd": 27, "title": "四川省成都市成华区市场监督管理局查处侵犯（图形商标）注册商标专用权案", "titleExtractionNote": "The source title contains a graphic mark that is not represented as text." },
+    { "caseId": "CNIPA-2023-TRADEMARK-07", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION", "pageStart": 28, "pageEnd": 28, "title": "江苏省南通市通州区市场监督管理局（知识产权局）查处侵犯（图形商标）注册商标专用权案", "titleExtractionNote": "The source title contains a graphic mark that is not represented as text." },
+    { "caseId": "CNIPA-2023-TRADEMARK-08", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION", "pageStart": 29, "pageEnd": 29, "title": "辽宁省沈阳市市场监督管理局（知识产权局）查处侵犯“贵州茅台”等注册商标专用权案" },
+    { "caseId": "CNIPA-2023-TRADEMARK-09", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION", "pageStart": 30, "pageEnd": 31, "title": "浙江省桐乡市市场监督管理局查处侵犯（图形商标）注册商标专用权案", "titleExtractionNote": "The source title contains graphic marks that are not represented as text." },
+    { "caseId": "CNIPA-2023-TRADEMARK-10", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "TRADEMARK_ADMINISTRATIVE_PROTECTION", "pageStart": 32, "pageEnd": 33, "title": "重庆市大渡口区市场监督管理局查处侵犯（图形商标）注册商标专用权案", "titleExtractionNote": "The source title contains a graphic mark that is not represented as text." },
+
+    { "caseId": "CNIPA-2023-GI-MARK-01", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION", "pageStart": 34, "pageEnd": 34, "title": "广东省深圳市市场监督管理局（知识产权局）南山监管局查处擅自使用“南山荔枝”地理标志产品名称案" },
+    { "caseId": "CNIPA-2023-GI-MARK-02", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION", "pageStart": 35, "pageEnd": 35, "title": "广东省珠海市香洲区市场监督管理局（知识产权局）查处擅自使用“慕尼黑啤酒”地理标志产品名称案" },
+    { "caseId": "CNIPA-2023-GI-MARK-03", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION", "pageStart": 36, "pageEnd": 36, "title": "浙江省舟山市市场监督管理局（知识产权局）查处侵犯“舟山带鱼”证明商标专用权案" },
+    { "caseId": "CNIPA-2023-GI-MARK-04", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION", "pageStart": 37, "pageEnd": 38, "title": "江西省景德镇市市场监督管理局（知识产权局）查处侵犯“景德镇”证明商标专用权案" },
+    { "caseId": "CNIPA-2023-GI-MARK-05", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION", "pageStart": 39, "pageEnd": 39, "title": "四川省宜宾市市场监督管理局（知识产权局）查处侵犯“宜宾芽菜”证明商标专用权案" },
+    { "caseId": "CNIPA-2023-GI-MARK-06", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION", "pageStart": 40, "pageEnd": 40, "title": "广东省广州市、江门市市场监督管理局（知识产权局）查处冒用地理标志专用标志系列案" },
+    { "caseId": "CNIPA-2023-GI-MARK-07", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION", "pageStart": 41, "pageEnd": 42, "title": "海南省海口市市场监督管理局（知识产权局）龙华分局查处冒用地理标志专用标志案" },
+    { "caseId": "CNIPA-2023-GI-MARK-08", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION", "pageStart": 43, "pageEnd": 43, "title": "浙江省绍兴市市场监督管理局（知识产权局）查处侵犯“杭州亚运会”等特殊标志专有权案" },
+    { "caseId": "CNIPA-2023-GI-MARK-09", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION", "pageStart": 44, "pageEnd": 44, "title": "安徽省黄山市屯溪区市场监督管理局查处侵犯杭州亚运会吉祥物等特殊标志专有权案" },
+    { "caseId": "CNIPA-2023-GI-MARK-10", "sourceSnapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT", "businessCategory": "GEOGRAPHICAL_OFFICIAL_SPECIAL_MARK_PROTECTION", "pageStart": 45, "pageEnd": 47, "title": "重庆市两江新区市场监督管理局查处侵犯“第31届世界大学生夏季运动会会徽”和“成都大运会”特殊标志专有权案" },
+
+    { "caseId": "CNIPA-GUIDANCE-09", "sourceSnapshotId": "CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT", "businessCategory": "ADMINISTRATIVE_PROTECTION_GUIDANCE", "pageStart": 1, "pageEnd": 2, "title": "北京市知识产权局处理“用于重新定位牙齿的系统及其制作方法”发明专利侵权纠纷案" },
+    { "caseId": "CNIPA-GUIDANCE-10", "sourceSnapshotId": "CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT", "businessCategory": "ADMINISTRATIVE_PROTECTION_GUIDANCE", "pageStart": 3, "pageEnd": 4, "title": "重庆市渝中区市场监督管理局（知识产权局）查处侵犯“洞子”等注册商标专用权案" },
+    { "caseId": "CNIPA-GUIDANCE-11", "sourceSnapshotId": "CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT", "businessCategory": "ADMINISTRATIVE_PROTECTION_GUIDANCE", "pageStart": 5, "pageEnd": 7, "title": "天津市和平区市场监督管理局（知识产权局）查处天津市麦购商业管理有限公司麦购休闲广场商标侵权案" }
+  ]
+}

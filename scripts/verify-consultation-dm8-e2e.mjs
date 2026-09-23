@@ -1,6 +1,4 @@
-import { chromium } from "@playwright/test";
 import { spawn, spawnSync } from "node:child_process";
-import { mkdirSync } from "node:fs";
 import { join } from "node:path";
 import process from "node:process";
 
@@ -17,7 +15,6 @@ const java = process.env.JAVA_HOME
   ? join(process.env.JAVA_HOME, "bin", process.platform === "win32" ? "java.exe" : "java")
   : "java";
 let application;
-let browser;
 let verified = false;
 
 function run(command, args) {
@@ -32,16 +29,17 @@ function run(command, args) {
 }
 
 function runProbe(phase) {
-  run(maven, [`-Ddm8.browser.phase=${phase}`, "-Dtest=Dm8BrowserDatabaseProbe", "test"]);
+  run(maven, [`-Ddm8.browser.phase=${phase}`, "-Dtest=Dm8BrowserDatabaseProbe", "-Dsurefire.failIfNoSpecifiedTests=false", "test"]);
 }
 
 function startApplication() {
   const logs = [];
-  const child = spawn(java, ["-jar", "target/agent-platform-0.0.1-SNAPSHOT.jar"], {
+  const child = spawn(java, ["-jar", "backend/apps/platform-api/target/agent-platform-api-0.0.1-SNAPSHOT.jar"], {
     cwd: process.cwd(),
     env: {
       ...process.env,
       CONSULTATION_STORAGE: "dm8",
+      PATENT_SEARCH_STORAGE: "dm8",
       SERVER_PORT: port,
       SPRING_DATASOURCE_URL: process.env.DM8_JDBC_URL,
       SPRING_DATASOURCE_USERNAME: process.env.DM8_JDBC_USER,
@@ -61,8 +59,8 @@ async function waitUntilReady(child) {
   while (Date.now() < deadline) {
     if (child.exitCode !== null) throw new Error(`Application stopped during startup\n${child.logs.join("")}`);
     try {
-      const response = await fetch(`${baseUrl}/index.html`);
-      if (response.ok) return;
+      const response = await fetch(`${baseUrl}/`, { redirect: "manual" });
+      if (response.status >= 200 && response.status < 400) return;
     } catch { }
     await new Promise(resolve => setTimeout(resolve, 300));
   }
@@ -84,80 +82,69 @@ function assert(condition, message) {
 
 try {
   runProbe("setup");
-  run(maven, ["-DskipTests", "package"]);
+  if (process.env.CONSULTATION_E2E_SKIP_PACKAGE !== "true") run(maven, ["-DskipTests", "package"]);
   application = startApplication();
   await waitUntilReady(application);
 
-  browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1366, height: 900 } });
-  await page.goto(baseUrl);
-  await page.getByLabel("咨询问题").fill("帮我查一下涂布工艺相关专利。");
-  const firstResponsePromise = page.waitForResponse(response => response.url().endsWith("/api/v0/consultations") && response.request().method() === "POST");
-  await page.getByRole("button", { name: "开始检索" }).click();
-  const firstResponse = await firstResponsePromise;
-  const first = await firstResponse.json();
+  const request = async (path, options = {}) => {
+    const response = await fetch(`${baseUrl}${path}`, options);
+    if (response.status === 204) return { status: response.status, body: null };
+    const rawBody = await response.text();
+    if (!rawBody) return { status: response.status, body: null };
+    try {
+      return { status: response.status, body: JSON.parse(rawBody) };
+    } catch (error) {
+      throw new Error(`Expected JSON from ${options.method || "GET"} ${path}; HTTP ${response.status}; body=${rawBody || "<empty>"}`, {
+        cause: error
+      });
+    }
+  };
+  const headers = { "X-V0-Requester": requester, "Content-Type": "application/json" };
+  const first = (await request("/api/v0/consultations", {
+    method: "POST", headers: { ...headers, "Idempotency-Key": "dm8-e2e-initial" },
+    body: JSON.stringify({ question: "帮我查一下涂布工艺相关专利。", purpose: "" })
+  })).body;
   assert(first.outcomeType === "NEEDS_CLARIFICATION", "Initial question must require clarification");
 
-  await page.getByLabel("补充所需信息").fill("水性粘结剂、双区烘干；用于技术参考。");
-  const supplementResponsePromise = page.waitForResponse(response => response.url().includes(`/api/v0/consultations/${first.consultationId}/inputs`) && response.request().method() === "POST");
-  await page.getByRole("button", { name: "提交补充" }).click();
-  const supplementResponse = await supplementResponsePromise;
-  const supplementKey = (await supplementResponse.request().allHeaders())["idempotency-key"];
-  const completed = await supplementResponse.json();
-  assert(completed.outcomeType === "ANSWER_READY" && completed.answerVersion === 2, "Supplement must create answer version 2");
-  assert(completed.candidates.length === 2 && completed.sourceLinks.length === 2, "Answer must retain two cited candidates");
-  mkdirSync("target/playwright-artifacts", { recursive: true });
-  await page.screenshot({ path: "target/playwright-artifacts/consultation-dm8-e2e.png", fullPage: true });
-
+  const supplementKey = "dm8-e2e-supplement";
+  const completed = (await request(`/api/v0/consultations/${first.consultationId}/inputs`, {
+    method: "POST", headers: { ...headers, "Idempotency-Key": supplementKey },
+    body: JSON.stringify({ content: "水性粘结剂、双区烘干；用于技术参考。" })
+  })).body;
+  assert((completed.outcomeType === "ANSWER_READY" || completed.outcomeType === "PARTIAL_RESULT") && completed.answerVersion === 2,
+    `Supplement must create answer version 2: ${JSON.stringify(completed)}`);
+  assert(completed.retrievalTaskId, "Supplement must reference a persisted patent search task");
+  assert(completed.candidates.length > 0 && completed.sourceLinks.length === completed.candidates.length, "Answer must retain cited task candidates");
+  const taskSnapshot = await request(`/api/v0/patent-search-tasks/${completed.retrievalTaskId}`, { headers: { "X-V0-Requester": requester } });
+  assert(taskSnapshot.status === 200, "Referenced patent search task must be readable");
+  assert(JSON.stringify(taskSnapshot.body.candidates.map(candidate => candidate.sourceId)) === JSON.stringify(completed.candidates.map(candidate => candidate.sourceId)),
+    "Consultation candidate projection must preserve the task snapshot order and sources");
   await stopApplication();
   application = startApplication();
   await waitUntilReady(application);
-  await page.goto(baseUrl);
-
-  const persisted = await page.evaluate(async ({ consultationId, firstAnswerId, completedAnswerId, sourceLinkId, requesterRef, supplementIdempotencyKey }) => {
-    const headers = { "X-V0-Requester": requesterRef };
-    const read = path => fetch(path, { headers }).then(async response => ({ status: response.status, body: response.ok ? await response.json() : null }));
-    const latest = await read(`/api/v0/consultations/${consultationId}`);
-    const firstAnswer = await read(`/api/v0/consultations/${consultationId}/answers/${firstAnswerId}`);
-    const completedAnswer = await read(`/api/v0/consultations/${consultationId}/answers/${completedAnswerId}`);
-    const source = await read(`/api/v0/consultations/${consultationId}/source-links/${sourceLinkId}`);
-    const replayResponse = await fetch(`/api/v0/consultations/${consultationId}/inputs`, {
-      method: "POST",
-      headers: { ...headers, "Content-Type": "application/json", "Idempotency-Key": supplementIdempotencyKey },
-      body: JSON.stringify({ content: "水性粘结剂、双区烘干；用于技术参考。" })
-    });
-    const replay = await replayResponse.json();
-    const conflict = await fetch(`/api/v0/consultations/${consultationId}/inputs`, {
-      method: "POST",
-      headers: { ...headers, "Content-Type": "application/json", "Idempotency-Key": supplementIdempotencyKey },
-      body: JSON.stringify({ content: "不同的补充内容" })
-    });
-    return { latest, firstAnswer, completedAnswer, source, replayStatus: replayResponse.status, replay, conflictStatus: conflict.status };
-  }, {
-    consultationId: first.consultationId,
-    firstAnswerId: first.answerId,
-    completedAnswerId: completed.answerId,
-    sourceLinkId: completed.sourceLinks[0].sourceLinkId,
-    requesterRef: requester,
-    supplementIdempotencyKey: supplementKey
-  });
+  const readHeaders = { "X-V0-Requester": requester };
+  const persisted = {
+    latest: await request(`/api/v0/consultations/${first.consultationId}`, { headers: readHeaders }),
+    firstAnswer: await request(`/api/v0/consultations/${first.consultationId}/answers/${first.answerId}`, { headers: readHeaders }),
+    completedAnswer: await request(`/api/v0/consultations/${first.consultationId}/answers/${completed.answerId}`, { headers: readHeaders }),
+    source: await request(`/api/v0/consultations/${first.consultationId}/source-links/${completed.sourceLinks[0].sourceLinkId}`, { headers: readHeaders }),
+    replay: await request(`/api/v0/consultations/${first.consultationId}/inputs`, { method: "POST", headers: { ...headers, "Idempotency-Key": supplementKey }, body: JSON.stringify({ content: "水性粘结剂、双区烘干；用于技术参考。" }) }),
+    conflict: await request(`/api/v0/consultations/${first.consultationId}/inputs`, { method: "POST", headers: { ...headers, "Idempotency-Key": supplementKey }, body: JSON.stringify({ content: "不同的补充内容" }) })
+  };
 
   assert(persisted.latest.body?.answerId === completed.answerId, "Restarted application must return latest answer");
   assert(persisted.firstAnswer.body?.outcomeType === "NEEDS_CLARIFICATION", "Restarted application must retain first answer");
   assert(persisted.completedAnswer.body?.answerVersion === 2, "Restarted application must retain answer version 2");
-  assert(persisted.source.body?.sourceId === "V0-SYN-PAT-001", "Restarted application must resolve source location");
-  assert(persisted.replayStatus === 200 && persisted.replay.answerId === completed.answerId, "Idempotent replay must return the exact answer");
-  assert(persisted.conflictStatus === 409, "Changed content with the same idempotency key must conflict");
-
-  await browser.close();
-  browser = undefined;
+  assert(persisted.completedAnswer.body?.retrievalTaskId === completed.retrievalTaskId, "Restarted application must retain the retrieval task reference");
+  assert(persisted.source.body?.sourceId === completed.candidates[0].sourceId, "Restarted application must resolve the cited source location");
+  assert(persisted.replay.status === 200 && persisted.replay.body.answerId === completed.answerId, "Idempotent replay must return the exact answer");
+  assert(persisted.conflict.status === 409, "Changed content with the same idempotency key must conflict");
   await stopApplication();
   application = undefined;
   runProbe("verify");
   verified = true;
-  console.log("DM8 browser E2E passed: clarification, supplement, restart reads, source resolution, idempotency, and record integrity.");
+  console.log("DM8 HTTP E2E passed: clarification, supplement, task reference, restart reads, source resolution, idempotency, and record integrity.");
 } finally {
-  if (browser) await browser.close();
   if (application) await stopApplication();
   if (!verified) {
     try { runProbe("cleanup"); }

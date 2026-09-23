@@ -1,0 +1,591 @@
+{
+  "status": "OK",
+  "timestamp": "2026-09-18 12:03:43 +0000",
+  "error_message": "",
+  "data": {
+    "pagination": "",
+    "type": "CONTENT",
+    "results": {
+      "total_hits": 459486,
+      "documents": [
+        {
+          "docId": "CN-210620767-U",
+          "metadata": {
+            "pd": "20200526",
+            "pn": "CN-210620767-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological incubator of genetic engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种基因工程生物培养箱"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BEIJING DIAGREAT BIO TECH CO LTD"
+        },
+        {
+          "docId": "CN-207646225-U",
+          "metadata": {
+            "pd": "20180724",
+            "pn": "CN-207646225-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "A kind of biological gene PCR gene amplification instrument"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "种生物基因用PCR基因扩增仪"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "ZHEJIANG YINGRUIQI BIOTECHNOLOGY CO LTD"
+        },
+        {
+          "docId": "CN-214115533-U",
+          "metadata": {
+            "pd": "20210903",
+            "pn": "CN-214115533-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection equipment for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程的基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANGHAI SANQI BIOTECH CO LTD"
+        },
+        {
+          "docId": "CN-215288793-U",
+          "metadata": {
+            "pd": "20211224",
+            "pn": "CN-215288793-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection equipment for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程的基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BEIJING UNIONLUCK BIOLOGICAL TECH CO LTD"
+        },
+        {
+          "docId": "CN-216639489-U",
+          "metadata": {
+            "pd": "20220531",
+            "pn": "CN-216639489-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection equipment for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程的基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BIO TECH CO LTD"
+        },
+        {
+          "docId": "CN-111802246-A",
+          "metadata": {
+            "pd": "20201023",
+            "pn": "CN-111802246-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene mutation engineering device for biological gene medicine"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因药品用的基因突变工程装置"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "FUJIAN XUCHEN INFORMATION TECH CO LTD"
+        },
+        {
+          "docId": "CN-213452558-U",
+          "metadata": {
+            "pd": "20210615",
+            "pn": "CN-213452558-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection equipment for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因工程的基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANGHAI XINGNA HEALTH TECH CO LTD"
+        },
+        {
+          "docId": "CN-213416832-U",
+          "metadata": {
+            "pd": "20210611",
+            "pn": "CN-213416832-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection equipment for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程的基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "GUANGXI ZHUOQIANG TECH CO LTD"
+        },
+        {
+          "docId": "CN-213085982-U",
+          "metadata": {
+            "pd": "20210430",
+            "pn": "CN-213085982-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection equipment for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程的基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "XIAN ZHONGKEZHIPU MEDICAL INSPECTION CO LTD"
+        },
+        {
+          "docId": "CN-215668018-U",
+          "metadata": {
+            "pd": "20220128",
+            "pn": "CN-215668018-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Incubator for gene culture for biological genes"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因用基因培养用恒温箱"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "HANGZHOU LVKANG TECH CO LTD"
+        },
+        {
+          "docId": "CN-119020156-B",
+          "metadata": {
+            "pd": "20250214",
+            "pn": "CN-119020156-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection equipment for biological genetic engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程的基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Shandong Yidian Gene Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-119020156-A",
+          "metadata": {
+            "pd": "20241126",
+            "pn": "CN-119020156-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection equipment for biological genetic engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程的基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANDONG YIDIAN GENE TECH CO LTD"
+        },
+        {
+          "docId": "CN-119380815-A",
+          "metadata": {
+            "pd": "20250128",
+            "pn": "CN-119380815-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection system for algae organism genes"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种藻类生物基因用基因检测系统"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "GUANGDONG YUEHAI WATER TESTING TECH CO LTD"
+        },
+        {
+          "docId": "CN-213060853-U",
+          "metadata": {
+            "pd": "20210427",
+            "pn": "CN-213060853-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection equipment for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程的基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SHANGHAI HUIHAO MEDICAL TECH CO LTD"
+        },
+        {
+          "docId": "CN-210419914-U",
+          "metadata": {
+            "pd": "20200428",
+            "pn": "CN-210419914-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Gene detection equipment for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程的基因检测设备"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "LI XINGWEN"
+        },
+        {
+          "docId": "CN-118995383-A",
+          "metadata": {
+            "pd": "20241122",
+            "pn": "CN-118995383-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Microorganism genome extraction kit and microorganism genome extraction method by magnetic bead method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种磁珠法微生物基因组提取试剂盒及微生物基因组提取方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "KONGQUE CHENGDU TECH CO LTD"
+        },
+        {
+          "docId": "CN-118995383-B",
+          "metadata": {
+            "pd": "20250218",
+            "pn": "CN-118995383-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Microorganism genome extraction kit and microorganism genome extraction method by magnetic bead method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种磁珠法微生物基因组提取试剂盒及微生物基因组提取方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Kong Que (Chengdu) Technology Co.,Ltd."
+        },
+        {
+          "docId": "CN-116072224-A",
+          "metadata": {
+            "pd": "20230505",
+            "pn": "CN-116072224-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Metagenomic pathogenic microorganism genome gene function annotation drawing method"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种宏基因组病原微生物基因组基因功能注释绘图方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SUZHOU YUANHUA BIOTECHNOLOGY CO LTD"
+        },
+        {
+          "docId": "CN-118974833-A",
+          "metadata": {
+            "pd": "20241115",
+            "pn": "CN-118974833-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Detection of genomic sequences in microbial genomes by whole genome sequencing"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "通过全基因组测序检测微生物基因组中的基因组序列"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BIO MERIEUX INC"
+        },
+        {
+          "docId": "CN-122337317-A",
+          "metadata": {
+            "pd": "20260703",
+            "pn": "CN-122337317-A",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Microorganism-associated gene mining method combining whole genome sequencing and metagenome sequencing"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "全基因组测序与宏基因组测序联合的微生物关联基因挖掘方法"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "CHONGQING ACADEMY ANIMAL SCI"
+        },
+        {
+          "docId": "CN-111304225-B",
+          "metadata": {
+            "pd": "20211001",
+            "pn": "CN-111304225-B",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Alkaloid cyanamide biosynthesis gene cluster and application thereof"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "生物碱cyanogramide的生物合成基因簇及其应用"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "OCEAN UNIVERSITY OF CHINA"
+        },
+        {
+          "docId": "CN-213951177-U",
+          "metadata": {
+            "pd": "20210813",
+            "pn": "CN-213951177-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological incubator for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程的生物培养箱"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "Shandong Provincial Third Hospital"
+        },
+        {
+          "docId": "CN-214155591-U",
+          "metadata": {
+            "pd": "20210910",
+            "pn": "CN-214155591-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological seedling raising box for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种生物基因工程的生物育苗箱"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "BEIJING IVY GUXI STEM CELL TECH RESEARCH INSTITUTE CO LTD"
+        },
+        {
+          "docId": "CN-215799496-U",
+          "metadata": {
+            "pd": "20220211",
+            "pn": "CN-215799496-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Microbial cultivation case utensil based on biological genetic engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种基于生物基因工程的微生物培养箱具"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "SUZHOU TONGKANG MEDICAL TECH CO LTD"
+        },
+        {
+          "docId": "CN-215206014-U",
+          "metadata": {
+            "pd": "20211217",
+            "pn": "CN-215206014-U",
+            "titles": [
+              {
+                "lang": "en",
+                "titles": [
+                  "Biological cell storage box for biological gene engineering"
+                ]
+              },
+              {
+                "lang": "zh",
+                "titles": [
+                  "一种用于生物基因工程用生物细胞储存箱"
+                ]
+              }
+            ],
+            "pdfLink": ""
+          },
+          "pa": "TIANJIN SAIERYUAN BIOTECHNOLOGY CO LTD"
+        }
+      ],
+      "query": "(pnctry:CN AND (ttl:\"基因\" OR ttl:\"生物\"))"
+    },
+    "query": ""
+  }
+}

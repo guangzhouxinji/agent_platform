@@ -1,0 +1,23 @@
+[
+  {
+    "source": {
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC",
+      "sourceId": "CNIPA-PUBLIC-DOC-GUIDANCE-CASE-1",
+      "version": "2021-04-01@fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562",
+      "location": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html#ContentStart"
+    },
+    "controlledResourceRef": "controlled://cnipa-official-v1/CNIPA_GUIDANCE_CASE_1_EXPLANATION/fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562",
+    "relatedClueId": "CNIPA-HISTORICAL-GUIDANCE-CASE-1",
+    "collector": "CNIPA_OFFICIAL_SOURCE_COLLECTOR",
+    "collectionMissingReason": null,
+    "occurrenceTime": "2021-04-01T16:33:00+08:00",
+    "collectionTime": "2026-09-20T01:57:59.337Z",
+    "uploadTime": "2026-09-20T01:57:59.337Z",
+    "availability": "AVAILABLE",
+    "issue": "PUBLIC_OFFICIAL_DOCUMENT_NOT_UNDERLYING_CASE_EVIDENCE",
+    "relationType": "MISSING",
+    "relationReason": "公开官方说明仅支持历史样例上下文，不是案件原始证据，也未被自动采信。",
+    "originalRef": null,
+    "derivedKind": "OFFICIAL_PUBLIC_EXPLANATORY_DOCUMENT"
+  }
+]

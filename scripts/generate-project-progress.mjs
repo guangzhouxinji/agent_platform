@@ -84,16 +84,31 @@ function taskResources(task) {
 }
 
 function actualEvidence() {
-  const reportsDir = path.join(rootDir, "target", "surefire-reports");
-  const reports = existing("target/surefire-reports")
-    ? fs.readdirSync(reportsDir).filter((name) => /^TEST-.*\.xml$/.test(name)) : [];
+  const reports = [];
+  function collectSurefireReports(directory) {
+    if (!fs.existsSync(directory)) return;
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const target = path.join(directory, entry.name);
+      if (!entry.isDirectory()) continue;
+      if (entry.name === "target") {
+        const reportsDir = path.join(target, "surefire-reports");
+        if (!fs.existsSync(reportsDir)) continue;
+        for (const name of fs.readdirSync(reportsDir)) {
+          if (/^TEST-.*\.xml$/.test(name)) reports.push(path.join(reportsDir, name));
+        }
+        continue;
+      }
+      collectSurefireReports(target);
+    }
+  }
+  collectSurefireReports(path.join(rootDir, "backend"));
   const testTotals = { tests: 0, failures: 0, errors: 0, skipped: 0 };
   let latestJavaTestAt = null;
-  for (const name of reports) {
-    const content = fs.readFileSync(path.join(reportsDir, name), "utf8");
+  for (const report of reports) {
+    const content = fs.readFileSync(report, "utf8");
     const suite = content.match(/<testsuite\b[^>]*>/)?.[0] ?? "";
     for (const key of Object.keys(testTotals)) testTotals[key] += Number(suite.match(new RegExp(`${key}="(\\d+)"`))?.[1] ?? 0);
-    const modified = fs.statSync(path.join(reportsDir, name)).mtime;
+    const modified = fs.statSync(report).mtime;
     if (!latestJavaTestAt || modified > latestJavaTestAt) latestJavaTestAt = modified;
   }
   const browserResultPath = path.join(rootDir, "test-results", ".last-run.json");
@@ -106,10 +121,11 @@ function actualEvidence() {
     if (!fs.existsSync(directory)) return;
     for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
       const target = path.join(directory, entry.name);
-      if (entry.isDirectory()) collectFiles(target); else businessFiles.push(target);
+      if (entry.isDirectory() && entry.name !== "target") collectFiles(target);
+      else if (entry.isFile()) businessFiles.push(target);
     }
   }
-  collectFiles(path.join(rootDir, "src"));
+  collectFiles(path.join(rootDir, "backend"));
   collectFiles(path.join(rootDir, "db"));
   const latestBusinessChangeAt = businessFiles.reduce((latest, file) => {
     const modified = fs.statSync(file).mtime;
@@ -122,11 +138,13 @@ function actualEvidence() {
     checkedFiles: {
       dashboardGenerator: existing("scripts/generate-project-progress.mjs"),
       dashboardVerifier: existing("scripts/verify-project-progress.mjs"),
-      consultationDm8Store: existing("src/main/java/cn/xinji/agentplatform/consultation/adapter/out/dm8/Dm8ConsultationStore.java"),
-      consultationHttp: existing("src/main/java/cn/xinji/agentplatform/consultation/adapter/in/web/ConsultationController.java"),
-      consultationFrontend: existing("src/main/resources/static/index.html"),
-      enforcementCore: existing("src/main/java/cn/xinji/agentplatform/enforcement/application/EnforcementApplicationService.java"),
-      enforcementHttp: existing("src/main/java/cn/xinji/agentplatform/enforcement/adapter/in/web/EnforcementController.java"),
+      consultationDm8Store: existing("backend/adapters/persistence-dm8/src/main/java/cn/xinji/agentplatform/consultation/adapter/out/dm8/Dm8ConsultationStore.java"),
+      consultationHttp: existing("backend/consultation/src/main/java/cn/xinji/agentplatform/consultation/adapter/in/web/ConsultationController.java"),
+      consultationFrontend: existing("frontend/src/app/AppRoutes.tsx")
+        && existing("frontend/src/features/consultation/ConsultationPage.tsx")
+        && existing("backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/web/ReactFrontendController.java"),
+      enforcementCore: existing("backend/enforcement/src/main/java/cn/xinji/agentplatform/enforcement/application/EnforcementApplicationService.java"),
+      enforcementHttp: existing("backend/enforcement/src/main/java/cn/xinji/agentplatform/enforcement/adapter/in/web/EnforcementController.java"),
       enforcementDm8Schema: existing("db/dm8/V002__enforcement_mvp_v0.sql")
     }
   };
@@ -263,7 +281,9 @@ for (const stage of stages) {
 
 function hasDeferredExitEvidence(stage, milestone, children) {
   if (milestone.status !== "阻塞" || !children.length) return false;
-  const blockersAreExplicit = children.every((task) => task.status === "阻塞" && task.blocker && task.blocker !== "-");
+  const hasBlockedTask = children.some((task) => task.status === "阻塞");
+  const blockersAreExplicit = hasBlockedTask && children.every((task) =>
+    completedStatuses.has(task.status) || (task.status === "阻塞" && task.blocker && task.blocker !== "-"));
   if (!blockersAreExplicit) return false;
   if (stage.id === "P0") return /受阻外部条件.*责任方.*解除条件/.test(stage.exit);
   return /真实.*(?:保留|单独取证)/.test(stage.exit) && /真实接入与验收/.test(milestone.name);
@@ -292,7 +312,12 @@ function stageEntryFor(stage, task = null) {
   switch (stage.id) {
     case "P0": satisfied = true; reason = "首阶段无前置阶段"; break;
     case "P1": satisfied = previousExit("P0"); reason = satisfied ? "P0 退出条件已有证据" : "等待 P0 退出条件"; break;
-    case "P2": satisfied = previousExit("P1"); reason = satisfied ? "P1 合成本地闭环与缺口保留条件已满足" : "等待 P1 退出条件"; break;
+    case "P2": {
+      const consultationLocalClosed = milestones.find((milestone) => milestone.id === "M1.2")?.status === "已完成";
+      satisfied = consultationLocalClosed;
+      reason = satisfied ? "P1 本地技术闭环已完成；正式验证缺口可与执法本地试点并行" : "等待 P1 本地技术闭环";
+      break;
+    }
     case "P3": satisfied = previousExit("P2"); reason = satisfied ? "P2 合成本地闭环与缺口保留条件已满足" : "等待 P2 退出条件"; break;
     case "P4": satisfied = completedLocalMvpCount >= 2; reason = `${completedLocalMvpCount}/2 个 MVP 已形成可复核的本地重复证据`; break;
     case "P5": {

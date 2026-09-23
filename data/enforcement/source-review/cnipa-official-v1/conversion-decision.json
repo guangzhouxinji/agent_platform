@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "enforcement-cnipa-conversion-decision-v1",
+  "decisionId": "ENF-CNIPA-OFFICIAL-V1-INTERNAL-DEVELOPMENT-CONVERSION",
+  "decisionVersion": "2026-09-20.1",
+  "decidedAt": "2026-09-20T00:00:00Z",
+  "authorizedBy": "PROJECT_OWNER_AND_DATA_LEGAL_RESPONSIBLE_PARTY",
+  "authorizationRef": "docs/02-待确认事项清单.md#14-执法正式资料的本地采集授权与边界",
+  "mappingPreparedBy": "ENGINEERING_AGENT",
+  "professionalReviewStatus": "PENDING_NAMED_BUSINESS_ACCEPTANCE",
+  "sourceReviewId": "ENF-SOURCE-REVIEW-CNIPA-OFFICIAL-V1",
+  "sourceCatalogId": "ENF-CNIPA-OFFICIAL-SOURCES-V1",
+  "sourceCatalogVersion": "2026-09-20.2",
+  "sourceCatalogSha256": "6e0abc08e38c8f3cd3c981455e9872dff5c7aea4ecf38bb69748c35180fd8145",
+  "sourceBatchSha256": "859e0304542fd0ee729c1a0fc442ffc911846207f1fb7536ddad0e26b010cf35",
+  "allowedUse": "INTERNAL_DEVELOPMENT_ENFORCEMENT_ASSISTANCE_UNTIL_PILOT_END",
+  "retentionPolicy": "UNTIL_DEVELOPMENT_PILOT_END",
+  "externalModelAllowed": false,
+  "automaticEvidenceAcceptanceAllowed": false,
+  "automaticLegalDecisionAllowed": false,
+  "withdrawalProcess": "Stop new use, mark the affected package unavailable, remove content from current indexes, and retain only non-content audit digests.",
+  "records": [
+    {
+      "snapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_PAGE",
+      "sourceSha256": "ed3bc26d813c88a91e6aa514b87f6ea82981c77df0ad1e63157b720321b89ef3",
+      "conversionDecision": "EXCLUDED_FROM_FIRST_PACKAGE",
+      "reason": "Broad annual case collection is not needed for the first narrow package and has not been mapped case by case."
+    },
+    {
+      "snapshotId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES_ATTACHMENT",
+      "sourceSha256": "ed286f8bc17e288ea6f83e0b7441925e73bf9ec2a109eebf18259ea7d6a796bf",
+      "conversionDecision": "EXCLUDED_FROM_FIRST_PACKAGE",
+      "reason": "The multi-case Word attachment requires separate case-level mapping before use."
+    },
+    {
+      "snapshotId": "CNIPA_THIRD_GUIDANCE_CASES_PAGE",
+      "sourceSha256": "626d5f8991174571ed67f36b27b3c3d569ae5ae59773dc7e00e7e27432d980cf",
+      "conversionDecision": "EXCLUDED_FROM_FIRST_PACKAGE",
+      "reason": "The notification page is retained as source context but is not a first-package business record."
+    },
+    {
+      "snapshotId": "CNIPA_THIRD_GUIDANCE_CASES_ATTACHMENT",
+      "sourceSha256": "50a0b157146285059500e12fb275fbc74c98934361a50ca960ba46932c1aa652",
+      "conversionDecision": "EXCLUDED_FROM_FIRST_PACKAGE",
+      "reason": "The multi-case PDF requires separate case-level mapping before use."
+    },
+    {
+      "snapshotId": "CNIPA_GUIDANCE_CASE_1_EXPLANATION",
+      "sourceSha256": "fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562",
+      "conversionDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT_PACKAGE",
+      "allowedMappings": ["HISTORICAL_PUBLIC_SAMPLE_CLUE", "PUBLIC_OFFICIAL_DOCUMENT_MATERIAL"],
+      "prohibitedClaims": ["CURRENT_VIOLATION_CLUE", "UNDERLYING_CASE_EVIDENCE", "ACCEPTED_EVIDENCE", "CURRENT_RIGHT_STATUS"],
+      "requiredSourceText": [
+        "该案由上海市崇明区市场监管局于2019年11月15日办结。",
+        "办案机关认定当事人的行为属于侵犯注册商标专用权的行为，并进行了行政处罚。"
+      ]
+    },
+    {
+      "snapshotId": "CNIPA_MAJOR_PATENT_DISPUTE_ADJUDICATION_MEASURES",
+      "sourceSha256": "7e7c47accb2cdac4e8322d251606d559f68bf7f6a7f59ee319e4773dc7e76f2e",
+      "conversionDecision": "HISTORICAL_REFERENCE_ONLY",
+      "reason": "Effectivity against later rules has not been reviewed; it must not be published as a current execution rule."
+    },
+    {
+      "snapshotId": "CNIPA_2026_ADJUDICATION_DEADLINE_REPLY",
+      "sourceSha256": "5842dbdf1c297aca04e6226febccadc01746734f46c3a4c3329426a96464be3d",
+      "conversionDecision": "APPROVED_FOR_INTERNAL_DEVELOPMENT_PACKAGE",
+      "allowedMappings": ["NARROW_OFFICIAL_INTERPRETIVE_REPLY"],
+      "effectivityStatus": "NO_EXPLICIT_EFFECTIVE_DATE",
+      "requiredSourceText": [
+        "追加被请求人并不属于上述情形之一，对其送达及等待答辩的时间应当计入案件处理期限。",
+        "申请延长的举证期限以及和解期间不计入案件处理期限"
+      ]
+    }
+  ]
+}

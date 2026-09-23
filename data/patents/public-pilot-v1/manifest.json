@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "datasetId": "CON-04-PUBLIC-PILOT-V1",
-  "generatedAt": "2026-09-16T03:01:52.662Z",
+  "generatedAt": "2026-09-18T11:06:17.940Z",
   "purpose": "CON-04 internal public-data feasibility pilot",
   "source": {
     "name": "SureChEMBL",
@@ -39,33 +39,386 @@
     }
   ],
   "recordCount": 44,
-  "detailedRecordCount": 5,
+  "detailedRecordCount": 44,
+  "detailCaptureFailures": 0,
   "recordsFile": "records.json",
-  "recordsSha256": "ce0bbd902a4b306de740b338e18e00002a3a9eea923b8d38f6c1356b36099039",
+  "recordsSha256": "3eb751bb88c715952308c9ba38f09f0b0c1261385bb6910d2781ed328b6c1b63",
   "rawResponses": [
     {
       "queryId": "Q1_AQUEOUS_BINDER_COATING_DRYING",
       "requestUrl": "https://surechembl.org/api/search/content?query=%28coating+AND+%22water-based+binder%22+AND+drying%29&page=1&itemsPerPage=15",
       "file": "raw/search-q1_aqueous_binder_coating_drying.json",
-      "sha256": "109afc01adc3273af195437d539756ec11a41cae32ee9c74e1a400bdc52827a5",
-      "responseSha256": "959e1e3e7d41aeea19ae69ac8fdbfb247a093281084e41fa64cb739afe277843",
-      "totalHits": 4425
+      "sha256": "77ae7fecad1e4deb1190c17e9b4143a9ebdd4186d3631c3d117f340e59907879",
+      "responseSha256": "ad99d857f3cb77bcc4c6bcf7e0a03d0269b20026d14a27fe9e3bae9e08c2580b",
+      "totalHits": 4427
     },
     {
       "queryId": "Q2_TWO_STAGE_DRYING",
       "requestUrl": "https://surechembl.org/api/search/content?query=%28binder+AND+coating+AND+%22partially+drying%22+AND+%22fully+drying%22%29&page=1&itemsPerPage=15",
       "file": "raw/search-q2_two_stage_drying.json",
-      "sha256": "549ddf3b2b0c87910db4c6d05481c6080af0bf48d923d8d1ca8e2665de0ca990",
-      "responseSha256": "a30faaebac22d448eb290297feb7889293677f424a67c87efa61a107b4671a1b",
+      "sha256": "f1c6d4d25f2a71049c01a05d6b354921b33f05d2e531f8c44722ad4a046fbf25",
+      "responseSha256": "81bc52d9fb3bd05efe0c2ab4bbb9f8e8ac3e350df161e297fa086ee62bc6d9dc",
       "totalHits": 64
     },
     {
       "queryId": "Q3_CN_AQUEOUS_BINDER",
       "requestUrl": "https://surechembl.org/api/search/content?query=%28%28ttl%3A%22%E6%B0%B4%E6%80%A7%E7%B2%98%E7%BB%93%E5%89%82%22+OR+ttl%3A%22%E6%B0%B4%E7%B3%BB%E7%B2%98%E7%BB%93%E5%89%82%22%29+AND+pnctry%3ACN%29&page=1&itemsPerPage=15",
       "file": "raw/search-q3_cn_aqueous_binder.json",
-      "sha256": "23e83facb56dc509ac866fd43dc47f46f12f1ec6308cca69a64def937c00c811",
-      "responseSha256": "46983d733cfcf5dc90cd0e7616ee9f63dbf1a6c1b2b3ee6ac1f0204f4fb4b9c6",
+      "sha256": "46742bd15c96518967f1e3717d099af62a2cdf024221159b5c72cd2bd2de36cb",
+      "responseSha256": "c75cdedfb282c16801e809c462baa0a18126207925a6a34385db1293f50e1d98",
       "totalHits": 360
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-104900909-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-104900909-A/contents",
+      "file": "raw/detail-CN-104900909-A.json",
+      "sha256": "f51d998af77babc260db2be4e06deadd871576016855ed47c29a298f8d8f3295",
+      "responseSha256": "f51d998af77babc260db2be4e06deadd871576016855ed47c29a298f8d8f3295"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-108276937-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-108276937-A/contents",
+      "file": "raw/detail-CN-108276937-A.json",
+      "sha256": "e21c27d755658ff7c903a73fa8d0e129ba24fa68f95c1001c5330db19f9203fa",
+      "responseSha256": "e21c27d755658ff7c903a73fa8d0e129ba24fa68f95c1001c5330db19f9203fa"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-108767259-B",
+      "requestUrl": "https://surechembl.org/api/document/CN-108767259-B/contents",
+      "file": "raw/detail-CN-108767259-B.json",
+      "sha256": "c395132b537e798e44fd764d3bd73eb44122337f88f55f78dc9adb70c9f0290d",
+      "responseSha256": "c395132b537e798e44fd764d3bd73eb44122337f88f55f78dc9adb70c9f0290d"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-109664573-B",
+      "requestUrl": "https://surechembl.org/api/document/CN-109664573-B/contents",
+      "file": "raw/detail-CN-109664573-B.json",
+      "sha256": "7cfcb05612e7f779a0d4d3b87423ef1f1a310b7632c3639a84363e0913c7a255",
+      "responseSha256": "7cfcb05612e7f779a0d4d3b87423ef1f1a310b7632c3639a84363e0913c7a255"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-109957360-B",
+      "requestUrl": "https://surechembl.org/api/document/CN-109957360-B/contents",
+      "file": "raw/detail-CN-109957360-B.json",
+      "sha256": "1602267cf3f3dad9a5011df40a729da21d6311c958eabfce80e8bb9419d6b373",
+      "responseSha256": "1602267cf3f3dad9a5011df40a729da21d6311c958eabfce80e8bb9419d6b373"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-109957361-B",
+      "requestUrl": "https://surechembl.org/api/document/CN-109957361-B/contents",
+      "file": "raw/detail-CN-109957361-B.json",
+      "sha256": "db68d14ebe8ed971e96e0873cfb1f2242f5f9e08eed7dce4c32bddfb3706d5e8",
+      "responseSha256": "db68d14ebe8ed971e96e0873cfb1f2242f5f9e08eed7dce4c32bddfb3706d5e8"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-110165124-B",
+      "requestUrl": "https://surechembl.org/api/document/CN-110165124-B/contents",
+      "file": "raw/detail-CN-110165124-B.json",
+      "sha256": "f95116089f15765d0ae75f3fa91be49c0ccfd8b32fd58e20ad1cb51684635bce",
+      "responseSha256": "f95116089f15765d0ae75f3fa91be49c0ccfd8b32fd58e20ad1cb51684635bce"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-110931714-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-110931714-A/contents",
+      "file": "raw/detail-CN-110931714-A.json",
+      "sha256": "db9f2aee6f3815071e12a91aaa6c25b5a5173a24619b8f1671b5c427ed8fe8d3",
+      "responseSha256": "db9f2aee6f3815071e12a91aaa6c25b5a5173a24619b8f1671b5c427ed8fe8d3"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-112920747-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-112920747-A/contents",
+      "file": "raw/detail-CN-112920747-A.json",
+      "sha256": "298272a642831d4146d25dd96e364e1967a0bcdd9c43abc10ba6147dc603f09b",
+      "responseSha256": "298272a642831d4146d25dd96e364e1967a0bcdd9c43abc10ba6147dc603f09b"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-113178547-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-113178547-A/contents",
+      "file": "raw/detail-CN-113178547-A.json",
+      "sha256": "5c7bc71ae13de4a5d2d5c14893f42dd66f14611524d978ac20deb812e8bbebf6",
+      "responseSha256": "5c7bc71ae13de4a5d2d5c14893f42dd66f14611524d978ac20deb812e8bbebf6"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-113840870-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-113840870-A/contents",
+      "file": "raw/detail-CN-113840870-A.json",
+      "sha256": "2c4f910bfdbd3be41a1a3cd335f4268d1e1849f16c2ae2a702d22d09115dd964",
+      "responseSha256": "2c4f910bfdbd3be41a1a3cd335f4268d1e1849f16c2ae2a702d22d09115dd964"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-114539948-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-114539948-A/contents",
+      "file": "raw/detail-CN-114539948-A.json",
+      "sha256": "22927dd1d1a47047938563b920ca3984e1c03ec8ecdd1e30e06a6b86b13e15f6",
+      "responseSha256": "22927dd1d1a47047938563b920ca3984e1c03ec8ecdd1e30e06a6b86b13e15f6"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-114539948-B",
+      "requestUrl": "https://surechembl.org/api/document/CN-114539948-B/contents",
+      "file": "raw/detail-CN-114539948-B.json",
+      "sha256": "dacb07ae7589cf36414ca21c99c3b5de6bf59a3144027a2482e067805bc1e84a",
+      "responseSha256": "dacb07ae7589cf36414ca21c99c3b5de6bf59a3144027a2482e067805bc1e84a"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-1150220-C",
+      "requestUrl": "https://surechembl.org/api/document/CN-1150220-C/contents",
+      "file": "raw/detail-CN-1150220-C.json",
+      "sha256": "6c03f0d9bb8b2cfaa965cc01f10454cc49c45e7843dea7812a004421d9a95939",
+      "responseSha256": "6c03f0d9bb8b2cfaa965cc01f10454cc49c45e7843dea7812a004421d9a95939"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-115260403-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-115260403-A/contents",
+      "file": "raw/detail-CN-115260403-A.json",
+      "sha256": "e09e541c1007e4f395b4fbde122d885d983007be5726dcb66696a821b330af9b",
+      "responseSha256": "e09e541c1007e4f395b4fbde122d885d983007be5726dcb66696a821b330af9b"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-115260403-B",
+      "requestUrl": "https://surechembl.org/api/document/CN-115260403-B/contents",
+      "file": "raw/detail-CN-115260403-B.json",
+      "sha256": "96f4d0b56ff26e4bb56a6f1df4ddd1b259b8ab054122ff5f26aac05f40408acf",
+      "responseSha256": "96f4d0b56ff26e4bb56a6f1df4ddd1b259b8ab054122ff5f26aac05f40408acf"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-115513464-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-115513464-A/contents",
+      "file": "raw/detail-CN-115513464-A.json",
+      "sha256": "14f7673a234fa59c1cbc18747bf8a8b85290c4a9e8ad4e076713b5d9a8a3c17d",
+      "responseSha256": "14f7673a234fa59c1cbc18747bf8a8b85290c4a9e8ad4e076713b5d9a8a3c17d"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-115513464-B",
+      "requestUrl": "https://surechembl.org/api/document/CN-115513464-B/contents",
+      "file": "raw/detail-CN-115513464-B.json",
+      "sha256": "414ca222c7e89819672f995fb06162562e6ed2ed6fb763d9642cf37f3637ec53",
+      "responseSha256": "414ca222c7e89819672f995fb06162562e6ed2ed6fb763d9642cf37f3637ec53"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-116487539-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-116487539-A/contents",
+      "file": "raw/detail-CN-116487539-A.json",
+      "sha256": "f74d048a3f60b818a86376875193223f2eda9f3214f13b5ad915530337f1c5f9",
+      "responseSha256": "f74d048a3f60b818a86376875193223f2eda9f3214f13b5ad915530337f1c5f9"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-117613274-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-117613274-A/contents",
+      "file": "raw/detail-CN-117613274-A.json",
+      "sha256": "ba9a2b530110ff745fea66967172dbd47583a24c7d6e25ec1c082cf238d6fb42",
+      "responseSha256": "ba9a2b530110ff745fea66967172dbd47583a24c7d6e25ec1c082cf238d6fb42"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-118047899-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-118047899-A/contents",
+      "file": "raw/detail-CN-118047899-A.json",
+      "sha256": "cd94191aae4cff0b4dfe821d2ba4c626ad34b2853c6bc15219348a0430acf009",
+      "responseSha256": "cd94191aae4cff0b4dfe821d2ba4c626ad34b2853c6bc15219348a0430acf009"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-118813174-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-118813174-A/contents",
+      "file": "raw/detail-CN-118813174-A.json",
+      "sha256": "092b6af629f8f42f198651e3ab847d89816af5df69bacc597b5e749a9b7ce953",
+      "responseSha256": "092b6af629f8f42f198651e3ab847d89816af5df69bacc597b5e749a9b7ce953"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-119674073-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-119674073-A/contents",
+      "file": "raw/detail-CN-119674073-A.json",
+      "sha256": "e2b1e4c43b4c65a62696ad061e82099906aed37e9365116840a3cf0c8e3718d7",
+      "responseSha256": "e2b1e4c43b4c65a62696ad061e82099906aed37e9365116840a3cf0c8e3718d7"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-120365880-A",
+      "requestUrl": "https://surechembl.org/api/document/CN-120365880-A/contents",
+      "file": "raw/detail-CN-120365880-A.json",
+      "sha256": "a131c7227094060fb15d607b3086f12e004ecd0a61cb263056796fbaa7c31b97",
+      "responseSha256": "a131c7227094060fb15d607b3086f12e004ecd0a61cb263056796fbaa7c31b97"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "CN-214233780-U",
+      "requestUrl": "https://surechembl.org/api/document/CN-214233780-U/contents",
+      "file": "raw/detail-CN-214233780-U.json",
+      "sha256": "fa036fe0204d00dfa2142f5b65c752d3b3bdfe2d0589785a72ba94c7dd5711d7",
+      "responseSha256": "fa036fe0204d00dfa2142f5b65c752d3b3bdfe2d0589785a72ba94c7dd5711d7"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "EP-3044822-A2",
+      "requestUrl": "https://surechembl.org/api/document/EP-3044822-A2/contents",
+      "file": "raw/detail-EP-3044822-A2.json",
+      "sha256": "db0e2457dd31b38d778faeb3dcf9fa24d4b58eeda6748f41f3018884dadf68b4",
+      "responseSha256": "db0e2457dd31b38d778faeb3dcf9fa24d4b58eeda6748f41f3018884dadf68b4"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "EP-3044822-B1",
+      "requestUrl": "https://surechembl.org/api/document/EP-3044822-B1/contents",
+      "file": "raw/detail-EP-3044822-B1.json",
+      "sha256": "b635cb0ab0bbc665a3fc82678dcaa0e3e1c030dce2b1897b95d46428f4f65abb",
+      "responseSha256": "b635cb0ab0bbc665a3fc82678dcaa0e3e1c030dce2b1897b95d46428f4f65abb"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "EP-3581679-A1",
+      "requestUrl": "https://surechembl.org/api/document/EP-3581679-A1/contents",
+      "file": "raw/detail-EP-3581679-A1.json",
+      "sha256": "0d404eba4d3ee680d60b560ee81c1f6e066a17448beef679802617e42253849b",
+      "responseSha256": "0d404eba4d3ee680d60b560ee81c1f6e066a17448beef679802617e42253849b"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "EP-3581679-B1",
+      "requestUrl": "https://surechembl.org/api/document/EP-3581679-B1/contents",
+      "file": "raw/detail-EP-3581679-B1.json",
+      "sha256": "05bccd9943b2d8238363e570c6d667fd51f2d0a77e1a083206d7f7ceb89ea85c",
+      "responseSha256": "05bccd9943b2d8238363e570c6d667fd51f2d0a77e1a083206d7f7ceb89ea85c"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "EP-4326082-A1",
+      "requestUrl": "https://surechembl.org/api/document/EP-4326082-A1/contents",
+      "file": "raw/detail-EP-4326082-A1.json",
+      "sha256": "99cd1a3e6d611c99164487d8bef9ad772181dbcbd16c3cea7d6c5511df1b9d1c",
+      "responseSha256": "99cd1a3e6d611c99164487d8bef9ad772181dbcbd16c3cea7d6c5511df1b9d1c"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "EP-4326082-B1",
+      "requestUrl": "https://surechembl.org/api/document/EP-4326082-B1/contents",
+      "file": "raw/detail-EP-4326082-B1.json",
+      "sha256": "88217f99a44e3f8e5cae220d5f05583dc6d478d79ac5dd497f4d0b41aad4ecf1",
+      "responseSha256": "88217f99a44e3f8e5cae220d5f05583dc6d478d79ac5dd497f4d0b41aad4ecf1"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-11167312-B2",
+      "requestUrl": "https://surechembl.org/api/document/US-11167312-B2/contents",
+      "file": "raw/detail-US-11167312-B2.json",
+      "sha256": "5c55e6f4f56bf8a53f58b100a56b5f95f8668a291c9168ac7925512097a5cbd8",
+      "responseSha256": "5c55e6f4f56bf8a53f58b100a56b5f95f8668a291c9168ac7925512097a5cbd8"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-11594718-B2",
+      "requestUrl": "https://surechembl.org/api/document/US-11594718-B2/contents",
+      "file": "raw/detail-US-11594718-B2.json",
+      "sha256": "325396f04a58332dbb9bb103728dad00aa4faaa497ed39d2c740931a45e9ab89",
+      "responseSha256": "325396f04a58332dbb9bb103728dad00aa4faaa497ed39d2c740931a45e9ab89"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-12623968-B2",
+      "requestUrl": "https://surechembl.org/api/document/US-12623968-B2/contents",
+      "file": "raw/detail-US-12623968-B2.json",
+      "sha256": "8761c8604c1660ffdcbb0d437e793b97fcdd440a5ea824ad2060370d431d88f0",
+      "responseSha256": "8761c8604c1660ffdcbb0d437e793b97fcdd440a5ea824ad2060370d431d88f0"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-12689050-B2",
+      "requestUrl": "https://surechembl.org/api/document/US-12689050-B2/contents",
+      "file": "raw/detail-US-12689050-B2.json",
+      "sha256": "e52e75f38d6e612de5c3700be06fabf50d088f2d0f6fa5a211e1127902ae3505",
+      "responseSha256": "e52e75f38d6e612de5c3700be06fabf50d088f2d0f6fa5a211e1127902ae3505"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-20130157136-A1",
+      "requestUrl": "https://surechembl.org/api/document/US-20130157136-A1/contents",
+      "file": "raw/detail-US-20130157136-A1.json",
+      "sha256": "8091762ebc546b6b8ee7c355c5a9b0ad684117073c507eb03bff9eca784aa8b2",
+      "responseSha256": "8091762ebc546b6b8ee7c355c5a9b0ad684117073c507eb03bff9eca784aa8b2"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-20160218356-A1",
+      "requestUrl": "https://surechembl.org/api/document/US-20160218356-A1/contents",
+      "file": "raw/detail-US-20160218356-A1.json",
+      "sha256": "edfbd66f20383fad881ab4b737115ab7b3514f9184193f796f1c2e290b4a50e0",
+      "responseSha256": "edfbd66f20383fad881ab4b737115ab7b3514f9184193f796f1c2e290b4a50e0"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-20200230645-A1",
+      "requestUrl": "https://surechembl.org/api/document/US-20200230645-A1/contents",
+      "file": "raw/detail-US-20200230645-A1.json",
+      "sha256": "4980cb9514ecfc99dd57f57b81158d43436e5bf296e61fb66fbce73ae53cb17e",
+      "responseSha256": "4980cb9514ecfc99dd57f57b81158d43436e5bf296e61fb66fbce73ae53cb17e"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-20230219853-A1",
+      "requestUrl": "https://surechembl.org/api/document/US-20230219853-A1/contents",
+      "file": "raw/detail-US-20230219853-A1.json",
+      "sha256": "7df01ac04c085cdfb43a0f0b5df9792e9b26a555389916841ff6c3e64ff87edf",
+      "responseSha256": "7df01ac04c085cdfb43a0f0b5df9792e9b26a555389916841ff6c3e64ff87edf"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-20240164402-A1",
+      "requestUrl": "https://surechembl.org/api/document/US-20240164402-A1/contents",
+      "file": "raw/detail-US-20240164402-A1.json",
+      "sha256": "8a139c581b2b3f8f3a5a9c9d48b1a5e36e437343cdacd4cc782f5c0034006d4d",
+      "responseSha256": "8a139c581b2b3f8f3a5a9c9d48b1a5e36e437343cdacd4cc782f5c0034006d4d"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-20250149543-A1",
+      "requestUrl": "https://surechembl.org/api/document/US-20250149543-A1/contents",
+      "file": "raw/detail-US-20250149543-A1.json",
+      "sha256": "4f58a136c1e50f931c3e24e1cce47b9e462bb776fae08cf20a04831a65fef283",
+      "responseSha256": "4f58a136c1e50f931c3e24e1cce47b9e462bb776fae08cf20a04831a65fef283"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "US-5250383-A",
+      "requestUrl": "https://surechembl.org/api/document/US-5250383-A/contents",
+      "file": "raw/detail-US-5250383-A.json",
+      "sha256": "64abd23ab412736c8139e7fa525b332b9614b92255dab38639e45ba5dc4f0e2b",
+      "responseSha256": "64abd23ab412736c8139e7fa525b332b9614b92255dab38639e45ba5dc4f0e2b"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "WO-2015036882-A2",
+      "requestUrl": "https://surechembl.org/api/document/WO-2015036882-A2/contents",
+      "file": "raw/detail-WO-2015036882-A2.json",
+      "sha256": "3951b8fc291a7aab4eaeb18d73f3b766f8f1ac05252c0b5a09098c76433d335b",
+      "responseSha256": "3951b8fc291a7aab4eaeb18d73f3b766f8f1ac05252c0b5a09098c76433d335b"
+    },
+    {
+      "type": "DETAIL",
+      "sourceRecordId": "WO-2022225935-A1",
+      "requestUrl": "https://surechembl.org/api/document/WO-2022225935-A1/contents",
+      "file": "raw/detail-WO-2022225935-A1.json",
+      "sha256": "56b9f6fa132433db8f115246be4502c36b6d9268d15b52ce4d94dfe816048e03",
+      "responseSha256": "56b9f6fa132433db8f115246be4502c36b6d9268d15b52ce4d94dfe816048e03"
     }
   ],
   "limitations": [

@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "requirementId": "CON-11",
   "title": "知识产权咨询意图管理",
-  "status": "ready",
+  "status": "stale",
   "baselineId": "requirements-2026-09-14-v1",
   "source": {
     "path": "requirements/知识产权咨询助手/知识产权咨询意图管理需求文档.md",
-    "sha256": "f664676e22be212fdeee532d2f8ccb897fa0da2f54a2980b52c38fe00c9aa9e2",
+    "sha256": "cf5de743f119e0b256dc16c93fe0b1411f0e37bdf075d8f49b664dac1a4daa41",
     "sections": [
       {
         "anchor": "国产化与达梦 DM8 适配要求",
@@ -49,7 +49,7 @@
   "supportingSources": [
     {
       "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
-      "sha256": "1a3d2b2d0cd824fa03c172515fbf08868bc1664595bd1ed5111257edf4428dc7",
+      "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee",
       "sections": [
         "1. 项目定位与交付口径",
         "3.2 来源、版本和权限",
@@ -851,8 +851,19 @@
       ]
     }
   ],
+  "currentProductContract": {
+    "version": "consultation-product-contract-2026-09-22-v1",
+    "classification": "REDESIGN",
+    "status": "stale",
+    "authoritativeDocument": "docs/37-咨询智能体契约重基线.md#con-11-知识产权咨询意图管理redesign",
+    "sourceRefs": ["requirements/知识产权咨询助手/知识产权咨询意图管理需求文档.md#9", "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8", "docs/35-咨询智能体产品行为待确认清单.md", "docs/36-咨询智能体R门需求变化影响评审.md#3"],
+    "mustIds": ["CON-11-RB-MUST-001", "CON-11-RB-MUST-002", "CON-11-RB-MUST-003", "CON-11-RB-MUST-004", "CON-11-RB-MUST-005", "CON-11-RB-MUST-006", "CON-11-RB-MUST-007", "CON-11-RB-MUST-008", "CON-11-RB-MUST-009", "CON-11-RB-MUST-010"],
+    "mustNotIds": ["CON-11-RB-MUST_NOT-001", "CON-11-RB-MUST_NOT-002", "CON-11-RB-MUST_NOT-003", "CON-11-RB-MUST_NOT-004", "CON-11-RB-MUST_NOT-005", "CON-11-RB-MUST_NOT-006", "CON-11-RB-MUST_NOT-007", "CON-11-RB-MUST_NOT-008"],
+    "rGateAssessment": "REBASED_D_DESIGN_CANDIDATE_NOT_READY",
+    "note": "旧 clauses 保留历史追踪；当前产品契约以 authoritativeDocument 对应章节为准。"
+  },
   "independentReview": {
-    "status": "passed",
+    "status": "superseded_by_rebase",
     "reviewedBaselineId": "requirements-2026-09-14-v1",
     "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
     "missingClauses": [],

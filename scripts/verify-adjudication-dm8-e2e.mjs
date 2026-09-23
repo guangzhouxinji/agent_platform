@@ -35,7 +35,7 @@ function probe(phase, workItemId) {
 
 function startApplication() {
   const logs = [];
-  const child = spawn(java, ["-jar", "target/agent-platform-0.0.1-SNAPSHOT.jar"], {
+  const child = spawn(java, ["-jar", "backend/apps/platform-api/target/agent-platform-api-0.0.1-SNAPSHOT.jar"], {
     cwd: process.cwd(),
     env: {
       ...process.env,

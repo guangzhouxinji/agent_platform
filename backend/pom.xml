@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-parent</artifactId><version>3.3.5</version><relativePath/></parent>
+  <groupId>cn.xinji</groupId><artifactId>agent-platform-backend</artifactId><version>0.0.1-SNAPSHOT</version><packaging>pom</packaging>
+  <properties><java.version>21</java.version><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding></properties>
+  <modules>
+    <module>kernel</module><module>consultation</module><module>patent</module><module>trademark</module><module>case-reference</module><module>enforcement</module><module>adjudication</module>
+    <module>adapters/persistence-dm8</module><module>adapters/model-deepseek</module><module>adapters/center-client</module><module>adapters/public-source</module>
+    <module>apps/platform-api</module><module>apps/mock-center-api</module>
+  </modules>
+  <dependencyManagement><dependencies>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-kernel</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-consultation</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-patent</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-trademark</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-case-reference</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-enforcement</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-adjudication</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-persistence-dm8</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-model-deepseek</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-center-client</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-public-source</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-mock-center-api</artifactId><version>${project.version}</version></dependency>
+  </dependencies></dependencyManagement>
+</project>

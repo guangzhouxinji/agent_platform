@@ -1,0 +1,83 @@
+[
+  {
+    "source": {
+      "sourceSystem": "CNIPA_OFFICIAL_PUBLIC",
+      "sourceId": "CNIPA-HISTORICAL-GUIDANCE-CASE-1",
+      "version": "2021-04-01@fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562",
+      "location": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html#ContentStart"
+    },
+    "subjects": [
+      {
+        "roleAsStated": "历史案件当事人（官方公开文档所述）",
+        "name": "上海章元信息技术有限公司",
+        "creditCode": null,
+        "source": {
+          "sourceSystem": "CNIPA_OFFICIAL_PUBLIC",
+          "sourceId": "CNIPA-HISTORICAL-GUIDANCE-CASE-1",
+          "version": "2021-04-01@fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562",
+          "location": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html#ContentStart"
+        }
+      }
+    ],
+    "facts": [
+      {
+        "value": "国家知识产权局公开说明记载：办案机关在该历史案件中认定相关行为侵犯注册商标专用权并作出行政处罚。",
+        "normalizedValue": "HISTORICAL_OFFICIAL_CASE_DESCRIPTION",
+        "timeKind": null,
+        "source": {
+          "sourceSystem": "CNIPA_OFFICIAL_PUBLIC",
+          "sourceId": "CNIPA-HISTORICAL-GUIDANCE-CASE-1",
+          "version": "2021-04-01@fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562",
+          "location": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html#ContentStart"
+        }
+      }
+    ],
+    "times": [
+      {
+        "value": "2019年11月15日",
+        "normalizedValue": "2019-11-15",
+        "timeKind": "CASE_COMPLETED",
+        "source": {
+          "sourceSystem": "CNIPA_OFFICIAL_PUBLIC",
+          "sourceId": "CNIPA-HISTORICAL-GUIDANCE-CASE-1",
+          "version": "2021-04-01@fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562",
+          "location": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html#ContentStart"
+        }
+      }
+    ],
+    "places": [
+      {
+        "value": "上海市崇明区",
+        "normalizedValue": "上海市崇明区",
+        "timeKind": null,
+        "source": {
+          "sourceSystem": "CNIPA_OFFICIAL_PUBLIC",
+          "sourceId": "CNIPA-HISTORICAL-GUIDANCE-CASE-1",
+          "version": "2021-04-01@fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562",
+          "location": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html#ContentStart"
+        }
+      }
+    ],
+    "evidenceMentions": [
+      {
+        "value": "国家知识产权局公开的指导案例1号理解与适用页面",
+        "normalizedValue": "PUBLIC_OFFICIAL_DOCUMENT",
+        "timeKind": null,
+        "source": {
+          "sourceSystem": "CNIPA_OFFICIAL_PUBLIC",
+          "sourceId": "CNIPA-PUBLIC-DOC-GUIDANCE-CASE-1",
+          "version": "2021-04-01@fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562",
+          "location": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html#ContentStart"
+        }
+      }
+    ],
+    "missingItems": [
+      "CURRENT_CASE_STATUS",
+      "ORIGINAL_CASE_FILE",
+      "UNDERLYING_CASE_EVIDENCE",
+      "CURRENT_RIGHT_STATUS",
+      "PENALTY_DECISION_FULL_TEXT"
+    ],
+    "conflicts": []
+  }
+]

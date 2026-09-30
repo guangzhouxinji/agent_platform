@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "DEV-CON-FEATURE-CANDIDATES-01",
+  "origin": "PROJECT_AUTHORED_SYNTHETIC",
+  "environment": "isolated-development-only",
+  "approvalRef": "docs/08-总开发实现计划.md#DATA-CON-FEATURE-INPUT-01",
+  "organizationRef": "dev-con-isolated",
+  "allowedPrincipalRefs": ["dev-con-a", "dev-con-b"],
+  "validFrom": "2026-09-24T00:00:00+08:00",
+  "validUntil": "2027-03-24T00:00:00+08:00",
+  "withdrawalVersion": 0,
+  "status": "SYNTHETIC_DEV_ONLY",
+  "payloadFile": "candidates.json",
+  "fields": {
+    "featureId": ["QUERY", "SAVE", "DISPLAY"],
+    "exactText": ["QUERY", "SAVE", "DISPLAY"],
+    "byteStart": ["QUERY", "SAVE", "DISPLAY"],
+    "byteEnd": ["QUERY", "SAVE", "DISPLAY"],
+    "status": ["QUERY", "SAVE", "DISPLAY"]
+  },
+  "deniedUses": ["INDEX", "DOWNLOAD", "MODEL_USE", "CROSS_DOMAIN", "PROFESSIONAL_COMPARE", "AUTO_CONFIRM"],
+  "candidateDigests": [
+    { "featureId": "F1", "sha256": "786f944a687ff2c0f4bcc0719befb4b394e0683a20780186feb4f0d3b7d0888e" },
+    { "featureId": "F2", "sha256": "6ffd4677a89d9c072254e5bea17577a0359d339d7c20377bcca17aa6a4ee3bc9" },
+    { "featureId": "F3", "sha256": "3fc1d1745afaafceb9649ec1f91855b9afba610960b45199001cc069bba206ff" }
+  ],
+  "payloadSha256": "9f06b74442c44d13e9d088437825c88ca49dba572b11b56a3b36e08080c28639",
+  "batchSha256": "ebca38d95bb32c8000c6ca982b872a1772f005e8b43e7033d3fcae44fce368b0"
+}

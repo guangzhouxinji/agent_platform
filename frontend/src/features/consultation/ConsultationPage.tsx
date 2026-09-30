@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { Alert, Button, Collapse, Descriptions, Drawer, Empty, Form, Input, Popover, Select, Space, Spin, Tag, Tooltip, Typography } from "antd";
-import { ChevronDown, ExternalLink, FileSearch, MessageCirclePlus, MessageSquareText, RotateCcw, Search, ShieldCheck } from "lucide-react";
+import { Alert, Button, Collapse, Descriptions, Drawer, Form, Input, Popover, Space, Spin, Tooltip, Typography } from "antd";
+import { ChevronDown, ExternalLink, FileSearch, MessageCirclePlus, MessageSquareText, RotateCcw, ShieldCheck } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { apiRequest } from "../../shared/api/client";
 import { RequestError, StatusTag, requesterHeaders } from "../../shared/ui/Workbench";
@@ -151,32 +151,6 @@ function CoreConsultation({ flowId, initialQuestion }: { flowId?: string | null;
       { key: "link", label: "引用编号", children: sourceLookup.data.sourceLinkId }
     ]} /><Alert type="info" showIcon title="已按当前权限重新核对" description="该定位来自本次回答保存的来源版本，仅用于技术参考。" /></div>}
   </Drawer></>;
-}
-
-function PublicResult({ result, mode }: { result: any; mode: "analyze" | "search" }) {
-  const candidates = Array.isArray(result?.candidates) ? result.candidates : Array.isArray(result?.results) ? result.results : [];
-  const summary = result?.answer ?? result?.summary ?? result?.analysis ?? result?.message;
-  const traceId = result?.traceId ?? result?.requestId;
-  return <section className="public-result" aria-live="polite"><div className="result-overview"><div><span className="result-kicker">本次输出</span><Typography.Title level={3}>{mode === "search" ? "公开候选" : "静态候选分析"}</Typography.Title></div><Tag color="processing">PUBLIC_PILOT</Tag></div>
-    <Descriptions className="public-result-meta" size="small" column={{ xs: 1, sm: 2 }} items={[{ key: "mode", label: "能力", children: mode === "search" ? "公开专利检索" : "静态候选分析" }, { key: "trace", label: "追踪号", children: traceId || "未提供" }]} />
-    {summary && <Typography.Paragraph className="public-summary">{typeof summary === "string" ? summary : JSON.stringify(summary)}</Typography.Paragraph>}
-    {candidates.length > 0 ? <div className="candidate-grid public-candidate-grid">{candidates.map((item: any, index: number) => <article className="candidate-card" key={item.sourceId ?? item.id ?? index}><div className="candidate-evidence-head"><div><Typography.Title level={4}>{item.title ?? item.publicationNumber ?? item.sourceId ?? `候选 ${index + 1}`}</Typography.Title><Typography.Text type="secondary">{item.publicationNumber ?? item.sourceId ?? "来源编号未提供"}</Typography.Text></div><Tag>{item.country ?? item.dataMode ?? "公开来源"}</Tag></div><Typography.Paragraph>{item.abstract ?? item.matchBasis ?? item.matchingExcerpt ?? "摘要或匹配片段未提供"}</Typography.Paragraph></article>)}</div> : <Empty className="public-empty" image={Empty.PRESENTED_IMAGE_SIMPLE} description="本次请求未返回可展示的候选" />}
-    <Collapse className="raw-response" ghost items={[{ key: "raw", label: "查看原始响应", children: <pre className="json-view compact">{JSON.stringify(result, null, 2)}</pre> }]} />
-  </section>;
-}
-
-function PublicAssistant() {
-  const [mode, setMode] = useState<"analyze" | "search">("search");
-  const [result, setResult] = useState<any>();
-  const [lastQuestion, setLastQuestion] = useState("");
-  const status = useQuery({ queryKey: ["patent-assistant-status"], queryFn: () => apiRequest<any>("/api/pilot/patent-assistant/status") });
-  const run = useMutation({ mutationFn: (question: string) => apiRequest<any>(`/api/pilot/patent-assistant/${mode}`, { method: "POST", body: JSON.stringify(mode === "search" ? { question, page: 1, pageSize: 5, country: "CN" } : { question }) }), onSuccess: setResult });
-  const execute = ({ question }: { question: string }) => { run.reset(); setLastQuestion(question); run.mutate(question); };
-  return <div className="public-assistant">
-    <div className="public-assistant-grid"><section className="public-query-panel"><div className="panel-kicker"><Search size={15} /><span>试验任务</span></div><Typography.Title level={4}>选择公开能力</Typography.Title><Form layout="vertical" validateTrigger={["onBlur", "onSubmit"]} initialValues={{ question: "知识产权领域的人工智能专利" }} onFinish={execute}><Form.Item label="能力模式"><Select value={mode} onChange={setMode} options={[{ value: "search", label: "公开专利检索" }, { value: "analyze", label: "静态候选分析" }]} /></Form.Item><Form.Item name="question" label="问题" rules={[{ required: true, message: "请填写公开检索问题" }]}><Input.TextArea rows={5} /></Form.Item><Button className="consultation-submit" type="primary" htmlType="submit" icon={<Search size={16} />} loading={run.isPending} disabled={run.isPending}>{run.isPending ? "正在执行" : "执行"}</Button></Form></section>
-      <section className="public-output-panel" aria-busy={run.isPending}><RequestError error={status.error || run.error} retry={() => lastQuestion ? run.mutate(lastQuestion) : run.reset()} />{run.isPending ? <ProcessingState label="正在获取公开试验结果" detail="正在获取候选与追踪信息，请保留当前页面。" /> : result ? <PublicResult result={result} mode={mode} /> : <ConsultationEmpty title="等待本次试验" description="执行后，将在这里查看公开候选、来源标识与本次处理追踪信息。" />}</section>
-    </div>
-  </div>;
 }
 
 export default function ConsultationPage() {

@@ -24,7 +24,6 @@ const stages: JourneyStage[] = [
     icon: Radar,
     links: [
       { to: "/enforcement/discovery", label: "进入线索发现", detail: "查看待核实线索与发现任务" },
-      { to: "/enforcement/sources", label: "管理数据源", detail: "配置本地数据接入与同步" },
       { to: "/enforcement/rules", label: "维护线索规则", detail: "查看规则草稿、试运行与发布" }
     ]
   },

@@ -8,7 +8,7 @@ const planPath = path.join(rootDir, "docs", "08-总开发实现计划.md");
 const outputPath = path.join(rootDir, "docs", "project-progress.html");
 const dataPath = path.join(rootDir, "docs", "project-plan.json");
 const markdown = fs.readFileSync(planPath, "utf8");
-const currentTaskMatch = markdown.match(/^当前唯一主任务：\s*`([^`\s]+)[^`]*`/m);
+const currentTaskMatch = markdown.match(/^当前(?:唯一主|优先)任务：\s*`([^`\s]+)[^`]*`/m);
 if (!currentTaskMatch) throw new Error("Missing current primary task in master plan");
 const currentTaskId = currentTaskMatch[1];
 

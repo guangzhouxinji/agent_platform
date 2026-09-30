@@ -7,6 +7,8 @@ public enum TaskCommandType {
     CONFIRM,
     CORRECT,
     SELECT,
+    HUMAN_HANDOFF,
+    HUMAN_RETURN,
     CANCEL,
     RESUME
 }

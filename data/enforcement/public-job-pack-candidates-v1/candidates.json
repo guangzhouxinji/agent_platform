@@ -1,0 +1,1378 @@
+{
+  "schemaVersion": "enforcement-public-job-candidates-v2",
+  "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+  "catalogSha256": "9f5fd4ad0e6fd9a230d92b3d3b4f55d7762ba5db6f05d8c8eb114aaf955f4de5",
+  "candidateCount": 12,
+  "statusCounts": {
+    "COLLECTION_ALLOWED": 12,
+    "PUBLIC_DATA_READY": 12,
+    "WAITING_REAL_BUSINESS_FACTS": 12,
+    "READY": 0
+  },
+  "candidates": [
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "NORMAL_COLLECTION",
+      "sourceType": "OFFICIAL_CASE_COLLECTION",
+      "evidenceCompleteness": "PARTIAL_REFERENCED_ATTACHMENT_NOT_CAPTURED",
+      "mappedRequirements": [
+        "ENF-01",
+        "ENF-03",
+        "ENF-04",
+        "ENF-05",
+        "ENF-07"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+        "title": "国家知识产权局发布2023年度知识产权行政保护典型案例",
+        "publishedAt": "2024-04-26 15:04",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-2023-admin-protection-typical-cases.html",
+        "rawSha256": "ed3bc26d813c88a91e6aa514b87f6ea82981c77df0ad1e63157b720321b89ef3",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "bf235ca2c54ca277e72ea5498deab91e1548fe6c3407d395601108f3c2c97319",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局发布2023年度知识产权行政保护典型案例",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "NOT_PRESENT_OR_NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_THIRD_BATCH_GUIDANCE_CASES_NOTICE",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "MULTI_CASE_BOUNDARY",
+      "sourceType": "OFFICIAL_GUIDANCE_NOTICE",
+      "evidenceCompleteness": "PARTIAL_NOTICE",
+      "mappedRequirements": [
+        "ENF-01",
+        "ENF-03",
+        "ENF-04",
+        "ENF-05",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_THIRD_BATCH_GUIDANCE_CASES_NOTICE",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2023/12/28/art_2432_191156.html",
+        "title": "国家知识产权局关于发布第三批知识产权行政保护指导案例的通知",
+        "publishedAt": "2023-12-28 16:29",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-third-batch-guidance-cases-notice.html",
+        "rawSha256": "626d5f8991174571ed67f36b27b3c3d569ae5ae59773dc7e00e7e27432d980cf",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "133f8e6809155650f1dc30a7b93e85d1bac7fb987cb004beb18479640ad36a42",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局关于发布第三批知识产权行政保护指导案例的通知",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "NOT_PRESENT_OR_NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_GUIDANCE_CASE_1_INTERPRETATION",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "DETAILED_GUIDANCE",
+      "sourceType": "OFFICIAL_GUIDANCE_EXPLANATION",
+      "evidenceCompleteness": "PUBLIC_PAGE_COMPLETE_FOR_MAPPING",
+      "mappedRequirements": [
+        "ENF-05",
+        "ENF-06",
+        "ENF-07",
+        "ENF-10",
+        "ENF-11",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_GUIDANCE_CASE_1_INTERPRETATION",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html",
+        "title": "指导案例1号“上海市崇明区市场监管局查处上海章元信息技术有限公司侵犯邓白氏注册商标专用权案”的理解与适用",
+        "publishedAt": "2021-04-01 16:33",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-guidance-case-1-interpretation.html",
+        "rawSha256": "fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "210edbe3af2cc2290b82e963c62e971509d32ca3d42406b96ef70b79f5cd80bc",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "指导案例1号“上海市崇明区市场监管局查处上海章元信息技术有限公司侵犯邓白氏注册商标专用权案”的理解与适用",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_2025_DRUG_ADJUDICATION_0077",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "NORMAL_DECISION",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "evidenceCompleteness": "PUBLIC_PAGE_COMPLETE_FOR_MAPPING",
+      "mappedRequirements": [
+        "ENF-05",
+        "ENF-07",
+        "ENF-10",
+        "ENF-11",
+        "ENF-12",
+        "ENF-13",
+        "ENF-14",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_2025_DRUG_ADJUDICATION_0077",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208054.html",
+        "title": "（2025）国知药裁0077号",
+        "publishedAt": "2026-09-08 14:42",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-2025-drug-adjudication-0077.html",
+        "rawSha256": "0835914753ec10cfc256ad45ff1eefe6221efa484f0c773eb29f6ad969ba204d",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "cf0592b846cdd35afbed282ec427df02dd122bcc0e442cd54978e83b49d4f019",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "（2025）国知药裁0077号",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "NOT_PRESENT_OR_NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_2026_DRUG_ADJUDICATION_0062",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "INCOMPLETE_EVIDENCE_CHALLENGE",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "evidenceCompleteness": "PUBLIC_RESULT_WITH_INTERNAL_FACT_GAPS",
+      "mappedRequirements": [
+        "ENF-04",
+        "ENF-05",
+        "ENF-07",
+        "ENF-10",
+        "ENF-11",
+        "ENF-15",
+        "ENF-16",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_2026_DRUG_ADJUDICATION_0062",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207823.html",
+        "title": "（2026）国知药裁0062号",
+        "publishedAt": "2026-08-20 14:39",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-2026-drug-adjudication-0062.html",
+        "rawSha256": "36f6eb85cbfec82b1bb52525ae49bae22ae1e3d6373beb4e9bc4ad4dd26c8529",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "c4353c2116739f3954fa2d949790b0228ffb3a8814d5f0fc8bb580d3f9bf6a06",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "（2026）国知药裁0062号",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "NOT_PRESENT_OR_NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_PARTY_ADDITION_DEADLINE_REPLY",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "PROCEDURE_DEADLINE_BOUNDARY",
+      "sourceType": "OFFICIAL_PROCEDURE_REPLY",
+      "evidenceCompleteness": "PUBLIC_PAGE_COMPLETE_FOR_MAPPING",
+      "mappedRequirements": [
+        "ENF-08",
+        "ENF-09",
+        "ENF-12",
+        "ENF-13",
+        "ENF-14",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_PARTY_ADDITION_DEADLINE_REPLY",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2026/8/18/art_2432_207774.html",
+        "title": "国家知识产权局关于专利侵权纠纷行政裁决案件追加当事人后重新计算办案期限的批复",
+        "publishedAt": "2026-08-18 09:30",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-party-addition-deadline-reply.html",
+        "rawSha256": "5842dbdf1c297aca04e6226febccadc01746734f46c3a4c3329426a96464be3d",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "df2ccb4f7f1810676201003f1e2735368c30742b4ddfcba919f441a8410993d7",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局关于专利侵权纠纷行政裁决案件追加当事人后重新计算办案期限的批复",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_MAJOR_PATENT_DISPUTE_ADJUDICATION_MEASURES",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "PROCEDURE_RULE_REFERENCE",
+      "sourceType": "OFFICIAL_RULE_REFERENCE",
+      "evidenceCompleteness": "PUBLIC_PAGE_COMPLETE_FOR_MAPPING",
+      "mappedRequirements": [
+        "ENF-08",
+        "ENF-09",
+        "ENF-10",
+        "ENF-11",
+        "ENF-12",
+        "ENF-13",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_MAJOR_PATENT_DISPUTE_ADJUDICATION_MEASURES",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2021/5/28/art_2432_170433.html",
+        "title": "国家知识产权局关于《重大专利侵权纠纷行政裁决办法》的公告（第426号）",
+        "publishedAt": "2021-05-28 17:10",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-major-patent-dispute-adjudication-measures.html",
+        "rawSha256": "7e7c47accb2cdac4e8322d251606d559f68bf7f6a7f59ee319e4773dc7e76f2e",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "d6bfdfb3b07e053ed63bf2380708ff736577a104e353a7c863332ad35cbb86fd",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局关于《重大专利侵权纠纷行政裁决办法》的公告（第426号）",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_2025_DRUG_ADJUDICATION_0076",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "NORMAL_DECISION_VARIANT",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "evidenceCompleteness": "PUBLIC_RESULT_WITH_INTERNAL_FACT_GAPS",
+      "mappedRequirements": [
+        "ENF-05",
+        "ENF-07",
+        "ENF-10",
+        "ENF-11",
+        "ENF-12",
+        "ENF-14",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_2025_DRUG_ADJUDICATION_0076",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208053.html",
+        "title": "（2025）国知药裁0076号",
+        "publishedAt": "2026-09-08 14:41",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-2025-drug-adjudication-0076.html",
+        "rawSha256": "d432e5e23c51b058f49587433cf9af443f5c2a14643e5339c079a7cb566a32a1",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "88f12185f527cc06d0d949bae7e77d19e0bfef2d4d1c818831df9274fdff95c4",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "（2025）国知药裁0076号",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "NOT_PRESENT_OR_NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_2025_DRUG_ADJUDICATION_0075",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "NORMAL_DECISION_VARIANT",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "evidenceCompleteness": "PUBLIC_RESULT_WITH_INTERNAL_FACT_GAPS",
+      "mappedRequirements": [
+        "ENF-05",
+        "ENF-07",
+        "ENF-10",
+        "ENF-11",
+        "ENF-13",
+        "ENF-15",
+        "ENF-16",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_2025_DRUG_ADJUDICATION_0075",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208052.html",
+        "title": "（2025）国知药裁0075号",
+        "publishedAt": "2026-09-08 14:40",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-2025-drug-adjudication-0075.html",
+        "rawSha256": "150b9096922573f51f6f26f5f6081d9dceadd7c087f5d4c66da28eb41a2fe7b6",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "32ee4c955e2444b0d79ee79b65457f34e3a2c6f0c9b0a83cb00258fcf3b03f88",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "（2025）国知药裁0075号",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "NOT_PRESENT_OR_NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_2025_DRUG_ADJUDICATION_0074",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "INCOMPLETE_EVIDENCE_VARIANT",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "evidenceCompleteness": "PUBLIC_RESULT_WITH_INTERNAL_FACT_GAPS",
+      "mappedRequirements": [
+        "ENF-04",
+        "ENF-05",
+        "ENF-06",
+        "ENF-07",
+        "ENF-10",
+        "ENF-11",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_2025_DRUG_ADJUDICATION_0074",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208051.html",
+        "title": "（2025）国知药裁0074号",
+        "publishedAt": "2026-09-08 14:39",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-2025-drug-adjudication-0074.html",
+        "rawSha256": "1fdbed104a03d279a6238e51e94c81b22f40eb83ff83e16984ad9215584cf753",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "07d6478775efbf62f57ba660f67b367548e413af72627283bc5d62b74291ae19",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "（2025）国知药裁0074号",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "NOT_PRESENT_OR_NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_2026_DRUG_ADJUDICATION_0061",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "BOUNDARY_DECISION_VARIANT",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "evidenceCompleteness": "PUBLIC_RESULT_WITH_INTERNAL_FACT_GAPS",
+      "mappedRequirements": [
+        "ENF-05",
+        "ENF-07",
+        "ENF-08",
+        "ENF-09",
+        "ENF-10",
+        "ENF-11",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_2026_DRUG_ADJUDICATION_0061",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207822.html",
+        "title": "（2026）国知药裁0061号",
+        "publishedAt": "2026-08-20 14:37",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-2026-drug-adjudication-0061.html",
+        "rawSha256": "66784fa698ad995d505497aa48f2ca8d500567fe43b0811856ab0cec1be3feef",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "259ddeae691c41eb03c47c195e13146e9a933d85a605a24617ea4414b88d7ece",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "（2026）国知药裁0061号",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "NOT_PRESENT_OR_NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    },
+    {
+      "candidateId": "ENF-PUBLIC-CNIPA_ADJUDICATION_PUBLICATION_REPLY",
+      "version": 2,
+      "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "state": "WAITING_REAL_BUSINESS_FACTS",
+      "publicDataState": "PUBLIC_DATA_READY",
+      "scenarioClass": "PUBLICATION_PROCEDURE_BOUNDARY",
+      "sourceType": "OFFICIAL_PROCEDURE_REPLY",
+      "evidenceCompleteness": "PUBLIC_PAGE_COMPLETE_FOR_MAPPING",
+      "mappedRequirements": [
+        "ENF-08",
+        "ENF-09",
+        "ENF-12",
+        "ENF-13",
+        "ENF-14",
+        "ENF-17"
+      ],
+      "publicSourceFacts": {
+        "sourceId": "CNIPA_ADJUDICATION_PUBLICATION_REPLY",
+        "sourceName": "国家知识产权局",
+        "originalUrl": "https://www.cnipa.gov.cn/art/2026/8/4/art_2432_207541.html",
+        "title": "国家知识产权局关于专利行政裁决案件信息可否停止公示有关问题的批复",
+        "publishedAt": "2026-08-04 14:50",
+        "capturedAt": "2026-09-29T06:52:02.012Z",
+        "rawFile": "raw/cnipa-adjudication-publication-reply.html",
+        "rawSha256": "baf4ec6ca977454ffa75393920cbf833c5be8eed894cc1d28a5ec9dc3fef2345",
+        "contentLocator": "meta[name=ContentStart]..meta[name=ContentEnd]",
+        "plainTextSha256": "98e91694bfdaca5dd8ef0be159e7b4560c55daa257f38ffa47cfd7e87f7408cb",
+        "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+        "verificationStatus": "PUBLIC_SOURCE_FACT_VERIFIED"
+      },
+      "collection": {
+        "decision": "COLLECTION_ALLOWED",
+        "allowed": true,
+        "policy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1",
+        "method": "HTTPS_GET_OFFICIAL_SAME_ORIGIN_ALLOWLIST",
+        "basis": {
+          "publicAccess": true,
+          "traceableOfficialUrl": true,
+          "successfulHttpResponse": true,
+          "rawContentSaved": true,
+          "sha256Verified": true,
+          "prohibitedConditionDetected": false
+        }
+      },
+      "rights": {
+        "copyrightLicense": "NOT_ASSERTED",
+        "commercialLicense": "NOT_ASSERTED",
+        "legalRights": "NOT_ASSERTED",
+        "collectionAllowedDoesNotImplyLegalRights": true
+      },
+      "publicBusinessFacts": {
+        "realPublicTask": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局关于专利行政裁决案件信息可否停止公示有关问题的批复",
+          "locator": "meta[name=ArticleTitle]"
+        },
+        "publicOrganization": {
+          "status": "VERIFIED",
+          "value": "国家知识产权局",
+          "locator": "meta[name=SiteName]"
+        },
+        "publicIdentityOrRole": {
+          "status": "NOT_EXTRACTED",
+          "value": null,
+          "locator": null
+        },
+        "publicHandlingResult": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        },
+        "publicEvaluationOrOpinion": {
+          "status": "LOCATABLE_IN_ORIGINAL",
+          "value": null,
+          "locator": "meta[name=ContentStart]..meta[name=ContentEnd]"
+        }
+      },
+      "businessRealityFacts": {
+        "currentOperator": {
+          "status": "MISSING",
+          "value": null
+        },
+        "currentRoleAuthorization": {
+          "status": "MISSING",
+          "value": null
+        },
+        "actualHumanApproval": {
+          "status": "MISSING",
+          "value": null
+        },
+        "formalHumanReceipt": {
+          "status": "MISSING",
+          "value": null
+        },
+        "businessEvaluation": {
+          "status": "MISSING",
+          "value": null
+        }
+      },
+      "workflow": {
+        "taskPackPublicInputAllowed": true,
+        "readyAllowed": false,
+        "integrationTriggerAllowed": false
+      },
+      "gaps": [
+        "CURRENT_OPERATOR",
+        "CURRENT_ROLE_AUTHORIZATION",
+        "ACTUAL_HUMAN_APPROVAL",
+        "FORMAL_HUMAN_RECEIPT",
+        "BUSINESS_EVALUATION"
+      ]
+    }
+  ]
+}

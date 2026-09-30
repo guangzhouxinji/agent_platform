@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "enf-material-dev-manifest-v1",
+  "batchId": "ENF-MATERIAL-DEV-PRODUCT-CONTRACT-V1",
+  "origin": "PROJECT_AUTHORED_FICTIONAL",
+  "rightsBasis": "docs/02 section 40, project-owner development input authorization, 2026-09-27",
+  "scope": "ENF-01..05 development contract verification only; not a real case, source, evidence finding or legal conclusion",
+  "withdrawal": "Project owner may revoke this batch; current-use checks must fail closed and old snapshots must not re-enable it",
+  "expiresAt": null,
+  "observations": {
+    "file": "observations.json",
+    "sha256": "d3d586b11edbfc72a0c8ff8b51608e55f996d9b90b11fd08d8d886721433f2f3",
+    "allowedUses": ["QUERY", "SAVE", "INDEX", "DISPLAY"],
+    "deniedUses": ["DOWNLOAD", "MODEL", "SHARE", "OFFICIAL_DECISION"],
+    "records": [
+      {
+        "recordId": "OBS-001",
+        "version": "1",
+        "sha256": "faf498ece6d977810765a5a5f709f97bc449c7ed40ab4a0ecb6edaaa42ec2c9e",
+        "actorUtf8Spans": [[69, 81], [84, 96]],
+        "materialMentionUtf8Span": [108, 118]
+      },
+      {
+        "recordId": "OBS-001",
+        "version": "2",
+        "sha256": "4400873240c9fe5c67b706ab5fdc9efec2da54044d06e9e81a5f56c523e53d44",
+        "actorUtf8Spans": [[51, 63], [66, 78]],
+        "materialMentionUtf8Span": [93, 103]
+      }
+    ]
+  },
+  "material": {
+    "file": "original-M-01.txt",
+    "sha256": "1b3042f1ecb965b302c992a7ed5bf2e00b4157259dbf56c77dd061dec2e77deb",
+    "byteLength": 317,
+    "relatedObservation": "OBS-001@2",
+    "allowedUses": ["SAVE", "PREVIEW", "DOWNLOAD"],
+    "deniedUses": ["MODEL", "SHARE", "OFFICIAL_EVIDENCE", "OFFICIAL_DECISION"]
+  },
+  "collectionInput": {
+    "file": "collection-input.json",
+    "sha256": "117b9a261c2aa5fe9631737da92ab5a9772e3f1cb724e7e53777d0f4eab49c77",
+    "status": "INPUT_ONLY_NOT_VERIFIED"
+  },
+  "authorizationIntent": {
+    "file": "grant-intent.json",
+    "sha256": "b1c9241aa4808ff5366037732ccd658adef85737e2b21ec72898733baf22e24e",
+    "status": "NON_EXECUTABLE_REGISTRATION_INTENT"
+  }
+}

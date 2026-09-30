@@ -1,0 +1,16 @@
+.enf5-workspace { max-width: 1440px; margin: 0 auto; padding: 24px; color: #24313a; }
+.enf5-header, .enf5-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.enf5-header { border-bottom: 1px solid #d7e0e3; margin-bottom: 20px; }
+.enf5-header h2 { margin-bottom: 4px !important; }
+.enf5-header span { color: #64737b; }
+.enf5-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+.enf5-grid > section { min-width: 0; }
+.enf5-grid .ant-form-item { min-width: 0; }
+.enf5-lookup, .enf5-detail, .enf5-command { margin-top: 20px; }
+.enf5-detail .ant-descriptions-item-content { overflow-wrap: anywhere; }
+.enf5-command { margin-bottom: 16px; }
+.enf5-grid .ant-list-item { display: flex; gap: 8px; cursor: pointer; }
+.enf5-grid .ant-list-item span:last-child { margin-left: auto; }
+.enf5-empty { padding: 64px 16px; text-align: center; color: #697982; }
+.enf5-workspace > .ant-alert { margin-top: 16px; }
+@media (max-width: 800px) { .enf5-workspace { padding: 16px; } .enf5-grid { grid-template-columns: 1fr; gap: 28px; } }

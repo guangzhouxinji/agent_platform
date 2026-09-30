@@ -1,0 +1,25 @@
+{
+  "manifestId": "DEV-CON-INPUT-01",
+  "manifestVersion": 1,
+  "status": "SYNTHETIC_DEV_ONLY",
+  "approvalRef": "docs/02-待确认事项清单.md#30-2026-09-24-开发期任务记录保留与恢复期限",
+  "organizationRef": "dev-con-isolated",
+  "allowedPrincipalRefs": ["dev-con-a", "dev-con-b"],
+  "validFrom": "2026-09-24T00:00:00+08:00",
+  "validUntil": "2027-03-24T00:00:00+08:00",
+  "withdrawalRef": null,
+  "entries": [
+    {
+      "kind": "GOAL",
+      "text": "查找并比较用于温度调节的传感器、控制器和阀门方案",
+      "sha256": "5bff4b82c8f58ed4fd05da0ede2353549cf3ce2cc96c366b8bbc58dfb8fa6d28",
+      "uses": ["SAVE"]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "text": "补充：该方案使用温度传感器、自动控制器和阀门。",
+      "sha256": "f715fa600f5ba46d4e7b15dfc42d29d58d55366271d0196444ec98fb59def7af",
+      "uses": ["SAVE"]
+    }
+  ]
+}

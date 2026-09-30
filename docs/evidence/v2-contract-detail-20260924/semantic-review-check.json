@@ -1,0 +1,136 @@
+{
+  "date": "2026-09-24",
+  "purpose": "Immutable version binding and structural checks only; not semantic or business acceptance proof",
+  "planVersion": "V9.23",
+  "currentTaskId": "REQ-CON-R-EXPAND-15",
+  "contracts": [
+    {
+      "requirementId": "CON-02",
+      "path": "governance/contracts/CON-02.json",
+      "sha256": "78356051f9680bbe622a828e1300d65e695a194b412afc295925f246910a2cd1",
+      "status": "ready",
+      "clauses": 44,
+      "scenarios": 21,
+      "sources": [
+        {
+          "path": "requirements/知识产权咨询助手/专利库管理需求文档.md",
+          "sha256": "5e295da3d1f11bf71f8a72ebd3369598f92f5584717db4503300422ed91c0770"
+        },
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+          "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee"
+        }
+      ]
+    },
+    {
+      "requirementId": "CON-04",
+      "path": "governance/contracts/CON-04.json",
+      "sha256": "beed21842f6b1cd71be462fa0b88b3b20e3fbdfc0de15d76423685244296dd4d",
+      "status": "ready",
+      "clauses": 43,
+      "scenarios": 21,
+      "sources": [
+        {
+          "path": "requirements/知识产权咨询助手/专利相似度检索需求文档.md",
+          "sha256": "b2136efb65b7ff2f81621b3a1fe98dad6835c8a2652ee62a00c1520dae8b5fe4"
+        },
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+          "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee"
+        }
+      ]
+    },
+    {
+      "requirementId": "CON-06",
+      "path": "governance/contracts/CON-06.json",
+      "sha256": "3ccf24f94e3c3df9b81d69381d4b2404b843e2a0ac5314d54fe9496c36ffc6cf",
+      "status": "ready",
+      "clauses": 36,
+      "scenarios": 19,
+      "sources": [
+        {
+          "path": "requirements/知识产权咨询助手/专利相似度判断需求文档.md",
+          "sha256": "70d50051b6022b05e44c4f2536c7c9bb296a3f27b35c248b383dbc3d717b654a"
+        },
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+          "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee"
+        }
+      ]
+    },
+    {
+      "requirementId": "CON-09",
+      "path": "governance/contracts/CON-09.json",
+      "sha256": "68921f9272177a5a20c00d4ca483a762730c10d8ccefdf44490237c0d3fe9b4f",
+      "status": "ready",
+      "clauses": 36,
+      "scenarios": 20,
+      "sources": [
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询智能体管理需求文档.md",
+          "sha256": "0fa680e63b12b5199c7a023dadf3692f4e550602960b20070c4e7a308b5720bf"
+        },
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+          "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee"
+        }
+      ]
+    },
+    {
+      "requirementId": "CON-10",
+      "path": "governance/contracts/CON-10.json",
+      "sha256": "0c5e17248439907a194229fb296d26e89e2553fa4badf2cac275eec2e4a99229",
+      "status": "ready",
+      "clauses": 33,
+      "scenarios": 17,
+      "sources": [
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询提示词管理需求文档.md",
+          "sha256": "aaf278a2b3c8dd263541431baf951369354bfd8234e5fe91d3786499a70353e5"
+        },
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+          "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee"
+        }
+      ]
+    },
+    {
+      "requirementId": "CON-11",
+      "path": "governance/contracts/CON-11.json",
+      "sha256": "b7333c3eee18774d7a58b93d22529c942585199ab49a54fd05033660ee2d4e2a",
+      "status": "ready",
+      "clauses": 42,
+      "scenarios": 16,
+      "sources": [
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询意图管理需求文档.md",
+          "sha256": "cf5de743f119e0b256dc16c93fe0b1411f0e37bdf075d8f49b664dac1a4daa41"
+        },
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+          "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee"
+        }
+      ]
+    },
+    {
+      "requirementId": "CON-12",
+      "path": "governance/contracts/CON-12.json",
+      "sha256": "4b8dbc7fa19edc8da79639886f49203bc3518caa8319bb095a01f171d75ebb17",
+      "status": "ready",
+      "clauses": 56,
+      "scenarios": 23,
+      "sources": [
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询对话流管理需求文档.md",
+          "sha256": "fc252383a9a4af34b49e722dd6e2e8a768ad93db2be97bf377d261c6bc3e809d"
+        },
+        {
+          "path": "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md",
+          "sha256": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee"
+        }
+      ]
+    }
+  ],
+  "protectedExistingFilesChecked": 714,
+  "errors": []
+}

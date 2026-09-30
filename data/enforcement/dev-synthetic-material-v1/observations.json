@@ -1,0 +1,34 @@
+[
+  {
+    "observationId": "DEV-ENF-OBS-001",
+    "observationVersion": "V1",
+    "text": "虚构投诉方甲提交测试陈述；虚构展示方乙展示蓝色纸盒；提及照片M1但未提供文件。",
+    "subjectMentions": [
+      { "label": "虚构投诉方甲", "roleAsStated": "投诉方", "locator": "text:虚构投诉方甲", "creditCode": null },
+      { "label": "虚构展示方乙", "roleAsStated": "展示方", "locator": "text:虚构展示方乙", "creditCode": null }
+    ],
+    "factMentions": [
+      { "text": "展示蓝色纸盒", "locator": "text:展示蓝色纸盒" }
+    ],
+    "materialMentions": [
+      { "label": "照片M1", "locator": "text:照片M1", "availability": "MENTION_ONLY_NO_BYTES" }
+    ],
+    "missingItems": ["MATERIAL_BYTES", "COLLECTION_DETAILS", "CURRENT_CASE_AUTHORITY"]
+  },
+  {
+    "observationId": "DEV-ENF-OBS-001",
+    "observationVersion": "V2",
+    "text": "虚构投诉方甲补充测试陈述；虚构展示方乙展示绿色纸盒；提及照片M1但仍未提供文件。",
+    "subjectMentions": [
+      { "label": "虚构投诉方甲", "roleAsStated": "投诉方", "locator": "text:虚构投诉方甲", "creditCode": null },
+      { "label": "虚构展示方乙", "roleAsStated": "展示方", "locator": "text:虚构展示方乙", "creditCode": null }
+    ],
+    "factMentions": [
+      { "text": "展示绿色纸盒", "locator": "text:展示绿色纸盒" }
+    ],
+    "materialMentions": [
+      { "label": "照片M1", "locator": "text:照片M1", "availability": "MENTION_ONLY_NO_BYTES" }
+    ],
+    "missingItems": ["MATERIAL_BYTES", "COLLECTION_DETAILS", "CURRENT_CASE_AUTHORITY"]
+  }
+]

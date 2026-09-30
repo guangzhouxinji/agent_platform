@@ -18,11 +18,17 @@ const CaseSearchPage = lazy(() => import("../features/search/CaseSearchWorkspace
 const PatentComparisonPage = lazy(() => import("../features/comparison/ComparisonWorkspaces").then((module) => ({ default: module.PatentComparisonPage })));
 const TrademarkComparisonPage = lazy(() => import("../features/comparison/ComparisonWorkspaces").then((module) => ({ default: module.TrademarkComparisonPage })));
 const EnforcementPage = lazy(() => import("../features/workflows/BusinessWorkspaces").then((module) => ({ default: module.EnforcementPage })));
-const EnforcementSourceManagementPage = lazy(() => import("../features/workflows/EnforcementSourceManagementPage"));
 const EnforcementDiscoveryRulesPage = lazy(() => import("../features/workflows/EnforcementDiscoveryRulesPage"));
 const EnforcementClueDiscoveryPage = lazy(() => import("../features/workflows/EnforcementClueDiscoveryPage"));
 const EnforcementClueParsingPage = lazy(() => import("../features/workflows/EnforcementClueParsingPage"));
-const EnforcementEvidencePage = lazy(() => import("../features/workflows/EnforcementEvidencePage"));
+const EnforcementEvidencePage = lazy(() => import("../features/workflows/EnforcementEvidenceV2Page"));
+const EnforcementHandoffPage = lazy(() => import("../features/workflows/EnforcementHandoffV2Page"));
+const EnforcementProcedurePage = lazy(() => import("../features/workflows/EnforcementProcedureV2Page"));
+const EnforcementConductPage = lazy(() => import("../features/workflows/EnforcementConductV2Page"));
+const EnforcementJobPackPage = lazy(() => import("../features/workflows/EnforcementJobPackV2Page"));
+const EnforcementMaterialV2Page = lazy(() => import("../features/workflows/EnforcementMaterialV2Page"));
+const EnforcementDocumentTemplatePage = lazy(() => import("../features/workflows/EnforcementDocumentTemplateV2Page"));
+const EnforcementLegalReferencePage = lazy(() => import("../features/workflows/EnforcementLegalReferenceV2Page"));
 const AdjudicationPage = lazy(() => import("../features/workflows/BusinessWorkspaces").then((module) => ({ default: module.AdjudicationPage })));
 
 const loading = <div className="route-loading"><Spin size="large" /></div>;
@@ -41,11 +47,17 @@ const migratedRoutes: Record<string, React.ReactNode> = {
   "/libraries/trademarks": <Suspense fallback={loading}><TrademarkLibraryPage /></Suspense>,
   "/libraries/cases": <Suspense fallback={loading}><CaseLibraryPage /></Suspense>,
   "/enforcement": <Suspense fallback={loading}><EnforcementPage /></Suspense>,
-  "/enforcement/sources": <Suspense fallback={loading}><EnforcementSourceManagementPage /></Suspense>,
   "/enforcement/rules": <Suspense fallback={loading}><EnforcementDiscoveryRulesPage /></Suspense>,
   "/enforcement/discovery": <Suspense fallback={loading}><EnforcementClueDiscoveryPage /></Suspense>,
   "/enforcement/parsing": <Suspense fallback={loading}><EnforcementClueParsingPage /></Suspense>,
   "/enforcement/evidence": <Suspense fallback={loading}><EnforcementEvidencePage /></Suspense>,
+  "/enforcement/handoff": <Suspense fallback={loading}><EnforcementHandoffPage /></Suspense>,
+  "/enforcement/procedure": <Suspense fallback={loading}><EnforcementProcedurePage /></Suspense>,
+  "/enforcement/conduct": <Suspense fallback={loading}><EnforcementConductPage /></Suspense>,
+  "/enforcement/job-pack": <Suspense fallback={loading}><EnforcementJobPackPage /></Suspense>,
+  "/enforcement/material": <Suspense fallback={loading}><EnforcementMaterialV2Page /></Suspense>,
+  "/enforcement/document-templates": <Suspense fallback={loading}><EnforcementDocumentTemplatePage /></Suspense>,
+  "/enforcement/legal-references": <Suspense fallback={loading}><EnforcementLegalReferencePage /></Suspense>,
   "/adjudication": <Suspense fallback={loading}><AdjudicationPage /></Suspense>
 };
 

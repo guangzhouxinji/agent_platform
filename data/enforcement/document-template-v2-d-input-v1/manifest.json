@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "enf-document-template-v2-d-input-v1",
+  "inputId": "ENF-DOCUMENT-TEMPLATE-D-INPUT-01",
+  "status": "INPUT_ONLY_NOT_APPROVED_TEMPLATE",
+  "origin": "PROJECT_AUTHORED",
+  "purpose": ["D_REVIEW", "FUNCTIONAL_TEST_INPUT"],
+  "deniedUses": ["FORMAL_DOCUMENT", "OFFICIAL_NUMBER", "SIGNATURE", "ISSUANCE", "SERVICE"],
+  "artifact": {
+    "file": "project-functional-template.docx",
+    "sha256": "5656160c4173f2888ea79cece7b79786904ff55999108b5b1a0e252b7b40a2fd",
+    "contentType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "macroAllowed": false,
+    "externalRelationshipAllowed": false,
+    "font": "SimSun",
+    "rendererStatus": "TO_BE_SELECTED_AND_VERIFIED_IN_IMPLEMENTATION"
+  },
+  "template": {
+    "templateId": "PROJECT-DOCUMENT-TEMPLATE-01",
+    "name": "项目执法事项核对记录",
+    "scope": { "organization": "ORG-ENF-PROJECT", "region": "PROJECT_TEST", "procedure": "PROJECT_DOCUMENT_REVIEW" },
+    "formalTemplateApproval": "NOT_ASSERTED",
+    "placeholders": [
+      { "id": "task_ref", "type": "STRING", "required": true, "repeat": false },
+      { "id": "party_name", "type": "STRING", "required": true, "repeat": false },
+      { "id": "recorded_date", "type": "DATE", "required": true, "repeat": false },
+      { "id": "summary", "type": "LONG_TEXT", "required": true, "repeat": false },
+      { "id": "materials[].ref", "type": "STRING", "required": true, "repeat": true },
+      { "id": "materials[].note", "type": "LONG_TEXT", "required": false, "repeat": true }
+    ],
+    "sample": {
+      "task_ref": "PROJECT-TASK-DOCUMENT-01",
+      "party_name": "项目测试主体甲",
+      "recorded_date": "2026-09-29",
+      "summary": "用于核对中文长文本、表格、重复区块、页眉与版本保持行为；不描述真实案件。",
+      "materials": [
+        { "ref": "PROJECT-MATERIAL-A@1", "note": "项目原创材料定位一" },
+        { "ref": "PROJECT-MATERIAL-B@1", "note": "项目原创材料定位二" }
+      ]
+    }
+  },
+  "scenarios": [
+    { "id": "T01", "input": "Project DOCX, exact field definitions and sample values", "expected": "VALIDATED_PREVIEW_WITH_EXACT_TEMPLATE_SHA", "forbidden": ["FORMAL_TEMPLATE", "OFFICIAL_NUMBER", "SIGNATURE"] },
+    { "id": "T02", "input": "Unknown or duplicate placeholder", "expected": "PUBLISH_REJECTED_WITH_LOCATOR", "forbidden": ["PUBLISHED_REVISION", "SUCCESS_RECEIPT"] },
+    { "id": "T03", "input": "Chinese long text and two material rows", "expected": "RENDERED_WITH_HEADER_TABLE_AND_REPEAT_ROWS", "forbidden": ["TRUNCATED_COMPLETE_SUCCESS"] },
+    { "id": "T04", "input": "Macro, script, external relationship or abnormal table", "expected": "UPLOAD_OR_PUBLISH_REJECTED", "forbidden": ["EXECUTABLE_CONTENT", "ORPHAN_FILE", "PUBLISHED_REVISION"] },
+    { "id": "T05", "input": "Missing font, renderer failure or file digest drift", "expected": "EXPLICIT_RENDER_OR_INTEGRITY_FAILURE", "forbidden": ["PREVIEW_SUCCESS", "PUBLISHED_REVISION"] },
+    { "id": "T06", "input": "Published v1, new v2 draft, retry, revocation and DB plus file restore", "expected": "V1_IMMUTABLE_FAIL_CLOSED_ONE_RECEIPT", "forbidden": ["OLD_INSTANCE_CHANGED", "STALE_GRANT_SUCCESS", "HALF_RECEIPT"] }
+  ],
+  "businessAcceptancePending": ["CENTER_APPROVED_TEMPLATE", "FORMAL_FIELD_INSTRUCTIONS", "TARGET_RENDERER_AND_FONTS", "NAMED_BUSINESS_LAYOUT_REVIEW"]
+}

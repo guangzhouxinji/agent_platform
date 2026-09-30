@@ -1,0 +1,1 @@
+DROP TABLE con4_source_product_decision;

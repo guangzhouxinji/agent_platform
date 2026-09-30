@@ -10,8 +10,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
+@Profile("test-synthetic")
 @ConditionalOnProperty(name = "mock-center.service.enabled", havingValue = "true")
 public class MockCenterConfiguration {
     @Bean

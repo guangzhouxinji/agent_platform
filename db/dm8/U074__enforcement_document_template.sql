@@ -1,0 +1,5 @@
+DROP TABLE enf9_document_template_event;
+DROP TABLE enf9_document_template_receipt;
+DROP TABLE enf9_document_template_receipt_lock;
+DROP TABLE enf9_document_template_preview;
+DROP TABLE enf9_document_template_revision;

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "cnipa-rules-documents-source-catalog-v1",
+  "catalogId": "CNIPA-RULES-DOCUMENTS-DEVELOPMENT-V1",
+  "catalogVersion": "2026-09-24.1",
+  "provider": "国家知识产权局",
+  "origin": "https://www.cnipa.gov.cn",
+  "authorizationRef": "docs/02-待确认事项清单.md#29-2026-09-24-中国公开专业资料优先的开发输入",
+  "reviewStatus": "REVIEW_REQUIRED",
+  "targets": [
+    {
+      "id": "CNIPA_ORDER_81_ANNOUNCEMENT",
+      "category": "PUBLISHED_RULE_SOURCE",
+      "url": "https://www.cnipa.gov.cn/art/2024/12/30/art_74_196968.html",
+      "file": "raw/order-81-announcement.html",
+      "contentType": "text/html",
+      "marker": "专利纠纷行政裁决和调解办法"
+    },
+    {
+      "id": "CNIPA_ORDER_81_PDF",
+      "category": "PUBLISHED_RULE_SOURCE_ATTACHMENT",
+      "url": "https://www.cnipa.gov.cn/module/download/downfile.jsp?classid=0&showname=%E4%B8%93%E5%88%A9%E7%BA%A0%E7%BA%B7%E8%A1%8C%E6%94%BF%E8%A3%81%E5%86%B3%E5%92%8C%E8%B0%83%E8%A7%A3%E5%8A%9E%E6%B3%95.pdf&filename=b4a637655f7c4dffb01ecde9fef2f47d.pdf",
+      "file": "raw/order-81.pdf",
+      "contentType": "application/pdf",
+      "parentId": "CNIPA_ORDER_81_ANNOUNCEMENT"
+    },
+    {
+      "id": "CNIPA_PATENT_IMPLEMENTING_RULES_2023",
+      "category": "PUBLISHED_REGULATION_SOURCE",
+      "url": "https://www.cnipa.gov.cn/art/2023/12/21/art_98_189197.html",
+      "file": "raw/patent-implementing-rules-2023.html",
+      "contentType": "text/html",
+      "marker": "中华人民共和国专利法实施细则"
+    },
+    {
+      "id": "CNIPA_ADJUDICATION_0077_PDF",
+      "category": "HISTORICAL_DOCUMENT_STRUCTURE_SAMPLE",
+      "url": "https://www.cnipa.gov.cn/module/download/downfile.jsp?classid=0&showname=%EF%BC%882025%EF%BC%89%E5%9B%BD%E7%9F%A5%E8%8D%AF%E8%A3%810077%E5%8F%B7.pdf&filename=b3d338c5e2494f60859428a5421e9e63.pdf",
+      "file": "raw/adjudication-0077.pdf",
+      "contentType": "application/pdf",
+      "parentUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208054.html"
+    }
+  ]
+}

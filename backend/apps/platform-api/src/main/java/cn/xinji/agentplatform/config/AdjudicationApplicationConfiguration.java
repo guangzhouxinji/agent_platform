@@ -38,14 +38,6 @@ public class AdjudicationApplicationConfiguration {
     @Bean
     @ConditionalOnMissingBean(SourcePort.class)
     @Profile("!test-synthetic")
-    @ConditionalOnProperty(name = "adjudication.source", havingValue = "synthetic")
-    SyntheticAdjudicationSourceAdapter developmentAdjudicationSourcePort() {
-        return new SyntheticAdjudicationSourceAdapter();
-    }
-
-    @Bean
-    @ConditionalOnMissingBean(SourcePort.class)
-    @Profile("!test-synthetic")
     @ConditionalOnProperty(name = "adjudication.source", havingValue = "database", matchIfMissing = true)
     SourcePort databaseAdjudicationSourcePort(ObjectProvider<DataSource> dataSources, ObjectMapper mapper) {
         DataSource dataSource = dataSources.getIfAvailable();
@@ -74,12 +66,14 @@ public class AdjudicationApplicationConfiguration {
     }
 
     @Bean
+    @Profile("test-synthetic")
     @ConditionalOnProperty(name = "adjudication.source-import.enabled", havingValue = "true")
     AdjudicationLocalSourceImporter adjudicationLocalSourceImporter(DataSource dataSource, ObjectMapper mapper) {
         return new AdjudicationLocalSourceImporter(dataSource, mapper);
     }
 
     @Bean
+    @Profile("test-synthetic")
     @ConditionalOnProperty(name = "adjudication.source-import.enabled", havingValue = "true")
     ApplicationRunner adjudicationLocalSourceImportRunner(AdjudicationLocalSourceImporter importer) {
         return args -> importer.importSyntheticBaseline();

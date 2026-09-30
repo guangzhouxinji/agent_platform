@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "enf-penalty-v2-d-input-v1",
+  "inputId": "ENF-PENALTY-D-INPUT-01",
+  "status": "INPUT_ONLY_NOT_PUBLISHED",
+  "origin": "PROJECT_AUTHORED_FICTIONAL",
+  "purpose": ["D_REVIEW", "FUNCTIONAL_TEST_INPUT"],
+  "deniedUses": ["LEGAL_PENALTY_STANDARD", "PRODUCTION_CASE", "FORMAL_PENALTY_DECISION", "OFFICIAL_STATUS_WRITE"],
+  "ruleCandidate": {
+    "ruleId": "PROJECT-PENALTY-MECHANICS-01",
+    "behaviorType": "PROJECT_DOCUMENT_REVIEW_GAP",
+    "procedureApplicability": "PROJECT_TEST_ONLY",
+    "legalBasis": { "ref": "PROJECT-LEGAL-REFERENCE-PENDING", "revision": 1, "status": "REVIEW_REQUIRED" },
+    "statutoryRange": { "status": "PROJECT_SYMBOLIC_NOT_LEGAL", "min": "L", "max": "U" },
+    "formula": { "type": "MULTIPLY", "left": { "type": "INPUT", "name": "B", "zeroPolicy": "VALID_IF_CONFIRMED" }, "right": { "type": "FACTOR", "name": "F" } },
+    "amountSemantics": { "kind": "PROJECT_SCORE", "currency": "NONE", "unit": "POINT", "scale": 2, "rounding": "HALF_UP" },
+    "overlapPriority": null,
+    "state": "DRAFT_INPUT_NOT_PUBLISHED"
+  },
+  "upstream": {
+    "procedureRef": "PROJECT-PROCEDURE-REPORT-01@1",
+    "conductRef": "PROJECT-CONDUCT-REPORT-01@1",
+    "conductReviewState": "UNREVIEWED",
+    "confirmedFacts": [],
+    "evidenceRef": "PROJECT-EVIDENCE-ORGANIZATION-01@1"
+  },
+  "scenarios": [
+    { "id": "PEN01", "input": "Typed formula, confirmed project inputs and complete amount semantics", "expected": "REPEATABLE_TRIAL_TRACE_ONLY", "forbidden": ["LEGAL_PENALTY", "FORMAL_DECISION"] },
+    { "id": "PEN02", "input": "Missing rounding, unit, scale or legal reference review", "expected": "PUBLISH_REJECTED", "forbidden": ["ACTIVE_RULE", "SUCCESS_RECEIPT"] },
+    { "id": "PEN03", "input": "Missing B versus confirmed B=0", "expected": "WAITING_INPUT_VS_VALID_ZERO_TRACE", "forbidden": ["MISSING_AS_ZERO", "DEFAULT_AMOUNT"] },
+    { "id": "PEN04", "input": "Procedure not applicable, conduct unreviewed or evidence gaps", "expected": "NOT_APPLICABLE_OR_WAITING_INPUT_WITHOUT_AMOUNT", "forbidden": ["FINE_SUGGESTION", "CONFIRMED_SUGGESTION"] },
+    { "id": "PEN05", "input": "Overlapping rules without priority or multiple lawful project options", "expected": "PUBLISH_CONFLICT_OR_PARALLEL_OPTIONS", "forbidden": ["HEAVIER_AUTO_SELECTED", "ONE_OPTION_HIDDEN"] },
+    { "id": "PEN06", "input": "Out-of-range adjustment, revocation, retry and old restore", "expected": "ADJUSTMENT_REJECTED_HISTORY_RETAINED_FAIL_CLOSED_ONE_RECEIPT", "forbidden": ["FORMAL_DECISION_WRITE", "STALE_GRANT_SUCCESS", "HALF_RECEIPT"] }
+  ],
+  "businessAcceptancePending": ["CENTER_APPROVED_LEGAL_BASIS", "DISCRETION_FORMULA", "AMOUNT_BASIS_AND_ROUNDING", "REAL_CONFIRMED_FACTS", "REAL_REVIEW_ROLE", "PROFESSIONAL_BOUNDARY_CASES"]
+}

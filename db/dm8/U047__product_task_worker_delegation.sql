@@ -1,0 +1,3 @@
+DROP TABLE con3_worker_delegation_receipt;
+DROP TABLE con3_worker_delegation_event;
+DROP TABLE con3_worker_delegation;

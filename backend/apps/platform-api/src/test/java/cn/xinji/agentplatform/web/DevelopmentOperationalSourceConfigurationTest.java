@@ -18,12 +18,17 @@ import cn.xinji.agentplatform.adjudication.adapter.out.dm8.Dm8PublicAdjudication
 import cn.xinji.agentplatform.adjudication.application.PublicAdjudicationReferenceCatalogPort;
 import cn.xinji.agentplatform.enforcement.adapter.out.memory.InMemoryEnforcementStore;
 import cn.xinji.agentplatform.enforcement.adapter.out.dm8.Dm8EnforcementSourceAdapter;
+import cn.xinji.agentplatform.enforcement.adapter.out.dm8.EnforcementLocalSourceImporter;
+import cn.xinji.agentplatform.adjudication.adapter.out.dm8.AdjudicationLocalSourceImporter;
 import cn.xinji.agentplatform.enforcement.adapter.out.dm8.Dm8PublicEnforcementReferenceCatalogAdapter;
 import cn.xinji.agentplatform.enforcement.adapter.out.synthetic.SyntheticEnforcementSourceAdapter;
 import cn.xinji.agentplatform.enforcement.adapter.out.synthetic.V0EnforcementAuthorizationAdapter;
+import cn.xinji.agentplatform.enforcement.adapter.in.web.EnforcementSourceManagementController;
+import cn.xinji.agentplatform.config.EnforcementSourceScheduleRunner;
 import cn.xinji.agentplatform.enforcement.application.EnforcementSourcePort;
 import cn.xinji.agentplatform.enforcement.application.PublicEnforcementReferenceCatalogPort;
 import cn.xinji.agentplatform.enforcement.application.EnforcementStore;
+import cn.xinji.agentplatform.enforcement.application.EnforcementSourceManagementService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.sql.DataSource;
 import org.junit.jupiter.api.Test;
@@ -39,13 +44,24 @@ class DevelopmentOperationalSourceConfigurationTest {
                     PublicEnforcementReferenceCatalogConfiguration.class,
                     PublicAdjudicationReferenceCatalogConfiguration.class,
                     AdjudicationApplicationConfiguration.class,
-                    DevelopmentOperationalSourceController.class)
+                    DevelopmentOperationalSourceController.class,
+                    EnforcementSourceManagementController.class,
+                    EnforcementSourceScheduleRunner.class)
             .withBean(EnforcementStore.class, InMemoryEnforcementStore::new)
             .withBean(AdjudicationStore.class, InMemoryAdjudicationStore::new);
 
     @Test
-    void exposesDeterministicReadOnlyCatalogsForTheInternalWorkbench() {
+    void doesNotExposeTheDevelopmentCatalogWhenUnconfigured() {
         runner.withPropertyValues(
+                "enforcement.source=unavailable",
+                "adjudication.source=unavailable").run(context ->
+                assertThat(context).doesNotHaveBean(DevelopmentOperationalSourceController.class));
+    }
+
+    @Test
+    void exposesDeterministicReadOnlyCatalogsForTheInternalWorkbench() {
+        runner.withInitializer(context -> context.getEnvironment().setActiveProfiles("test-synthetic"))
+                .withPropertyValues(
                 "internal-workbench.development-sources-enabled=true",
                 "enforcement.source=synthetic",
                 "adjudication.source=synthetic").run(context -> {
@@ -62,6 +78,24 @@ class DevelopmentOperationalSourceConfigurationTest {
             assertThat(controller.adjudicationPublicReferences("v0-adjudication-user").items()).isEmpty();
             assertThat(controller.adjudicationPublicReferences("v0-adjudication-user").limitation()).contains("未配置");
             assertThat(controller.clues(null, new MockHttpServletRequest()).limitation()).contains("不得作为真实");
+        });
+    }
+
+    @Test
+    void explicitDevelopmentSwitchesCannotRegisterOutsideTheTestProfile() {
+        runner.withPropertyValues(
+                "internal-workbench.development-sources-enabled=true",
+                "enforcement.source=unavailable",
+                "adjudication.source=unavailable",
+                "enforcement.source-import.enabled=true",
+                "adjudication.source-import.enabled=true",
+                "enforcement.source-admin.scheduling-enabled=true").run(context -> {
+            assertThat(context).doesNotHaveBean(DevelopmentOperationalSourceController.class);
+            assertThat(context).doesNotHaveBean(EnforcementLocalSourceImporter.class);
+            assertThat(context).doesNotHaveBean(AdjudicationLocalSourceImporter.class);
+            assertThat(context).doesNotHaveBean(EnforcementSourceManagementController.class);
+            assertThat(context).doesNotHaveBean(EnforcementSourceManagementService.class);
+            assertThat(context).doesNotHaveBean(EnforcementSourceScheduleRunner.class);
         });
     }
 

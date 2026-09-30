@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "enf-material-dev-test-plan-v1",
+  "batchId": "ENF-MATERIAL-DEV-PRODUCT-CONTRACT-V1",
+  "status": "PREPARED_NOT_RUN",
+  "source": "PROJECT-DEV-OBSERVATION",
+  "grantIntent": "grant-intent.json",
+  "ruleDraft": "discovery-rule-draft.json",
+  "recoveryProtocol": "recovery-protocol.json",
+  "environment": "isolated product Issuer, independent current authority, DM8, file roots and two service instances; exact values recorded at execution",
+  "cases": [
+    { "id": "M01", "inputs": ["OBS-001@1", "OBS-001@2", "PAGE_PARTIAL_FAILURE", "SOURCE_VERSION_DRIFT"], "contract": "Partial second page leaves cursor at last contiguous success; retry preserves immutable version and distinguishes empty from failure", "forbidden": ["cursor past failure", "duplicate observation", "empty-success on source failure"], "c": "NOT_RUN", "i": "NOT_RUN", "internalEvaluation": "NOT_RUN" },
+    { "id": "M02", "inputs": ["ENF-RULE-V1-DEV-MARKING-01@1", "OBS-001@1", "OBS-001@2", "MISSING_SOURCE_TEXT", "SOURCE_UNAVAILABLE"], "contract": "DRAFT trial has zero business writes; only a separately reviewed published applicable version may form one candidate per source/version with explanation", "forbidden": ["draft-created clue", "legal or official finding", "cross-source automatic merge", "missing-as-no-match"], "c": "NOT_RUN", "i": "NOT_RUN", "internalEvaluation": "NOT_RUN" },
+    { "id": "M03", "inputs": ["OBS-001@1", "OBS-001@2", "MENTION_ONLY", "FILE_PRESENT_UNVERIFIED", "original-M-01.txt", "collection-input.json"], "contract": "Two source-located actors and empty business code survive versioning; mention and unverified file remain separate from EvidenceVersion", "forbidden": ["invented business code", "mention promoted to file", "upload promoted to verified collection", "default priority"], "c": "NOT_RUN", "i": "NOT_RUN", "internalEvaluation": "NOT_RUN" },
+    { "id": "M04", "inputs": ["grant-intent.json", "CROSS_SCOPE", "WITHDRAWN_BEFORE_RETURN", "original-M-01.txt"], "contract": "Explicit current human grant and source use required at request, commit and return; unauthorized UI clears prior restricted body", "forbidden": ["restricted body or direct file download", "business write", "old receipt as grant", "service acting as human"], "c": "NOT_RUN", "i": "NOT_RUN", "internalEvaluation": "NOT_RUN" },
+    { "id": "M05", "inputs": ["OBS-001@2", "original-M-01.txt", "LOST_RESPONSE"], "contract": "Exact key and payload reconcile one event after disconnect; concurrent same key commits once, changed payload conflicts", "forbidden": ["duplicate event", "ghost success receipt", "duplicate binding"], "c": "NOT_RUN", "i": "NOT_RUN", "internalEvaluation": "NOT_RUN" },
+    { "id": "M06", "inputs": ["original-M-01.txt", "collection-input.json", "COMMON_CHECKPOINT", "OLD_BACKUP_EPOCH", "MISSING_AUTHORITY", "ORPHAN_CLEANUP"], "contract": "DB and file restore agree at one checkpoint; independent current epochs reject old rights; staged orphan cleanup preserves referenced original", "forbidden": ["orphan EvidenceVersion", "stale authorization", "referenced file deletion", "restricted body when watermark unavailable"], "c": "NOT_RUN", "i": "NOT_RUN", "internalEvaluation": "NOT_RUN" }
+  ],
+  "executionEvidenceRequired": ["exact trusted actor, organization, grant and source epochs", "API and workbench request/response", "DB event, receipt, cursor and audit delta", "file bytes and digest delta", "isolated DM8/file/two-instance logs", "named internal reviewer and limits"],
+  "formalBusinessAcceptance": "NOT_RUN"
+}

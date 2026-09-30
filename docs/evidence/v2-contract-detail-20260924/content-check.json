@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-24",
+  "scope": "文档/契约引用结构复核；不是业务或法律语义验收",
+  "detailedRequirementRows": 41,
+  "counts": {
+    "sourceClauses": 45,
+    "decisionClauses": 9,
+    "scenarios": 15
+  },
+  "issues": [],
+  "changedBusinessOrRequirementFiles": [],
+  "currentTask": "REQ-CON-R-CORE-12"
+}

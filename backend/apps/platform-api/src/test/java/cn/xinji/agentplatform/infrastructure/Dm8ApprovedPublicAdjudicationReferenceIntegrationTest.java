@@ -97,9 +97,7 @@ class Dm8ApprovedPublicAdjudicationReferenceIntegrationTest {
         }
         http.perform(get("/api/v0/development-sources/adjudication/public-references")
                         .header("X-V0-Actor", "v0-adjudication-reviewer"))
-                .andExpect(status().isOk()).andExpect(jsonPath("$.items.length()").value(100))
-                .andExpect(jsonPath("$.items[0].approvalId").value(PublicAdjudicationReferenceImporter.APPROVAL_ID))
-                .andExpect(jsonPath("$.items[0].externalModelAllowed").value(false));
+                .andExpect(status().isNotFound());
     }
 
     @Test @Order(2)
@@ -149,7 +147,7 @@ class Dm8ApprovedPublicAdjudicationReferenceIntegrationTest {
         assertEquals("SOURCE_NOT_ALLOWED", assertThrows(IllegalStateException.class, catalog::list).getMessage());
         http.perform(get("/api/v0/development-sources/adjudication/public-references")
                         .header("X-V0-Actor", "v0-adjudication-user"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isNotFound());
         assertArrayEquals(before, businessCounts());
     }
 

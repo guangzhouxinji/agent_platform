@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "enf-material-dev-recovery-protocol-v1",
+  "batchId": "ENF-MATERIAL-DEV-PRODUCT-CONTRACT-V1",
+  "status": "NOT_RUN",
+  "environment": {
+    "businessDb": "isolated DM8 instance with disposable ENF V2 schema",
+    "authorityDb": "independent current grant, source-withdrawal and deletion watermarks; excluded from business backup",
+    "fileRoot": "isolated original and staging roots with controlled read access",
+    "backupRoot": "separate controlled root with encrypted DB and file backup at one recorded checkpoint",
+    "restoreRoot": "quarantined DB and file roots; no product traffic until reconciliation",
+    "instances": 2,
+    "observedEndpoints": null,
+    "observedBackupId": null,
+    "observedCheckpoint": null,
+    "observedAuthorityEpoch": null
+  },
+  "preflight": [
+    "Record actual DB instance IDs, file/backup/restore absolute roots and physical topology without credentials in evidence",
+    "Record independent authority endpoint, current grant/source/deletion epochs and who can advance them",
+    "Confirm backup covers the exact committed DB event, receipt and file manifest plus original bytes at one checkpoint",
+    "Verify encryption, least-privilege backup/restore credentials, integrity and restore isolation",
+    "Reject any endpoint shared with consultation or an existing non-disposable schema"
+  ],
+  "scenarios": [
+    { "id": "COMMON_CHECKPOINT", "setup": "OBS-001@2 and original-M-01.txt with a committed receipt and bound file", "action": "Back up DB and file roots at one checkpoint; restore into quarantine; compare event, receipt, manifest and SHA-256 bytes", "expected": "All references and bytes agree at the same checkpoint; mismatches keep product traffic closed", "run": "NOT_RUN" },
+    { "id": "OLD_BACKUP_EPOCH", "setup": "Take checkpoint, then revoke a material grant and advance independent source/deletion epochs", "action": "Restore old DB and file backup without restoring authority; start two product instances", "expected": "Neither instance returns restricted body/download or accepts writes; old grant/receipt cannot rewind current epochs", "run": "NOT_RUN" },
+    { "id": "MISSING_AUTHORITY", "setup": "Restore a consistent DB/file checkpoint", "action": "Disconnect independent authority or remove one of grant/source/deletion watermarks before startup and before response", "expected": "Both instances fail closed with no restricted bytes or business writes", "run": "NOT_RUN" },
+    { "id": "LOST_RESPONSE", "setup": "Authorized exact idempotency key, payload digest and resource revision", "action": "Commit DB receipt then disconnect HTTP before response; retry after restart with same key and with changed payload", "expected": "Same payload reconciles to one committed event under current grant; changed payload conflicts; no duplicate file binding", "run": "NOT_RUN" },
+    { "id": "ORPHAN_CLEANUP", "setup": "Write and checksum staged file bytes, then fail DB binding", "action": "Run cleanup, inject one cleanup failure, retry, and compare with a separately referenced original", "expected": "No EvidenceVersion for orphan; retry removes only unreferenced staging file and retains referenced original with audit", "run": "NOT_RUN" },
+    { "id": "WITHDRAWAL_INTERLEAVING", "setup": "Two instances read same material and current authority epoch", "action": "Advance grant/source withdrawal before commit and separately after commit but before body return", "expected": "First order writes nothing; second retains historical event but returns no restricted bytes; neither reuses old receipt as permission", "run": "NOT_RUN" }
+  ],
+  "evidenceRequired": ["isolated endpoint and root inventory", "backup ID, encryption and common checkpoint", "DB event/receipt and file digest before/after", "independent watermark before/after", "two-instance request and audit logs", "cleanup and negative-side-effect counts"],
+  "result": "NOT_RUN"
+}

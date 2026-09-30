@@ -33,6 +33,9 @@ replay_pid*
 ### Node.js ###
 node_modules/
 frontend/dist/
+frontend/*.tsbuildinfo
+frontend/vite.config.js
+frontend/vite.config.d.ts
 
 ### OS ###
 .DS_Store

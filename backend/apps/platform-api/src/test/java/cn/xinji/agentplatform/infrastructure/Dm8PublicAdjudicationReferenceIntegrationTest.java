@@ -105,11 +105,11 @@ class Dm8PublicAdjudicationReferenceIntegrationTest {
         var failure = assertThrows(IllegalStateException.class, () -> importer().importApprovedBatch(
                 rejected, batch("rejected", "a".repeat(64)), List.of(reference(rejected, "REF-X", "PUBLIC_LEGAL_REFERENCE"))));
         assertEquals("SOURCE_NOT_ALLOWED", failure.getMessage());
-        http.perform(get("/api/v0/development-sources/adjudication/public-references")).andExpect(status().isUnauthorized());
+        http.perform(get("/api/v0/development-sources/adjudication/public-references")).andExpect(status().isNotFound());
         http.perform(get("/api/v0/development-sources/adjudication/public-references").header("X-V0-Actor", "unknown"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isNotFound());
         http.perform(get("/api/v0/development-sources/adjudication/public-references").header("X-V0-Actor", "v0-adjudication-user"))
-                .andExpect(status().isOk()).andExpect(jsonPath("$.items.length()").value(0));
+                .andExpect(status().isNotFound());
     }
 
     @Test @Order(2)
@@ -129,9 +129,7 @@ class Dm8PublicAdjudicationReferenceIntegrationTest {
         assertArrayEquals(before, businessCounts());
         http.perform(get("/api/v0/development-sources/adjudication/public-references")
                         .header("X-V0-Actor", "v0-adjudication-reviewer"))
-                .andExpect(status().isOk()).andExpect(jsonPath("$.items.length()").value(3))
-                .andExpect(jsonPath("$.items[0].authorityMarker").value("NOT_CENTER_SOURCE"))
-                .andExpect(jsonPath("$.items[0].externalModelAllowed").value(false));
+                .andExpect(status().isNotFound());
     }
 
     @Test @Order(3)
@@ -161,7 +159,7 @@ class Dm8PublicAdjudicationReferenceIntegrationTest {
         assertEquals("SOURCE_NOT_ALLOWED", assertThrows(IllegalStateException.class, catalog::list).getMessage());
         http.perform(get("/api/v0/development-sources/adjudication/public-references")
                         .header("X-V0-Actor", "v0-adjudication-user"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isNotFound());
     }
 
     private static Reference reference(PublicAdjudicationReferenceImporter.SourceRegistration source, String id, String category) {

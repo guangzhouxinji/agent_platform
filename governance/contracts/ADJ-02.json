@@ -102,7 +102,7 @@
         "既有/2.2 导入校验"
       ],
       "acceptanceScenarioIds": [
-        "ADJ-02-AC-002"
+        "ADJ-02-DEV-AC-001"
       ]
     },
     {
@@ -210,6 +210,31 @@
       ],
       "acceptanceScenarioIds": [
         "ADJ-02-AC-008"
+      ]
+    },
+    {
+      "id": "ADJ-02-DECISION-MUST-001",
+      "type": "MUST",
+      "statement": "开发期在固定条文/来源版本及派生对象、生成配置后另比较解析业务载荷摘要；原文相同但解析改变时新增待审核修订，不能以原文摘要跳过。相同派生载荷幂等跳过，旧机器输出和人工修订保留；已提交审核、已审核或被引用版不覆写。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md 第31节（2026-09-24 已确认开发期决定，不是原需求原文）"
+      ],
+      "sourceKind": "confirmed_product_decision",
+      "decisionRef": "docs/02-待确认事项清单.md#31-2026-09-24-未审核草稿重复导入的开发期策略",
+      "acceptanceScenarioIds": [
+        "ADJ-02-AC-002"
+      ]
+    },
+    {
+      "id": "ADJ-02-SEM-MUST-001",
+      "type": "MUST",
+      "statement": "本配置/来源/模板能力参与智能体任务时，服务操作或发布成功仅是执行/资源状态，不直接认定用户业务目标完成；运行结果固定所用来源、规则/模板或审核版本，后续纠正只使依赖结果待复核，历史留存且继续原目标链。若发生人工交接，须有真实受理记录。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md#23",
+        "docs/01-总体需求与架构方案.md#5"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-02-SEM-AC-001"
       ]
     }
   ],
@@ -466,6 +491,22 @@
       ]
     },
     {
+      "id": "ADJ-02-DEV-AC-001",
+      "given": [
+        "同一条文版本和原文摘要，外部程序分别返回相同及不同的结构化解析；旧待审核草稿含人工编辑"
+      ],
+      "when": "按独立的解析业务载荷摘要预览并重导",
+      "then": [
+        "相同派生载荷跳过，内容变化追加待审核修订且旧机器输出和人工编辑可追溯",
+        "仅原文摘要相同不能跳过新解析，已提交审核/已审核/已引用版本不覆写",
+        "同一导入幂等键换载荷及预览后目标变化分别返回冲突"
+      ],
+      "sourceClauseIds": [
+        "ADJ-02-DECISION-MUST-001",
+        "ADJ-02-MUST_NOT-002"
+      ]
+    },
+    {
       "id": "ADJ-02-AC-003",
       "given": [
         "外部已审核标志"
@@ -537,6 +578,22 @@
       "sourceClauseIds": [
         "ADJ-02-MUST-011"
       ]
+    },
+    {
+      "id": "ADJ-02-SEM-AC-001",
+      "given": [
+        "本能力被领域智能体调用",
+        "产生部分结果、版本变更或用户纠正"
+      ],
+      "when": "继续原业务目标或向人员移交",
+      "then": [
+        "执行、资源、审核与领域任务完成分别判断",
+        "跨轮对象按原具体版本定位且历史不覆盖",
+        "人工未实际接收时保持待处理，不伪造受理或正式决定"
+      ],
+      "sourceClauseIds": [
+        "ADJ-02-SEM-MUST-001"
+      ]
     }
   ],
   "openQuestions": [
@@ -552,7 +609,7 @@
     {
       "id": "ADJ-02-OQ-002",
       "type": "business_semantics",
-      "question": "中心审核口径、重复导入策略和来源变化处置是什么？",
+      "question": "开发期重复导入按docs/02第31节执行；中心正式审核口径、生产导入/保留/删除及来源变化处置协议是什么？",
       "blocks": [
         "ARC-04"
       ]
@@ -607,14 +664,30 @@
   "independentReview": {
     "status": "passed",
     "reviewedBaselineId": "requirements-2026-09-14-v1",
-    "reviewMethod": "source-only second pass against the adjudication requirement, adjudication overview and complete existing consultation requirement",
+    "reviewMethod": "旧原文独立反查基础上同一Codex对主文/领域总览及V2共同约束源优先再检查，逐项结论见复核证据；ADJ-01～03并查三份既有法规需求。非第二名人员。",
     "missingClauses": [],
     "contradictions": [],
     "weakenedConstraints": [],
     "unsupportedExtensions": [],
     "notes": [
-      "The existing import/list/review scope is preserved and merged rather than duplicated.",
-      "No parser, model, review rule, role, API or legal interpretation was guessed."
+      "原文完整义务、模块内部页面/服务/DM8/交付和已有反例继续有效；旧ready不作为本次V2结论依据。",
+      "专业规则、权限、真实受理、数据许可和正式业务效果仍按openQuestions取得外部证据。"
+    ],
+    "reviewedAt": "2026-09-24",
+    "reviewEvidence": [
+      "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md"
     ]
+  },
+  "currentV2Review": {
+    "approvedScope": "原始需求及docs/02第23节共同产品约束；V2其余取舍保持提案",
+    "evidence": "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md",
+    "applicability": "仅在配置/来源能力被智能体任务调用时施加产品任务语义，不新增配置服务运行时。"
+  },
+  "v2SemanticReview": {
+    "version": "approved-scope-2026-09-24",
+    "reviewedAt": "2026-09-24",
+    "evidence": "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md",
+    "approvedSharedBehaviorSource": "docs/02-待确认事项清单.md#23",
+    "scope": "原文加已确认四项共同约束；其余V2取舍待责任方决定。仅R，不批准D、真实数据、专业验收或部署。"
   }
 }

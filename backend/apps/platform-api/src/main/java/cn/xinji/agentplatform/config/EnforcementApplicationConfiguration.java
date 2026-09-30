@@ -50,14 +50,6 @@ public class EnforcementApplicationConfiguration {
     @Bean
     @ConditionalOnMissingBean(EnforcementSourcePort.class)
     @Profile("!test-synthetic")
-    @ConditionalOnProperty(name = "enforcement.source", havingValue = "synthetic")
-    SyntheticEnforcementSourceAdapter developmentEnforcementSourcePort() {
-        return new SyntheticEnforcementSourceAdapter();
-    }
-
-    @Bean
-    @ConditionalOnMissingBean(EnforcementSourcePort.class)
-    @Profile("!test-synthetic")
     @ConditionalOnProperty(name = "enforcement.source", havingValue = "database", matchIfMissing = true)
     EnforcementSourcePort databaseEnforcementSourcePort(
             ObjectProvider<DataSource> dataSources, ObjectMapper mapper) {
@@ -84,12 +76,14 @@ public class EnforcementApplicationConfiguration {
     }
 
     @Bean
+    @Profile("test-synthetic")
     @ConditionalOnProperty(name = "enforcement.source-import.enabled", havingValue = "true")
     EnforcementLocalSourceImporter enforcementLocalSourceImporter(DataSource dataSource, ObjectMapper mapper) {
         return new EnforcementLocalSourceImporter(dataSource, mapper);
     }
 
     @Bean
+    @Profile("test-synthetic")
     @ConditionalOnProperty(name = "enforcement.source-import.enabled", havingValue = "true")
     ApplicationRunner enforcementLocalSourceImportRunner(EnforcementLocalSourceImporter importer) {
         return args -> importer.importSyntheticBaseline();
@@ -121,6 +115,7 @@ public class EnforcementApplicationConfiguration {
     }
 
     @Bean
+    @Profile("test-synthetic")
     EnforcementSourceManagementService enforcementSourceManagementService(
             ObjectProvider<DataSource> dataSources, ObjectProvider<ObjectMapper> mappers,
             ObjectProvider<Clock> clocks) {

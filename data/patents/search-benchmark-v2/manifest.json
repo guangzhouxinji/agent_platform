@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "2.0",
+  "benchmarkId": "CON-PATENT-SEARCH-FILTER-CONFIDENCE-V2",
+  "createdAt": "2026-09-30T01:00:00+08:00",
+  "judgmentType": "ENGINEERING_RELEVANCE",
+  "legalOrProfessionalGoldStandard": false,
+  "sourceDatasetId": "CON-04-PUBLIC-PILOT-V1",
+  "sourceRecordsSha256": "3eb751bb88c715952308c9ba38f09f0b0c1261385bb6910d2781ed328b6c1b63",
+  "sourceManifestRef": "data/patents/public-pilot-v1/manifest.json",
+  "allowedFields": ["TITLE", "PUBLICATION_DATE", "IPC", "CPC"],
+  "methodVersion": "BM25F_FILTER/v1",
+  "confidenceRule": {
+    "version": "RETRIEVAL_CONFIDENCE/v1",
+    "reviewWindow": 50,
+    "minimumTopFusionScore": 0.01818181818181818,
+    "noLexicalSemanticOverlapStatus": "LOW_CONFIDENCE",
+    "emptyCandidateStatus": "NO_RESULT"
+  },
+  "judgmentBasis": "Exact inspection of captured patent title and versioned publication/classification metadata. Relevance grades are engineering retrieval labels, not patent-law conclusions.",
+  "thresholds": {
+    "recallAt50": 0.90,
+    "ndcgAt10": 0.75,
+    "emptyQueryAccuracy": 1.0,
+    "deterministicReplay": 1.0
+  },
+  "queries": [
+    {
+      "id": "date-ipc-cpc-and",
+      "kind": "MULTI_FILTER",
+      "query": "lithium battery",
+      "filters": {"publicationFrom":"2015-01-01","publicationTo":"2025-12-31","ipcPrefixes":["H01M"],"cpcPrefixes":["H01M"]},
+      "qrels": {"CN-104900909-A":2,"EP-3044822-A2":2,"EP-3044822-B1":2,"US-20160218356-A1":2}
+    },
+    {
+      "id": "date-only",
+      "kind": "DATE_FILTER",
+      "query": "coating confectionery product",
+      "filters": {"publicationFrom":"2024-01-01","publicationTo":"2025-12-31","ipcPrefixes":[],"cpcPrefixes":[]},
+      "qrels": {"EP-4326082-A1":2,"EP-4326082-B1":2,"US-20240164402-A1":2}
+    },
+    {
+      "id": "ipc-only",
+      "kind": "IPC_FILTER",
+      "query": "catalyst-coated membrane",
+      "filters": {"publicationFrom":"","publicationTo":"","ipcPrefixes":["H01M 8"],"cpcPrefixes":[]},
+      "qrels": {"US-12689050-B2":2}
+    },
+    {
+      "id": "cpc-only",
+      "kind": "CPC_FILTER",
+      "query": "water-based cathode slurry",
+      "filters": {"publicationFrom":"","publicationTo":"","ipcPrefixes":[],"cpcPrefixes":["H01M"]},
+      "qrels": {"EP-3044822-A2":2,"EP-3044822-B1":2,"US-20160218356-A1":2,"WO-2015036882-A2":2}
+    },
+    {
+      "id": "filtered-no-result",
+      "kind": "NO_RESULT",
+      "query": "quantum teleportation superconducting qubit",
+      "filters": {"publicationFrom":"2020-01-01","publicationTo":"2025-12-31","ipcPrefixes":["H01M"],"cpcPrefixes":["H01M"]},
+      "qrels": {}
+    }
+  ]
+}

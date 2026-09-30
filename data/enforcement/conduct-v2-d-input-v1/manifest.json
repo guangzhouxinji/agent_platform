@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "enf-conduct-v2-d-input-v1",
+  "inputId": "ENF-CONDUCT-D-INPUT-01",
+  "status": "INPUT_ONLY_NOT_PUBLISHED",
+  "origin": "PROJECT_AUTHORED_FICTIONAL",
+  "rightsBasis": "Project owner instruction, 2026-09-28; project-authored ENF-10/11 product D acceptance input",
+  "scope": "Element/evidence/version boundary review only; no real rights, infringement finding, legal effect or official decision",
+  "allowedUses": ["D_REVIEW", "TEST_INPUT"],
+  "deniedUses": ["PUBLISH_LEGAL_RULE", "OFFICIAL_INFRINGEMENT", "PRODUCTION_CASE", "PENALTY"],
+  "caseInput": {
+    "caseRef": "PROJECT-CASE-CONDUCT-01",
+    "caseVersion": "1",
+    "authority": "PROJECT_TEST_NOT_CENTER_CASE",
+    "behaviorAt": "2026-09-14T09:00:00+08:00",
+    "facts": [
+      { "ref": "PROJECT-FACT-LABEL@1", "kind": "MACHINE_CANDIDATE", "text": "A sample label appears in project record A", "sourceRef": "PROJECT-RECORD-A@1", "locator": "line 3" },
+      { "ref": "PROJECT-FACT-DENIAL@1", "kind": "PARTY_STATEMENT", "text": "A sample party disputes use of the label", "sourceRef": "PROJECT-RECORD-B@1", "locator": "line 3" }
+    ],
+    "evidence": [
+      { "ref": "PROJECT-RECORD-A@1", "relation": "SUPPORT", "factRef": "PROJECT-FACT-LABEL@1", "locator": "line 3" },
+      { "ref": "PROJECT-RECORD-B@1", "relation": "CONTRADICT", "factRef": "PROJECT-FACT-LABEL@1", "locator": "line 3" }
+    ],
+    "historicalRight": { "ref": null, "status": "UNKNOWN_AT_BEHAVIOR_TIME", "currentStatusMaySubstitute": false }
+  },
+  "ruleCandidates": [
+    { "ref": "PROJECT-CONDUCT-PATENT-01", "behaviorType": "PATENT_INFRINGEMENT_CANDIDATE", "status": "DRAFT_INPUT_NOT_PUBLISHED", "elements": ["RIGHT_AT_BEHAVIOR_TIME", "CLAIM_BY_CLAIM_COMPARISON", "BEHAVIOR_FACT"], "defenses": ["UNASSESSED_NOT_NONE"], "procedure": "UNVERIFIED", "basis": "NO_LEGAL_EFFECT_INPUT" },
+    { "ref": "PROJECT-CONDUCT-COUNTERFEIT-01", "behaviorType": "COUNTERFEIT_PATENT_CANDIDATE", "status": "DRAFT_INPUT_NOT_PUBLISHED", "elements": ["RIGHT_REPRESENTATION", "BEHAVIOR_FACT"], "defenses": ["UNASSESSED_NOT_NONE"], "procedure": "UNVERIFIED_DIFFERENT_BRANCH", "basis": "NO_LEGAL_EFFECT_INPUT" },
+    { "ref": "PROJECT-CONDUCT-TRADEMARK-01", "behaviorType": "TRADEMARK_CANDIDATE", "status": "DRAFT_INPUT_NOT_PUBLISHED", "elements": ["MARK_AND_GOODS_RELATION", "BEHAVIOR_FACT"], "defenses": ["UNASSESSED_NOT_NONE"], "procedure": "UNVERIFIED", "basis": "NO_LEGAL_EFFECT_INPUT" }
+  ],
+  "scenarios": [
+    { "id": "C01", "input": "Missing right at behavior time", "expected": "INSUFFICIENT_WITH_RIGHT_GAP", "forbidden": ["CURRENT_RIGHT_AS_HISTORICAL", "INFRINGEMENT_CONFIRMED"] },
+    { "id": "C02", "input": "Patent infringement versus counterfeit patent candidates", "expected": "DISTINCT_ELEMENTS_AND_PROCEDURE_GAP", "forbidden": ["SHARED_PROCEDURE_ASSUMED"] },
+    { "id": "C03", "input": "Project record A supports an observation, B contradicts it", "expected": "BOTH_RELATIONS_AND_DEFENSE_UNASSESSED", "forbidden": ["CONTRADICTION_DROPPED", "SIMILARITY_AS_PROOF"] },
+    { "id": "C04", "input": "No confirmed severity factors/values/basis", "expected": "KNOWN_CIRCUMSTANCES_ONLY", "forbidden": ["SEVERITY_GRADE", "AMOUNT"] },
+    { "id": "C05", "input": "New evidence or rule revision after named review", "expected": "NEW_MACHINE_VERSION_OLD_HUMAN_VERSION_NEEDS_REVIEW", "forbidden": ["OLD_REVIEW_OVERWRITTEN"] },
+    { "id": "C06", "input": "Grant loss, source failure and old DB restore", "expected": "FAIL_CLOSED_AND_ONE_RECEIPT", "forbidden": ["STALE_AUTH_SUCCESS", "OFFICIAL_STATUS_WRITE", "UPSTREAM_MUTATION"] }
+  ],
+  "unresolvedProductD": ["ELEMENT_STANDARD_AND_APPLICABILITY", "DEFENSE_AND_EXCLUSION_STANDARD", "JURISDICTION_AND_LEGAL_EFFECT", "HISTORICAL_RIGHT_SOURCE_AND_USE"],
+  "expectedOnlyNotAProductResult": true
+}

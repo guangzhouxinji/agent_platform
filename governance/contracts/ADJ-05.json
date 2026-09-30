@@ -367,6 +367,18 @@
       "acceptanceScenarioIds": [
         "ADJ-05-AC-013"
       ]
+    },
+    {
+      "id": "ADJ-05-SEM-MUST-001",
+      "type": "MUST",
+      "statement": "本能力参与智能体任务时，一次工具执行成功、局部输出、通知或审核动作不直接认定整个用户业务目标完成；跨轮对象绑定稳定版本，纠正保留原目标与历史并重核依赖结果；人工接收须有实际记录，业务、任务、审核、正式状态分别表达。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md#23",
+        "docs/01-总体需求与架构方案.md#5"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-05-SEM-AC-001"
+      ]
     }
   ],
   "inputs": [
@@ -790,6 +802,22 @@
       "sourceClauseIds": [
         "ADJ-05-MUST-020"
       ]
+    },
+    {
+      "id": "ADJ-05-SEM-AC-001",
+      "given": [
+        "本能力被领域智能体调用",
+        "产生部分结果、版本变更或用户纠正"
+      ],
+      "when": "继续原业务目标或向人员移交",
+      "then": [
+        "执行、资源、审核与领域任务完成分别判断",
+        "跨轮对象按原具体版本定位且历史不覆盖",
+        "人工未实际接收时保持待处理，不伪造受理或正式决定"
+      ],
+      "sourceClauseIds": [
+        "ADJ-05-SEM-MUST-001"
+      ]
     }
   ],
   "derivedDesignDecisions": [
@@ -870,15 +898,30 @@
   "independentReview": {
     "status": "passed",
     "reviewedBaselineId": "requirements-2026-09-14-v1",
-    "reviewMethod": "source-only second pass against every primary section and applicable adjudication overview sections",
+    "reviewMethod": "旧原文独立反查基础上同一Codex对主文/领域总览及V2共同约束源优先再检查，逐项结论见复核证据；ADJ-01～03并查三份既有法规需求。非第二名人员。",
     "missingClauses": [],
     "contradictions": [],
     "weakenedConstraints": [],
     "unsupportedExtensions": [],
     "notes": [
-      "Retrieval relevance, system candidates, human-confirmed matches and formal citations remain separate states.",
-      "Historical law, jurisdiction, procedure and exceptions cannot be defaulted; punishment provisions cannot silently become adjudication reasons.",
-      "No legal elements, jurisdiction, search product, score mapping, model, threshold or review role was guessed."
+      "原文完整义务、模块内部页面/服务/DM8/交付和已有反例继续有效；旧ready不作为本次V2结论依据。",
+      "专业规则、权限、真实受理、数据许可和正式业务效果仍按openQuestions取得外部证据。"
+    ],
+    "reviewedAt": "2026-09-24",
+    "reviewEvidence": [
+      "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md"
     ]
+  },
+  "currentV2Review": {
+    "approvedScope": "原始需求及docs/02第23节共同产品约束；V2其余取舍保持提案",
+    "evidence": "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md",
+    "applicability": "领域任务调用时施加，完成和证据标准仍由本领域定义。"
+  },
+  "v2SemanticReview": {
+    "version": "approved-scope-2026-09-24",
+    "reviewedAt": "2026-09-24",
+    "evidence": "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md",
+    "approvedSharedBehaviorSource": "docs/02-待确认事项清单.md#23",
+    "scope": "原文加已确认四项共同约束；其余V2取舍待责任方决定。仅R，不批准D、真实数据、专业验收或部署。"
   }
 }

@@ -9,6 +9,13 @@
 - Run `node scripts/verify-all.mjs` before and after changing requirement status, design evidence, unresolved decisions, trace evidence, or business implementation.
 - Treat `docs/08-总开发实现计划.md` as the only task/status control record; do not create parallel Trace, Gate, Review, or open-question status ledgers.
 
+## Final-Product Implementation
+
+- Implement every capability against the approved final-product contract, including UI, API, data, workflow, permissions, failures, AI/human boundaries, and acceptance. A development-only, demo, fixture, synthetic, fixed-candidate, or temporary product path is not an implementation substitute.
+- When real business data is unavailable, use only collected, de-identified, or explicitly approved substitute data within its recorded license and purpose. Substitute data changes the input, not the product behavior or result contract.
+- Do not add development-only product pages, fields, states, hints, routes, identities, or permission bypasses. Existing development-specific behavior is historical evidence, not a product D gate or reusable product capability until reviewed and rebuilt against the final contract.
+- If final identity, source rights, professional method, workflow rule, or recovery behavior is undecided, keep the dependent product branch gated; do not infer it from a test harness or a prior narrow development decision.
+
 ## Work Selection
 
 - Work on the current primary task in the master plan unless the user explicitly changes priority.

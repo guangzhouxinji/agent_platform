@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "enforcement-public-job-collection-attempts-v2",
+  "collectionBatchId": "ENF-PUBLIC-COLLECT-20260929065202",
+  "catalogSha256": "9f5fd4ad0e6fd9a230d92b3d3b4f55d7762ba5db6f05d8c8eb114aaf955f4de5",
+  "queryStrategy": {
+    "purpose": "为 ENF-01～17 最终产品准备可追溯的公开事实候选输入，不形成法律结论或内部业务事实",
+    "queries": [
+      "site:cnipa.gov.cn 知识产权 行政保护 典型案例",
+      "site:cnipa.gov.cn 知识产权 行政保护 指导案例",
+      "site:cnipa.gov.cn 专利侵权纠纷 行政裁决",
+      "site:cnipa.gov.cn 办案期限 批复"
+    ],
+    "selectionRules": [
+      "仅使用 HTTPS 国家机关官方原始页面",
+      "页面必须提供可核标题、发布日期和原文正文",
+      "覆盖案例汇编、指导材料、行政裁决和程序批复",
+      "不以搜索摘要代替官方原文"
+    ]
+  },
+  "attempts": [
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:02.012Z",
+      "finishedAt": "2026-09-29T06:52:02.646Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_THIRD_BATCH_GUIDANCE_CASES_NOTICE",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:02.898Z",
+      "finishedAt": "2026-09-29T06:52:03.202Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2023/12/28/art_2432_191156.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2023/12/28/art_2432_191156.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_GUIDANCE_CASE_1_INTERPRETATION",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:03.468Z",
+      "finishedAt": "2026-09-29T06:52:03.705Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_2025_DRUG_ADJUDICATION_0077",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:03.965Z",
+      "finishedAt": "2026-09-29T06:52:04.198Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208054.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208054.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_2026_DRUG_ADJUDICATION_0062",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:04.449Z",
+      "finishedAt": "2026-09-29T06:52:04.732Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207823.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207823.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_PARTY_ADDITION_DEADLINE_REPLY",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:04.988Z",
+      "finishedAt": "2026-09-29T06:52:05.424Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2026/8/18/art_2432_207774.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2026/8/18/art_2432_207774.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_MAJOR_PATENT_DISPUTE_ADJUDICATION_MEASURES",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:05.687Z",
+      "finishedAt": "2026-09-29T06:52:06.090Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2021/5/28/art_2432_170433.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2021/5/28/art_2432_170433.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_2025_DRUG_ADJUDICATION_0076",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:06.350Z",
+      "finishedAt": "2026-09-29T06:52:06.607Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208053.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208053.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_2025_DRUG_ADJUDICATION_0075",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:06.863Z",
+      "finishedAt": "2026-09-29T06:52:07.308Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208052.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208052.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_2025_DRUG_ADJUDICATION_0074",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:07.559Z",
+      "finishedAt": "2026-09-29T06:52:07.926Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208051.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208051.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_2026_DRUG_ADJUDICATION_0061",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:08.183Z",
+      "finishedAt": "2026-09-29T06:52:08.682Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207822.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207822.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    },
+    {
+      "batchId": "ENF-PUBLIC-COLLECT-20260929065202",
+      "sourceId": "CNIPA_ADJUDICATION_PUBLICATION_REPLY",
+      "retry": 0,
+      "startedAt": "2026-09-29T06:52:08.940Z",
+      "finishedAt": "2026-09-29T06:52:09.216Z",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2026/8/4/art_2432_207541.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2026/8/4/art_2432_207541.html",
+      "httpStatus": 200,
+      "result": "SUCCEEDED"
+    }
+  ]
+}

@@ -4,7 +4,9 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const outputDir = join(projectRoot, "data", "patents", "public-pilot-v1");
+const outputDir = process.env.PATENT_CAPTURE_OUTPUT_DIR
+  ? resolve(process.env.PATENT_CAPTURE_OUTPUT_DIR)
+  : join(projectRoot, "data", "patents", "public-pilot-v1");
 const rawDir = join(outputDir, "raw");
 const recordsPath = join(outputDir, "records.json");
 const manifestPath = join(outputDir, "manifest.json");

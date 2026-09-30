@@ -1,0 +1,1040 @@
+{
+  "observedAt": "2026-09-24T02:26:54.710Z",
+  "scope": "Reports on disk, consult timestamps and java-test.log; skipped is not passed",
+  "totals": {
+    "tests": 458,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 75
+  },
+  "byModule": {
+    "backend\\apps\\mock-center-api": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 3
+    },
+    "backend\\apps\\platform-api": {
+      "tests": 391,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 72
+    },
+    "backend\\consultation": {
+      "tests": 62,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "files": [
+    {
+      "file": "backend\\apps\\mock-center-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8MockCenterPatentCatalogIntegrationTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "mtime": "2026-09-24T02:26:19.840Z"
+    },
+    {
+      "file": "backend\\apps\\mock-center-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.MockCenterPatentCatalogDm8SchemaTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:19.846Z"
+    },
+    {
+      "file": "backend\\apps\\mock-center-api\\target\\surefire-reports\\TEST-cn.xinji.mockcenter.MockCenterPatentCatalogControllerTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:20.405Z"
+    },
+    {
+      "file": "backend\\apps\\mock-center-api\\target\\surefire-reports\\TEST-cn.xinji.mockcenter.MockCenterPublicPatentSeederTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:20.484Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.adjudication.AdjudicationApplicationServiceTest.xml",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:48.414Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.adjudication.AdjudicationArchitectureBoundaryTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:48.460Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.adjudication.AdjudicationHttpApiTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:54.766Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.config.ConsultationAgentModelConfigurationTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:54.872Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.config.PatentSearchConfigurationTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:55.054Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.agentconfig.ConsultationAgentDraftHttpApiTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:57.370Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.agentconfig.ConsultationAgentDraftServiceTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:57.378Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.agentconfig.ModelFailoverRouterTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:57.395Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.answer.adapter.out.openai.OpenAiConsultationAnswerAdapterTest.xml",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:58.142Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.caselibrary.CaseAnnotationWorkflowHttpApiTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:59.648Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.caselibrary.CaseLibraryHttpApiTest.xml",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:59.847Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.casesearch.CaseSearchHttpApiTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:01.122Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.casesearch.CaseSearchPublicLocalHttpApiTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:02.312Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.center.SyntheticCenterHttpApiTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:03.394Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.center.SyntheticOperationalSourceDataTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:03.431Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.ConsultationFrontendResourceTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:03.706Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.ConsultationHttpApiTest.xml",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:03.838Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.ConsultationModelChainHttpApiTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:04.892Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.ConsultationServiceTest.xml",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:04.904Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.Dm8ConsultationPatentSearchAdapterTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:04.973Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.fixture.PatentFixtureFlowHttpTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:06.308Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.guidance.ConsultationGuidanceHttpApiTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:06.526Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.intent.ConsultationIntentHttpApiTest.xml",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:06.748Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.MockCenterConsultationPatentSearchAdapterTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:06.758Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.ModelChainConsultationAnswerGeneratorTest.xml",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:06.771Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentassistant.adapter.out.center.contract.CenterPatentAdapterContractKitTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:07.220Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentassistant.adapter.out.deepseek.DeepSeekPatentAnalysisAdapterTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:07.561Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentassistant.adapter.out.surechembl.SureChemblPatentAssistantSourceAdapterTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:07.947Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentassistant.PatentAssistantDynamicSourceHttpApiTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:08.953Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentassistant.PatentAssistantHttpApiTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:09.843Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentassistant.PatentAssistantServiceTest.xml",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:09.849Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentassistant.PublicPilotPatentAssistantSourceAdapterTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:09.861Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentcomparison.PatentComparisonHttpApiTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:10.144Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentlibrary.PatentLibraryHttpApiTest.xml",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:10.454Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentsearch.MockCenterPatentCatalogAdapterTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:10.460Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentsearch.PatentSearchApplicationServiceTest.xml",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:10.492Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentsearch.PatentSearchHttpApiTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:11.759Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentsearch.PublicLocalPatentCatalogAdapterTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:11.767Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patentsearch.SyntheticPatentCatalogAdapterTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:11.782Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.PublicLocalConsultationPatentSearchAdapterTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:11.794Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.publicpilot.PublicPilotResourceLoaderTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:11.831Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.trademarkcomparison.TrademarkComparisonHttpApiTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:12.137Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.trademarklibrary.TrademarkLibraryHttpApiTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:12.443Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.trademarksearch.TrademarkSearchApplicationServiceTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:12.476Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.trademarksearch.TrademarkSearchHttpApiTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:12.781Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.unified.DailyConsultationEvidenceFactoryTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:12.787Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.unified.DailyConsultationHttpApiTest.xml",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:14.045Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.unified.DailyConsultationServiceTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:14.337Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.unified.ExternalModelIntentAdvisorTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:14.455Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.adapter.out.dm8.AuthorizedEnforcementPackageValidatorTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:14.618Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.adapter.out.dm8.CnipaAuthorizedEnforcementPackageTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:14.639Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.adapter.out.dm8.Dm8EnforcementSourceStoreSupportTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:14.653Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.EnforcementApplicationServiceTest.xml",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:14.691Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.EnforcementArchitectureBoundaryTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:14.697Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.EnforcementClueDiscoveryServiceTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:14.850Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.EnforcementClueParsingServiceTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:14.944Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.EnforcementDiscoveryRuleServiceTest.xml",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:15.067Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.EnforcementEvidenceServiceTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:15.076Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.EnforcementHttpApiTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:15.990Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.enforcement.EnforcementSourceManagementServiceTest.xml",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.115Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.AdjudicationDm8SchemaTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.128Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.CaseAnnotationDm8SchemaTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.135Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.ConsultationDm8SchemaTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "mtime": "2026-09-24T02:26:16.141Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8AdjudicationApplicationIntegrationTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "mtime": "2026-09-24T02:26:16.146Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8AdjudicationLocalSourceIntegrationTest.xml",
+      "tests": 0,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.152Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8AdjudicationStoreIntegrationTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 5,
+      "mtime": "2026-09-24T02:26:16.160Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8ApprovedPublicAdjudicationReferenceIntegrationTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 4,
+      "mtime": "2026-09-24T02:26:16.168Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8AuthorizedEnforcementPackageIntegrationTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "mtime": "2026-09-24T02:26:16.175Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8BrowserDatabaseProbe.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-21T12:22:44.024Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8CaseAnnotationHttpIntegrationTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.182Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8CaseAnnotationWorkflowStoreIntegrationTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 4,
+      "mtime": "2026-09-24T02:26:16.188Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8ConsultationApplicationIntegrationTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "mtime": "2026-09-24T02:26:16.196Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8ConsultationDatabaseHttpIntegrationTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "mtime": "2026-09-24T02:26:16.202Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8ConsultationStorePurposeTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.212Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8ConsultationStoreTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.219Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8EnforcementApplicationIntegrationTest.xml",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 7,
+      "mtime": "2026-09-24T02:26:16.225Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8EnforcementBrowserDatabaseProbe.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-21T12:15:44.048Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8EnforcementEvidenceIntegrationTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.231Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8EnforcementSourceManagementIntegrationTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.239Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8EnforcementStoreIntegrationTest.xml",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 6,
+      "mtime": "2026-09-24T02:26:16.247Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8JdbcSmokeTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.253Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8ModelConfigurationIntegrationTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.260Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8PatentComparisonHttpIntegrationTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.265Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8PatentComparisonTaskRepositoryIntegrationTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 3,
+      "mtime": "2026-09-24T02:26:16.271Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8PatentSearchHttpIntegrationTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.276Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8PatentSearchTaskRepositoryIntegrationTest.xml",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 6,
+      "mtime": "2026-09-24T02:26:16.282Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8PublicAdjudicationReferenceIntegrationTest.xml",
+      "tests": 0,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.357Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8PublicEnforcementReferenceIntegrationTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 3,
+      "mtime": "2026-09-24T02:26:16.365Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8TrademarkComparisonHttpIntegrationTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.372Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8TrademarkComparisonTaskRepositoryIntegrationTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 3,
+      "mtime": "2026-09-24T02:26:16.379Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8TrademarkSearchHttpIntegrationTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.386Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.Dm8TrademarkSearchTaskRepositoryIntegrationTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 4,
+      "mtime": "2026-09-24T02:26:16.391Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.EnforcementClueDiscoveryMigrationTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.395Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.EnforcementClueParsingMigrationTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.400Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.EnforcementDiscoveryRuleMigrationTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.405Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.EnforcementDm8SchemaTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "mtime": "2026-09-24T02:26:16.411Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.EnforcementEvidenceMigrationTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.416Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.LocalKnowledgeBaseDm8IntegrationTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.423Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.MockCenterHttpBoundaryTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.431Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.PatentComparisonDm8SchemaTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.436Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.SyntheticRuntimeProfileBoundaryTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.440Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.infrastructure.TrademarkComparisonDm8SchemaTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "mtime": "2026-09-24T02:26:16.446Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.modelconfig.ModelSecretCipherTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.452Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.security.apikey.ApiCredentialRegistryTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.457Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.security.apikey.ApiKeyAuthenticationFilterTest.xml",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:16.483Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.security.apikey.ApiKeyConsultationHttpApiTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:17.378Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.security.apikey.ApiKeyEnforcementHttpApiTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:18.194Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.security.apikey.EnforcementClueDiscoveryScopePolicyTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:18.201Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.security.apikey.EnforcementDiscoveryRuleScopePolicyTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:18.208Z"
+    },
+    {
+      "file": "backend\\apps\\platform-api\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.web.DevelopmentOperationalSourceConfigurationTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:26:18.543Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentComparisonShellContractTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:44.891Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentConsultationFixtureFlowTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:44.961Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentCorrectionGraphContractTest.xml",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:44.991Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentEvidenceFrameworkContractTest.xml",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:45.015Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentHumanContractTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:45.047Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentResultFocusContractTest.xml",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:45.088Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentRetrievalShellContractTest.xml",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:45.119Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentTaskAuthorizationBoundaryContractTest.xml",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:45.160Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentTaskCoreContractTest.xml",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:45.223Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentTaskRecoveryContractTest.xml",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:45.231Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.PatentTaskReverificationRegressionTest.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:45.245Z"
+    },
+    {
+      "file": "backend\\consultation\\target\\surefire-reports\\TEST-cn.xinji.agentplatform.consultation.patenttask.UnifiedTaskCommandContractTest.xml",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mtime": "2026-09-24T02:25:45.251Z"
+    }
+  ]
+}

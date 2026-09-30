@@ -35,16 +35,16 @@ class ConsultationFrontendResourceTest {
         mvc.perform(get("/app/consultation/agent-configuration"))
                 .andExpect(status().isOk())
                 .andExpect(forwardedUrl("/app/index.html"));
-        mvc.perform(get("/app/development/synthetic-center"))
-                .andExpect(status().isOk())
-                .andExpect(forwardedUrl("/app/index.html"));
         for (String route : new String[] {
-                "/app/enforcement", "/app/enforcement/sources", "/app/enforcement/rules",
+                "/app/enforcement", "/app/enforcement/rules",
                 "/app/enforcement/discovery", "/app/enforcement/parsing", "/app/enforcement/evidence"
         }) {
             mvc.perform(get(route))
                     .andExpect(status().isOk())
                     .andExpect(forwardedUrl("/app/index.html"));
+        }
+        for (String route : new String[] {"/app/development/synthetic-center", "/app/enforcement/sources"}) {
+            mvc.perform(get(route)).andExpect(status().isNotFound());
         }
     }
 }

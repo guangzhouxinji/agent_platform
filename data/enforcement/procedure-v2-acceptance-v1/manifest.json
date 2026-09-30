@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "enf-procedure-v2-d-input-v1",
+  "inputId": "ENF-PROCEDURE-PRODUCT-ACCEPTANCE-01",
+  "origin": "PROJECT_AUTHORED_FICTIONAL",
+  "status": "PROJECT_ACCEPTANCE_INPUT_NOT_LEGAL_RULE",
+  "rightsBasis": "Project-owned fictional events and calendar, approved for product mechanics verification only",
+  "allowedUses": ["PRODUCT_C", "PRODUCT_I", "PRODUCT_HTTP_E2E"],
+  "deniedUses": ["OFFICIAL_COMPLIANCE", "PRODUCTION_CASE", "LEGAL_DEADLINE"],
+  "ruleCandidate": {
+    "applicability": {
+      "region": "PROJECT_TEST",
+      "organization": "ORG-ENF-PROJECT",
+      "procedure": "PROJECT_DOCUMENT_REVIEW",
+      "stage": "PROJECT_HANDOFF_REVIEW"
+    }
+  },
+  "calendar": {
+    "ref": "PROJECT-CALENDAR-01",
+    "version": "1",
+    "status": "PROJECT_TEST_ONLY_NOT_OFFICIAL",
+    "range": ["2026-09-14", "2026-09-22"],
+    "nonWorkingDates": ["2026-09-16", "2026-09-19", "2026-09-20"]
+  },
+  "caseInputs": [
+    {
+      "caseRef": "PROJECT-CASE-PROCEDURE-01",
+      "caseVersion": "1",
+      "applicableAt": "2026-09-14",
+      "procedure": "PROJECT_DOCUMENT_REVIEW",
+      "stage": "PROJECT_HANDOFF_REVIEW",
+      "events": [
+        {"ref": "PROJECT-EVENT-REQUEST@1", "kind": "REQUEST_RECORDED", "occurredAt": "2026-09-14T09:00:00+08:00", "source": "PROJECT_AUTHORED"},
+        {"ref": "PROJECT-EVENT-COMPLETE@1", "kind": "STAGE_COMPLETED", "occurredAt": "2026-09-18T10:00:00+08:00", "source": "PROJECT_AUTHORED"}
+      ],
+      "materials": ["PROJECT-RECORD-A@1"]
+    },
+    {
+      "caseRef": "PROJECT-CASE-PROCEDURE-UNKNOWN",
+      "caseVersion": "1",
+      "applicableAt": "2026-09-14",
+      "procedure": "PROJECT_DOCUMENT_REVIEW",
+      "stage": "PROJECT_HANDOFF_REVIEW",
+      "events": [
+        {"ref": "PROJECT-EVENT-REQUEST@1", "kind": "REQUEST_RECORDED", "occurredAt": "2026-09-14T09:00:00+08:00", "source": "PROJECT_AUTHORED"},
+        {"ref": "PROJECT-EVENT-INTERRUPT@1", "kind": "INTERRUPTION_CANDIDATE", "occurredAt": "2026-09-18T11:00:00+08:00", "source": "PROJECT_AUTHORED"}
+      ],
+      "materials": ["PROJECT-RECORD-A@1"]
+    },
+    {
+      "caseRef": "PROJECT-CASE-PROCEDURE-MISSING",
+      "caseVersion": "1",
+      "applicableAt": "2026-09-14",
+      "procedure": "PROJECT_DOCUMENT_REVIEW",
+      "stage": "PROJECT_HANDOFF_REVIEW",
+      "events": [],
+      "materials": []
+    },
+    {
+      "caseRef": "PROJECT-CASE-OTHER-PROCEDURE",
+      "caseVersion": "1",
+      "applicableAt": "2026-09-14",
+      "procedure": "OTHER_PROCEDURE",
+      "stage": "PROJECT_HANDOFF_REVIEW",
+      "events": [],
+      "materials": []
+    }
+  ]
+}

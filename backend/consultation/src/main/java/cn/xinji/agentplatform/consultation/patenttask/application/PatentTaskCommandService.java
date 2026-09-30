@@ -23,9 +23,18 @@ public final class PatentTaskCommandService {
                                     TaskAuthorizationCheck authorization,
                                     TaskCompletionCheck completionCheck,
                                     RecoveryBoundaryCheck recoveryBoundary) {
+        this(repository, authorization, completionCheck, recoveryBoundary, receipt -> false);
+    }
+
+    public PatentTaskCommandService(PatentTaskCommandRepository repository,
+                                    TaskAuthorizationCheck authorization,
+                                    TaskCompletionCheck completionCheck,
+                                    RecoveryBoundaryCheck recoveryBoundary,
+                                    PatentHumanState.ReceiptAuthority receiptAuthority) {
         this.repository = Objects.requireNonNull(repository, "repository");
         this.authorization = Objects.requireNonNull(authorization, "authorization");
-        this.changeApplier = new TaskChangeApplier(Objects.requireNonNull(completionCheck));
+        this.changeApplier = new TaskChangeApplier(Objects.requireNonNull(completionCheck),
+                Objects.requireNonNull(receiptAuthority));
         this.recoveryBoundary = Objects.requireNonNull(recoveryBoundary);
         this.executor = new TaskCommandExecutor(repository, authorization);
     }
@@ -58,6 +67,14 @@ public final class PatentTaskCommandService {
         return change(command, TaskCommandType.SELECT, change);
     }
 
+    public TaskCommandResult prepareHandoff(TaskCommand command, TaskChange change) {
+        return change(command, TaskCommandType.HUMAN_HANDOFF, change);
+    }
+
+    public TaskCommandResult receiveHumanResult(TaskCommand command, TaskChange change) {
+        return change(command, TaskCommandType.HUMAN_RETURN, change);
+    }
+
     public TaskCommandResult cancel(TaskCommand command) {
         requireType(command, TaskCommandType.CANCEL);
         return executor.execute(command, TaskCommandFingerprint.forSimple(command, "cancel"), currentValue -> {
@@ -82,6 +99,9 @@ public final class PatentTaskCommandService {
                     .filter(task -> task.subTaskId().equals(subTaskId)).findFirst()
                     .orElseThrow(() -> failure(INVALID_COMMAND, "unknown recovery subtask", current.version()));
             RecoveryPoint point = target.recoveryPoint();
+            if (target.status() != PatentTaskStatus.TECHNICAL_FAILURE || point == null) {
+                throw failure(INVALID_COMMAND, "subtask is not recoverable", current.version());
+            }
             recoveryValidator.validate(current, target, point);
             RecoveryBoundaryCheck.Validation boundary = recoveryBoundary.validateFailureRecovery(point, current);
             if (!boundary.allowed()) throw failure(INVALID_COMMAND, boundary.reason(), current.version());
@@ -135,6 +155,38 @@ public final class PatentTaskCommandService {
 
     private TaskCommandResult change(TaskCommand command, TaskCommandType expectedType, TaskChange change) {
         requireType(command, expectedType);
+        if (change.correctionAction() != null && (expectedType != TaskCommandType.CORRECT
+                && expectedType != TaskCommandType.CONTINUE
+                || change.correctionAction().kind() == PatentCorrectionAction.Kind.CORRECT
+                && expectedType != TaskCommandType.CORRECT)) {
+            throw failure(INVALID_COMMAND, "correction action does not match command type", null);
+        }
+        if (change.evidenceAction() != null && expectedType != TaskCommandType.CONTINUE) {
+            throw failure(INVALID_COMMAND, "evidence action does not match command type", null);
+        }
+        if (change.retrievalAction() != null && (change.retrievalAction().outcome()
+                == PatentRetrievalAction.Outcome.SCOPE_CONFIRMED
+                ? expectedType != TaskCommandType.CONFIRM : expectedType != TaskCommandType.CONTINUE)) {
+            throw failure(INVALID_COMMAND, "retrieval action does not match command type", null);
+        }
+        if (change.comparisonAction() != null && expectedType != TaskCommandType.CONTINUE) {
+            throw failure(INVALID_COMMAND, "comparison action does not match command type", null);
+        }
+        if (change.humanAction() != null && (change.humanAction().kind() == PatentHumanAction.Kind.PREPARE
+                ? expectedType != TaskCommandType.HUMAN_HANDOFF : expectedType != TaskCommandType.HUMAN_RETURN)) {
+            throw failure(INVALID_COMMAND, "human action does not match command type", null);
+        }
+        if (change.resultFocusAction() != null) {
+            ResultFocusAction.Kind kind = change.resultFocusAction().kind();
+            boolean selection = kind == ResultFocusAction.Kind.SELECT
+                    || kind == ResultFocusAction.Kind.BIND_EXPLICIT
+                    || kind == ResultFocusAction.Kind.BIND_CURRENT
+                    || kind == ResultFocusAction.Kind.BIND_LATEST_DELIVERED;
+            if (selection != (expectedType == TaskCommandType.SELECT)
+                    || (!selection && expectedType != TaskCommandType.CONTINUE)) {
+                throw failure(INVALID_COMMAND, "focus action does not match command type", null);
+            }
+        }
         return executor.execute(command, TaskCommandFingerprint.forChange(command, change),
                 current -> changedSnapshot(command, requireCurrent(current), change));
     }
@@ -142,17 +194,35 @@ public final class PatentTaskCommandService {
     private PatentTaskSnapshot changedSnapshot(TaskCommand command, PatentTaskSnapshot current, TaskChange change) {
         TaskChangeApplier.AppliedChange applied = changeApplier.apply(current, change, command);
         return rebuild(current, current == null ? 1 : current.version() + 1, false, null,
-                applied.subTasks(), applied.objectVersions(), applied.dependencyVersions());
+                applied.subTasks(), applied.objectVersions(), applied.dependencyVersions(),
+                applied.resultFocus(), applied.correctionState(), applied.evidenceState(), applied.retrievalState(),
+                applied.comparisonState(), applied.humanState());
     }
 
     private PatentTaskSnapshot rebuild(PatentTaskSnapshot current, long version, boolean cancelled,
                                        CancellationRecord cancellation, List<PatentSubTask> subTasks,
                                        Map<String, Long> objectVersions, Map<String, Long> dependencyVersions) {
+        return rebuild(current, version, cancelled, cancellation, subTasks, objectVersions,
+                dependencyVersions, current == null ? ResultFocusState.empty() : current.resultFocus(),
+                current == null ? PatentCorrectionState.empty() : current.correctionState(),
+                current == null ? PatentEvidenceState.empty() : current.evidenceState(),
+                current == null ? PatentRetrievalState.empty() : current.retrievalState(),
+                current == null ? PatentComparisonState.empty() : current.comparisonState(),
+                current == null ? PatentHumanState.empty() : current.humanState());
+    }
+
+    private PatentTaskSnapshot rebuild(PatentTaskSnapshot current, long version, boolean cancelled,
+                                       CancellationRecord cancellation, List<PatentSubTask> subTasks,
+                                       Map<String, Long> objectVersions, Map<String, Long> dependencyVersions,
+                                       ResultFocusState resultFocus, PatentCorrectionState correctionState,
+                                       PatentEvidenceState evidenceState, PatentRetrievalState retrievalState,
+                                       PatentComparisonState comparisonState, PatentHumanState humanState) {
         TaskAggregation aggregation = PatentTaskStateAggregator.aggregate(subTasks, cancelled);
         return new PatentTaskSnapshot(current == null ? "pending" : current.taskId(), version,
                 aggregation.status(), aggregation.matchedRule(), cancelled, cancellation, subTasks,
                 aggregation.reasons(), objectVersions, dependencyVersions,
-                current == null ? List.of() : current.events());
+                current == null ? List.of() : current.events(), resultFocus, correctionState, evidenceState,
+                retrievalState, comparisonState, humanState);
     }
 
 

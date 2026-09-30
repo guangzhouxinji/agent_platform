@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "DEV-CON-HUMAN-GAP-01",
+  "origin": "PROJECT_AUTHORED_SYNTHETIC",
+  "entries": [
+    {
+      "id": "REQUEST_GAP",
+      "kind": "REQUEST",
+      "text": "请人工核对当前分析目的与证据缺口。"
+    },
+    {
+      "id": "OPINION_GAP",
+      "kind": "INTERNAL_TEST_OPINION",
+      "text": "当前分析目的尚未确认，逐项专业对应方法尚无获准依据；本次不形成技术对应结论。"
+    }
+  ]
+}

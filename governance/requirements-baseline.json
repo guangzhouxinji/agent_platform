@@ -4,7 +4,10 @@
   "createdAt": "2026-09-14T00:00:00+08:00",
   "archive": {
     "sha256": "11644cb520bd76e537aacf8a8e049f916c3116828376ca927118dd6094b2b9de",
-    "path": "requirements.rar"
+    "path": "requirements.rar",
+    "status": "retired",
+    "retiredAt": "2026-09-25",
+    "reason": "User-directed removal of repository-root distribution archive; 47 source Markdown files remain frozen"
   },
   "requirementFileCount": 47,
   "supportingFiles": [

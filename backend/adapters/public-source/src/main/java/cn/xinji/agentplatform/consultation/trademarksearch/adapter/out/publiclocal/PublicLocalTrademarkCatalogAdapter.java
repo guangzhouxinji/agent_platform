@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("!test-synthetic")
+@Profile({"public-local-test", "dm8-integration"})
 public final class PublicLocalTrademarkCatalogAdapter implements TrademarkCatalogPort, TrademarkComparisonSourcePort {
     private static final String VERSION = "public-local-trademark-v1";
     private static final String LIMITATION = "仅检索 100 条 USPTO 派生公开开发样本；不是中国商标库，不代表权威状态或近似结论。";

@@ -2,10 +2,18 @@ server:
   port: ${SERVER_PORT:8080}
 
 internal-workbench:
-  development-sources-enabled: ${INTERNAL_DEVELOPMENT_SOURCES_ENABLED:true}
+  development-sources-enabled: ${INTERNAL_DEVELOPMENT_SOURCES_ENABLED:false}
 
 enforcement:
   source: ${ENFORCEMENT_SOURCE:database}
+  v2:
+    legal-reference:
+      catalog-file: ${ENF_LEGAL_REFERENCE_CATALOG_FILE:}
+    job-pack:
+      public-candidates-path: ${ENFORCEMENT_PUBLIC_JOB_CANDIDATES:}
+  document-template:
+    file-root: ${ENF_DOCUMENT_TEMPLATE_FILE_ROOT:var/enforcement-document-templates}
+    available-fonts: ${ENF_DOCUMENT_TEMPLATE_AVAILABLE_FONTS:SimSun}
   source-admin:
     scheduling-enabled: ${ENFORCEMENT_SOURCE_SCHEDULING_ENABLED:false}
     scan-delay-ms: ${ENFORCEMENT_SOURCE_SCAN_DELAY_MS:60000}
@@ -28,6 +36,32 @@ api-access:
       scopes: ${API_ACCESS_SCOPES:consultation:submit,consultation:read,source:read,enforcement:read,enforcement:work}
       requests-per-minute: ${API_ACCESS_REQUESTS_PER_MINUTE:60}
       requests-per-day: ${API_ACCESS_REQUESTS_PER_DAY:5000}
+
+consultation-v2:
+  development:
+    enabled: ${CONSULTATION_V2_DEV_ENABLED:false}
+    manifest-path: ${CONSULTATION_V2_SYNTHETIC_MANIFEST:}
+    task-core-enabled: ${CONSULTATION_V2_TASK_CORE_ENABLED:false}
+    text-result-enabled: ${CONSULTATION_V2_TEXT_RESULT_ENABLED:false}
+    evidence-read-enabled: ${CONSULTATION_V2_EVIDENCE_READ_ENABLED:false}
+    feature-confirm-enabled: ${CONSULTATION_V2_FEATURE_CONFIRM_ENABLED:false}
+    comparison-reconfirm-enabled: ${CONSULTATION_V2_COMPARISON_RECONFIRM_ENABLED:false}
+    input-preview-enabled: ${CONSULTATION_V2_INPUT_PREVIEW_ENABLED:false}
+    purpose-read-enabled: ${CONSULTATION_V2_PURPOSE_READ_ENABLED:false}
+    purpose-select-enabled: ${CONSULTATION_V2_PURPOSE_SELECT_ENABLED:false}
+    work-state-enabled: ${CONSULTATION_V2_WORK_STATE_ENABLED:false}
+    human-request-enabled: ${CONSULTATION_V2_HUMAN_REQUEST_ENABLED:false}
+    human-accept-enabled: ${CONSULTATION_V2_HUMAN_ACCEPT_ENABLED:false}
+    human-opinion-enabled: ${CONSULTATION_V2_HUMAN_OPINION_ENABLED:false}
+    human-return-enabled: ${CONSULTATION_V2_HUMAN_RETURN_ENABLED:false}
+    human-context-enabled: ${CONSULTATION_V2_HUMAN_CONTEXT_ENABLED:false}
+    correction-enabled: ${CONSULTATION_V2_CORRECTION_ENABLED:false}
+    feature-candidate-manifest-path: ${CONSULTATION_V2_FEATURE_CANDIDATE_MANIFEST:}
+    task-input-manifest-path: ${CONSULTATION_V2_TASK_INPUT_MANIFEST:}
+    comparison-input-manifest-path: ${CONSULTATION_V2_COMPARISON_INPUT_MANIFEST:}
+    correction-input-manifest-path: ${CONSULTATION_V2_CORRECTION_INPUT_MANIFEST:}
+    human-request-manifest-path: ${CONSULTATION_V2_HUMAN_REQUEST_MANIFEST:}
+    db-session-zone: ${CONSULTATION_V2_DB_SESSION_ZONE:}
 
 consultation:
   search:

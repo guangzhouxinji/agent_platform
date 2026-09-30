@@ -10,8 +10,10 @@ import java.util.List;
 import java.util.Locale;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Profile;
 
 @Component
+@Profile({"public-local-test", "dm8-integration"})
 @ConditionalOnProperty(name = "consultation.search.provider", havingValue = "public-local")
 public final class PublicLocalConsultationPatentSearchAdapter implements PatentSearchPort {
     private final List<PatentLibraryRecord> records;

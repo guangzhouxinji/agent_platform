@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "DEV-ADJ-CASE-WORK-01",
+  "cases": [
+    {
+      "id": "DEV-ADJ-CASE-001",
+      "sourceVersion": "v1",
+      "kind": "LOCAL_WORK_INPUT",
+      "title": "虚构设备组件争议",
+      "applicantRef": "SYN-APPLICANT-A",
+      "respondentRef": "SYN-RESPONDENT-B",
+      "rightRef": null,
+      "rightGap": "无获准权利要求原文；不执行专利解析或技术对照",
+      "locator": "synthetic:case:001",
+      "available": true
+    },
+    {
+      "id": "DEV-ADJ-CASE-002",
+      "sourceVersion": "v1",
+      "kind": "LOCAL_WORK_INPUT",
+      "title": "虚构包装装置争议",
+      "applicantRef": "SYN-APPLICANT-C",
+      "respondentRef": "SYN-RESPONDENT-D",
+      "rightRef": null,
+      "rightGap": "另一案仅作跨案访问拒绝反例",
+      "locator": "synthetic:case:002",
+      "available": true
+    }
+  ],
+  "materials": [
+    {
+      "id": "DEV-ADJ-MAT-001",
+      "sourceVersion": "v1",
+      "caseId": "DEV-ADJ-CASE-001",
+      "providedBy": "APPLICANT",
+      "text": "申请方主张虚构设备包含温度传感组件；尚未提供权利要求或实物。",
+      "locator": "synthetic:material:001:paragraph:1",
+      "submissionKind": "PROJECT_AUTHORED_TEXT",
+      "available": true
+    },
+    {
+      "id": "DEV-ADJ-MAT-002",
+      "sourceVersion": "v1",
+      "caseId": "DEV-ADJ-CASE-001",
+      "providedBy": "RESPONDENT",
+      "text": "被申请方否认该组件配置，且对所述发生日期提出异议；未提交技术图纸。",
+      "locator": "synthetic:material:002:paragraph:1",
+      "submissionKind": "PROJECT_AUTHORED_TEXT",
+      "available": true
+    },
+    {
+      "id": "DEV-ADJ-MAT-003",
+      "sourceVersion": "v1",
+      "caseId": "DEV-ADJ-CASE-001",
+      "providedBy": "APPLICANT",
+      "text": "仅供来源失效测试的虚构补充文字。",
+      "locator": "synthetic:material:003:paragraph:1",
+      "submissionKind": "PROJECT_AUTHORED_TEXT",
+      "available": false,
+      "unavailableReason": "SYNTHETIC_SOURCE_WITHDRAWN"
+    },
+    {
+      "id": "DEV-ADJ-MAT-004",
+      "sourceVersion": "v1",
+      "caseId": "DEV-ADJ-CASE-002",
+      "providedBy": "RESPONDENT",
+      "text": "另一虚构案件的包装装置说明，不属于案件001。",
+      "locator": "synthetic:material:004:paragraph:1",
+      "submissionKind": "PROJECT_AUTHORED_TEXT",
+      "available": true
+    }
+  ],
+  "issueRevisions": [
+    {
+      "id": "DEV-ADJ-ISSUE-001",
+      "version": 1,
+      "caseId": "DEV-ADJ-CASE-001",
+      "nature": "PARTY_CLAIM_NOT_CONFIRMED_FACT",
+      "statements": [
+        { "providedBy": "APPLICANT", "materialId": "DEV-ADJ-MAT-001", "text": "存在温度传感组件" }
+      ],
+      "gaps": ["权利要求原文", "实物或技术图纸", "发生日期"],
+      "locator": "synthetic:issue:001:revision:1"
+    },
+    {
+      "id": "DEV-ADJ-ISSUE-001",
+      "version": 2,
+      "caseId": "DEV-ADJ-CASE-001",
+      "nature": "CONFLICTING_PARTY_CLAIMS_NOT_CONFIRMED_FACT",
+      "statements": [
+        { "providedBy": "APPLICANT", "materialId": "DEV-ADJ-MAT-001", "text": "存在温度传感组件" },
+        { "providedBy": "RESPONDENT", "materialId": "DEV-ADJ-MAT-002", "text": "否认该组件配置并争议日期" }
+      ],
+      "gaps": ["权利要求原文", "实物或技术图纸", "发生日期"],
+      "locator": "synthetic:issue:001:revision:2"
+    }
+  ]
+}

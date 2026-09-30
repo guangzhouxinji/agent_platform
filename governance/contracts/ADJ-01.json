@@ -256,7 +256,7 @@
         "总览/3. 与已有法规需求的衔接"
       ],
       "acceptanceScenarioIds": [
-        "ADJ-01-AC-003"
+        "ADJ-01-DEV-AC-001"
       ]
     },
     {
@@ -283,6 +283,19 @@
       ],
       "acceptanceScenarioIds": [
         "ADJ-01-AC-004"
+      ]
+    },
+    {
+      "id": "ADJ-01-DECISION-MUST-001",
+      "type": "MUST",
+      "statement": "开发期同一来源版本以原文摘要判重：相同跳过并回执，不同报来源版本冲突待核；明确新来源版本追加不可变原文。未审核未引用本地草稿的更新/覆盖仅追加待审核修订并切当前待处理指针，原始及人工历史不覆写。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md 第31节（2026-09-24 已确认开发期决定，不是原需求原文）"
+      ],
+      "sourceKind": "confirmed_product_decision",
+      "decisionRef": "docs/02-待确认事项清单.md#31-2026-09-24-未审核草稿重复导入的开发期策略",
+      "acceptanceScenarioIds": [
+        "ADJ-01-AC-003"
       ]
     },
     {
@@ -408,6 +421,18 @@
       ],
       "acceptanceScenarioIds": [
         "ADJ-01-AC-011"
+      ]
+    },
+    {
+      "id": "ADJ-01-SEM-MUST-001",
+      "type": "MUST",
+      "statement": "本配置/来源/模板能力参与智能体任务时，服务操作或发布成功仅是执行/资源状态，不直接认定用户业务目标完成；运行结果固定所用来源、规则/模板或审核版本，后续纠正只使依赖结果待复核，历史留存且继续原目标链。若发生人工交接，须有真实受理记录。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md#23",
+        "docs/01-总体需求与架构方案.md#5"
+      ],
+      "acceptanceScenarioIds": [
+        "ADJ-01-SEM-AC-001"
       ]
     }
   ],
@@ -717,6 +742,22 @@
       ]
     },
     {
+      "id": "ADJ-01-DEV-AC-001",
+      "given": [
+        "同一稳定来源版本分别给出相同原文与不同原文，另有明确新来源版本和已引用旧版"
+      ],
+      "when": "预览并提交开发期法规导入",
+      "then": [
+        "相同来源版本和原文摘要只返回幂等回执",
+        "同版不同原文隔离为来源冲突，不自动覆盖或伪造新源版本",
+        "确切新来源版本产生新不可变法规/条文版本，旧引用仍指向旧原文"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-DECISION-MUST-001",
+        "ADJ-01-MUST_NOT-005"
+      ]
+    },
+    {
       "id": "ADJ-01-AC-004",
       "given": [
         "中心原文、本地人工修改和来源冲突"
@@ -838,6 +879,22 @@
         "ADJ-01-MUST_NOT-009",
         "ADJ-01-MUST-023"
       ]
+    },
+    {
+      "id": "ADJ-01-SEM-AC-001",
+      "given": [
+        "本能力被领域智能体调用",
+        "产生部分结果、版本变更或用户纠正"
+      ],
+      "when": "继续原业务目标或向人员移交",
+      "then": [
+        "执行、资源、审核与领域任务完成分别判断",
+        "跨轮对象按原具体版本定位且历史不覆盖",
+        "人工未实际接收时保持待处理，不伪造受理或正式决定"
+      ],
+      "sourceClauseIds": [
+        "ADJ-01-SEM-MUST-001"
+      ]
     }
   ],
   "derivedDesignDecisions": [
@@ -916,15 +973,30 @@
   "independentReview": {
     "status": "passed",
     "reviewedBaselineId": "requirements-2026-09-14-v1",
-    "reviewMethod": "source-only second pass against the ADJ-01 primary source, adjudication overview and full existing regulation-management requirement",
+    "reviewMethod": "旧原文独立反查基础上同一Codex对主文/领域总览及V2共同约束源优先再检查，逐项结论见复核证据；ADJ-01～03并查三份既有法规需求。非第二名人员。",
     "missingClauses": [],
     "contradictions": [],
     "weakenedConstraints": [],
     "unsupportedExtensions": [],
     "notes": [
-      "Existing import, manual maintenance, list, revision dialog and pre-revision text behavior are preserved while adding immutable source/version and adjudication-time constraints.",
-      "Authoritative center records, local verification versions and historical snapshots remain separate; point-in-time lookup returns candidates rather than automatic applicability decisions.",
-      "No API, taxonomy, transition rule, role, import template detail, retention or migration behavior was guessed."
+      "原文完整义务、模块内部页面/服务/DM8/交付和已有反例继续有效；旧ready不作为本次V2结论依据。",
+      "专业规则、权限、真实受理、数据许可和正式业务效果仍按openQuestions取得外部证据。"
+    ],
+    "reviewedAt": "2026-09-24",
+    "reviewEvidence": [
+      "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md"
     ]
+  },
+  "currentV2Review": {
+    "approvedScope": "原始需求及docs/02第23节共同产品约束；V2其余取舍保持提案",
+    "evidence": "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md",
+    "applicability": "仅在配置/来源能力被智能体任务调用时施加产品任务语义，不新增配置服务运行时。"
+  },
+  "v2SemanticReview": {
+    "version": "approved-scope-2026-09-24",
+    "reviewedAt": "2026-09-24",
+    "evidence": "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md",
+    "approvedSharedBehaviorSource": "docs/02-待确认事项清单.md#23",
+    "scope": "原文加已确认四项共同约束；其余V2取舍待责任方决定。仅R，不批准D、真实数据、专业验收或部署。"
   }
 }

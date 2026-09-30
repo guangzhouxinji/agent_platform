@@ -12,7 +12,7 @@ for (const file of [planPath, jsonPath, htmlPath]) if (!fs.existsSync(file)) thr
 const markdown = fs.readFileSync(planPath, "utf8");
 const html = fs.readFileSync(htmlPath, "utf8");
 const plan = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
-const currentTaskId = markdown.match(/^当前唯一主任务：\s*`([^`\s]+)[^`]*`/m)?.[1];
+const currentTaskId = markdown.match(/^当前(?:唯一主|优先)任务：\s*`([^`\s]+)[^`]*`/m)?.[1];
 const planVersion = markdown.match(/^计划版本：([^\s]+)/m)?.[1];
 const clean = (value) => String(value ?? "").replace(/\*\*/g, "").replace(/`/g, "").replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1");
 const requirementSection = markdown.slice(markdown.indexOf("## 8."), markdown.indexOf("## 9."));

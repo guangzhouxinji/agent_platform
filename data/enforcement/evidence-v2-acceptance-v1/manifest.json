@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "enf-evidence-v2-acceptance-input-v1",
+  "inputId": "ENF-EVIDENCE-V2-ACCEPTANCE-01",
+  "status": "INPUT_ONLY_NOT_PRODUCT_EVIDENCE",
+  "origin": "PROJECT_AUTHORED_FICTIONAL",
+  "rightsBasis": "Project owner instruction, 2026-09-28, ENF-06/07 final-product acceptance input; original project-authored text",
+  "scope": "Project document consistency review only; no real case, officer, third-party rights, legal effect or official decision",
+  "allowedUses": ["SAVE", "PREVIEW", "ANALYZE", "DISPLAY"],
+  "deniedUses": ["MODEL", "SHARE", "OFFICIAL_EVIDENCE", "OFFICIAL_DECISION", "PRODUCTION_SOURCE"],
+  "caseInput": {
+    "caseRef": "PROJECT-CASE-001",
+    "caseVersion": "1",
+    "organization": "ORG-ENF-PROJECT",
+    "eventRef": "PROJECT-EVENT-001",
+    "caseType": "PROJECT_DOCUMENT_REVIEW",
+    "authority": "PROJECT_TEST_INPUT_NOT_CENTER_CASE"
+  },
+  "ruleInput": {
+    "ruleRef": "ENF-EVIDENCE-RULE-V1-PROJECT-01",
+    "status": "DRAFT_INPUT_NOT_PUBLISHED",
+    "basis": "docs/57 section 6.24, project document consistency method, version 1; not legal authority",
+    "caseType": "PROJECT_DOCUMENT_REVIEW",
+    "matters": [
+      { "id": "ITEM_IDENTITY", "required": true, "expectedMaterial": "Original text with item label and exact locator" },
+      { "id": "EVENT_TIME", "required": true, "expectedMaterial": "Original text with event time and exact locator" }
+    ],
+    "missingPolicy": "UNVERIFIED_WITH_GAP",
+    "conflictPolicy": "KEEP_BOTH_PENDING_HUMAN_REVIEW"
+  },
+  "materials": [
+    { "ref": "PROJECT-RECORD-A", "version": "1", "path": "record-a.txt", "sha256": "eb4379058974551bd3318c5abbfda277ea83cf4edb74a11eb7c4e85ae8d420e9", "byteLength": 222, "locators": { "ITEM_IDENTITY": "line 3", "EVENT_TIME": "line 4" }, "status": "INPUT_ONLY_NOT_VERIFIED" },
+    { "ref": "PROJECT-RECORD-B", "version": "1", "path": "record-b.txt", "sha256": "e6ea3d535970cff67c9c10247444561e6aa7526008beb9e97ef1da24eabdfb5a", "byteLength": 235, "locators": { "ITEM_IDENTITY": "line 3", "EVENT_TIME": "line 4" }, "status": "INPUT_ONLY_NOT_VERIFIED" },
+    { "ref": "PROJECT-RECORD-C", "version": "1", "path": "record-c.txt", "sha256": "1e4711d03dc5785001b290e23f02903472e2b2b9ab3ac08c8003e0d7bad2e571", "byteLength": 170, "locators": { "ITEM_IDENTITY": "line 3" }, "status": "INPUT_ONLY_NOT_VERIFIED" }
+  ],
+  "expectedRelations": [
+    { "material": "PROJECT-RECORD-A@1", "matter": "ITEM_IDENTITY", "relation": "PROVE", "locator": "line 3" },
+    { "material": "PROJECT-RECORD-A@1", "matter": "EVENT_TIME", "relation": "PROVE", "locator": "line 4" },
+    { "material": "PROJECT-RECORD-B@1", "matter": "ITEM_IDENTITY", "relation": "CORROBORATE", "locator": "line 3" },
+    { "material": "PROJECT-RECORD-B@1", "matter": "EVENT_TIME", "relation": "CONTRADICT", "locator": "line 4" },
+    { "material": "PROJECT-RECORD-C@1", "matter": "ITEM_IDENTITY", "relation": "IRRELEVANT", "locator": "line 3" }
+  ],
+  "expectedOnlyNotAnAnalysisResult": true,
+  "negativeInputs": ["MISSING_REQUIRED_MATTER", "DUPLICATE_MATTER", "EMPTY_MAPPING", "UNKNOWN_CASE_TYPE", "DRAFT_RULE", "MISSING_BYTES", "WITHDRAWN", "CROSS_CASE", "STALE_VERSION", "SOURCE_UNAVAILABLE", "EXCLUDED_AFTER_RUN", "RULE_CHANGED", "HUMAN_CORRECTION_RERUN"],
+  "withdrawal": "Project owner may withdraw this input; current access must fail closed",
+  "expiresAt": null
+}

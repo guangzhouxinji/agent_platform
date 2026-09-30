@@ -3,10 +3,12 @@ package cn.xinji.mockcenter.adapter.in.web;
 import cn.xinji.mockcenter.application.MockCenterPatentCatalog;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpStatus;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
 
 /** Explicit development endpoint. Its output must never be presented as center-system data. */
 @RestController
+@Profile("test-synthetic")
 @ConditionalOnProperty(name = "mock-center.service.enabled", havingValue = "true")
 @RequestMapping("/api/dev/mock-center/patents")
 public final class MockCenterPatentCatalogController {

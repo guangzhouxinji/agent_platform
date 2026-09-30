@@ -1,0 +1,2 @@
+DROP INDEX ix_con4_vector_binding_snapshot;
+DROP TABLE con4_document_vector_binding;

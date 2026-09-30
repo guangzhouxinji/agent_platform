@@ -10,9 +10,11 @@ import static cn.xinji.agentplatform.consultation.patenttask.domain.PatentTaskSt
 
 final class TaskChangeApplier {
     private final TaskCompletionCheck completionCheck;
+    private final PatentHumanState.ReceiptAuthority receiptAuthority;
 
-    TaskChangeApplier(TaskCompletionCheck completionCheck) {
+    TaskChangeApplier(TaskCompletionCheck completionCheck, PatentHumanState.ReceiptAuthority receiptAuthority) {
         this.completionCheck = Objects.requireNonNull(completionCheck);
+        this.receiptAuthority = Objects.requireNonNull(receiptAuthority);
     }
 
     AppliedChange apply(PatentTaskSnapshot current, TaskChange change, TaskCommand command) {
@@ -39,7 +41,69 @@ final class TaskChangeApplier {
                 change.objectVersionUpdates(), "object", current);
         Map<String, Long> dependencies = mergeVersions(current == null ? Map.of() : current.dependencyVersions(),
                 change.dependencyVersionUpdates(), "dependency", current);
-        return new AppliedChange(List.copyOf(existing.values()), objects, dependencies);
+        ResultFocusState focus = current == null ? ResultFocusState.empty() : current.resultFocus();
+        if (change.resultFocusAction() != null) {
+            try {
+                focus = focus.apply(change.resultFocusAction(), current == null ? 1 : current.version() + 1);
+            } catch (IllegalArgumentException error) {
+                fail(error.getMessage(), current);
+            }
+        }
+        PatentCorrectionState corrections = current == null ? PatentCorrectionState.empty() : current.correctionState();
+        if (change.correctionAction() != null) {
+            try {
+                corrections = corrections.apply(change.correctionAction());
+                if (change.correctionAction().kind() == PatentCorrectionAction.Kind.CORRECT) {
+                    for (String key : corrections.impacts().get(corrections.impacts().size() - 1).invalidated()) {
+                        PatentCorrectionAction.Artifact artifact = corrections.artifacts().get(key);
+                        if (artifact.type() == PatentCorrectionAction.Type.RESULT_SET) {
+                            String[] identity = artifact.id().split(":", 2);
+                            if (identity.length != 2) throw new IllegalArgumentException("result set artifact must use result:<id>");
+                            if (focus.resultSets().containsKey(identity[1] + "@" + artifact.version())) {
+                                focus = focus.apply(ResultFocusAction.availability(artifact.branchId(),
+                                        identity[1], artifact.version(), false), current.version() + 1);
+                            }
+                        }
+                    }
+                }
+            } catch (IllegalArgumentException error) {
+                fail(error.getMessage(), current);
+            }
+        }
+        PatentEvidenceState evidence = current == null ? PatentEvidenceState.empty() : current.evidenceState();
+        if (change.evidenceAction() != null) {
+            try {
+                evidence = evidence.apply(change.evidenceAction(), corrections);
+            } catch (IllegalArgumentException error) {
+                fail(error.getMessage(), current);
+            }
+        }
+        PatentRetrievalState retrieval = current == null ? PatentRetrievalState.empty() : current.retrievalState();
+        if (change.retrievalAction() != null) {
+            try {
+                retrieval = retrieval.apply(change.retrievalAction(), change.resultFocusAction());
+            } catch (IllegalArgumentException error) {
+                fail(error.getMessage(), current);
+            }
+        }
+        PatentComparisonState comparisons = current == null ? PatentComparisonState.empty() : current.comparisonState();
+        if (change.comparisonAction() != null) {
+            try {
+                comparisons = comparisons.apply(change.comparisonAction(), focus, corrections, evidence);
+            } catch (IllegalArgumentException | IllegalStateException error) {
+                fail(error.getMessage(), current);
+            }
+        }
+        PatentHumanState human = current == null ? PatentHumanState.empty() : current.humanState();
+        if (change.humanAction() != null) {
+            try {
+                human = human.apply(change.humanAction(), current, receiptAuthority);
+            } catch (IllegalArgumentException error) {
+                fail(error.getMessage(), current);
+            }
+        }
+        return new AppliedChange(List.copyOf(existing.values()), objects, dependencies, focus, corrections,
+                evidence, retrieval, comparisons, human);
     }
 
     private PatentSubTask transition(PatentTaskSnapshot current, PatentSubTask before, SubTaskChange change) {
@@ -148,5 +212,8 @@ final class TaskChangeApplier {
     }
 
     record AppliedChange(List<PatentSubTask> subTasks, Map<String, Long> objectVersions,
-                         Map<String, Long> dependencyVersions) {}
+                         Map<String, Long> dependencyVersions, ResultFocusState resultFocus,
+                         PatentCorrectionState correctionState, PatentEvidenceState evidenceState,
+                         PatentRetrievalState retrievalState, PatentComparisonState comparisonState,
+                         PatentHumanState humanState) {}
 }

@@ -1,0 +1,67 @@
+.v2-dev-workbench { min-height: 100vh; background: #f7f9f8; color: #20312d; }
+.v2-dev-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 28px 14px; background: #fff; border-bottom: 1px solid #dce5e1; }
+.v2-dev-header h2.ant-typography { margin: 2px 0 0; font-size: 21px; }
+.v2-dev-eyebrow { color: #0f766e; font-size: 12px; font-weight: 700; }
+.v2-dev-connection { padding: 18px 28px; background: #fff; border-bottom: 1px solid #dce5e1; }
+.v2-dev-connection-grid { display: grid; grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) auto; align-items: end; gap: 12px; }
+.v2-dev-connection-grid label { display: grid; gap: 6px; min-width: 0; color: #40534f; font-size: 13px; font-weight: 600; }
+.v2-dev-connection-grid .ant-input { font-size: 15px; }
+.v2-dev-session { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.v2-dev-session code { min-width: 0; overflow-wrap: anywhere; font-size: 12px; color: #526963; }
+.v2-dev-error { margin-top: 12px; }
+.v2-dev-empty { padding: 76px 20px; }
+.v2-dev-status { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 28px; color: #53645f; font-size: 13px; border-bottom: 1px solid #e2e9e6; }
+.v2-dev-columns { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(300px, 1fr); gap: 0; max-width: 1600px; margin: 0 auto; }
+.v2-dev-main, .v2-dev-side { min-width: 0; }
+.v2-dev-side { border-left: 1px solid #e0e8e4; }
+.v2-dev-section { padding: 18px 28px 22px; border-bottom: 1px solid #e0e8e4; }
+.v2-dev-section-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; color: #60736c; font-size: 12px; }
+.v2-dev-section h2 { margin: 0; font-size: 16px; color: #243a33; }
+.v2-dev-message { padding: 8px 0; border-top: 1px solid #e5ece8; }
+.v2-dev-message span, .v2-dev-muted { color: #65756f; font-size: 12px; }
+.v2-dev-message p, .v2-dev-result p, .v2-dev-preview p { margin: 5px 0; line-height: 1.65; overflow-wrap: anywhere; }
+.v2-dev-correction-history { border-top: 1px solid #dce5e1; padding-top: 12px; margin-top: 8px; }
+.v2-dev-correction-history strong { font-size: 13px; }
+.v2-dev-correction-history p { margin: 6px 0 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.v2-dev-action-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; padding: 12px; background: #edf5f1; }
+.v2-dev-action-row span { min-width: 0; overflow-wrap: anywhere; }
+.v2-dev-result-list { display: grid; gap: 10px; margin-bottom: 14px; }
+.v2-dev-result { padding: 12px 14px; border: 1px solid #dce5e0; border-radius: 4px; background: #fff; }
+.v2-dev-result-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; color: #577069; font-size: 12px; }
+.v2-dev-result-head strong { color: #213b33; font-size: 14px; }
+.v2-dev-result .ant-btn { margin-top: 8px; }
+.v2-dev-quote, .v2-dev-preview blockquote { padding: 10px 12px; margin: 12px 0; border-left: 3px solid #488b7b; background: #eef5f2; line-height: 1.65; overflow-wrap: anywhere; }
+.v2-dev-features { padding-left: 22px; line-height: 1.9; }
+.v2-dev-preview { margin-top: 14px; }
+.v2-dev-human-request { margin-bottom: 12px; }
+.v2-dev-human-request p { margin: 8px 0; line-height: 1.55; overflow-wrap: anywhere; }
+.v2-dev-inbox { background: #fff; }
+.v2-dev-inbox-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid #e0e8e4; padding: 12px 0; }
+.v2-dev-inbox-row > div { min-width: 0; }
+.v2-dev-inbox-row code { overflow-wrap: anywhere; font-size: 12px; }
+.v2-dev-inbox-row p { margin: 5px 0 0; color: #65756f; font-size: 12px; }
+.v2-dev-inbox-actions { display: flex; gap: 8px; flex-wrap: wrap; flex: none; }
+.v2-dev-inbox-subhead { margin-top: 22px; border-top: 1px solid #e0e8e4; padding-top: 18px; }
+.v2-dev-opinion { margin-top: 14px; border-top: 1px solid #e0e8e4; padding-top: 12px; }
+.v2-dev-side > .ant-btn { margin: 18px 28px; }
+.v2-dev-section .ant-empty { margin-block: 18px; }
+@media (max-width: 900px) { .v2-dev-connection-grid { grid-template-columns: 1fr 1fr; } .v2-dev-connection-grid > .ant-space { grid-column: 1 / -1; } .v2-dev-columns { grid-template-columns: 1fr; } .v2-dev-side { border-left: 0; } }
+@media (max-width: 600px) { .v2-dev-header, .v2-dev-connection, .v2-dev-section { padding-inline: 16px; } .v2-dev-status { padding-inline: 16px; } .v2-dev-connection-grid { grid-template-columns: 1fr; } .v2-dev-connection-grid > .ant-space { grid-column: auto; } .v2-dev-action-row, .v2-dev-inbox-row { align-items: stretch; flex-direction: column; } .v2-dev-session { flex-wrap: wrap; } }
+@media (max-width: 600px) { .v2-dev-inbox-actions { width: 100%; } .v2-dev-inbox-actions .ant-btn { flex: 1; min-width: 0; } }
+.v2-dev-human-context { border-top: 1px solid #d9dfe3; padding: 12px 0; min-width: 0; }
+.v2-dev-human-context h3 { font-size: 15px; margin: 0 0 10px; }
+.v2-dev-human-context strong { font-size: 13px; }
+.v2-dev-human-context p { margin: 4px 0 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.v2-dev-verification { padding: 20px 28px 28px; border-top: 1px solid #dce3e2; background: #fff; }
+.v2-dev-verification-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 16px; }
+.v2-dev-verification-grid > div { min-width: 0; border-top: 1px solid #dce3e2; padding-top: 12px; }
+.v2-dev-verification-label { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.v2-dev-verification-grid p { margin: 8px 0 0; overflow-wrap: anywhere; }
+.v2-dev-verification-gaps { display: flex; gap: 16px; margin-top: 20px; padding-top: 14px; border-top: 1px solid #dce3e2; }
+@media (max-width: 900px) { .v2-dev-verification-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .v2-dev-verification { padding: 18px 16px 24px; }
+  .v2-dev-verification-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .v2-dev-verification-gaps { display: block; }
+  .v2-dev-verification-gaps span { display: block; margin-top: 6px; }
+}

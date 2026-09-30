@@ -1,0 +1,5 @@
+Project document review record A.
+Reference: PROJECT-EVENT-001.
+The submitted item is labeled ITEM-001.
+The observed event time is 2026-09-20 10:00 +08:00.
+This project-authored record is not a real case or legal finding.

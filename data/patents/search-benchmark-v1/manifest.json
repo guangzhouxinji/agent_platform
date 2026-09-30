@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "benchmarkId": "CON-PATENT-SEARCH-BENCHMARK-V1",
+  "createdAt": "2026-09-29T08:00:00+08:00",
+  "judgmentType": "ENGINEERING_RELEVANCE",
+  "legalOrProfessionalGoldStandard": false,
+  "sourceDatasetId": "CON-04-PUBLIC-PILOT-V1",
+  "sourceRecordsSha256": "3eb751bb88c715952308c9ba38f09f0b0c1261385bb6910d2781ed328b6c1b63",
+  "sourceManifestRef": "data/patents/public-pilot-v1/manifest.json",
+  "allowedFields": ["TITLE"],
+  "methodVersion": "BM25F/v1",
+  "judgmentBasis": "Exact inspection of captured versioned patent titles; grades indicate direct title match (2) or broader title match (1), not patent-law relevance.",
+  "thresholds": {
+    "recallAt50": 0.90,
+    "ndcgAt10": 0.75,
+    "emptyQueryAccuracy": 1.0,
+    "deterministicReplay": 1.0
+  },
+  "queries": [
+    {"id":"ordinary-en","kind":"ORDINARY","query":"lithium battery","qrels":{"CN-104900909-A":2,"EP-3044822-A2":2,"EP-3044822-B1":2,"US-20160218356-A1":2,"WO-2015036882-A2":2}},
+    {"id":"professional-en","kind":"PROFESSIONAL","query":"water-based cathode slurry","qrels":{"EP-3044822-A2":2,"EP-3044822-B1":2,"US-20160218356-A1":2,"WO-2015036882-A2":2}},
+    {"id":"long-en","kind":"LONG","query":"densified battery electrodes different porosities","qrels":{"US-11594718-B2":2,"US-20250149543-A1":1}},
+    {"id":"short-en","kind":"SHORT","query":"membrane","qrels":{"US-12689050-B2":2}},
+    {"id":"term-variant-en","kind":"TERM_VARIANT","query":"slurry-based coating repair","qrels":{"EP-3581679-A1":2,"EP-3581679-B1":2,"US-11167312-B2":2,"US-20200230645-A1":2}},
+    {"id":"multi-condition-en","kind":"MULTI_CONDITION","query":"coating confectionery product","qrels":{"EP-4326082-A1":2,"EP-4326082-B1":2,"US-20240164402-A1":2,"WO-2022225935-A1":2}},
+    {"id":"technical-en","kind":"TECHNICAL_TERM","query":"catalyst-coated membrane","qrels":{"US-12689050-B2":2}},
+    {"id":"chinese-term","kind":"CHINESE_TERM","query":"水系粘结剂","qrels":{"CN-118813174-A":2,"CN-119674073-A":2,"CN-120365880-A":2}},
+    {"id":"noise-en","kind":"NOISE","query":"!!! lithium battery ???","qrels":{"CN-104900909-A":2,"EP-3044822-A2":2,"EP-3044822-B1":2,"US-20160218356-A1":2,"WO-2015036882-A2":2}},
+    {"id":"no-result-en","kind":"NO_RESULT","query":"quantum teleportation superconducting qubit","qrels":{}}
+  ]
+}

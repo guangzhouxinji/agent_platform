@@ -1,0 +1,9 @@
+DROP TABLE id2_grant_event;
+DROP TABLE id2_current_epoch;
+DROP TABLE id2_grant;
+DROP TABLE id2_session;
+DROP TABLE id2_key_event;
+DROP TABLE id2_signing_key;
+DROP TABLE id2_key_control;
+DROP TABLE id2_subject_event;
+DROP TABLE id2_subject;

@@ -8,10 +8,12 @@ import javax.sql.DataSource;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class PatentComparisonStorageConfiguration {
     @Bean
+    @Profile({"test-synthetic", "public-local-test", "dm8-integration"})
     @ConditionalOnProperty(name = "patent-comparison.storage", havingValue = "memory", matchIfMissing = true)
     PatentComparisonTaskRepository inMemoryPatentComparisonTaskRepository() {
         return new InMemoryPatentComparisonTaskRepository();

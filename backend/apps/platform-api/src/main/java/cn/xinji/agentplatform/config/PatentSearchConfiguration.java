@@ -45,24 +45,14 @@ public class PatentSearchConfiguration {
     }
 
     @Bean("patentSearchCatalog")
-    @Profile("!test-synthetic")
-    @ConditionalOnProperty(name = "patent-search.catalog", havingValue = "synthetic")
-    PatentCatalogPort syntheticPatentSearchCatalog(SyntheticPatentCatalogAdapter adapter) {
-        return new PatentCatalogPort() {
-            @Override public CatalogDescriptor descriptor() { return adapter.descriptor(); }
-            @Override public CatalogResult search(cn.xinji.agentplatform.consultation.patentsearch.domain.PatentSearchCommand command) {
-                return adapter.search(command);
-            }
-        };
-    }
-
-    @Bean("patentSearchCatalog")
+    @Profile("test-synthetic")
     @ConditionalOnProperty(name = "patent-search.catalog", havingValue = "mock-center")
     PatentCatalogPort mockCenterPatentSearchCatalog(MockCenterPatentCatalogAdapter catalog) {
         return catalog;
     }
 
     @Bean
+    @Profile("test-synthetic")
     @ConditionalOnProperty(name = "consultation.search.provider", havingValue = "mock-center")
     PatentSearchPort mockCenterConsultationPatentSearch(MockCenterPatentCatalogAdapter catalog, PatentAnalysisPort analysis) {
         return new MockCenterConsultationPatentSearchAdapter(catalog, analysis);
@@ -87,6 +77,7 @@ public class PatentSearchConfiguration {
     }
 
     @Bean
+    @Profile("test-synthetic")
     MockCenterCatalogClient mockCenterCatalogClient(ObjectMapper mapper,
             @Value("${center.patent.base-url:http://127.0.0.1:18082}") String baseUrl,
             @Value("${center.patent.connect-timeout-ms:3000}") long connectTimeout,
@@ -95,6 +86,7 @@ public class PatentSearchConfiguration {
     }
 
     @Bean
+    @Profile("test-synthetic")
     MockCenterPatentCatalogAdapter mockCenterPatentCatalogAdapter(MockCenterCatalogClient client) {
         return new MockCenterPatentCatalogAdapter(client);
     }
@@ -106,6 +98,7 @@ public class PatentSearchConfiguration {
     Clock applicationClock() { return Clock.systemUTC(); }
 
     @Bean
+    @Profile({"test-synthetic", "public-local-test", "dm8-integration"})
     @ConditionalOnProperty(name = "patent-search.storage", havingValue = "memory", matchIfMissing = true)
     PatentSearchTaskRepository inMemoryPatentSearchTaskRepository() {
         return new InMemoryPatentSearchTaskRepository();
@@ -121,6 +114,7 @@ public class PatentSearchConfiguration {
     }
 
     @Bean
+    @Profile({"test-synthetic", "public-local-test", "dm8-integration"})
     @ConditionalOnProperty(name = "trademark-search.storage", havingValue = "memory", matchIfMissing = true)
     TrademarkSearchTaskRepository inMemoryTrademarkSearchTaskRepository() {
         return new InMemoryTrademarkSearchTaskRepository();

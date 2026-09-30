@@ -193,8 +193,17 @@ function verifyBaseline(root, baseline) {
   }
   if (baseline.archive?.path) {
     const archive = resolve(root, baseline.archive.path);
-    if (!existsSync(archive)) errors.push(`baseline archive is missing: ${baseline.archive.path}`);
-    else if (sha256(archive) !== baseline.archive.sha256) errors.push(`baseline archive digest changed: ${baseline.archive.path}`);
+    if (!/^[a-f0-9]{64}$/.test(baseline.archive.sha256 ?? "")) {
+      errors.push(`baseline archive historical digest is invalid: ${baseline.archive.path}`);
+    }
+    if (baseline.archive.status === "retired") {
+      if (existsSync(archive)) errors.push(`retired baseline archive has reappeared: ${baseline.archive.path}`);
+    } else if (baseline.archive.status === "active") {
+      if (!existsSync(archive)) errors.push(`baseline archive is missing: ${baseline.archive.path}`);
+      else if (sha256(archive) !== baseline.archive.sha256) errors.push(`baseline archive digest changed: ${baseline.archive.path}`);
+    } else {
+      errors.push(`unknown baseline archive status: ${baseline.archive.status ?? "missing"}`);
+    }
   }
   return errors;
 }
@@ -330,6 +339,15 @@ function runSelfTest(root) {
   const changedBaseline = structuredClone(baseline);
   changedBaseline.files[0].sha256 = "0".repeat(64);
   expectFailure("digest mutation", verify(root, changedBaseline, plan), "digest changed", failures);
+
+  const reactivatedArchive = structuredClone(baseline);
+  reactivatedArchive.archive.status = "active";
+  expectFailure("retired archive reactivation", verifyBaseline(root, reactivatedArchive),
+    "baseline archive is missing", failures);
+  const invalidArchiveStatus = structuredClone(baseline);
+  invalidArchiveStatus.archive.status = "unreviewed";
+  expectFailure("unknown archive status", verifyBaseline(root, invalidArchiveStatus),
+    "unknown baseline archive status", failures);
 
   const missingPlan = plan.replace(/^\| CON-02 \|.*\r?\n/m, "");
   expectFailure("missing row", verifyLedger(root, missingPlan, baseline), "missing requirement ledger row: CON-02", failures);

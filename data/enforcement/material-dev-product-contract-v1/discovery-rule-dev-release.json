@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "enf-dev-rule-release-v1",
+  "releaseId": "ENF-RULE-V1-DEV-MARKING-01@1",
+  "status": "PUBLISHED_DEVELOPMENT",
+  "ruleDraft": "discovery-rule-draft.json",
+  "ruleDraftSha256": "abc965701346bf2138448795058502b3f367a68f8ee426deb6394978270c8517",
+  "batchId": "ENF-MATERIAL-DEV-PRODUCT-CONTRACT-V1",
+  "publishedAt": "2026-09-27T18:11:42+08:00",
+  "publishedBy": "CODEX_ENFORCEMENT_DEVELOPMENT_SESSION",
+  "approvalBasis": "docs/02 section 40, 2026-09-27 project-owner delegated development rule definition",
+  "review": "DEVELOPMENT_TECHNICAL_VALIDATION; no independent professional or legal approval",
+  "effect": "MATERIAL_REVIEW_CANDIDATE_ONLY",
+  "officialEffect": "NONE",
+  "scope": {
+    "sourceId": "PROJECT-DEV-OBSERVATION",
+    "batchId": "ENF-MATERIAL-DEV-PRODUCT-CONTRACT-V1",
+    "inputField": "sourceText",
+    "sourceUse": "QUERY"
+  },
+  "withdrawal": "New publication revision or explicit disable event required; old release retained for audit",
+  "result": "PUBLISHED_CONFIG_NOT_PRODUCT_EXECUTION"
+}

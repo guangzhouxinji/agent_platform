@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "DEV-CON-CORRECTION-INPUT-01",
+  "origin": "PROJECT_AUTHORED_SYNTHETIC",
+  "environment": "isolated-development-only",
+  "approvalRef": "docs/02-待确认事项清单.md#32-2026-09-25-项目数据处理与功能体验优先决定",
+  "status": "SYNTHETIC_DEV_ONLY",
+  "validFrom": "2026-09-26T00:00:00+08:00",
+  "validUntil": "2027-03-24T00:00:00+08:00",
+  "withdrawalVersion": 0,
+  "organizationRef": "dev-con-isolated",
+  "allowedPrincipalRefs": ["dev-con-a", "dev-con-b"],
+  "payloadFile": "input.json",
+  "sourceManifest": {
+    "manifestId": "DEV-CON-COMPARE-INPUT-01",
+    "sha256": "a9ffd6d954f0e946907dfdb6f9073573b146154dbcbdb94cd2a0e56a0b2f28b2"
+  },
+  "fields": {
+    "correction.oldText": ["CORRECTION_INPUT"],
+    "correction.newText": ["SAVE", "DISPLAY", "CORRECTION_INPUT"],
+    "correction.userMessage": ["SAVE", "DISPLAY", "CORRECTION_INPUT"]
+  },
+  "deniedUses": ["AUTO_CONFIRM", "PROFESSIONAL_RELATION_OUTPUT", "LEGAL_CONCLUSION", "OFFICIAL_WORKFLOW", "MODEL_INPUT"],
+  "payloadSha256": "a59d251c900c0e492b5bc1dcce116b62b025769ad475fa9272dc91f43ba671c8"
+}

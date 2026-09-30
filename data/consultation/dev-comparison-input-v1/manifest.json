@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "DEV-CON-COMPARE-INPUT-01",
+  "origin": "PROJECT_AUTHORED_SYNTHETIC",
+  "environment": "isolated-development-only",
+  "approvalRef": "docs/02-待确认事项清单.md#32-2026-09-25-项目数据处理与功能体验优先决定",
+  "status": "SYNTHETIC_DEV_ONLY",
+  "validFrom": "2026-09-25T00:00:00+08:00",
+  "validUntil": "2027-03-24T00:00:00+08:00",
+  "withdrawalVersion": 0,
+  "organizationRef": "dev-con-isolated",
+  "allowedPrincipalRefs": ["dev-con-a", "dev-con-b"],
+  "payloadFile": "input.json",
+  "sourceManifests": [
+    { "manifestId": "DEV-CON-INPUT-01", "sha256": "9c17461441cc2dbceffffe379d4af0c4898a217bd5030f1c88782cdb41cc3912" },
+    { "manifestId": "DEV-CON-FEATURE-CANDIDATES-01", "sha256": "cf66fc50a36b79c63371a13d8389a1607edcd770ce4d58ee00477367d06cfc76" },
+    { "manifestId": "DEV-CON-BOUNDARY-01", "sha256": "94aa591d4a0695d66ede0a65b3e0e0c12b963273bcc8d915ee88116d73699f80" }
+  ],
+  "fields": {
+    "target.goal": ["QUERY", "SAVE", "DISPLAY", "COMPARE_INPUT"],
+    "target.supplement": ["QUERY", "SAVE", "DISPLAY", "COMPARE_INPUT"],
+    "featureCandidates": ["QUERY", "SAVE", "DISPLAY", "COMPARE_INPUT"],
+    "claimCandidates": ["QUERY", "SAVE", "DISPLAY", "COMPARE_INPUT"]
+  },
+  "deniedUses": ["AUTO_CONFIRM", "PROFESSIONAL_RELATION_OUTPUT", "LEGAL_CONCLUSION", "OFFICIAL_WORKFLOW"],
+  "payloadSha256": "4d3310ef83864c42a416c16c50365a1d8a067fe9ac970cd54da875e0189e9049"
+}

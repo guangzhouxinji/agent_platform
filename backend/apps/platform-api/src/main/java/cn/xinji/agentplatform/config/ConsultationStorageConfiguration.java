@@ -8,10 +8,12 @@ import javax.sql.DataSource;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class ConsultationStorageConfiguration {
     @Bean
+    @Profile({"test-synthetic", "public-local-test", "dm8-integration"})
     @ConditionalOnProperty(name = "consultation.storage", havingValue = "memory", matchIfMissing = true)
     ConsultationStore inMemoryConsultationStore() { return new InMemoryConsultationStore(); }
 

@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component("patentSearchCatalog")
-@Profile("!test-synthetic")
+@Profile({"public-local-test", "dm8-integration"})
 public final class PublicLocalPatentCatalogAdapter implements PatentCatalogPort, PatentComparisonSourcePort {
     private static final int MAX_CANDIDATES = 100;
     private static final String SCORING_VERSION = "PUBLIC_LOCAL_TEXT_MATCH_V1";

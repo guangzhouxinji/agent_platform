@@ -2,6 +2,7 @@ package cn.xinji.agentplatform.consultation.patenttask.application;
 
 import cn.xinji.agentplatform.consultation.patenttask.domain.PatentSubTask;
 import cn.xinji.agentplatform.consultation.patenttask.domain.PatentTaskSnapshot;
+import cn.xinji.agentplatform.consultation.patenttask.domain.RecoveryPoint;
 import cn.xinji.agentplatform.consultation.patenttask.domain.TaskEvent;
 
 import java.time.Instant;
@@ -72,33 +73,55 @@ final class TaskCommandExecutor {
         List<TaskEvent> events = new ArrayList<>(next.events());
         events.add(new TaskEvent(UUID.randomUUID().toString(), command.commandIdentity(), command.type().name(),
                 current == null ? 0 : current.version(), next.version(), authorizationReference,
-                command.referencedObjectVersions(), command.dependencyVersions(), relatedArtifacts(current, command),
-                preservedArtifacts(current, command), resumedActions(current, command),
+                command.referencedObjectVersions(), command.dependencyVersions(), relatedArtifacts(current, next, command),
+                preservedArtifacts(current, next, command), resumedActions(current, next, command),
                 "APPLIED", "", command.occurredAt()));
         return new PatentTaskSnapshot(taskId, next.version(), next.status(), next.aggregationRule(),
                 next.cancelled(), next.cancellationRecord(), next.subTasks(), next.reasons(), next.objectVersions(),
-                next.dependencyVersions(), events);
+                next.dependencyVersions(), events, next.resultFocus(), next.correctionState(), next.evidenceState(),
+                next.retrievalState(), next.comparisonState(), next.humanState());
     }
 
-    private List<String> relatedArtifacts(PatentTaskSnapshot current, TaskCommand command) {
-        if (command.type() != TaskCommandType.RESUME || current == null) return List.of();
-        return current.subTasks().stream().map(PatentSubTask::recoveryPoint).filter(Objects::nonNull)
+    private List<String> relatedArtifacts(PatentTaskSnapshot current, PatentTaskSnapshot next, TaskCommand command) {
+        if (command.type() == TaskCommandType.CORRECT && next.correctionState().impacts().size()
+                > (current == null ? 0 : current.correctionState().impacts().size())) {
+            return next.correctionState().impacts().get(next.correctionState().impacts().size() - 1).invalidated();
+        }
+        return resumedPoint(current, next, command)
                 .flatMap(point -> java.util.stream.Stream.of(
                         point.committedArtifactReferences().stream(), point.incompleteActionReferences().stream(),
                         java.util.stream.Stream.of(point.failedExecutionReference(), point.retryCommandReference()))
                         .flatMap(stream -> stream)).distinct().toList();
     }
 
-    private List<String> preservedArtifacts(PatentTaskSnapshot current, TaskCommand command) {
-        if (command.type() != TaskCommandType.RESUME || current == null) return List.of();
-        return current.subTasks().stream().map(PatentSubTask::recoveryPoint).filter(Objects::nonNull)
+    private List<String> preservedArtifacts(PatentTaskSnapshot current, PatentTaskSnapshot next, TaskCommand command) {
+        if (command.type() == TaskCommandType.CORRECT && next.correctionState().impacts().size()
+                > (current == null ? 0 : current.correctionState().impacts().size())) {
+            return next.correctionState().impacts().get(next.correctionState().impacts().size() - 1).retained();
+        }
+        return resumedPoint(current, next, command)
                 .flatMap(point -> point.committedArtifactReferences().stream()).distinct().toList();
     }
 
-    private List<String> resumedActions(PatentTaskSnapshot current, TaskCommand command) {
-        if (command.type() != TaskCommandType.RESUME || current == null) return List.of();
-        return current.subTasks().stream().map(PatentSubTask::recoveryPoint).filter(Objects::nonNull)
+    private List<String> resumedActions(PatentTaskSnapshot current, PatentTaskSnapshot next, TaskCommand command) {
+        if (command.type() == TaskCommandType.CORRECT && next.correctionState().impacts().size()
+                > (current == null ? 0 : current.correctionState().impacts().size())) {
+            return next.correctionState().impacts().get(next.correctionState().impacts().size() - 1).recomputeActions();
+        }
+        return resumedPoint(current, next, command)
                 .flatMap(point -> point.incompleteActionReferences().stream()).distinct().toList();
+    }
+
+    private java.util.stream.Stream<RecoveryPoint> resumedPoint(PatentTaskSnapshot current,
+                                                                  PatentTaskSnapshot next, TaskCommand command) {
+        if (command.type() != TaskCommandType.RESUME || current == null || current.cancelled()) {
+            return java.util.stream.Stream.empty();
+        }
+        return current.subTasks().stream().filter(before -> before.recoveryPoint() != null)
+                .filter(before -> next.subTasks().stream().anyMatch(after ->
+                        after.subTaskId().equals(before.subTaskId()) && after.version() == before.version() + 1
+                                && after.recoveryPoint() == null))
+                .map(PatentSubTask::recoveryPoint);
     }
 
     private void requireAllowed(TaskAuthorizationDecision decision) {

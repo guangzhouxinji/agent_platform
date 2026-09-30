@@ -1,0 +1,3 @@
+BACKUP DATABASE FULL TO ENF_DEV_CHECKPOINT_01
+BACKUPSET '/mnt/enf-backup/enf-dev-checkpoint-01';
+EXIT;

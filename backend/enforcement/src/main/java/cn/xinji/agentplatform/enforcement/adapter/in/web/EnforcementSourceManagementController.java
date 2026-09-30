@@ -8,9 +8,11 @@ import java.util.Map;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Profile("test-synthetic")
 @RequestMapping("/api/v0/enforcement/source-configurations")
 public class EnforcementSourceManagementController {
     private final EnforcementSourceManagementService service;

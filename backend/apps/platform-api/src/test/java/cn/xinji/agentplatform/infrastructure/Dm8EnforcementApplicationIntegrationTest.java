@@ -109,14 +109,9 @@ class Dm8EnforcementApplicationIntegrationTest {
             assertEquals(151, scalarInt(connection, "SELECT record_count FROM enf_local_source_batch WHERE batch_id='ENF-SYNTHETIC-LOCAL-V1'"));
         }
         http.perform(get("/api/v0/development-sources/enforcement/clues"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.dataMode").value("SYNTHETIC_LOCAL"))
-                .andExpect(jsonPath("$.catalogVersion").value(sources.catalogVersion()))
-                .andExpect(jsonPath("$.items.length()").value(30));
+                .andExpect(status().isNotFound());
         http.perform(get("/api/v0/development-sources/enforcement/evidence"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.catalogVersion").value(sources.catalogVersion()))
-                .andExpect(jsonPath("$.items.length()").value(119));
+                .andExpect(status().isNotFound());
     }
 
     @Test

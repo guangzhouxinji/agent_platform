@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>执法 V2 项目功能验收模板</dc:title>
+  <dc:creator>Agent Platform Project</dc:creator>
+  <dc:description>PROJECT_AUTHORED_INPUT_ONLY_NOT_FORMAL_DOCUMENT</dc:description>
+  <dcterms:created xsi:type="dcterms:W3CDTF">2026-09-29T12:00:00Z</dcterms:created>
+</cp:coreProperties>

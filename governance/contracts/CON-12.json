@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "requirementId": "CON-12",
   "title": "知识产权咨询对话流管理",
-  "status": "stale",
+  "status": "ready",
   "baselineId": "requirements-2026-09-14-v1",
   "source": {
     "path": "requirements/知识产权咨询助手/知识产权咨询对话流管理需求文档.md",
@@ -47,6 +47,10 @@
       {
         "anchor": "9. 依赖与交付",
         "purpose": "dependencies_and_delivery"
+      },
+      {
+        "anchor": "10. 任务型对话与自主协助补充（2026-09-22）",
+        "purpose": "confirmed_task_product_behavior"
       }
     ]
   },
@@ -62,7 +66,9 @@
         "3.5 评分及专业意见",
         "3.6 默认值与未决条件",
         "3.7 国产化部署与达梦 DM8 数据库",
-        "6. 验收资料与共同口径"
+        "6. 验收资料与共同口径",
+        "3.1 API 数据与本地内容",
+        "8. 负责人确认的产品行为基线（2026-09-22）"
       ]
     }
   ],
@@ -83,13 +89,15 @@
     {
       "id": "CON-12-MUST-002",
       "type": "MUST",
-      "statement": "首版使用可配置固定流程和场景分支，不要求通用拖拽流程设计器。",
+      "statement": "保留首版配置流程与场景分支及不要求通用拖拽设计器的边界；结合第10节已确认补充，固定配置不得把产品限制为一次工具序列，须支持按中间结果继续、调整、补问或结束。",
       "sourceAnchors": [
-        "1. 功能概述"
+        "1. 功能概述",
+        "10. 任务型对话与自主协助补充（2026-09-22）"
       ],
       "acceptanceScenarioIds": [
         "CON-12-AC-011"
-      ]
+      ],
+      "previousStatement": "首版使用可配置固定流程和场景分支，不要求通用拖拽流程设计器。"
     },
     {
       "id": "CON-12-MUST_NOT-001",
@@ -180,14 +188,23 @@
     {
       "id": "CON-12-MUST-008",
       "type": "MUST",
-      "statement": "信息齐全后调用相应查询、检索或比对服务，并记录实际输入、任务 ID、执行状态及固定版本。",
+      "statement": "本次动作关键/条件必填信息齐全且权限有效时调用相应服务，非关键缺失披露后可先执行；记录实际输入、目标/执行任务引用、状态和具体版本，不以信息齐全要求用户填所有字段。",
       "sourceAnchors": [
         "2. 数据字段",
-        "3. 标准对话流程"
+        "3. 标准对话流程",
+        "10. 任务型对话与自主协助补充（2026-09-22）",
+        "总目录/8. 负责人确认的产品行为基线（2026-09-22）"
       ],
       "acceptanceScenarioIds": [
         "CON-12-AC-001",
         "CON-12-AC-004"
+      ],
+      "revisionHistory": [
+        {
+          "date": "2026-09-24",
+          "statement": "信息齐全后调用相应查询、检索或比对服务，并记录实际输入、任务 ID、执行状态及固定版本。",
+          "reason": "第二遍语义复核纠偏"
+        }
       ]
     },
     {
@@ -230,12 +247,21 @@
     {
       "id": "CON-12-MUST-011",
       "type": "MUST",
-      "statement": "序数指代必须绑定上一轮实际展示的结果集、顺序和版本；存在多个可能对象时必须追问。",
+      "statement": "序数与历史指代绑定明确结果集、顺序、对象和版本；已经明确的选择不被新展示静默覆盖；多个合理对象无法唯一绑定时追问。",
       "sourceAnchors": [
-        "3. 标准对话流程"
+        "3. 标准对话流程",
+        "10. 任务型对话与自主协助补充（2026-09-22）",
+        "docs/02第23节已确认产品决定"
       ],
       "acceptanceScenarioIds": [
         "CON-12-AC-003"
+      ],
+      "revisionHistory": [
+        {
+          "date": "2026-09-24",
+          "statement": "序数指代必须绑定上一轮实际展示的结果集、顺序和版本；存在多个可能对象时必须追问。",
+          "reason": "第二遍语义复核纠偏"
+        }
       ]
     },
     {
@@ -402,13 +428,22 @@
     {
       "id": "CON-12-MUST-023",
       "type": "MUST",
-      "statement": "人工转接未接通时只展示中心配置的办理指引；真实转接成功必须由权威受理系统返回受理编号和状态。",
+      "statement": "无人工接收能力时只展示获准指引/未受理状态；真实交接必须有绑定任务/产物版本的可信人员受理记录或接收端真实回执，外部受理接口接通时保留其真实编号与状态。不得用模型或发请求动作代替受理。",
       "sourceAnchors": [
-        "5. 异常、复核与转接"
+        "5. 异常、复核与转接",
+        "docs/02第23节已确认产品决定"
       ],
       "acceptanceScenarioIds": [
         "CON-12-AC-012"
-      ]
+      ],
+      "revisionHistory": [
+        {
+          "date": "2026-09-24",
+          "statement": "人工转接未接通时只展示中心配置的办理指引；真实转接成功必须由权威受理系统返回受理编号和状态。",
+          "reason": "第二遍语义复核纠偏"
+        }
+      ],
+      "sourceKind": "original_requirement_with_confirmed_product_decision"
     },
     {
       "id": "CON-12-MUST_NOT-007",
@@ -435,13 +470,16 @@
     {
       "id": "CON-12-MUST-025",
       "type": "MUST",
-      "statement": "流程草稿可配置场景入口、补问、工具、回复、异常回退和结束节点；发布校验唯一入口、节点可达、异常出口、循环上限和引用版本有效。",
+      "statement": "流程草稿可配置场景入口、补问、工具、回复、异常回退和结束节点；发布校验唯一入口、节点可达、异常出口、循环上限和引用版本有效。 此处循环上限为技术防失控配置，不等于固定业务检索轮数；当前产品按获准策略及有依据的停止条件运行，参数需经确认。",
       "sourceAnchors": [
-        "6. 流程配置与内部验证页面"
+        "6. 流程配置与内部验证页面",
+        "10. 任务型对话与自主协助补充（2026-09-22）",
+        "知识产权咨询助手需求文档总目录.md 第8节"
       ],
       "acceptanceScenarioIds": [
         "CON-12-AC-011"
-      ]
+      ],
+      "previousStatement": "流程草稿可配置场景入口、补问、工具、回复、异常回退和结束节点；发布校验唯一入口、节点可达、异常出口、循环上限和引用版本有效。"
     },
     {
       "id": "CON-12-MUST-026",
@@ -488,6 +526,272 @@
       "acceptanceScenarioIds": [
         "CON-12-AC-015"
       ]
+    },
+    {
+      "id": "CON-12-TASK-MUST-001",
+      "type": "MUST",
+      "statement": "对话必须保存并使用用户目标、确认事实、结果集快照、选择对象、工具结果、证据、未决项和版本；只传历史问题文本不构成任务型多轮上下文。",
+      "sourceAnchors": [
+        "10. 任务型对话与自主协助补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-TASK-MUST-002",
+      "type": "MUST",
+      "statement": "授权范围内、只读、低风险、可恢复且不改变正式业务状态的工具可自动、连续调用，不要求用户逐页选择。扩大权限、实质范围、高风险决定或不可逆动作时暂停并确认。",
+      "sourceAnchors": [
+        "10. 任务型对话与自主协助补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-SEM-PRODUCT-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-TASK-MUST-003",
+      "type": "MUST",
+      "statement": "智能体依据中间结果判断是否补问、继续检索、调整方法、深化证据、进入技术对照或结束任务；不以一次工具调用或一次回答作为固定终点。",
+      "sourceAnchors": [
+        "10. 任务型对话与自主协助补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-TASK-MUST-004",
+      "type": "MUST",
+      "statement": "复合任务允许部分完成，各子任务分别记录结果和状态。任务状态为：`进行中 / 等待用户补充 / 等待确认 / 部分完成 / 已完成 / 证据不足 / 需要人工复核 / 技术失败 / 用户取消`。",
+      "sourceAnchors": [
+        "10. 任务型对话与自主协助补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-TASK-MUST-005",
+      "type": "MUST",
+      "statement": "“已完成”要求主要用户目标达成、必要证据满足和剩余限制明确披露；HTTP 成功、工具返回或存在候选不能单独触发完成。",
+      "sourceAnchors": [
+        "10. 任务型对话与自主协助补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-TASK-MUST-006",
+      "type": "MUST",
+      "statement": "“证据不足”与真实无结果、无权限、来源失效、模型失败、工具失败和系统故障分别表达，并说明已做事项、缺口和可执行下一步。可恢复时保留任务进度。",
+      "sourceAnchors": [
+        "10. 任务型对话与自主协助补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-003"
+      ]
+    },
+    {
+      "id": "CON-12-TASK-MUST-007",
+      "type": "MUST",
+      "statement": "人工复核触发条件包括正式法律/业务判断、高风险结论、无法消解的重要证据冲突、关键证据缺失、超出 AI 能力/权限边界或用户明确要求。交接至少包含目标、确认事实/版本、任务状态、范围、候选、证据、冲突、失败步骤、权限和未决项。",
+      "sourceAnchors": [
+        "10. 任务型对话与自主协助补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-SEM-PRODUCT-AC-002"
+      ]
+    },
+    {
+      "id": "CON-12-TASK-MUST-008",
+      "type": "MUST",
+      "statement": "人工结果应回流原任务，使用户可查看状态、补充材料、获得结果并继续对话；具体人工组织、接口和服务时限仍待确认。",
+      "sourceAnchors": [
+        "10. 任务型对话与自主协助补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-003"
+      ]
+    },
+    {
+      "id": "CON-12-TASK-MUST-009",
+      "type": "MUST",
+      "statement": "用户取消后停止活动执行；合法结果和审计按获批保留规则保存。具体保留、删除和恢复期限仍待数据治理证据。",
+      "sourceAnchors": [
+        "10. 任务型对话与自主协助补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-DEV-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-DECISION-MUST-005",
+      "type": "MUST",
+      "statement": "开发期项目自有且获准保存的任务记录保留六个自然月，进行中从最后一次已提交业务变更、终止后从终止时间起算；单纯读取不续期。断线任务在期限内重新核权核来源后从检查点恢复，取消任务不可直接恢复，到期拒绝旧任务执行并清理关联数据；更早到期的来源许可优先。生产期限另取证。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md 第30节（2026-09-24 已确认开发期决定，不是原需求原文）"
+      ],
+      "sourceKind": "confirmed_product_decision",
+      "decisionRef": "docs/02-待确认事项清单.md#30-2026-09-24-开发期任务记录保留与恢复期限",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-002"
+      ]
+    },
+    {
+      "id": "CON-12-DECISION-MUST-001",
+      "type": "MUST",
+      "statement": "三域共同的完成分层在咨询按本域证据与目标解释，不将九种用户状态强制推广为三域共用数据库枚举。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md 第23节（2026-09-24 已确认产品决定，不是原需求原文）"
+      ],
+      "sourceKind": "confirmed_product_decision",
+      "decisionRef": "docs/02-待确认事项清单.md#23-2026-09-24-三域共同产品约束确认",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-DECISION-MUST-002",
+      "type": "MUST",
+      "statement": "跨轮指代绑定明确对象及集合版本，排序或新展示不改变已明确选择。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md 第23节（2026-09-24 已确认产品决定，不是原需求原文）"
+      ],
+      "sourceKind": "confirmed_product_decision",
+      "decisionRef": "docs/02-待确认事项清单.md#23-2026-09-24-三域共同产品约束确认",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-DECISION-MUST-003",
+      "type": "MUST",
+      "statement": "事实纠正沿原目标任务链继续，保留版本并只失效受影响下游；全新目标或案件不能据此静默继承旧上下文。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md 第23节（2026-09-24 已确认产品决定，不是原需求原文）"
+      ],
+      "sourceKind": "confirmed_product_decision",
+      "decisionRef": "docs/02-待确认事项清单.md#23-2026-09-24-三域共同产品约束确认",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-DECISION-MUST-004",
+      "type": "MUST",
+      "statement": "人工请求、实际受理和决定分开；没有可信人员受理记录或真实接收回执不能声称已转交/接管，回流绑定实际任务与产物版本。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md 第23节（2026-09-24 已确认产品决定，不是原需求原文）"
+      ],
+      "sourceKind": "confirmed_product_decision",
+      "decisionRef": "docs/02-待确认事项清单.md#23-2026-09-24-三域共同产品约束确认",
+      "acceptanceScenarioIds": [
+        "CON-12-TASK-AC-003",
+        "CON-12-SEM-PRODUCT-AC-002"
+      ]
+    },
+    {
+      "id": "CON-12-SEM-MUST-001",
+      "type": "MUST",
+      "statement": "业务关系型数据库固定使用真实DM8并在目标国产环境验证；其他数据库/内存通过不能替代。本模块需要持久化的业务内容包括：会话、消息、上下文快照、事件序号、任务引用、流程配置版本和结束记录。数据库采用 DM8；文件二进制可使用项目已批准的文件存储，DM8 保存受控引用及元数据，不要求把所有图片和附件存入数据库。 本模块 DM8 专项验收覆盖：长消息与上下文不截断、同会话并发控制、幂等、事件顺序及断线/服务重启后的状态恢复。验证事务失败回滚、连接故障恢复和权限控制；接口故障不伪装成空结果。需要恢复的任务应识别中断状态，按幂等规则恢复或显式失败，不盲目重放。",
+      "sourceAnchors": [
+        "国产化与达梦 DM8 适配要求"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-SEM-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-SEM-MUST-002",
+      "type": "MUST",
+      "statement": "按总目录3.7验证驱动/连接池/方言、分页排序/日期聚合、中文外文和特殊字符、空串与NULL、长文本/结构化内容、主键与幂等唯一性、时区和分数精度、并发事务回滚；不假定原生JSON或DDL事务回滚。提供空库初始化、既有数据升级及失败恢复，备份恢复核对文件/索引引用，区分应用与升级权限，记录目标版本/实例参数及国产组件兼容清单；不自行更改生产实例参数，不预设未批准中间件。数据量/性能通过线按真实确认，不凭脚本存在宣称验证完成。",
+      "sourceAnchors": [
+        "国产化与达梦 DM8 适配要求",
+        "总目录/3.7 国产化部署与达梦 DM8 数据库",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-SEM-AC-001"
+      ]
+    },
+    {
+      "id": "CON-12-SEM-MUST-003",
+      "type": "MUST",
+      "statement": "内部验证工作面必须保留本节可观察行为；对外页面交付不在此处自动增加。以下是原文页面/配置要求，非已实现声明：\n流程草稿支持场景入口、补问、工具调用、回复、异常回退及结束节点配置。发布校验入口唯一、节点可达、必要异常出口存在、循环有次数上限、引用版本有效。已发布流程不可原地编辑，由智能体显式绑定新版。\n\n内部页面包括会话列表、聊天验证区、当前对象/槽位区、工具执行记录、来源引用、配置版本、结束/取消/重试操作，以及流程配置与测试页。\n\n会话列表支持编号、授权范围内用户、状态、时间筛选。聊天区明确正在处理、未完成、失败及真实/模拟状态；调试区仅管理权限可看，不展示密钥或模型隐含推理。",
+      "sourceAnchors": [
+        "6. 流程配置与内部验证页面",
+        "总目录/1. 项目定位与交付口径"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-SEM-AC-002"
+      ]
+    },
+    {
+      "id": "CON-12-SEM-MUST-004",
+      "type": "MUST",
+      "statement": "服务应脱离页面独立调用，鉴权、参数、状态及任务执行不能依赖前端；具体英文字段或URL仍由当前D门决定。原文服务及错误义务如下：\n| 服务 | 输入 | 输出 |\n|---|---|---|\n| 创建会话 | 智能体 ID、身份上下文 | 会话 ID、绑定版本 |\n| 发送消息 | 会话 ID、消息内容、受控附件引用、幂等键 | 消息 ID、处理状态 |\n| 接收事件/查询消息 | 会话/消息 ID、事件位置 | 有序事件或最终回复、引用 |\n| 查询历史 | 会话 ID、分页 | 授权消息及当前状态 |\n| 取消/结束 | 会话/消息 ID、动作 | 新状态 |\n| 流程保存/校验/发布 | 流程版本、配置、动作 | 校验结果或新版本 |\n\n后端对每个会话和附件引用校验归属，不能仅凭 ID 放行。模型错误、工具失败、忙碌、过期、暂停、参数错误及越权分别返回错误和追踪号。",
+      "sourceAnchors": [
+        "7. 服务契约",
+        "总目录/1. 项目定位与交付口径"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-SEM-AC-002"
+      ]
+    },
+    {
+      "id": "CON-12-SEM-MUST-005",
+      "type": "MUST",
+      "statement": "完整保留原文交付/联调义务，默认参数不冒充已核实的中心能力。\n依赖智能体、提示词、意图、工具服务、任务、权限及可选人工受理系统。交付会话/消息/流程服务、事件协议、状态及幂等说明、验收记录；聊天和流程配置页面内部留用。\n\n确认首批场景、模型上下文预算、各流程超时与循环上限、会话/数据保留策略、人工受理接口、并发及首响应/完成时间目标。\n同时提交本模块DM8初始化/升级、配置与实际验证/恢复记录和未满足项；源能力不足须待补齐或书面调整，不得隐藏功能后当作通过。",
+      "sourceAnchors": [
+        "9. 依赖与交付",
+        "国产化与达梦 DM8 适配要求",
+        "总目录/3.6 默认值与未决条件",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-SEM-AC-002"
+      ]
+    },
+    {
+      "id": "CON-12-SEM-MUST-006",
+      "type": "MUST",
+      "statement": "来源时间/获取时间/任务时间/配置时间分开，可追溯源/文献/配置/模型/规则版本；缺源版本时仅在授权范围记录内容摘要快照。检索召回、原文/报告/消息/片段/附件读取及入模分别执行当前主体和用途授权，撤权或源撤回不经缓存/派生物泄露；受控审计不意味着继续可读。不得记录凭据或向普通用户输出系统模板、隐含推理、敏感堆栈。",
+      "sourceAnchors": [
+        "总目录/3.1 API 数据与本地内容",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-SEM-AC-003"
+      ]
+    },
+    {
+      "id": "CON-12-SEM-MUST-008",
+      "type": "MUST",
+      "statement": "保留原文字段的业务含义、条件必填和来源限制；字段清单不意味着所有操作都要提交全部字段，不冻结英文字段名或物理模型。\n| 字段 | 说明 |\n|---|---|\n| 对话编号、用户标识、显示名称 | 不以可重名的用户名做归属判断 |\n| 智能体及配置版本、对话流版本 | 会话创建时固定，权限与撤销策略实时检查 |\n| 会话状态 | 进行中、已结束、已过期 |\n| 当前阶段 | 意图识别、待补充、检索中、分析中、待复核/转接、可继续 |\n| 消息 ID、角色、内容、顺序号 | 用户、助手、工具及系统事件分开 |\n| 咨询/回复内容、创建时间 | 保留原始消息与状态 |\n| 对话轮次 | 一条接受成功的用户消息计一轮，工具消息不另计 |\n| 上下文 | 已确认槽位、当前对象/版本、历史引用、摘要及来源消息 |\n| 请求/工具任务 ID、执行状态 | 支持幂等、重连与追踪 |\n| 引用信息 | 资源 ID、版本、段落/页码、来源时间 |\n| 开始/结束时间、结束原因 | 用户结束、到期或管理处理等 |\n| 流程配置 | 节点、条件、工具映射、超时/回退及版本 |",
+      "sourceAnchors": [
+        "2. 数据字段"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-12-SEM-AC-008"
+      ]
     }
   ],
   "inputs": [
@@ -524,6 +828,15 @@
       "required": "配置时",
       "rules": [
         "固定版本、节点、条件、工具稳定 ID、异常、超时、回退、循环上限"
+      ]
+    },
+    {
+      "name": "taskAction",
+      "required": "补充/确认/纠正/继续/人工回流时",
+      "rules": [
+        "关联原目标、事实/对象及版本",
+        "动作不等于新会话/新执行或新目标，分别按语义处理",
+        "真人回执/修订需当前授权，不能由模型声称受理或审核"
       ]
     }
   ],
@@ -586,6 +899,18 @@
         "citations",
         "completionStatus",
         "runManifest"
+      ]
+    },
+    {
+      "name": "userTask",
+      "fields": [
+        "目标及确认事实/版本",
+        "稳定结果集和明确焦点",
+        "工具结果/证据/未决项",
+        "九种产品任务状态及原因",
+        "主要目标/必要证据/限制的完成判断",
+        "复合子任务结果和部分完成",
+        "人工请求/受理/决定/回流版本"
       ]
     }
   ],
@@ -671,6 +996,51 @@
       "kind": "message",
       "allowedNext": [],
       "invariant": "迟到结果不得发布为完成答复"
+    },
+    {
+      "name": "进行中",
+      "kind": "user_goal_task",
+      "invariant": "与会话、消息、工具执行及人工/正式状态分离；转换按目标及来源条款在当前D中明确，不由执行成功自动推进"
+    },
+    {
+      "name": "等待用户补充",
+      "kind": "user_goal_task",
+      "invariant": "与会话、消息、工具执行及人工/正式状态分离；转换按目标及来源条款在当前D中明确，不由执行成功自动推进"
+    },
+    {
+      "name": "等待确认",
+      "kind": "user_goal_task",
+      "invariant": "与会话、消息、工具执行及人工/正式状态分离；转换按目标及来源条款在当前D中明确，不由执行成功自动推进"
+    },
+    {
+      "name": "部分完成",
+      "kind": "user_goal_task",
+      "invariant": "与会话、消息、工具执行及人工/正式状态分离；转换按目标及来源条款在当前D中明确，不由执行成功自动推进"
+    },
+    {
+      "name": "已完成",
+      "kind": "user_goal_task",
+      "invariant": "与会话、消息、工具执行及人工/正式状态分离；转换按目标及来源条款在当前D中明确，不由执行成功自动推进"
+    },
+    {
+      "name": "证据不足",
+      "kind": "user_goal_task",
+      "invariant": "与会话、消息、工具执行及人工/正式状态分离；转换按目标及来源条款在当前D中明确，不由执行成功自动推进"
+    },
+    {
+      "name": "需要人工复核",
+      "kind": "user_goal_task",
+      "invariant": "与会话、消息、工具执行及人工/正式状态分离；转换按目标及来源条款在当前D中明确，不由执行成功自动推进"
+    },
+    {
+      "name": "技术失败",
+      "kind": "user_goal_task",
+      "invariant": "与会话、消息、工具执行及人工/正式状态分离；转换按目标及来源条款在当前D中明确，不由执行成功自动推进"
+    },
+    {
+      "name": "用户取消",
+      "kind": "user_goal_task",
+      "invariant": "与会话、消息、工具执行及人工/正式状态分离；转换按目标及来源条款在当前D中明确，不由执行成功自动推进"
     }
   ],
   "sourceAndVersionRules": [
@@ -761,7 +1131,7 @@
     {
       "id": "CON-12-DEC-004",
       "owner": "AUTHORITY_SYSTEM",
-      "description": "身份系统决定权限，工具系统提供真实结果，人工受理系统以真实回执决定是否已受理。",
+      "description": "身份系统决定权限，工具提供实际结果；受理以授权人员的可信记录或接收端真实回执判断，Agent不得自报受理。",
       "sourceAnchors": [
         "3. 标准对话流程",
         "5. 异常、复核与转接",
@@ -976,9 +1346,9 @@
       ],
       "when": "请求转接",
       "then": [
-        "未接通仅显示批准指引",
-        "接通后仅凭真实编号和状态显示受理",
-        "不默认发通知"
+        "未接通显示批准指引或未受理",
+        "有可信人员领取记录或接收端真实回执才显示受理，绑定实际任务与版本",
+        "外部系统接通时保留其编号/状态，不默认发送外部通知"
       ],
       "sourceClauseIds": [
         "CON-12-MUST-023",
@@ -1014,6 +1384,184 @@
       "sourceClauseIds": [
         "CON-12-MUST-031"
       ]
+    },
+    {
+      "id": "CON-12-TASK-AC-001",
+      "given": [
+        "同一目标经过查询/检索/对照，模型已返回一次答案"
+      ],
+      "when": "判断任务结果并接收继续消息",
+      "then": [
+        "结构上下文含目标/事实/快照/焦点/证据/版本",
+        "执行成功不直接标完整目标完成",
+        "允许补充纠正后在原任务继续",
+        "复合子任务各自记状态，一个失败不得报告全部完成；明确目标满足、适配证据和限制",
+        "新展示不改变已明确焦点；工具/辅助成果/专业接受/正式办理分开"
+      ],
+      "sourceClauseIds": [
+        "CON-12-TASK-MUST-001",
+        "CON-12-TASK-MUST-003",
+        "CON-12-TASK-MUST-004",
+        "CON-12-TASK-MUST-005",
+        "CON-12-DECISION-MUST-001",
+        "CON-12-DECISION-MUST-002",
+        "CON-12-DECISION-MUST-003"
+      ],
+      "evidenceRequirement": "预注册反例；Component/Contract不能替代适用真实集成及专业验收，未声明已执行"
+    },
+    {
+      "id": "CON-12-TASK-AC-002",
+      "given": [
+        "人工请求没有受理记录且随后用户取消，旧工具响应迟到"
+      ],
+      "when": "展示交接状态并处理迟到响应",
+      "then": [
+        "无真实受理不声称已转人工",
+        "取消停止后续执行，迟到响应不发布",
+        "保留原输出与审计，保留期限按批准策略"
+      ],
+      "sourceClauseIds": [
+        "CON-12-TASK-MUST-009"
+      ],
+      "evidenceRequirement": "预注册反例；Component/Contract不能替代适用真实集成及专业验收，未声明已执行"
+    },
+    {
+      "id": "CON-12-DEV-AC-001",
+      "given": [
+        "开发期进行中任务和已取消任务均有检查点，来源许可可能早于六个月到期"
+      ],
+      "when": "跨会话恢复、查看、到期清理及备份恢复",
+      "then": [
+        "进行中任务按最后已提交业务变更、终止任务按终止时间起算六个自然月；仅查看不续期",
+        "期限内重新核验权限/来源并恢复非终止任务，取消后仅可获准查看或创建关联新任务",
+        "较短来源许可立即限制使用；任务到期拒旧ID执行、清理关联数据，备份回灌不重新暴露到期内容"
+      ],
+      "sourceClauseIds": [
+        "CON-12-DECISION-MUST-005",
+        "CON-12-TASK-MUST-009"
+      ],
+      "evidenceRequirement": "开发期C反例预注册；实际到期清理、备份和DM8恢复需I验证，未声明已执行"
+    },
+    {
+      "id": "CON-12-TASK-AC-003",
+      "given": [
+        "服务重启后用户恢复任务，期间权限或来源变化"
+      ],
+      "when": "读取检查点并继续",
+      "then": [
+        "从持久任务恢复而非仅聊天文本",
+        "重新授权/核验当前版本，不能盲重放",
+        "真实人工回答回流原任务并绑定版本",
+        "无结果、证据不足、无权限、来源失效及模型/工具/系统失败分别显示原因/缺口/可执行下一步"
+      ],
+      "sourceClauseIds": [
+        "CON-12-TASK-MUST-006",
+        "CON-12-TASK-MUST-008",
+        "CON-12-DECISION-MUST-004"
+      ],
+      "evidenceRequirement": "预注册反例；Component/Contract不能替代适用真实集成及专业验收，未声明已执行"
+    },
+    {
+      "id": "CON-12-SEM-AC-001",
+      "given": [
+        "模块持久数据含中文/长文本/空值及关联版本",
+        "执行环境缺失或真实DM8发生事务/连接故障"
+      ],
+      "when": "核对数据库兼容、升级与恢复验收证据",
+      "then": [
+        "缺真实环境必须未验证或阻塞，其他数据库通过不能代替",
+        "逐模块专项场景、事务/并发/恢复/引用完整性与目标实例参数有实际记录",
+        "保留升级旧数据，失败不以清库或假空结果掩盖"
+      ],
+      "sourceClauseIds": [
+        "CON-12-SEM-MUST-001",
+        "CON-12-SEM-MUST-002"
+      ],
+      "evidenceRequirement": "Real Integration及国产环境验收；本场景只注册，不声明已执行"
+    },
+    {
+      "id": "CON-12-SEM-AC-002",
+      "given": [
+        "有授权和无授权调用方、该模块正常/异常输入",
+        "内部验证工作面和独立客户端分别操作"
+      ],
+      "when": "对照原文服务与页面完成相同工作",
+      "then": [
+        "原文服务操作、输入/输出/错误和页面必要行为逐项可查",
+        "绕过页面直接调用仍执行权限/参数/并发校验",
+        "内部页面不冒充合同对外页面交付，未满足项不以隐藏入口消失"
+      ],
+      "sourceClauseIds": [
+        "CON-12-SEM-MUST-003",
+        "CON-12-SEM-MUST-004",
+        "CON-12-SEM-MUST-005"
+      ],
+      "evidenceRequirement": "Component/Contract；真实环境及专业效果另行验收"
+    },
+    {
+      "id": "CON-12-SEM-AC-003",
+      "given": [
+        "旧版本已被访问，随后主体权限收紧或来源撤回",
+        "命中文档缓存、历史结果和导出/入模入口"
+      ],
+      "when": "重新读取或处理旧内容",
+      "then": [
+        "所有适用入口重查当前主体/用途，不依据历史成功绕过",
+        "只保留获准受控审计，内容/片段不泄露",
+        "日志和普通响应不带凭据、内部模板或敏感堆栈"
+      ],
+      "sourceClauseIds": [
+        "CON-12-SEM-MUST-006"
+      ],
+      "evidenceRequirement": "Component/Contract；真实环境及专业效果另行验收"
+    },
+    {
+      "id": "CON-12-SEM-PRODUCT-AC-001",
+      "given": [
+        "当前范围允许只读低风险可恢复工具",
+        "另一路动作扩大实质范围或权限或需不可逆决定"
+      ],
+      "when": "请求连续行动",
+      "then": [
+        "第一类可按结果连续调用，不逐页要求用户调度",
+        "第二类停止自动行动并确认或禁止，用户确认本身不授予缺失权限"
+      ],
+      "sourceClauseIds": [
+        "CON-12-TASK-MUST-002"
+      ],
+      "evidenceRequirement": "预注册验收语义；自动化断言、真实集成和专家/用户接受按不同层分别取证，未宣称已执行"
+    },
+    {
+      "id": "CON-12-SEM-PRODUCT-AC-002",
+      "given": [
+        "正式判断/高风险/重要冲突/关键证据缺失/越界或用户要求人工"
+      ],
+      "when": "发起人工协作",
+      "then": [
+        "交接含目标、确认事实版本、任务状态、范围、候选、证据、冲突、失败点、权限和未决项",
+        "无可信受理不声称已接管；真实回流在原任务绑定确切版本"
+      ],
+      "sourceClauseIds": [
+        "CON-12-TASK-MUST-007",
+        "CON-12-DECISION-MUST-004"
+      ],
+      "evidenceRequirement": "预注册验收语义；自动化断言、真实集成和专家/用户接受按不同层分别取证，未宣称已执行"
+    },
+    {
+      "id": "CON-12-SEM-AC-008",
+      "given": [
+        "对应本模块原文的完整、缺失、未提供/不适用及多版本字段样例"
+      ],
+      "when": "核对独立服务输入输出与字段说明",
+      "then": [
+        "原文字段逐项有表达和来源，号码/时间/状态/版本/主体等不能互相替代",
+        "按操作与目的判断必填；非关键缺失不阻止已获准动作，关键缺失不被模型填补",
+        "源未提供/失败/不适用明确，不因英文DTO简化而删除业务字段"
+      ],
+      "sourceClauseIds": [
+        "CON-12-SEM-MUST-008"
+      ],
+      "evidenceRequirement": "字段语义验收约定；真实来源映射需Real Integration另证"
     }
   ],
   "derivedDesignDecisions": [
@@ -1021,19 +1569,22 @@
       "id": "CON-12-DD-001",
       "decision": "会话和多轮业务状态归属 Consultation；异步执行复用 Task；配置生命周期复用 Versioned Configuration；工具调用由 Agent Runtime 编排但不拥有权限与数据。",
       "basis": "ARC-03",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术推导作为候选输入保留，不以本次R复核批准通用Runtime、共享平台、服务数量或物理结构；当前Task D门重新判断。"
     },
     {
       "id": "CON-12-DD-002",
       "decision": "会话状态、当前阶段、消息处理状态、任务状态和人工受理状态实现为分离状态维度。",
       "basis": "原文字段和 ARC-03 分离状态原则",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术推导作为候选输入保留，不以本次R复核批准通用Runtime、共享平台、服务数量或物理结构；当前Task D门重新判断。"
     },
     {
       "id": "CON-12-DD-003",
       "decision": "具体 REST 路径、事件协议编码、上下文摘要算法、超时、循环和 DM8 类型延后至 D 门禁及技术验证。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
       "basis": "原文列为待确认或技术实现细节。",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术推导作为候选输入保留，不以本次R复核批准通用Runtime、共享平台、服务数量或物理结构；当前Task D门重新判断。"
     }
   ],
   "openQuestions": [
@@ -1060,7 +1611,7 @@
     {
       "id": "CON-12-OQ-003",
       "type": "retention",
-      "question": "会话有效期、消息、附件、上下文、事件和审计的保留与删除策略是什么？",
+      "question": "开发期获准项目自有任务记录按docs/02第30节；生产会话、消息、附件、上下文、事件、审计与备份的期限及例外是什么？",
       "blocks": [
         "ARC-10",
         "ARC-11",
@@ -1108,28 +1659,100 @@
     }
   ],
   "currentProductContract": {
-    "version": "consultation-product-contract-2026-09-22-v1",
+    "version": "consultation-product-contract-2026-09-24-c4",
     "classification": "REDESIGN",
-    "status": "stale",
+    "status": "ready",
     "authoritativeDocument": "docs/37-咨询智能体契约重基线.md#con-12-知识产权咨询对话流管理redesign",
-    "sourceRefs": ["requirements/知识产权咨询助手/知识产权咨询对话流管理需求文档.md#10", "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8", "docs/35-咨询智能体产品行为待确认清单.md", "docs/36-咨询智能体R门需求变化影响评审.md#3"],
-    "mustIds": ["CON-12-RB-MUST-001", "CON-12-RB-MUST-002", "CON-12-RB-MUST-003", "CON-12-RB-MUST-004", "CON-12-RB-MUST-005", "CON-12-RB-MUST-006", "CON-12-RB-MUST-007", "CON-12-RB-MUST-008", "CON-12-RB-MUST-009", "CON-12-RB-MUST-010", "CON-12-RB-MUST-011", "CON-12-RB-MUST-012"],
-    "mustNotIds": ["CON-12-RB-MUST_NOT-001", "CON-12-RB-MUST_NOT-002", "CON-12-RB-MUST_NOT-003", "CON-12-RB-MUST_NOT-004", "CON-12-RB-MUST_NOT-005", "CON-12-RB-MUST_NOT-006", "CON-12-RB-MUST_NOT-007", "CON-12-RB-MUST_NOT-008", "CON-12-RB-MUST_NOT-009"],
-    "rGateAssessment": "REBASED_D_DESIGN_CANDIDATE_NOT_READY",
-    "note": "旧 clauses 保留历史追踪；当前产品契约以 authoritativeDocument 对应章节为准。"
+    "sourceRefs": [
+      "requirements/知识产权咨询助手/知识产权咨询对话流管理需求文档.md#10",
+      "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8",
+      "docs/35-咨询智能体产品行为待确认清单.md",
+      "docs/36-咨询智能体R门需求变化影响评审.md#3"
+    ],
+    "mustIds": [
+      "CON-12-RB-MUST-001",
+      "CON-12-RB-MUST-002",
+      "CON-12-RB-MUST-003",
+      "CON-12-RB-MUST-004",
+      "CON-12-RB-MUST-005",
+      "CON-12-RB-MUST-006",
+      "CON-12-RB-MUST-007",
+      "CON-12-RB-MUST-008",
+      "CON-12-RB-MUST-009",
+      "CON-12-RB-MUST-010",
+      "CON-12-RB-MUST-011",
+      "CON-12-RB-MUST-012"
+    ],
+    "mustNotIds": [
+      "CON-12-RB-MUST_NOT-001",
+      "CON-12-RB-MUST_NOT-002",
+      "CON-12-RB-MUST_NOT-003",
+      "CON-12-RB-MUST_NOT-004",
+      "CON-12-RB-MUST_NOT-005",
+      "CON-12-RB-MUST_NOT-006",
+      "CON-12-RB-MUST_NOT-007",
+      "CON-12-RB-MUST_NOT-008",
+      "CON-12-RB-MUST_NOT-009"
+    ],
+    "rGateAssessment": "R_FIDELITY_PASSED_CURRENT_APPROVED_SCOPE_D_NOT_GRANTED",
+    "note": "docs/37为职责重基线来源，结合当前原文、docs/02第20/23节决定及本JSON列明的当前字段共同解释；本JSON的C4条款/输入输出/状态与反例已经第二遍反查，不能只读旧设计或补充条款。物理结构、接口字段、生产许可与D门另评。",
+    "supplementDocument": "docs/v2/15-requirement-traceability-v2.md#首条咨询范围的契约分层与冲突消解",
+    "confirmedDecisionRefs": [
+      "docs/02-待确认事项清单.md#20-p0-20-咨询智能体产品行为负责人基线",
+      "docs/02-待确认事项清单.md#23-2026-09-24-三域共同产品约束确认"
+    ],
+    "addedClauseIds": [
+      "CON-12-TASK-MUST-001",
+      "CON-12-TASK-MUST-002",
+      "CON-12-TASK-MUST-003",
+      "CON-12-TASK-MUST-004",
+      "CON-12-TASK-MUST-005",
+      "CON-12-TASK-MUST-006",
+      "CON-12-TASK-MUST-007",
+      "CON-12-TASK-MUST-008",
+      "CON-12-TASK-MUST-009",
+      "CON-12-DECISION-MUST-001",
+      "CON-12-DECISION-MUST-002",
+      "CON-12-DECISION-MUST-003",
+      "CON-12-DECISION-MUST-004"
+    ],
+    "acceptanceScenarioIds": [
+      "CON-12-TASK-AC-001",
+      "CON-12-TASK-AC-002",
+      "CON-12-TASK-AC-003"
+    ],
+    "authoritativeContractSections": [
+      "clauses",
+      "inputs",
+      "outputs",
+      "permissions",
+      "states",
+      "sourceAndVersionRules",
+      "errorsAndExceptions",
+      "decisionPoints",
+      "acceptanceScenarios",
+      "openQuestions"
+    ],
+    "reviewEvidence": "docs/evidence/v2-contract-detail-20260924/consultation-core-semantic-review.md"
   },
   "independentReview": {
-    "status": "superseded_by_rebase",
+    "status": "passed",
     "reviewedBaselineId": "requirements-2026-09-14-v1",
-    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "reviewedAt": "2026-09-24",
+    "reviewMethod": "同一Codex在重抽取后独立进行源优先第二遍反查：主来源全部章节/咨询总目录/已确认决定→条款→输入输出状态→正负反例，再逆向检查无源扩展；不是第二名人员评审，结构工具不代替语义结论。",
     "missingClauses": [],
     "contradictions": [],
     "weakenedConstraints": [],
     "unsupportedExtensions": [],
+    "reviewEvidence": [
+      "docs/evidence/v2-contract-detail-20260924/consultation-core-semantic-review.md"
+    ],
     "notes": [
-      "Session, stage, message, task, review and authoritative handoff states remain separate; no synthetic combined status was invented.",
-      "The contract preserves real-result citations, historical ordinal binding, cancellation races, context isolation and authoritative handoff receipt requirements.",
-      "No scenario branch, timeout, loop limit, retention period, role, context budget, performance target or external notification behavior was guessed."
+      "R仅表示当前原文和docs/02第20/23节已批准行为的契约忠实度，不批准全部V2提案/架构/D/V/A。",
+      "外部数据、身份、专业规则/阈值、模型、保留及真实验收依对应openQuestions阻塞，不捏造依据。",
+      "旧架构推导只是历史候选，当前Task D门必须复核；缺陷与修正详见reviewEvidence。"
     ]
-  }
+  },
+  "logicalFieldNamesOnly": "inputs/outputs中的英文名为需求概念标识，不是冻结的HTTP字段、枚举序列化或物理表；当前Task D门另定。",
+  "inputApplicability": "输入列表描述不同操作的条件输入集合，不是要求所有操作提交所有字段；自然语言启动、资料准备、正式对照和配置管理的必填条件分别依据原文。"
 }

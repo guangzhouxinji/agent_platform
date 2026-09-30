@@ -1,0 +1,5 @@
+Project document review record B.
+Reference: PROJECT-EVENT-001.
+The submitted item is labeled ITEM-001.
+The observed event time is 2026-09-20 11:00 +08:00.
+This project-authored record conflicts on time; neither time is authoritative.

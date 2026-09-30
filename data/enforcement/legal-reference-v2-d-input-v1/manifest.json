@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "enf-legal-reference-v2-d-input-v1",
+  "inputId": "ENF-LEGAL-REFERENCE-D-INPUT-01",
+  "status": "INPUT_ONLY_REVIEW_REQUIRED",
+  "origin": "COLLECTED_OFFICIAL_PUBLIC_SOURCE_PLUS_PROJECT_TARGET",
+  "purpose": ["D_REVIEW", "FUNCTIONAL_TEST_INPUT"],
+  "deniedUses": ["ASSERT_LEGAL_APPLICABILITY", "PUBLISH_LEGAL_CONCLUSION", "PRODUCTION_CASE", "FORMAL_DECISION"],
+  "sourceCatalog": {
+    "manifest": "data/shared/source-review/cnipa-rules-documents-v1/manifest.json",
+    "catalogId": "CNIPA-RULES-DOCUMENTS-DEVELOPMENT-V1",
+    "reviewStatus": "REVIEW_REQUIRED",
+    "formalTemplateImportAllowed": false,
+    "references": [
+      { "id": "CNIPA_ORDER_81_ANNOUNCEMENT", "file": "data/shared/source-review/cnipa-rules-documents-v1/raw/order-81-announcement.html", "sha256": "73569c57cab8f35b7b9c4c7dfc843fcf144c8edab80f045f39a722b884ce5b0f" },
+      { "id": "CNIPA_ORDER_81_PDF", "file": "data/shared/source-review/cnipa-rules-documents-v1/raw/order-81.pdf", "sha256": "39ebef03a45ef24824accca49347fe457b6b45084a9a7c3fc71798a5de50a32a" },
+      { "id": "CNIPA_PATENT_IMPLEMENTING_RULES_2023", "file": "data/shared/source-review/cnipa-rules-documents-v1/raw/patent-implementing-rules-2023.html", "sha256": "2105ff670401091637ae352b6c75f4eeb4549c85914eae10afe43c38a7d312bf" }
+    ]
+  },
+  "projectTarget": {
+    "organization": "ORG-ENF-PROJECT",
+    "targetType": "CONDUCT_REPORT",
+    "targetId": "PROJECT-CONDUCT-REPORT-01",
+    "targetRevision": 1,
+    "anchor": "analysis.findings[0].basis",
+    "eventAt": "2026-09-29T09:00:00+08:00",
+    "region": "PROJECT_TEST",
+    "use": "PROJECT_DOCUMENT_REVIEW",
+    "legalApplicability": "UNCONFIRMED"
+  },
+  "scenarios": [
+    { "id": "L01", "input": "Exact source version and project target anchor", "expected": "CANDIDATES_WITH_VERBATIM_SOURCE_AND_PENDING_REVIEW", "forbidden": ["AUTO_CONFIRMED", "LEGAL_PROBABILITY"] },
+    { "id": "L02", "input": "No reliable match", "expected": "EMPTY_RESULT_WITH_ACTUAL_SCOPE", "forbidden": ["INVENTED_ARTICLE", "REFERENCE_WRITE"] },
+    { "id": "L03", "input": "Historical event but transition or historical version unknown", "expected": "REVIEW_REQUIRED_WITH_GAPS", "forbidden": ["CURRENT_VERSION_AUTO_APPLIED"] },
+    { "id": "L04", "input": "Source partial failure or 503", "expected": "PARTIAL_OR_FAILED_WITH_SOURCE_DETAILS", "forbidden": ["COMPLETE_SUCCESS", "CONFIRMED_REFERENCE"] },
+    { "id": "L05", "input": "Source digest or target revision and anchor drift", "expected": "BINDING_REJECTED_ZERO_BUSINESS_WRITE", "forbidden": ["ORPHAN_BINDING", "SUCCESS_RECEIPT"] },
+    { "id": "L06", "input": "Source update, unbind, revocation, idempotent retry and old restore", "expected": "OLD_TEXT_IMMUTABLE_NEEDS_REVIEW_HISTORY_RETAINED_FAIL_CLOSED", "forbidden": ["OLD_TEXT_OVERWRITTEN", "STALE_GRANT_SUCCESS", "HALF_RECEIPT"] }
+  ],
+  "businessAcceptancePending": ["AUTHORITATIVE_HISTORICAL_VERSION_AND_EFFECT", "TRANSITION_RULES", "REAL_CASE_TIME_REGION_USE", "LEGAL_PROFESSIONAL_APPLICABILITY", "REAL_ROLE_REVIEW"]
+}

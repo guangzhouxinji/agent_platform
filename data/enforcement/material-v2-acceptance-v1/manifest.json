@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "enf-material-v2-acceptance-input-v1",
+  "inputId": "ENF-MATERIAL-V2-ACCEPTANCE-01",
+  "status": "INPUT_PREPARED_NOT_D_ACCEPTED",
+  "origin": "PROJECT_AUTHORED_FICTIONAL",
+  "rightsBasis": "docs/02 section 43, project owner, 2026-09-28, enforcement ENF-01..05 final-product acceptance input",
+  "purpose": "Exercise the frozen V2 MATERIAL product contract, not a separate product implementation",
+  "sourcePackage": {
+    "path": "data/enforcement/material-dev-product-contract-v1/manifest.json",
+    "sha256": "a51cd31eba44c068485703494f30b211f008ab5fc7159bfecf00e459aa335d54",
+    "originalScopePreserved": true
+  },
+  "inputs": [
+    {
+      "kind": "SOURCE_OBSERVATIONS",
+      "path": "data/enforcement/material-dev-product-contract-v1/observations.json",
+      "sha256": "d3d586b11edbfc72a0c8ff8b51608e55f996d9b90b11fd08d8d886721433f2f3",
+      "uses": ["QUERY", "SAVE", "INDEX", "DISPLAY"]
+    },
+    {
+      "kind": "ORIGINAL_MATERIAL",
+      "path": "data/enforcement/material-dev-product-contract-v1/original-M-01.txt",
+      "sha256": "1b3042f1ecb965b302c992a7ed5bf2e00b4157259dbf56c77dd061dec2e77deb",
+      "byteLength": 317,
+      "uses": ["SAVE", "PREVIEW", "DOWNLOAD"]
+    }
+  ],
+  "deniedUses": ["MODEL", "SHARE", "OFFICIAL_EVIDENCE", "OFFICIAL_DECISION", "PRODUCTION_SOURCE"],
+  "limits": {
+    "realCase": false,
+    "thirdPartyRights": false,
+    "legalEffect": false,
+    "realOfficer": false,
+    "productionRecoveryApproval": false
+  },
+  "withdrawal": "Project owner may withdraw this acceptance input; current product access must fail closed",
+  "expiresAt": null
+}

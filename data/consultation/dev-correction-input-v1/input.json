@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "DEV-CON-CORRECTION-INPUT-01",
+  "origin": "PROJECT_AUTHORED_SYNTHETIC",
+  "correction": {
+    "sourceField": "target.supplement",
+    "oldText": "补充：该方案使用温度传感器、自动控制器和阀门。",
+    "oldFragment": "阀门",
+    "newFragment": "电磁阀",
+    "newText": "补充：该方案使用温度传感器、自动控制器和电磁阀。",
+    "userMessage": "纠正：补充里的阀门应为电磁阀，其他不变。"
+  }
+}

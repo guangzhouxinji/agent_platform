@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "cnipa-rules-documents-source-review-v1",
+  "catalogId": "CNIPA-RULES-DOCUMENTS-DEVELOPMENT-V1",
+  "catalogVersion": "2026-09-24.1",
+  "catalogSha256": "ade8eadb06492539f6f07099a3766ae420db4b76297a91b6acb12dce85e9509c",
+  "capturedAt": "2026-09-25T00:14:42.547Z",
+  "provider": "国家知识产权局",
+  "origin": "https://www.cnipa.gov.cn",
+  "authorizationRef": "docs/02-待确认事项清单.md#29-2026-09-24-中国公开专业资料优先的开发输入",
+  "reviewStatus": "REVIEW_REQUIRED",
+  "boundaries": {
+    "businessRuleImportAllowed": false,
+    "formalTemplateImportAllowed": false,
+    "caseEvidenceAllowed": false,
+    "externalModelAllowed": false,
+    "formalDecisionAllowed": false
+  },
+  "snapshots": [
+    {
+      "id": "CNIPA_ORDER_81_ANNOUNCEMENT",
+      "category": "PUBLISHED_RULE_SOURCE",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2024/12/30/art_74_196968.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2024/12/30/art_74_196968.html",
+      "parentId": null,
+      "parentUrl": null,
+      "file": "raw/order-81-announcement.html",
+      "contentType": "text/html; charset=UTF-8",
+      "etag": "W/\"68b152ea-1958\"",
+      "lastModified": "Fri, 29 Aug 2025 07:12:42 GMT",
+      "bytes": 6488,
+      "sha256": "73569c57cab8f35b7b9c4c7dfc843fcf144c8edab80f045f39a722b884ce5b0f",
+      "reviewStatus": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "CNIPA_ORDER_81_PDF",
+      "category": "PUBLISHED_RULE_SOURCE_ATTACHMENT",
+      "requestedUrl": "https://www.cnipa.gov.cn/module/download/downfile.jsp?classid=0&showname=%E4%B8%93%E5%88%A9%E7%BA%A0%E7%BA%B7%E8%A1%8C%E6%94%BF%E8%A3%81%E5%86%B3%E5%92%8C%E8%B0%83%E8%A7%A3%E5%8A%9E%E6%B3%95.pdf&filename=b4a637655f7c4dffb01ecde9fef2f47d.pdf",
+      "finalUrl": "https://www.cnipa.gov.cn/module/download/downfile.jsp?classid=0&showname=%E4%B8%93%E5%88%A9%E7%BA%A0%E7%BA%B7%E8%A1%8C%E6%94%BF%E8%A3%81%E5%86%B3%E5%92%8C%E8%B0%83%E8%A7%A3%E5%8A%9E%E6%B3%95.pdf&filename=b4a637655f7c4dffb01ecde9fef2f47d.pdf",
+      "parentId": "CNIPA_ORDER_81_ANNOUNCEMENT",
+      "parentUrl": null,
+      "file": "raw/order-81.pdf",
+      "contentType": "application/pdf;charset=UTF-8",
+      "etag": "W/\"322709-1735540494000\"",
+      "lastModified": "Mon, 30 Dec 2024 06:34:54 GMT",
+      "bytes": 322709,
+      "sha256": "39ebef03a45ef24824accca49347fe457b6b45084a9a7c3fc71798a5de50a32a",
+      "reviewStatus": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "CNIPA_PATENT_IMPLEMENTING_RULES_2023",
+      "category": "PUBLISHED_REGULATION_SOURCE",
+      "requestedUrl": "https://www.cnipa.gov.cn/art/2023/12/21/art_98_189197.html",
+      "finalUrl": "https://www.cnipa.gov.cn/art/2023/12/21/art_98_189197.html",
+      "parentId": null,
+      "parentUrl": null,
+      "file": "raw/patent-implementing-rules-2023.html",
+      "contentType": "text/html; charset=UTF-8",
+      "etag": "\"6a0e5dca-17f9a\"",
+      "lastModified": "Thu, 21 May 2026 01:20:10 GMT",
+      "bytes": 98202,
+      "sha256": "2105ff670401091637ae352b6c75f4eeb4549c85914eae10afe43c38a7d312bf",
+      "reviewStatus": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "CNIPA_ADJUDICATION_0077_PDF",
+      "category": "HISTORICAL_DOCUMENT_STRUCTURE_SAMPLE",
+      "requestedUrl": "https://www.cnipa.gov.cn/module/download/downfile.jsp?classid=0&showname=%EF%BC%882025%EF%BC%89%E5%9B%BD%E7%9F%A5%E8%8D%AF%E8%A3%810077%E5%8F%B7.pdf&filename=b3d338c5e2494f60859428a5421e9e63.pdf",
+      "finalUrl": "https://www.cnipa.gov.cn/module/download/downfile.jsp?classid=0&showname=%EF%BC%882025%EF%BC%89%E5%9B%BD%E7%9F%A5%E8%8D%AF%E8%A3%810077%E5%8F%B7.pdf&filename=b3d338c5e2494f60859428a5421e9e63.pdf",
+      "parentId": null,
+      "parentUrl": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208054.html",
+      "file": "raw/adjudication-0077.pdf",
+      "contentType": "application/pdf;charset=UTF-8",
+      "etag": "W/\"1505811-1788849798000\"",
+      "lastModified": "Tue, 08 Sep 2026 06:43:18 GMT",
+      "bytes": 1505811,
+      "sha256": "881c570adfefac7b3d20d9745d42fef6b463ba5418443c3f7abc4d995c499862",
+      "reviewStatus": "REVIEW_REQUIRED"
+    }
+  ]
+}

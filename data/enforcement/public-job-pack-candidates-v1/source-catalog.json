@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "enforcement-public-job-source-catalog-v2",
+  "catalogId": "ENF-PUBLIC-JOB-SOURCES-CNIPA-V1",
+  "catalogVersion": "2026-09-29.2",
+  "provider": "国家知识产权局",
+  "origin": "https://www.cnipa.gov.cn",
+  "trustLevel": "OFFICIAL_GOVERNMENT_PRIMARY",
+  "queryStrategy": {
+    "purpose": "为 ENF-01～17 最终产品准备可追溯的公开事实候选输入，不形成法律结论或内部业务事实",
+    "queries": [
+      "site:cnipa.gov.cn 知识产权 行政保护 典型案例",
+      "site:cnipa.gov.cn 知识产权 行政保护 指导案例",
+      "site:cnipa.gov.cn 专利侵权纠纷 行政裁决",
+      "site:cnipa.gov.cn 办案期限 批复"
+    ],
+    "selectionRules": [
+      "仅使用 HTTPS 国家机关官方原始页面",
+      "页面必须提供可核标题、发布日期和原文正文",
+      "覆盖案例汇编、指导材料、行政裁决和程序批复",
+      "不以搜索摘要代替官方原文"
+    ]
+  },
+  "sources": [
+    {
+      "id": "CNIPA_2023_ADMIN_PROTECTION_TYPICAL_CASES",
+      "url": "https://www.cnipa.gov.cn/art/2024/4/26/art_2432_192384.html",
+      "file": "raw/cnipa-2023-admin-protection-typical-cases.html",
+      "sourceType": "OFFICIAL_CASE_COLLECTION",
+      "scenarioClass": "NORMAL_COLLECTION",
+      "evidenceCompleteness": "PARTIAL_REFERENCED_ATTACHMENT_NOT_CAPTURED",
+      "expectedTitleContains": "2023年度知识产权行政保护典型案例",
+      "mappedRequirements": ["ENF-01", "ENF-03", "ENF-04", "ENF-05", "ENF-07"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_THIRD_BATCH_GUIDANCE_CASES_NOTICE",
+      "url": "https://www.cnipa.gov.cn/art/2023/12/28/art_2432_191156.html",
+      "file": "raw/cnipa-third-batch-guidance-cases-notice.html",
+      "sourceType": "OFFICIAL_GUIDANCE_NOTICE",
+      "scenarioClass": "MULTI_CASE_BOUNDARY",
+      "evidenceCompleteness": "PARTIAL_NOTICE",
+      "expectedTitleContains": "第三批知识产权行政保护指导案例",
+      "mappedRequirements": ["ENF-01", "ENF-03", "ENF-04", "ENF-05", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_GUIDANCE_CASE_1_INTERPRETATION",
+      "url": "https://www.cnipa.gov.cn/art/2021/4/1/art_2432_170426.html",
+      "file": "raw/cnipa-guidance-case-1-interpretation.html",
+      "sourceType": "OFFICIAL_GUIDANCE_EXPLANATION",
+      "scenarioClass": "DETAILED_GUIDANCE",
+      "evidenceCompleteness": "PUBLIC_PAGE_COMPLETE_FOR_MAPPING",
+      "expectedTitleContains": "指导案例1号",
+      "mappedRequirements": ["ENF-05", "ENF-06", "ENF-07", "ENF-10", "ENF-11", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_2025_DRUG_ADJUDICATION_0077",
+      "url": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208054.html",
+      "file": "raw/cnipa-2025-drug-adjudication-0077.html",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "scenarioClass": "NORMAL_DECISION",
+      "evidenceCompleteness": "PUBLIC_PAGE_COMPLETE_FOR_MAPPING",
+      "expectedTitleContains": "国知药裁0077号",
+      "mappedRequirements": ["ENF-05", "ENF-07", "ENF-10", "ENF-11", "ENF-12", "ENF-13", "ENF-14", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_2026_DRUG_ADJUDICATION_0062",
+      "url": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207823.html",
+      "file": "raw/cnipa-2026-drug-adjudication-0062.html",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "scenarioClass": "INCOMPLETE_EVIDENCE_CHALLENGE",
+      "evidenceCompleteness": "PUBLIC_RESULT_WITH_INTERNAL_FACT_GAPS",
+      "expectedTitleContains": "国知药裁0062号",
+      "mappedRequirements": ["ENF-04", "ENF-05", "ENF-07", "ENF-10", "ENF-11", "ENF-15", "ENF-16", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_PARTY_ADDITION_DEADLINE_REPLY",
+      "url": "https://www.cnipa.gov.cn/art/2026/8/18/art_2432_207774.html",
+      "file": "raw/cnipa-party-addition-deadline-reply.html",
+      "sourceType": "OFFICIAL_PROCEDURE_REPLY",
+      "scenarioClass": "PROCEDURE_DEADLINE_BOUNDARY",
+      "evidenceCompleteness": "PUBLIC_PAGE_COMPLETE_FOR_MAPPING",
+      "expectedTitleContains": "追加当事人后重新计算办案期限",
+      "mappedRequirements": ["ENF-08", "ENF-09", "ENF-12", "ENF-13", "ENF-14", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_MAJOR_PATENT_DISPUTE_ADJUDICATION_MEASURES",
+      "url": "https://www.cnipa.gov.cn/art/2021/5/28/art_2432_170433.html",
+      "file": "raw/cnipa-major-patent-dispute-adjudication-measures.html",
+      "sourceType": "OFFICIAL_RULE_REFERENCE",
+      "scenarioClass": "PROCEDURE_RULE_REFERENCE",
+      "evidenceCompleteness": "PUBLIC_PAGE_COMPLETE_FOR_MAPPING",
+      "expectedTitleContains": "重大专利侵权纠纷行政裁决办法",
+      "mappedRequirements": ["ENF-08", "ENF-09", "ENF-10", "ENF-11", "ENF-12", "ENF-13", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_2025_DRUG_ADJUDICATION_0076",
+      "url": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208053.html",
+      "file": "raw/cnipa-2025-drug-adjudication-0076.html",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "scenarioClass": "NORMAL_DECISION_VARIANT",
+      "evidenceCompleteness": "PUBLIC_RESULT_WITH_INTERNAL_FACT_GAPS",
+      "expectedTitleContains": "国知药裁0076号",
+      "mappedRequirements": ["ENF-05", "ENF-07", "ENF-10", "ENF-11", "ENF-12", "ENF-14", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_2025_DRUG_ADJUDICATION_0075",
+      "url": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208052.html",
+      "file": "raw/cnipa-2025-drug-adjudication-0075.html",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "scenarioClass": "NORMAL_DECISION_VARIANT",
+      "evidenceCompleteness": "PUBLIC_RESULT_WITH_INTERNAL_FACT_GAPS",
+      "expectedTitleContains": "国知药裁0075号",
+      "mappedRequirements": ["ENF-05", "ENF-07", "ENF-10", "ENF-11", "ENF-13", "ENF-15", "ENF-16", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_2025_DRUG_ADJUDICATION_0074",
+      "url": "https://www.cnipa.gov.cn/art/2026/9/8/art_2432_208051.html",
+      "file": "raw/cnipa-2025-drug-adjudication-0074.html",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "scenarioClass": "INCOMPLETE_EVIDENCE_VARIANT",
+      "evidenceCompleteness": "PUBLIC_RESULT_WITH_INTERNAL_FACT_GAPS",
+      "expectedTitleContains": "国知药裁0074号",
+      "mappedRequirements": ["ENF-04", "ENF-05", "ENF-06", "ENF-07", "ENF-10", "ENF-11", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_2026_DRUG_ADJUDICATION_0061",
+      "url": "https://www.cnipa.gov.cn/art/2026/8/20/art_2432_207822.html",
+      "file": "raw/cnipa-2026-drug-adjudication-0061.html",
+      "sourceType": "OFFICIAL_ADJUDICATION_DECISION",
+      "scenarioClass": "BOUNDARY_DECISION_VARIANT",
+      "evidenceCompleteness": "PUBLIC_RESULT_WITH_INTERNAL_FACT_GAPS",
+      "expectedTitleContains": "国知药裁0061号",
+      "mappedRequirements": ["ENF-05", "ENF-07", "ENF-08", "ENF-09", "ENF-10", "ENF-11", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    },
+    {
+      "id": "CNIPA_ADJUDICATION_PUBLICATION_REPLY",
+      "url": "https://www.cnipa.gov.cn/art/2026/8/4/art_2432_207541.html",
+      "file": "raw/cnipa-adjudication-publication-reply.html",
+      "sourceType": "OFFICIAL_PROCEDURE_REPLY",
+      "scenarioClass": "PUBLICATION_PROCEDURE_BOUNDARY",
+      "evidenceCompleteness": "PUBLIC_PAGE_COMPLETE_FOR_MAPPING",
+      "expectedTitleContains": "行政裁决案件信息可否停止公示",
+      "mappedRequirements": ["ENF-08", "ENF-09", "ENF-12", "ENF-13", "ENF-14", "ENF-17"],
+      "collectionPolicy": "PUBLIC_ACCESS_PROJECT_COLLECTION_V1"
+    }
+  ]
+}

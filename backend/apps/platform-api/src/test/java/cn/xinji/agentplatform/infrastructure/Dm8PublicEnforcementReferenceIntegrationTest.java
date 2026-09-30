@@ -95,11 +95,11 @@ class Dm8PublicEnforcementReferenceIntegrationTest {
                 List.of("authoritativeStatus"), "AVAILABLE", "INTERNAL_DEVELOPMENT_PILOT_ONLY");
         assertEquals("SOURCE_NOT_ALLOWED", assertThrows(IllegalStateException.class,
                 () -> importer.importApprovedBatch(falseApproval, batch, List.of(reference))).getMessage());
-        http.perform(get("/api/v0/development-sources/enforcement/public-references")).andExpect(status().isUnauthorized());
+        http.perform(get("/api/v0/development-sources/enforcement/public-references")).andExpect(status().isNotFound());
         http.perform(get("/api/v0/development-sources/enforcement/public-references").header("X-V0-Actor", "unknown"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isNotFound());
         http.perform(get("/api/v0/development-sources/enforcement/public-references").header("X-V0-Actor", "v0-enforcement-user"))
-                .andExpect(status().isOk()).andExpect(jsonPath("$.items.length()").value(0));
+                .andExpect(status().isNotFound());
     }
 
     @Test @Order(2)
@@ -132,9 +132,7 @@ class Dm8PublicEnforcementReferenceIntegrationTest {
                     scalarText(c, "SELECT raw_response_sha256 FROM enf_public_reference_snapshot WHERE reference_id='" + records.getFirst().referenceId() + "'"));
         }
         http.perform(get("/api/v0/development-sources/enforcement/public-references").header("X-V0-Actor", "v0-enforcement-reviewer"))
-                .andExpect(status().isOk()).andExpect(jsonPath("$.items.length()").value(433))
-                .andExpect(jsonPath("$.items[0].sourceTrace.sourceSnapshots[0].rawResponseSha256").isNotEmpty())
-                .andExpect(jsonPath("$.items[0].businessWorkflowInputAllowed").value(false));
+                .andExpect(status().isNotFound());
     }
 
     @Test @Order(3)
@@ -180,7 +178,7 @@ class Dm8PublicEnforcementReferenceIntegrationTest {
         importer.revokeSource(PublicEnforcementReferenceImporter.APPROVED_SOURCE_ID, "authorization withdrawn", Instant.parse("2026-09-19T03:00:00Z"));
         assertEquals("SOURCE_NOT_ALLOWED", assertThrows(IllegalStateException.class, catalog::list).getMessage());
         http.perform(get("/api/v0/development-sources/enforcement/public-references").header("X-V0-Actor", "v0-enforcement-user"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isNotFound());
     }
 
     private List<PublicEnforcementReferenceCatalogPort.Reference> loadRecords() throws Exception {

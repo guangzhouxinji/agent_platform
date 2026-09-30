@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "enf-procedure-v2-d-input-v1",
+  "inputId": "ENF-PROCEDURE-D-INPUT-01",
+  "status": "INPUT_ONLY_NOT_PUBLISHED",
+  "origin": "PROJECT_AUTHORED_FICTIONAL",
+  "rightsBasis": "Project owner instruction, 2026-09-28; project-authored ENF-08/09 product D acceptance input",
+  "scope": "Project workflow calculation mechanics only; not a real case, official calendar, statutory period or legal conclusion",
+  "allowedUses": ["D_REVIEW", "TEST_INPUT"],
+  "deniedUses": ["PUBLISH_LEGAL_RULE", "OFFICIAL_COMPLIANCE", "PRODUCTION_CASE", "REAL_NOTIFICATION"],
+  "ruleCandidate": {
+    "ref": "PROJECT-PROCEDURE-REVIEW-01",
+    "version": "1",
+    "status": "DRAFT_INPUT_NOT_PUBLISHED",
+    "basisRef": "docs/57#6.26:PROJECT_METHOD_ONLY",
+    "applicability": { "region": "PROJECT_TEST", "organization": "ORG-ENF-PROJECT", "procedure": "PROJECT_DOCUMENT_REVIEW", "stage": "PROJECT_HANDOFF_REVIEW" },
+    "period": { "unit": "PROJECT_WORKDAY", "value": 2, "startEvent": "REQUEST_RECORDED", "includeStartDay": false, "deadlineAdjustment": "NEXT_PROJECT_WORKDAY" },
+    "calendarRef": "PROJECT-CALENDAR-01@1",
+    "pausePolicy": "Inclusive pause start/end excluded; resume event starts the next counted project workday",
+    "interruptionPolicy": "UNCONFIRMED; interruption cannot be calculated or published",
+    "extensionPolicy": "Approved project extension adds one project workday after base due date",
+    "requiredEventRefs": ["REQUEST_RECORDED"],
+    "requiredMaterialRefs": ["PROJECT-RECORD-A@1"]
+  },
+  "calendar": {
+    "ref": "PROJECT-CALENDAR-01",
+    "version": "1",
+    "timezone": "Asia/Shanghai",
+    "status": "PROJECT_TEST_ONLY_NOT_OFFICIAL",
+    "range": ["2026-09-14", "2026-09-22"],
+    "nonWorkingDates": ["2026-09-16", "2026-09-19", "2026-09-20"],
+    "note": "September 16 is an invented project closure day, not an official holiday"
+  },
+  "caseInput": {
+    "caseRef": "PROJECT-CASE-PROCEDURE-01",
+    "caseVersion": "1",
+    "authority": "PROJECT_TEST_NOT_CENTER_CASE",
+    "procedure": "PROJECT_DOCUMENT_REVIEW",
+    "stage": "PROJECT_HANDOFF_REVIEW",
+    "events": [
+      { "ref": "PROJECT-EVENT-REQUEST@1", "kind": "REQUEST_RECORDED", "occurredAt": "2026-09-14T09:00:00+08:00", "source": "PROJECT_AUTHORED" },
+      { "ref": "PROJECT-EVENT-PAUSE@1", "kind": "PAUSE_START", "occurredAt": "2026-09-15T09:00:00+08:00", "source": "PROJECT_AUTHORED" },
+      { "ref": "PROJECT-EVENT-RESUME@1", "kind": "RESUME", "occurredAt": "2026-09-17T18:00:00+08:00", "source": "PROJECT_AUTHORED" },
+      { "ref": "PROJECT-EVENT-EXTEND@1", "kind": "EXTENSION_APPROVED", "occurredAt": "2026-09-18T10:00:00+08:00", "source": "PROJECT_AUTHORED" },
+      { "ref": "PROJECT-EVENT-INTERRUPT@1", "kind": "INTERRUPTION_CANDIDATE", "occurredAt": "2026-09-18T11:00:00+08:00", "source": "PROJECT_AUTHORED" }
+    ],
+    "materials": ["PROJECT-RECORD-A@1"],
+    "flowState": "PROJECT_REVIEW_PENDING_NOT_OFFICIAL"
+  },
+  "trialInputs": [
+    { "id": "BASE", "eventRefs": ["PROJECT-EVENT-REQUEST@1"], "trace": ["Sep 14 start excluded", "Sep 15 day 1", "Sep 16 project closure excluded", "Sep 17 day 2 due"], "expected": "2026-09-17" },
+    { "id": "PAUSE_EXTEND", "eventRefs": ["PROJECT-EVENT-REQUEST@1", "PROJECT-EVENT-PAUSE@1", "PROJECT-EVENT-RESUME@1", "PROJECT-EVENT-EXTEND@1"], "trace": ["Sep 15-17 inclusive pause", "Sep 18 day 1", "Sep 19-20 weekend excluded", "Sep 21 day 2 base due", "Sep 22 extension due"], "expected": "2026-09-22" },
+    { "id": "INTERRUPTION_UNKNOWN", "eventRefs": ["PROJECT-EVENT-REQUEST@1", "PROJECT-EVENT-INTERRUPT@1"], "trace": ["Restart semantics unconfirmed"], "expected": "UNDETERMINED_NO_INTERRUPTION_POLICY" },
+    { "id": "NONWORKING_DEADLINE", "eventRefs": ["PROJECT-EVENT-RESUME@1"], "variant": "DRAFT_TWO_CALENDAR_DAYS_EXCLUDING_START", "trace": ["Sep 17 start excluded", "Sep 18 day 1", "Sep 19 day 2 nonworking", "Sep 21 next project workday"], "expected": "2026-09-21" }
+  ],
+  "scenarios": [
+    { "id": "P01", "input": "Missing start event or calendar version in draft", "expected": "PUBLISH_REJECTED_WITH_FIELD_PATH", "forbidden": ["PUBLISHED_RULE", "COMPLIANCE_REPORT"] },
+    { "id": "P02", "input": "Fixed project events, calendar, pause and extension", "expected": "TRIAL_TRACE_ONLY; base Sep 21 after pause, project extension Sep 22", "forbidden": ["LEGAL_DEADLINE", "OFFICIAL_EVENT_WRITE"] },
+    { "id": "P03", "input": "Wrong procedure and older rule version", "expected": "NOT_APPLICABLE_OR_EXACT_HISTORICAL_VERSION", "forbidden": ["LATEST_RULE_BACKFILL"] },
+    { "id": "P04", "input": "Missing notice event versus upstream 503", "expected": "UNDETERMINED_VS_EXECUTION_FAILED", "forbidden": ["PASS", "LEGAL_VIOLATION"] },
+    { "id": "P05", "input": "Named rectification and later recheck", "expected": "TWO_IMMUTABLE_REPORT_VERSIONS", "forbidden": ["OLD_REPORT_REWRITTEN"] },
+    { "id": "P06", "input": "Grant withdrawal, concurrent retry and old DB restore", "expected": "FAIL_CLOSED_AND_ONE_RECEIPT", "forbidden": ["STALE_AUTH_SUCCESS", "HALF_RECEIPT", "UPSTREAM_MUTATION"] }
+  ],
+  "unresolvedProductD": ["APPLICABLE_NORM_VERSION_AND_EFFECT", "STATUTORY_CLOCK_AND_EXCEPTIONS", "REGIONAL_CALENDAR_AUTHORITY", "CASE_EVENT_ADAPTER_FIELDS_AND_USE"],
+  "expectedOnlyNotAProductResult": true
+}

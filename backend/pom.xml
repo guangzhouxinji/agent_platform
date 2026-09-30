@@ -2,7 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-parent</artifactId><version>3.3.5</version><relativePath/></parent>
   <groupId>cn.xinji</groupId><artifactId>agent-platform-backend</artifactId><version>0.0.1-SNAPSHOT</version><packaging>pom</packaging>
-  <properties><java.version>21</java.version><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding></properties>
+  <properties>
+    <java.version>21</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <onnxruntime.version>1.19.2</onnxruntime.version>
+    <djl.tokenizers.version>0.30.0</djl.tokenizers.version>
+  </properties>
   <modules>
     <module>kernel</module><module>consultation</module><module>patent</module><module>trademark</module><module>case-reference</module><module>enforcement</module><module>adjudication</module>
     <module>adapters/persistence-dm8</module><module>adapters/model-deepseek</module><module>adapters/center-client</module><module>adapters/public-source</module>

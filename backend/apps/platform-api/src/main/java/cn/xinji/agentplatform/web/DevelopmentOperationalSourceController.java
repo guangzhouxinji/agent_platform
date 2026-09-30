@@ -12,13 +12,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /** Internal-only input catalogs for exercising the existing V0 workflows. */
 @RestController
-@ConditionalOnProperty(name = "internal-workbench.development-sources-enabled", havingValue = "true", matchIfMissing = true)
+@Profile("test-synthetic")
+@ConditionalOnProperty(name = "internal-workbench.development-sources-enabled", havingValue = "true")
 @RequestMapping("/api/v0/development-sources")
 public class DevelopmentOperationalSourceController {
     private final EnforcementSourcePort enforcement;

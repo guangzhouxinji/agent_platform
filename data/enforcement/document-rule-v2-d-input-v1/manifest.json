@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "enf-document-rule-v2-d-input-v1",
+  "inputId": "ENF-DOCUMENT-RULE-D-INPUT-01",
+  "status": "INPUT_ONLY_NOT_PUBLISHED",
+  "origin": "PROJECT_AUTHORED_FICTIONAL",
+  "purpose": ["D_REVIEW", "FUNCTIONAL_TEST_INPUT"],
+  "deniedUses": ["CENTER_FIELD_DICTIONARY", "FORMAL_DOCUMENT_RULE", "INVENT_INTERVIEW", "FORMAL_DECISION"],
+  "templateRef": {
+    "id": "PROJECT-DOCUMENT-TEMPLATE-01",
+    "revision": 1,
+    "status": "PROJECT_INPUT_ONLY",
+    "manifestSha256": "313c12443d3b7cfddfc4f3d2687737883df6ff983b790d56b4733c1360b43b48"
+  },
+  "schemaRegistry": {
+    "id": "PROJECT-ENF-DOCUMENT-SCHEMA-01",
+    "version": "1",
+    "status": "PROJECT_TEST_NOT_CENTER_SCHEMA",
+    "fields": [
+      { "path": "task.ref", "type": "STRING", "source": "PROJECT_TASK", "confirmed": true },
+      { "path": "party.name", "type": "STRING", "source": "PROJECT_CONFIRMED_FACT", "confirmed": true },
+      { "path": "record.recordedDate", "type": "DATE", "source": "PROJECT_EVENT", "confirmed": true },
+      { "path": "analysis.summary", "type": "LONG_TEXT", "source": "PROJECT_CONDUCT_REPORT", "confirmed": false },
+      { "path": "materials[].ref", "type": "STRING", "source": "PROJECT_EVIDENCE", "confirmed": true },
+      { "path": "materials[].note", "type": "LONG_TEXT", "source": "PROJECT_EVIDENCE", "confirmed": true },
+      { "path": "interview.questionsAnswers", "type": "INTERVIEW_RECORD", "source": "PROJECT_HUMAN_RECORD", "confirmed": false },
+      { "path": "penalty.amount", "type": "DECIMAL", "source": "PROJECT_PENALTY_SUGGESTION", "confirmed": false },
+      { "path": "legal.references[]", "type": "LEGAL_REFERENCE", "source": "PROJECT_LEGAL_REFERENCE", "confirmed": false }
+    ]
+  },
+  "ruleCandidate": {
+    "id": "PROJECT-DOCUMENT-RULE-01",
+    "state": "DRAFT_INPUT_NOT_PUBLISHED",
+    "mappings": [
+      { "fieldId": "task_ref", "sourcePath": "task.ref", "schemaVersion": "1", "mode": "DIRECT", "missing": "BLOCK" },
+      { "fieldId": "party_name", "sourcePath": "party.name", "schemaVersion": "1", "mode": "DIRECT", "missing": "BLOCK" },
+      { "fieldId": "recorded_date", "sourcePath": "record.recordedDate", "schemaVersion": "1", "mode": "DETERMINISTIC", "transform": "ISO_DATE", "missing": "BLOCK" },
+      { "fieldId": "summary", "sourcePath": "analysis.summary", "schemaVersion": "1", "mode": "AUXILIARY_DRAFT", "missing": "BLANK_WITH_WARNING" },
+      { "fieldId": "materials[].ref", "sourcePath": "materials[].ref", "schemaVersion": "1", "mode": "DIRECT", "missing": "BLOCK" },
+      { "fieldId": "materials[].note", "sourcePath": "materials[].note", "schemaVersion": "1", "mode": "DIRECT", "missing": "OMIT_OPTIONAL" }
+    ]
+  },
+  "scenarios": [
+    { "id": "R01", "input": "Exact template revision and complete project schema values", "expected": "VALIDATED_TRIAL_WITH_FIELD_PROVENANCE", "forbidden": ["FORMAL_DOCUMENT", "SOURCE_LOST"] },
+    { "id": "R02", "input": "Unknown path, wrong type or unreadable source", "expected": "PUBLISH_REJECTED_WITH_FIELD_PATH", "forbidden": ["PUBLISHED_RULE", "DOCUMENT_WRITE"] },
+    { "id": "R03", "input": "Missing party, date or material ref", "expected": "INCOMPLETE_DRAFT_BLOCKED_FROM_REVIEW", "forbidden": ["MODEL_COMPLETION", "COMPLETE_SUCCESS"] },
+    { "id": "R04", "input": "No confirmed questionsAnswers for interview record", "expected": "INTERVIEW_GENERATION_REJECTED", "forbidden": ["INVENTED_QUESTION", "INVENTED_ANSWER", "INVENTED_SIGNATURE"] },
+    { "id": "R05", "input": "Missing or unconfirmed amount or legal reference", "expected": "MISSING_OR_REVIEW_REQUIRED", "forbidden": ["DEFAULT_ZERO", "MODEL_LEGAL_TEXT", "CONFIRMED_DECISION"] },
+    { "id": "R06", "input": "Template changes, revocation, retry and restore", "expected": "OLD_MAPPING_REVIEW_REQUIRED_HISTORY_RETAINED_FAIL_CLOSED", "forbidden": ["AUTO_MIGRATED_MAPPING", "STALE_GRANT_SUCCESS", "HALF_RECEIPT"] }
+  ],
+  "businessAcceptancePending": ["CENTER_CASE_FIELD_DICTIONARY", "APPROVED_FIELD_MAPPING", "ALLOWED_AUXILIARY_PARAGRAPHS", "REAL_INTERVIEW_RECORD", "BUSINESS_MAPPING_REVIEW"]
+}

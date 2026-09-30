@@ -9,7 +9,7 @@ const docsDir = path.resolve(scriptDir, "..", "docs");
 const htmlPath = path.join(docsDir, "project-progress.html");
 const jsonPath = path.join(docsDir, "project-plan.json");
 const plan = fs.readFileSync(path.join(docsDir, "08-总开发实现计划.md"), "utf8");
-const currentTaskId = plan.match(/^当前唯一主任务：\s*`([^`\s]+)[^`]*`/m)?.[1];
+const currentTaskId = plan.match(/^当前(?:唯一主|优先)任务：\s*`([^`\s]+)[^`]*`/m)?.[1];
 if (!currentTaskId) throw new Error("Master plan has no current primary task");
 const requirementSection = plan.slice(plan.indexOf("## 8."), plan.indexOf("## 9."));
 const requirementRows = requirementSection.split(/\r?\n/)
@@ -64,7 +64,7 @@ try {
     await page.locator("#formal-progress-caption").filter({ hasText: `${expectedVerified} / ${requirementRows.length} 项正式需求` }).waitFor();
     await page.locator("#real-integration-count").filter({ hasText: `${projectPlan.derived.requirementMaturity.realIntegrated}` }).waitFor();
     await page.locator("#formal-accepted-count").filter({ hasText: `${expectedAccepted} / ${requirementRows.length}` }).waitFor();
-    await page.locator("#formal-pilot").filter({ hasText: "CON-04" }).waitFor();
+    await page.locator("#formal-pilot").filter({ hasText: projectPlan.derived.requirementMaturity.pilotRequirementId || "未指定" }).waitFor();
     await page.locator("#truth-note").getByText("合成 V0 ≠ 正式需求完成").waitFor();
     await page.locator("#local-proof").getByText("MVP-CON-V0-05").waitFor();
     await page.locator("#current-blocker").waitFor();

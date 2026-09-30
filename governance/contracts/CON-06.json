@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "requirementId": "CON-06",
   "title": "专利相似度判断",
-  "status": "stale",
+  "status": "ready",
   "baselineId": "requirements-2026-09-14-v1",
   "source": {
     "path": "requirements/知识产权咨询助手/专利相似度判断需求文档.md",
@@ -43,6 +43,10 @@
       {
         "anchor": "8. 依赖与交付",
         "purpose": "open_dependencies"
+      },
+      {
+        "anchor": "9. 技术对照产品行为补充（2026-09-22）",
+        "purpose": "confirmed_task_product_behavior"
       }
     ]
   },
@@ -56,7 +60,15 @@
         "4. 共用支撑能力与估工方式",
         "5. 建议开发与集成顺序",
         "6. 验收资料与共同口径",
-        "7. 评审状态记录"
+        "7. 评审状态记录",
+        "3.1 API 数据与本地内容",
+        "3.2 来源、版本和权限",
+        "3.3 异步任务契约",
+        "3.4 配置引用与发布",
+        "3.5 评分及专业意见",
+        "3.6 默认值与未决条件",
+        "3.7 国产化部署与达梦 DM8 数据库",
+        "8. 负责人确认的产品行为基线（2026-09-22）"
       ]
     }
   ],
@@ -113,13 +125,21 @@
     {
       "id": "CON-06-MUST-003",
       "type": "MUST",
-      "statement": "固定分析目的、技术对象、目标和候选文献版本、选定权利要求、相关日期地域、规则模型及权限。",
+      "statement": "固定分析目的、技术对象、目标/候选文献版本、所选权利要求、规则模型及当前权限；相关日期和地域在分析目的涉及相应法律问题时确认，不强制无关目的填写。",
       "sourceAnchors": [
         "2. 字段与输入校验",
-        "3. 分析流程"
+        "3. 分析流程",
+        "9. 技术对照产品行为补充（2026-09-22）"
       ],
       "acceptanceScenarioIds": [
         "CON-06-AC-003"
+      ],
+      "revisionHistory": [
+        {
+          "date": "2026-09-24",
+          "statement": "固定分析目的、技术对象、目标和候选文献版本、选定权利要求、相关日期地域、规则模型及权限。",
+          "reason": "第二遍语义复核纠偏"
+        }
       ]
     },
     {
@@ -253,13 +273,22 @@
     {
       "id": "CON-06-MUST-011",
       "type": "MUST",
-      "statement": "每个候选保存独立状态，单个失败不掩盖其他结果；修改输入创建新任务，失败对象可产生关联重试。",
+      "statement": "每个候选保存独立执行状态，单个失败不掩盖其他结果；修改输入创建新的分析执行版本或关联任务，失败对象可关联重试。原用户目标的纠正沿同一任务链继续，原始及人工结果不覆盖。",
       "sourceAnchors": [
         "5. 内部验证页面",
-        "总目录/3.3 异步任务契约"
+        "总目录/3.3 异步任务契约",
+        "9. 技术对照产品行为补充（2026-09-22）",
+        "docs/02第23节已确认产品决定"
       ],
       "acceptanceScenarioIds": [
         "CON-06-AC-008"
+      ],
+      "revisionHistory": [
+        {
+          "date": "2026-09-24",
+          "statement": "每个候选保存独立状态，单个失败不掩盖其他结果；修改输入创建新任务，失败对象可产生关联重试。",
+          "reason": "第二遍语义复核纠偏"
+        }
       ]
     },
     {
@@ -308,6 +337,195 @@
       ],
       "acceptanceScenarioIds": [
         "CON-06-AC-012"
+      ]
+    },
+    {
+      "id": "CON-06-TASK-MUST-001",
+      "type": "MUST",
+      "statement": "专利技术对照最低需要目标、候选、对照目的和必要技术特征；系统可预提取特征，但正式对照前须由用户确认关键特征。",
+      "sourceAnchors": [
+        "9. 技术对照产品行为补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-TASK-AC-001"
+      ]
+    },
+    {
+      "id": "CON-06-TASK-MUST-002",
+      "type": "MUST",
+      "statement": "用户明确比较目标且对象和关键特征已明确时可直接进入对照；对象、版本、关键特征或目的不明确时先澄清。",
+      "sourceAnchors": [
+        "9. 技术对照产品行为补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-SEM-PRODUCT-AC-001"
+      ]
+    },
+    {
+      "id": "CON-06-TASK-MUST-003",
+      "type": "MUST",
+      "statement": "对照产物必须逐项列出目标特征、候选证据、相同点、差异点、无法判断项和原因，并给出来源版本与定位。",
+      "sourceAnchors": [
+        "9. 技术对照产品行为补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-SEM-PRODUCT-AC-002"
+      ]
+    },
+    {
+      "id": "CON-06-TASK-MUST-004",
+      "type": "MUST",
+      "statement": "权利要求级判断、逐项技术对照或权利要求范围问题必须取得权利要求文本；缺失时只能降级为线索/初步参考、标记证据不足或进入人工复核，不得以摘要替代。",
+      "sourceAnchors": [
+        "9. 技术对照产品行为补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-TASK-AC-001"
+      ]
+    },
+    {
+      "id": "CON-06-TASK-MUST-005",
+      "type": "MUST",
+      "statement": "技术对照只作辅助技术分析，不得输出侵权、新颖性、有效性、保护范围或授权成功率等正式法律结论。",
+      "sourceAnchors": [
+        "9. 技术对照产品行为补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-TASK-AC-001"
+      ]
+    },
+    {
+      "id": "CON-06-TASK-MUST-006",
+      "type": "MUST",
+      "statement": "用户纠正目标、候选或关键特征后，只使依赖该事实的对照结果失效；保留历史版本并重算受影响部分。",
+      "sourceAnchors": [
+        "9. 技术对照产品行为补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-TASK-AC-002"
+      ]
+    },
+    {
+      "id": "CON-06-TASK-MUST-007",
+      "type": "MUST",
+      "statement": "正式法律/业务判断、高风险结论、无法消解的重要证据冲突或关键证据缺失进入人工复核；具体人工岗位和流程另由组织证据确认。",
+      "sourceAnchors": [
+        "9. 技术对照产品行为补充（2026-09-22）"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-SEM-PRODUCT-AC-003"
+      ]
+    },
+    {
+      "id": "CON-06-DECISION-MUST-001",
+      "type": "MUST",
+      "statement": "纠正已有目标的事实后沿同一用户任务链继续，创建受影响结果的新版本且保留原始和人工内容。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md 第23节（2026-09-24 已确认产品决定，不是原需求原文）"
+      ],
+      "sourceKind": "confirmed_product_decision",
+      "decisionRef": "docs/02-待确认事项清单.md#23-2026-09-24-三域共同产品约束确认",
+      "acceptanceScenarioIds": [
+        "CON-06-TASK-AC-002"
+      ]
+    },
+    {
+      "id": "CON-06-SEM-MUST-001",
+      "type": "MUST",
+      "statement": "业务关系型数据库固定使用真实DM8并在目标国产环境验证；其他数据库/内存通过不能替代。本模块需要持久化的业务内容包括：分析任务、技术特征、文献引用、逐项对照、报告版本和专业复核记录。数据库采用 DM8；文件二进制可使用项目已批准的文件存储，DM8 保存受控引用及元数据，不要求把所有图片和附件存入数据库。 本模块 DM8 专项验收覆盖：长报告及嵌套特征无截断、证据定位、评分精度、报告版本和复核事务一致性。验证事务失败回滚、连接故障恢复和权限控制；接口故障不伪装成空结果。需要恢复的任务应识别中断状态，按幂等规则恢复或显式失败，不盲目重放。",
+      "sourceAnchors": [
+        "国产化与达梦 DM8 适配要求"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-SEM-AC-001"
+      ]
+    },
+    {
+      "id": "CON-06-SEM-MUST-002",
+      "type": "MUST",
+      "statement": "按总目录3.7验证驱动/连接池/方言、分页排序/日期聚合、中文外文和特殊字符、空串与NULL、长文本/结构化内容、主键与幂等唯一性、时区和分数精度、并发事务回滚；不假定原生JSON或DDL事务回滚。提供空库初始化、既有数据升级及失败恢复，备份恢复核对文件/索引引用，区分应用与升级权限，记录目标版本/实例参数及国产组件兼容清单；不自行更改生产实例参数，不预设未批准中间件。数据量/性能通过线按真实确认，不凭脚本存在宣称验证完成。",
+      "sourceAnchors": [
+        "国产化与达梦 DM8 适配要求",
+        "总目录/3.7 国产化部署与达梦 DM8 数据库",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-SEM-AC-001"
+      ]
+    },
+    {
+      "id": "CON-06-SEM-MUST-003",
+      "type": "MUST",
+      "statement": "内部验证工作面必须保留本节可观察行为；对外页面交付不在此处自动增加。以下是原文页面/配置要求，非已实现声明：\n目标/候选选择区、分析目的及日期、原文版本选择、特征确认编辑区、开始分析、任务进度、并列对照表、证据定位、报告查看和审核区。\n\n每个候选有独立完成状态；一个失败不掩盖其他成功结果。支持修改输入后新建任务、重试失败对象。无权限或源文献撤回时阻止重新打开内容；历史报告引用按当前权限控制。",
+      "sourceAnchors": [
+        "5. 内部验证页面",
+        "总目录/1. 项目定位与交付口径"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-SEM-AC-002"
+      ]
+    },
+    {
+      "id": "CON-06-SEM-MUST-004",
+      "type": "MUST",
+      "statement": "服务应脱离页面独立调用，鉴权、参数、状态及任务执行不能依赖前端；具体英文字段或URL仍由当前D门决定。原文服务及错误义务如下：\n| 服务 | 输入 | 输出 |\n|---|---|---|\n| 分析准备 | 目标、候选、目的 | 文献状态、待补信息、技术特征建议 |\n| 创建分析 | 确认特征、版本、参数、幂等键 | 任务 ID |\n| 任务/报告查询 | 任务或报告 ID | 状态、逐对结果、证据、规则版本 |\n| 人工复核 | 报告版本、意见、复核动作 | 审核记录或版本冲突 |\n| 取消 | 任务 ID | 取消结果 |\n\n异步任务遵循总目录状态规则。错误包括权利要求缺失、依赖关系解析失败、视图不足、数据源不可用、权限不足和模型失败。重要材料不足时允许返回不完整报告但必须列明未执行项目，不能伪装成分析成功完成。",
+      "sourceAnchors": [
+        "6. 服务契约与异常",
+        "总目录/1. 项目定位与交付口径"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-SEM-AC-002"
+      ]
+    },
+    {
+      "id": "CON-06-SEM-MUST-005",
+      "type": "MUST",
+      "statement": "完整保留原文交付/联调义务，默认参数不冒充已核实的中心能力。\n依赖专利库、专利检索（可选入口）、法规/审查资料、模型、任务及复核能力。交付分析服务、报告数据结构、评分及证据规则、接口说明和验收记录；内部验证页面不交付。\n\n确认权利要求全文质量、外观视图及模型能力、法律依据资源版本、专家复核安排、单任务对象上限与性能指标。资料不足不能通过提示词补足事实。\n同时提交本模块DM8初始化/升级、配置与实际验证/恢复记录和未满足项；源能力不足须待补齐或书面调整，不得隐藏功能后当作通过。",
+      "sourceAnchors": [
+        "8. 依赖与交付",
+        "国产化与达梦 DM8 适配要求",
+        "总目录/3.6 默认值与未决条件",
+        "总目录/6. 验收资料与共同口径"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-SEM-AC-002"
+      ]
+    },
+    {
+      "id": "CON-06-SEM-MUST-006",
+      "type": "MUST",
+      "statement": "来源时间/获取时间/任务时间/配置时间分开，可追溯源/文献/配置/模型/规则版本；缺源版本时仅在授权范围记录内容摘要快照。检索召回、原文/报告/消息/片段/附件读取及入模分别执行当前主体和用途授权，撤权或源撤回不经缓存/派生物泄露；受控审计不意味着继续可读。不得记录凭据或向普通用户输出系统模板、隐含推理、敏感堆栈。",
+      "sourceAnchors": [
+        "总目录/3.1 API 数据与本地内容",
+        "总目录/3.2 来源、版本和权限"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-SEM-AC-003"
+      ]
+    },
+    {
+      "id": "CON-06-SEM-MUST-008",
+      "type": "MUST",
+      "statement": "保留原文字段的业务含义、条件必填和来源限制；字段清单不意味着所有操作都要提交全部字段，不冻结英文字段名或物理模型。\n| 字段 | 说明 |\n|---|---|\n| 分析目的、技术对象类型 | 技术相似、新颖性辅助、权利要求对照或外观设计辅助比对 |\n| 目标技术方案/专利标识 | 两者至少一种；侵权风险相关对照须提供实际产品/技术方案 |\n| 目标文献版本、选定权利要求 | 使用具体版本，支持独立及从属权利要求引用关系 |\n| 对比专利及文献版本 | 一次任务可含多个对象，逐对出结果 |\n| 相关日期、地域 | 涉及法律问题时确认，不默认当前日期及法域 |\n| 技术特征列表 | 特征 ID、原文、依赖关系、来源定位、用户修订 |\n| 对应内容、关系标签 | 对应、部分对应、未找到、无法判断 |\n| 技术对照评分、规则版本 | 非法律概率；不与检索相关度共用 |\n| 辅助意见、依据、缺失信息 | 事实、技术对照、法律适用问题分别表述 |\n| 分析时间、任务/报告 ID、审核状态 | 服务端生成并追踪 |",
+      "sourceAnchors": [
+        "2. 字段与输入校验"
+      ],
+      "sourceKind": "original_requirement",
+      "acceptanceScenarioIds": [
+        "CON-06-SEM-AC-008"
       ]
     }
   ],
@@ -399,6 +617,16 @@
         "reviewStatus",
         "reviewRecords"
       ]
+    },
+    {
+      "name": "correctionImpact",
+      "fields": [
+        "原目标任务引用",
+        "新事实/特征版本",
+        "受影响对照/引用/审核",
+        "保留的旧版及未受影响成果",
+        "同任务继续入口"
+      ]
     }
   ],
   "permissions": [
@@ -427,7 +655,8 @@
         "处理中",
         "失败",
         "取消"
-      ]
+      ],
+      "scope": "capability_execution_not_user_goal"
     },
     {
       "name": "处理中",
@@ -437,28 +666,33 @@
         "部分成功",
         "失败",
         "取消"
-      ]
+      ],
+      "scope": "capability_execution_not_user_goal"
     },
     {
       "name": "成功",
       "kind": "task",
-      "allowedNext": []
+      "allowedNext": [],
+      "scope": "capability_execution_not_user_goal"
     },
     {
       "name": "部分成功",
       "kind": "task",
       "allowedNext": [],
-      "invariant": "列出失败候选和未执行项目"
+      "invariant": "列出失败候选和未执行项目",
+      "scope": "capability_execution_not_user_goal"
     },
     {
       "name": "失败",
       "kind": "task",
-      "allowedNext": []
+      "allowedNext": [],
+      "scope": "capability_execution_not_user_goal"
     },
     {
       "name": "取消",
       "kind": "task",
-      "allowedNext": []
+      "allowedNext": [],
+      "scope": "capability_execution_not_user_goal"
     },
     {
       "name": "未复核",
@@ -721,6 +955,156 @@
         "CON-06-MUST-016",
         "CON-06-MUST-017"
       ]
+    },
+    {
+      "id": "CON-06-TASK-AC-001",
+      "given": [
+        "用户已确认目标/候选和特征，但无权利要求全文"
+      ],
+      "when": "发起逐项技术对照",
+      "then": [
+        "返回证据不足/线索级成果与缺口",
+        "不以摘要替代或给正式法律结论"
+      ],
+      "sourceClauseIds": [
+        "CON-06-TASK-MUST-001",
+        "CON-06-TASK-MUST-004",
+        "CON-06-TASK-MUST-005"
+      ],
+      "evidenceRequirement": "预注册反例；Component/Contract不能替代适用真实集成及专业验收，未声明已执行"
+    },
+    {
+      "id": "CON-06-TASK-AC-002",
+      "given": [
+        "用户修正一项关键特征，旧对照稍后返回"
+      ],
+      "when": "继续原目标对照",
+      "then": [
+        "原机器/人工版本保留，只重算受影响部分",
+        "旧响应不覆盖新事实或人工版本",
+        "原目标任务链不因重算被丢弃"
+      ],
+      "sourceClauseIds": [
+        "CON-06-TASK-MUST-006",
+        "CON-06-DECISION-MUST-001"
+      ],
+      "evidenceRequirement": "预注册反例；Component/Contract不能替代适用真实集成及专业验收，未声明已执行"
+    },
+    {
+      "id": "CON-06-SEM-AC-001",
+      "given": [
+        "模块持久数据含中文/长文本/空值及关联版本",
+        "执行环境缺失或真实DM8发生事务/连接故障"
+      ],
+      "when": "核对数据库兼容、升级与恢复验收证据",
+      "then": [
+        "缺真实环境必须未验证或阻塞，其他数据库通过不能代替",
+        "逐模块专项场景、事务/并发/恢复/引用完整性与目标实例参数有实际记录",
+        "保留升级旧数据，失败不以清库或假空结果掩盖"
+      ],
+      "sourceClauseIds": [
+        "CON-06-SEM-MUST-001",
+        "CON-06-SEM-MUST-002"
+      ],
+      "evidenceRequirement": "Real Integration及国产环境验收；本场景只注册，不声明已执行"
+    },
+    {
+      "id": "CON-06-SEM-AC-002",
+      "given": [
+        "有授权和无授权调用方、该模块正常/异常输入",
+        "内部验证工作面和独立客户端分别操作"
+      ],
+      "when": "对照原文服务与页面完成相同工作",
+      "then": [
+        "原文服务操作、输入/输出/错误和页面必要行为逐项可查",
+        "绕过页面直接调用仍执行权限/参数/并发校验",
+        "内部页面不冒充合同对外页面交付，未满足项不以隐藏入口消失"
+      ],
+      "sourceClauseIds": [
+        "CON-06-SEM-MUST-003",
+        "CON-06-SEM-MUST-004",
+        "CON-06-SEM-MUST-005"
+      ],
+      "evidenceRequirement": "Component/Contract；真实环境及专业效果另行验收"
+    },
+    {
+      "id": "CON-06-SEM-AC-003",
+      "given": [
+        "旧版本已被访问，随后主体权限收紧或来源撤回",
+        "命中文档缓存、历史结果和导出/入模入口"
+      ],
+      "when": "重新读取或处理旧内容",
+      "then": [
+        "所有适用入口重查当前主体/用途，不依据历史成功绕过",
+        "只保留获准受控审计，内容/片段不泄露",
+        "日志和普通响应不带凭据、内部模板或敏感堆栈"
+      ],
+      "sourceClauseIds": [
+        "CON-06-SEM-MUST-006"
+      ],
+      "evidenceRequirement": "Component/Contract；真实环境及专业效果另行验收"
+    },
+    {
+      "id": "CON-06-SEM-PRODUCT-AC-001",
+      "given": [
+        "用户已经明确比较目标、对象版本、目的与关键特征",
+        "其他样例分别缺对象/版本/目的或特征"
+      ],
+      "when": "进入对照准备",
+      "then": [
+        "明确的样例可直接对照，不强制重走搜索或重复确认",
+        "有关键缺口的样例先澄清，不补造"
+      ],
+      "sourceClauseIds": [
+        "CON-06-TASK-MUST-002"
+      ],
+      "evidenceRequirement": "预注册验收语义；自动化断言、真实集成和专家/用户接受按不同层分别取证，未宣称已执行"
+    },
+    {
+      "id": "CON-06-SEM-PRODUCT-AC-002",
+      "given": [
+        "可读权利要求含从属前项且有支持、差异和不可判部分"
+      ],
+      "when": "产生逐项对照",
+      "then": [
+        "逐项列目标特征、候选证据、相同/差异/无法判断及原因",
+        "每项定位实际来源版本，前项特征不遗漏"
+      ],
+      "sourceClauseIds": [
+        "CON-06-TASK-MUST-003"
+      ],
+      "evidenceRequirement": "预注册验收语义；自动化断言、真实集成和专家/用户接受按不同层分别取证，未宣称已执行"
+    },
+    {
+      "id": "CON-06-SEM-PRODUCT-AC-003",
+      "given": [
+        "正式采用/高风险/重要冲突或关键证据缺失，人工接口未获组织证据"
+      ],
+      "when": "选择下一步",
+      "then": [
+        "停止依赖判断并给复核包，不生成确定法律结论",
+        "明确岗位/流程待证据，不假称已受理"
+      ],
+      "sourceClauseIds": [
+        "CON-06-TASK-MUST-007"
+      ],
+      "evidenceRequirement": "预注册验收语义；自动化断言、真实集成和专家/用户接受按不同层分别取证，未宣称已执行"
+    },
+    {
+      "id": "CON-06-SEM-AC-008",
+      "given": [
+        "对应本模块原文的完整、缺失、未提供/不适用及多版本字段样例"
+      ],
+      "when": "核对独立服务输入输出与字段说明",
+      "then": [
+        "原文字段逐项有表达和来源，号码/时间/状态/版本/主体等不能互相替代",
+        "按操作与目的判断必填；非关键缺失不阻止已获准动作，关键缺失不被模型填补",
+        "源未提供/失败/不适用明确，不因英文DTO简化而删除业务字段"
+      ],
+      "sourceClauseIds": [
+        "CON-06-SEM-MUST-008"
+      ],
+      "evidenceRequirement": "字段语义验收约定；真实来源映射需Real Integration另证"
     }
   ],
   "openQuestions": [
@@ -780,44 +1164,109 @@
       "id": "CON-06-DD-001",
       "decision": "Patent Analysis 拥有特征对照与报告，Patent Knowledge 提供版本原文，Evidence/Citation 管理定位，Review 管理意见；Agent 仅编排。",
       "basis": "ARC-03",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术推导作为候选输入保留，不以本次R复核批准通用Runtime、共享平台、服务数量或物理结构；当前Task D门重新判断。"
     },
     {
       "id": "CON-06-DD-002",
       "decision": "候选逐对结果独立状态，发明实用新型流程与外观流程分开，报告审核与法律结论状态分开。",
       "basis": "原文明确逐对、对象类型和辅助意见边界。",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术推导作为候选输入保留，不以本次R复核批准通用Runtime、共享平台、服务数量或物理结构；当前Task D门重新判断。"
     },
     {
       "id": "CON-06-DD-003",
       "decision": "具体 API、特征 schema、算法权重、外观模型和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
       "basis": "规则、资源、模型、样本和环境未确认。",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术推导作为候选输入保留，不以本次R复核批准通用Runtime、共享平台、服务数量或物理结构；当前Task D门重新判断。"
     }
   ],
   "currentProductContract": {
-    "version": "consultation-product-contract-2026-09-22-v1",
+    "version": "consultation-product-contract-2026-09-24-c4",
     "classification": "REDESIGN",
-    "status": "stale",
+    "status": "ready",
     "authoritativeDocument": "docs/37-咨询智能体契约重基线.md#con-06-专利相似度判断redesign",
-    "sourceRefs": ["requirements/知识产权咨询助手/专利相似度判断需求文档.md#9", "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8", "docs/35-咨询智能体产品行为待确认清单.md", "docs/36-咨询智能体R门需求变化影响评审.md#3"],
-    "mustIds": ["CON-06-RB-MUST-001", "CON-06-RB-MUST-002", "CON-06-RB-MUST-003", "CON-06-RB-MUST-004", "CON-06-RB-MUST-005", "CON-06-RB-MUST-006", "CON-06-RB-MUST-007", "CON-06-RB-MUST-008", "CON-06-RB-MUST-009"],
-    "mustNotIds": ["CON-06-RB-MUST_NOT-001", "CON-06-RB-MUST_NOT-002", "CON-06-RB-MUST_NOT-003", "CON-06-RB-MUST_NOT-004", "CON-06-RB-MUST_NOT-005", "CON-06-RB-MUST_NOT-006", "CON-06-RB-MUST_NOT-007"],
-    "rGateAssessment": "REBASED_D_DESIGN_CANDIDATE_NOT_READY",
-    "note": "旧 clauses 保留历史追踪；当前产品契约以 authoritativeDocument 对应章节为准。"
+    "sourceRefs": [
+      "requirements/知识产权咨询助手/专利相似度判断需求文档.md#9",
+      "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8",
+      "docs/35-咨询智能体产品行为待确认清单.md",
+      "docs/36-咨询智能体R门需求变化影响评审.md#3"
+    ],
+    "mustIds": [
+      "CON-06-RB-MUST-001",
+      "CON-06-RB-MUST-002",
+      "CON-06-RB-MUST-003",
+      "CON-06-RB-MUST-004",
+      "CON-06-RB-MUST-005",
+      "CON-06-RB-MUST-006",
+      "CON-06-RB-MUST-007",
+      "CON-06-RB-MUST-008",
+      "CON-06-RB-MUST-009"
+    ],
+    "mustNotIds": [
+      "CON-06-RB-MUST_NOT-001",
+      "CON-06-RB-MUST_NOT-002",
+      "CON-06-RB-MUST_NOT-003",
+      "CON-06-RB-MUST_NOT-004",
+      "CON-06-RB-MUST_NOT-005",
+      "CON-06-RB-MUST_NOT-006",
+      "CON-06-RB-MUST_NOT-007"
+    ],
+    "rGateAssessment": "R_FIDELITY_PASSED_CURRENT_APPROVED_SCOPE_D_NOT_GRANTED",
+    "note": "docs/37为职责重基线来源，结合当前原文、docs/02第20/23节决定及本JSON列明的当前字段共同解释；本JSON的C4条款/输入输出/状态与反例已经第二遍反查，不能只读旧设计或补充条款。物理结构、接口字段、生产许可与D门另评。",
+    "supplementDocument": "docs/v2/15-requirement-traceability-v2.md#首条咨询范围的契约分层与冲突消解",
+    "confirmedDecisionRefs": [
+      "docs/02-待确认事项清单.md#20-p0-20-咨询智能体产品行为负责人基线",
+      "docs/02-待确认事项清单.md#23-2026-09-24-三域共同产品约束确认"
+    ],
+    "addedClauseIds": [
+      "CON-06-TASK-MUST-001",
+      "CON-06-TASK-MUST-002",
+      "CON-06-TASK-MUST-003",
+      "CON-06-TASK-MUST-004",
+      "CON-06-TASK-MUST-005",
+      "CON-06-TASK-MUST-006",
+      "CON-06-TASK-MUST-007",
+      "CON-06-DECISION-MUST-001"
+    ],
+    "acceptanceScenarioIds": [
+      "CON-06-TASK-AC-001",
+      "CON-06-TASK-AC-002"
+    ],
+    "authoritativeContractSections": [
+      "clauses",
+      "inputs",
+      "outputs",
+      "permissions",
+      "states",
+      "sourceAndVersionRules",
+      "errorsAndExceptions",
+      "decisionPoints",
+      "acceptanceScenarios",
+      "openQuestions"
+    ],
+    "reviewEvidence": "docs/evidence/v2-contract-detail-20260924/consultation-core-semantic-review.md"
   },
   "independentReview": {
-    "status": "superseded_by_rebase",
+    "status": "passed",
     "reviewedBaselineId": "requirements-2026-09-14-v1",
-    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "reviewedAt": "2026-09-24",
+    "reviewMethod": "同一Codex在重抽取后独立进行源优先第二遍反查：主来源全部章节/咨询总目录/已确认决定→条款→输入输出状态→正负反例，再逆向检查无源扩展；不是第二名人员评审，结构工具不代替语义结论。",
     "missingClauses": [],
     "contradictions": [],
     "weakenedConstraints": [],
     "unsupportedExtensions": [],
+    "reviewEvidence": [
+      "docs/evidence/v2-contract-detail-20260924/consultation-core-semantic-review.md"
+    ],
     "notes": [
-      "Retrieval ranking, technical comparison, novelty assistance, claim coverage and legal conclusions remain distinct.",
-      "Documents cannot be mosaicked into a single disclosure and design comparison cannot reuse text scoring.",
-      "No legal rule, feature weight, model, view standard, role, threshold, limit or environment was guessed."
+      "R仅表示当前原文和docs/02第20/23节已批准行为的契约忠实度，不批准全部V2提案/架构/D/V/A。",
+      "外部数据、身份、专业规则/阈值、模型、保留及真实验收依对应openQuestions阻塞，不捏造依据。",
+      "旧架构推导只是历史候选，当前Task D门必须复核；缺陷与修正详见reviewEvidence。"
     ]
-  }
+  },
+  "executionStateScope": "本文件原始排队/处理中/成功/部分成功/失败/取消状态描述单次检索或对照执行，不是CON-12完整用户目标任务的完成状态；重算可创建新执行，仍关联原目标任务链。",
+  "logicalFieldNamesOnly": "inputs/outputs中的英文名为需求概念标识，不是冻结的HTTP字段、枚举序列化或物理表；当前Task D门另定。",
+  "inputApplicability": "输入列表描述不同操作的条件输入集合，不是要求所有操作提交所有字段；自然语言启动、资料准备、正式对照和配置管理的必填条件分别依据原文。"
 }

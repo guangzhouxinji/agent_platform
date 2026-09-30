@@ -8,10 +8,12 @@ import javax.sql.DataSource;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class TrademarkComparisonStorageConfiguration {
     @Bean
+    @Profile({"test-synthetic", "public-local-test", "dm8-integration"})
     @ConditionalOnProperty(name = "trademark-comparison.storage", havingValue = "memory", matchIfMissing = true)
     TrademarkComparisonTaskRepository inMemoryTrademarkComparisonTaskRepository() {
         return new InMemoryTrademarkComparisonTaskRepository();

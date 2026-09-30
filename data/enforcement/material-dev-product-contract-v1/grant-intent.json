@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "enf-material-dev-grant-intent-v1",
+  "batchId": "ENF-MATERIAL-DEV-PRODUCT-CONTRACT-V1",
+  "status": "NON_EXECUTABLE_REGISTRATION_INTENT",
+  "issuerSubject": null,
+  "organization": null,
+  "maintainerCertificateRef": null,
+  "humanGrants": [
+    { "resource": "PROJECT-DEV-OBSERVATION", "actions": ["READ", "SYNC", "CREATE_CLUE", "REVISE"], "uses": ["QUERY", "SAVE", "INDEX", "DISPLAY"] },
+    { "resource": "PROJECT-DEV-MATERIAL-WORK", "actions": ["READ", "REGISTER_MATERIAL", "VERIFY", "PREVIEW", "DOWNLOAD"], "uses": ["SAVE", "PREVIEW", "DOWNLOAD"] },
+    { "resource": "ENF-RULE-V1-DEV", "actions": ["EDIT_RULE", "TRIAL_RULE", "PUBLISH_RULE", "DISABLE_RULE"], "uses": ["RULE_MANAGEMENT"] }
+  ],
+  "serviceGrants": [
+    { "resource": "PROJECT-DEV-OBSERVATION", "actions": ["SYNC", "READ"], "uses": ["QUERY", "SAVE"] }
+  ],
+  "jobGrants": [
+    { "resource": "PROJECT-DEV-MATERIAL-WORK", "actions": ["CLEANUP"], "uses": ["RETENTION_CLEANUP"] }
+  ],
+  "forbiddenDelegations": ["VERIFY", "PUBLISH_RULE", "GRANT", "RESTORE", "OFFICIAL_DECISION"],
+  "requiredRejections": ["NO_CREDENTIAL", "CROSS_ORGANIZATION", "CROSS_RESOURCE", "WRONG_USE", "REVOKED", "STATE_UNAVAILABLE", "SERVICE_AS_HUMAN", "OLD_BACKUP_EPOCH"]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "enf-material-dev-scenarios-v1",
+  "batchId": "ENF-MATERIAL-DEV-PRODUCT-CONTRACT-V1",
+  "status": "INPUT_EXPECTATIONS_NOT_HUMAN_ACTIONS",
+  "scenarios": [
+    {
+      "id": "FILE_PRESENT_UNVERIFIED",
+      "observation": "OBS-001@2",
+      "file": "original-M-01.txt",
+      "expected": "File bytes exist; EvidenceVersion requires a separately authorized collection record and human verification."
+    },
+    {
+      "id": "MENTION_ONLY",
+      "observation": "OBS-001@1",
+      "file": null,
+      "expected": "A text mention is a missing material, never a file or EvidenceVersion."
+    },
+    {
+      "id": "WITHDRAWN_BEFORE_RETURN",
+      "observation": "OBS-001@2",
+      "file": "original-M-01.txt",
+      "expected": "Current-use withdrawal prevents body and download even when a historical reference exists."
+    },
+    {
+      "id": "CROSS_SCOPE",
+      "observation": "OBS-001@2",
+      "file": "original-M-01.txt",
+      "expected": "A different resource scope cannot read or attach this material."
+    },
+    {
+      "id": "SOURCE_VERSION_DRIFT",
+      "observation": "OBS-001@1",
+      "file": null,
+      "expected": "A changed source digest or undeclared version is rejected without overwriting version 1."
+    },
+    {
+      "id": "PAGE_PARTIAL_FAILURE",
+      "observation": "OBS-001@2",
+      "file": null,
+      "expected": "A failed record does not advance the continuous successful cursor or become an empty result."
+    }
+  ]
+}

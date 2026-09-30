@@ -1,0 +1,382 @@
+{
+  "schemaVersion": "enf-document-draft-v2-d-input-v1",
+  "inputId": "ENF-DOCUMENT-DRAFT-D-INPUT-01",
+  "status": "INPUT_ONLY_NOT_GENERATED",
+  "origin": "PROJECT_AUTHORED_FICTIONAL",
+  "purpose": ["D_REVIEW", "FUNCTIONAL_TEST_INPUT"],
+  "deniedUses": [
+    "FORMAL_DOCUMENT",
+    "OFFICIAL_NUMBER",
+    "SIGNATURE",
+    "ISSUANCE",
+    "SERVICE",
+    "FORMAL_PENALTY_DECISION",
+    "ASSERT_LEGAL_APPLICABILITY",
+    "BUSINESS_ACCEPTANCE"
+  ],
+  "upstreamContracts": {
+    "template": {
+      "manifest": "data/enforcement/document-template-v2-d-input-v1/manifest.json",
+      "sha256": "313c12443d3b7cfddfc4f3d2687737883df6ff983b790d56b4733c1360b43b48",
+      "templateId": "PROJECT-DOCUMENT-TEMPLATE-01",
+      "revision": 1,
+      "inputStatus": "PROJECT_INPUT_ONLY",
+      "requiredProductState": "PUBLISHED"
+    },
+    "rule": {
+      "manifest": "data/enforcement/document-rule-v2-d-input-v1/manifest.json",
+      "sha256": "963c613bc3ae1580b60fdcb04d9889d023936d9bd29e7ef81dd87e2321c7cf65",
+      "ruleId": "PROJECT-DOCUMENT-RULE-01",
+      "revision": 1,
+      "inputStatus": "DRAFT_INPUT_NOT_PUBLISHED",
+      "requiredProductState": "PUBLISHED"
+    },
+    "legalReference": {
+      "manifest": "data/enforcement/legal-reference-v2-d-input-v1/manifest.json",
+      "sha256": "02e983fca17786074fc45cf46aca90f7988c929e0c132401ace3a07bb835491c",
+      "referenceId": "PROJECT-LEGAL-REFERENCE-01",
+      "revision": 1,
+      "inputStatus": "PROJECT_TEST_REVIEWED_NOT_LEGAL_APPLICABILITY",
+      "requiredProductState": "CONFIRMED"
+    }
+  },
+  "commandEnvelope": {
+    "identitySource": "TRUSTED_JWT_CONTEXT",
+    "organization": "ORG-ENF-PROJECT",
+    "idempotencyKeyRequired": true,
+    "expectedRevisionRequiredForMutation": true,
+    "requestIdReturned": true,
+    "callerIdentityFieldsIgnored": true
+  },
+  "testActors": [
+    {
+      "subject": "PROJECT-DOCUMENT-AUTHOR-01",
+      "kind": "CONTROLLED_TEST_SUBJECT",
+      "organization": "ORG-ENF-PROJECT",
+      "actions": ["PREPARE", "CREATE", "READ", "EDIT", "REGENERATE", "ADOPT", "SUBMIT_REVIEW", "EXPORT"]
+    },
+    {
+      "subject": "PROJECT-DOCUMENT-REVIEWER-02",
+      "kind": "CONTROLLED_TEST_SUBJECT",
+      "organization": "ORG-ENF-PROJECT",
+      "actions": ["READ", "REVIEW", "EXPORT"]
+    }
+  ],
+  "workbenchContract": {
+    "sameServiceApiAsDirectCalls": true,
+    "staticOrMockResultAllowed": false,
+    "views": [
+      "CASE_AND_DOCUMENT_TYPE_SELECTION",
+      "PREPARE_RESULT_AND_MISSING_ITEMS",
+      "GENERATION_TASK_PROGRESS",
+      "STRUCTURED_DRAFT_EDITOR",
+      "FIELD_AND_PARAGRAPH_PROVENANCE",
+      "VERSION_HISTORY_AND_DIFF",
+      "REGENERATION_CANDIDATE_AND_ADOPTION",
+      "REVIEW",
+      "SAME_REVISION_DOCX_EXPORT"
+    ],
+    "states": ["LOADING", "EMPTY", "SUCCESS", "FORBIDDEN", "CONFLICT", "UPSTREAM_UNAVAILABLE", "FAILED"],
+    "requestIdVisible": true,
+    "readApis": [
+      "GET /v2/enforcement/documents",
+      "GET /v2/enforcement/documents/{id}",
+      "GET /v2/enforcement/documents/{id}/revisions",
+      "GET /v2/enforcement/documents/{id}/regenerations/{candidateId}",
+      "GET /v2/enforcement/document-generation-tasks/{taskId}",
+      "GET /v2/enforcement/documents/{id}/exports/{artifactId}"
+    ]
+  },
+  "documentTypes": [
+    {
+      "id": "PROJECT_FACT_RECORD",
+      "label": "项目事实核对记录草稿",
+      "projectInputOnly": true,
+      "requires": ["CASE", "EVIDENCE", "LEGAL_REFERENCE"],
+      "usesEnf11": false,
+      "usesEnf16": false
+    },
+    {
+      "id": "PROJECT_CONDUCT_REVIEW_DRAFT",
+      "label": "项目行为分析复核草稿",
+      "projectInputOnly": true,
+      "requires": ["CASE", "EVIDENCE", "ENF_11_CONDUCT_ANALYSIS", "LEGAL_REFERENCE"],
+      "usesEnf11": true,
+      "usesEnf16": false
+    },
+    {
+      "id": "PROJECT_PENALTY_REVIEW_DRAFT",
+      "label": "项目处罚输入复核草稿",
+      "projectInputOnly": true,
+      "requires": ["CASE", "EVIDENCE", "ENF_11_CONDUCT_ANALYSIS", "ENF_16_PENALTY_SUGGESTION", "LEGAL_REFERENCE"],
+      "usesEnf11": true,
+      "usesEnf16": true
+    }
+  ],
+  "fixtures": {
+    "complete": {
+      "documentType": "PROJECT_FACT_RECORD",
+      "case": {
+        "id": "PROJECT-CASE-DOCUMENT-01",
+        "version": 3,
+        "organization": "ORG-ENF-PROJECT",
+        "confirmed": true
+      },
+      "fields": {
+        "task.ref": "PROJECT-TASK-DOCUMENT-01",
+        "party.name": "项目测试主体甲",
+        "record.recordedDate": "2026-09-29",
+        "analysis.summary": "项目原创中文长文本，仅用于验证结构草稿、来源和版本行为。",
+        "materials": [
+          { "ref": "PROJECT-MATERIAL-A@1", "note": "项目原创材料定位一" },
+          { "ref": "PROJECT-MATERIAL-B@1", "note": "项目原创材料定位二" }
+        ]
+      },
+      "legalReference": {
+        "id": "PROJECT-LEGAL-REFERENCE-01",
+        "revision": 1,
+        "sourceKind": "PROJECT_AUTHORED_NON_LAW_TEXT",
+        "verbatim": "项目测试条款：所有输出仅为项目功能验证草稿。",
+        "sourceSha256": "9e48b27022b2aae888b2bfce4952383a113d6319ace1853460b9349aaff0478a",
+        "reviewState": "PROJECT_TEST_REVIEWED",
+        "legalApplicability": "NOT_ASSERTED"
+      },
+      "optionalUpstream": {
+        "enf11": null,
+        "enf16": null
+      },
+      "expectedPrepare": {
+        "applicable": true,
+        "missingItems": [],
+        "unprocessedItems": [],
+        "canGenerate": true
+      }
+    },
+    "conduct": {
+      "documentType": "PROJECT_CONDUCT_REVIEW_DRAFT",
+      "enf11": {
+        "id": "PROJECT-CONDUCT-REPORT-01",
+        "version": 1,
+        "reviewState": "REVIEWED",
+        "contentHash": "d9151db77f37a1ed7c98845942cc27b4a10fcdcb6bf343246285920226b43d47"
+      },
+      "enf16": null
+    },
+    "penaltyIncomplete": {
+      "documentType": "PROJECT_PENALTY_REVIEW_DRAFT",
+      "enf11": {
+        "id": "PROJECT-CONDUCT-REPORT-01",
+        "version": 1,
+        "reviewState": "REVIEWED",
+        "contentHash": "d9151db77f37a1ed7c98845942cc27b4a10fcdcb6bf343246285920226b43d47"
+      },
+      "enf16": {
+        "id": "PROJECT-PENALTY-SUGGESTION-01",
+        "version": 1,
+        "reviewState": "PENDING_REVIEW",
+        "amount": null,
+        "contentHash": "9f07df5321e3d4b949aa67f771959df91877a2b7e6ca835ff3852e6e810f7f70"
+      },
+      "expectedMissing": ["UNCONFIRMED_PENALTY_SUGGESTION", "UNCONFIRMED_PENALTY_AMOUNT"],
+      "expectedReviewState": "INCOMPLETE_DRAFT"
+    }
+  },
+  "structuredDraftContract": {
+    "requiredFields": [
+      "draftId",
+      "documentType",
+      "revision",
+      "contentHash",
+      "authorSubject",
+      "systemAssisted",
+      "templateId",
+      "templateRevision",
+      "ruleId",
+      "ruleRevision",
+      "inputManifestHash",
+      "sections",
+      "fieldProvenance",
+      "missingItems",
+      "unprocessedItems",
+      "reviewState",
+      "createdAt",
+      "requestId"
+    ],
+    "systemDraftIdIsOfficialNumber": false,
+    "sourceFieldsMayBeModelGenerated": false,
+    "missingRequiredFieldsKeepVisiblePlaceholder": true,
+    "renderFailureKeepsStructuredDraft": true
+  },
+  "operations": [
+    {
+      "name": "PREPARE",
+      "api": "POST /v2/enforcement/documents/prepare",
+      "input": ["documentType", "caseRef", "templateRevision", "ruleRevision", "legalReferenceRevision", "requiredUpstreamRefs"],
+      "output": ["applicability", "resolvedVersions", "missingItems", "unprocessedItems", "canGenerate", "requestId"],
+      "writesDocument": false
+    },
+    {
+      "name": "GENERATE",
+      "api": "POST /v2/enforcement/documents",
+      "input": ["preparedManifestHash", "idempotencyKey"],
+      "output": ["taskId", "status", "draftId", "documentRevision", "requestId"],
+      "writesDocument": true
+    },
+    {
+      "name": "REVISE",
+      "api": "POST /v2/enforcement/documents/{id}/revisions",
+      "input": ["baseRevision", "expectedRevision", "sectionEdits", "idempotencyKey"],
+      "output": ["newRevision", "contentHash", "provenanceDelta", "requestId"],
+      "writesDocument": true
+    },
+    {
+      "name": "REGENERATE",
+      "api": "POST /v2/enforcement/documents/{id}/regenerations",
+      "input": ["baseRevision", "newInputManifestHash", "idempotencyKey"],
+      "output": ["candidateId", "candidateRevision", "diff", "missingItems", "requestId"],
+      "writesDocument": false
+    },
+    {
+      "name": "ADOPT",
+      "api": "POST /v2/enforcement/documents/{id}/adoptions",
+      "input": ["candidateId", "expectedRevision", "selectedChanges", "idempotencyKey"],
+      "output": ["newRevision", "contentHash", "adoptionRecord", "requestId"],
+      "writesDocument": true
+    },
+    {
+      "name": "SUBMIT_REVIEW",
+      "api": "POST /v2/enforcement/documents/{id}/submit-review",
+      "input": ["documentRevision", "expectedRevision", "idempotencyKey"],
+      "output": ["reviewState", "submittedRevision", "requestId"],
+      "writesDocument": true
+    },
+    {
+      "name": "REVIEW",
+      "api": "POST /v2/enforcement/documents/{id}/review",
+      "input": ["documentRevision", "decision", "reason", "expectedRevision", "idempotencyKey"],
+      "output": ["reviewState", "reviewedRevision", "reviewEvent", "requestId"],
+      "writesDocument": true
+    },
+    {
+      "name": "EXPORT_DOCX",
+      "api": "POST /v2/enforcement/documents/{id}/exports/docx",
+      "input": ["documentRevision", "reviewEventRevision", "idempotencyKey"],
+      "output": ["artifactId", "fileRef", "sha256", "contentHash", "templateRevision", "rendererVersion", "requestId"],
+      "writesDocument": false
+    }
+  ],
+  "states": {
+    "generationTask": ["QUEUED", "RUNNING", "SUCCEEDED", "PARTIAL_FAILED", "FAILED", "CANCELLED"],
+    "documentReview": ["INCOMPLETE_DRAFT", "DRAFT", "PENDING_REVIEW", "RETURNED", "REVIEWED"],
+    "regenerationCandidate": ["CANDIDATE", "ADOPTED", "DISCARDED"],
+    "exportTask": ["QUEUED", "RUNNING", "SUCCEEDED", "FAILED", "CANCELLED"],
+    "forbiddenProductStates": ["SIGNED", "ISSUED", "SERVED", "DELIVERED", "OFFICIALLY_EFFECTIVE"]
+  },
+  "invariants": [
+    "PREPARE_VALIDATES_EXACT_TEMPLATE_RULE_LEGAL_AND_REQUIRED_UPSTREAM_VERSIONS",
+    "GENERATE_BINDS_IMMUTABLE_INPUT_MANIFEST_AND_FIELD_PROVENANCE",
+    "REQUIRED_MISSING_OR_UNCONFIRMED_PENALTY_BLOCKS_REVIEW",
+    "REGENERATION_CREATES_CANDIDATE_AND_NEVER_OVERWRITES_HUMAN_REVISION",
+    "ADOPTION_IS_EXPLICIT_AND_CREATES_NEW_DOCUMENT_REVISION",
+    "REVIEW_BINDS_EXACT_DOCUMENT_REVISION",
+    "EXPORT_BINDS_THE_SAME_REVIEWED_DOCUMENT_REVISION_AND_CONTENT_HASH",
+    "SOURCE_CHANGE_MARKS_NEEDS_REVIEW_AND_NEVER_REWRITES_CONTENT",
+    "UNUSED_ENF_11_OR_ENF_16_DOES_NOT_BLOCK_A_DOCUMENT_TYPE",
+    "REQUIRED_ENF_11_OR_ENF_16_MISSING_OR_UNREVIEWED_FAILS_CLOSED",
+    "NO_FORMAL_NUMBER_SIGNATURE_ISSUANCE_OR_SERVICE_STATE"
+  ],
+  "permissions": [
+    { "operation": "PREPARE", "resource": "DOCUMENT", "action": "PREPARE", "use": "DOCUMENT_DRAFT" },
+    { "operation": "GENERATE", "resource": "DOCUMENT", "action": "CREATE", "use": "DOCUMENT_DRAFT" },
+    { "operation": "READ", "resource": "DOCUMENT", "action": "READ", "use": "DISPLAY" },
+    { "operation": "REVISE", "resource": "DOCUMENT", "action": "EDIT", "use": "DOCUMENT_DRAFT" },
+    { "operation": "REGENERATE", "resource": "DOCUMENT", "action": "REGENERATE", "use": "DOCUMENT_DRAFT" },
+    { "operation": "ADOPT", "resource": "DOCUMENT", "action": "ADOPT", "use": "DOCUMENT_DRAFT" },
+    { "operation": "SUBMIT_REVIEW", "resource": "DOCUMENT", "action": "SUBMIT_REVIEW", "use": "HUMAN_REVIEW" },
+    { "operation": "REVIEW", "resource": "DOCUMENT", "action": "REVIEW", "use": "HUMAN_REVIEW" },
+    { "operation": "EXPORT_DOCX", "resource": "DOCUMENT", "action": "EXPORT", "use": "DOCUMENT_EXPORT" }
+  ],
+  "failureContract": [
+    { "condition": "REQUIRED_INPUT_MISSING", "result": "INCOMPLETE_DRAFT_WITH_LOCATED_MISSING_ITEMS", "forbiddenSideEffects": ["REVIEWED_STATE", "EXPORT_ARTIFACT"] },
+    { "condition": "UNCONFIRMED_PENALTY", "result": "REVIEW_SUBMISSION_REJECTED", "forbiddenSideEffects": ["PENALTY_DECISION_TEXT", "DEFAULT_ZERO"] },
+    { "condition": "REFERENCE_BINDING_FAILURE", "result": "DOCUMENT_COMMAND_ROLLED_BACK", "forbiddenSideEffects": ["ORPHAN_DOCUMENT", "SUCCESS_RECEIPT"] },
+    { "condition": "SOURCE_OR_UPSTREAM_VERSION_CHANGED", "result": "NEEDS_REVIEW_WITH_OLD_CONTENT_RETAINED", "forbiddenSideEffects": ["AUTO_REPLACED_CONTENT", "OLD_REVIEW_REUSED"] },
+    { "condition": "RENDERER_OR_FONT_FAILURE", "result": "EXPORT_FAILED_STRUCTURED_DRAFT_RETAINED", "forbiddenSideEffects": ["EMPTY_SUCCESS_ARTIFACT", "DRAFT_DELETED"] },
+    { "condition": "VERSION_OR_IDEMPOTENCY_CONFLICT", "result": "CONFLICT_WITH_CURRENT_REVISION", "forbiddenSideEffects": ["OVERWRITE", "SECOND_RECEIPT"] },
+    { "condition": "UNAUTHORIZED_OR_REVOKED", "result": "FAIL_CLOSED_WITH_NO_CONTENT", "forbiddenSideEffects": ["DOCUMENT_BODY", "BUSINESS_WRITE"] },
+    { "condition": "DB_OR_FILE_UNAVAILABLE", "result": "RETRYABLE_FAILURE_WITH_REQUEST_ID", "forbiddenSideEffects": ["HALF_RECEIPT", "ORPHAN_FILE", "COMPLETE_SUCCESS"] }
+  ],
+  "recoveryContract": {
+    "commonSnapshot": ["DOCUMENT_DB", "STRUCTURED_DRAFT", "DOCX_ARTIFACTS", "RECEIPTS", "EVENTS"],
+    "notRestoredFromBackup": ["CURRENT_GRANT_EPOCH", "CURRENT_SOURCE_EPOCH", "CURRENT_TEMPLATE_RULE_AND_REFERENCE_STATUS", "DELETION_WATERMARK"],
+    "sameKeySamePayload": "SAME_RECEIPT_AND_RESULT",
+    "sameKeyDifferentPayload": "IDEMPOTENCY_CONFLICT",
+    "missingOrMismatchedArtifact": "FAIL_CLOSED_KEEP_STRUCTURED_DRAFT",
+    "oldReviewedRevisionAfterNewRevision": "HISTORY_ONLY_NOT_EXPORTABLE_AS_NEW_REVIEWED_REVISION"
+  },
+  "scenarios": [
+    {
+      "id": "D01",
+      "input": "Exact template, rule, legal reference and complete PROJECT_FACT_RECORD input",
+      "expected": "PREPARE_CAN_GENERATE_WITH_EXACT_RESOLVED_VERSIONS",
+      "forbidden": ["DOCUMENT_WRITE_DURING_PREPARE", "FORMAL_DOCUMENT", "OFFICIAL_NUMBER"]
+    },
+    {
+      "id": "D02",
+      "input": "Generate from the prepared immutable manifest",
+      "expected": "STRUCTURED_DRAFT_WITH_FIELD_PROVENANCE_AND_CONTENT_HASH",
+      "forbidden": ["SOURCE_LOST", "SIGNATURE", "ISSUANCE", "SERVICE"]
+    },
+    {
+      "id": "D03",
+      "input": "Missing required party or pending penalty suggestion and amount",
+      "expected": "INCOMPLETE_DRAFT_VISIBLE_MISSING_ITEMS_REVIEW_BLOCKED",
+      "forbidden": ["MODEL_COMPLETION", "DEFAULT_ZERO", "REVIEWED_STATE", "EXPORT_ARTIFACT"]
+    },
+    {
+      "id": "D04",
+      "input": "Human revision followed by regeneration and selective adoption",
+      "expected": "CANDIDATE_DIFF_THEN_EXPLICIT_ADOPTION_CREATES_NEW_REVISION",
+      "forbidden": ["HUMAN_REVISION_OVERWRITTEN", "AUTO_ADOPTION", "OLD_CONTENT_DELETED"]
+    },
+    {
+      "id": "D05",
+      "input": "Submit and review revision 2, then create revision 3",
+      "expected": "REVIEW_BINDS_REVISION_2_AND_REVISION_3_REQUIRES_NEW_REVIEW",
+      "forbidden": ["OLD_REVIEW_APPLIED_TO_NEW_REVISION", "NEW_REVISION_REVIEWED"]
+    },
+    {
+      "id": "D06",
+      "input": "Export reviewed revision 2 with its exact template, rule and content hash",
+      "expected": "DOCX_ARTIFACT_BINDS_THE_SAME_REVIEWED_REVISION",
+      "forbidden": ["MIXED_REVISION_EXPORT", "FORMAL_NUMBER", "SIGNED_OR_ISSUED_STATE"]
+    },
+    {
+      "id": "D07",
+      "input": "Three document types with absent, reviewed or pending ENF-11 and ENF-16 inputs",
+      "expected": "ONLY_DECLARED_TYPE_DEPENDENCIES_ARE_REQUIRED_AND_PENDING_REQUIRED_INPUT_BLOCKS_REVIEW",
+      "forbidden": ["UNUSED_DEPENDENCY_BLOCKS", "UNREVIEWED_CONDUCT_USED", "PENDING_PENALTY_WRITTEN_AS_DECISION"]
+    },
+    {
+      "id": "D08",
+      "input": "Cross organization, Agent review, revocation, stale expected revision and changed idempotent replay",
+      "expected": "UNAUTHORIZED_OR_CONFLICT_WITH_ZERO_DOCUMENT_CONTENT_AND_ZERO_BUSINESS_WRITE",
+      "forbidden": ["AGENT_REVIEW", "STALE_GRANT_SUCCESS", "CROSS_ORGANIZATION_CONTENT", "SECOND_RECEIPT"]
+    },
+    {
+      "id": "D09",
+      "input": "Renderer failure, DB disconnect, retry and DB plus file restore under newer external watermarks",
+      "expected": "STRUCTURED_DRAFT_RETAINED_ONE_RECEIPT_FAIL_CLOSED_AFTER_RESTORE",
+      "forbidden": ["EMPTY_SUCCESS_ARTIFACT", "HALF_RECEIPT", "STALE_GRANT_SUCCESS", "OLD_REVIEW_REUSED"]
+    }
+  ],
+  "businessAcceptancePending": [
+    "CENTER_APPROVED_DOCUMENT_TYPES_AND_REQUIRED_FIELDS",
+    "CENTER_APPROVED_TEMPLATE_AND_FIELD_MAPPING",
+    "REAL_CASE_EVIDENCE_ANALYSIS_AND_PENALTY_INPUTS",
+    "LEGAL_PROFESSIONAL_APPLICABILITY",
+    "REAL_AUTHOR_AND_REVIEW_ROLES",
+    "TARGET_RENDERER_FONTS_AND_LAYOUT_ACCEPTANCE",
+    "NAMED_BUSINESS_REVIEW_OF_FIELDS_AND_LAYOUT"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "enf-material-dev-collection-input-v1",
+  "batchId": "ENF-MATERIAL-DEV-PRODUCT-CONTRACT-V1",
+  "status": "INPUT_ONLY_NOT_VERIFIED",
+  "target": {
+    "observation": "OBS-001@2",
+    "resourceScope": "PROJECT-DEV-MATERIAL-WORK",
+    "file": "original-M-01.txt",
+    "originalKind": "PROJECT_AUTHORED_TEXT",
+    "derivedFrom": null,
+    "collectorAction": "COLLECT",
+    "uploaderAction": "UPLOAD",
+    "verifierAction": "VERIFY",
+    "collectorSubject": null,
+    "uploaderSubject": null,
+    "verifierSubject": null,
+    "collectionTime": null,
+    "verificationTime": null,
+    "verificationResult": null
+  },
+  "negativeInputs": [
+    { "id": "NO_COLLECTION_RECORD", "missing": "collectorSubject", "expected": "UNVERIFIED" },
+    { "id": "UPLOAD_IS_NOT_COLLECTION", "missing": "collectorAction", "expected": "UNVERIFIED" },
+    { "id": "MENTION_WITHOUT_BYTES", "observation": "OBS-001@1", "file": null, "expected": "MISSING_MATERIAL" },
+    { "id": "CROSS_SCOPE_ATTACH", "resourceScope": "OTHER-DEV-WORK", "expected": "DENIED" },
+    { "id": "WITHDRAWN_FILE", "withdrawn": true, "expected": "UNAVAILABLE" },
+    { "id": "EXCLUDED_AFTER_VERIFY", "excluded": true, "expected": "DOWNSTREAM_REVIEW_REQUIRED" }
+  ]
+}

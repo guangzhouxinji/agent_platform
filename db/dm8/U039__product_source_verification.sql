@@ -1,0 +1,2 @@
+DROP TABLE con4_source_verification_request;
+DROP TABLE con4_source_verification;

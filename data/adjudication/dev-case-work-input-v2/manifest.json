@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "DEV-ADJ-CASE-WORK-INPUT-02",
+  "datasetId": "DEV-ADJ-CASE-WORK-INPUT-02",
+  "origin": "PROJECT_AUTHORED_SYNTHETIC_TEXT",
+  "environment": "isolated-development-only",
+  "status": "SYNTHETIC_DEV_ONLY",
+  "approvalRef": "docs/02-待确认事项清单.md#32-2026-09-25-项目数据处理与功能体验优先决定",
+  "decisionVersion": "2026-09-25",
+  "responsibleParty": "PROJECT_OWNER_FOR_PROJECT_AUTHORED_DATA",
+  "validFrom": "2026-09-25T00:00:00+08:00",
+  "validUntil": "2027-03-25T00:00:00+08:00",
+  "withdrawalVersion": 0,
+  "withdrawnAt": null,
+  "organizationRef": "dev-adj-isolated",
+  "allowedPrincipalRefs": ["dev-adj-author", "dev-adj-reviewer"],
+  "trustedSubjectRequirement": {
+    "issuer": "LOCAL_DEV",
+    "kind": "HUMAN",
+    "currentCredential": true,
+    "exactCaseGrant": true
+  },
+  "identityLimitation": "References only; a separate trusted credential and exact case grant are required at runtime",
+  "allowedCaseIds": ["DEV-ADJ-CASE-001"],
+  "negativeCaseIds": ["DEV-ADJ-CASE-002"],
+  "sourceManifests": [
+    {
+      "manifestId": "DEV-ADJ-SYNTH-INPUT-01",
+      "sha256": "8b4f8b40691a91515b375157dab4f75da354b432eb284abc62eabbaca75bbfec"
+    }
+  ],
+  "sourceRecordsSha256": "6bf1cefad74cd0a05e8a017f3a4593e89a4e8825f07921522d6bef190e25ebc4",
+  "payloadFile": "input.json",
+  "fieldUses": {
+    "cases": [
+      {
+        "fields": ["id", "sourceVersion", "kind", "title", "applicantRef", "respondentRef", "rightRef", "rightGap", "locator", "available"],
+        "uses": ["QUERY_DEV_WORK", "SAVE_DEV_WORK", "DISPLAY_DEV_WORK"]
+      }
+    ],
+    "materials": [
+      {
+        "fields": ["id", "sourceVersion", "caseId", "submissionKind", "available", "unavailableReason"],
+        "uses": ["QUERY_DEV_WORK", "SAVE_DEV_WORK", "DISPLAY_DEV_WORK"]
+      },
+      {
+        "fields": ["providedBy", "text", "locator"],
+        "uses": ["QUERY_DEV_WORK", "SAVE_DEV_WORK", "DISPLAY_DEV_WORK", "CLAIM_SIDE_BY_SIDE_INPUT"]
+      }
+    ],
+    "issueRevisions": [
+      {
+        "fields": ["id", "version", "caseId", "nature", "locator"],
+        "uses": ["QUERY_DEV_WORK", "SAVE_DEV_WORK", "DISPLAY_DEV_WORK"]
+      },
+      {
+        "fields": ["statements", "gaps"],
+        "uses": ["QUERY_DEV_WORK", "SAVE_DEV_WORK", "DISPLAY_DEV_WORK", "CLAIM_SIDE_BY_SIDE_INPUT"]
+      }
+    ]
+  },
+  "deniedUses": ["FULLTEXT_INDEX", "FILE_DOWNLOAD", "EXTERNAL_MODEL", "CROSS_DOMAIN_SHARE", "REPORT_DRAFT", "PROFESSIONAL_COMPARE", "EVIDENCE_ACCEPTANCE", "LEGAL_APPLICABILITY", "FORMAL_CASE", "FORMAL_MATERIAL", "ADJUDICATION_WORKFLOW", "FORMAL_DECISION", "AUTO_CONFIRM_FACT"],
+  "semanticBoundary": "Party claims are unconfirmed; no patent claim text, evidence acceptance or professional/legal conclusion is present",
+  "retentionBoundary": "This source-use window does not extend the six-calendar-month task retention or authorize third-party/client source retention",
+  "payloadSha256": "4e3ad8bd1b1407e3359eb4196aa0c71bfa8e9cf9a5edcd0045a4ea2cd9d82885"
+}

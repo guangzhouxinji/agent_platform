@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "ruleId": "ENF-RULE-V1-DEV-MARKING-01",
+  "family": "DISCOVERY",
+  "revision": 1,
+  "status": "DRAFT",
+  "validFrom": null,
+  "validTo": null,
+  "scope": {
+    "sourceId": "PROJECT-DEV-OBSERVATION",
+    "purpose": "DEVELOPMENT_MATERIAL_TRIAGE",
+    "behavior": "UNVERIFIED_PRODUCT_MARKING",
+    "region": null,
+    "legalApplicability": "NOT_ASSESSED"
+  },
+  "basisRefs": [
+    {
+      "kind": "PROJECT_METHOD",
+      "locator": "docs/02 section 40; docs/68 section 3 DISCOVERY",
+      "version": "2026-09-27",
+      "meaning": "Textual triage candidate only, not a statutory element or finding"
+    }
+  ],
+  "inputs": [
+    { "field": "sourceText", "type": "TEXT", "sourceUse": "QUERY" }
+  ],
+  "condition": {
+    "operator": "CONTAINS_LITERAL",
+    "field": "sourceText",
+    "value": "专利产品",
+    "caseSensitive": true
+  },
+  "exceptions": [],
+  "output": {
+    "category": "MATERIAL_REVIEW_CANDIDATE",
+    "officialEffect": "NONE",
+    "explanation": "Only the cited source text contains the literal; a person must verify the material and context"
+  },
+  "missingPolicy": {
+    "missingField": "UNKNOWN",
+    "sourceUnavailable": "FAILED_NOT_NO_MATCH",
+    "scopeMismatch": "NOT_APPLICABLE"
+  },
+  "examples": [
+    { "observation": "OBS-001@1", "expected": "CANDIDATE", "reason": "literal present" },
+    { "observation": "OBS-001@2", "expected": "NO_MATCH_WITHIN_SCOPE", "reason": "updated text lacks literal" },
+    { "observation": "MISSING_SOURCE_TEXT", "expected": "UNKNOWN", "reason": "missing field is not no match" },
+    { "observation": "SOURCE_UNAVAILABLE", "expected": "FAILED_NOT_NO_MATCH", "reason": "transport failure is not empty result" }
+  ],
+  "author": "PROJECT_DEVELOPMENT_TEAM",
+  "reviewer": null,
+  "changeReason": "Project-owned development triage rule candidate; no legal assessment"
+}

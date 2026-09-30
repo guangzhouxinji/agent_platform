@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "DEV-ADJ-SYNTH-INPUT-01",
+  "datasetId": "DEV-ADJ-CASE-WORK-01",
+  "origin": "PROJECT_AUTHORED_SYNTHETIC_TEXT",
+  "status": "SYNTHETIC_DEV_ONLY",
+  "purpose": "Internal development of local case work, two-party material and issue versions; not an authorization for third-party or client data",
+  "organizationRef": "dev-adj-isolated",
+  "testPrincipalRefs": ["dev-adj-author", "dev-adj-reviewer"],
+  "identityLimitation": "References only; no V2 credential or reviewer binding is established by this manifest",
+  "recordsFile": "records.json",
+  "batchSha256": "6bf1cefad74cd0a05e8a017f3a4593e89a4e8825f07921522d6bef190e25ebc4",
+  "allowedFieldUses": {
+    "cases": {
+      "fields": ["id", "sourceVersion", "kind", "title", "applicantRef", "respondentRef", "rightRef", "rightGap", "locator", "available"],
+      "uses": ["SAVE_DEV_WORK", "READ_DEV_WORK", "DISPLAY_DEV_WORK", "CONTRACT_TEST"]
+    },
+    "materials": {
+      "fields": ["id", "sourceVersion", "caseId", "providedBy", "text", "locator", "submissionKind", "available", "unavailableReason"],
+      "uses": ["SAVE_DEV_WORK", "READ_DEV_WORK", "DISPLAY_DEV_WORK", "CONTRACT_TEST"]
+    },
+    "issueRevisions": {
+      "fields": ["id", "version", "caseId", "nature", "statements", "gaps", "locator"],
+      "uses": ["SAVE_DEV_WORK", "READ_DEV_WORK", "DISPLAY_DEV_WORK", "CONTRACT_TEST"]
+    }
+  },
+  "forbiddenUses": ["FULLTEXT_INDEX", "FILE_DOWNLOAD", "EXTERNAL_MODEL", "CROSS_DOMAIN_SHARE", "FORMAL_CASE", "FORMAL_MATERIAL", "LEGAL_APPLICABILITY", "EVIDENCE_ACCEPTANCE", "REPORT_DRAFT", "ADJUDICATION_WORKFLOW", "FORMAL_DECISION"],
+  "retention": "Development project-owned task records only: docs/02 section 30; no source or production retention authorization implied",
+  "recordDigests": [
+    { "kind": "case", "id": "DEV-ADJ-CASE-001", "version": "v1", "sha256": "99a6285a5f985a47504e95321b3127f1cdb16a2673fe7744e64f14a3f40ee2d5" },
+    { "kind": "case", "id": "DEV-ADJ-CASE-002", "version": "v1", "sha256": "1ee224ee518dbf5cfae21accab819ef1cfe837a6ecdfb149bf2850b9b60d875f" },
+    { "kind": "material", "id": "DEV-ADJ-MAT-001", "version": "v1", "sha256": "c0ce3ad366135950bc821afbb10f6e66e8c3d35626d4b951f73bc64869a3a4ab" },
+    { "kind": "material", "id": "DEV-ADJ-MAT-002", "version": "v1", "sha256": "ca204a1ffd42994b3a43463a54b0cc2eff8c5785edf8b01627365c06688e618f" },
+    { "kind": "material", "id": "DEV-ADJ-MAT-003", "version": "v1", "sha256": "39da59fdc01c7625f615aae88865381fa998dcb38480657a16498ed5aa655a4c" },
+    { "kind": "material", "id": "DEV-ADJ-MAT-004", "version": "v1", "sha256": "6ad28070c392004f3778e53d43ee12bab057cbd8cf017a71fe463b249574d16a" },
+    { "kind": "issueRevision", "id": "DEV-ADJ-ISSUE-001", "version": "1", "sha256": "b899a1c383a43a245397974ea65dd88e0b20be6c2f99f1d21d3829a40f55a81b" },
+    { "kind": "issueRevision", "id": "DEV-ADJ-ISSUE-001", "version": "2", "sha256": "3784e4eb159792882445c2d515d259bb853586d934137781001d1a8187ee162a" }
+  ]
+}

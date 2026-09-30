@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "manifestId": "DEV-CON-BOUNDARY-01",
+  "manifestVersion": 1,
+  "environment": "isolated-development-only",
+  "approvalRef": "docs/02-待确认事项清单.md#26-2026-09-24-甲方数据后交付的实施顺序说明",
+  "approvalScope": "project-authored synthetic material only; no third-party or client data",
+  "status": "SYNTHETIC_DEV_ONLY",
+  "validFrom": "2026-09-24T00:00:00+08:00",
+  "validUntil": "2027-03-24T00:00:00+08:00",
+  "withdrawalRef": null,
+  "allowedPrincipalRefs": ["dev-con-a", "dev-con-b"],
+  "organizationRef": "dev-con-isolated",
+  "datasets": [
+    {
+      "datasetId": "DEV-CON-SYN-01",
+      "sourceKind": "SYNTHETIC",
+      "owner": "agent-platform-development",
+      "status": "ACTIVE",
+      "fields": ["publicationLabel", "claimText"],
+      "contentKinds": ["CLAIM_TEXT"],
+      "allowedActions": ["QUERY", "SAVE", "INDEX", "DISPLAY", "DOWNLOAD"],
+      "records": [
+        {
+          "recordId": "P1",
+          "sourceVersion": "V1",
+          "publicationLabel": "虚构专利P1",
+          "claimText": "传感器、控制器、阀门",
+          "locator": "claim:1",
+          "contentSha256": "47b294d4c7fb086a5b68d0f3dac0c3dddefa15e928bed7bf6366d5a9c1491f20"
+        },
+        {
+          "recordId": "P2",
+          "sourceVersion": "V1",
+          "publicationLabel": "虚构专利P2",
+          "claimText": "传感器、手动阀门",
+          "locator": "claim:1",
+          "contentSha256": "58bbca6df4d997f3aecb097fe880882122457c1eee6fc4b1f82f44654577b316"
+        }
+      ]
+    },
+    {
+      "datasetId": "DEV-CON-QUERY-01",
+      "sourceKind": "SYNTHETIC",
+      "owner": "agent-platform-development",
+      "status": "ACTIVE",
+      "fields": ["recordId"],
+      "contentKinds": [],
+      "allowedActions": ["QUERY"],
+      "records": [
+        {
+          "recordId": "Q1",
+          "sourceVersion": "V1",
+          "locator": "metadata:Q1",
+          "contentSha256": null
+        }
+      ]
+    }
+  ]
+}

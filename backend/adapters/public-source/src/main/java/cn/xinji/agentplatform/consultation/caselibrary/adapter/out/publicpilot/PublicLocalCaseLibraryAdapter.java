@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 @Component
-@Profile("!test-synthetic")
+@Profile({"public-local-test", "dm8-integration"})
 @ConditionalOnProperty(name = "knowledge-base.provider", havingValue = "classpath")
 public final class PublicLocalCaseLibraryAdapter implements CaseLibraryPort {
     private final List<CaseLibraryRecord> records;

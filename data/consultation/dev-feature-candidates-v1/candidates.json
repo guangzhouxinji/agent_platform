@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "DEV-CON-FEATURE-CANDIDATES-01",
+  "source": {
+    "inputManifestId": "DEV-CON-INPUT-01",
+    "kind": "SUPPLEMENT",
+    "inputSha256": "f715fa600f5ba46d4e7b15dfc42d29d58d55366271d0196444ec98fb59def7af"
+  },
+  "candidates": [
+    { "featureId": "F1", "exactText": "温度传感器", "byteStart": 24, "byteEnd": 39, "status": "UNCONFIRMED" },
+    { "featureId": "F2", "exactText": "自动控制器", "byteStart": 42, "byteEnd": 57, "status": "UNCONFIRMED" },
+    { "featureId": "F3", "exactText": "阀门", "byteStart": 60, "byteEnd": 66, "status": "UNCONFIRMED" }
+  ]
+}

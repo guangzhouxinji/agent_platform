@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "requirementId": "CON-05",
   "title": "商标相似度检索",
-  "status": "stale",
+  "status": "ready",
   "baselineId": "requirements-2026-09-14-v1",
   "source": {
     "path": "requirements/知识产权咨询助手/商标相似度检索需求文档.md",
@@ -334,40 +334,108 @@
       "acceptanceScenarioIds": [
         "CON-05-AC-014"
       ]
+    },
+    {
+      "id": "CON-05-SEM-MUST-001",
+      "type": "MUST",
+      "statement": "保留原文“国产化与达梦 DM8 适配要求”的全部适用义务（按操作/用途条件判断字段必填，不把字段表当作冻结的API）：\n## 国产化与达梦 DM8 适配要求\n\n- 本模块面向国产化环境交付，业务关系型数据库固定使用达梦 DM8；开发联调及数据库兼容验收均须覆盖真实 DM8，不能以 MySQL、H2 等环境通过替代。\n- 本模块需要持久化的业务内容包括：检索任务、输入快照、受控图样引用、候选引用、各维度评分及执行记录。数据库采用 DM8；文件二进制可使用项目已批准的文件存储，DM8 保存受控引用及元数据，不要求把所有图片和附件存入数据库。\n- 驱动、连接池、ORM/持久层、分页、建表及升级脚本按实际 DM8 小版本和实例参数适配；不得直接依赖其他数据库专有语法、JSON 类型或函数。长文本、结构化内容、编号、时间及分数应选用经目标实例验证的数据类型和访问方式。\n- 本模块 DM8 专项验收覆盖：中文/外文输入、图样引用关联、维度缺失值、幂等与分页排序。验证事务失败回滚、连接故障恢复和权限控制；接口故障不伪装成空结果。需要恢复的任务应识别中断状态，按幂等规则恢复或显式失败，不盲目重放。\n- 全文、向量和图像检索能力不得因采用 DM8 就视为已经具备；优先调用中心 API，自建时按总目录的国产化与检索约束选型并验证。\n- 交付本模块适用的 DM8 初始化/升级脚本、数据库配置说明和真实 DM8 验证记录；确无本地业务表时注明原因，仍须验证与共用 DM8 服务的集成。其他国产操作系统、CPU、JDK、模型及中间件的具体型号以中心环境清单为准，不预设已完成适配。\n\n详细共用要求见[需求总目录](知识产权咨询助手需求文档总目录.md)“3.7 国产化部署与达梦 DM8 数据库”。",
+      "sourceAnchors": [
+        "国产化与达梦 DM8 适配要求"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-SEM-AC-001"
+      ]
+    },
+    {
+      "id": "CON-05-SEM-MUST-002",
+      "type": "MUST",
+      "statement": "保留原文“2. 输入输出字段”的全部适用义务（按操作/用途条件判断字段必填，不把字段表当作冻结的API）：\n## 2. 输入输出字段\n\n| 字段 | 规则 |\n|---|---|\n| 目标商标名称 | 文字检索必填；保留原始字符及标准化查询值 |\n| 目标图样 | 图形检索必填；组合检索同时提供名称或可识别文字 |\n| 商品/服务类别与项目 | 至少确认拟使用的类别及项目；项目不明确时追问 |\n| 类似群及分类版本 | 可建议，用户确认；不确定时保留待确认状态 |\n| 检索维度 | 文字、读音、含义、图形或组合；仅启用已具备能力 |\n| 检索范围 | 类别、状态、地域及数据源范围 |\n| 任务 ID、检索时间 | 服务端生成 |\n| 候选标识、注册号、名称、图样 | 关联商标详情 |\n| 类别、商品/服务、状态 | 按来源展示并带更新时间 |\n| 相关度、维度依据、评分版本 | 用于候选排序 |\n| 实际检索范围、返回数量 | 披露范围和截断情况 |",
+      "sourceAnchors": [
+        "2. 输入输出字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-SEM-AC-002"
+      ]
+    },
+    {
+      "id": "CON-05-SEM-MUST-003",
+      "type": "MUST",
+      "statement": "保留原文“5. 内部验证页面”的全部适用义务（按操作/用途条件判断字段必填，不把字段表当作冻结的API）：\n## 5. 内部验证页面\n\n- 输入：文字、图样上传/预览、类别与项目、检索维度、范围、开始检索。\n- 候选：目标与候选图样、名称、注册号、类别、状态、相关度、匹配原因、来源时间。\n- 操作：查看详情、修改条件、新建检索、勾选进入比对、查询历史任务。\n- 图形服务未配置时明确显示不可用；不返回伪图形得分。\n- 显示真实/模拟、处理中、部分成功、无结果、错误与重试等状态。",
+      "sourceAnchors": [
+        "5. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-SEM-AC-003"
+      ]
+    },
+    {
+      "id": "CON-05-SEM-MUST-004",
+      "type": "MUST",
+      "statement": "保留原文“6. 服务契约”的全部适用义务（按操作/用途条件判断字段必填，不把字段表当作冻结的API）：\n## 6. 服务契约\n\n| 服务 | 输入 | 输出 |\n|---|---|---|\n| 图样上传 | 文件、调用方身份 | 受控文件 ID、格式信息 |\n| 输入解析 | 名称、图样 ID、类别项目 | 可修正文字、读音及分类建议 |\n| 创建任务 | 确认输入、维度、范围、幂等键 | 任务 ID |\n| 查询任务/结果 | 任务 ID、分页 | 状态、候选、评分说明和范围 |\n| 取消任务 | 任务 ID | 取消结果 |\n\n异步任务采用总目录规定的状态及幂等规则。上传无效、维度不可用、源限流、超时、无权限需有明确错误及追踪号。图像访问和历史任务访问均由后端鉴权，图样保留期限随项目文件策略确定。",
+      "sourceAnchors": [
+        "6. 服务契约"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-SEM-AC-004"
+      ]
+    },
+    {
+      "id": "CON-05-SEM-MUST-005",
+      "type": "MUST",
+      "statement": "保留原文“8. 依赖与交付”的全部适用义务（按操作/用途条件判断字段必填，不把字段表当作冻结的API）：\n## 8. 依赖与交付\n\n依赖商标库管理、分类字典、文件服务、文字与图像检索能力。交付接口、维度与评分说明、范围说明和验收记录，验证页面内部留用。\n\n联调确认：商标图样授权、类别/类似群版本、跨类别规则、图像接口或索引能力、缓存权限、并发及性能目标。",
+      "sourceAnchors": [
+        "8. 依赖与交付"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-SEM-AC-005"
+      ]
+    },
+    {
+      "id": "CON-05-SEM-MUST-006",
+      "type": "MUST",
+      "statement": "自然语言或名称/图样可启动商标检索目标；类别、拟用商品服务、维度和范围在正式检索前按所选能力确认。结果序号绑定具体候选快照，调整条件生成同目标链的新尝试，不覆盖旧结果。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md#20",
+        "docs/02-待确认事项清单.md#23",
+        "1. 功能概述"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-05-SEM-AC-006"
+      ]
     }
   ],
   "inputs": [
     {
       "name": "target",
-      "required": true,
+      "required": "仅在正式检索/对应能力执行时按原文条件要求；目标受理可先给自然语言或名称/图样",
       "rules": [
         "文字、受控原图或组合；原始值与确认标准化值分开"
       ]
     },
     {
       "name": "classification",
-      "required": true,
+      "required": "仅在正式检索/对应能力执行时按原文条件要求；目标受理可先给自然语言或名称/图样",
       "rules": [
         "至少确认类别和商品服务项目，类似群及版本可待确认"
       ]
     },
     {
       "name": "dimensions",
-      "required": true,
+      "required": "仅在正式检索/对应能力执行时按原文条件要求；目标受理可先给自然语言或名称/图样",
       "rules": [
         "仅选择实际可用的文字、读音、含义、图形或组合"
       ]
     },
     {
       "name": "scope",
-      "required": true,
+      "required": "仅在正式检索/对应能力执行时按原文条件要求；目标受理可先给自然语言或名称/图样",
       "rules": [
         "类别、跨类、状态、地域和数据源范围明确"
       ]
     },
     {
       "name": "idempotencyKey",
-      "required": true,
+      "required": "仅在正式检索/对应能力执行时按原文条件要求；目标受理可先给自然语言或名称/图样",
       "rules": [
         "绑定用户调用方、固定输入和操作"
       ]
@@ -775,6 +843,92 @@
         "CON-05-MUST-018",
         "CON-05-MUST-019"
       ]
+    },
+    {
+      "id": "CON-05-SEM-AC-001",
+      "given": [
+        "国产化与达梦 DM8 适配要求涉及的条件/数据/失败场景"
+      ],
+      "when": "验证engineering义务",
+      "then": [
+        "逐项满足原文对应范围，不因DEFER或旧V0样例而删除",
+        "模拟验证、真实DM8与正式验收分层记录"
+      ],
+      "sourceClauseIds": [
+        "CON-05-SEM-MUST-001"
+      ]
+    },
+    {
+      "id": "CON-05-SEM-AC-002",
+      "given": [
+        "2. 输入输出字段涉及的条件/数据/失败场景"
+      ],
+      "when": "验证fields义务",
+      "then": [
+        "逐项满足原文对应范围，不因DEFER或旧V0样例而删除",
+        "模拟验证、真实DM8与正式验收分层记录"
+      ],
+      "sourceClauseIds": [
+        "CON-05-SEM-MUST-002"
+      ]
+    },
+    {
+      "id": "CON-05-SEM-AC-003",
+      "given": [
+        "5. 内部验证页面涉及的条件/数据/失败场景"
+      ],
+      "when": "验证ui义务",
+      "then": [
+        "逐项满足原文对应范围，不因DEFER或旧V0样例而删除",
+        "模拟验证、真实DM8与正式验收分层记录"
+      ],
+      "sourceClauseIds": [
+        "CON-05-SEM-MUST-003"
+      ]
+    },
+    {
+      "id": "CON-05-SEM-AC-004",
+      "given": [
+        "6. 服务契约涉及的条件/数据/失败场景"
+      ],
+      "when": "验证service义务",
+      "then": [
+        "逐项满足原文对应范围，不因DEFER或旧V0样例而删除",
+        "模拟验证、真实DM8与正式验收分层记录"
+      ],
+      "sourceClauseIds": [
+        "CON-05-SEM-MUST-004"
+      ]
+    },
+    {
+      "id": "CON-05-SEM-AC-005",
+      "given": [
+        "8. 依赖与交付涉及的条件/数据/失败场景"
+      ],
+      "when": "验证delivery义务",
+      "then": [
+        "逐项满足原文对应范围，不因DEFER或旧V0样例而删除",
+        "模拟验证、真实DM8与正式验收分层记录"
+      ],
+      "sourceClauseIds": [
+        "CON-05-SEM-MUST-005"
+      ]
+    },
+    {
+      "id": "CON-05-SEM-AC-006",
+      "given": [
+        "用户目标尚未提供正式执行所需全部条件",
+        "已有旧任务及版本化结果"
+      ],
+      "when": "启动、补充、纠正和跨轮继续",
+      "then": [
+        "自然语言目标先进入准备而非因未给分类和幂等键拒绝",
+        "图形能力缺失不以OCR文字结果代替",
+        "重排后旧结果集第二项仍指原对象"
+      ],
+      "sourceClauseIds": [
+        "CON-05-SEM-MUST-006"
+      ]
     }
   ],
   "openQuestions": [
@@ -833,44 +987,89 @@
       "id": "CON-05-DD-001",
       "decision": "Search 能力拥有任务和候选，Trademark Knowledge 提供源数据，File 管理受控原图，CON-07 消费固定快照；Agent 仅编排。",
       "basis": "ARC-03",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术候选，当前Task D门重新判断，不由R批准部署或通用Runtime。"
     },
     {
       "id": "CON-05-DD-002",
       "decision": "维度可用性、执行状态和评分分别表示，图形失败可形成部分成功但不能生成替代分值。",
       "basis": "原文要求不同能力、未分析和部分失败显式区分。",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术候选，当前Task D门重新判断，不由R批准部署或通用Runtime。"
     },
     {
       "id": "CON-05-DD-003",
       "decision": "具体 REST 路径、文件限制最终值、检索产品、评分权重、阈值和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
       "basis": "中心能力、分类规则、授权、样本和环境尚未确认。",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术候选，当前Task D门重新判断，不由R批准部署或通用Runtime。"
     }
   ],
   "currentProductContract": {
-    "version": "consultation-product-contract-2026-09-22-v1",
+    "version": "consultation-product-contract-2026-09-24-c4",
     "classification": "DEFER",
-    "status": "stale",
+    "status": "ready",
     "authoritativeDocument": "docs/37-咨询智能体契约重基线.md#con-05-商标相似度检索defer",
-    "sourceRefs": ["requirements/知识产权咨询助手/商标相似度检索需求文档.md", "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8", "docs/35-咨询智能体产品行为待确认清单.md", "docs/36-咨询智能体R门需求变化影响评审.md#3"],
-    "mustIds": ["CON-05-RB-MUST-001", "CON-05-RB-MUST-002", "CON-05-RB-MUST-003", "CON-05-RB-MUST-004", "CON-05-RB-MUST-005"],
-    "mustNotIds": ["CON-05-RB-MUST_NOT-001", "CON-05-RB-MUST_NOT-002", "CON-05-RB-MUST_NOT-003", "CON-05-RB-MUST_NOT-004"],
-    "rGateAssessment": "REBASED_DEFERRED_NOT_READY",
-    "note": "旧 clauses 保留历史追踪；当前产品契约以 authoritativeDocument 对应章节为准。"
+    "sourceRefs": [
+      "requirements/知识产权咨询助手/商标相似度检索需求文档.md",
+      "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8",
+      "docs/35-咨询智能体产品行为待确认清单.md",
+      "docs/36-咨询智能体R门需求变化影响评审.md#3"
+    ],
+    "mustIds": [
+      "CON-05-RB-MUST-001",
+      "CON-05-RB-MUST-002",
+      "CON-05-RB-MUST-003",
+      "CON-05-RB-MUST-004",
+      "CON-05-RB-MUST-005"
+    ],
+    "mustNotIds": [
+      "CON-05-RB-MUST_NOT-001",
+      "CON-05-RB-MUST_NOT-002",
+      "CON-05-RB-MUST_NOT-003",
+      "CON-05-RB-MUST_NOT-004"
+    ],
+    "rGateAssessment": "R_FIDELITY_PASSED_CURRENT_APPROVED_SCOPE_D_NOT_GRANTED",
+    "note": "机读合同保留原文全部适用义务；docs/37的职责说明仍为补充依据，旧DEFER只指实施顺序。",
+    "authoritativeContractSections": [
+      "source",
+      "supportingSources",
+      "clauses",
+      "inputs",
+      "outputs",
+      "permissions",
+      "states",
+      "sourceAndVersionRules",
+      "errorsAndExceptions",
+      "decisionPoints",
+      "acceptanceScenarios",
+      "openQuestions"
+    ]
   },
   "independentReview": {
-    "status": "superseded_by_rebase",
+    "status": "passed",
     "reviewedBaselineId": "requirements-2026-09-14-v1",
-    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "reviewMethod": "同一Codex源优先再复核：主文全部章节、咨询总目录及已确认决定到机读条款/字段/正反例，并逆向检查旧DEFER未删原文义务；非第二名人员。",
     "missingClauses": [],
     "contradictions": [],
     "weakenedConstraints": [],
     "unsupportedExtensions": [],
     "notes": [
-      "Text, pronunciation, meaning, image and combined retrieval remain distinct capabilities; OCR does not satisfy image retrieval.",
-      "Retrieval relevance, expert recall, legal similarity and registration probability remain distinct measures and conclusions.",
-      "No classification rule, cross-class scope, search engine, weight, score mapping, authorization, threshold or environment was guessed."
+      "R仅限原文和已确认产品行为，专业标准、数据用途许可、身份和真实验收仍按openQuestions阻相应设计/接入。",
+      "字段和服务按操作条件适用，演示页、Fixture或模型返回不证明产品完成。"
+    ],
+    "reviewedAt": "2026-09-24",
+    "reviewEvidence": [
+      "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md"
     ]
+  },
+  "inputApplicability": "输入的必填性按目标受理、准备、正式执行、复核操作区分；字段名是逻辑概念，不能作已冻结API。",
+  "logicalFieldNamesOnly": true,
+  "v2SemanticReview": {
+    "version": "approved-scope-2026-09-24",
+    "reviewedAt": "2026-09-24",
+    "evidence": "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md",
+    "approvedSharedBehaviorSource": "docs/02-待确认事项清单.md#23",
+    "scope": "原文加已确认四项共同约束；其余V2取舍待责任方决定。仅R，不批准D、真实数据、专业验收或部署。"
   }
 }

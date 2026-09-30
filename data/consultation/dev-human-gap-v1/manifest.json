@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "DEV-CON-HUMAN-GAP-01",
+  "origin": "PROJECT_AUTHORED_SYNTHETIC",
+  "environment": "isolated-development-only",
+  "approvalRef": "docs/02-待确认事项清单.md#32-2026-09-25-项目数据处理与功能体验优先决定",
+  "workflowRef": "docs/02-待确认事项清单.md#28-2026-09-24-开发期系统内人工闭环决定",
+  "status": "SYNTHETIC_DEV_ONLY",
+  "validFrom": "2026-09-25T00:00:00+08:00",
+  "validUntil": "2027-03-24T00:00:00+08:00",
+  "withdrawalVersion": 0,
+  "organizationRef": "dev-con-isolated",
+  "allowedPrincipalRefs": ["dev-con-a", "dev-con-b"],
+  "payloadFile": "input.json",
+  "fields": {
+    "request.text": ["SAVE", "DISPLAY"],
+    "opinion.text": ["SAVE", "DISPLAY"]
+  },
+  "deniedUses": ["MODEL_USE", "EXTERNAL_DELIVERY", "PROFESSIONAL_RELATION_OUTPUT", "LEGAL_CONCLUSION", "OFFICIAL_WORKFLOW", "CROSS_DOMAIN"],
+  "payloadSha256": "57f30e61e524d7f3a2f2b2fcf87f0be3c77b0c470247655bd333aa1394cb47e6"
+}

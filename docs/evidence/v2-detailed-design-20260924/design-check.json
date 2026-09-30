@@ -1,0 +1,413 @@
+{
+  "date": "2026-09-24",
+  "planVersion": "V9.26",
+  "scope": "Document structure, references and protected-input digest only; not semantic or business acceptance certification",
+  "designFiles": [
+    {
+      "path": "docs/55-V2业务数据服务与运行恢复详细设计.md",
+      "sha256": "3f6378e90914511911891936fa4b5d5efda4cb9dedfdfea37eb91271135c7d20",
+      "lines": 111
+    },
+    {
+      "path": "docs/56-V2咨询全能力详细设计.md",
+      "sha256": "c0a172e33fec5da4e3f8ce84dab0b320a7a5dd5bd8213337580842a5828e0295",
+      "lines": 173
+    },
+    {
+      "path": "docs/57-V2执法全能力详细设计.md",
+      "sha256": "d9cd798453caa6aa87abcb215159c14ebf1202831b38d780828e4745a5afacdd",
+      "lines": 175
+    },
+    {
+      "path": "docs/58-V2裁决全能力详细设计.md",
+      "sha256": "dd818091a40d1154a533b7153ec530fb22abda4ade6e6b32e3c39d3c2941522e",
+      "lines": 152
+    },
+    {
+      "path": "docs/59-V2详细设计验证与迁移方案.md",
+      "sha256": "78b778e3303befe7052216a935e34bd92db89b927364dd206302a92d6518996b",
+      "lines": 136
+    }
+  ],
+  "requirementLinks": [
+    {
+      "requirementId": "CON-01",
+      "source": "requirements/知识产权咨询助手/商标库管理需求文档.md",
+      "sourceSha256": "0bf6834dcec865fec5fbbc4f25c5b2b85125b3c9ea5a98dc064c19a8dced1301",
+      "contract": "governance/contracts/CON-01.json",
+      "contractSha256": "5aeee1cfb5b8e508b66548f3940704f6d4b14c68c0aec6552cce236fcb09578b",
+      "clauseCount": 29,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-01"
+    },
+    {
+      "requirementId": "CON-02",
+      "source": "requirements/知识产权咨询助手/专利库管理需求文档.md",
+      "sourceSha256": "5e295da3d1f11bf71f8a72ebd3369598f92f5584717db4503300422ed91c0770",
+      "contract": "governance/contracts/CON-02.json",
+      "contractSha256": "78356051f9680bbe622a828e1300d65e695a194b412afc295925f246910a2cd1",
+      "clauseCount": 44,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-02"
+    },
+    {
+      "requirementId": "CON-03",
+      "source": "requirements/知识产权咨询助手/案例库管理需求文档.md",
+      "sourceSha256": "f6932bc13e986ba6343b46cccda6a21b58892820f1182535ca9786d6a916620e",
+      "contract": "governance/contracts/CON-03.json",
+      "contractSha256": "2fd5e7056217d296fa5cda13436717249046aa5be24577836bad798072663c1b",
+      "clauseCount": 27,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-03"
+    },
+    {
+      "requirementId": "CON-04",
+      "source": "requirements/知识产权咨询助手/专利相似度检索需求文档.md",
+      "sourceSha256": "b2136efb65b7ff2f81621b3a1fe98dad6835c8a2652ee62a00c1520dae8b5fe4",
+      "contract": "governance/contracts/CON-04.json",
+      "contractSha256": "beed21842f6b1cd71be462fa0b88b3b20e3fbdfc0de15d76423685244296dd4d",
+      "clauseCount": 43,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-04"
+    },
+    {
+      "requirementId": "CON-05",
+      "source": "requirements/知识产权咨询助手/商标相似度检索需求文档.md",
+      "sourceSha256": "c4e57d19694742b371150cf3dd38f2bbe0f01366aa658cbfa8879e234fdf2bb4",
+      "contract": "governance/contracts/CON-05.json",
+      "contractSha256": "ebaea9f27ebe601cb863dc3a8e957d25334c173385eacee3d0cd37f721488dbb",
+      "clauseCount": 28,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-05"
+    },
+    {
+      "requirementId": "CON-06",
+      "source": "requirements/知识产权咨询助手/专利相似度判断需求文档.md",
+      "sourceSha256": "70d50051b6022b05e44c4f2536c7c9bb296a3f27b35c248b383dbc3d717b654a",
+      "contract": "governance/contracts/CON-06.json",
+      "contractSha256": "3ccf24f94e3c3df9b81d69381d4b2404b843e2a0ac5314d54fe9496c36ffc6cf",
+      "clauseCount": 36,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-06"
+    },
+    {
+      "requirementId": "CON-07",
+      "source": "requirements/知识产权咨询助手/商标相似度判断需求文档.md",
+      "sourceSha256": "e6f79c6c4e05f1d9b78a53d157120fe5c919ab620e835336a97ca2ae8502f58c",
+      "contract": "governance/contracts/CON-07.json",
+      "contractSha256": "a7112e358dd404b17a92bc1727e25238ee8888b2e13bf63726cd35fc26cd0af9",
+      "clauseCount": 26,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-07"
+    },
+    {
+      "requirementId": "CON-08",
+      "source": "requirements/知识产权咨询助手/相似案例检索需求文档.md",
+      "sourceSha256": "defb85600e08997f878cccda6c391153a2e06b5ae70e9bc4e546deda801712f9",
+      "contract": "governance/contracts/CON-08.json",
+      "contractSha256": "018f01dc7ab7e28d86dfbcf190d802b90358d976a9ee61aa0fc8b28bd8c86ef9",
+      "clauseCount": 27,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-08"
+    },
+    {
+      "requirementId": "CON-09",
+      "source": "requirements/知识产权咨询助手/知识产权咨询智能体管理需求文档.md",
+      "sourceSha256": "0fa680e63b12b5199c7a023dadf3692f4e550602960b20070c4e7a308b5720bf",
+      "contract": "governance/contracts/CON-09.json",
+      "contractSha256": "68921f9272177a5a20c00d4ca483a762730c10d8ccefdf44490237c0d3fe9b4f",
+      "clauseCount": 36,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-09"
+    },
+    {
+      "requirementId": "CON-10",
+      "source": "requirements/知识产权咨询助手/知识产权咨询提示词管理需求文档.md",
+      "sourceSha256": "aaf278a2b3c8dd263541431baf951369354bfd8234e5fe91d3786499a70353e5",
+      "contract": "governance/contracts/CON-10.json",
+      "contractSha256": "0c5e17248439907a194229fb296d26e89e2553fa4badf2cac275eec2e4a99229",
+      "clauseCount": 33,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-10"
+    },
+    {
+      "requirementId": "CON-11",
+      "source": "requirements/知识产权咨询助手/知识产权咨询意图管理需求文档.md",
+      "sourceSha256": "cf5de743f119e0b256dc16c93fe0b1411f0e37bdf075d8f49b664dac1a4daa41",
+      "contract": "governance/contracts/CON-11.json",
+      "contractSha256": "b7333c3eee18774d7a58b93d22529c942585199ab49a54fd05033660ee2d4e2a",
+      "clauseCount": 42,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-11"
+    },
+    {
+      "requirementId": "CON-12",
+      "source": "requirements/知识产权咨询助手/知识产权咨询对话流管理需求文档.md",
+      "sourceSha256": "fc252383a9a4af34b49e722dd6e2e8a768ad93db2be97bf377d261c6bc3e809d",
+      "contract": "governance/contracts/CON-12.json",
+      "contractSha256": "4b8dbc7fa19edc8da79639886f49203bc3518caa8319bb095a01f171d75ebb17",
+      "clauseCount": 56,
+      "design": "docs/56-V2咨询全能力详细设计.md#CON-12"
+    },
+    {
+      "requirementId": "ENF-01",
+      "source": "requirements/知识产权执法助手/01-违法线索数据源管理需求文档.md",
+      "sourceSha256": "f3f6200f420f3af00d7539e722eb06d7aea93acf1735e8810a2e1bbee2b96257",
+      "contract": "governance/contracts/ENF-01.json",
+      "contractSha256": "2ab0e21c76a1b24a51992c03339d70f67c06af03ccb0dad449da5eafe7e6109a",
+      "clauseCount": 24,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-01"
+    },
+    {
+      "requirementId": "ENF-02",
+      "source": "requirements/知识产权执法助手/02-违法线索发现规则管理需求文档.md",
+      "sourceSha256": "9b6b94f5bb8ca7513e889736c8d38cd16ee15e4666968aea77a744575dd70b47",
+      "contract": "governance/contracts/ENF-02.json",
+      "contractSha256": "eb9537444fa8cc6afc4bb0ef278349c1d236908aaa2dffc30a0f36747cc6d50b",
+      "clauseCount": 25,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-02"
+    },
+    {
+      "requirementId": "ENF-03",
+      "source": "requirements/知识产权执法助手/03-违法线索发现需求文档.md",
+      "sourceSha256": "ac774a2e00e78896abdd09d03c58fbb114094a1868056a95f321a355ecf6f042",
+      "contract": "governance/contracts/ENF-03.json",
+      "contractSha256": "ee9f2e67ac826e21258ce9fa5474a6f88c9392d0c3f39be031fbe37fab41fb1c",
+      "clauseCount": 16,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-03"
+    },
+    {
+      "requirementId": "ENF-04",
+      "source": "requirements/知识产权执法助手/04-违法线索解析需求文档.md",
+      "sourceSha256": "3f418dede2841208e3f7a3fdacaaa0c63795a38458b2994d6d8df69816d54b20",
+      "contract": "governance/contracts/ENF-04.json",
+      "contractSha256": "44b495a189247564e5884dc97336a821d1e06d845bdf36ecc08f0955c0c77bac",
+      "clauseCount": 22,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-04"
+    },
+    {
+      "requirementId": "ENF-05",
+      "source": "requirements/知识产权执法助手/05-违法证据管理需求文档.md",
+      "sourceSha256": "3c819aa9a3c75f7c8bc44a299198b2c50ea8512483dd7fd91cd2962a6194b463",
+      "contract": "governance/contracts/ENF-05.json",
+      "contractSha256": "a89d30262f403e3d7aacd64dea53b5f9b3c5c60c3772ef09b1c9bb9e0dd81674",
+      "clauseCount": 29,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-05"
+    },
+    {
+      "requirementId": "ENF-06",
+      "source": "requirements/知识产权执法助手/06-违法证据链整理规则管理需求文档.md",
+      "sourceSha256": "72f1480b53a17d1bbc31a9b25e3526f52732df833157ec9e0c0ea67ed2c1487c",
+      "contract": "governance/contracts/ENF-06.json",
+      "contractSha256": "0423f51fc63a8e508458e265fac623071224ef220c6191692333a5985e5d84fd",
+      "clauseCount": 14,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-06"
+    },
+    {
+      "requirementId": "ENF-07",
+      "source": "requirements/知识产权执法助手/07-违法证据链自动整理需求文档.md",
+      "sourceSha256": "c56b75e81bdd5bfbda9b024736b2cc7fb8d8d3ef4c27217104ef53adfd861667",
+      "contract": "governance/contracts/ENF-07.json",
+      "contractSha256": "18c042ac662d60106d7cad6bc3eb1d5ea5c76fa88c3f38dd71a9e79ed69a100a",
+      "clauseCount": 20,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-07"
+    },
+    {
+      "requirementId": "ENF-08",
+      "source": "requirements/知识产权执法助手/08-执法流程合规性校验规则配置需求文档.md",
+      "sourceSha256": "bd3b12aa55732e7f9e43f7934721f67a9d4aabdb2710b23a5889c2c8f9765171",
+      "contract": "governance/contracts/ENF-08.json",
+      "contractSha256": "a488727c0a8d00eb4f0e65f6344b4f5bce546345e06da1023fb596b52ffde434",
+      "clauseCount": 15,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-08"
+    },
+    {
+      "requirementId": "ENF-09",
+      "source": "requirements/知识产权执法助手/09-执法流程合规性校验需求文档.md",
+      "sourceSha256": "68a3c59eca60d3fa9bb876223ff6012d10067f99b7b7641470d649adada1863f",
+      "contract": "governance/contracts/ENF-09.json",
+      "contractSha256": "cb402d59cb55cb64c77e438609b04a7d83f8afdbcd0651104e87e7278ab54b89",
+      "clauseCount": 15,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-09"
+    },
+    {
+      "requirementId": "ENF-10",
+      "source": "requirements/知识产权执法助手/10-侵权行为分析规则配置需求文档.md",
+      "sourceSha256": "680768968af5d322881dcf72ba944bcd719370ad938eab33d9d0b274ba8eb2e4",
+      "contract": "governance/contracts/ENF-10.json",
+      "contractSha256": "b84a9a6a75989168995390705f89e2975a75daaf6b83a85f3b3ffdf308c0e057",
+      "clauseCount": 17,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-10"
+    },
+    {
+      "requirementId": "ENF-11",
+      "source": "requirements/知识产权执法助手/11-侵权行为分析需求文档.md",
+      "sourceSha256": "5823ecfd71581d83d62c624f280bafbee9e6f0a7b542d3596de7d01b34ec9f44",
+      "contract": "governance/contracts/ENF-11.json",
+      "contractSha256": "906818d8ed2463abef5a3b2566baf591894f4d04abbb73abd59b539c7bba3c6c",
+      "clauseCount": 20,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-11"
+    },
+    {
+      "requirementId": "ENF-12",
+      "source": "requirements/知识产权执法助手/12-执法文书模板配置需求文档.md",
+      "sourceSha256": "885f1e276413d11dc569681e1cee971af14a6b90f2169df2a635845795afbe5d",
+      "contract": "governance/contracts/ENF-12.json",
+      "contractSha256": "5e00ab5a027a6e8d00bf3044203a7d20ce16f82db6d499bc7c3a7ccbd9f03c9a",
+      "clauseCount": 17,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-12"
+    },
+    {
+      "requirementId": "ENF-13",
+      "source": "requirements/知识产权执法助手/13-执法文书生成规则配置需求文档.md",
+      "sourceSha256": "d1a16c5c9c6929fb13223f6a5d21a273794461edd76cfabec81d58b19af599c9",
+      "contract": "governance/contracts/ENF-13.json",
+      "contractSha256": "2a4468b9901868151dec7713f6314dc2c4514c96b61432aacc79e6584f10576a",
+      "clauseCount": 16,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-13"
+    },
+    {
+      "requirementId": "ENF-14",
+      "source": "requirements/知识产权执法助手/14-执法文书自动生成需求文档.md",
+      "sourceSha256": "8a29caa91be4f8b948c66ca7b88c301edd4ffd0312f7d6282aa44d5b3ed28333",
+      "contract": "governance/contracts/ENF-14.json",
+      "contractSha256": "9d2848a74d43f33453cef8a8ece92cdaa4c2dc501989bf96f7711a9f6994260d",
+      "clauseCount": 13,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-14"
+    },
+    {
+      "requirementId": "ENF-15",
+      "source": "requirements/知识产权执法助手/15-处罚建议规则配置需求文档.md",
+      "sourceSha256": "e7aed1d6fe27b8e0f337aa00f409f63ae22970e8b937ee1e1a2b4c69094fd889",
+      "contract": "governance/contracts/ENF-15.json",
+      "contractSha256": "5c140715f3f46c2280df73457bc4ea6dc0bd8cf4ab178fe986d4b7845133e63f",
+      "clauseCount": 13,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-15"
+    },
+    {
+      "requirementId": "ENF-16",
+      "source": "requirements/知识产权执法助手/16-处罚建议生成需求文档.md",
+      "sourceSha256": "6ef4d66074915d72ccb4bb2b94537bdb51b4666e398b32ad6b040ed344606b9e",
+      "contract": "governance/contracts/ENF-16.json",
+      "contractSha256": "ee2c6cc91b1e76135d58a90e4e1b266e0eae825b6090548b99fe2571b09fe129",
+      "clauseCount": 13,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-16"
+    },
+    {
+      "requirementId": "ENF-17",
+      "source": "requirements/知识产权执法助手/17-法律依据引用需求文档.md",
+      "sourceSha256": "499e938a36e1d72404e8d624d5154bb5a43410226e06c92b61b098a7f1616e69",
+      "contract": "governance/contracts/ENF-17.json",
+      "contractSha256": "e9ef6706a396c3be4729a2d05ce7be007acf47ddfe04e369bc0be8289a6d995a",
+      "clauseCount": 23,
+      "design": "docs/57-V2执法全能力详细设计.md#ENF-17"
+    },
+    {
+      "requirementId": "ADJ-01",
+      "source": "requirements/知识产权裁决助手/01-法律法规管理需求文档.md",
+      "sourceSha256": "30cc22ea536bde89cf027e7238099fc2502dc549e43e8e621dc07771707a2200",
+      "contract": "governance/contracts/ADJ-01.json",
+      "contractSha256": "31da8fb5f504f13980522cbae50108905e533df4f10771f36be1607931ebc7ea",
+      "clauseCount": 28,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-01"
+    },
+    {
+      "requirementId": "ADJ-02",
+      "source": "requirements/知识产权裁决助手/02-条文解析需求文档.md",
+      "sourceSha256": "427bcb14a59d7e69f8343e92582af959ed2e8aeb190010b84c49e8be7ae87378",
+      "contract": "governance/contracts/ADJ-02.json",
+      "contractSha256": "62d22288281677176b8ca8ea0efec6a44659b16f7b141955f777f54767d7f50b",
+      "clauseCount": 13,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-02"
+    },
+    {
+      "requirementId": "ADJ-03",
+      "source": "requirements/知识产权裁决助手/03-条文要点管理需求文档.md",
+      "sourceSha256": "98bc8509dd29cd71704944d46669f86ae03324df45aa948aa7868d1bfef9e5a3",
+      "contract": "governance/contracts/ADJ-03.json",
+      "contractSha256": "35b5af9789b08bc499ca31eca78f4d7691bca3c465893d9d97f8f1063e5e7721",
+      "clauseCount": 12,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-03"
+    },
+    {
+      "requirementId": "ADJ-04",
+      "source": "requirements/知识产权裁决助手/04-裁决任务管理需求文档.md",
+      "sourceSha256": "3821e08f6afdfef8818a1a2c626f4c943072b8f9ede1552541a938c9350b43a2",
+      "contract": "governance/contracts/ADJ-04.json",
+      "contractSha256": "6a12c0d832002ca10e7fcd683edd66f8bd748fe282b6461ecf56238599acf365",
+      "clauseCount": 28,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-04"
+    },
+    {
+      "requirementId": "ADJ-05",
+      "source": "requirements/知识产权裁决助手/05-法律条文匹配需求文档.md",
+      "sourceSha256": "34268b74307ce6ae27e5ed1722b2024bd268b6d0f84e228f44387c2351411b70",
+      "contract": "governance/contracts/ADJ-05.json",
+      "contractSha256": "4f7f155df80a2e2fc9de12bb0900a832e78dde1ad9bd3e05cdded324407dd86c",
+      "clauseCount": 26,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-05"
+    },
+    {
+      "requirementId": "ADJ-06",
+      "source": "requirements/知识产权裁决助手/06-法律条文引用需求文档.md",
+      "sourceSha256": "8d5437ee21df11ac2ba4520a7f268bbad5e7d14cf00c3f3ed43bf487a159f44a",
+      "contract": "governance/contracts/ADJ-06.json",
+      "contractSha256": "0d7ab49b28d3d64556909bc8b6bba85a34e8a8416700624b7f83ebbb01d156ec",
+      "clauseCount": 17,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-06"
+    },
+    {
+      "requirementId": "ADJ-07",
+      "source": "requirements/知识产权裁决助手/07-专利解析需求文档.md",
+      "sourceSha256": "e955e1530324b9b0cf2997a5f0606b107fe630f992a28b7c4bbe02553acbf2ac",
+      "contract": "governance/contracts/ADJ-07.json",
+      "contractSha256": "cfc140375494806d2cb0e81eb566fcd22ee873e55203dc13b24bf4de0ac0f0cb",
+      "clauseCount": 12,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-07"
+    },
+    {
+      "requirementId": "ADJ-08",
+      "source": "requirements/知识产权裁决助手/08-专利有效性分析需求文档.md",
+      "sourceSha256": "ff1efb86fa1d48278d5864d3f87afb751861ca2ce819a68bd1f816c4222ade85",
+      "contract": "governance/contracts/ADJ-08.json",
+      "contractSha256": "02f9b25d6b7d44e378daed3822027b4e72d25ab6b5dae6ef9cfbb7758b00fa09",
+      "clauseCount": 13,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-08"
+    },
+    {
+      "requirementId": "ADJ-09",
+      "source": "requirements/知识产权裁决助手/09-专利侵权证据分析需求文档.md",
+      "sourceSha256": "5ba05bd3261bafc7a6f205c5ea01804cfddd0a72576ead5aec65778ba0ecdb54",
+      "contract": "governance/contracts/ADJ-09.json",
+      "contractSha256": "cb35ca7a864a29abd7045d9f9e4fe8bcc857ce6271b48023fa7081f94c83ddda",
+      "clauseCount": 14,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-09"
+    },
+    {
+      "requirementId": "ADJ-10",
+      "source": "requirements/知识产权裁决助手/10-专利裁决报告模板配置需求文档.md",
+      "sourceSha256": "435a005f3c49ecb6379799a187148eb56f66851bb3756509756788d02647ba7c",
+      "contract": "governance/contracts/ADJ-10.json",
+      "contractSha256": "f70f46e0b4b2aa1eb4667e054a22c38b61344b970f7bd7c6d8313295147e3a54",
+      "clauseCount": 20,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-10"
+    },
+    {
+      "requirementId": "ADJ-11",
+      "source": "requirements/知识产权裁决助手/11-专利裁决报告生成需求文档.md",
+      "sourceSha256": "e725f9c11b23e757bda63264860745911afa24df66c4fb4a811f02a694bd0776",
+      "contract": "governance/contracts/ADJ-11.json",
+      "contractSha256": "aa12f2ee426b875273cd091537283ee7ca4c83011fa1044929a1517dc8a31f0c",
+      "clauseCount": 22,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-11"
+    },
+    {
+      "requirementId": "ADJ-12",
+      "source": "requirements/知识产权裁决助手/12-人工复核需求文档.md",
+      "sourceSha256": "af7d803c37430efe22e148281862dbcbf0179558dee7b478291d0ba24a5ad9ef",
+      "contract": "governance/contracts/ADJ-12.json",
+      "contractSha256": "fb771e00c2fd49e5afef2a833767ea4bb80575be67921a248c18a2c63e1fda4e",
+      "clauseCount": 28,
+      "design": "docs/58-V2裁决全能力详细设计.md#ADJ-12"
+    }
+  ],
+  "nearTermDesignEntryCount": 13,
+  "scenarioCount": 15,
+  "protectedFileCount": 646,
+  "protectedDifferences": [],
+  "errors": [],
+  "limitations": [
+    "No business code, UI, real integration or professional acceptance tests executed",
+    "Open decisions remain in docs/02 section25; task status only in docs/08",
+    "Clause counts are inventory, not proof that every clause has a passed semantic or executable test"
+  ]
+}

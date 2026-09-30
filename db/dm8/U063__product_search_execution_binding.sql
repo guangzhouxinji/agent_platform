@@ -1,0 +1,3 @@
+ALTER TABLE con4_search_attempt DROP CONSTRAINT ck_con4_search_fencing_token;
+ALTER TABLE con4_search_attempt DROP CONSTRAINT fk_con4_search_execution;
+ALTER TABLE con4_search_attempt DROP COLUMN fencing_token;

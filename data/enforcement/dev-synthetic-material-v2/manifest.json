@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 2,
+  "manifestId": "DEV-ENF-MATERIAL-INPUT-02",
+  "datasetId": "DEV-ENF-SYN-MATERIAL-02",
+  "manifestVersion": 2,
+  "origin": "PROJECT_AUTHORED_SYNTHETIC",
+  "environment": "isolated-development-only",
+  "approvalRef": "docs/02-待确认事项清单.md#32-2026-09-25-项目数据处理与功能体验优先决定",
+  "approvalScope": "Only project-authored synthetic observation text for isolated internal development; no external or client material",
+  "status": "SYNTHETIC_DEV_ONLY",
+  "validFrom": "2026-09-25T00:00:00+08:00",
+  "validUntil": "2027-03-24T00:00:00+08:00",
+  "withdrawalVersion": 0,
+  "organizationRef": "dev-enf-isolated",
+  "allowedPrincipalRefs": ["dev-enf-a"],
+  "sourceManifest": {
+    "manifestId": "DEV-ENF-MATERIAL-INPUT-01",
+    "sha256": "a51ac5b8b71693e00308d2950081f13e310fabc9bbb944322bd7c7d717f656d5",
+    "payloadSha256": "ad54c86c411ab858ca624125850e8aca68f3bed8d5a7e0a6e182ec2983b0b4b0"
+  },
+  "payloadFile": "observations.json",
+  "fields": {
+    "observationId": ["QUERY", "SAVE", "DISPLAY", "INDEX", "CANDIDATE_COMPARE_INPUT"],
+    "observationVersion": ["QUERY", "SAVE", "DISPLAY", "INDEX", "CANDIDATE_COMPARE_INPUT"],
+    "text": ["QUERY", "SAVE", "DISPLAY", "INDEX", "CANDIDATE_COMPARE_INPUT"],
+    "subjectMentions": ["QUERY", "SAVE", "DISPLAY", "CANDIDATE_COMPARE_INPUT"],
+    "factMentions": ["QUERY", "SAVE", "DISPLAY", "CANDIDATE_COMPARE_INPUT"],
+    "materialMentions": ["QUERY", "SAVE", "DISPLAY", "CANDIDATE_COMPARE_INPUT"],
+    "missingItems": ["QUERY", "SAVE", "DISPLAY", "CANDIDATE_COMPARE_INPUT"]
+  },
+  "candidateCompareScope": "Compare only two signed synthetic observation versions, stated roles, text locators, material mentions and missing items; output is unconfirmed development candidate, never accepted evidence or violation finding",
+  "deniedUses": ["DOWNLOAD", "MODEL_USE", "CROSS_DOMAIN", "NOTIFY", "OFFICIAL_WORKFLOW", "FORMAL_EVIDENCE", "HUMAN_VERIFICATION", "LEGAL_CONCLUSION", "OFFICIAL_STATE_WRITE"],
+  "records": [
+    { "observationId": "DEV-ENF-OBS-001", "observationVersion": "V1", "sha256": "a4d0797861557fd5e46686eefeb1fc0b29f5cbf28196a10c38d1de9c540fe169" },
+    { "observationId": "DEV-ENF-OBS-001", "observationVersion": "V2", "sha256": "e6baf271f872e5504ced83f4b0b1f384d6eebca2e54022fae389428de1da1c49" }
+  ],
+  "payloadSha256": "ad54c86c411ab858ca624125850e8aca68f3bed8d5a7e0a6e182ec2983b0b4b0",
+  "batchSha256": "32161519884e7841cd8c5b824fb633c04e1076f0ae300861782f9a4f01b6e81e"
+}

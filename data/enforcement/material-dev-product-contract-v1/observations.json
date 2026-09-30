@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "enf-material-dev-input-v1",
+  "batchId": "ENF-MATERIAL-DEV-PRODUCT-CONTRACT-V1",
+  "origin": "PROJECT_AUTHORED_FICTIONAL",
+  "records": [
+    {
+      "sourceId": "PROJECT-DEV-OBSERVATION",
+      "recordId": "OBS-001",
+      "version": "1",
+      "sourceText": "虚构店铺页面展示标注为专利产品的商品，页面列出运营方甲和供货方乙，并提及照片M-01但未提供附件。",
+      "actorMentions": [
+        { "role": "OPERATOR_CANDIDATE", "literal": "运营方甲" },
+        { "role": "SUPPLIER_CANDIDATE", "literal": "供货方乙" }
+      ],
+      "materialMention": "照片M-01",
+      "materialRef": null,
+      "legalAssessment": null
+    },
+    {
+      "sourceId": "PROJECT-DEV-OBSERVATION",
+      "recordId": "OBS-001",
+      "version": "2",
+      "sourceText": "虚构店铺页面更新了商品描述，仍列出运营方甲和供货方乙；页面提及照片M-01，附件另由项目准备。",
+      "actorMentions": [
+        { "role": "OPERATOR_CANDIDATE", "literal": "运营方甲" },
+        { "role": "SUPPLIER_CANDIDATE", "literal": "供货方乙" }
+      ],
+      "materialMention": "照片M-01",
+      "materialRef": null,
+      "legalAssessment": null
+    }
+  ]
+}

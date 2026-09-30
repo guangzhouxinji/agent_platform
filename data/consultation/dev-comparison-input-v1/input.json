@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "DEV-CON-COMPARE-INPUT-01",
+  "origin": "PROJECT_AUTHORED_SYNTHETIC",
+  "target": {
+    "goal": "查找并比较用于温度调节的传感器、控制器和阀门方案",
+    "supplement": "补充：该方案使用温度传感器、自动控制器和阀门。"
+  },
+  "featureCandidates": [
+    { "featureId": "F1", "exactText": "温度传感器", "byteStart": 24, "byteEnd": 39, "status": "UNCONFIRMED" },
+    { "featureId": "F2", "exactText": "自动控制器", "byteStart": 42, "byteEnd": 57, "status": "UNCONFIRMED" },
+    { "featureId": "F3", "exactText": "阀门", "byteStart": 60, "byteEnd": 66, "status": "UNCONFIRMED" }
+  ],
+  "claimCandidates": [
+    { "recordId": "P1", "sourceVersion": "V1", "locator": "claim:1", "claimText": "传感器、控制器、阀门" },
+    { "recordId": "P2", "sourceVersion": "V1", "locator": "claim:1", "claimText": "传感器、手动阀门" }
+  ]
+}

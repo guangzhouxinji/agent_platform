@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "requirementId": "CON-01",
   "title": "商标库管理",
-  "status": "stale",
+  "status": "ready",
   "baselineId": "requirements-2026-09-14-v1",
   "source": {
     "path": "requirements/知识产权咨询助手/商标库管理需求文档.md",
@@ -336,6 +336,74 @@
       ],
       "acceptanceScenarioIds": [
         "CON-01-AC-013"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-MUST-001",
+      "type": "MUST",
+      "statement": "保留原文“国产化与达梦 DM8 适配要求”的全部适用义务（按操作/用途条件判断字段必填，不把字段表当作冻结的API）：\n## 国产化与达梦 DM8 适配要求\n\n- 本模块面向国产化环境交付，业务关系型数据库固定使用达梦 DM8；开发联调及数据库兼容验收均须覆盖真实 DM8，不能以 MySQL、H2 等环境通过替代。\n- 本模块需要持久化的业务内容包括：授权保存的商标映射、来源时间、缓存元数据和更新记录；是否保存源数据仍受中心授权约束。数据库采用 DM8；文件二进制可使用项目已批准的文件存储，DM8 保存受控引用及元数据，不要求把所有图片和附件存入数据库。\n- 驱动、连接池、ORM/持久层、分页、建表及升级脚本按实际 DM8 小版本和实例参数适配；不得直接依赖其他数据库专有语法、JSON 类型或函数。长文本、结构化内容、编号、时间及分数应选用经目标实例验证的数据类型和访问方式。\n- 本模块 DM8 专项验收覆盖：注册号字符串及前导零、多类别关联、中文名称/注册人组合查询、日期边界和分页。验证事务失败回滚、连接故障恢复和权限控制；接口故障不伪装成空结果。需要恢复的任务应识别中断状态，按幂等规则恢复或显式失败，不盲目重放。\n- 全文、向量和图像检索能力不得因采用 DM8 就视为已经具备；优先调用中心 API，自建时按总目录的国产化与检索约束选型并验证。\n- 交付本模块适用的 DM8 初始化/升级脚本、数据库配置说明和真实 DM8 验证记录；确无本地业务表时注明原因，仍须验证与共用 DM8 服务的集成。其他国产操作系统、CPU、JDK、模型及中间件的具体型号以中心环境清单为准，不预设已完成适配。\n\n详细共用要求见[需求总目录](知识产权咨询助手需求文档总目录.md)“3.7 国产化部署与达梦 DM8 数据库”。",
+      "sourceAnchors": [
+        "国产化与达梦 DM8 适配要求"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-SEM-AC-001"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-MUST-002",
+      "type": "MUST",
+      "statement": "保留原文“3. 商标信息字段”的全部适用义务（按操作/用途条件判断字段必填，不把字段表当作冻结的API）：\n## 3. 商标信息字段\n\n下表定义服务和页面应支持承载的字段，不代表中心 API 已提供全部字段。联调时逐项记录实际映射及缺口。\n\n| 字段名称 | 用途及规则 |\n|---|---|\n| 数据源标识、源记录标识 | 关联详情、历史记录及其他模块的稳定引用 |\n| 商标注册号 | 展示及精确查询，按字符串保存与传递 |\n| 商标名称 | 展示及名称查询；图形商标无名称时显示“未提供” |\n| 商标图样 | 提供时展示及预览；缺失或加载失败不影响其他信息查询 |\n| 注册人 | 展示主体名称；多个主体保留完整列表 |\n| 注册地址 | 详情展示 |\n| 核定使用商品/服务类别 | 类别编码及名称，支持多值 |\n| 核定使用商品/服务明细 | 与类别关联的项目明细 |\n| 类似群 | 源接口提供时展示，供后续模块使用 |\n| 注册日期 | 日期查询及展示 |\n| 有效期至 | 日期查询及展示，不单独据此推导法律状态 |\n| 商标状态 | 源状态及统一展示状态 |\n| 来源更新时间 | 中心提供的记录更新时间；缺失时显示“未提供” |\n| 本次获取时间 | 本服务实际获取数据的时间 |\n| 来源引用 | 源记录标识；中心提供原文链接时附带链接 |",
+      "sourceAnchors": [
+        "3. 商标信息字段"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-SEM-AC-002"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-MUST-003",
+      "type": "MUST",
+      "statement": "保留原文“6. 内部验证页面”的全部适用义务（按操作/用途条件判断字段必填，不把字段表当作冻结的API）：\n## 6. 内部验证页面\n\n### 6.1 页面组成\n\n| 区域 | 内容及操作 |\n|---|---|\n| 查询区 | 第 4 节查询条件、查询按钮、重置按钮 |\n| 列表区 | 查询结果、分页、详情与历史记录入口 |\n| 详情区 | 基本信息、商品/服务明细、图样预览、历史标签 |\n| 数据来源区 | 来源更新时间、本次获取时间、缓存标识、重新获取按钮 |\n| 内部联调信息区 | 当前数据模式（真实/模拟）、请求追踪号、错误摘要；不展示凭据 |\n\n### 6.2 页面行为\n\n- 点击“查询”提交条件；点击“重置”清空条件并回到第一页，按确认后的无条件浏览规则处理。\n- 请求期间显示加载状态；成功但无结果显示“在当前数据范围和查询条件下未检索到商标”。\n- 请求失败显示失败原因和重试入口，保留用户填写的条件。\n- 页面展示的信息、筛选和分页均来自后端服务，不由前端直接调用中心 API 或硬编码正式数据。\n- 页面复用项目现有登录及样式。具备模块查询权限的内部账号可访问；无权限账号由后端拒绝访问，即使绕过页面直接请求也不能查询。\n- 验证页面不包含对外门户、公众注册、品牌化装修等交付要求。",
+      "sourceAnchors": [
+        "6. 内部验证页面"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-SEM-AC-003"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-MUST-004",
+      "type": "MUST",
+      "statement": "保留原文“7. 服务输入输出与异常要求”的全部适用义务（按操作/用途条件判断字段必填，不把字段表当作冻结的API）：\n## 7. 服务输入输出与异常要求\n\n具体 URL 和代码字段名由技术设计确定，复用项目现有接口规范。以下业务契约必须覆盖，并提供可独立于页面执行的调用示例。\n\n| 服务 | 输入 | 输出 |\n|---|---|---|\n| 商标列表查询 | 查询条件、分页参数 | 商标列表、实际分页信息、数据来源及获取时间 |\n| 商标详情查询 | 数据源及稳定记录标识 | 商标详细信息、各历史子项的能力状态 |\n| 变更记录查询 | 商标稳定标识、分页参数 | 变更记录列表、分页信息 |\n| 异议信息查询 | 商标稳定标识、分页参数；查看单条时传子记录标识 | 异议列表或详情、分页信息 |\n| 无效信息查询 | 商标稳定标识、分页参数；查看单条时传子记录标识 | 无效列表或详情、分页信息 |\n\n错误须至少区分：参数错误、未登录、无权限、记录不存在、数据源未提供能力、中心认证失败、限流、超时、中心服务异常和数据解析异常。对外返回可理解的错误码、说明及请求追踪号，不返回接口密钥、内部堆栈或完整敏感请求内容。\n\n中心 API 的连接与响应超时须有有限配置；重试仅用于可重试的只读请求，次数有上限，不得无限等待或重试。具体超时、限流及性能目标根据中心接口约束和试测结果确定，记录在联调接口约定中。\n\n调用日志记录调用时间、操作类型、调用结果、耗时及追踪号，便于排查；不得记录认证凭据。",
+      "sourceAnchors": [
+        "7. 服务输入输出与异常要求"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-SEM-AC-004"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-MUST-005",
+      "type": "MUST",
+      "statement": "保留原文“9. 交付内容”的全部适用义务（按操作/用途条件判断字段必填，不把字段表当作冻结的API）：\n## 9. 交付内容\n\n对外交付：商标库管理服务、接口说明、字段及状态映射说明、部署配置说明、错误码说明、调用示例和验收记录。代码、镜像等载体按项目整体交付约定执行。\n\n内部产物：商标列表与详情验证页面、历史信息查看界面、真实及模拟数据模式说明、联调用例。前端页面不纳入对外交付清单。",
+      "sourceAnchors": [
+        "9. 交付内容"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-SEM-AC-005"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-MUST-006",
+      "type": "MUST",
+      "statement": "名称或申请/注册号可启动商标资料目标；类别、商品服务和权利人只在对象消歧或当前动作需要时追问，正式详情必须绑定正确源记录和版本。",
+      "sourceAnchors": [
+        "docs/02-待确认事项清单.md#20",
+        "docs/02-待确认事项清单.md#23",
+        "1. 功能概述"
+      ],
+      "acceptanceScenarioIds": [
+        "CON-01-SEM-AC-006"
       ]
     }
   ],
@@ -776,6 +844,92 @@
       "sourceClauseIds": [
         "CON-01-MUST-019"
       ]
+    },
+    {
+      "id": "CON-01-SEM-AC-001",
+      "given": [
+        "国产化与达梦 DM8 适配要求涉及的条件/数据/失败场景"
+      ],
+      "when": "验证engineering义务",
+      "then": [
+        "逐项满足原文对应范围，不因DEFER或旧V0样例而删除",
+        "模拟验证、真实DM8与正式验收分层记录"
+      ],
+      "sourceClauseIds": [
+        "CON-01-SEM-MUST-001"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-AC-002",
+      "given": [
+        "3. 商标信息字段涉及的条件/数据/失败场景"
+      ],
+      "when": "验证fields义务",
+      "then": [
+        "逐项满足原文对应范围，不因DEFER或旧V0样例而删除",
+        "模拟验证、真实DM8与正式验收分层记录"
+      ],
+      "sourceClauseIds": [
+        "CON-01-SEM-MUST-002"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-AC-003",
+      "given": [
+        "6. 内部验证页面涉及的条件/数据/失败场景"
+      ],
+      "when": "验证ui义务",
+      "then": [
+        "逐项满足原文对应范围，不因DEFER或旧V0样例而删除",
+        "模拟验证、真实DM8与正式验收分层记录"
+      ],
+      "sourceClauseIds": [
+        "CON-01-SEM-MUST-003"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-AC-004",
+      "given": [
+        "7. 服务输入输出与异常要求涉及的条件/数据/失败场景"
+      ],
+      "when": "验证service义务",
+      "then": [
+        "逐项满足原文对应范围，不因DEFER或旧V0样例而删除",
+        "模拟验证、真实DM8与正式验收分层记录"
+      ],
+      "sourceClauseIds": [
+        "CON-01-SEM-MUST-004"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-AC-005",
+      "given": [
+        "9. 交付内容涉及的条件/数据/失败场景"
+      ],
+      "when": "验证delivery义务",
+      "then": [
+        "逐项满足原文对应范围，不因DEFER或旧V0样例而删除",
+        "模拟验证、真实DM8与正式验收分层记录"
+      ],
+      "sourceClauseIds": [
+        "CON-01-SEM-MUST-005"
+      ]
+    },
+    {
+      "id": "CON-01-SEM-AC-006",
+      "given": [
+        "用户目标尚未提供正式执行所需全部条件",
+        "已有旧任务及版本化结果"
+      ],
+      "when": "启动、补充、纠正和跨轮继续",
+      "then": [
+        "只凭名称或注册号可开始查询并在歧义时补问",
+        "详情、图样和历史按当前授权重检",
+        "源失败及能力未提供不显示成无异议或无效"
+      ],
+      "sourceClauseIds": [
+        "CON-01-SEM-MUST-006"
+      ]
     }
   ],
   "openQuestions": [
@@ -833,44 +987,87 @@
       "id": "CON-01-DD-001",
       "decision": "Trademark Knowledge 拥有本地映射和查询契约，Authority Adapter 访问中心源，File 提供受控图样；Agent 不拥有源数据。",
       "basis": "ARC-03",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术候选，当前Task D门重新判断，不由R批准部署或通用Runtime。"
     },
     {
       "id": "CON-01-DD-002",
       "decision": "基本信息与各历史子项独立加载并保存能力状态，避免局部失败被折叠为无记录。",
       "basis": "原文要求局部失败不影响基本信息且六类状态分开。",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术候选，当前Task D门重新判断，不由R批准部署或通用Runtime。"
     },
     {
       "id": "CON-01-DD-003",
       "decision": "具体 REST 路径、字段英文名、缓存索引方案、重试参数和 DM8 类型延后至 D 门禁。；仅在后续纳入该能力的 Task 中按已获证据确定，当前 V0/合成范围保持可替换并显式披露能力缺口",
       "basis": "中心 API、授权和环境尚未确认。",
-      "changesBusinessMeaning": false
+      "changesBusinessMeaning": false,
+      "applicability": "历史技术候选，当前Task D门重新判断，不由R批准部署或通用Runtime。"
     }
   ],
   "currentProductContract": {
-    "version": "consultation-product-contract-2026-09-22-v1",
+    "version": "consultation-product-contract-2026-09-24-c4",
     "classification": "DEFER",
-    "status": "stale",
+    "status": "ready",
     "authoritativeDocument": "docs/37-咨询智能体契约重基线.md#con-01-商标库管理defer",
-    "sourceRefs": ["requirements/知识产权咨询助手/商标库管理需求文档.md", "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8", "docs/35-咨询智能体产品行为待确认清单.md", "docs/36-咨询智能体R门需求变化影响评审.md#3"],
-    "mustIds": ["CON-01-RB-MUST-001", "CON-01-RB-MUST-002", "CON-01-RB-MUST-003", "CON-01-RB-MUST-004"],
-    "mustNotIds": ["CON-01-RB-MUST_NOT-001", "CON-01-RB-MUST_NOT-002", "CON-01-RB-MUST_NOT-003"],
-    "rGateAssessment": "REBASED_DEFERRED_NOT_READY",
-    "note": "旧 clauses 保留历史追踪；当前产品契约以 authoritativeDocument 对应章节为准。"
+    "sourceRefs": [
+      "requirements/知识产权咨询助手/商标库管理需求文档.md",
+      "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md#8",
+      "docs/35-咨询智能体产品行为待确认清单.md",
+      "docs/36-咨询智能体R门需求变化影响评审.md#3"
+    ],
+    "mustIds": [
+      "CON-01-RB-MUST-001",
+      "CON-01-RB-MUST-002",
+      "CON-01-RB-MUST-003",
+      "CON-01-RB-MUST-004"
+    ],
+    "mustNotIds": [
+      "CON-01-RB-MUST_NOT-001",
+      "CON-01-RB-MUST_NOT-002",
+      "CON-01-RB-MUST_NOT-003"
+    ],
+    "rGateAssessment": "R_FIDELITY_PASSED_CURRENT_APPROVED_SCOPE_D_NOT_GRANTED",
+    "note": "机读合同保留原文全部适用义务；docs/37的职责说明仍为补充依据，旧DEFER只指实施顺序。",
+    "authoritativeContractSections": [
+      "source",
+      "supportingSources",
+      "clauses",
+      "inputs",
+      "outputs",
+      "permissions",
+      "states",
+      "sourceAndVersionRules",
+      "errorsAndExceptions",
+      "decisionPoints",
+      "acceptanceScenarios",
+      "openQuestions"
+    ]
   },
   "independentReview": {
-    "status": "superseded_by_rebase",
+    "status": "passed",
     "reviewedBaselineId": "requirements-2026-09-14-v1",
-    "reviewMethod": "source-only second pass against every primary section and applicable consultation overview sections",
+    "reviewMethod": "同一Codex源优先再复核：主文全部章节、咨询总目录及已确认决定到机读条款/字段/正反例，并逆向检查旧DEFER未删原文义务；非第二名人员。",
     "missingClauses": [],
     "contradictions": [],
     "weakenedConstraints": [],
     "unsupportedExtensions": [],
     "notes": [
-      "Source facts, display mappings, cache state, child capability state and legal conclusions remain separate.",
-      "Opposition or invalidation applications cannot be transformed into successful outcomes, and source failure cannot become no data.",
-      "No API, stable-key fallback, mapping, authorization, cache policy, threshold or environment behavior was guessed."
+      "R仅限原文和已确认产品行为，专业标准、数据用途许可、身份和真实验收仍按openQuestions阻相应设计/接入。",
+      "字段和服务按操作条件适用，演示页、Fixture或模型返回不证明产品完成。"
+    ],
+    "reviewedAt": "2026-09-24",
+    "reviewEvidence": [
+      "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md"
     ]
+  },
+  "inputApplicability": "输入的必填性按目标受理、准备、正式执行、复核操作区分；字段名是逻辑概念，不能作已冻结API。",
+  "logicalFieldNamesOnly": true,
+  "v2SemanticReview": {
+    "version": "approved-scope-2026-09-24",
+    "reviewedAt": "2026-09-24",
+    "evidence": "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md",
+    "approvedSharedBehaviorSource": "docs/02-待确认事项清单.md#23",
+    "scope": "原文加已确认四项共同约束；其余V2取舍待责任方决定。仅R，不批准D、真实数据、专业验收或部署。"
   }
 }

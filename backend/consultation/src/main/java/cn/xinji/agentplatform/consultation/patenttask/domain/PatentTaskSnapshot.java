@@ -15,7 +15,13 @@ public record PatentTaskSnapshot(
         List<TaskReason> reasons,
         Map<String, Long> objectVersions,
         Map<String, Long> dependencyVersions,
-        List<TaskEvent> events) {
+        List<TaskEvent> events,
+        ResultFocusState resultFocus,
+        PatentCorrectionState correctionState,
+        PatentEvidenceState evidenceState,
+        PatentRetrievalState retrievalState,
+        PatentComparisonState comparisonState,
+        PatentHumanState humanState) {
     public PatentTaskSnapshot {
         if (taskId == null || taskId.isBlank()) throw new IllegalArgumentException("taskId is required");
         if (version < 1) throw new IllegalArgumentException("version must be positive");
@@ -31,6 +37,81 @@ public record PatentTaskSnapshot(
         objectVersions = Map.copyOf(objectVersions);
         dependencyVersions = Map.copyOf(dependencyVersions);
         events = List.copyOf(events);
+        Objects.requireNonNull(resultFocus, "resultFocus");
+        Objects.requireNonNull(correctionState, "correctionState");
+        Objects.requireNonNull(evidenceState, "evidenceState");
+        Objects.requireNonNull(retrievalState, "retrievalState");
+        Objects.requireNonNull(comparisonState, "comparisonState");
+        Objects.requireNonNull(humanState, "humanState");
+    }
+
+    public PatentTaskSnapshot(String taskId, long version, PatentTaskStatus status, int aggregationRule,
+                              boolean cancelled, CancellationRecord cancellationRecord,
+                              List<PatentSubTask> subTasks, List<TaskReason> reasons,
+                              Map<String, Long> objectVersions, Map<String, Long> dependencyVersions,
+                              List<TaskEvent> events) {
+        this(taskId, version, status, aggregationRule, cancelled, cancellationRecord, subTasks, reasons,
+                objectVersions, dependencyVersions, events, ResultFocusState.empty(), PatentCorrectionState.empty(),
+                PatentEvidenceState.empty(), PatentRetrievalState.empty(), PatentComparisonState.empty(),
+                PatentHumanState.empty());
+    }
+
+    public PatentTaskSnapshot(String taskId, long version, PatentTaskStatus status, int aggregationRule,
+                              boolean cancelled, CancellationRecord cancellationRecord,
+                              List<PatentSubTask> subTasks, List<TaskReason> reasons,
+                              Map<String, Long> objectVersions, Map<String, Long> dependencyVersions,
+                              List<TaskEvent> events, ResultFocusState resultFocus) {
+        this(taskId, version, status, aggregationRule, cancelled, cancellationRecord, subTasks, reasons,
+                objectVersions, dependencyVersions, events, resultFocus, PatentCorrectionState.empty(),
+                PatentEvidenceState.empty(), PatentRetrievalState.empty(), PatentComparisonState.empty(),
+                PatentHumanState.empty());
+    }
+
+    public PatentTaskSnapshot(String taskId, long version, PatentTaskStatus status, int aggregationRule,
+                              boolean cancelled, CancellationRecord cancellationRecord,
+                              List<PatentSubTask> subTasks, List<TaskReason> reasons,
+                              Map<String, Long> objectVersions, Map<String, Long> dependencyVersions,
+                              List<TaskEvent> events, ResultFocusState resultFocus,
+                              PatentCorrectionState correctionState) {
+        this(taskId, version, status, aggregationRule, cancelled, cancellationRecord, subTasks, reasons,
+                objectVersions, dependencyVersions, events, resultFocus, correctionState,
+                PatentEvidenceState.empty(), PatentRetrievalState.empty(), PatentComparisonState.empty(),
+                PatentHumanState.empty());
+    }
+
+    public PatentTaskSnapshot(String taskId, long version, PatentTaskStatus status, int aggregationRule,
+                              boolean cancelled, CancellationRecord cancellationRecord,
+                              List<PatentSubTask> subTasks, List<TaskReason> reasons,
+                              Map<String, Long> objectVersions, Map<String, Long> dependencyVersions,
+                              List<TaskEvent> events, ResultFocusState resultFocus,
+                              PatentCorrectionState correctionState, PatentEvidenceState evidenceState) {
+        this(taskId, version, status, aggregationRule, cancelled, cancellationRecord, subTasks, reasons,
+                objectVersions, dependencyVersions, events, resultFocus, correctionState, evidenceState,
+                PatentRetrievalState.empty(), PatentComparisonState.empty(), PatentHumanState.empty());
+    }
+
+    public PatentTaskSnapshot(String taskId, long version, PatentTaskStatus status, int aggregationRule,
+                              boolean cancelled, CancellationRecord cancellationRecord,
+                              List<PatentSubTask> subTasks, List<TaskReason> reasons,
+                              Map<String, Long> objectVersions, Map<String, Long> dependencyVersions,
+                              List<TaskEvent> events, ResultFocusState resultFocus,
+                              PatentCorrectionState correctionState, PatentEvidenceState evidenceState,
+                              PatentRetrievalState retrievalState) {
+        this(taskId, version, status, aggregationRule, cancelled, cancellationRecord, subTasks, reasons,
+                objectVersions, dependencyVersions, events, resultFocus, correctionState, evidenceState,
+                retrievalState, PatentComparisonState.empty(), PatentHumanState.empty());
+    }
+
+    public PatentTaskSnapshot(String taskId, long version, PatentTaskStatus status, int aggregationRule,
+                              boolean cancelled, CancellationRecord cancellationRecord,
+                              List<PatentSubTask> subTasks, List<TaskReason> reasons,
+                              Map<String, Long> objectVersions, Map<String, Long> dependencyVersions,
+                              List<TaskEvent> events, ResultFocusState resultFocus,
+                              PatentCorrectionState correctionState, PatentEvidenceState evidenceState,
+                              PatentRetrievalState retrievalState, PatentComparisonState comparisonState) {
+        this(taskId, version, status, aggregationRule, cancelled, cancellationRecord, subTasks, reasons,
+                objectVersions, dependencyVersions, events, resultFocus, correctionState, evidenceState,
+                retrievalState, comparisonState, PatentHumanState.empty());
     }
 
     public RecoveryPoint recoveryPoint(String subTaskId) {

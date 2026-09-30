@@ -1,0 +1,13 @@
+export type Rule = { id: string; version: number; organization: string; region: string; procedure: string; stage: string; state: string;
+  basis: { ref: string; version: string; locator: string; effectStatus: string; scope: string; effectiveFrom: string; effectiveTo: string };
+  clock: { unit: string; days: number; startEvent: string; includeStartDay: boolean; deadlineAdjustment: string;
+    calendarRef: string; calendarVersion: string; pausePolicy: string; interruptionPolicy: string; extensionDays: number };
+  requiredEvents: string[]; requiredMaterials: string[]; author: string; reviewer: string; reviewRef: string };
+export type Trial = { state: string; dueDate: string | null; trace: string[]; gaps: string[];
+  ruleId: string; ruleVersion: number; caseRef: string; caseVersion: string; calendarRef: string; calendarVersion: string };
+export type CheckItem = { requirement: string; state: "PASS" | "FAIL" | "UNDETERMINED" | "NOT_APPLICABLE";
+  inputRefs: string[]; gaps: string[]; dueDate: string | null; trace: string[] };
+export type Report = { id: string; version: number; organization: string; caseRef: string; caseVersion: string;
+  ruleId: string; ruleVersion: number; calendarRef: string; calendarVersion: string; executionState: string;
+  items: CheckItem[]; unprocessed: string[]; rectification: string; rectifiedBy: string; previousVersion: number };
+export type Receipt = { operation: string; resultId: string; version: number };

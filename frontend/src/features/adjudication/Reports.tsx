@@ -1,0 +1,25 @@
+import { useCallback,useEffect,useState } from "react";
+import { Field,Panel,SourceCard,Text,val } from "./common";
+import { diagnostics,reviewLabels,sections } from "./contract";
+import type { ReportView } from "./contract";
+import type { Command } from "./Forms";
+import ReportRevisionEditor from "./ReportRevisionEditor";
+import type { ReportHandoff } from "./reportHandoff";
+const ignoreDirty=(_dirty:boolean)=>{};
+export default function Reports({reports,command,readOnly,onDirty=ignoreDirty,target=null}:{reports:ReportView[];command:Command;readOnly:boolean;onDirty?:(dirty:boolean)=>void;target?:ReportHandoff|null}){
+ const [dirty,setDirty]=useState(false);
+ const dirtyChanged=useCallback((value:boolean)=>{setDirty(value);onDirty(value)},[onDirty]);
+ const guarded:Command=async(suffix,body)=>{if(dirty&&!window.confirm("此操作可能离开当前报告。放弃未保存修订并继续？"))return false;return command(suffix,body)};
+ const saveRevision:Command=async(suffix,body)=>{const confirmed=await command(suffix,body);if(confirmed===true)setSelected(undefined);return confirmed};
+ const [selected,setSelected]=useState<number|undefined>(),[applied,setApplied]=useState<ReportHandoff|null>(null);
+ const targetMatches=target?reports.filter(v=>v.report.revision===target.revision&&v.report.contentSha256===target.reportSha256&&v.report.inputVersion===target.inputVersion):[];
+ const targetView=targetMatches.length===1?targetMatches[0]:undefined;
+ const invalidTarget=!!target&&(!targetView||!targetView.current||targetView.stale||targetView.policyStale);
+ useEffect(()=>{if(target!==applied){if(target&&!invalidTarget)setSelected(target.revision);setApplied(target)}},[target,applied,invalidTarget]);
+ const selectedView=invalidTarget?undefined:target&&target!==applied?targetView:reports.find(v=>v.report.revision===selected)??reports.at(-1);
+ return <>{invalidTarget&&<p role="alert">目标报告版本或摘要与当前案件不一致，未定位到报告。请重新核实运行结果。</p>}<Panel title="辅助报告版本"><button disabled={readOnly} onClick={()=>void guarded("/reports",{})}>生成辅助报告</button><p>生成不等于可提交；缺项由后端诊断。复核确认报告版本，裁决签发由有权机关办理。</p><div className="adj-version-buttons">{reports.map(v=><button key={v.report.revision} aria-pressed={v===selectedView} onClick={()=>{if(v===selectedView)return;if(!dirty||window.confirm("切换报告将放弃未保存修订，是否继续？"))setSelected(v.report.revision)}}>报告 v{v.report.revision} · {v.stale?"已失效":v.current?(readOnly?"快照内最新稿":"当前有效版本"):"历史版本"} · {reviewLabels[v.report.reviewState]}</button>)}</div></Panel>{selectedView&&<ReportCard key={selectedView.report.revision+"/"+selectedView.report.reviewState} value={selectedView} readOnly={readOnly} command={guarded} saveRevision={saveRevision} onDirty={dirtyChanged}/>}</>;
+}
+function ReportCard({value,readOnly,command,saveRevision,onDirty}:{value:ReportView;readOnly:boolean;command:Command;saveRevision:Command;onDirty:(dirty:boolean)=>void}){
+ const r=value.report;const path="/reports/"+r.revision;const exact={reportSha256:r.contentSha256};
+ return <Panel title={"报告 v"+r.revision}><div className={"adj-state "+(value.stale?"warning":"")} role="status">{value.policyStale?"规则版本与当前不一致，请重新生成报告":value.stale?"已失效：输入版本已变化，不能复用":value.current?(readOnly?"历史快照内最新稿（非当前案件结果）":"当前有效版本"):"历史报告版本"} · {reviewLabels[r.reviewState]}</div><dl><dt>规则版本</dt><dd className="adj-hash">{r.policyVersion}</dd><dt>绑定输入版本</dt><dd>{r.inputVersion}</dd><dt>作者</dt><dd>{r.author}</dd><dt>确切摘要</dt><dd className="adj-hash">{r.contentSha256}</dd></dl><h3>缺项与限制</h3>{r.diagnostics.length===0?<p>后端未返回诊断。</p>:<ul>{r.diagnostics.map((d,i)=><li key={i} className={d.blocking?"adj-danger":""}>{d.blocking?"阻断性缺项":"范围限制"}：{diagnostics[d.code]??d.code} · {d.objectId} <code>{d.code}</code></li>)}</ul>}{r.sections.map(s=><article key={s.id} id={"report-"+r.revision+"-"+s.id}><h3>{sections[s.id]??s.id}</h3><Text text={s.content} title={sections[s.id]??s.id}/><details><summary>本章来源（{s.sources.length}）</summary>{s.sources.map((source,i)=><SourceCard key={i} source={source}/>)}</details></article>)}<h3>复核记录</h3>{r.reviews.length===0?<p>暂无复核决定。</p>:r.reviews.map((v,i)=><article key={i}><strong>{v.outcome==="RETURNED"?"已退回":"已复核"}</strong><p>{v.reason}</p><small>{v.actor} · {v.at}</small><p className="adj-hash">绑定摘要 {v.reportSha256}</p></article>)}<fieldset disabled={readOnly}><legend>确切版本操作</legend><p>将操作报告 v{r.revision}，SHA-256：<span className="adj-hash">{r.contentSha256}</span>。旧稿、缺项、重复状态或自审由后端拒绝，不会静默切换到另一稿。</p><button onClick={()=>void command(path+"/submit",exact)}>提交确切版本</button><ReportRevisionEditor report={r} onDirty={onDirty} save={body=>saveRevision(path+"/revisions",body)}/><form aria-label="独立复核" onSubmit={async e=>{e.preventDefault();const d=new FormData(e.currentTarget);await command(path+"/reviews",{...exact,outcome:val(d,"outcome"),reason:val(d,"reason")})}}><h3>独立复核</h3><label>复核结果<select aria-label="复核结果" name="outcome"><option value="RETURNED">退回</option><option value="REVIEWED_NOT_OFFICIAL">复核通过</option></select></label><Field label="复核理由" name="reason" area/><button>确认独立复核结果</button><p>当前授权人员必须独立于此稿作者/贡献者。退回后需人工修订为新版本，再提交和复核，不能重新提交旧稿。</p></form></fieldset></Panel>;
+}

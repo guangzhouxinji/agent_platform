@@ -29,6 +29,8 @@ public final class ProductConsultationAccess {
         this.clock = clock;
     }
 
+    javax.sql.DataSource mainDataSource() { return db.getDataSource(); }
+
     /** Caller supplies persisted domain facts, never client-submitted organization or scope. */
     public boolean permits(Jwt verifiedJwt, ResourceFacts resource, ProductAccessPolicy.Action action) {
         if (verifiedJwt == null || verifiedJwt.getIssuer() == null
@@ -39,6 +41,29 @@ public final class ProductConsultationAccess {
                 || blank(resource.resourceType()) || blank(resource.resourceId())
                 || resource.resourceVersion() < 1) return false;
         long generation = watermark.currentGeneration();
+        boolean allowed = permitsRows(verifiedJwt, resource, action);
+        watermark.assertUnchanged(generation);
+        return allowed;
+    }
+
+    boolean permitsOwnedCreate(Jwt jwt, ResourceFacts resource, ProductGrantWatermark.OwnedChange owned) {
+        if (jwt == null || jwt.getIssuer() == null || !issuer.equals(jwt.getIssuer().toString())
+                || blank(jwt.getSubject()) || blank(jwt.getClaimAsString("sid")) || blank(jwt.getId())
+                || resource == null || blank(resource.organization()) || blank(resource.dataScope())
+                || resource.resourceVersion() < 1 || !"ORGANIZATION".equals(resource.resourceType())
+                || !resource.organization().equals(resource.resourceId())
+                || !resource.organization().equals(resource.taskId())
+                || !resource.dataScope().equals(resource.organization() + ":" + resource.resourceVersion())
+                || !org.springframework.transaction.support.TransactionSynchronizationManager.isActualTransactionActive()
+                || !org.springframework.transaction.support.TransactionSynchronizationManager.hasResource(db.getDataSource()))
+            throw new IllegalStateException("Bound organization creation transaction required");
+        owned.requireCurrent(watermark);
+        boolean allowed = permitsRows(jwt, resource, ProductAccessPolicy.Action.CREATE);
+        owned.requireCurrent(watermark);
+        return allowed;
+    }
+
+    private boolean permitsRows(Jwt verifiedJwt, ResourceFacts resource, ProductAccessPolicy.Action action) {
         List<CurrentGrant> rows = db.query("SELECT g.organization,g.task_scope,g.data_scope,g.resource_type,"
                         + "g.resource_id,g.resource_version,g.action_code,g.purpose,g.expires_at,"
                         + "c.authorization_epoch,c.source_epoch FROM id2_grant g "
@@ -60,7 +85,6 @@ public final class ProductConsultationAccess {
                 resource.resourceVersion(), action.name(), verifiedJwt.getClaimAsString("sid"),
                 verifiedJwt.getId());
         boolean allowed = rows.size() == 1 && decision(verifiedJwt, resource, action, rows.getFirst());
-        watermark.assertUnchanged(generation);
         return allowed;
     }
 

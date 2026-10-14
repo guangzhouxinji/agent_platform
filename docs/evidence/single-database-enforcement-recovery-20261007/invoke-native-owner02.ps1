@@ -1,0 +1,15 @@
+param([Parameter(Mandatory=$true)][ValidateSet('export','import')][string]$Action)
+$ErrorActionPreference='Stop';$evidence=Split-Path -Parent $PSCommandPath;$repo=Split-Path -Parent(Split-Path -Parent(Split-Path -Parent $evidence));$source=$Action -eq 'export';$id=if($source){'a2df7cece3db3f81dbaeae5d72564092a0f24b975a7afdfba3fb2751035f3233'}else{'e318769a540a04b8406eeecf93f47615f1133ef8b035d30cd00bf984635e3b45'}
+$i=(& docker inspect $id|ConvertFrom-Json)[0];if(-not $i.State.Running -or $i.Id -ne $id -or $i.HostConfig.Privileged){throw 'Exact authorized running resource required'}
+if($source){$parent=Import-Clixml (Join-Path $repo 'docs/evidence/single-database-persistent-20261007/.private-vault/managed-secrets-round2.dpapi.xml');$secure=$parent['SYSDBA']}else{$secure=Import-Clixml (Join-Path $env:LOCALAPPDATA 'AgentPlatform/single-db-engineering-20261007-01/SYSDBA_PWD.credential.xml')}
+if($secure -is [string]){$secure=ConvertTo-SecureString $secure};$p=[Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure);$saved=$env:ENFP_NATIVE_PASSWORD
+try{
+ $secret=[Runtime.InteropServices.Marshal]::PtrToStringBSTR($p);$env:ENFP_NATIVE_PASSWORD=$secret
+ $command=if($source){'exec /opt/dmdbms/bin/dexp "SYSDBA/$ENFP_NATIVE_PASSWORD@127.0.0.1:5236" "OWNER=(ENFPERS20261007_BIZ,ENFPERS20261007_AUTH,ENFPERS20261007_BIZ_SVC,ENFPERS20261007_AUTH_SVC)" DIRECTORY=/tmp FILE=enfpersistent-native-owner02.dmp GRANTS=Y PARALLEL=1 TABLE_PARALLEL=1 NOLOGFILE=Y'}else{'exec /opt/dmdbms/bin/dimp "SYSDBA/$ENFP_NATIVE_PASSWORD@127.0.0.1:5236" "OWNER=(ENFPERS20261007_BIZ,ENFPERS20261007_AUTH,ENFPERS20261007_BIZ_SVC,ENFPERS20261007_AUTH_SVC)" DIRECTORY=/tmp FILE=enfpersistent-native-owner02.dmp GRANTS=Y IGNORE=N PARALLEL=1 TABLE_PARALLEL=1 NOLOGFILE=Y'}
+ # Do not expose plaintext credentials in the CLI or evidence; Docker inherits only this explicit process variable.
+ $out=& docker exec --user 1000:1000 -e ENFP_NATIVE_PASSWORD $id /bin/sh -c $command 2>&1;$code=$LASTEXITCODE;$text=($out|ForEach-Object{[string]$_})-join [Environment]::NewLine;$text=$text.Replace($secret,'[REDACTED]')
+ $text|Set-Content (Join-Path $evidence ('native-owner02-'+$Action+'.log')) -Encoding utf8
+ [ordered]@{task='VER-AGENT-SINGLE-DB-PERSISTENT-ENF-01';action=$Action;exitCode=$code;containerId=$id;selectedSchemas=@('ENFPERS20261007_BIZ','ENFPERS20261007_AUTH','ENFPERS20261007_BIZ_SVC','ENFPERS20261007_AUTH_SVC');fullDatabase=$false;ignoreErrors=$false;passwordsRecorded=$false;commandDescription='Owned exact native tool with process-only SYSDBA secret, SCHEMAS allowlist, GRANTS=Y, PARALLEL/TABLE_PARALLEL=1';sourceOriginalSchemasExcluded=$true}|ConvertTo-Json -Depth 5|Set-Content (Join-Path $evidence ('native-owner02-'+$Action+'-execution.json'))
+ Write-Output ($text -split "`n"|Select-Object -Last 16);if($code -ne 0 -or $text -notmatch '没有出现警告'){throw ('Native '+$Action+' failed or warning-free completion not proven; preserve original')}
+}finally{$env:ENFP_NATIVE_PASSWORD=$saved;[Runtime.InteropServices.Marshal]::ZeroFreeBSTR($p)}
+

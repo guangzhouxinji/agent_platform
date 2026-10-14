@@ -1,0 +1,4 @@
+import java.sql.*;import java.util.*;import com.fasterxml.jackson.databind.ObjectMapper;
+public final class ReadCatalogTime50 {
+ public static void main(String[] args)throws Exception{var out=new TreeMap<String,Object>();out.put("startedAt",java.time.Instant.now().toString());try(var c=DriverManager.getConnection(System.getenv("LIFECYCLE_JDBC_URL"),System.getenv("LIFECYCLE_JDBC_USER"),System.getenv("LIFECYCLE_JDBC_PASSWORD"))){c.setReadOnly(true);try(var s=c.prepareStatement("SELECT SYSDATE AS SERVER_NOW, CURRENT_TIMESTAMP AS SESSION_NOW FROM DUAL")){s.setQueryTimeout(10);try(var r=s.executeQuery()){if(!r.next())throw new IllegalStateException("CLOCK_ROW_MISSING");out.put("serverNow",r.getString(1));out.put("sessionNow",r.getString(2));if(r.next())throw new IllegalStateException("CLOCK_ROWS_AMBIGUOUS");}}}out.put("finishedAt",java.time.Instant.now().toString());out.put("executedWrites",0);System.out.println(new ObjectMapper().writeValueAsString(out));}
+}

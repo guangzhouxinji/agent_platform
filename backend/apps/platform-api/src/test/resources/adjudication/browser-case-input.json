@@ -1,0 +1,95 @@
+{
+  "schema": "ADJ_CASE_WORK_ENGINEERING_INPUT/v1",
+  "inputKind": "PROJECT_AUTHORED",
+  "notRealCase": true,
+  "caseOriginalText": "申请人提出连接结构争议；请求核对所提交权利文件及双方材料。",
+  "caseInput": {
+    "id": "case-A",
+    "organization": "organization-A",
+    "dataScope": "case-file-A",
+    "name": "连接结构争议",
+    "applicant": "申请人A",
+    "respondent": "被请求人B",
+    "issues": [
+      "连接结构技术特征对应争议"
+    ],
+    "region": null,
+    "procedure": null,
+    "relevantDate": null,
+    "source": {
+      "id": "case-input",
+      "version": "v1",
+      "locator": "/project-authored/case-input",
+      "sha256": "9a08813ef524e19f89f87585947b86170b463281ced475a4db4d8eb373b4d7c6",
+      "kind": "USER_PROVIDED"
+    }
+  },
+  "materials": [
+    {
+      "id": "applicant-material-001",
+      "caseId": "case-A",
+      "side": "APPLICANT",
+      "submitter": "申请人A",
+      "content": "申请人提交的结构说明：外壳连接弹簧。",
+      "assertedPurpose": "说明连接结构对应情况",
+      "source": {
+        "id": "applicant-material-001",
+        "version": "v1",
+        "locator": "/project-authored/applicant-material-001",
+        "sha256": "9ad42cdc53fc88a1594944b19593f1ee9d51db7f251df095836d873722b4080d",
+        "kind": "USER_PROVIDED"
+      },
+      "readable": true,
+      "supersedesMaterialId": null
+    },
+    {
+      "id": "respondent-material-001",
+      "caseId": "case-A",
+      "side": "RESPONDENT",
+      "submitter": "被请求人B",
+      "content": "被请求人提交的结构说明：连接组件与结构图。",
+      "assertedPurpose": "说明连接结构对应情况",
+      "source": {
+        "id": "respondent-material-001",
+        "version": "v1",
+        "locator": "/project-authored/respondent-material-001",
+        "sha256": "a21e0bf86441fafbc139bcd938dc6b3d72eaf8972aa5191c3bffedfdb23554be",
+        "kind": "USER_PROVIDED"
+      },
+      "readable": true,
+      "supersedesMaterialId": null
+    }
+  ],
+  "claim": {
+    "caseId": "case-A",
+    "patentReference": "提交的权利文件A",
+    "claimNumber": "1",
+    "revision": 1,
+    "originalText": "外壳连接弹簧",
+    "source": {
+      "id": "claim-input",
+      "version": "v1",
+      "locator": "/project-authored/claim-input",
+      "sha256": "19596f92cb119e0436e7c81ecf16f328f2ec05bf7faca2103297fca1b28f0a37",
+      "kind": "USER_PROVIDED"
+    },
+    "elements": [
+      {
+        "id": "element-housing",
+        "exactText": "外壳"
+      },
+      {
+        "id": "element-spring",
+        "exactText": "弹簧"
+      }
+    ],
+    "selectedProduct": "连接器样品A",
+    "confirmationReason": "根据提交文件确认需逐项比对的技术特征"
+  },
+  "legalCitations": [],
+  "limitations": [
+    "没有真实法条或人工法律采用；不得补造法律依据",
+    "地域/程序/相关时点未知，产品应显示LEGAL_CONTEXT_MISSING",
+    "不是专业金标，不产生真实侵权、稳定性、裁决结论"
+  ]
+}

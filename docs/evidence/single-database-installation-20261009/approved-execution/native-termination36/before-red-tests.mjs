@@ -1,0 +1,24 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {EventEmitter} from 'node:events';
+import {PassThrough} from 'node:stream';
+import vm from 'node:vm';
+const original=readFileSync(new URL('./single-database-lifecycle-native.mjs.before',import.meta.url),'utf8');
+test('original exporter must have finite TERM-to-KILL fallback',()=>assert.match(original,/timeout -k 5 "\$2"/));
+for(const name of ['single-database-lifecycle-native.mjs','single-database-lifecycle-native-restore.mjs']) test(name+' original owned command must settle even without close after timeout',async()=>{
+ const source=readFileSync(new URL('./'+name+'.before',import.meta.url),'utf8');
+ const end=name.includes('restore')?'export function nativeImportInvocation':'async function stoppedWriters';
+ const body=source.slice(source.indexOf('function command('),source.indexOf(end));
+ const p=new EventEmitter();p.stdout=new PassThrough();p.stderr=new PassThrough();p.stdin=new PassThrough();const signals=[];p.kill=s=>{signals.push(s??'SIGTERM');return true;};
+ const timers=new Map();let id=0,now=0;
+ const setTimeout=(fn,ms)=>{const key=++id;timers.set(key,{fn,at:now+ms});return key;};
+ const clearTimeout=key=>timers.delete(key);
+ const advance=until=>{now=until;for(const [key,timer] of [...timers])if(timer.at<=now){timers.delete(key);timer.fn();}};
+ const command=vm.runInNewContext('('+body+')',{spawn:()=>p,Buffer,process,setTimeout,clearTimeout});
+ let settled=false;const promise=name.includes('restore')?command(['test'],{timeoutMs:10}):command('owned-test',[],{timeoutMs:10});
+ const observation=promise.then(()=>{settled=true},()=>{settled=true});
+ advance(10);await Promise.resolve();advance(5010);await Promise.resolve();const wasSettled=settled;
+ p.emit('close',1);await observation;p.stdout.destroy();p.stderr.destroy();p.stdin.destroy();
+ assert.deepEqual(signals,['SIGTERM']);assert.equal(wasSettled,true,'Only TERM was sent and no close-independent rejection happened within the required grace');
+});

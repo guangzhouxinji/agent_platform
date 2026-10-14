@@ -94,11 +94,23 @@ public final class FileLegalKnowledgeSource implements LegalKnowledgePort {
             throw new IllegalStateException("Invalid legal source snapshot");
     }
     private void validate(Provenance value) {
-        if (value == null) return;
+        if (value == null) throw new IllegalStateException("Legal source provenance unavailable");
         if (blank(value.provider()) || blank(value.sourceUrl()) || blank(value.snapshot()) ||
                 value.snapshotSha256() == null || !value.snapshotSha256().matches("[0-9a-f]{64}") ||
                 blank(value.capturedAt()) || blank(value.purpose()) || blank(value.legalApplicability()))
             throw new IllegalStateException("Invalid legal source provenance");
+        try {
+            Path snapshot = Path.of(value.snapshot());
+            if (!snapshot.isAbsolute()) {
+                Path root = file.toAbsolutePath().getParent();
+                while (root != null && !Files.isDirectory(root.resolve("db/dm8"))) root = root.getParent();
+                snapshot = (root == null ? file.toAbsolutePath().getParent() : root).resolve(snapshot).normalize();
+            }
+            byte[] bytes = Files.readAllBytes(snapshot);
+            String actual = java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(bytes));
+            if (!value.snapshotSha256().equals(actual)) throw new IllegalStateException("Legal original digest changed");
+        } catch (IllegalStateException invalid) { throw invalid; }
+        catch (Exception unavailable) { throw new IllegalStateException("Legal original unavailable", unavailable); }
     }
     private static String searchable(Candidate c) {
         return c.officialTitle() + " " + c.articleId() + " " + c.verbatimText();

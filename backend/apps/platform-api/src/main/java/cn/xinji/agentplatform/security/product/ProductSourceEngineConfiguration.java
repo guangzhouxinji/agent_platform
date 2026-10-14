@@ -18,6 +18,19 @@ import org.springframework.transaction.support.TransactionTemplate;
 @ConditionalOnProperty(name = {"product.identity.enabled", "product.source.engine.enabled"},
         havingValue = "true")
 public class ProductSourceEngineConfiguration {
+    @Bean ProductComparisonTargetReader productComparisonTargetReader(JdbcTemplate db,
+            ProductTaskDirectory tasks, ProductConsultationAccess access,
+            @Value("${product.consultation.goal-retention.max-bytes:0}") int maximumBytes) {
+        return new ProductComparisonTargetReader(db,tasks,access,Clock.systemUTC(),maximumBytes);
+    }
+    @Bean ProductComparisonScopeGrants productComparisonScopeGrants(JdbcTemplate db,
+            PlatformTransactionManager manager, ProductTaskDirectory tasks, ProductGrants grants,
+            ProductGrantWatermark grantWatermark, ProductSourceWatermark sourceWatermark,
+            ProductSourceAvailability availability, ProductMaintenanceProof maintenance,
+            @Value("${product.identity.issuer:}") String issuer) {
+        return new ProductComparisonScopeGrants(db,new TransactionTemplate(manager),tasks,grants,
+                grantWatermark,sourceWatermark,availability,maintenance,Clock.systemUTC(),issuer);
+    }
     @Bean ProductSourceWatermark productSourceWatermark(JdbcTemplate db,
             ProductGrantWatermark grantWatermark, PlatformTransactionManager manager) {
         return new ProductSourceWatermark(db, grantWatermark.independentDatabase(),
@@ -107,6 +120,9 @@ public class ProductSourceEngineConfiguration {
             org.springframework.beans.factory.ObjectProvider<ProductSemanticIndex> semantic,
             org.springframework.beans.factory.ObjectProvider<
                     cn.xinji.agentplatform.consultation.patenttask.source.PatentReranker> reranker,
+            @org.springframework.beans.factory.annotation.Qualifier("patentFieldReranker")
+            org.springframework.beans.factory.ObjectProvider<
+                    cn.xinji.agentplatform.consultation.patenttask.source.PatentReranker> fieldReranker,
             @Value("${product.source.results.retention.ref:}") String retentionRef,
             @Value("${product.source.results.retention.version:0}") long retentionVersion,
             @Value("${product.source.results.retention.evidence-sha256:}") String evidenceSha,
@@ -116,6 +132,6 @@ public class ProductSourceEngineConfiguration {
         return new ProductPatentSearchExecution(db, workers, execution, titles, availability,
                 sourceWatermark, tasks, access, new ProductRetentionPolicy(retentionRef,
                         retentionVersion, evidenceSha, Duration.parse(maxAge)), mapper, cursors,
-                semantic.getIfAvailable(), reranker.getIfAvailable(), Clock.systemUTC(), maxResults);
+                semantic.getIfAvailable(), reranker.getIfAvailable(), fieldReranker.getIfAvailable(), Clock.systemUTC(), maxResults);
     }
 }

@@ -48,6 +48,23 @@ public final class ProductIdentityBootstrap {
     static void bootstrap(JdbcTemplate primary, JdbcTemplate authority, TransactionTemplate authorityTransaction,
                           Manifest manifest, String trustedCaFingerprint, String serviceUser,
                           String backupUser) throws Exception {
+        bootstrap(primary, authority, authorityTransaction, manifest, trustedCaFingerprint,
+                serviceUser, backupUser, null);
+    }
+
+    static void bootstrapSharedInstance(JdbcTemplate primary, JdbcTemplate authority, Manifest manifest,
+                                       String trustedCaFingerprint,
+                                       ProductIdentityBootstrapSharedInstance.Settings settings) throws Exception {
+        // The managed path owns the transaction manager: it cannot register in a different datasource.
+        bootstrap(primary, authority,
+                new TransactionTemplate(new DataSourceTransactionManager(authority.getDataSource())),
+                manifest, trustedCaFingerprint, settings.authorityRuntime(), settings.backup(), settings);
+    }
+
+    private static void bootstrap(JdbcTemplate primary, JdbcTemplate authority,
+                                  TransactionTemplate authorityTransaction, Manifest manifest,
+                                  String trustedCaFingerprint, String serviceUser, String backupUser,
+                                  ProductIdentityBootstrapSharedInstance.Settings shared) throws Exception {
         validate(manifest);
         String service = databaseUser(serviceUser);
         String backup = databaseUser(backupUser);
@@ -68,8 +85,13 @@ public final class ProductIdentityBootstrap {
         peer.verify(trustedCa.getPublicKey());
         try (var primaryConnection = primary.getDataSource().getConnection();
              var authorityConnection = authority.getDataSource().getConnection()) {
-            if (primaryConnection.getMetaData().getURL().equals(authorityConnection.getMetaData().getURL()))
-                throw new IllegalArgumentException("Authority must use another database instance");
+            if (shared == null) {
+                if (primaryConnection.getMetaData().getURL().equals(authorityConnection.getMetaData().getURL()))
+                    throw new IllegalArgumentException("Authority must use another database instance");
+            } else {
+                shared.verify(primaryConnection, shared.primarySchema(), shared.primaryOwner());
+                shared.verify(authorityConnection, shared.authoritySchema(), shared.authorityOwner());
+            }
             String deploymentUser = authorityConnection.getMetaData().getUserName();
             if (service.equalsIgnoreCase(deploymentUser) || backup.equalsIgnoreCase(deploymentUser))
                 throw new IllegalArgumentException("Service, backup and deployment roles must be separate");
@@ -84,11 +106,13 @@ public final class ProductIdentityBootstrap {
         if (maintainers == null || maintainers != 0 || watermarks == null || watermarks != 0)
             throw new IllegalStateException("Identity domain already initialized or restored");
         // DM8 may commit DCL independently; prepare permissions before the atomic identity registration.
-        authority.execute("GRANT SELECT,UPDATE ON id2_authority_watermark TO " + service);
-        authority.execute("GRANT SELECT,UPDATE ON id2_maintainer TO " + service);
-        authority.execute("GRANT INSERT ON id2_maintenance_audit TO " + service);
-        for (String table : List.of("id2_authority_watermark", "id2_maintainer", "id2_maintenance_audit"))
-            authority.execute("GRANT SELECT ON " + table + " TO " + backup);
+        if (shared == null) {
+            authority.execute("GRANT SELECT,UPDATE ON id2_authority_watermark TO " + service);
+            authority.execute("GRANT SELECT,UPDATE ON id2_maintainer TO " + service);
+            authority.execute("GRANT INSERT ON id2_maintenance_audit TO " + service);
+            for (String table : List.of("id2_authority_watermark", "id2_maintainer", "id2_maintenance_audit"))
+                authority.execute("GRANT SELECT ON " + table + " TO " + backup);
+        }
         authorityTransaction.executeWithoutResult(status -> {
             Integer nowMaintainers = authority.queryForObject("SELECT COUNT(*) FROM id2_maintainer", Integer.class);
             Integer nowWatermarks = authority.queryForObject("SELECT COUNT(*) FROM id2_authority_watermark", Integer.class);
@@ -116,7 +140,7 @@ public final class ProductIdentityBootstrap {
                 || manifest.roles() == null || manifest.roles().isEmpty()
                 || manifest.roles().stream().anyMatch(java.util.Objects::isNull)
                 || manifest.roles().size() != Set.copyOf(manifest.roles()).size()
-                || !Set.of("SUBJECTS", "GRANTS", "KEYS", "SOURCES").containsAll(manifest.roles()))
+                || !Set.of("SUBJECTS", "GRANTS", "KEYS", "SOURCES", "HUMAN_RETENTION").containsAll(manifest.roles()))
             throw new IllegalArgumentException("Exact accountable identity and duties are required");
         normalize(manifest.certificateSha256());
     }

@@ -68,11 +68,11 @@ class PatentRerankerBenchmarkTest {
         var expansion = new PatentQueryExpansion();
         var metrics = new PatentSearchMetrics();
         double hybridRecall = 0, rerankRecall = 0, hybridNdcg = 0, rerankNdcg = 0;
-        int judged = 0;
+        double recall10 = 0, recall100 = 0, precision10 = 0, precision20 = 0, ndcg20 = 0, mrr = 0;
+        int judged = 0, negative = 0, negativeEmpty = 0;
         for (JsonNode query : benchmark.path("queries")) {
             Map<String, Integer> qrels = mapper.convertValue(query.path("qrels"),
                     new TypeReference<Map<String, Integer>>() { });
-            if (qrels.isEmpty()) continue;
             String retrievalQuery = expansion.expand(query.path("query").asText()).retrievalQuery();
             var lexical = lexicalEngine.search(documents, retrievalQuery, Set.of("TITLE"), 1000);
             List<PatentHybridQuery.SemanticMatch> semantic = semantic(documents, documentVectors,
@@ -82,25 +82,58 @@ class PatentRerankerBenchmarkTest {
             for (int index = 0; index < documents.size(); index++)
                 texts.put(PatentRerankedQuery.key(hybrid.matches().get(index)),
                         title(hybrid.matches().get(index), documents));
-            var reranked = new PatentRerankedQuery().rerank(retrievalQuery, hybrid, texts, reranker, 100);
+            var reranked = new PatentRerankedQuery().rerank(retrievalQuery, hybrid, texts,
+                    reranker, embeddings.model(), 100);
             List<String> hybridIds = hybrid.matches().stream().map(PatentHybridQuery.Match::documentId).toList();
             List<String> rerankedIds = reranked.matches().stream()
                     .map(match -> match.candidate().documentId()).toList();
+            if (qrels.isEmpty()) {
+                negative++;
+                if (rerankedIds.isEmpty()) negativeEmpty++;
+                assertThat(rerankedIds).as("Original negative %s", query.path("id").asText()).isEmpty();
+                System.out.printf("PATENT_RERANK_QUERY id=%s judgment=NEGATIVE candidates=%d members=%d%n",
+                        query.path("id").asText(), reranked.candidateCount(), rerankedIds.size());
+                continue;
+            }
             assertThat(rerankedIds).containsExactlyInAnyOrderElementsOf(hybridIds);
             hybridRecall += metrics.evaluate(hybridIds, qrels, 50).recall();
             rerankRecall += metrics.evaluate(rerankedIds, qrels, 50).recall();
             hybridNdcg += metrics.evaluate(hybridIds, qrels, 10).ndcg();
             rerankNdcg += metrics.evaluate(rerankedIds, qrels, 10).ndcg();
+            var top10 = metrics.evaluate(rerankedIds, qrels, 10);
+            var top20 = metrics.evaluate(rerankedIds, qrels, 20);
+            recall10 += top10.recall();
+            recall100 += metrics.evaluate(rerankedIds, qrels, 100).recall();
+            precision10 += top10.precision();
+            precision20 += top20.precision();
+            ndcg20 += top20.ndcg();
+            mrr += top10.reciprocalRank();
+            System.out.printf("PATENT_RERANK_QUERY id=%s judgment=POSITIVE recall@10=%.6f "
+                    + "recall@50=%.6f recall@100=%.6f precision@10=%.6f precision@20=%.6f "
+                    + "ndcg@10=%.6f ndcg@20=%.6f mrr@10=%.6f%n", query.path("id").asText(),
+                    top10.recall(), metrics.evaluate(rerankedIds, qrels, 50).recall(),
+                    metrics.evaluate(rerankedIds, qrels, 100).recall(), top10.precision(), top20.precision(),
+                    top10.ndcg(), top20.ndcg(), top10.reciprocalRank());
             judged++;
         }
         double threshold = benchmark.path("thresholds").path("ndcgAt10").asDouble();
         assertThat(judged).isEqualTo(9);
-        assertThat(rerankRecall / judged).isGreaterThanOrEqualTo(0.90);
+        assertThat(negative).isEqualTo(1);
+        assertThat((double) negativeEmpty / negative)
+                .isEqualTo(benchmark.path("thresholds").path("emptyQueryAccuracy").asDouble());
+        assertThat(rerankRecall / judged)
+                .isGreaterThanOrEqualTo(benchmark.path("thresholds").path("recallAt50").asDouble());
         assertThat(rerankNdcg / judged).isGreaterThanOrEqualTo(threshold);
-        System.out.printf("PATENT_RERANK_BENCHMARK queries=%d hybridRecall@50=%.6f "
-                        + "rerankRecall@50=%.6f hybridNdcg@10=%.6f rerankNdcg@10=%.6f%n",
-                judged, hybridRecall / judged, rerankRecall / judged,
-                hybridNdcg / judged, rerankNdcg / judged);
+        System.out.printf("PATENT_RERANK_BENCHMARK originalQueries=%d judged=%d negative=%d "
+                        + "emptyAccuracy=%.6f hybridRecall@50=%.6f rerankRecall@50=%.6f "
+                        + "hybridNdcg@10=%.6f rerankNdcg@10=%.6f%n",
+                judged + negative, judged, negative, (double) negativeEmpty / negative,
+                hybridRecall / judged, rerankRecall / judged, hybridNdcg / judged, rerankNdcg / judged);
+        System.out.printf("PATENT_RERANK_EXTENDED_METRICS positiveQueries=%d negativeQueries=%d "
+                + "recall@10=%.6f recall@100=%.6f precision@10=%.6f precision@20=%.6f "
+                + "ndcg@20=%.6f mrr@10=%.6f judgment=ENGINEERING_RELEVANCE%n", judged, negative,
+                recall10 / judged, recall100 / judged, precision10 / judged, precision20 / judged,
+                ndcg20 / judged, mrr / judged);
     }
 
     private static List<PatentHybridQuery.SemanticMatch> semantic(

@@ -21,19 +21,29 @@ final class OnnxPatentEmbeddingProvider implements PatentEmbeddingProvider, Auto
     private final Model model;
     private final OrtEnvironment environment;
     private final OrtSession session;
+    private final OrtSession.SessionOptions sessionOptions;
     private final HuggingFaceTokenizer tokenizer;
+    private final HuggingFaceTokenizer completeTokenizer;
 
     OnnxPatentEmbeddingProvider(Path modelPath, Path tokenizerPath, Model model) {
+        this(modelPath,tokenizerPath,model,ProductOnnxSessionOptions.current());
+    }
+    OnnxPatentEmbeddingProvider(Path modelPath, Path tokenizerPath, Model model,
+            OrtSession.SessionOptions sessionOptions) {
+        this.sessionOptions=java.util.Objects.requireNonNull(sessionOptions);
         this.model = validate(model);
         verify(modelPath, model.modelSha256());
         verify(tokenizerPath, model.tokenizerSha256());
         try {
             environment = OrtEnvironment.getEnvironment();
-            session = environment.createSession(modelPath.toAbsolutePath().toString());
+            session = environment.createSession(modelPath.toAbsolutePath().toString(),sessionOptions);
             tokenizer = HuggingFaceTokenizer.builder()
                     .optTokenizerPath(tokenizerPath.toAbsolutePath())
                     .optAddSpecialTokens(true).optTruncation(true)
                     .optMaxLength(model.maxTokens()).build();
+            completeTokenizer = HuggingFaceTokenizer.builder().optTokenizerPath(tokenizerPath.toAbsolutePath())
+                    .optAddSpecialTokens(true).optTruncation(true).optMaxLength(model.maxTokens())
+                    .optWithOverflowingTokens(true).optStride(0).optPadding(false).build();
             if (!session.getInputNames().containsAll(List.of("input_ids", "attention_mask")))
                 throw new IllegalStateException("Embedding model input contract is unsupported");
         } catch (Exception failure) {
@@ -52,7 +62,19 @@ final class OnnxPatentEmbeddingProvider implements PatentEmbeddingProvider, Auto
     }
 
     private float[] embedOne(String text) {
-        Encoding encoding = tokenizer.encode(text);
+        return embedEncoding(tokenizer.encode(text));
+    }
+
+    @Override public synchronized List<float[]> embedComplete(List<String> texts) {
+        if (texts == null || texts.isEmpty() || texts.stream().anyMatch(text -> text == null || text.isBlank()))
+            throw new IllegalArgumentException("Non-empty complete embedding texts required");
+        List<float[]> vectors = new ArrayList<>();
+        for (String text : texts)
+            vectors.add(OnnxCompleteEmbedding.embed(completeTokenizer.encode(text),model.dimension(),model.maxTokens(),this::embedEncoding));
+        return List.copyOf(vectors);
+    }
+
+    private float[] embedEncoding(Encoding encoding) {
         long[] ids = encoding.getIds();
         long[] mask = encoding.getAttentionMask();
         long[] types = encoding.getTypeIds();
@@ -126,9 +148,10 @@ final class OnnxPatentEmbeddingProvider implements PatentEmbeddingProvider, Auto
 
     @Override public void close() {
         tokenizer.close();
+        completeTokenizer.close();
         try { session.close(); } catch (Exception failure) {
             throw new IllegalStateException("Embedding session could not close", failure);
-        }
+        } finally { sessionOptions.close(); }
     }
 
     private static boolean sha(String value) { return value != null && value.matches("[0-9a-fA-F]{64}"); }

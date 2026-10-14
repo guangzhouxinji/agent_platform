@@ -45,7 +45,15 @@
     "data:adjudication:public-reference:verify": "node scripts/build-adjudication-public-reference-pilot.mjs --verify-only",
     "data:adjudication:source-review:collect": "node scripts/collect-adjudication-source-review.mjs",
     "data:adjudication:source-review:verify": "node scripts/collect-adjudication-source-review.mjs --verify-only",
-    "data:public-pilot:import": "node scripts/import-public-pilot-data.mjs"
+    "data:public-pilot:import": "node scripts/import-public-pilot-data.mjs",
+    "single-db:catalog": "node scripts/catalog-single-database-source.mjs",
+    "single-db:bootstrap": "node scripts/bootstrap-single-database-lifecycle.mjs",
+    "single-db:inventory": "node scripts/inventory-single-database-lifecycle.mjs",
+    "single-db:migrate": "node scripts/execute-single-database-lifecycle.mjs",
+    "single-db:protect": "node scripts/snapshot-single-database-lifecycle.mjs",
+    "single-db:restore": "node scripts/restore-single-database-lifecycle.mjs",
+    "single-db:compile": "node scripts/compile-single-database-installation.mjs",
+    "single-db:grant": "node scripts/grant-single-database-objects.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0"

@@ -1,0 +1,11 @@
+import {readFile,writeFile} from 'node:fs/promises';import {execFileSync} from 'node:child_process';
+import {jdbcContainerCommand} from '../../../../../scripts/lib/single-database-jdbc-container.mjs';import {runNativeCommand} from '../../../../../scripts/lib/single-database-lifecycle-native.mjs';import {hash} from '../../../../../scripts/lib/single-database-lifecycle-runtime.mjs';
+const here=new URL('./',import.meta.url),c=JSON.parse(await readFile(new URL('../primary-migration-config07.json',here))),receipt=JSON.parse(await readFile(new URL('safe-delivery51.json',here)));
+if(Date.now()>=Date.parse('2026-10-10T18:00:00+08:00'))throw Error('WINDOW_CLOSED');
+const jdbc=c.inventoryJdbc,command=await jdbcContainerCommand(jdbc,{action:'inventory'}),p=jdbc.dockerJdbc;
+const sha=hash(await readFile(new URL('../jdbc-native05/subject51/ReadNormalSubject51.class',here)));
+if(execFileSync('docker',['exec',p.containerId,'sha256sum','/jdbc/subject51/ReadNormalSubject51.class'],{encoding:'utf8',timeout:10000}).split(/\s+/)[0]!==sha)throw Error('CLASS_PIN_MISMATCH');
+const env={...process.env,LIFECYCLE_JDBC_URL:jdbc.url,LIFECYCLE_JDBC_USER:jdbc.user,LIFECYCLE_JDBC_PASSWORD:process.env.SINGLE_DB_ADMIN_PASSWORD,NORMAL_SUBJECT_ID51:receipt.subjectId};if(!env.LIFECYCLE_JDBC_PASSWORD)throw Error('MANAGED_SECRET_REQUIRED');
+command.args.splice(command.args.indexOf(p.containerId),0,'-e','NORMAL_SUBJECT_ID51');command.args[command.args.indexOf(p.classpath)]='/jdbc/subject51:'+p.classpath;command.args[command.args.length-1]='ReadNormalSubject51';
+const result=await runNativeCommand(command.command,command.args,{env,timeoutMs:30000,maxBytes:4096});await writeFile(new URL('actual-subject-state51.json',here),result,{flag:'wx'});
+await writeFile(new URL('actual-subject-state51-receipt.json',here),JSON.stringify({capturedAt:new Date().toISOString(),classSha256:sha,readOnly:true,executedWrites:0,targetId:p.targetId,subjectId:receipt.subjectId,rawBytes:result.length},null,2),{flag:'wx'});console.log('EXACT_SUBJECT_CURRENT_STATE_READ_ONLY_SAVED');

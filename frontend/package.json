@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "build:consultation": "tsc -b && vite build --config vite.consultation.config.ts",
+    "build:adjudication": "tsc -p tsconfig.app.json && vite build --config vite.adjudication.config.ts",
+    "build:enforcement": "tsc -p tsconfig.app.json && vite build --config vite.enforcement.config.ts"
   },
   "dependencies": {
     "@ant-design/pro-components": "3.1.14-7",

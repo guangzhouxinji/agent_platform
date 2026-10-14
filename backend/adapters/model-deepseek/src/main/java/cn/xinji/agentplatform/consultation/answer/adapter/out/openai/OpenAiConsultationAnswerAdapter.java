@@ -6,12 +6,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import java.io.IOException;
+import cn.xinji.agentplatform.runtime.ModelGateway;
+import cn.xinji.agentplatform.model.gateway.OpenAiModelGateway;
+import java.util.Set;
 import java.net.URI;
 import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpTimeoutException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,23 +66,22 @@ public final class OpenAiConsultationAnswerAdapter implements ConsultationAnswer
             messages.addObject().put("role", "system").put("content", SYSTEM_PROMPT);
             messages.addObject().put("role", "user").put("content", prompt(question, candidates));
 
-            HttpRequest request = HttpRequest.newBuilder(endpoint.uri()).timeout(timeout)
-                    .header("Authorization", "Bearer " + endpoint.apiKey())
-                    .header("Content-Type", "application/json")
-                    .header("X-Client-Trace-Id", traceId)
-                    .POST(HttpRequest.BodyPublishers.ofString(mapper.writeValueAsString(payload))).build();
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            mapStatus(response.statusCode());
-            return parse(response.body());
+            var gateway = new OpenAiModelGateway(id -> {
+                ModelEndpoint live = endpointResolver.apply(id);
+                return live == null ? null : new OpenAiModelGateway.Connection(new ModelGateway.Configuration(id,
+                        "MANAGED_CONSULTATION/v1", "openai-compatible", live.modelName(), live.uri(),
+                        "OPENAI_CHAT_COMPLETIONS", timeout, 262144, 262144,
+                        Set.of("CONSULTATION_ANSWER"), Set.of("PUBLIC_LOCAL")), live.apiKey());
+            }, mapper, client);
+            var response = gateway.invoke(new ModelGateway.Call(modelId, "CONSULTATION_ANSWER", "PUBLIC_LOCAL",
+                    "CONSULTATION_ANSWER/v1", "CONSULTATION_ANSWER_QUALITY/v1", traceId, mapper.writeValueAsString(payload)));
+            return parse(response.rawResponse());
         } catch (InvocationFailure failure) {
             throw failure;
-        } catch (HttpTimeoutException failure) {
-            throw failure("TIMEOUT");
-        } catch (InterruptedException failure) {
-            Thread.currentThread().interrupt();
-            throw failure("INVOCATION_INTERRUPTED");
-        } catch (IOException failure) {
-            throw failure("UPSTREAM_UNAVAILABLE");
+        } catch (ModelGateway.Failure failure) {
+            throw failure(failure.code());
+        } catch (com.fasterxml.jackson.core.JsonProcessingException failure) {
+            throw failure("OUTPUT_VALIDATION_FAILED");
         } catch (RuntimeException failure) {
             throw failure("OUTPUT_VALIDATION_FAILED");
         }

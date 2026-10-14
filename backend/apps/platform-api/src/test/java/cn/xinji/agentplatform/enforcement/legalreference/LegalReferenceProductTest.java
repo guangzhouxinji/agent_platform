@@ -170,7 +170,25 @@ class LegalReferenceProductTest {
     }
 
     private void writeCatalog(List<FileLegalKnowledgeSource.Entry> entries) throws Exception {
-        json.writeValue(catalog.toFile(), new FileLegalKnowledgeSource.Catalog(entries));
+        Path original = temp.resolve("technical-source.txt");
+        String text = json.writeValueAsString(entries);
+        java.nio.file.Files.writeString(original, text);
+        var provenance = new FileLegalKnowledgeSource.Provenance("PROJECT_TEST_INPUT",
+                "https://project.example.test/technical-input", original.toString(), LegalReferenceService.hash(text),
+                Instant.now().toString(), "C_ONLY_NOT_REAL_I", "UNCONFIRMED");
+        json.writeValue(catalog.toFile(), new FileLegalKnowledgeSource.Catalog(entries, provenance));
+    }
+    @Test void missingOrChangedOriginalFailsClosedWithoutReceiptsOrEvents() throws Exception {
+        Path original = temp.resolve("technical-source.txt");
+        byte[] bytes = java.nio.file.Files.readAllBytes(original);
+        java.nio.file.Files.delete(original);
+        assertThrows(IllegalStateException.class, () -> service().search("analyst", "missing-original", request("原文")));
+        assertEquals(0, count("enf9_legal_receipt")); assertEquals(0, count("enf9_legal_event"));
+        java.nio.file.Files.write(original, "changed".getBytes(java.nio.charset.StandardCharsets.UTF_8));
+        assertThrows(IllegalStateException.class, () -> service().search("analyst", "changed-original", request("原文")));
+        assertEquals(0, count("enf9_legal_search")); assertEquals(0, count("enf9_legal_reference"));
+        java.nio.file.Files.write(original, bytes);
+        assertNotNull(service().search("analyst", "original-restored", request("原文")));
     }
     private int count(String table) { return db.queryForObject("SELECT COUNT(*) FROM " + table, Integer.class); }
     private static Path migration(String name) {

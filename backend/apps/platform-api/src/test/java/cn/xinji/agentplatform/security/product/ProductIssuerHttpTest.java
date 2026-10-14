@@ -71,7 +71,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         "spring.datasource.url=jdbc:h2:mem:product-issuer-http;DB_CLOSE_DELAY=-1",
         "spring.datasource.driver-class-name=org.h2.Driver",
         "spring.sql.init.mode=always",
-        "spring.sql.init.schema-locations=file:db/dm8/V032__product_identity.sql,file:db/dm8/V033__product_oauth2.sql,file:db/dm8/V057__product_oauth_client_control.sql,file:db/dm8/V034__product_consultation_initial_task.sql,file:db/dm8/V036__product_source_candidates.sql,file:db/dm8/V037__product_source_admission.sql,file:db/dm8/V038__product_task_source_scope.sql,file:db/dm8/V039__product_source_verification.sql,file:db/dm8/V041__product_task_authorization_version.sql,file:db/dm8/V042__product_consultation_goal.sql,file:db/dm8/V043__product_task_cancel_epoch.sql,file:db/dm8/V044__product_task_session_resume.sql,file:db/dm8/V045__product_task_execution_fence.sql,file:db/dm8/V072__product_search_metadata_filters.sql,file:db/dm8/V046__product_workload_subject.sql,file:db/dm8/V047__product_task_worker_delegation.sql,file:db/dm8/V053__product_source_use_decision.sql,file:db/dm8/V056__product_query_only_source_scope.sql,file:db/dm8/V061__product_worker_execution_request.sql,file:db/dm8/V040__product_source_results.sql,file:db/dm8/V063__product_search_execution_binding.sql,file:db/dm8/V064__product_search_ranking_evidence.sql,file:db/dm8/V065__product_search_stable_cursor.sql"
+        "spring.sql.init.schema-locations=file:db/dm8/V032__product_identity.sql,file:db/dm8/V033__product_oauth2.sql,file:db/dm8/V057__product_oauth_client_control.sql,file:db/dm8/V034__product_consultation_initial_task.sql,file:db/dm8/V036__product_source_candidates.sql,file:db/dm8/V088__product_source_capture_identity.sql,file:db/dm8/V037__product_source_admission.sql,file:db/dm8/V038__product_task_source_scope.sql,file:db/dm8/V039__product_source_verification.sql,file:db/dm8/V041__product_task_authorization_version.sql,file:db/dm8/V042__product_consultation_goal.sql,file:db/dm8/V043__product_task_cancel_epoch.sql,file:db/dm8/V044__product_task_session_resume.sql,file:db/dm8/V045__product_task_execution_fence.sql,file:db/dm8/V048__product_task_execution_reconciliation.sql,file:db/dm8/V077__product_execution_attempt_history.sql,file:db/dm8/V072__product_search_metadata_filters.sql,file:db/dm8/V046__product_workload_subject.sql,file:db/dm8/V047__product_task_worker_delegation.sql,file:db/dm8/V053__product_source_use_decision.sql,file:db/dm8/V056__product_query_only_source_scope.sql,file:db/dm8/V061__product_worker_execution_request.sql,file:db/dm8/V040__product_source_results.sql,file:db/dm8/V063__product_search_execution_binding.sql,file:db/dm8/V064__product_search_ranking_evidence.sql,file:db/dm8/V065__product_search_stable_cursor.sql,file:db/dm8/V076__product_search_selection.sql,file:db/dm8/V078__product_search_attempt_history_binding.sql"
 })
 class ProductIssuerHttpTest {
     private static JdbcDataSource authoritySource;
@@ -104,7 +104,6 @@ class ProductIssuerHttpTest {
     }
     @Autowired TestRestTemplate http;
     @Autowired MockMvc mvc;
-
     @Test void workerLeaseRequiresClientCertificateBeforeAnyReceipt() throws Exception {
         mvc.perform(post("/v2/consultation/tasks/00000000-0000-4000-8000-000000000001/executions")
                 .secure(true).header("Idempotency-Key", "worker-attempt")
@@ -122,7 +121,6 @@ class ProductIssuerHttpTest {
     @Autowired org.springframework.jdbc.core.JdbcTemplate db;
     @TempDir Path certificateDirectory;
     @LocalServerPort int port;
-
     @Test void emptyRegistryCannotIssueOrExposePrivateSigningMaterial() throws Exception {
         String base = "http://127.0.0.1:" + port;
         assertThat(http.getForEntity(URI.create(base + "/oauth2/jwks"), String.class).getStatusCode())
@@ -135,12 +133,14 @@ class ProductIssuerHttpTest {
                 .andReturn().getResponse().getContentAsString();
         assertThat(published).contains(kid, "\"kty\":\"RSA\"")
                 .doesNotContain("\"d\":", "\"p\":", "\"q\":");
-
         var token = http.postForEntity(URI.create(base + "/oauth2/token"), null, String.class);
         assertThat(token.getStatusCode().is2xxSuccessful()).isFalse();
         mvc.perform(get("/v2/identity/me").secure(true)).andExpect(status().isUnauthorized());
+        mvc.perform(get("/v2/consultation/tasks/00000000-0000-4000-8000-000000000001"
+                + "/documents/real-collected/US_GRANT:3986239/versions/sha256-v1/content")
+                .secure(true).param("kind", "CLAIMS").param("resultSetId", "result")
+                .param("selectionId", "selection")).andExpect(status().isUnauthorized());
         mvc.perform(post("/v2/identity/keys/rotate").secure(true)).andExpect(status().isForbidden());
-
         // Uses the actual issuer, repositories and routes, but isolated enrollment is only technical C.
         var enrolled = subjects.register("internal-issuer-check", "isolated-maintenance-probe");
         subjects.activate(enrolled.subjectId(), enrolled.oneTimeActivation(), "unique-strong-password-1");

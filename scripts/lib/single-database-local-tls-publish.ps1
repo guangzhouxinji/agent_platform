@@ -1,0 +1,228 @@
+# Final transport role only. This helper is invoked by the existing application deployment CLI.
+function Assert-LocalTlsFields($Object,[string[]]$Keys) {
+    if($Object -isnot [Collections.IDictionary] -or $Object.Count -ne $Keys.Count -or @($Object.Keys|Where-Object {$_ -cnotin $Keys}).Count){throw 'LOCAL_TLS_UNREGISTERED_FIELD'}
+}
+function Assert-LocalTlsWindow($Approval) {
+    $s=$Approval.scope;$now=Get-FinalDeploymentUtc
+    $from=[DateTimeOffset]::Parse($s.from);$until=[DateTimeOffset]::Parse($s.until)
+    if($from -ne [DateTimeOffset]::Parse('2026-10-09T16:52:53Z') -or $until -ne [DateTimeOffset]::Parse('2026-10-10T10:00:00Z') -or $now -lt $from -or $now -ge $until){throw 'LOCAL_TLS_APPROVAL_WINDOW_REFUSED'}
+}
+function Get-LocalTlsImmutableBinding($Config,[string]$InputSha) {
+    if(-not $Config.Contains('originalPublication')){return $InputSha}
+    Assert-FinalFile $Config.originalPublication
+    $original=Read-FinalDeploymentJson $Config.originalPublication.path
+    Assert-LocalTlsFields $original @('schema','approval','deployment','source','buildReceipt','jar','runtime','artifactRoot','publisherName','targetId','bridgeId')
+    if((Get-FinalWindowsReferencePath $Config.artifactRoot) -cne (Get-FinalWindowsReferencePath $original.artifactRoot)){throw 'LOCAL_TLS_IMMUTABLE_PROFILE_DRIFT'}
+    foreach($key in @('schema','publisherName','targetId','bridgeId')){if($Config[$key] -cne $original[$key]){throw 'LOCAL_TLS_IMMUTABLE_PROFILE_DRIFT'}}
+    foreach($key in @('approval','source','buildReceipt','jar','runtime')){
+        if($Config[$key].path -cne $original[$key].path -or $Config[$key].sha256 -cne $original[$key].sha256){throw 'LOCAL_TLS_IMMUTABLE_PROFILE_DRIFT'}}
+    Assert-FinalFile $original.deployment
+    $before=Read-FinalDeploymentJson $original.deployment.path;$current=Read-FinalDeploymentJson $Config.deployment.path
+    if($before.Count -ne $current.Count){throw 'LOCAL_TLS_IMMUTABLE_DEPLOYMENT_DRIFT'}
+    foreach($key in $before.Keys){
+        if($key -cin @('initializationReceipt','inventoryReceipt')){continue}
+        if((ConvertTo-Json $before[$key] -Depth 40 -Compress) -cne (ConvertTo-Json $current[$key] -Depth 40 -Compress)){throw 'LOCAL_TLS_IMMUTABLE_DEPLOYMENT_DRIFT'}}
+    return $Config.originalPublication.sha256
+}
+function Get-LocalTlsPublicationPlan($Config,[string]$ConfigSha,[switch]$ForStop) {
+    $fields=@('schema','approval','deployment','source','buildReceipt','jar','runtime','artifactRoot','publisherName','targetId','bridgeId')
+    if($Config -is [Collections.IDictionary] -and $Config.Contains('originalPublication')){$fields+='originalPublication'}
+    Assert-LocalTlsFields $Config $fields
+    if($Config.schema -cne 'SINGLE_DATABASE_LOCAL_TLS_PUBLICATION/v1' -or $ConfigSha -cnotmatch '^[a-f0-9]{64}$' -or
+       $Config.targetId -cne '9b0037591eef0fae1ec5da5c10adbd78d1d49d741741476389542fb70ad83c1f' -or
+       $Config.bridgeId -cne '3fc351592a63a334572db0a34af42b586da11586350ffc4e6450835bc956c5bb' -or
+       $Config.publisherName -cne 'agent-platform-single-final-consultation-publish-20261010'){throw 'LOCAL_TLS_EXACT_SCOPE_REQUIRED'}
+    $refs=@($Config.approval,$Config.deployment,$Config.buildReceipt)
+    if(-not $ForStop){$refs+=@($Config.source,$Config.jar,$Config.runtime)}
+    foreach($r in $refs){Assert-FinalFile $r}
+    $bindingSha=Get-LocalTlsImmutableBinding $Config $ConfigSha
+    if($Config.approval.sha256 -cne '0ccc41da4821be50412ceee95a9fd27db2b23f0ebca07460c86ad3b0714863a7'){throw 'LOCAL_TLS_ORIGINAL_APPROVAL_SHA_REQUIRED'}
+    $approval=Read-FinalDeploymentJson $Config.approval.path
+    $s=$approval.scope
+    if($approval.format -cne 'SINGLE_DATABASE_LOCAL_TLS_PUBLISH_APPROVAL/v1' -or $approval.approvalGranted -ne $true -or
+       $approval.approvalId -cne 'APPROVAL-LOCAL-TLS-PUBLISH-20261010-33' -or
+       $approval.sourceThreadId -cne '01a12159-ccfb-7402-b371-57986aeb1e88' -or
+       $approval.sourceTurnId -cne '01a12194-f949-7ab3-86b9-9005a14b1349' -or
+       $approval.sourceUserMessageId -cne '01a12194-f966-7c90-a4c6-e7da31bdb944' -or
+       $s.role -cne 'formal-localhost-tcp-tls-passthrough' -or $s.domain -cne 'consultation' -or $s.targetId -cne $Config.targetId -or
+       $s.targetNetworkId -cne '047a31bbbe9c568ed7cfb3099195432c091ec1d3de595f6375d1e2ce06c4ad65' -or
+       $s.hostIp -cne '127.0.0.1' -or $s.hostPort -ne 5446 -or $s.targetPort -ne 8443 -or
+       $s.memoryBytes -ne 134217728 -or $s.nanoCpus -ne 50000000 -or $s.totalMemoryBytes -ne 7516192768 -or $s.totalNanoCpus -ne 4000000000 -or
+       $s.tlsTermination -ne $false -or $s.privateKeyReadOrCopy -ne $false -or $s.applicationEgressChange -ne $false -or $s.businessPermissionChange -ne $false){throw 'LOCAL_TLS_HUMAN_SCOPE_REQUIRED'}
+    Assert-FinalFile $approval.humanMessage;Assert-FinalFile $approval.requestExactExcerpt
+    if((Get-Content -LiteralPath $approval.humanMessage.path -Raw) -cne "批准；感觉有点看不懂`n"){throw 'LOCAL_TLS_ORIGINAL_HUMAN_MESSAGE_REQUIRED'}
+    Assert-LocalTlsWindow $approval
+    $deployment=Read-FinalDeploymentJson $Config.deployment.path
+    if($ForStop){
+        # Rollback never requires a fresh DB inventory, target uptime or decryption of target credentials.
+        if($deployment.schema -cne 'SINGLE_DATABASE_APPLICATION_DEPLOYMENT/v1' -or $deployment.image -cne 'sha256:14731f0ec76c841877c8858e1a29413d7acacda5c5ce567eaf6e5f19913b7cb1' -or $deployment.applications.Count -ne 1){throw 'LOCAL_TLS_FIXED_DEPLOYMENT_REQUIRED'}
+        $plan=@{applications=@(@{input=$deployment.applications[0]})}
+    }else{$plan=Get-FinalDeploymentPlan $deployment}
+    if($plan.applications.Count -ne 1 -or $plan.applications[0].input.domain -cne 'consultation' -or
+       $plan.applications[0].input.jar.sha256 -cne '69d8462924cd920bbda3d501b92b0b3f492f49844f1f3e7ca811f6dd7c217e1d' -or
+       $plan.applications[0].input.properties.sha256 -cne '60dd2358995082d7873e164586b8ce6ba43ffe6bd91d8b634127b641625061bc' -or
+       $deployment.networkId -cne $s.targetNetworkId){throw 'LOCAL_TLS_FIXED25_REQUIRED'}
+    $root=Get-FinalWindowsReferencePath $Config.artifactRoot
+    $expectedRoot=Get-FinalWindowsReferencePath ([IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../../docs/evidence/single-database-installation-20261009/approved-execution/owned-image-binding26/local-tls-publish33')))
+    if($root -cne $expectedRoot -or (Get-FinalWindowsReferencePath $Config.source.path) -cne (Get-FinalWindowsReferencePath ([IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../java/LocalTlsPublisher.java')))) -or
+       (Get-FinalWindowsReferencePath $Config.jar.path) -cne ($root+'/local-tls-publisher.jar') -or
+       (Get-FinalWindowsReferencePath $Config.runtime.path) -cne ($root+'/runtime.properties')){throw 'LOCAL_TLS_ARTIFACT_SCOPE_REQUIRED'}
+    $build=Read-FinalDeploymentJson $Config.buildReceipt.path
+    if($build.format -cne 'LOCAL_TLS_PUBLISHER_BUILD/v1' -or $build.exitCode -ne 0 -or
+       $build.source.sha256 -cne $Config.source.sha256 -or $build.jar.sha256 -cne $Config.jar.sha256 -or
+       $build.tests.failed -ne 0 -or $build.tests.skipped -ne 0 -or $build.tests.passed -lt 8){throw 'LOCAL_TLS_FROZEN_BUILD_REQUIRED'}
+    if($ForStop){
+        # Read only the approved directory handle: stopping the owned role must work even if an artifact is missing.
+        $physicalRoot=Get-FinalHandleWindowsPath $root $true
+        Assert-FinalPhysicalReferencePaths ($root+'/local-tls-publisher.jar') $root ($physicalRoot+'/local-tls-publisher.jar') $physicalRoot
+        $jarSource=$physicalRoot+'/local-tls-publisher.jar';$runtimeSource=$physicalRoot+'/runtime.properties'
+    }else{
+        $jarSource=Get-FinalPhysicalWindowsReference $Config.jar $root
+        $runtimeSource=Get-FinalPhysicalWindowsReference $Config.runtime $root
+    }
+    $app=$plan.applications[0];if(-not $ForStop){$app.launchCommand=Get-FinalApplicationLaunchCommand $app}
+    $launch="if ! (test -f /publisher/relay.jar && test ! -L /publisher/relay.jar && test `"`$(sha256sum /publisher/relay.jar | cut -d ' ' -f1)`" = '$($Config.jar.sha256)' && test -f /publisher/runtime.properties && test ! -L /publisher/runtime.properties && test `"`$(sha256sum /publisher/runtime.properties | cut -d ' ' -f1)`" = '$($Config.runtime.sha256)'); then echo LOCAL_TLS_REFERENCE_BYTES_REQUIRED >&2; exit 78; fi; exec java -Xms16m -Xmx48m -XX:MaxMetaspaceSize=32m -XX:ReservedCodeCacheSize=16m -XX:MaxDirectMemorySize=8m -Xss256k -XX:+UseSerialGC -XX:ActiveProcessorCount=1 -jar /publisher/relay.jar /publisher/runtime.properties"
+    return @{config=$Config;sha=$bindingSha;inputSha=$ConfigSha;approval=$approval;deployment=$deployment;deploymentPlan=$plan;app=$app;jarSource=$jarSource;runtimeSource=$runtimeSource;launch=$launch}
+}
+function Get-LocalTlsInspect([string]$Id) {return @(Invoke-FinalDocker @('inspect',$Id)|ConvertFrom-Json -AsHashtable)[0]}
+function Assert-LocalTlsBudget($P,[string]$ExistingPublisher='') {
+    $ids=@(Invoke-FinalDocker @('ps','--no-trunc','--filter','label=task=IMP-SINGLE-DB-FINAL-BASELINE-01','--format','{{.ID}}'))
+    $allowed=@($P.config.targetId,'f3dfa7aa1911c3d59e4907acdaa478683d89cfb4c2a1c3c40a60fa297aef064f','ff4cbe405e70662b96fdb0e06d3f1704aa50a44a834c50a7f603c8deb3c7a096')
+    if($ExistingPublisher){$allowed+=$ExistingPublisher}
+    [long]$memory=0;[long]$cpu=0
+    foreach($id in $ids){if($id -cnotin $allowed){throw 'LOCAL_TLS_UNKNOWN_TARGET_WRITER'};$a=Get-LocalTlsInspect $id
+        if(-not $a.State.Running -or $a.HostConfig.Memory -le 0 -or $a.HostConfig.NanoCpus -le 0){throw 'LOCAL_TLS_ACTUAL_LIMIT_REQUIRED'}
+        $memory+=$a.HostConfig.Memory;$cpu+=$a.HostConfig.NanoCpus}
+    if($P.config.targetId -cnotin $ids -or $allowed[1] -cnotin $ids){throw 'LOCAL_TLS_REQUIRED_RUNTIME_MISSING'}
+    if(-not $ExistingPublisher -or $ExistingPublisher -cnotin $ids){$memory+=134217728;$cpu+=50000000}
+    if($memory -gt 7516192768 -or $cpu -gt 4000000000){throw 'LOCAL_TLS_TOTAL_BUDGET_REFUSED'}
+    return @{memoryBytes=$memory;nanoCpus=$cpu}
+}
+function Assert-LocalTlsTarget($P,[string]$ExistingPublisher='') {
+    $null=Assert-FinalApproval $P.deployment;Assert-FinalExecutionInputs $P.deployment;Assert-FinalOwnedRuntime $P.deployment $P.deploymentPlan
+    $a=Get-LocalTlsInspect $P.config.targetId
+    if(-not $a.State.Running -or $a.State.Pid -le 0 -or $a.Image -cne $P.deployment.image){throw 'LOCAL_TLS_TARGET_NOT_RUNNING'}
+    Assert-FinalCreatedApplication $P.config.targetId $P.app $P.deployment
+    $expected=@{}+$P.app.values;$observed=@{}
+    try {
+        foreach($key in $P.app.secretRefs.Keys){$expected[$key]=Read-FinalManagedSecret $P.app.secretRefs[$key]}
+        foreach($entry in $a.Config.Env){$pair=$entry.Split('=',2);if($pair.Count -eq 2){if($observed.Contains($pair[0])){throw 'LOCAL_TLS_TARGET_ENV_DRIFT'};$observed[$pair[0]]=$pair[1]}}
+        foreach($key in $expected.Keys){if(-not $observed.Contains($key) -or $observed[$key] -cne [string]$expected[$key]){throw 'LOCAL_TLS_TARGET_ENV_DRIFT'}}
+        foreach($key in $observed.Keys){if($key -clike 'SINGLE_DB_*' -and -not $expected.Contains($key)){throw 'LOCAL_TLS_TARGET_ENV_DRIFT'}}
+    }finally{$expected.Clear();$observed.Clear()}
+    $network=$a.NetworkSettings.Networks[$P.deployment.network]
+    if($network.IPAddress -cnotmatch '^172\.25\.(?:[0-9]{1,3})\.(?:[0-9]{1,3})$' -or $network.DNSNames -cnotcontains $P.config.targetId.Substring(0,12) -or [string]::IsNullOrEmpty($network.EndpointID)){throw 'LOCAL_TLS_TARGET_DNS_REQUIRED'}
+    $n=@(Invoke-FinalDocker @('network','inspect',$P.deployment.networkId)|ConvertFrom-Json -AsHashtable)[0]
+    if($n.IPAM.Config.Count -ne 1 -or $n.IPAM.Config[0].Subnet -cne '172.25.0.0/16'){throw 'LOCAL_TLS_INTERNAL_SUBNET_DRIFT'}
+    foreach($id in $n.Containers.Keys){if($id -ceq $P.config.targetId){continue};$peer=Get-LocalTlsInspect $id
+        $binding=$peer.NetworkSettings.Networks[$P.deployment.network]
+        if($binding.DNSNames -ccontains $P.config.targetId.Substring(0,12) -or $binding.Aliases -ccontains $P.config.targetId.Substring(0,12)){throw 'LOCAL_TLS_TARGET_DNS_COLLISION'}}
+    $bridge=@(Invoke-FinalDocker @('network','inspect',$P.config.bridgeId)|ConvertFrom-Json -AsHashtable)[0]
+    if($bridge.Id -cne $P.config.bridgeId -or $bridge.Name -cne 'bridge' -or $bridge.Internal -or $bridge.Driver -cne 'bridge' -or
+       $bridge.Options.'com.docker.network.bridge.default_bridge' -cne 'true' -or $bridge.IPAM.Config.Count -ne 1 -or $bridge.IPAM.Config[0].Subnet -cne '172.17.0.0/16'){throw 'LOCAL_TLS_EXISTING_BRIDGE_REQUIRED'}
+    $text="version=LOCAL_TLS_PUBLISH/v1`ntargetId=$($P.config.targetId)`ntargetDns=$($P.config.targetId.Substring(0,12))`ntargetIp=$($network.IPAddress)`ninternalSubnet=172.25.0.0/16`npublishSubnet=172.17.0.0/16`nlistenPort=8443`ntargetPort=8443`nmaxConnections=16`nconnectMillis=5000`nidleMillis=30000`n"
+    if((Get-Content -LiteralPath $P.config.runtime.path -Raw) -cne $text){throw 'LOCAL_TLS_RUNTIME_TARGET_DRIFT'}
+    $checks=@("test `"`$(stat -c '%u:%g:%a' /product/files/consultation)`" = '10001:10001:700'","test `"`$(stat -c '%u:%g:%a' /product/files/consultation/source-evidence)`" = '10001:10001:700'")
+    foreach($r in @(@{target='/app/platform-api.jar';sha256=$P.app.input.jar.sha256},@{target='/app/application.properties';sha256=$P.app.input.properties.sha256})+@($P.app.input.mounts)){
+        $checks+="test -f '$($r.target)' && test ! -L '$($r.target)' && test `"`$(sha256sum '$($r.target)' | cut -d ' ' -f1)`" = '$($r.sha256)'"}
+    $shell='if ! ('+($checks -join ' && ')+'); then exit 78; fi; echo LOCAL_TLS_TARGET_SIX_BYTES_OK'
+    $output=Invoke-FinalDocker @('exec','--user','10001:10001',$P.config.targetId,'sh','-c',$shell)
+    if([string]$output -cne 'LOCAL_TLS_TARGET_SIX_BYTES_OK'){throw 'LOCAL_TLS_TARGET_BYTES_REFUSED'}
+    $budget=Assert-LocalTlsBudget $P $ExistingPublisher
+    return @{targetIp=$network.IPAddress;endpointId=$network.EndpointID;budget=$budget}
+}
+function Get-LocalTlsCreateArguments($P) {
+    return @('create','--name',$P.config.publisherName,'--user','10010:10010','--read-only','--cap-drop','ALL','--security-opt','no-new-privileges','--memory','128m','--cpus','0.05','--pids-limit','64','--sysctl','net.ipv4.ip_forward=0','--sysctl','net.ipv6.conf.all.forwarding=0','--restart','no','--network',$P.config.bridgeId,
+        '--label','task=IMP-SINGLE-DB-FINAL-BASELINE-01','--label','agent-platform.role=consultation-local-tls-publisher','--label','agent-platform.domain=consultation','--label',"agent-platform.target-id=$($P.config.targetId)",'--label',"agent-platform.publication-sha256=$($P.sha)",
+        '--tmpfs','/tmp:rw,nosuid,nodev,noexec,size=16m,uid=10010,gid=10010,mode=700','--publish','127.0.0.1:5446:8443',
+        '--mount',"type=bind,source=$($P.jarSource),target=/publisher/relay.jar,readonly",'--mount',"type=bind,source=$($P.runtimeSource),target=/publisher/runtime.properties,readonly",'--entrypoint','sh',$P.deployment.image,'-c',$P.launch)
+}
+function Assert-LocalTlsRuntimeBytes($P,[string]$Id) {
+    $shell="if ! (test -f /publisher/relay.jar && test ! -L /publisher/relay.jar && test `"`$(sha256sum /publisher/relay.jar | cut -d ' ' -f1)`" = '$($P.config.jar.sha256)' && test -f /publisher/runtime.properties && test ! -L /publisher/runtime.properties && test `"`$(sha256sum /publisher/runtime.properties | cut -d ' ' -f1)`" = '$($P.config.runtime.sha256)'); then exit 78; fi; echo LOCAL_TLS_RUNTIME_BYTES_OK"
+    if([string](Invoke-FinalDocker @('exec','--user','10010:10010',$Id,'sh','-c',$shell)) -cne 'LOCAL_TLS_RUNTIME_BYTES_OK'){throw 'LOCAL_TLS_ACTUAL_MOUNTED_BYTES_REQUIRED'}
+}
+function Assert-LocalTlsPublisher($P,[string]$Id,[switch]$Running,[switch]$BridgeOnly,[switch]$ForStop) {
+    if($Id -cnotmatch '^[a-f0-9]{64}$' -or $Id -ceq $P.config.targetId){throw 'LOCAL_TLS_EXACT_PUBLISHER_ID_REQUIRED'}
+    $a=Get-LocalTlsInspect $Id
+    if($a.Id -cne $Id -or $a.Name -cne ('/'+$P.config.publisherName) -or $a.Image -cne $P.deployment.image -or
+       $a.Config.User -cne '10010:10010' -or $a.Config.Labels.task -cne 'IMP-SINGLE-DB-FINAL-BASELINE-01' -or
+       $a.Config.Labels.'agent-platform.role' -cne 'consultation-local-tls-publisher' -or $a.Config.Labels.'agent-platform.domain' -cne 'consultation' -or
+       $a.Config.Labels.'agent-platform.target-id' -cne $P.config.targetId -or $a.Config.Labels.'agent-platform.publication-sha256' -cne $P.sha -or
+       (@($a.Config.Entrypoint) -join ',') -cne 'sh' -or (@($a.Config.Cmd) -join "`n") -cne ('-c'+"`n"+$P.launch) -or
+       $a.HostConfig.Privileged -or -not $a.HostConfig.ReadonlyRootfs -or @($a.HostConfig.CapDrop).Count -ne 1 -or $a.HostConfig.CapDrop[0] -cne 'ALL' -or
+       ($a.HostConfig.CapAdd -and @($a.HostConfig.CapAdd).Count) -or $a.HostConfig.SecurityOpt -cnotcontains 'no-new-privileges' -or
+       $a.HostConfig.Memory -ne 134217728 -or $a.HostConfig.NanoCpus -ne 50000000 -or $a.HostConfig.PidsLimit -ne 64 -or $a.HostConfig.RestartPolicy.Name -cne 'no' -or
+       $a.HostConfig.NetworkMode -cne $P.config.bridgeId -or $a.HostConfig.Sysctls.Count -ne 2 -or
+       $a.HostConfig.Sysctls.'net.ipv4.ip_forward' -cne '0' -or $a.HostConfig.Sysctls.'net.ipv6.conf.all.forwarding' -cne '0'){throw 'LOCAL_TLS_PUBLISHER_DRIFT'}
+    $image=@(Invoke-FinalDocker @('image','inspect',$P.deployment.image)|ConvertFrom-Json -AsHashtable)[0]
+    if(($image.Config.Volumes -and $image.Config.Volumes.Count) -or ((@($a.Config.Env)|Sort-Object)-join "`n") -cne ((@($image.Config.Env)|Sort-Object)-join "`n")){throw 'LOCAL_TLS_NO_SECRET_ENV_REQUIRED'}
+    if($a.HostConfig.Mounts.Count -ne 2 -or $a.Mounts.Count -ne 2 -or $a.HostConfig.Tmpfs.Count -ne 1 -or $a.HostConfig.Tmpfs['/tmp'] -cne 'rw,nosuid,nodev,noexec,size=16m,uid=10010,gid=10010,mode=700'){throw 'LOCAL_TLS_NO_SECRET_MOUNTS_REQUIRED'}
+    foreach($x in @(@('/publisher/relay.jar',$P.jarSource),@('/publisher/runtime.properties',$P.runtimeSource))){
+        $mapped='/run/desktop/mnt/host/'+$x[1].Substring(0,1).ToLowerInvariant()+'/'+$x[1].Substring(3)
+        $m=@($a.HostConfig.Mounts|Where-Object Target -CEQ $x[0]);$actual=@($a.Mounts|Where-Object Destination -CEQ $x[0])
+        $created=$a.State.Status -ceq 'created' -and $a.State.Running -eq $false -and $a.State.Pid -eq 0
+        # Docker Desktop may keep the exact handle-resolved Windows source even when running.
+        # Such metadata alone is insufficient: every running admission separately verifies both mounted byte SHAs.
+        $sourceMatches=$actual.Count -eq 1 -and ($actual[0].Source -ceq $mapped -or (($created -or $a.State.Running -or $ForStop) -and $actual[0].Source -ceq $x[1]))
+        if($m.Count -ne 1 -or $m[0].Type -cne 'bind' -or $m[0].ReadOnly -ne $true -or $m[0].Source -cne $x[1] -or
+           $actual.Count -ne 1 -or $actual[0].Type -cne 'bind' -or -not $sourceMatches -or $actual[0].RW -ne $false){throw 'LOCAL_TLS_REFERENCE_MOUNT_DRIFT'}}
+    $ports=$a.HostConfig.PortBindings
+    if($ports.Count -ne 1 -or @($ports['8443/tcp']).Count -ne 1 -or $ports['8443/tcp'][0].HostIp -cne '127.0.0.1' -or $ports['8443/tcp'][0].HostPort -cne '5446'){throw 'LOCAL_TLS_LOCALHOST_ONLY_REQUIRED'}
+    $nets=$a.NetworkSettings.Networks;$count=if($BridgeOnly){1}else{2}
+    if($nets.Count -ne $count -or -not $nets.Contains('bridge') -or (-not $BridgeOnly -and -not $nets.Contains($P.deployment.network))){throw 'LOCAL_TLS_EXACT_NETWORKS_REQUIRED'}
+    foreach($binding in @(@('bridge',$P.config.bridgeId),@($P.deployment.network,$P.deployment.networkId))){
+        if($BridgeOnly -and $binding[0] -cne 'bridge'){continue};$n=$nets[$binding[0]]
+        if($n.NetworkID -cne $binding[1] -and -not ($a.State.Status -ceq 'created' -and [string]::IsNullOrEmpty($n.NetworkID))){throw 'LOCAL_TLS_EXACT_NETWORKS_REQUIRED'}}
+    if($a.State.Running -and -not $ForStop){Assert-LocalTlsRuntimeBytes $P $Id}
+    if($Running -and -not $ForStop){
+        $p=@($a.NetworkSettings.Ports['8443/tcp'])
+        if(-not $a.State.Running -or $a.State.Pid -le 0 -or $p.Count -ne 1 -or $p[0].HostIp -cne '127.0.0.1' -or $p[0].HostPort -cne '5446'){throw 'LOCAL_TLS_ACTUAL_LOCALHOST_PORT_REQUIRED'}
+    }elseif(-not $ForStop -and $a.State.Status -cne 'created' -and -not $a.State.Running){throw 'LOCAL_TLS_PRESERVE_FAILED_PUBLISHER'}
+    return $a
+}
+function Invoke-FinalLocalTlsPublisher($Config,[string]$ConfigSha,[switch]$ValidateOnly) {
+    $p=Get-LocalTlsPublicationPlan $Config $ConfigSha
+    $mutex=[Threading.Mutex]::new($false,('Local\AgentPlatform-Final-Recovery-'+$p.deployment.manifestSha256+'-consultation'));$locked=$false;$id=''
+    try {
+        if(-not $mutex.WaitOne(0)){throw 'LOCAL_TLS_ALREADY_OWNED'};$locked=$true
+        $names=@(Invoke-FinalDocker @('ps','-a','--format','{{.Names}}'))
+        if($p.config.publisherName -cin $names){$id=(Get-LocalTlsInspect $p.config.publisherName).Id}
+        $target=Assert-LocalTlsTarget $p $id
+        if($ValidateOnly){return @{scope='EXACT_LOCAL_TLS_PUBLICATION_PREFLIGHT_ONLY';targetId=$Config.targetId;targetIp=$target.targetIp;budget=$target.budget;publisherCreated=$false;secretsInPublisher=$false}}
+        if(-not $id){
+            Assert-LocalTlsWindow $p.approval
+            try{$created=[string](Invoke-FinalDocker (Get-LocalTlsCreateArguments $p));if($created -cnotmatch '^[a-f0-9]{64}$'){throw 'LOCAL_TLS_CREATE_RESULT_UNKNOWN'};$id=$created}
+            catch{
+                # Do not repeat create after an unknown exit; only exact-name/complete immutable binding may resume.
+                $known=@(Invoke-FinalDocker @('ps','-a','--format','{{.Names}}'))
+                if($p.config.publisherName -cnotin $known){throw 'LOCAL_TLS_CREATE_REFUSED_PRESERVED'}
+                $id=(Get-LocalTlsInspect $p.config.publisherName).Id;$null=Assert-LocalTlsPublisher $p $id -BridgeOnly
+                throw 'LOCAL_TLS_CREATE_RESULT_UNKNOWN_RECONCILE_REQUIRED'
+            }
+        }
+        $actual=Get-LocalTlsInspect $id
+        if($actual.NetworkSettings.Networks.Count -eq 1){
+            $null=Assert-LocalTlsPublisher $p $id -BridgeOnly
+            if($actual.State.Status -cne 'created'){throw 'LOCAL_TLS_CREATED_CONNECTION_REQUIRED'}
+            Assert-LocalTlsWindow $p.approval;$null=Invoke-FinalDocker @('network','connect',$p.deployment.networkId,$id)
+        }
+        $actual=Assert-LocalTlsPublisher $p $id
+        if(-not $actual.State.Running){
+            $null=Assert-LocalTlsTarget $p $id;Assert-LocalTlsWindow $p.approval;$null=Invoke-FinalDocker @('start',$id)
+        }
+        $null=Assert-LocalTlsPublisher $p $id -Running
+        $null=Assert-LocalTlsTarget $p $id
+        return @{scope='ACTUAL_LOCAL_TLS_TRANSPORT_NOT_TLS_OR_BUSINESS_ACCEPTANCE';publisherId=$id;targetId=$Config.targetId;hostBinding='127.0.0.1:5446';tlsTerminated=$false;privateKeyMounted=$false;applicationEgressChanged=$false;budget=(Assert-LocalTlsBudget $p $id);businessVerified=$false}
+    }finally{if($locked){$mutex.ReleaseMutex()};$mutex.Dispose()}
+}
+function Stop-FinalLocalTlsPublisher($Config,[string]$ConfigSha,[string]$Id) {
+    # Stop requires original immutable publication binding, not target health or a new business authority.
+    $p=Get-LocalTlsPublicationPlan $Config $ConfigSha -ForStop;Assert-LocalTlsWindow $p.approval
+    $mutex=[Threading.Mutex]::new($false,('Local\AgentPlatform-Final-Recovery-'+$p.deployment.manifestSha256+'-consultation'));$locked=$false
+    try{if(-not $mutex.WaitOne(0)){throw 'LOCAL_TLS_ALREADY_OWNED'};$locked=$true
+        $before=Assert-LocalTlsPublisher $p $Id -ForStop;if(-not $before.State.Running){return @{scope='EXACT_PUBLISHER_ALREADY_STOPPED_PRESERVED';publisherId=$Id;preserved=$true;originalApplicationStopped=$false}};Assert-LocalTlsWindow $p.approval
+        $null=Invoke-FinalDocker @('stop','--time','10',$Id);$a=Get-LocalTlsInspect $Id
+        if($a.State.Running -or $a.State.Pid -ne 0){throw 'LOCAL_TLS_STOP_UNCERTAIN'}
+        return @{scope='EXACT_PUBLISHER_REVERSIBLE_STOP_ONLY';publisherId=$Id;preserved=$true;originalApplicationStopped=$false}
+    }finally{if($locked){$mutex.ReleaseMutex()};$mutex.Dispose()}
+}

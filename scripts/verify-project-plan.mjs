@@ -1,4 +1,7 @@
+import { readJavaRunEvidence } from "./lib/java-run-evidence.mjs";
+import { planHealthExitCode } from "./lib/verification-stages.mjs";
 import fs from "node:fs";
+import { parseDependencies, parseTaskRows, executionEligibility, reverseDependencies } from "./lib/plan-dependencies.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -12,6 +15,8 @@ for (const file of [planPath, jsonPath, htmlPath]) if (!fs.existsSync(file)) thr
 const markdown = fs.readFileSync(planPath, "utf8");
 const html = fs.readFileSync(htmlPath, "utf8");
 const plan = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+const javaRun = readJavaRunEvidence(rootDir, markdown);
+for (const [key, value] of Object.entries(javaRun)) if (plan.actualEvidence?.java?.[key] !== value) throw new Error(`Java run evidence differs from master-plan originals: ${key}`);
 const currentTaskId = markdown.match(/^当前(?:唯一主|优先)任务：\s*`([^`\s]+)[^`]*`/m)?.[1];
 const planVersion = markdown.match(/^计划版本：([^\s]+)/m)?.[1];
 const clean = (value) => String(value ?? "").replace(/\*\*/g, "").replace(/`/g, "").replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1");
@@ -49,11 +54,30 @@ for (const [key, value] of Object.entries(expectedMaturity)) {
 if (!html.includes("合成 V0 ≠ 正式需求完成") || !html.includes("技术执行任务进度（次要指标）")) throw new Error("Dashboard does not distinguish formal requirement progress from technical task progress");
 
 const taskMap = new Map(plan.tasks.map((task) => [task.id, task]));
+
+const sourceRows = parseTaskRows(markdown);
+const knownTaskIds = new Set(sourceRows.map(row => row.taskId));
+if (JSON.stringify([...knownTaskIds]) !== JSON.stringify(plan.tasks.map(task => task.id))) throw new Error("Task IDs differ between source table and JSON");
+for (const row of sourceRows) {
+  const actual = taskMap.get(row.taskId);
+  const expected = parseDependencies(clean(row["前置任务"]), knownTaskIds, { allowGates: true, notes: clean(row["备注"]) });
+  const following = parseDependencies(clean(row["后续任务"]), knownTaskIds).ids;
+  if (actual.predecessors !== clean(row["前置任务"]) || actual.successors !== clean(row["后续任务"])) throw new Error(`Dependency text drift: ${row.taskId}`);
+  if (JSON.stringify(actual.predecessorIds) !== JSON.stringify(expected.ids) || JSON.stringify(actual.dependencyGates) !== JSON.stringify(expected.gates)) throw new Error(`Dependency or gate omitted: ${row.taskId}`);
+  if (JSON.stringify(actual.declaredSuccessorIds) !== JSON.stringify(following)) throw new Error(`Successor navigation drift: ${row.taskId}`);
+  const state = executionEligibility(actual, taskMap, actual.stageGate?.satisfied).state;
+  if (actual.executionState !== state) throw new Error(`Execution admission drift: ${row.taskId}`);
+}
+const hardGraph = reverseDependencies(plan.tasks);
+for (const task of plan.tasks) {
+  if (JSON.stringify(task.successorIds) !== JSON.stringify([...hardGraph.get(task.id)])) throw new Error(`Hard dependency graph drift: ${task.id}`);
+}
+
 for (const id of plan.derived.readyTaskIds) {
   const task = taskMap.get(id);
   if (!task) throw new Error(`READY references missing task ${id}`);
   if (task.executionState !== "READY" || task.status === "阻塞") throw new Error(`READY/BLOCKED conflict for ${id}`);
-  if (!task.stageGate?.satisfied) throw new Error(`READY task ${id} has an unmet stage gate`);
+  if (!task.stageGate?.satisfied || task.dependencyGates?.length) throw new Error(`READY task ${id} has an unmet gate`);
   const unfinished = task.predecessorIds.filter((dependency) => !["已完成", "已验证", "已验收", "跳过"].includes(taskMap.get(dependency)?.status));
   if (unfinished.length) throw new Error(`READY task ${id} has unfinished predecessors: ${unfinished.join(", ")}`);
 }
@@ -83,6 +107,11 @@ if (criticalIds.size !== classifiedIds.size || [...criticalIds].some((id) => !cl
 if (!(plan.derived.criticalPathScore > 0)) throw new Error("Weighted critical path score is missing");
 if (plan.derived.health.errorCount) {
   const details = plan.derived.health.issues.filter((issue) => issue.severity === "error").map((issue) => `${issue.code}:${issue.taskId ?? "project"}`).join(", ");
+  const code = planHealthExitCode(plan.derived.health.issues);
+  if (code === 2) {
+    console.error(`Project plan health errors: ${details}`);
+    process.exit(2);
+  }
   throw new Error(`Project plan health errors: ${details}`);
 }
 

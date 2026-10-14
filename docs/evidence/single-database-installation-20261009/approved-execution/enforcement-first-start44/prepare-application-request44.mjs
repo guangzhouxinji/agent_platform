@@ -1,0 +1,10 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import path from 'node:path';
+import {canonical} from '../../../../../scripts/lib/single-database-lifecycle-runtime.mjs';
+const a=path.resolve('docs/evidence/single-database-installation-20261009/approved-execution/enforcement-first-start44'),e=path.dirname(a);
+const json=async f=>JSON.parse((await readFile(f,'utf8')).replace(/^\uFEFF/,''));
+const baseline=await json(path.join(e,'adjudication-runtime40/application-installation-request40.json'));
+const inventory=await json(path.join(a,'fresh-post-bootstrap44.json'));
+if(!inventory.actualJdbc||!inventory.complete||inventory.targetId!==baseline.inventory.targetId)throw Error('ACTUAL_FULL_INVENTORY_REQUIRED');
+const request={stage:'application-settings',deployment:baseline.deployment,inventory};
+await writeFile(path.join(a,'application-installation-request44.json'),JSON.stringify(request,null,2)+'\n',{flag:'wx'});

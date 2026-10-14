@@ -6,8 +6,9 @@ import cn.xinji.agentplatform.modelconfig.ManagedModelConfigurationService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import cn.xinji.agentplatform.runtime.ModelGateway;
+import cn.xinji.agentplatform.model.gateway.OpenAiModelGateway;
+import java.util.Set;
 import java.text.Normalizer;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -57,12 +58,18 @@ final class ExternalModelIntentAdvisor {
             String contextualQuestion = context == null || context.isEmpty() ? question
                     : "当前问题：" + question + "\n允许上下文：" + String.join("\n", context);
             messages.addObject().put("role", "user").put("content", contextualQuestion);
-            HttpRequest request = HttpRequest.newBuilder(endpoint.uri()).timeout(Duration.ofSeconds(20))
-                    .header("Authorization", "Bearer " + endpoint.apiKey()).header("Content-Type", "application/json")
-                    .header("X-Client-Trace-Id", traceId).POST(HttpRequest.BodyPublishers.ofString(mapper.writeValueAsString(payload))).build();
-            HttpResponse<String> response = http.send(request, HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode() < 200 || response.statusCode() >= 300) return List.of();
-            JsonNode root = mapper.readTree(response.body());
+            String modelId=chain.getFirst();
+            var gateway=new OpenAiModelGateway(id->{
+                ModelEndpoint current=models.endpoint(id);
+                if(current==null || current.apiKey().isBlank())return null;
+                var config=new ModelGateway.Configuration(id,"managed-intent/v1","managed-provider",current.modelName(),
+                        current.uri(),"OPENAI_CHAT_COMPLETIONS",Duration.ofSeconds(20),1048576,1048576,
+                        Set.of("intent-extraction"),Set.of("existing-consultation-intent-input"));
+                return new OpenAiModelGateway.Connection(config,current.apiKey());
+            },mapper,http);
+            var response=gateway.invoke(new ModelGateway.Call(modelId,"intent-extraction","existing-consultation-intent-input",
+                    "DAILY_INTENT_EXTRACTION/v1","DAILY_INTENT_GROUNDED_SLOTS/v1",traceId,mapper.writeValueAsString(payload)));
+            JsonNode root = mapper.readTree(response.rawResponse());
             String content = root.path("choices").path(0).path("message").path("content").asText("");
             JsonNode answer = mapper.readTree(content.replaceAll("(?s)^```(?:json)?\\s*|\\s*```$", ""));
             String allowedInput = question + "\n" + (context == null ? "" : String.join("\n", context));

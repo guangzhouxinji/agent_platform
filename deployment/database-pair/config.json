@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "pairName": "agent-platform-db-pair",
+  "imageId": "sha256:6409a1d5435e933d8317a4ed141f4c8ef08bbd4ec91d3b4fe05155b8a3a88760",
+  "businessPort": 5431,
+  "authorityPort": 5432,
+  "domains": [
+    {
+      "domain": "consultation",
+      "businessSchema": "CON_BIZ",
+      "businessApp": "CON_BIZ_APP",
+      "authoritySchema": "CON_AUTH",
+      "authorityApp": "CON_AUTH_APP"
+    },
+    {
+      "domain": "enforcement",
+      "businessSchema": "ENF_BIZ",
+      "businessApp": "ENF_BIZ_APP",
+      "authoritySchema": "ENF_AUTH",
+      "authorityApp": "ENF_AUTH_APP"
+    },
+    {
+      "domain": "adjudication",
+      "businessSchema": "ADJ_BIZ",
+      "businessApp": "ADJ_BIZ_APP",
+      "authoritySchema": "ADJ_AUTH",
+      "authorityApp": "ADJ_AUTH_APP"
+    }
+  ]
+}

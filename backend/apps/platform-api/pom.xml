@@ -2,8 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent><groupId>cn.xinji</groupId><artifactId>agent-platform-backend</artifactId><version>0.0.1-SNAPSHOT</version><relativePath>../../pom.xml</relativePath></parent>
   <artifactId>agent-platform-api</artifactId>
-  <properties><platform.api.finalName>agent-platform-api-0.0.1-SNAPSHOT</platform.api.finalName></properties>
-  <dependencies>
+  <properties><platform.api.finalName>agent-platform-api-0.0.1-SNAPSHOT</platform.api.finalName><product.assets.legacy>false</product.assets.legacy><product.assets.enforcement>false</product.assets.enforcement><product.assets.adjudication>false</product.assets.adjudication><product.assets.consultation>false</product.assets.consultation><platform.api.outputDirectory>${project.build.directory}/classes</platform.api.outputDirectory><platform.api.testOutputDirectory>${project.build.directory}/test-classes</platform.api.testOutputDirectory></properties>
+  <dependencies><dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-kernel</artifactId></dependency>
     <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-consultation</artifactId></dependency>
     <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-patent</artifactId></dependency>
     <dependency><groupId>cn.xinji</groupId><artifactId>agent-platform-trademark</artifactId></dependency>
@@ -25,9 +25,65 @@
     <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
     <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><scope>test</scope></dependency>
   </dependencies>
-  <build><finalName>${platform.api.finalName}</finalName><plugins>
+  <build><outputDirectory>${platform.api.outputDirectory}</outputDirectory><testOutputDirectory>${platform.api.testOutputDirectory}</testOutputDirectory><finalName>${platform.api.finalName}</finalName><plugins>
     <plugin><groupId>org.springframework.boot</groupId><artifactId>spring-boot-maven-plugin</artifactId></plugin>
     <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><configuration><workingDirectory>${maven.multiModuleProjectDirectory}</workingDirectory></configuration></plugin>
   </plugins></build>
-  <profiles><profile><id>bundle-frontend</id><build><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>3.1.0</version><executions><execution><id>build-react-workbench</id><phase>generate-resources</phase><configuration><target><exec executable="npm.cmd" failonerror="true" dir="${maven.multiModuleProjectDirectory}"><arg value="--prefix"/><arg value="frontend"/><arg value="run"/><arg value="build"/></exec><copy todir="${project.build.outputDirectory}/static/app"><fileset dir="${maven.multiModuleProjectDirectory}/frontend/dist"/></copy></target></configuration><goals><goal>run</goal></goals></execution></executions></plugin></plugins></build></profile></profiles>
+  <profiles><profile><id>bundle-frontend</id><properties><product.assets.legacy>true</product.assets.legacy></properties><build><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>3.1.0</version><executions><execution><id>build-react-workbench</id><phase>generate-resources</phase><configuration><target><exec executable="npm.cmd" failonerror="true" dir="${maven.multiModuleProjectDirectory}"><arg value="--prefix"/><arg value="frontend"/><arg value="run"/><arg value="build"/></exec><copy todir="${project.build.outputDirectory}/static/app"><fileset dir="${maven.multiModuleProjectDirectory}/frontend/dist"/></copy></target></configuration><goals><goal>run</goal></goals></execution></executions></plugin></plugins></build></profile>
+    <profile><id>enf-document-draft-input-audit</id><build><plugins>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId>
+        <configuration><testIncludes>
+          <testInclude>cn/xinji/agentplatform/enforcement/documentdraft/DocumentDraftInputAuditTest.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/security/product/EnforcementDocumentDraftPreparationIT.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/security/product/EnforcementDocumentDraftFactRecordProductIT.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/security/product/EnforcementDocumentDraftPublicAdmissionIT.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/security/product/EnforcementDocumentDraftPublicMappingIT.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/security/product/EnforcementDocumentDraftPublicReconciliationIT.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/security/product/EnforcementDocumentDraftPublicReportSelectionIT.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/security/product/EnforcementDocumentDraftPublicLegalPreparationIT.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/security/product/EnforcementDocumentDraftPublicationCompatibilityTest.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/enforcement/conduct/ConductPublicationCompatibilityTest.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/enforcement/conduct/ConductEvaluatorTest.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/security/product/EnforcementDocumentDraftConductPublicationDm8IT.java</testInclude>
+          <testInclude>cn/xinji/agentplatform/security/product/EnforcementDocumentDraftInputAccessPreparationIT.java</testInclude>
+        </testIncludes></configuration>
+      </plugin>
+    </plugins></build></profile>
+    <profile><id>bundle-consultation</id>
+      <properties><product.assets.consultation>true</product.assets.consultation><platform.api.finalName>agent-platform-consultation-product-0.0.1-SNAPSHOT</platform.api.finalName><platform.api.outputDirectory>${project.build.directory}/consultation-product-classes</platform.api.outputDirectory></properties>
+      <build><plugins>
+        <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>3.1.0</version><executions>
+          <execution><id>reject-mixed-product-assets</id><phase>validate</phase><configuration><target>
+            <fail message="Consultation product cannot be bundled with the generic workbench"><condition><or><equals arg1="${product.assets.legacy}" arg2="true"/><equals arg1="${product.assets.adjudication}" arg2="true"/><equals arg1="${product.assets.enforcement}" arg2="true"/></or></condition></fail>
+          </target></configuration><goals><goal>run</goal></goals></execution>
+          <execution><id>build-consultation-product</id><phase>generate-resources</phase><configuration><target>
+            <exec executable="npm.cmd" failonerror="true" dir="${maven.multiModuleProjectDirectory}"><arg value="--prefix"/><arg value="frontend"/><arg value="run"/><arg value="build:consultation"/></exec>
+            <exec executable="node" failonerror="true" dir="${maven.multiModuleProjectDirectory}"><arg value="scripts/stage-consultation-product-assets.mjs"/></exec>
+          </target></configuration><goals><goal>run</goal></goals></execution>
+        </executions></plugin>
+      </plugins></build>
+    </profile>
+    <profile><id>enf-controlled-read-component</id><build><plugins>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId>
+        <configuration><testIncludes><testInclude>cn/xinji/agentplatform/enforcement/deployment/*Test.java</testInclude></testIncludes></configuration>
+      </plugin>
+    </plugins></build></profile>
+  <profile><id>bundle-adjudication</id>
+      <properties><product.assets.adjudication>true</product.assets.adjudication><platform.api.finalName>agent-platform-adjudication-product-0.0.1-SNAPSHOT</platform.api.finalName><platform.api.outputDirectory>${project.build.directory}/adjudication-product-classes</platform.api.outputDirectory></properties>
+      <build><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>3.1.0</version><executions>
+        <execution><id>reject-mixed-adjudication-assets</id><phase>validate</phase><configuration><target>
+          <fail message="Adjudication product requires its independent asset profile"><condition><or><equals arg1="${product.assets.legacy}" arg2="true"/><equals arg1="${product.assets.consultation}" arg2="true"/><equals arg1="${product.assets.enforcement}" arg2="true"/><not><equals arg1="${platform.api.outputDirectory}" arg2="${project.build.directory}/adjudication-product-classes"/></not></or></condition></fail>
+        </target></configuration><goals><goal>run</goal></goals></execution>
+        <execution><id>build-adjudication-product</id><phase>generate-resources</phase><configuration><target>
+          <exec executable="npm.cmd" failonerror="true" dir="${maven.multiModuleProjectDirectory}"><arg value="--prefix"/><arg value="frontend"/><arg value="run"/><arg value="build:adjudication"/></exec>
+          <exec executable="node" failonerror="true" dir="${maven.multiModuleProjectDirectory}"><arg value="scripts/stage-adjudication-product-assets.mjs"/></exec>
+        </target></configuration><goals><goal>run</goal></goals></execution>
+      </executions></plugin></plugins></build>
+    </profile><profile><id>enforcement-product-entry-component</id><properties><platform.api.outputDirectory>${project.build.directory}/enforcement-entry-main-classes21</platform.api.outputDirectory><platform.api.testOutputDirectory>${project.build.directory}/enforcement-entry-test-classes21</platform.api.testOutputDirectory></properties><build><plugins>
+  <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><configuration><testIncludes><testInclude>cn/xinji/agentplatform/enforcement/deployment/entry/EnforcementJobPackFinalPurposeTest.java</testInclude><testInclude>cn/xinji/agentplatform/enforcement/deployment/entry/ProductEnforcementEntryPolicyTest.java</testInclude><testInclude>cn/xinji/agentplatform/enforcement/deployment/entry/ProductEnforcementEntryFilterTest.java</testInclude><testInclude>cn/xinji/agentplatform/enforcement/deployment/entry/ProductEnforcementWorkspacePageControllerTest.java</testInclude></testIncludes></configuration></plugin>
+  <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><configuration><forkCount>0</forkCount></configuration></plugin>
+</plugins></build></profile><profile><id>bundle-enforcement</id><properties><product.assets.enforcement>true</product.assets.enforcement><platform.api.finalName>agent-platform-enforcement-product-0.0.1-SNAPSHOT</platform.api.finalName><platform.api.outputDirectory>${project.build.directory}/enforcement-product-classes</platform.api.outputDirectory></properties><build><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>3.1.0</version><executions>
+ <execution><id>reject-mixed-enforcement-assets</id><phase>validate</phase><configuration><target><fail message="Independent enforcement product assets required"><condition><or><equals arg1="${product.assets.legacy}" arg2="true"/><equals arg1="${product.assets.consultation}" arg2="true"/><equals arg1="${product.assets.adjudication}" arg2="true"/><not><equals arg1="${platform.api.outputDirectory}" arg2="${project.build.directory}/enforcement-product-classes"/></not></or></condition></fail></target></configuration><goals><goal>run</goal></goals></execution>
+ <execution><id>build-enforcement-product</id><phase>generate-resources</phase><configuration><target><exec executable="npm.cmd" failonerror="true" dir="${maven.multiModuleProjectDirectory}"><arg value="--prefix"/><arg value="frontend"/><arg value="run"/><arg value="build:enforcement"/></exec><exec executable="node" failonerror="true" dir="${maven.multiModuleProjectDirectory}"><arg value="scripts/stage-enforcement-product-assets.mjs"/></exec></target></configuration><goals><goal>run</goal></goals></execution>
+ </executions></plugin></plugins></build></profile></profiles>
 </project>

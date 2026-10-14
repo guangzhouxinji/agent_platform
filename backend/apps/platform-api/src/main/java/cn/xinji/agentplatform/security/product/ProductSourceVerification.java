@@ -98,6 +98,24 @@ public final class ProductSourceVerification {
     private Inventory inspect(String manifestRef, byte[] bytes, ProductSourceCandidates.Candidate candidate) {
         try {
             JsonNode manifest = mapper.readTree(bytes);
+            if (ProductPatentsViewSourceInventory.FORMAT.equals(manifest.path("schemaVersion").asText())) {
+                var capture = new ProductPatentsViewSourceInventory(evidence,mapper).inspect(manifestRef,bytes);
+                if (!candidate.sourceId().equals(capture.sourceId()) || !candidate.sourceVersion().equals(capture.sourceVersion())
+                        || !candidate.declaration().provenance().equals(capture.provenance())
+                        || !candidate.declaration().collectedAt().equals(java.time.Instant.parse(manifest.path("collectedAt").asText())))
+                    throw new IllegalStateException("Native source does not match registered contract");
+                return new Inventory(capture.recordsSha(),capture.inventorySha(),capture.records(),capture.originals());
+            }
+            if (ProductHupdSourceInventory.FORMAT.equals(manifest.path("schemaVersion").asText())) {
+                var nativeCapture = new ProductHupdSourceInventory(evidence, mapper).inspect(manifestRef, bytes);
+                if (!candidate.sourceId().equals(nativeCapture.sourceId())
+                        || !candidate.sourceVersion().equals(nativeCapture.sourceVersion())
+                        || !candidate.declaration().provenance().equals(nativeCapture.provenance())
+                        || !candidate.declaration().collectedAt().equals(java.time.Instant.parse(manifest.path("collectedAt").asText())))
+                    throw new IllegalStateException("Native source does not match registered contract");
+                return new Inventory(nativeCapture.recordsSha(), nativeCapture.inventorySha(),
+                        nativeCapture.records(), nativeCapture.originals());
+            }
             String batchVersion = required(manifest.path("datasetId")) + ":"
                     + required(manifest.path("generatedAt"));
             if (!candidate.sourceVersion().equals(batchVersion)

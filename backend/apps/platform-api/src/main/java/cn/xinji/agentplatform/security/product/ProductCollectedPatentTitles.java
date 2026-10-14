@@ -10,8 +10,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Loads only TITLE metadata from a verified real-capture package. */
+/** Explicit field projection from verified real-capture bytes; old overloads remain TITLE only. */
 final class ProductCollectedPatentTitles {
+    record CaptureSnapshot(String sourceId, String sourceVersion, String manifestRef,
+                           String manifestSha, String recordsSha) { }
+    static final class Unavailable extends IllegalStateException {
+        Unavailable(Throwable cause) { super("SOURCE_CONTENT_UNAVAILABLE", cause); }
+    }
     private final ProductSourceEvidenceFiles files;
     private final ObjectMapper mapper;
 
@@ -20,14 +25,72 @@ final class ProductCollectedPatentTitles {
         this.mapper = mapper;
     }
 
+    List<ProductPatentSearchCitations.Citation> citations(List<ProductPatentSearchExecution.Member> members,
+            Map<String,ProductSourceAvailability.Active> currentSources) {
+        return new ProductPatentSearchCitations(files, mapper).read(members, currentSources);
+    }
+
+    List<ProductPatentSearchCitations.Citation> fieldCitations(List<ProductPatentSearchExecution.Member> members,
+            Map<String,ProductSourceAvailability.Active> currentSources, java.util.Set<String> selected) {
+        return new ProductPatentSearchCitations(files,mapper).readFields(members,currentSources,selected);
+    }
+
+    List<PatentLexicalQuery.Document> loadField(ProductSourceAvailability.Active active, String field) {
+        if (field == null) throw new IllegalArgumentException("Exact selected content field required");
+        return loadFields(active,ProductPatentSearchFilters.none(),java.util.Set.of(field));
+    }
+
+    List<PatentLexicalQuery.Document> loadFields(ProductSourceAvailability.Active active,
+            ProductPatentSearchFilters filters, java.util.Set<String> selected) {
+        return loadFieldEvidence(active,filters,selected).stream().map(
+                cn.xinji.agentplatform.consultation.patenttask.source.PatentFieldSemanticFusion.DocumentEvidence::document).toList();
+    }
+    List<cn.xinji.agentplatform.consultation.patenttask.source.PatentFieldSemanticFusion.DocumentEvidence> loadFieldEvidence(
+            ProductSourceAvailability.Active active, ProductPatentSearchFilters filters, java.util.Set<String> selected) {
+        return loadFieldEvidence(new CaptureSnapshot(active.sourceId(),active.sourceVersion(),active.manifestRef(),
+                active.manifestSha(),active.recordsSha()),filters,selected);
+    }
+    List<cn.xinji.agentplatform.consultation.patenttask.source.PatentFieldSemanticFusion.DocumentEvidence> loadFieldEvidence(
+            CaptureSnapshot active, ProductPatentSearchFilters filters, java.util.Set<String> selected) {
+        ProductCapturedPatentFields.validate(selected);
+        var fields = java.util.Set.copyOf(selected);
+        if (fields.equals(java.util.Set.of("TITLE"))) return load(active,filters).stream().map(document ->
+                new cn.xinji.agentplatform.consultation.patenttask.source.PatentFieldSemanticFusion.DocumentEvidence(
+                        document,Map.of("TITLE",document.locatorRef()))).toList();
+        try {
+            byte[] manifestBytes = files.verified(active.manifestRef(), active.manifestSha());
+            JsonNode manifest = mapper.readTree(manifestBytes);
+            ProductCollectedPatentContent.Capture capture;
+            if (ProductHupdSourceInventory.FORMAT.equals(manifest.path("schemaVersion").asText()))
+                capture = new ProductHupdSourceDocuments(files,mapper).read(active,manifestBytes,fields);
+            else if (ProductPatentsViewSourceInventory.FORMAT.equals(manifest.path("schemaVersion").asText()))
+                capture = new ProductPatentsViewSourceDocuments(files,mapper).read(active,manifestBytes,fields);
+            else if (!manifest.has("schemaVersion"))
+                capture = new ProductCapturedSourceFields(files,mapper).read(active,manifestBytes,fields);
+            else throw new IllegalStateException("Source format does not supply the selected field");
+            return capture.documents(filters).stream().map(document ->
+                    new cn.xinji.agentplatform.consultation.patenttask.source.PatentFieldSemanticFusion.DocumentEvidence(
+                            document,capture.entries().get(document.documentId()).content().locators())).toList();
+        } catch (Exception failure) { throw new Unavailable(failure); }
+    }
+
     List<PatentLexicalQuery.Document> load(ProductSourceAvailability.Active active) {
         return load(active, ProductPatentSearchFilters.none());
     }
 
     List<PatentLexicalQuery.Document> load(ProductSourceAvailability.Active active,
             ProductPatentSearchFilters filters) {
+        return load(new CaptureSnapshot(active.sourceId(),active.sourceVersion(),active.manifestRef(),
+                active.manifestSha(),active.recordsSha()),filters);
+    }
+    List<PatentLexicalQuery.Document> load(CaptureSnapshot active, ProductPatentSearchFilters filters) {
         try {
-            JsonNode manifest = mapper.readTree(files.verified(active.manifestRef(), active.manifestSha()));
+            byte[] manifestBytes = files.verified(active.manifestRef(), active.manifestSha());
+            JsonNode manifest = mapper.readTree(manifestBytes);
+            if (ProductPatentsViewSourceInventory.FORMAT.equals(manifest.path("schemaVersion").asText()))
+                return new ProductPatentsViewSourceDocuments(files,mapper).read(active,manifestBytes).documents(filters);
+            if (ProductHupdSourceInventory.FORMAT.equals(manifest.path("schemaVersion").asText()))
+                return new ProductHupdSourceDocuments(files, mapper).read(active, manifestBytes).documents(filters);
             String expectedVersion = required(manifest, "datasetId") + ":" + required(manifest, "generatedAt");
             if (!active.sourceVersion().equals(expectedVersion))
                 throw new IllegalStateException("Captured source version changed");
@@ -39,12 +102,13 @@ final class ProductCollectedPatentTitles {
                 throw new IllegalStateException("Captured record set is not bound to its manifest");
             Map<String, String> rawDigests = rawDigests(manifest);
             List<PatentLexicalQuery.Document> documents = new ArrayList<>();
+            List<ProductCitationFileVerification.Reference> originals = new ArrayList<>();
             for (JsonNode record : capture.path("records")) {
                 String rawName = required(record, "detailRawFile");
                 String rawRef = sibling(active.manifestRef(), rawName);
                 String rawSha = rawDigests.get(rawName);
                 if (rawSha == null) throw new IllegalStateException("Captured title has no raw response");
-                files.verified(rawRef, rawSha);
+                originals.add(new ProductCitationFileVerification.Reference(rawRef, rawSha));
                 if (!filters.matches(optionalDate(record, "publicationDate"),
                         strings(record, "ipcClassifications"), strings(record, "cpcClassifications")))
                     continue;
@@ -56,12 +120,20 @@ final class ProductCollectedPatentTitles {
             if (!capture.path("records").isArray()
                     || capture.path("records").size() != manifest.path("recordCount").asInt(-1))
                 throw new IllegalStateException("Captured title inventory is incomplete");
+            verifyOriginals(files, originals);
             return List.copyOf(documents);
-        } catch (IllegalStateException failure) {
-            throw failure;
         } catch (Exception failure) {
-            throw new IllegalStateException("Captured title source is unreadable", failure);
+            throw new Unavailable(failure);
         }
+    }
+
+    /** Every original, including filtered-out documents, passes before any source result is returned. */
+    static void verifyOriginals(ProductSourceEvidenceFiles files,
+            List<ProductCitationFileVerification.Reference> references) {
+        // Reuse the existing bounded kernel without imposing the page's 100-item cap on a source.
+        for (int start = 0; start < references.size(); start += 100)
+            ProductCitationFileVerification.verify(files,
+                    references.subList(start, Math.min(references.size(), start + 100)));
     }
 
     private static LocalDate optionalDate(JsonNode node, String field) {

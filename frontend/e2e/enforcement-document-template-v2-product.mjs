@@ -10,8 +10,11 @@ const subject = process.env.ENF_FOLLOWUP_SUBJECT;
 const templateId = process.env.ENF_FOLLOWUP_TEMPLATE_ID ?? "PROJECT-FOLLOWUP-TEMPLATE-20260929-01";
 const resume = process.env.ENF_FOLLOWUP_RESUME === "true";
 if (!login || !password || !subject) throw new Error("Secure functional identity is required");
-const output = resolve("target/enforcement-document-template-v2-product");
-await mkdir(output, { recursive: true });
+const runId = process.env.ENF_FOLLOWUP_RUN_ID ?? `ENF12-BROWSER-${Date.now()}`;
+if (!/^[A-Za-z0-9_-]+$/.test(runId)) throw new Error("Invalid execution identifier");
+const output = resolve(process.env.ENF_FOLLOWUP_OUTPUT_ROOT ?? "target/enforcement-document-template-v2-product", runId);
+await mkdir(output, { recursive: false });
+const startedAt = new Date().toISOString();
 const requests = [];
 const source = resolve("../data/enforcement/document-template-v2-d-input-v1/project-functional-template.docx");
 
@@ -62,7 +65,8 @@ try {
     await typeInputs.nth(index).fill(types[index]);
     if (index >= 4) {
       await repeatSelects.nth(index).click();
-      await page.locator('.ant-select-dropdown:visible .ant-select-item-option').filter({ hasText: /^是$/ }).last().click();
+      await repeatSelects.nth(index).press("ArrowUp");
+      await repeatSelects.nth(index).press("Enter");
       const selected = await repeatSelects.nth(index).evaluate(input =>
         input.closest(".ant-select")?.querySelector(".ant-select-selection-item")?.textContent?.trim());
       stage(`REPEAT ${ids[index]}=${selected}`);
@@ -124,7 +128,7 @@ try {
   const rendered = await fs.readFile(resolve(output, "preview.docx"));
   const expected = await fs.readFile(source);
   if (!original.equals(expected)) throw new Error("Downloaded original differs from uploaded DOCX");
-  const result = { runId: "ENF-FOLLOWUP-E12-20260929-01", checkedAt: new Date().toISOString(),
+  const result = { runId, startedAt, checkedAt: new Date().toISOString(),
     templateId, subject, state: "DISABLED", sourceSha256: createHash("sha256").update(expected).digest("hex"),
     downloadedSha256: createHash("sha256").update(original).digest("hex"),
     previewSha256: createHash("sha256").update(rendered).digest("hex"), requests };
@@ -133,7 +137,7 @@ try {
     httpFailures: requests.filter(item => item.status >= 400).length, sha: result.downloadedSha256 }, null, 2));
 } catch (failure) {
   await page.screenshot({ path: resolve(output, "failure.png"), fullPage: true }).catch(() => {});
-  await writeFile(resolve(output, "failure.json"), JSON.stringify({ message: failure.message, requests }, null, 2));
+  await writeFile(resolve(output, "failure.json"), JSON.stringify({ runId, startedAt, checkedAt: new Date().toISOString(), message: failure.message, requests }, null, 2));
   throw failure;
 } finally {
   await browser.close();

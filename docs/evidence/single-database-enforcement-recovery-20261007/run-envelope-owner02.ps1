@@ -1,0 +1,4 @@
+param([Parameter(Mandatory=$true)][ValidateSet('seal','tamper-test','deliver')][string]$Action)
+$ErrorActionPreference='Stop';$evidence=Split-Path -Parent $PSCommandPath;$root=Join-Path $env:LOCALAPPDATA 'AgentPlatform/single-db-enforcement-persistent-20261007-01';$s=Import-Clixml (Join-Path $root 'vault/BACKUP_KEY.credential.xml');$p=[Runtime.InteropServices.Marshal]::SecureStringToBSTR($s);$savedKey=$env:ENFP_BACKUP_KEY;$savedRoot=$env:ENFP_PRIVATE_ROOT
+try{$env:ENFP_BACKUP_KEY=[Runtime.InteropServices.Marshal]::PtrToStringBSTR($p);$env:ENFP_PRIVATE_ROOT=$root;$out=& node (Join-Path $evidence 'enf-envelope-owner02.mjs') $Action 2>&1;$code=$LASTEXITCODE;$out|Set-Content (Join-Path $evidence ('envelope-owner02-'+$Action+'.log')) -Encoding utf8;Write-Output $out;if($code -ne 0){throw 'Authenticated envelope action failed; no cleanup'}}finally{$env:ENFP_BACKUP_KEY=$savedKey;$env:ENFP_PRIVATE_ROOT=$savedRoot;[Runtime.InteropServices.Marshal]::ZeroFreeBSTR($p)}
+

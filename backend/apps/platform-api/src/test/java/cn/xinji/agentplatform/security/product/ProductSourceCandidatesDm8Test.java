@@ -45,6 +45,8 @@ class ProductSourceCandidatesDm8Test {
                 try {
                     ScriptUtils.executeSqlScript(connection, new FileSystemResource(
                             Path.of("db/dm8/V036__product_source_candidates.sql")));
+                    ScriptUtils.executeSqlScript(connection, new FileSystemResource(
+                            Path.of("db/dm8/V088__product_source_capture_identity.sql")));
                     var source = new DriverManagerDataSource(url, schema, secret);
                     var db = new JdbcTemplate(source);
                     var retention = new ProductRetentionPolicy("isolated-policy", 1, "a".repeat(64),
@@ -68,9 +70,11 @@ class ProductSourceCandidatesDm8Test {
                     assertThat(db.queryForObject("SELECT COUNT(*) FROM con4_source_event", Integer.class))
                             .isEqualTo(2);
                     ScriptUtils.executeSqlScript(connection, new FileSystemResource(
+                            Path.of("db/dm8/U088__product_source_capture_identity.sql")));
+                    ScriptUtils.executeSqlScript(connection, new FileSystemResource(
                             Path.of("db/dm8/U036__product_source_candidates.sql")));
                 } finally {
-                    for (String table : List.of("con4_source_request", "con4_source_event",
+                    for (String table : List.of("con4_source_capture_identity", "con4_source_request", "con4_source_event",
                             "con4_source_contract")) {
                         try (var drop = connection.createStatement()) { drop.execute("DROP TABLE " + table); }
                         catch (SQLException absent) { /* A partial migration can leave an absent table. */ }

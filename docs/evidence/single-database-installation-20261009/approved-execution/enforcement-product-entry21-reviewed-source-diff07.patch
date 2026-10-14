@@ -1,0 +1,86 @@
+diff --git "a/D:\\daima\\xinji\\agent_platform\\frontend\\src\\features\\workflows\\EnforcementJobPackV2Page.test.tsx" "b/D:\\daima\\xinji\\agent_platform_enforcement_entry_20261009\\frontend\\src\\features\\workflows\\EnforcementJobPackV2Page.test.tsx"
+index 9b1b69b..cf3a14e 100644
+--- "a/D:\\daima\\xinji\\agent_platform\\frontend\\src\\features\\workflows\\EnforcementJobPackV2Page.test.tsx"
++++ "b/D:\\daima\\xinji\\agent_platform_enforcement_entry_20261009\\frontend\\src\\features\\workflows\\EnforcementJobPackV2Page.test.tsx"
+@@ -47,8 +47,8 @@ beforeEach(() => {
+   api.identity.mockReset().mockResolvedValue({ issuer: "https://issuer", subject: "actual-login-subject", sessionId: "session-1",
+     grants: [{ organization: "ORG-A", domain: "ENFORCEMENT", resourceType: "ENFORCEMENT_JOB_PACK",
+       resourceId: "ENF-JOB-CNIPA-GUIDANCE-CASE-1", action: "COLLECT", purpose: "JOB_PACK" },
+-    { organization: "ORG-FUNCTIONAL", domain: "ENFORCEMENT", resourceType: "ENFORCEMENT_JOB_PACK",
+-      resourceId: "ENF-JOB-FUNCTIONAL-01", action: "CREATE", purpose: "JOB_PACK" }] });
++    { organization: "ORG-COLLECTION", domain: "ENFORCEMENT", resourceType: "ENFORCEMENT_JOB_PACK",
++      resourceId: "ENF-JOB-COLLECTION-01", action: "CREATE", purpose: "JOB_PACK" }] });
+   api.request.mockReset().mockImplementation((_token: string, path: string) =>
+     Promise.resolve(path === "/job-packs/collection-tasks" ? [] : snapshot));
+   api.upload.mockReset();
+@@ -109,42 +109,50 @@ describe("enforcement real job-pack collection wizard", () => {
+       "/job-packs/collection-tasks/ENF-RBC-CNIPA-GUIDANCE-CASE-1/claim", { organization: "ORG-A" }, expect.any(String)));
+   });
+ 
+-  it("marks functional validation and removes manual identity fields", async () => {
+-    const functional = { ...snapshot, purpose: "FUNCTIONAL_VALIDATION", state: "WAITING_DATA", facts: [],
+-      findings: ["MISSING:TASK", "MISSING:SOURCE_RIGHTS", "MISSING:APPROVAL", "MISSING:HUMAN_RECEIPT", "MISSING:BUSINESS_EVALUATION"] };
+-    api.request.mockImplementation((_token: string, path: string) =>
+-      Promise.resolve(path === "/job-packs/collection-tasks" ? [] : functional));
++  it.each(["FUNCTIONAL_VALIDATION", "UNKNOWN", ""])('rejects purpose %s even from a successful read and clears previous facts', async purpose => {
+     render(<EnforcementJobPackV2Page />);
+     const id = await screen.findByPlaceholderText("输入任务包 ID");
+-    fireEvent.change(id, { target: { value: functional.id } });
++    fireEvent.change(id, { target: { value: snapshot.id } });
++    fireEvent.click(screen.getByRole("button", { name: /读取/ }));
++    expect(await screen.findByText("1/6 已采集")).toBeInTheDocument();
++    api.request.mockResolvedValue({ ...snapshot, purpose });
+     fireEvent.click(screen.getByRole("button", { name: /读取/ }));
+-    expect(await screen.findByText("功能验证任务包")).toBeInTheDocument();
+-    expect(screen.getByText("使用测试身份和测试输入验证同一产品链；结果不代表正式业务验收。")).toBeInTheDocument();
++    expect(await screen.findByText("当前任务包用途不可用于本工作入口")).toBeInTheDocument();
++    expect(screen.queryByText("1/6 已采集")).not.toBeInTheDocument();
+     expect(screen.queryByRole("button", { name: "打开真实身份岗位采集步骤" })).not.toBeInTheDocument();
+-    expect(screen.getByRole("button", { name: "打开测试任务输入采集步骤" })).toBeInTheDocument();
+-    expect(screen.getByRole("button", { name: "打开测试数据来源采集步骤" })).toBeInTheDocument();
+-    fireEvent.click(screen.getByRole("button", { name: "打开测试人工回执采集步骤" }));
+-    expect(screen.queryByLabelText("当前提交人 Ref")).not.toBeInTheDocument();
+-    expect(screen.queryByLabelText("岗位名称")).not.toBeInTheDocument();
++    expect(screen.queryByText("功能验证任务包")).not.toBeInTheDocument();
++  });
++
++  it("continues to read the existing real-business collection purpose", async () => {
++    api.request.mockImplementation((_token: string, path: string) => Promise.resolve(
++      path === "/job-packs/collection-tasks" ? [] : { ...snapshot, purpose: "REAL_BUSINESS_COLLECTION" }));
++    render(<EnforcementJobPackV2Page />);
++    const id = await screen.findByPlaceholderText("输入任务包 ID");
++    fireEvent.change(id, { target: { value: snapshot.id } });
++    fireEvent.click(screen.getByRole("button", { name: /读取/ }));
++    expect(await screen.findByText("1/6 已采集")).toBeInTheDocument();
++    expect(screen.getByRole("button", { name: "打开真实身份岗位采集步骤" })).toBeInTheDocument();
+   });
+ 
+   it("derives the organization from the exact create grant", async () => {
+     api.request.mockImplementation((_token: string, path: string, body?: unknown) => {
+       if (path === "/job-packs/collection-tasks") return Promise.resolve([]);
+-      if (path === "/job-packs") return Promise.resolve({ packageId: "ENF-JOB-FUNCTIONAL-01" });
+-      return Promise.resolve({ ...snapshot, id: "ENF-JOB-FUNCTIONAL-01", organization: "ORG-FUNCTIONAL",
+-        purpose: "FUNCTIONAL_VALIDATION", facts: [], findings: ["MISSING:TASK"] });
++      if (path === "/job-packs") return Promise.resolve({ packageId: "ENF-JOB-COLLECTION-01" });
++      return Promise.resolve({ ...snapshot, id: "ENF-JOB-COLLECTION-01", organization: "ORG-COLLECTION",
++        purpose: "REAL_BUSINESS_COLLECTION", facts: [], findings: ["MISSING:TASK"] });
+     });
+     render(<EnforcementJobPackV2Page />);
+     expect(await screen.findByText("身份和组织由产品授权自动带入")).toBeInTheDocument();
+     expect(screen.queryByLabelText("授权组织")).not.toBeInTheDocument();
++    expect(screen.queryByRole("combobox")).not.toBeInTheDocument();
++    expect(screen.queryByText("功能验证（测试身份与输入）")).not.toBeInTheDocument();
+     const create = screen.getByText("建立任务包").closest("section")!;
+-    fireEvent.change(within(create).getByLabelText("任务包 ID"), { target: { value: "ENF-JOB-FUNCTIONAL-01" } });
+-    fireEvent.change(within(create).getByLabelText("任务名称"), { target: { value: "功能验证任务（测试）" } });
++    fireEvent.change(within(create).getByLabelText("任务包 ID"), { target: { value: "ENF-JOB-COLLECTION-01" } });
++    fireEvent.change(within(create).getByLabelText("任务名称"), { target: { value: "正式任务资料采集" } });
+     fireEvent.click(within(create).getByRole("button", { name: "开始采集" }));
+     await waitFor(() => expect(api.request).toHaveBeenCalledWith("product-token", "/job-packs", {
+-      id: "ENF-JOB-FUNCTIONAL-01", organization: "ORG-FUNCTIONAL", title: "功能验证任务（测试）",
+-      purpose: "FUNCTIONAL_VALIDATION"
++      id: "ENF-JOB-COLLECTION-01", organization: "ORG-COLLECTION", title: "正式任务资料采集",
++      purpose: "REAL_BUSINESS_COLLECTION"
+     }, expect.any(String)));
+   });
+ 

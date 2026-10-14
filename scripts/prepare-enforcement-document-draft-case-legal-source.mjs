@@ -1,0 +1,33 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+
+// Mechanical same-case quotations, not legal effect or applicability certification.
+const [run]=process.argv.slice(2);
+assert.match(run??'',/^[A-Za-z0-9-]+$/);
+const assets=resolve('docs/evidence/enforcement-document-draft-20261002/ENF14-PUBLIC-INPUT-20261002-40');
+const preparation=JSON.parse(await readFile(resolve(assets,'public-input-preparation.json'),'utf8'));
+const bytes=await readFile(resolve(assets,'official-original.html'));
+const sha=b=>createHash('sha256').update(b).digest('hex');
+assert.equal(sha(bytes),'fd1c6ffb91d32829a8393cccdf9197f7e2710d405a80baa932db10bdabf1c562');
+const html=bytes.toString('utf8');
+const content=html.split('<meta name="ContentStart"/>')[1]?.split('<meta name="ContentEnd"/>')[0];
+assert.ok(content,'Exact retained official body markers required');
+const paragraphs=[...content.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)].map(m=>m[1].replace(/<[^>]*>/g,'').replaceAll('&nbsp;',' ').trim());
+const article=paragraphs.find(p=>p.includes('2013年修正的商标法第四十八条规定'));
+const confusion=paragraphs.find(p=>p.includes('第五十七条第（一）项与第（二）项'));
+assert.ok(article&&confusion,'No invented fallback legal text');
+const root=resolve('docs/evidence/enforcement-document-draft-20261002',run);
+await mkdir(root,{recursive:false});
+await writeFile(resolve(root,'official-original.html'),bytes,{flag:'wx'});
+await writeFile(resolve(root,'capture-evidence.json'),await readFile(resolve(assets,'capture-evidence.json')),{flag:'wx'});
+const sourceId='CNIPA-GUIDANCE-CASE-1-LEGAL-INTERPRETATION-'+run;
+const gaps=['HISTORICAL_STATUTE_VERSION_NOT_INDEPENDENTLY_VERIFIED','CASE_BEHAVIOR_TIME_UNAVAILABLE','LEGAL_APPLICABILITY_UNCONFIRMED'];
+const candidates=[['TRADEMARK-48-QUOTED',article],['TRADEMARK-57-DISCUSSION',confusion]].map(([articleId,text],i)=>({candidateId:sourceId+'-'+(i+1),sourceId,sourceRevision:1,sourceVersion:'1',articleId,officialTitle:preparation.source.title??'CNIPA 指导案例1号理解与适用',locator:preparation.source.originalUrl+'#official-body-p-'+(paragraphs.indexOf(text)+1),verbatimText:text,verbatimSha256:sha(text),effectStatus:'REVIEW_REQUIRED',transitionStatus:'UNKNOWN',explanation:'Exact official case interpretation paragraph; not standalone statute, current legal effect, or this-system legal finding',gaps,reviewStatus:'REVIEW_REQUIRED'}));
+const catalog={sources:[{sourceId,sourceRevision:1,sourceVersion:'1',status:'AVAILABLE',failure:null,candidates}],provenance:{provider:'国家知识产权局',sourceUrl:preparation.source.originalUrl,snapshot:resolve(root,'official-original.html'),snapshotSha256:sha(bytes),capturedAt:preparation.source.capturedAt,purpose:'ANALYZE',legalApplicability:'PUBLIC_SAME_CASE_INTERPRETATION_ONLY_NOT_CONFIRMED_STATUTE_APPLICABILITY'}};
+await writeFile(resolve(root,'legal-catalog.json'),JSON.stringify(catalog,null,2)+'\n',{flag:'wx'});
+const rule={id:'ENF14-CNIPA-TRADEMARK-'+run,organization:'ORG-ENF-FUNCTIONAL',behavior:'TRADEMARK_INFRINGEMENT',basis:{ref:sourceId,version:'1',locator:candidates[0].locator,effectStatus:'REVIEW_REQUIRED',scope:'PUBLIC_GUIDANCE_CASE_1_DOCUMENTARY_REVIEW',jurisdiction:'CN',procedure:'ADMINISTRATIVE_TRADEMARK_REVIEW'},elements:[{id:'TRADEMARK_USE',description:article,required:true},{id:'CONFUSION',description:confusion,required:true}],defenses:[],noDefensesConfirmed:false,noDefensesSource:null};
+await writeFile(resolve(root,'conduct-rule-draft.json'),JSON.stringify(rule,null,2)+'\n',{flag:'wx'});
+await writeFile(resolve(root,'source-linkage.json'),JSON.stringify({run,scope:'SAME_CASE_OFFICIAL_QUOTATION_NOT_REPORT_OR_CONFIRMED_REFERENCE',source:preparation.source,originalSha256:sha(bytes),collectionAllowed:true,rights:'NOT_ASSERTED',candidateCount:candidates.length,paragraphLocators:candidates.map(c=>({locator:c.locator,sha256:c.verbatimSha256})),known:'2013 statutory version is attributed to official interpretation, not independently certified',unknown:['Actual behavior date','Historical right at behavior time','Complete defense standard','Publication approval'],reportGenerated:false,legalReferenceConfirmed:false,businessAcceptance:'PENDING'},null,2)+'\n',{flag:'wx'});
+console.log('Prepared 2 exact same-case legal candidates and an unpublished trademark rule draft; no legal approval inferred');

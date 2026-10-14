@@ -61,6 +61,7 @@ final class ProductTaskBackupRetention {
                             throw new IllegalStateException("Conflicting object retention versions");
                     });
         }
+        ProductModelTurnRetentionReferences.collect(db, actual);
         if (!actual.keySet().equals(decision.retainedEvidence().keySet()))
             throw new IllegalStateException("Backup object retention coverage changed");
         for (var entry : actual.entrySet()) {

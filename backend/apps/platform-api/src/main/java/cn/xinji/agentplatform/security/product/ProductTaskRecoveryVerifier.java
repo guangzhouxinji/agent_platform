@@ -18,6 +18,11 @@ public final class ProductTaskRecoveryVerifier {
         requireTable("CON3_EXECUTION_RECONCILIATION");
         requireTable("CON3_EXECUTION_DISPATCH");
         long generation = watermark.currentGeneration();
+        requireTable("CON3_EXECUTION_ATTEMPT");
+        requireZero("SELECT COUNT(*) FROM con3_execution_lease l LEFT JOIN con3_execution_attempt a "
+                + "ON a.attempt_id=l.attempt_id AND a.task_id=l.task_id AND a.fencing_token=l.fencing_token "
+                + "WHERE a.attempt_id IS NULL OR a.input_id<>l.input_id OR a.task_version<>l.task_version "
+                + "OR a.cancel_epoch<>l.cancel_epoch OR a.worker_ref<>l.worker_ref OR a.lease_until<>l.lease_until");
         requireZero("SELECT COUNT(*) FROM con3_task t WHERE "
                 + "(t.state='IN_PROGRESS' AND NOT EXISTS (SELECT 1 FROM con3_goal_current c "
                 + "WHERE c.task_id=t.task_id AND c.task_version=t.version)) OR "
@@ -35,17 +40,21 @@ public final class ProductTaskRecoveryVerifier {
                 + "AND i.goal_revision=c.revision AND i.task_version=c.task_version "
                 + "WHERE c.task_id=l.task_id AND i.input_id=l.input_id))");
         requireZero("SELECT COUNT(*) FROM con3_execution_checkpoint p "
+                    + "LEFT JOIN con3_execution_attempt a ON a.task_id=p.task_id "
+                    + "AND a.attempt_id=p.attempt_id AND a.fencing_token=p.fencing_token "
                     + "LEFT JOIN con3_execution_lease l ON l.task_id=p.task_id "
                     + "AND l.attempt_id=p.attempt_id AND l.fencing_token=p.fencing_token "
                     + "LEFT JOIN con3_execution_reconciliation r ON r.task_id=p.task_id "
                     + "AND r.old_attempt_id=p.attempt_id AND r.old_token=p.fencing_token "
-                    + "WHERE l.task_id IS NULL AND r.task_id IS NULL");
+                    + "WHERE l.task_id IS NULL AND r.task_id IS NULL AND a.task_id IS NULL");
         requireZero("SELECT COUNT(*) FROM con3_execution_reconciliation r "
+                    + "LEFT JOIN con3_execution_attempt h ON h.task_id=r.task_id "
+                    + "AND h.attempt_id=r.new_attempt_id AND h.fencing_token=r.new_token "
                     + "LEFT JOIN con3_execution_lease l ON l.task_id=r.task_id "
                     + "AND l.attempt_id=r.new_attempt_id AND l.fencing_token=r.new_token "
                     + "LEFT JOIN con3_execution_reconciliation n ON n.task_id=r.task_id "
                     + "AND n.old_attempt_id=r.new_attempt_id AND n.old_token=r.new_token "
-                    + "WHERE (l.task_id IS NULL AND n.task_id IS NULL) OR "
+                    + "WHERE (l.task_id IS NULL AND n.task_id IS NULL AND h.task_id IS NULL) OR "
                     + "COALESCE((SELECT MAX(p.sequence_no) FROM con3_execution_checkpoint p "
                     + "WHERE p.task_id=r.task_id AND p.attempt_id=r.old_attempt_id "
                     + "AND p.fencing_token=r.old_token),0)<>r.last_checkpoint_sequence OR "

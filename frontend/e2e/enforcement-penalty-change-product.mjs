@@ -1,0 +1,49 @@
+import { chromium } from "playwright";
+import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { spawn } from "node:child_process";
+import assert from "node:assert/strict";
+const req=n=>{if(!process.env[n])throw new Error(n+" required; no skip");return process.env[n];};
+const out=req("ENF_PENALTY_BROWSER_EVIDENCE"),run=req("ENF_PENALTY_RUN_ID"),org=req("ENF_ACCEPTANCE_ORGANIZATION");await mkdir(out,{recursive:false});
+const baseline=JSON.parse(await readFile(req("ENF_PENALTY_PRODUCT_BASELINE"),"utf8")),source=JSON.parse(await readFile(req("ENF_PENALTY_CASE_PREP_EVIDENCE"),"utf8")),prepared=JSON.parse(await readFile(req("ENF_PENALTY_PREP_EVIDENCE"),"utf8"));
+const first=baseline.ruleIds[0],suggestionId=baseline.suggestionId;
+const grants=new Map();let count=0;
+async function provision(scopes){
+ const needed=scopes.filter(s=>grants.get([s.type,s.id,s.action,s.purpose].join("|"))!==s.revision);if(!needed.length)return;
+ const suffix=run+"-scopes-"+(++count),file=resolve(out,suffix+".json");await writeFile(file,JSON.stringify(needed));
+ const env={...process.env,ENF_PENALTY_SCENARIO_SCOPES:file,ENF_PENALTY_SCENARIO_GRANT_EVIDENCE:resolve(out,suffix+"-result.json")};
+ const logs=[];const exit=await new Promise((accept,reject)=>{const child=spawn("mvn",["-q","-f",req("ENF_MAVEN_POM"),"-pl","apps/platform-api","-am","-Dtest=EnforcementPenaltyScenarioGrantsIT","-Dsurefire.failIfNoSpecifiedTests=false","-Dsurefire.reportNameSuffix="+suffix,"test"],{cwd:req("ENF_PENALTY_WORKSPACE"),env,shell:true});child.stdout.on("data",c=>logs.push(String(c)));child.stderr.on("data",c=>logs.push(String(c)));child.on("error",reject);child.on("close",accept);});
+ await writeFile(resolve(out,suffix+".log"),logs.join(""));assert.equal(exit,0,"Exact technical grant preparation failed, not domain I");
+ const xml=resolve(req("ENF_MAVEN_BUILD_ROOT"),"backend/apps/platform-api/target/surefire-reports/TEST-cn.xinji.agentplatform.security.product.EnforcementPenaltyScenarioGrantsIT-"+suffix+".xml");
+ const header=(await readFile(xml,"utf8")).match(/<testsuite[^>]*>/)?.[0]??"";for(const [k,v] of Object.entries({tests:1,failures:0,errors:0,skipped:0}))assert.ok(header.includes(k+'="'+v+'"'));
+ await copyFile(xml,resolve(out,suffix+".xml"));for(const s of needed)grants.set([s.type,s.id,s.action,s.purpose].join("|"),s.revision);
+}
+
+const scope=(type,id,revision,action,purpose="PENALTY_ANALYSIS")=>({type,id,revision,action,purpose});
+const ruleGrants=r=>["READ","EDIT","TRIAL","PUBLISH","DISABLE"].map(a=>scope("PENALTY_RULE",first,r,a));
+const browser=await chromium.launch({headless:true}),context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1440,height:1100}}),page=await context.newPage();page.setDefaultTimeout(90000);
+const records=[],checks=[],mutations=[],pending=new Set();page.on("response",r=>{const path=new URL(r.url()).pathname;if(!path.startsWith("/v2/enforcement/penalty"))return;const p=(async()=>{const v={path,status:r.status(),method:r.request().method(),at:new Date().toISOString(),body:await r.json().catch(()=>null)};if(v.method==="POST"){v.key=r.request().headers()["idempotency-key"];v.input=r.request().postDataJSON();}records.push(v);})();pending.add(p);p.finally(()=>pending.delete(p));});
+await page.route("**/v2/enforcement/penalty/*/*?revision=*",async route=>{const u=new URL(route.request().url()),parts=u.pathname.split("/");await provision([scope(parts.at(-2)==="rules"?"PENALTY_RULE":"PENALTY_SUGGESTION",decodeURIComponent(parts.at(-1)),Number(u.searchParams.get("revision")),"READ")]);await route.continue();});
+async function idle(){await page.locator('main.enf-next[aria-busy="false"]').waitFor();}
+async function click(name,path,status=200){await idle();const [r]=await Promise.all([page.waitForResponse(r=>new URL(r.url()).pathname.endsWith(path)&&r.request().method()==="POST"),page.getByRole("button",{name,exact:typeof name==="string"}).click()]);const body=await r.json().catch(()=>null);assert.equal(r.status(),status,JSON.stringify(body));await idle();if(status===200&&body.resourceKind)mutations.push(body);return body;}
+async function shot(name){await page.screenshot({path:resolve(out,name+".png"),fullPage:true});}
+async function login(){
+ await page.goto("https://127.0.0.1:"+req("ENF_PENALTY_FRONTEND_PORT")+"/app/enforcement/penalty");await page.getByRole("button",{name:/^登\s*录$/}).click();
+ await Promise.race([page.locator('input[name="username"]').waitFor(),page.getByRole("heading",{name:"维护草稿"}).waitFor()]);
+ if(await page.locator('input[name="username"]').isVisible()){await page.locator('input[name="username"]').fill(req("ENF_FOLLOWUP_LOGIN"));await page.locator('input[name="password"]').fill(req("ENF_FOLLOWUP_PASSWORD"));await page.locator('button[type="submit"]').click();}
+ await page.getByRole("heading",{name:"维护草稿"}).waitFor();checks.push({name:"REAL_OAUTH_PKCE_RELOGIN",at:new Date().toISOString(),status:200});
+}
+try {
+ const ref=prepared.legalReference;const upstream=[scope("LEGAL_REFERENCE",ref.referenceId,ref.revision,"READ","LEGAL_BASIS"),scope("LEGAL_SOURCE",ref.sourceId,ref.sourceRevision,"READ_VERBATIM","LEGAL_BASIS"),scope(ref.targetType,ref.targetId,ref.targetRevision,"READ_LEGAL_BASIS","LEGAL_BASIS"),scope("CASE",source.input.caseId,source.input.caseRevision,"READ","ANALYZE"),...source.input.dependencies.map(d=>scope(d.kind==="EVIDENCE"?"EVIDENCE_ORGANIZATION":d.kind==="CONDUCT"?"CONDUCT_ANALYSIS":"PROCEDURE_REPORT",d.id,d.revision,d.kind==="PROCEDURE"?"READ_REPORT":"READ",d.kind==="PROCEDURE"?"PROCEDURE_CHECK":"DISPLAY"))];await provision([...ruleGrants(5),...upstream]);await login();const list=page.waitForResponse(r=>new URL(r.url()).pathname.endsWith("/penalty/rules")&&r.request().method()==="GET");await page.getByRole("button",{name:"刷新当前列表",exact:true}).click();assert.equal((await list).status(),200,"Actual product list must be accessible before row navigation");await idle();await page.getByRole("row").filter({hasText:"[TEST ONLY] Complete lifecycle "+req("ENF_PENALTY_BASELINE_RUN_ID")}).getByRole("button",{name:"打开规则",exact:true}).click();await idle();await page.getByText(first+" v5",{exact:true}).waitFor();
+ await provision(ruleGrants(6));await page.getByLabel("规则名称",{exact:true}).fill("[TEST ONLY] Rule revision update "+run);await click("保存草稿版本","/rules");await click(/^发\s*布$/,"/publish");await shot("01-rule-revision-seven");
+ await page.getByRole("tab",{name:"ENF-16 建议"}).click();await page.getByRole("button",{name:"刷新当前列表",exact:true}).click();await idle();await page.getByRole("row").filter({hasText:suggestionId}).getByRole("button",{name:"打开建议",exact:true}).click();await idle();
+ const refs=[{kind:"PENALTY_RULE",id:first,revision:7,sha256:null},{kind:"PENALTY_RULE",id:baseline.ruleIds[1],revision:2,sha256:null}];
+ async function rerun(expected){await provision([scope("PENALTY_SUGGESTION",suggestionId,expected+1,"RERUN")]);await page.getByLabel("建议编号",{exact:true}).fill(suggestionId);await page.locator('#penalty-suggestion_expectedRevision').fill(String(expected));await page.getByLabel("案件、具名事实、因素、金额来源及上游确切版本/SHA（JSON）",{exact:true}).fill(JSON.stringify(source.input));await page.getByLabel("ACTIVE 候选规则确切版本（JSON 数组）",{exact:true}).fill(JSON.stringify(refs));return click("生成 / 重跑建议","/suggestions");}
+ await rerun(10);await Promise.all([...pending]);const changedRule=records.findLast(r=>r.path.endsWith("/"+suggestionId)&&r.method==="GET")?.body;assert.equal(changedRule.state,"PENDING_REVIEW");assert.deepEqual(changedRule.options.map(o=>o.calculation.amount),[24,24]);await shot("02-rule-change-recalculated");
+ const suffix=run+"-source-input",logs=[];const env={...process.env,ENF_PENALTY_UPDATED_SOURCE_ID:prepared.legalReference.sourceId,ENF_PENALTY_SOURCE_UPDATE_EVIDENCE:resolve(out,"source-input-update")};
+ const exit=await new Promise((accept,reject)=>{const child=spawn("mvn",["-q","-f",req("ENF_MAVEN_POM"),"-pl","apps/platform-api","-am","-Dtest=PenaltyOwnedSourceUpdateInputIT","-Dsurefire.failIfNoSpecifiedTests=false","-Dsurefire.reportNameSuffix="+suffix,"test"],{cwd:req("ENF_PENALTY_WORKSPACE"),env,shell:true});child.stdout.on("data",c=>logs.push(String(c)));child.stderr.on("data",c=>logs.push(String(c)));child.on("error",reject);child.on("close",accept);});await writeFile(resolve(out,suffix+".log"),logs.join(""));assert.equal(exit,0,"Source INPUT preparation failed; not domain I");
+ const xml=resolve(req("ENF_MAVEN_BUILD_ROOT"),"backend/apps/platform-api/target/surefire-reports/TEST-cn.xinji.agentplatform.enforcement.penalty.PenaltyOwnedSourceUpdateInputIT-"+suffix+".xml");await copyFile(xml,resolve(out,suffix+".xml"));const header=(await readFile(xml,"utf8")).match(/<testsuite[^>]*>/)?.[0]??"";for(const [k,v] of Object.entries({tests:1,failures:0,errors:0,skipped:0}))assert.ok(header.includes(k+'="'+v+'"'));
+ await rerun(11);await Promise.all([...pending]);const changedSource=records.findLast(r=>r.path.endsWith("/"+suggestionId)&&r.method==="GET")?.body;assert.equal(changedSource.state,"WAITING_INPUT");assert.deepEqual(changedSource.options,[]);assert.ok(changedSource.gaps.includes("LEGAL_REFERENCE_REVIEW_REQUIRED"));await shot("03-source-change-fails-closed-with-explicit-gaps");
+ for(const r of records.filter(r=>r.method==="GET"))assert.equal(r.status,200,"Hidden failed refresh: "+r.path);
+ await writeFile(resolve(out,"result.json"),JSON.stringify({runId:run,scope:"REAL_PRODUCT_RULE_SOURCE_CHANGE_NOT_NEW_LAW_OR_BUSINESS_ACCEPTANCE",ruleId:first,ruleRevision:7,suggestionId,mutations,changedRule,changedSource,records,businessAcceptance:"PENDING"},null,2));
+}catch(e){await shot("failed-page").catch(()=>{});await Promise.all([...pending]);await writeFile(resolve(out,"failure.json"),JSON.stringify({runId:run,status:"FAILED",error:String(e),mutations,records},null,2));throw e;}finally{await Promise.all([...pending]);await browser.close();}

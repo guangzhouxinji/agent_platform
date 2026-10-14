@@ -67,7 +67,7 @@ class ProductTaskDm8ServiceTest {
                 try {
                     for (String name : new String[] {"V032__product_identity.sql",
                             "V034__product_consultation_initial_task.sql",
-                            "V036__product_source_candidates.sql", "V037__product_source_admission.sql",
+                            "V036__product_source_candidates.sql", "V088__product_source_capture_identity.sql", "V037__product_source_admission.sql",
                             "V039__product_source_verification.sql",
                             "V041__product_task_authorization_version.sql",
                             "V042__product_consultation_goal.sql", "V043__product_task_cancel_epoch.sql",
@@ -76,7 +76,8 @@ class ProductTaskDm8ServiceTest {
                             "V046__product_workload_subject.sql",
                             "V047__product_task_worker_delegation.sql",
                             "V048__product_task_execution_reconciliation.sql",
-                            "V072__product_search_metadata_filters.sql"})
+                            "V072__product_search_metadata_filters.sql",
+                            "V077__product_execution_attempt_history.sql"})
                         ScriptUtils.executeSqlScript(connection, new FileSystemResource(Path.of("db/dm8", name)));
                     var db = new JdbcTemplate(source);
                     Instant now = Instant.now();
@@ -238,7 +239,7 @@ class ProductTaskDm8ServiceTest {
                             "con3_worker_delegation_event", "con3_worker_delegation",
                             "id2_workload_request", "id2_workload_event", "id2_workload",
                             "con3_execution_reconciliation",
-                            "con3_execution_dispatch", "con3_execution_checkpoint", "con3_execution_lease",
+                            "con3_execution_dispatch", "con3_execution_checkpoint", "con3_execution_attempt", "con3_execution_lease",
                             "con4_source_verification_request", "con4_source_verification",
                             "con4_source_authority_request", "con4_source_authority_event",
                             "con4_source_current", "con4_source_field_use", "con4_source_admission",

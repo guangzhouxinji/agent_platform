@@ -1,0 +1,31 @@
+diff --git "a/D:\\daima\\xinji\\agent_platform\\frontend\\src\\features\\workflows\\enforcementNextV2Api.ts" "b/D:\\daima\\xinji\\agent_platform_enforcement_entry_20261009\\frontend\\src\\features\\workflows\\enforcementNextV2Api.ts"
+index f933892..c2f8891 100644
+--- "a/D:\\daima\\xinji\\agent_platform\\frontend\\src\\features\\workflows\\enforcementNextV2Api.ts"
++++ "b/D:\\daima\\xinji\\agent_platform_enforcement_entry_20261009\\frontend\\src\\features\\workflows\\enforcementNextV2Api.ts"
+@@ -39,7 +39,7 @@ export async function beginEnforcementLogin(slice: Slice) {
+   const verifier = base64url(crypto.getRandomValues(new Uint8Array(32)));
+   const digest = new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(verifier)));
+   const state = base64url(crypto.getRandomValues(new Uint8Array(16)));
+-  sessionStorage.setItem(`enf-v2-${slice}-pkce`, JSON.stringify({ verifier, state }));
++  sessionStorage.setItem(`enf-v2-${slice}-pkce`, JSON.stringify({ verifier, state, ...(slice === "job-pack" ? { packageId: new URLSearchParams(window.location.search).get("package") } : {}) }));
+   const params = new URLSearchParams({ response_type: "code", client_id: selectedClient,
+     redirect_uri: redirect(slice), scope: "openid", state, code_challenge: base64url(digest),
+     code_challenge_method: "S256" });
+@@ -55,7 +55,7 @@ export async function completeEnforcementLogin(slice: Slice): Promise<string | n
+   history.replaceState(null, "", redirect(slice));
+   const selectedClient = client(slice);
+   if (!saved || !selectedClient) throw new Error("登录状态已失效");
+-  const { verifier, state } = JSON.parse(saved) as { verifier: string; state: string };
++  const { verifier, state, packageId } = JSON.parse(saved) as { verifier: string; state: string; packageId?: string };
+   if (state !== query.get("state")) throw new Error("登录状态不匹配");
+   const response = await fetch("/oauth2/token", { method: "POST",
+     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+@@ -64,6 +64,8 @@ export async function completeEnforcementLogin(slice: Slice): Promise<string | n
+   if (!response.ok) throw new Error("登录未完成");
+   const result = await response.json() as { access_token?: string };
+   if (!result.access_token) throw new Error("未取得产品会话");
++  if (slice === "job-pack" && typeof packageId === "string")
++    history.replaceState(null, "", redirect(slice) + "?package=" + encodeURIComponent(packageId));
+   return result.access_token;
+ }
+ 

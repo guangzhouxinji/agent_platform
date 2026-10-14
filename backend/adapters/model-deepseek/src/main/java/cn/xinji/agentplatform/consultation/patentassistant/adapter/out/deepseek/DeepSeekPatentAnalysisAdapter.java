@@ -9,8 +9,9 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.net.URI;
 import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import cn.xinji.agentplatform.runtime.ModelGateway;
+import cn.xinji.agentplatform.model.gateway.OpenAiModelGateway;
+import java.util.Set;
 import java.time.Duration;
 import java.util.List;
 
@@ -56,24 +57,12 @@ public final class DeepSeekPatentAnalysisAdapter implements PatentAnalysisPort {
             ArrayNode messages = payload.putArray("messages");
             messages.addObject().put("role", "system").put("content", SYSTEM_PROMPT);
             messages.addObject().put("role", "user").put("content", prompt(question, sources));
-            HttpRequest request = HttpRequest.newBuilder(URI.create(endpoint)).timeout(timeout)
-                    .header("Authorization", "Bearer " + apiKey)
-                    .header("Content-Type", "application/json")
-                    .header("X-Client-Trace-Id", traceId)
-                    .POST(HttpRequest.BodyPublishers.ofString(mapper.writeValueAsString(payload))).build();
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode() < 200 || response.statusCode() >= 300) {
-                throw new ModelUnavailableException("MODEL_UPSTREAM_" + response.statusCode());
-            }
-            JsonNode root = mapper.readTree(response.body());
+            JsonNode root = invoke(payload, traceId, "candidate-analysis", "PATENT_CANDIDATE_ANALYSIS/v1");
             String content = root.path("choices").path(0).path("message").path("content").asText("").trim();
             if (content.isBlank()) throw new ModelUnavailableException("EMPTY_MODEL_RESPONSE");
             return content;
         } catch (ModelUnavailableException exception) {
             throw exception;
-        } catch (InterruptedException exception) {
-            Thread.currentThread().interrupt();
-            throw new ModelUnavailableException("MODEL_CALL_INTERRUPTED");
         } catch (Exception exception) {
             throw new ModelUnavailableException("MODEL_CALL_FAILED");
         }
@@ -91,7 +80,7 @@ public final class DeepSeekPatentAnalysisAdapter implements PatentAnalysisPort {
             ArrayNode messages = payload.putArray("messages");
             messages.addObject().put("role", "system").put("content", FEATURE_PROMPT);
             messages.addObject().put("role", "user").put("content", "检索目的：" + purpose + "\n用户输入：\n" + input);
-            JsonNode root = invoke(payload, traceId);
+            JsonNode root = invoke(payload, traceId, "feature-extraction", "PATENT_FEATURE_EXTRACTION/v1");
             String content = root.path("choices").path(0).path("message").path("content").asText("").trim();
             JsonNode parsed = mapper.readTree(stripFence(content));
             if (!parsed.path("features").isArray()) throw new ModelUnavailableException("INVALID_FEATURE_RESPONSE");
@@ -109,23 +98,20 @@ public final class DeepSeekPatentAnalysisAdapter implements PatentAnalysisPort {
         }
     }
 
-    private JsonNode invoke(ObjectNode payload, String traceId) {
+    private JsonNode invoke(ObjectNode payload, String traceId, String purpose, String promptVersion) {
         try {
-            HttpRequest request = HttpRequest.newBuilder(URI.create(endpoint)).timeout(timeout)
-                    .header("Authorization", "Bearer " + apiKey)
-                    .header("Content-Type", "application/json")
-                    .header("X-Client-Trace-Id", traceId)
-                    .POST(HttpRequest.BodyPublishers.ofString(mapper.writeValueAsString(payload))).build();
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode() < 200 || response.statusCode() >= 300) {
-                throw new ModelUnavailableException("MODEL_UPSTREAM_" + response.statusCode());
-            }
-            return mapper.readTree(response.body());
-        } catch (ModelUnavailableException exception) {
-            throw exception;
-        } catch (InterruptedException exception) {
-            Thread.currentThread().interrupt();
-            throw new ModelUnavailableException("MODEL_CALL_INTERRUPTED");
+            var config = new ModelGateway.Configuration("patent-assistant", "patent-assistant/v1", "deepseek", model,
+                    URI.create(endpoint), "OPENAI_CHAT_COMPLETIONS", timeout, 1048576, 1048576,
+                    Set.of("candidate-analysis", "feature-extraction"), Set.of("existing-patent-assistant-input"));
+            var gateway = new OpenAiModelGateway(id -> new OpenAiModelGateway.Connection(config, apiKey), mapper, client);
+            var response = gateway.invoke(new ModelGateway.Call(config.id(), purpose, "existing-patent-assistant-input",
+                    promptVersion, "PATENT_ASSISTANT_OUTPUT/v1", traceId, mapper.writeValueAsString(payload)));
+            return mapper.readTree(response.rawResponse());
+        } catch (ModelGateway.Failure failure) {
+            if ("INVOCATION_INTERRUPTED".equals(failure.code())) throw new ModelUnavailableException("MODEL_CALL_INTERRUPTED");
+            if (failure.upstreamStatus()!=null)
+                throw new ModelUnavailableException("MODEL_UPSTREAM_" + failure.upstreamStatus());
+            throw new ModelUnavailableException("MODEL_CALL_FAILED");
         } catch (Exception exception) {
             throw new ModelUnavailableException("MODEL_CALL_FAILED");
         }

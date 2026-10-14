@@ -14,9 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class EnforcementFollowupDm8MigrationTest {
     @Test void documentTemplateAndLegalReferenceMigrationsRunOnIsolatedDm8() throws Exception {
-        String url = required("DM8_JDBC_URL");
-        String user = required("DM8_JDBC_USER");
-        String password = required("DM8_JDBC_PASSWORD");
+        String url = required("AGENT_ENF_ENGINEERING_ADMIN_URL");
+        String user = required("AGENT_ENF_ENGINEERING_ADMIN_USER");
+        String password = required("AGENT_ENF_ENGINEERING_ADMIN_PASSWORD");
         byte[] random = new byte[8]; new SecureRandom().nextBytes(random);
         String schema = "EF" + HexFormat.of().formatHex(random).toUpperCase();
         String secret = "T9a" + HexFormat.of().formatHex(random) + "K7z";
@@ -60,3 +60,4 @@ class EnforcementFollowupDm8MigrationTest {
         }
     }
 }
+

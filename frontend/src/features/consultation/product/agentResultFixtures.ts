@@ -1,0 +1,9 @@
+import type { AgentRunView } from "../../agent/AgentTaskPanel";
+import type { Workspace,Turn } from "./types";
+export function fixture(){
+ const citation={memberId:"member",sourceId:"source",documentId:"patent",documentVersion:"1",sourceVersion:"1",sourceUrl:"https://example.com/patent",rawSha:"a".repeat(64),locatorRef:"claims:1"};
+ const turn:Turn&{taskId:string;resultSha:string}={turnId:"turn",taskId:"task",taskVersion:2,kind:"EXPLANATION",resultSetId:"result",resultSha:"b".repeat(64),modelId:"approved",output:{answer:"本次运行的非空回答"},citations:[citation]};
+ const workspace:Workspace={task:{id:"task",version:2,state:"IN_PROGRESS",expiresAt:"2026-10-07"},goal:{inputId:"input",taskVersion:2,queryObject:"patent",messageText:"目标",sourceIds:["source"],requestedFields:["TITLE"]},sources:[{sourceId:"source",fields:["TITLE"],expiresAt:"2026-10-07"}],retentionRef:"retention",retentionVersion:1,selectionRevision:0,dialogue:[turn],result:{resultSetId:"result",resultSha:"b".repeat(64),methodVersion:"1",candidateCount:1,truncated:false,confidenceStatus:"NORMAL",confidenceReason:"",status:"COMPLETE",nextCursor:null,members:[{memberId:"member",ordinal:0,sourceId:"source",documentId:"patent",documentVersion:"1",sourceVersion:"1",matchedTerms:["patent"],matchFields:["TITLE"],rerankScore:null}],citations:[citation]}};
+ const run:AgentRunView={goalText:"目标",checkpoint:{runId:"run",version:12,phase:"STOP",task:{id:"task",goal:{description:"confirmed-input:input"}} as AgentRunView["checkpoint"]["task"],cursor:3,invocations:3,replans:0,pending:null,plan:null,observations:[{reference:"retrieval:result",sha256:"c".repeat(64)},{reference:"retrieval-citations:result",sha256:"d".repeat(64)},{reference:"answer-turn:turn",sha256:"e".repeat(64)}],outcome:{reason:"COMPLETED",reference:"answer-turn:turn"}},events:[]};
+ return {workspace,run,turn};
+}

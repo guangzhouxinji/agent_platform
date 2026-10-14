@@ -23,31 +23,10 @@ public final class ProductIdentityTransportFilter extends OncePerRequestFilter {
 
     @Override protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
-        boolean productTask = "POST".equals(request.getMethod())
-                && path.equals("/v2/consultation/tasks");
-        productTask |= "GET".equals(request.getMethod())
-                && path.matches("/v2/consultation/tasks/[0-9a-fA-F-]{36}");
-        productTask |= "POST".equals(request.getMethod())
-                && path.matches("/v2/consultation/tasks/[0-9a-fA-F-]{36}/goals/confirm");
-        productTask |= "GET".equals(request.getMethod())
-                && path.matches("/v2/consultation/tasks/[0-9a-fA-F-]{36}/goals/current");
-        productTask |= "POST".equals(request.getMethod())
-                && path.matches("/v2/consultation/tasks/[0-9a-fA-F-]{36}/cancel");
-        productTask |= "POST".equals(request.getMethod())
-                && path.matches("/v2/consultation/tasks/[0-9a-fA-F-]{36}/sessions");
-        productTask |= "POST".equals(request.getMethod())
-                && path.matches("/v2/consultation/tasks/[0-9a-fA-F-]{36}/worker-delegations"
-                        + "(/[0-9a-fA-F-]{36}/revoke)?");
-        productTask |= "POST".equals(request.getMethod())
-                && path.matches("/v2/consultation/tasks/[0-9a-fA-F-]{36}/executions");
-        productTask |= "POST".equals(request.getMethod())
-                && path.matches("/v2/consultation/tasks/[0-9a-fA-F-]{36}/executions/reconciliation");
-        productTask |= "POST".equals(request.getMethod())
-                && path.matches("/v2/consultation/tasks/[0-9a-fA-F-]{36}/executions/"
-                        + "[0-9a-fA-F-]{36}/patent-search-result");
-        productTask |= "GET".equals(request.getMethod())
-                && path.matches("/v2/consultation/tasks/[0-9a-fA-F-]{36}/patent-searches/"
-                        + "[0-9a-fA-F-]{36}/results");
+        // Transport applies to the entire formal Task family, including new Agent/workspace routes.
+        // Route authentication and domain grants remain owned by the security chain and domain services.
+        boolean productTask = path.equals("/v2/consultation/tasks")
+                || path.startsWith("/v2/consultation/tasks/");
         return !path.startsWith("/oauth2/") && !path.startsWith("/.well-known/")
                 && !path.equals("/login") && !path.startsWith("/v2/identity/")
                 && !path.startsWith("/v2/consultation/source-contracts/") && !productTask;
@@ -55,17 +34,21 @@ public final class ProductIdentityTransportFilter extends OncePerRequestFilter {
 
     @Override protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                               FilterChain chain) throws ServletException, IOException {
-        if (!request.isSecure() || request.getRequestURI().indexOf('%') >= 0
-                || request.getRequestURI().indexOf('\\') >= 0) {
-            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            return;
+        try (var observation = ProductPatentSearchTransportObservation.start(request, response)) {
+            if (!request.isSecure() || request.getRequestURI().indexOf('%') >= 0
+                    || request.getRequestURI().indexOf('\\') >= 0) {
+                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                return;
+            }
+            try {
+                watermark.assertCurrent();
+            } catch (RuntimeException unavailable) {
+                response.setStatus(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
+                return;
+            }
+            if (observation != null) observation.authorityChecked();
+            chain.doFilter(request, response);
+            if (observation != null) observation.downstreamReturned();
         }
-        try {
-            watermark.assertCurrent();
-        } catch (RuntimeException unavailable) {
-            response.setStatus(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
-            return;
-        }
-        chain.doFilter(request, response);
     }
 }

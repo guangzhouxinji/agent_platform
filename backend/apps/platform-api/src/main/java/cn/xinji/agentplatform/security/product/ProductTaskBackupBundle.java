@@ -97,6 +97,7 @@ public final class ProductTaskBackupBundle {
                     zip.write(mapper.writeValueAsBytes(manifest));
                     zip.closeEntry();
                     for (int i = 0; i < entries.size(); i++) {
+                        validate(key, snapshot);
                         zip.putNextEntry(new ZipEntry(entries.get(i).name()));
                         if (!copyMatches(sources.get(i), zip, entries.get(i)))
                             throw new IllegalStateException("Backup source changed during sealing");
@@ -104,8 +105,10 @@ public final class ProductTaskBackupBundle {
                     }
                 }
             }
+            validate(key, snapshot);
             if (Files.exists(output)) throw new IllegalStateException("Backup target appeared");
             Files.move(temporary, output, StandardCopyOption.ATOMIC_MOVE);
+            validate(key, snapshot); // Late expiry refuses success; the encrypted scene remains.
             return manifest;
         } finally {
             Files.deleteIfExists(temporary);
@@ -152,6 +155,7 @@ public final class ProductTaskBackupBundle {
                 long remaining = maxBytes;
                 Set<String> names = new HashSet<>();
                 for (Entry entry : manifest.entries()) {
+                    validate(key, manifest.snapshot());
                     if (!names.add(entry.name()) || !bundleEntry(entry.name()) || entry.length() < 0
                             || entry.length() > remaining || !sha256(entry.sha256()))
                         throw new IllegalStateException("Invalid backup entry");
@@ -169,8 +173,10 @@ public final class ProductTaskBackupBundle {
                     }
                 }
             }
+            validate(key, manifest.snapshot());
             if (Files.exists(isolatedTarget)) throw new IllegalStateException("Restore target appeared");
             Files.move(staged, isolatedTarget, StandardCopyOption.ATOMIC_MOVE);
+            validate(key, manifest.snapshot()); // Isolated bytes are not a restore/activation success.
             return manifest;
         } finally {
             Files.deleteIfExists(plaintext);

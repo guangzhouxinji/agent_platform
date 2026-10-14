@@ -20,7 +20,9 @@
           "effectStatus": "REVIEW_REQUIRED",
           "transitionStatus": "REVIEW_REQUIRED",
           "explanation": "项目检索解释：该条说明细则与专利法的关系；是否适用于具体执法事项必须由授权人员复核。",
-          "gaps": ["LEGAL_APPLICABILITY_UNCONFIRMED"],
+          "gaps": [
+            "LEGAL_APPLICABILITY_UNCONFIRMED"
+          ],
           "reviewStatus": "REVIEW_REQUIRED"
         },
         {
@@ -36,7 +38,81 @@
           "effectStatus": "REVIEW_REQUIRED",
           "transitionStatus": "REVIEW_REQUIRED",
           "explanation": "项目检索解释：该条涉及手续形式；是否适用于具体执法事项必须由授权人员复核。",
-          "gaps": ["LEGAL_APPLICABILITY_UNCONFIRMED"],
+          "gaps": [
+            "LEGAL_APPLICABILITY_UNCONFIRMED"
+          ],
+          "reviewStatus": "REVIEW_REQUIRED"
+        }
+      ]
+    },
+    {
+      "sourceId": "CNIPA_PATENT_IMPLEMENTING_RULES",
+      "sourceRevision": 1,
+      "sourceVersion": "2010-01-09",
+      "status": "AVAILABLE",
+      "failure": null,
+      "candidates": [
+        {
+          "candidateId": "CNIPA_PATENT_RULES_2010_ARTICLE_2",
+          "sourceId": "CNIPA_PATENT_IMPLEMENTING_RULES",
+          "sourceRevision": 1,
+          "sourceVersion": "2010-01-09",
+          "articleId": "ARTICLE_2",
+          "officialTitle": "中华人民共和国专利法实施细则(2010年修订)",
+          "locator": "第二条",
+          "verbatimText": "第二条 专利法和本细则规定的各种手续，应当以书面形式或者国务院专利行政部门规定的其他形式办理。",
+          "verbatimSha256": "3db8f273e590893f257d416d24fe775032fba7b8d2097773ddee2748c208f1ef",
+          "effectStatus": "REVIEW_REQUIRED",
+          "transitionStatus": "REVIEW_REQUIRED",
+          "explanation": "项目检索解释：该条涉及手续形式；是否适用于具体执法事项必须由授权人员复核。",
+          "gaps": [
+            "LEGAL_APPLICABILITY_UNCONFIRMED"
+          ],
+          "reviewStatus": "REVIEW_REQUIRED"
+        }
+      ]
+    },
+    {
+      "sourceId": "CNIPA_PATENT_IMPLEMENTING_RULES",
+      "sourceRevision": 1,
+      "sourceVersion": "2023-12-11",
+      "status": "AVAILABLE",
+      "failure": null,
+      "candidates": [
+        {
+          "candidateId": "CNIPA_PATENT_RULES_2023_ARTICLE_1",
+          "sourceId": "CNIPA_PATENT_IMPLEMENTING_RULES",
+          "sourceRevision": 1,
+          "sourceVersion": "2023-12-11",
+          "articleId": "ARTICLE_1",
+          "officialTitle": "中华人民共和国专利法实施细则(2023年修订)",
+          "locator": "第一条",
+          "verbatimText": "第一条　根据《中华人民共和国专利法》（以下简称专利法），制定本细则。",
+          "verbatimSha256": "6223919e9d4ca1b3cc6e82e7edecc5ba6d00b2f7d0858caecf880f8a4d5ff57e",
+          "effectStatus": "REVIEW_REQUIRED",
+          "transitionStatus": "REVIEW_REQUIRED",
+          "explanation": "项目检索解释：该条说明细则与专利法的关系；是否适用于具体执法事项必须由授权人员复核。",
+          "gaps": [
+            "LEGAL_APPLICABILITY_UNCONFIRMED"
+          ],
+          "reviewStatus": "REVIEW_REQUIRED"
+        },
+        {
+          "candidateId": "CNIPA_PATENT_RULES_2023_ARTICLE_2",
+          "sourceId": "CNIPA_PATENT_IMPLEMENTING_RULES",
+          "sourceRevision": 1,
+          "sourceVersion": "2023-12-11",
+          "articleId": "ARTICLE_2",
+          "officialTitle": "中华人民共和国专利法实施细则(2023年修订)",
+          "locator": "第二条",
+          "verbatimText": "第二条　专利法和本细则规定的各种手续，应当以书面形式或者国务院专利行政部门规定的其他形式办理。以电子数据交换等方式能够有形地表现所载内容，并可以随时调取查用的数据电文（以下统称电子形式），视为书面形式。",
+          "verbatimSha256": "dcfa4c91723e61f157b0b16159100320021b5365efb5f8757aa34d9087ca6d96",
+          "effectStatus": "REVIEW_REQUIRED",
+          "transitionStatus": "REVIEW_REQUIRED",
+          "explanation": "项目检索解释：该条涉及手续形式；是否适用于具体执法事项必须由授权人员复核。",
+          "gaps": [
+            "LEGAL_APPLICABILITY_UNCONFIRMED"
+          ],
           "reviewStatus": "REVIEW_REQUIRED"
         }
       ]

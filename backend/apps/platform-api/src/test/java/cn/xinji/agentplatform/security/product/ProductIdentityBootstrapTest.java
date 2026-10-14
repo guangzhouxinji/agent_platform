@@ -11,8 +11,9 @@ import java.util.HexFormat;
 import java.util.List;
 import java.util.UUID;
 import org.h2.jdbcx.JdbcDataSource;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -23,7 +24,9 @@ import org.springframework.transaction.support.TransactionTemplate;
 class ProductIdentityBootstrapTest {
     @TempDir Path directory;
 
-    @Test void oneTimeInitializationUsesCertificateAndNeverCreatesAMemberOrGrant() throws Exception {
+    @ParameterizedTest
+    @ValueSource(booleans = {false, true})
+    void oneTimeInitializationUsesCertificateAndNeverCreatesAMemberOrGrant(boolean retention) throws Exception {
         assertThatThrownBy(() -> cn.xinji.agentplatform.AgentPlatformApplication.main(
                 new String[] {"--identity-bootstrap"})).isInstanceOf(IllegalArgumentException.class);
         Path caStore = directory.resolve("ca.p12");
@@ -66,7 +69,7 @@ class ProductIdentityBootstrapTest {
         var manifest = new ProductIdentityBootstrap.Manifest("https://identity.example.org", "named-operator",
                 "organization-1", peerCert.toString(), caCert.toString(),
                 certificate.getSubjectX500Principal().getName(), digest(certificate),
-                List.of("SUBJECTS", "GRANTS", "KEYS", "SOURCES"));
+                retention ? List.of("HUMAN_RETENTION") : List.of("SUBJECTS", "GRANTS", "KEYS", "SOURCES"));
 
         assertThatThrownBy(() -> ProductIdentityBootstrap.bootstrap(primary, authority, transactions, manifest,
                 "0".repeat(64), "RUNTIME_SERVICE", "BACKUP_READER"))
@@ -83,7 +86,7 @@ class ProductIdentityBootstrapTest {
         assertThat(authority.queryForObject("SELECT organization FROM id2_maintainer", String.class))
                 .isEqualTo("organization-1");
         assertThat(authority.queryForObject("SELECT allowed_roles FROM id2_maintainer", String.class))
-                .isEqualTo("SUBJECTS,GRANTS,KEYS,SOURCES");
+                .isEqualTo(retention ? "HUMAN_RETENTION" : "SUBJECTS,GRANTS,KEYS,SOURCES");
         assertThat(authority.queryForObject("SELECT COUNT(*) FROM id2_maintenance_audit "
                 + "WHERE decision='BOOTSTRAP'", Integer.class)).isEqualTo(1);
         assertThat(primary.queryForObject("SELECT COUNT(*) FROM id2_subject", Integer.class)).isZero();

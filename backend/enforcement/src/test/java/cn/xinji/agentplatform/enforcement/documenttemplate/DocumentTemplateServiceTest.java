@@ -91,6 +91,51 @@ class DocumentTemplateServiceTest {
         assertThat(files.values).isEmpty();
     }
 
+    @Test void frozenMacroCompressionAndRepeatStructureNegativesHaveNoArtifacts() throws Exception {
+        byte[] macro = extraEntry(docx, "word/vbaProject.bin", new byte[] {1, 2, 3});
+        assertThatThrownBy(() -> service.create("editor", "macro", input("TPL-MACRO"), "x.docx", macro))
+                .hasMessageContaining("Macro or executable");
+        byte[] oversized = extraEntry(docx, "word/oversized.xml", new byte[10 * 1024 * 1024 + 1]);
+        assertThatThrownBy(() -> service.create("editor", "bomb", input("TPL-BOMB"), "x.docx", oversized))
+                .hasMessageContaining("entry too large");
+        byte[] missingRows = rewrite(docx, "word/document.xml", xml -> xml.replace("w:tr", "w:p"));
+        assertThatThrownBy(() -> service.create("editor", "bad-row", input("TPL-ROW"), "x.docx", missingRows))
+                .hasMessageContaining("one table row");
+        var duplicateFields = new ArrayList<>(input("TPL-DUP").fields());
+        duplicateFields.add(duplicateFields.getFirst());
+        var duplicate = new DraftInput("TPL-DUP", "name", "REVIEW", scope(), null, duplicateFields, List.of("SimSun"));
+        assertThatThrownBy(() -> service.create("editor", "duplicate", duplicate, "x.docx", docx))
+                .hasMessageContaining("Duplicate field");
+        assertThat(store.revisions).isEmpty();
+        assertThat(store.receipts).isEmpty();
+        assertThat(files.values).isEmpty();
+    }
+
+    @Test void frozenLongChineseRepeatAndHeaderContentRenderWithoutPlaceholders() {
+        service.create("editor", "long-create", input("TPL-LONG"), "x.docx", docx);
+        var values = new HashMap<String, Object>(sample());
+        String longText = "长中文段落：项目验证，不是正式文书。".repeat(400);
+        values.put("summary", longText);
+        var preview = service.preview("editor", "long-preview", "TPL-LONG", 1, new PreviewInput(1, values));
+        String xml = unzipText(service.downloadPreview("editor", "TPL-LONG", preview.previewId()));
+        assertThat(xml).contains(longText, "PROJECT-MATERIAL-A@1", "PROJECT-MATERIAL-B@1").doesNotContain("{{");
+    }
+
+    private static byte[] extraEntry(byte[] value, String name, byte[] added) throws Exception {
+        var result = new java.io.ByteArrayOutputStream();
+        try (var input = new java.util.zip.ZipInputStream(new java.io.ByteArrayInputStream(value));
+             var output = new java.util.zip.ZipOutputStream(result)) {
+            java.util.zip.ZipEntry entry;
+            while ((entry = input.getNextEntry()) != null) {
+                output.putNextEntry(new java.util.zip.ZipEntry(entry.getName()));
+                output.write(input.readAllBytes()); output.closeEntry();
+            }
+            output.putNextEntry(new java.util.zip.ZipEntry(name)); output.write(added); output.closeEntry();
+        }
+        return result.toByteArray();
+    }
+
+
     private static DraftInput input(String id) {
         return new DraftInput(id, "项目执法事项核对记录", "DOCUMENT_REVIEW", scope(), null, List.of(
                 new Field("task_ref", "STRING", true, false, null),

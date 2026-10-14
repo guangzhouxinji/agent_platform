@@ -1,0 +1,15 @@
+{
+  "format": "SINGLE_DATABASE_AUXILIARY_MIGRATIONS/v1",
+  "migrations": [
+    {
+      "id": "A001",
+      "sqlPath": "db/dm8/adjudication_source_authority.sql",
+      "sha256": "f0ff3a6ded31bebf608f81eae2b83b700974ced4a681332a6a86a23ff30a3a0f",
+      "domain": "adjudication",
+      "kind": "authority",
+      "initializationOnly": true,
+      "designReference": "docs/adr/adjudication-api-persistence-20261002.md",
+      "technicalReference": "docs/adr/single-database-recovery-assessment-20261007.md#913"
+    }
+  ]
+}

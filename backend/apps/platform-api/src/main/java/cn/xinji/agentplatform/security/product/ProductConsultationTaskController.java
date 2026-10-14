@@ -4,6 +4,8 @@ import cn.xinji.agentplatform.consultation.patenttask.authorization.ProductAcces
 import cn.xinji.agentplatform.consultation.patenttask.authorization.ProductTaskDirectory;
 import java.time.Clock;
 import java.time.Instant;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -34,12 +36,14 @@ public final class ProductConsultationTaskController {
     private final ProductTaskCancelService cancellation;
     private final ProductTaskSessionService sessions;
     private final ProductTaskCreationService creation;
+    private final ProductHumanTaskCreation humanCreation;
     private final Clock clock;
 
     public ProductConsultationTaskController(ProductTaskDirectory directory, ProductConsultationAccess access,
             ProductTaskGoalService goals, ProductTaskGoalReader goalReader,
             ProductTaskCancelService cancellation, ProductTaskSessionService sessions,
-            ProductTaskCreationService creation) {
+            ProductTaskCreationService creation, ObjectProvider<ProductHumanTaskCreation> humanCreation,
+            @Value("${product.consultation.human-request.enabled:false}") boolean humanEnabled) {
         this.directory = directory;
         this.access = access;
         this.goals = goals;
@@ -47,6 +51,9 @@ public final class ProductConsultationTaskController {
         this.cancellation = cancellation;
         this.sessions = sessions;
         this.creation = creation;
+        this.humanCreation = humanEnabled ? humanCreation.getIfAvailable() : null;
+        if (humanEnabled && this.humanCreation == null)
+            throw new IllegalStateException("Enabled human requests require native Task creation assembly");
         this.clock = Clock.systemUTC();
     }
 
@@ -54,7 +61,7 @@ public final class ProductConsultationTaskController {
     public ProductTaskCreationService.Result create(@AuthenticationPrincipal Jwt jwt,
             @RequestHeader("Idempotency-Key") String requestId,
             @RequestBody ProductTaskCreationService.Input input) {
-        return creation.create(jwt, requestId, input);
+        return humanCreation == null ? creation.create(jwt, requestId, input) : humanCreation.create(jwt, requestId, input);
     }
 
     @GetMapping("/{id}")
@@ -105,7 +112,7 @@ public final class ProductConsultationTaskController {
         return new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(IllegalStateException.class)
+    @ExceptionHandler({IllegalStateException.class, org.springframework.security.oauth2.jwt.JwtException.class})
     @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
     void unavailableAuthority() { }
 

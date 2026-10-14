@@ -21,6 +21,7 @@ final class ProductPatentSearchCursor {
     private record Stored(String resultSetId, long nextOrdinal, String subjectId, long taskVersion,
                           String inputRevision, String scopeSha, String sourceEpochSha,
                           String methodVersion, int pageSize, Instant expiresAt) { }
+    private record Continuation(String id, Instant expiresAt) { }
 
     private final JdbcTemplate db;
     private final byte[] key;
@@ -85,6 +86,20 @@ final class ProductPatentSearchCursor {
         if (nextOrdinal < 1) throw new IllegalArgumentException("Positive next ordinal required");
         Instant expiresAt = min(context.expiresAt(), clock.instant().plus(maxAge));
         if (!expiresAt.isAfter(clock.instant())) throw gone();
+        List<Continuation> existing = db.query("SELECT cursor_id,expires_at FROM con4_result_cursor "
+                        + "WHERE result_set_id=? AND method_version=? AND subject_id=? AND task_version=? "
+                        + "AND input_revision=? AND scope_sha=? AND source_epoch_sha=? AND page_size=? "
+                        + "AND next_ordinal=? AND expires_at>? AND expires_at<=? "
+                        + "ORDER BY expires_at DESC,cursor_id FETCH FIRST 1 ROWS ONLY",
+                (rs, row) -> new Continuation(rs.getString(1), rs.getTimestamp(2).toInstant()),
+                context.resultSetId(), context.methodVersion(), context.subjectId(), context.taskVersion(),
+                context.inputRevision(), context.scopeSha(), context.sourceEpochSha(), pageSize, nextOrdinal,
+                java.sql.Timestamp.from(Instant.ofEpochSecond(clock.instant().getEpochSecond() + 1)),
+                java.sql.Timestamp.from(expiresAt));
+        if (!existing.isEmpty() && existing.getFirst().expiresAt().getEpochSecond()
+                > clock.instant().getEpochSecond())
+            return encode(existing.getFirst().id(), context, pageSize, nextOrdinal,
+                    existing.getFirst().expiresAt());
         String id = UUID.randomUUID().toString();
         db.update("INSERT INTO con4_result_cursor(cursor_id,result_set_id,next_ordinal,subject_id,"
                         + "task_version,input_revision,scope_sha,source_epoch_sha,expires_at,"
@@ -92,6 +107,10 @@ final class ProductPatentSearchCursor {
                 context.resultSetId(), nextOrdinal, context.subjectId(), context.taskVersion(),
                 context.inputRevision(), context.scopeSha(), context.sourceEpochSha(),
                 java.sql.Timestamp.from(expiresAt), context.methodVersion(), pageSize);
+        return encode(id, context, pageSize, nextOrdinal, expiresAt);
+    }
+
+    private String encode(String id, Context context, int pageSize, long nextOrdinal, Instant expiresAt) {
         byte[] payload = String.join("\u0000", id, context.resultSetId(), context.methodVersion(),
                 Integer.toString(pageSize), Long.toString(nextOrdinal),
                 Long.toString(expiresAt.getEpochSecond())).getBytes(StandardCharsets.UTF_8);

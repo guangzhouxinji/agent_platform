@@ -1,0 +1,97 @@
+--- original/DocumentDraftServiceTest.java
++++ D:\daima\xinji\agent_platform\backend\enforcement\src\test\java\cn\xinji\agentplatform\enforcement\documentdraft\DocumentDraftServiceTest.java
+@@ -26,7 +26,17 @@
+         final Map<String,String> fingerprints=new HashMap<>();
+         final List<String> calls=new ArrayList<>();
+         boolean published=true, denied=false, missing=false, changed=false, narrative=false, legalConfirmed=true;
+-        int writes;
++        int writes, commandCalls, readableChecks;
++        final Set<Long> deniedReadRevisions=new HashSet<>();
++        final List<String> readCoordinates=new ArrayList<>();
++        Runnable afterReadable=()->{}, afterReviewsRead=()->{};
++        record RetainedState(int writes,int commandCalls,Map<String,Draft> drafts,Map<String,Receipt> receipts,
++                Map<String,String> fingerprints,List<Review> reviews,Map<String,Candidate> candidates,
++                Map<String,ExportArtifact> exports,Map<String,byte[]> exportFiles) { }
++        RetainedState retainedState() {
++            return new RetainedState(writes,commandCalls,Map.copyOf(drafts),Map.copyOf(receipts),Map.copyOf(fingerprints),
++                    List.copyOf(reviews),Map.copyOf(candidates),Map.copyOf(exports),Map.copyOf(exportFiles));
++        }
+         String sourceText="Existing input";
+         final DocumentDraftService service=new DocumentDraftService(this,this,this,Clock.systemUTC());
+         public Resolved resolve(String actor,Input input) {
+@@ -41,9 +51,17 @@
+             return new Resolved(input,published,true,true,legalConfirmed,false,false,new Trial(!missing,false,fields,diagnostics),profile,rule,null,null,sources);
+         }
+         public void assertCurrent(String actor,Input input) { if(denied)throw new SecurityException("revoked");if(changed)throw new IllegalStateException("template/rule changed"); }
+-        public void assertReadable(String actor,Input input) {if(denied)throw new SecurityException("revoked");}
++        public void assertReadable(String actor,Input input) {
++            if(denied)throw new SecurityException("revoked");
++            readableChecks++;afterReadable.run();
++        }
+         public void require(String actor,String org,String id,long revision,String action) {
+-            calls.add(action);if(denied)throw new SecurityException("revoked");
++            calls.add(action);
++            if("READ".equals(action)) {
++                readCoordinates.add(actor+"|"+org+"|"+id+"|"+revision);
++                if(deniedReadRevisions.contains(revision))throw new SecurityException("draft READ revoked");
++            }
++            if(denied)throw new SecurityException("revoked");
+         }
+         public Optional<Draft> read(String id,long revision) {return Optional.ofNullable(drafts.get(id+"@"+revision));}
+         public List<Draft> history(String id) {return drafts.values().stream().filter(d->d.id().equals(id)).sorted(Comparator.comparingLong(Draft::revision)).toList();}
+@@ -55,12 +73,16 @@
+         public Optional<Candidate> candidate(String id){return Optional.ofNullable(candidates.get(id));}
+         public List<Candidate> candidates(String id){return candidates.values().stream().filter(c->c.draftId().equals(id)).toList();}
+         public void addCandidate(Candidate candidate){candidates.put(candidate.id(),candidate);}
+-        public List<Review> reviews(String id,long revision){return reviews.stream().filter(r->r.draftId().equals(id)&&r.revision()==revision).toList();}
++        public List<Review> reviews(String id,long revision){
++            var result=reviews.stream().filter(r->r.draftId().equals(id)&&r.revision()==revision).toList();
++            afterReviewsRead.run();return result;
++        }
+         public void addReview(Review review){reviews.add(review);}
+         public Optional<ExportArtifact> export(String id){return Optional.ofNullable(exports.get(id));}
+         public byte[] exportBytes(String id){return exportFiles.get(id).clone();}
+         public void addExport(ExportArtifact artifact,byte[] bytes){exports.put(artifact.id(),artifact);exportFiles.put(artifact.id(),bytes.clone());}
+         public Receipt command(String key,String fingerprint,String actor,Supplier<Receipt> transaction) {
++            commandCalls++;
+             if(receipts.containsKey(key)) {
+                 if(!fingerprint.equals(fingerprints.get(key)))throw new IllegalArgumentException("idempotency conflict");
+                 return receipts.get(key);
+@@ -190,6 +212,37 @@
+         var next=f.service.read("actor","draft",2);assertEquals("INCOMPLETE_DRAFT",next.reviewState());
+         assertEquals(base.missingItems(),next.missingItems());
+     }
++    @Test void confirmedWriteRecoveryReadsExactHistoricalRevisionWithoutNewCommands() {
++        var f=new Fixture();f.narrative=true;var receipt=f.generate(input(Type.FACT_RECORD),"create");
++        var original=f.service.read("actor",receipt.draftId(),receipt.revision());
++        f.service.revise("actor","edit","draft",1,original.contentSha256(),Map.of("party_name","Human edit"),"reason");
++        f.changed=true; // Historical readability does not require current upstream/head state.
++        f.deniedReadRevisions.add(2L);f.readCoordinates.clear();
++        var retained=f.retainedState();
++        assertEquals(original,f.service.read("actor",receipt.draftId(),receipt.revision()));
++        assertEquals(List.of("actor|org|draft|1","actor|org|draft|1"),f.readCoordinates);
++        assertEquals(retained,f.retainedState());
++    }
++    @Test void draftReadRevokedDuringSourceVerificationCannotReturnConfirmedContent() {
++        var f=new Fixture();var receipt=f.generate(input(Type.FACT_RECORD),"create");
++        var retained=f.retainedState();f.readCoordinates.clear();
++        // Only the document READ changes; source READ remains permitted throughout verification.
++        f.afterReadable=()->f.deniedReadRevisions.add(receipt.revision());
++        assertThrows(SecurityException.class,()->f.service.read("actor",receipt.draftId(),receipt.revision()));
++        assertEquals(1,f.readableChecks);
++        assertEquals(List.of("actor|org|draft|1","actor|org|draft|1"),f.readCoordinates);
++        assertEquals(retained,f.retainedState());
++    }
++    @Test void historyCannotReturnEarlierRevisionRevokedWhileReadingLaterRevision() {
++        var f=new Fixture();f.narrative=true;f.generate(input(Type.FACT_RECORD),"create");
++        var original=f.service.read("actor","draft",1);
++        f.service.revise("actor","edit","draft",1,original.contentSha256(),Map.of("party_name","Human edit"),"reason");
++        var retained=f.retainedState();int before=f.readableChecks;
++        f.afterReadable=()->{if(f.readableChecks==before+2)f.deniedReadRevisions.add(1L);};
++        assertThrows(SecurityException.class,()->f.service.history("actor","draft"));
++        assertEquals(before+2,f.readableChecks);
++        assertEquals(retained,f.retainedState());
++    }
+     @Test void exactObjectRevisionAndShaAreMandatory() {
+         assertThrows(IllegalArgumentException.class,()->new ObjectVersion("id",0,"a".repeat(64)));
+         assertThrows(IllegalArgumentException.class,()->new ObjectVersion("id",1,"bad"));

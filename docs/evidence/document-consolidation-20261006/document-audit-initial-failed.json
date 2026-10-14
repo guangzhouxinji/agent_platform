@@ -1,0 +1,32 @@
+{
+  "scope": "documentation migration only; not business or full-repository verification",
+  "originalSourcesVerified": 220,
+  "removedRedundantFiles": 13,
+  "preservedTasks": 693,
+  "currentTasks": 694,
+  "preservedRequirementRows": 41,
+  "checkedLocalLinks": 1301,
+  "preExistingMissingTargets": 0,
+  "remainingMissingLinks": [
+    {
+      "source": "docs/08-总开发实现计划.md",
+      "target": "D:\\daima\\xinji\\agent_platform\\docs\\50-Product Freeze Decision.md",
+      "url": "50-Product%20Freeze%20Decision.md"
+    },
+    {
+      "source": "docs/08-总开发实现计划.md",
+      "target": "D:\\daima\\xinji\\agent_platform\\docs\\51-Product Freeze低成本预检与同类方案核查.md",
+      "url": "51-Product%20Freeze低成本预检与同类方案核查.md"
+    },
+    {
+      "source": "docs/evidence/document-consolidation-20261006/historical-reference.md",
+      "target": "D:\\daima\\xinji\\agent_platform\\docs\\50-Product Freeze Decision.md",
+      "url": "../../50-Product%20Freeze%20Decision.md"
+    }
+  ],
+  "errors": [
+    "New broken link: docs/08-总开发实现计划.md: 50-Product%20Freeze%20Decision.md",
+    "New broken link: docs/08-总开发实现计划.md: 51-Product%20Freeze低成本预检与同类方案核查.md",
+    "New broken link: docs/evidence/document-consolidation-20261006/historical-reference.md: ../../50-Product%20Freeze%20Decision.md"
+  ]
+}

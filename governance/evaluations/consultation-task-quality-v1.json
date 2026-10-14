@@ -1,0 +1,121 @@
+{
+  "schema": "CONSULTATION_TASK_QUALITY/v1",
+  "version": "1",
+  "scope": "RETAINED_VALIDATION_ARTIFACTS_ONLY",
+  "contractRef": "docs/adr/consultation-task-quality-evaluation-20261007.md",
+  "denominator": 2,
+  "caseIds": [
+    "CON-QUALITY-ROTOR-01",
+    "CON-QUALITY-EMPTY-01"
+  ],
+  "requiredCoverage": [
+    "NONEMPTY_RESULT",
+    "EMPTY_RESULT",
+    "PERMISSION_LOSS",
+    "TERMINAL_RECOVERY",
+    "INSUFFICIENT_MATERIAL",
+    "SOURCE_WITHDRAWAL",
+    "EXPIRY_DENIAL",
+    "INFLIGHT_UNKNOWN"
+  ],
+  "cases": [
+    {
+      "id": "CON-QUALITY-ROTOR-01",
+      "scenario": "NONEMPTY_RESULT",
+      "expected": {
+        "taskId": "4bd3bbf4-fc79-4ca6-a4ec-4877d4ff27c4",
+        "runId": "9a15427c-afba-370e-b7ae-a21a4a8d53ff",
+        "inputId": "384d9b7e-9cc4-42b9-a2e7-5167359c456e",
+        "goalId": "7ff91a2b-ece3-442d-8dce-7069fa24a29c",
+        "query": "soldering blades rotor",
+        "motherSet": 40,
+        "pageCount": 20,
+        "allQueryTermHits": 1,
+        "stopReason": "COMPLETED"
+      },
+      "artifacts": {
+        "run": {
+          "path": "docs/evidence/consultation-agent-browser-window04-20261006/native-run-read.json",
+          "sha256": "fd4e10b05cf95c1df68bef156dc55eeabaa571be40a06fe8c63e82731867c15d"
+        },
+        "workspace": {
+          "path": "docs/evidence/consultation-agent-browser-window04-20261006/native-answer-read.json",
+          "sha256": "731883175d49e98816a6a19dd65355365d82f227bb1b57e0c7ee0795b8beccd0"
+        },
+        "approval": {
+          "path": "docs/evidence/consultation-agent-browser-window04-20261006/human-approval.json",
+          "sha256": "356e73f06ab9e7c7107df118ab52bb7d587766de013357f952a1d89e6b25cd97"
+        },
+        "admission": {
+          "path": "docs/evidence/consultation-agent-browser-window04-20261006/current-admission.json",
+          "sha256": "73f5674574c6731274fcdd664d3c19f639531ac84b41142211902d81b617574f"
+        },
+        "recoveryBefore": {
+          "path": "docs/evidence/consultation-agent-browser-window04-20261006/audit-before-recovery-retry.json",
+          "sha256": "62ac6e6b7e9f1fc5daaaa643fdfb1e6cea95239a6ad5a64f097584dcb166f5bc"
+        },
+        "recoveryAfter": {
+          "path": "docs/evidence/consultation-agent-browser-window04-20261006/audit-after-recovery-retry.json",
+          "sha256": "a13ec9c1e4c1dfc8da26b84727fa35ba9436f1f2dbb999c8a06e8d731661ced0"
+        },
+        "denialTrace": {
+          "path": "docs/evidence/consultation-agent-browser-window04-20261006/fresh-session-read-denied-http.json",
+          "sha256": "17d2179e7c45e4564a29a515affa7405a969b21aab646fe5eb6ac893c826a527"
+        },
+        "sourceUse": {
+          "path": "docs/evidence/consultation-agent-browser-window04-20261006/new-source-purpose-decision.json",
+          "sha256": "c43c23e36a0c120064c99bab90ae9e574f0668f37a3c67c17f900ead67536292"
+        }
+      }
+    },
+    {
+      "id": "CON-QUALITY-EMPTY-01",
+      "scenario": "EMPTY_RESULT",
+      "expected": {
+        "taskId": "3db4c6bc-b924-45f2-92b8-94cfcd6677a7",
+        "runId": "c7408cfe-7f06-3f46-a22a-8bf395fcf1c5",
+        "inputId": "ae8d66e3-177f-48c3-9152-61eae3ed3c88",
+        "goalId": "661ba2a8-cec3-48a2-b794-fee016802c17",
+        "query": "robot vacuum",
+        "motherSet": 40,
+        "pageCount": 0,
+        "allQueryTermHits": 0,
+        "stopReason": "COMPLETED"
+      },
+      "artifacts": {
+        "run": {
+          "path": "docs/evidence/consultation-agent-native-20261006/approved-run/native-run-read.json",
+          "sha256": "8aa44c61c5f92d526fe21d3fb87defc77352ab2380b6c31f7fa0790874b22e18"
+        },
+        "workspace": {
+          "path": "docs/evidence/consultation-agent-native-20261006/approved-run/after-run-workspace.json",
+          "sha256": "b9ef0b722510141acf4f0750ba871fa11a72b08852f06e1ade22d16823fe49d4"
+        },
+        "approval": {
+          "path": "docs/evidence/consultation-agent-native-20261006/approved-run/human-approval.json",
+          "sha256": "c2fd9d04f396a86fd8973a9e55c597a62f3c281a023f5b19fef43bca48adb120"
+        },
+        "admission": {
+          "path": "docs/evidence/consultation-agent-native-20261006/approved-run/current-admission.json",
+          "sha256": "772ff80683448afe50cc1c1446c90253e0fd8981aa684ea3860a6958e11cdbed"
+        },
+        "recoveryBefore": {
+          "path": "docs/evidence/consultation-agent-native-20261006/approved-run/audit-before-recovery.json",
+          "sha256": "c9bba848a9623445163428c8a222170d81542114e4d1d5db18976c4788dbdbce"
+        },
+        "recoveryAfter": {
+          "path": "docs/evidence/consultation-agent-native-20261006/approved-run/audit-after-recovery.json",
+          "sha256": "bf762ad091fb73b6a741a8a141d09a50193e0d71fcdcca9d1c2854cd94924dd1"
+        },
+        "denialTrace": {
+          "path": "docs/evidence/consultation-agent-native-20261006/approved-run/loss-and-recovery-http.json",
+          "sha256": "771a6809c26d209582106199ac187fbb4f65302d245513226befa93f1f4dd5a5"
+        },
+        "sourceUse": {
+          "path": "docs/evidence/consultation-agent-native-20261006/approved-run/new-source-purpose-decision.json",
+          "sha256": "3ef95823c4df1259b032fc6b33e56989a156405825bddc37a7af91e9adb630dc"
+        }
+      }
+    }
+  ]
+}

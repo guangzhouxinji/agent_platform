@@ -28,7 +28,7 @@ class ProductSourceVerificationTest {
         source.setURL("jdbc:h2:mem:source-verification-command-" + UUID.randomUUID()
                 + ";DB_CLOSE_DELAY=-1");
         try (var connection = source.getConnection()) {
-            for (String name : List.of("V036__product_source_candidates.sql",
+            for (String name : List.of("V036__product_source_candidates.sql", "V088__product_source_capture_identity.sql",
                     "V039__product_source_verification.sql"))
                 ScriptUtils.executeSqlScript(connection,
                         new FileSystemResource(Path.of("db/dm8/" + name)));

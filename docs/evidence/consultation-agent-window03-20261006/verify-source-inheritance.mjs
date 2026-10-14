@@ -1,0 +1,7 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import assert from 'node:assert/strict';
+const read=p=>JSON.parse(fs.readFileSync(p,'utf8').replace(/^\uFEFF/,'')),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const frontend=read('docs/evidence/consultation-agent-context-20261006/source-and-validation-scope.json').frontendSourceInputs;
+const backend=read('docs/evidence/consultation-agent-native-20261006/full-backend-round3/source-inputs.json').files;
+const changed=[];for(const f of [...frontend,...backend]){if(!fs.existsSync(f.path)||sha(fs.readFileSync(f.path))!==f.sha256)changed.push(f.path);}assert.deepEqual(changed,[],'Validation source changed');
+const jar=read('docs/evidence/consultation-agent-context-20261006/actual-jar-verification.json');assert.equal(sha(fs.readFileSync(jar.jar)),jar.sha256);
+const report={observedAt:new Date().toISOString(),frontendInputs:frontend.length,backendInputs:backend.length,changedInputs:changed,newFullRegressionRun:false,retainedFrontend:{files:27,tests:240,failures:0,skipped:0},retainedBackend:{tests:1591,failures:0,errors:0,skipped:40},jarSha:jar.sha256,scope:'Exact retained input bytes rechecked; deployment and authorization changed, product source unchanged; real API run newly verified separately',browserE2e:false};const dest='docs/evidence/consultation-agent-window03-20261006/source-validation-inheritance.json';assert.ok(!fs.existsSync(dest));fs.writeFileSync(dest,JSON.stringify(report,null,2));console.log(JSON.stringify(report));

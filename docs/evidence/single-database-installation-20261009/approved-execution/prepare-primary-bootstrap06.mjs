@@ -1,0 +1,42 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import path from 'node:path';import {execFileSync} from 'node:child_process';
+import {hash,canonical,jdbcRequest} from '../../../../scripts/lib/single-database-lifecycle-runtime.mjs';
+import {deploymentAccounts,validateDeploymentConfiguration} from '../../../../scripts/lib/single-database-lifecycle.mjs';
+import {assertLiveOwnedTarget} from '../../../../scripts/lib/single-database-lifecycle-target.mjs';
+import {compileInstallation} from '../../../../scripts/lib/single-database-installation.mjs';
+const root=process.cwd(),out=path.resolve(root,'docs/evidence/single-database-installation-20261009/approved-execution');
+const save=async(n,v)=>writeFile(path.join(out,n),JSON.stringify(v,null,2)+'\n',{flag:'wx'});
+const read=async p=>JSON.parse(await readFile(p,'utf8'));
+const request=await read(path.join(out,'resource-request-original01.json'));
+const approval=await read(path.join(out,'resource-approval01.json'));
+if(!approval.approvalGranted||Date.now()<Date.parse(request.operationWindowBeijing.from)||Date.now()>=Date.parse(request.operationWindowBeijing.until))throw Error('APPROVAL_WINDOW_REQUIRED');
+const inspect=(kind,name)=>JSON.parse(execFileSync('docker',[...kind,'inspect',name],{encoding:'utf8'}))[0];
+const db=inspect([],request.targets[0].name),tool=inspect([],'agent-platform-single-final-primary-tools05-20261009'),network=inspect(['network'],request.newNetwork);
+const profile=await read('deployment/single-database/installation-profile.json');
+const url=request.managedJdbcExecution.primaryUrl;
+const deployment={schema:'SINGLE_DM8_DEPLOYMENT/v2',database:{containerId:db.Id,volume:request.targets[0].newVolume,ownerTask:request.taskId,jdbcUrl:url,memoryLimitBytes:request.limits.dm8MemoryBytes,nanoCpuLimit:request.limits.dm8NanoCpuLimit},domains:profile.bindings.map(b=>({domain:b.domain,issuer:request.dnsAndTlsRequested.find(d=>d.domain===b.domain).issuer,business:{...b.business,jdbcUrl:url},authority:{...b.authority,jdbcUrl:url},writerContainerIds:[]}))};
+validateDeploymentConfiguration(deployment);
+const runtime=path.join(out,'jdbc-native05'),libs=['jackson-annotations-2.17.2.jar','jackson-core-2.17.2.jar','jackson-databind-2.17.2.jar','DmJdbcDriver18-8.1.3.140.jar'];
+const source=path.resolve('scripts/java/SingleDatabaseLifecycleJdbc.java'),classFile=path.join(runtime,'SingleDatabaseLifecycleJdbc.class');
+const port={java:'D:/software/jdk-21/bin/java.exe',classpath:[runtime,...libs.map(l=>path.join(runtime,l))].join(path.delimiter),mainClass:'SingleDatabaseLifecycleJdbc',url,user:'SYSDBA',passwordEnv:'SINGLE_DB_ADMIN_PASSWORD',dockerJdbc:{containerId:tool.Id,targetId:db.Id,networkId:network.Id,ownerTask:request.taskId,java:'/opt/java/openjdk/bin/java',classpath:['/jdbc',...libs.map(l=>'/jdbc/'+l)].join(':'),classFile:'/jdbc/SingleDatabaseLifecycleJdbc.class',classSha256:hash(await readFile(classFile))}};
+const base={workspaceRoot:root,targetId:db.Id,deployment,schemas:deployment.domains.flatMap(d=>[d.business.schema,d.authority.schema]),accounts:deploymentAccounts(deployment),inventoryJdbc:port,adminJdbc:port,jdbcSourcePath:source,jdbcClassPath:classFile};
+await assertLiveOwnedTarget(base);
+const inventory=await jdbcRequest(port,{action:'bootstrap-inventory',targetId:db.Id,accounts:base.accounts});
+await save('primary-bootstrap-inventory06.json',inventory);
+const originalConfiguration=path.join(out,'primary-bootstrap-config04.json'),originalJournal=path.join(out,'primary-bootstrap-journal04/bootstrap.jsonl'),originalScene=path.join(out,'primary-bootstrap-journal04/bootstrap-failure-0.json');
+const recovery={format:'BOOTSTRAP_EXACT_CREATE_PREFIX_RECOVERY/v1',prefixSteps:1,sourceConfigurationPath:originalConfiguration,sourceConfigurationSha256:hash(await readFile(originalConfiguration)),sourceJournalPath:originalJournal,sourceJournalSha256:hash(await readFile(originalJournal)),sourceScenePath:originalScene,sourceSceneSha256:hash(await readFile(originalScene))};
+const compiled=await compileInstallation({workspaceRoot:root,deployment,stage:'bootstrap',inventory,bootstrapRecovery:recovery});
+await save('primary-bootstrap-installation06.json',compiled);await save('primary-deployment06.json',deployment);
+const writerEvidence=path.join(out,'primary-initialization-writer-responsibility06.json');
+const maintenanceLock=path.join(out,`single-database-maintenance-${db.Id}.lock`);
+await save(path.basename(writerEvidence),{format:'SINGLE_DATABASE_EXACT_WRITER_RESPONSIBILITY/v1',owner:'current-main-session',sourceApproval:path.join(out,'resource-approval01.json'),targetId:db.Id,applicationsNeverStarted:true,externalOrWorkerWritersStarted:false,completeRegisteredMaintenanceEntrypoint:'bootstrap-single-database-lifecycle.mjs',maintenanceLock,oldResourcesExcluded:true,unregisteredAdministrativeWritesForbidden:true});
+const fence=path.resolve('scripts/lib/single-database-bootstrap-fence.mjs');
+const currentDecisionPath=path.join(out,'primary-bootstrap-current-decision06.json');
+const config={...base,manifest:compiled.manifest,maintenanceLock,currentDecisionPath,journalDir:path.join(out,'primary-bootstrap-journal06'),executionFenceAdapter:fence};
+const action={format:'SINGLE_DATABASE_ACTION_APPROVAL/v1',targetId:db.Id,action:'bootstrap',owner:'current-main-session',source:path.join(out,'resource-approval01.json'),approvedAt:new Date().toISOString(),expiresAt:request.operationWindowBeijing.until,currentMigration:false,connectionSwitch:false,deleteExisting:false,newEnvironmentOnly:true,manifestSha256:compiled.manifestSha256,recovery,writers:[{id:maintenanceLock,kind:'MAINTENANCE',owner:'current-main-session',responsibilitySource:writerEvidence}],writerRegistryComplete:true,writerRegistryEvidence:writerEvidence,maintenanceExclusivityEvidence:writerEvidence,applicationsNeverStarted:true,configurationSha256:hash(canonical(config)),executionFenceAdapterSha256:hash(await readFile(fence)),jdbcSourceSha256:hash(await readFile(source)),jdbcClassSha256:port.dockerJdbc.classSha256};
+await save(path.basename(currentDecisionPath),action);config.approval={...action,currentDecisionEvidenceSha256:hash(await readFile(currentDecisionPath))};
+await save('primary-bootstrap-config06.json',config);
+console.log(JSON.stringify({prepared:true,targetId:db.Id,accountCount:base.accounts.length,steps:compiled.manifest.steps.length,actualDdlExecuted:false}));
+
+
+

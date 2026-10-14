@@ -1,0 +1,17 @@
+export type Source={id:string;version:string;locator:string;sha256:string;kind:"PUBLIC"|"DEIDENTIFIED"|"USER_PROVIDED"|"PROJECT_AUTHORED"};
+export type CaseInput={id:string;organization:string;dataScope:string;name:string;applicant:string;respondent:string;issues:string[];region:string|null;procedure:string|null;relevantDate:string|null;source:Source};
+export type Material={id:string;caseId:string;side:"APPLICANT"|"RESPONDENT";submitter:string;content:string|null;assertedPurpose:string;source:Source;readable:boolean;supersedesMaterialId:string|null};
+export type Claim={caseId:string;patentReference:string;claimNumber:string;revision:number;originalText:string;source:Source;elements:{id:string;exactText:string}[];selectedProduct:string;confirmationReason:string};
+export type Finding={id:string;caseId:string;claimRevision:number;elementId:string;materialId:string;relation:"SUPPORT"|"OPPOSING"|"UNCERTAIN";exactExcerpt:string;reason:string};
+export type Citation={id:string;caseId:string;source:Source;originalText:string;explanation:string;selectionReason:string;region:string;procedure:string;relevantDate:string};
+export type Audit={version:number;action:string;actor:string;objectId:string;at:string};
+export type Report={revision:number;inputVersion:number;policyVersion:string;author:string;contributors:string[];sections:{id:string;content:string;sources:Source[]}[];diagnostics:{code:string;objectId:string;blocking:boolean}[];contentSha256:string;reviewState:"DRAFT"|"SUBMITTED"|"RETURNED"|"REVIEWED_NOT_OFFICIAL";reviews:{actor:string;reason:string;outcome:string;reportSha256:string;at:string}[]};
+export type ReportView={report:Report;stale:boolean;current:boolean;policyStale?:boolean};
+export type CaseView={version:number;inputVersion:number;caseInput:CaseInput;materials:Material[];claims:Claim[];findings:Finding[];citations:Citation[];reports:ReportView[];inputContributors:string[];audits:Audit[]};
+export type Version={workVersion:number;inputVersion:number;snapshotSha256:string;audit:Audit};
+export type Original={source:Source;originalText:string};
+export type Receipt={requestId:string;action:string;caseId:string;workVersion:number;inputVersion:number;reportRevision:number|null;reportSha256:string|null;snapshotSha256:string};
+export const reviewLabels={DRAFT:"报告草稿",SUBMITTED:"待独立复核",RETURNED:"已退回",REVIEWED_NOT_OFFICIAL:"已复核"};
+export const relationLabels={SUPPORT:"支持记录",OPPOSING:"反向记录",UNCERTAIN:"不确定记录"};
+export const sections:Record<string,string>={case:"案件概要",materials:"双方材料",claim:"权项与要素",analysis:"对应分析",law:"引用与说明",limitations:"限制与资料缺口"};
+export const diagnostics:Record<string,string>={ISSUES_MISSING:"争议事项缺失",PARTY_MATERIAL_MISSING:"对应方材料缺失",SELECTED_CLAIM_MISSING:"未确认权项",ELEMENT_SUPPORT_MISSING:"必要要素尚无确切支持或反向对应",ELEMENT_CONFLICT:"必要要素存在支持及反向冲突",ELEMENT_OPPOSING:"必要要素存在反向记录",ELEMENT_UNCERTAIN:"必要要素对应不确定",LEGAL_CONTEXT_MISSING:"法律上下文缺失",LEGAL_SELECTION_MISSING:"尚未选择引用原文",CLAIM_MISSING:"尚未确认权项",MATERIALS_MISSING:"尚无双方材料",MATERIAL_UNREADABLE:"材料原文不可读",ELEMENT_COVERAGE_MISSING:"必要要素尚无对应记录",OFFICIAL_STATUS_NOT_VERIFIED:"官方状态未核实",STABILITY_AND_EQUIVALENCE_NOT_ANALYSED:"未作有效性及等同专业分析"};

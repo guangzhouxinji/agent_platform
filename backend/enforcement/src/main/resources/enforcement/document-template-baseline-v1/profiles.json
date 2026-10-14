@@ -1,0 +1,1179 @@
+{
+  "schemaVersion": "enf-document-template-profile-v1",
+  "designation": "PROJECT_FINAL_PRODUCT_DEVELOPMENT_BASELINE",
+  "origin": "PROJECT_AUTHORED",
+  "classification": "NON_OFFICIAL",
+  "authorization": "USER_PROJECT_ENGINEERING_BASELINE_20261002_NOT_BUSINESS_APPROVAL",
+  "legalMandatoryFieldsAsserted": false,
+  "officialTemplateApprovalAsserted": false,
+  "sourceReferences": [
+    {
+      "url": "https://www.cnipa.gov.cn/art/2016/2/26/art_189_13431.html",
+      "institution": "国家知识产权局",
+      "publishedAt": "2016-02-26",
+      "capturedAt": "2026-10-02T08:29:27.530Z",
+      "rawFile": "docs/evidence/enforcement-document-draft-20261002/ENF14-BASELINE-20261002-03/sources/cnipa-2016-forms.html",
+      "bytes": 5577,
+      "sha256": "62aa8930809afee024ffc462d3877e3b456857f435f42da2c925b842f795ecc3",
+      "httpStatus": 200,
+      "collectionAllowed": true,
+      "referencePurpose": "STRUCTURAL_PRACTICE_REFERENCE_NOT_CURRENT_LEGAL_APPLICABILITY"
+    },
+    {
+      "url": "https://www.cnipa.gov.cn/module/download/downfile.jsp?classid=0&filename=78dc8be04db945d09396e240387bec53.zip&showname=zfwsbg.zip",
+      "institution": "国家知识产权局",
+      "publishedAt": "2016-02-26",
+      "capturedAt": "2026-10-02T08:29:49.716Z",
+      "rawFile": "docs/evidence/enforcement-document-draft-20261002/ENF14-BASELINE-20261002-03/sources/cnipa-2016-forms.zip",
+      "bytes": 2445818,
+      "sha256": "dcfbb71589b36c73fa76f431fd3c4968b5bdace27b4ff8326b925a812cc484fc",
+      "httpStatus": 200,
+      "collectionAllowed": true,
+      "referencePurpose": "STRUCTURAL_PRACTICE_REFERENCE_NOT_CURRENT_LEGAL_APPLICABILITY"
+    },
+    {
+      "url": "https://www.cnipa.gov.cn/art/2020/9/7/art_2432_170427.html",
+      "institution": "国家知识产权局",
+      "publishedAt": "2020-09-07",
+      "capturedAt": "2026-10-02T08:23:27.009Z",
+      "rawFile": "docs/evidence/enforcement-document-draft-20261002/ENF14-BASELINE-20261002-03/sources/cnipa-2020-guidance.html",
+      "bytes": 33091,
+      "sha256": "016f20bd1437e4a95c2ef00111e2d6f1160b3f242e1c95590be03bb51de2707b",
+      "httpStatus": 200,
+      "collectionAllowed": true,
+      "referencePurpose": "STRUCTURAL_PRACTICE_REFERENCE_NOT_CURRENT_LEGAL_APPLICABILITY"
+    }
+  ],
+  "layout": {
+    "pageSize": "A4",
+    "font": "SimSun",
+    "bodyHalfPoints": 24,
+    "marginsTwips": {
+      "top": 1440,
+      "bottom": 1440,
+      "left": 1440,
+      "right": 1440
+    },
+    "footer": "项目内置非官方草稿 仅供内部整理和复核 不表示法定签发或送达"
+  },
+  "profiles": [
+    {
+      "id": "ENF14-BUILTIN-FACT_RECORD",
+      "revision": 1,
+      "classification": "NON_OFFICIAL",
+      "documentType": "FACT_RECORD",
+      "title": "事实记录草稿",
+      "effectiveFrom": "2026-10-02T00:00:00+08:00",
+      "effectiveUntil": null,
+      "regions": [
+        "*"
+      ],
+      "stages": [
+        "*"
+      ],
+      "fields": [
+        {
+          "id": "case_ref",
+          "label": "关联案件标识",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "task_ref",
+          "label": "关联任务标识",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "party_name",
+          "label": "相关主体",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "recorded_date",
+          "label": "记录日期",
+          "type": "DATE",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "region",
+          "label": "适用地区记录",
+          "type": "STRING",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "stage",
+          "label": "业务阶段记录",
+          "type": "STRING",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "summary",
+          "label": "事实整理摘要",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": true
+        },
+        {
+          "id": "materials[].ref",
+          "label": "材料编号及版本",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "materials[].note",
+          "label": "材料定位说明",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].title",
+          "label": "引用标题",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].source_version",
+          "label": "法律来源版本",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].locator",
+          "label": "原文定位",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].verbatim",
+          "label": "所选原文",
+          "type": "LONG_TEXT",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "review_comment",
+          "label": "内部复核补充说明",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": true
+        }
+      ],
+      "defaultMappings": [
+        {
+          "fieldId": "case_ref",
+          "sourcePath": "case.id",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "task_ref",
+          "sourcePath": "task.ref",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "party_name",
+          "sourcePath": "party.name",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "recorded_date",
+          "sourcePath": "record.recordedDate",
+          "schemaVersion": "1",
+          "mode": "DETERMINISTIC",
+          "transform": "ISO_DATE",
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "region",
+          "sourcePath": "case.region",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "stage",
+          "sourcePath": "case.stage",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "summary",
+          "sourcePath": "analysis.summary",
+          "schemaVersion": "1",
+          "mode": "AUXILIARY_DRAFT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "materials[].ref",
+          "sourcePath": "materials[].ref",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "materials[].note",
+          "sourcePath": "materials[].note",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "legal_references[].title",
+          "sourcePath": "legal.references[].title",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "legal_references[].source_version",
+          "sourcePath": "legal.references[].sourceVersion",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "legal_references[].locator",
+          "sourcePath": "legal.references[].locator",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "legal_references[].verbatim",
+          "sourcePath": "legal.references[].verbatim",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "review_comment",
+          "sourcePath": "review.comment",
+          "schemaVersion": "1",
+          "mode": "AUXILIARY_DRAFT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        }
+      ],
+      "sections": [
+        {
+          "id": "case_context",
+          "title": "关联信息",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "case_ref",
+            "task_ref",
+            "party_name",
+            "recorded_date",
+            "region",
+            "stage"
+          ]
+        },
+        {
+          "id": "facts",
+          "title": "事实与材料整理",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "summary",
+            "materials[].ref",
+            "materials[].note"
+          ]
+        },
+        {
+          "id": "legal_references",
+          "title": "法律依据引用记录",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "legal_references[].title",
+            "legal_references[].source_version",
+            "legal_references[].locator",
+            "legal_references[].verbatim"
+          ]
+        },
+        {
+          "id": "human_note",
+          "title": "内部复核补充说明",
+          "condition": {
+            "operator": "PRESENT",
+            "sourcePath": "review.comment",
+            "expected": null
+          },
+          "fields": [
+            "review_comment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ENF14-BUILTIN-CONDUCT_REVIEW",
+      "revision": 1,
+      "classification": "NON_OFFICIAL",
+      "documentType": "CONDUCT_REVIEW",
+      "title": "行为复核草稿",
+      "effectiveFrom": "2026-10-02T00:00:00+08:00",
+      "effectiveUntil": null,
+      "regions": [
+        "*"
+      ],
+      "stages": [
+        "*"
+      ],
+      "fields": [
+        {
+          "id": "case_ref",
+          "label": "关联案件标识",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "task_ref",
+          "label": "关联任务标识",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "party_name",
+          "label": "相关主体",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "recorded_date",
+          "label": "记录日期",
+          "type": "DATE",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "region",
+          "label": "适用地区记录",
+          "type": "STRING",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "stage",
+          "label": "业务阶段记录",
+          "type": "STRING",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "summary",
+          "label": "事实整理摘要",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": true
+        },
+        {
+          "id": "materials[].ref",
+          "label": "材料编号及版本",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "materials[].note",
+          "label": "材料定位说明",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].title",
+          "label": "引用标题",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].source_version",
+          "label": "法律来源版本",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].locator",
+          "label": "原文定位",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].verbatim",
+          "label": "所选原文",
+          "type": "LONG_TEXT",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "review_comment",
+          "label": "内部复核补充说明",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": true
+        },
+        {
+          "id": "conduct_ref",
+          "label": "行为分析版本",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "conduct_outcome",
+          "label": "行为分析候选结果",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "conduct_summary",
+          "label": "逐行为要件整理",
+          "type": "LONG_TEXT",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "defense_summary",
+          "label": "抗辩与冲突记录",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": false
+        }
+      ],
+      "defaultMappings": [
+        {
+          "fieldId": "case_ref",
+          "sourcePath": "case.id",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "task_ref",
+          "sourcePath": "task.ref",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "party_name",
+          "sourcePath": "party.name",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "recorded_date",
+          "sourcePath": "record.recordedDate",
+          "schemaVersion": "1",
+          "mode": "DETERMINISTIC",
+          "transform": "ISO_DATE",
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "region",
+          "sourcePath": "case.region",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "stage",
+          "sourcePath": "case.stage",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "summary",
+          "sourcePath": "analysis.summary",
+          "schemaVersion": "1",
+          "mode": "AUXILIARY_DRAFT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "materials[].ref",
+          "sourcePath": "materials[].ref",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "materials[].note",
+          "sourcePath": "materials[].note",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "legal_references[].title",
+          "sourcePath": "legal.references[].title",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "legal_references[].source_version",
+          "sourcePath": "legal.references[].sourceVersion",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "legal_references[].locator",
+          "sourcePath": "legal.references[].locator",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "legal_references[].verbatim",
+          "sourcePath": "legal.references[].verbatim",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "review_comment",
+          "sourcePath": "review.comment",
+          "schemaVersion": "1",
+          "mode": "AUXILIARY_DRAFT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "conduct_ref",
+          "sourcePath": "conduct.ref",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "conduct_outcome",
+          "sourcePath": "conduct.outcome",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "conduct_summary",
+          "sourcePath": "conduct.summary",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "defense_summary",
+          "sourcePath": "conduct.defenses",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        }
+      ],
+      "sections": [
+        {
+          "id": "case_context",
+          "title": "关联信息",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "case_ref",
+            "task_ref",
+            "party_name",
+            "recorded_date",
+            "region",
+            "stage"
+          ]
+        },
+        {
+          "id": "facts",
+          "title": "事实与材料整理",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "summary",
+            "materials[].ref",
+            "materials[].note"
+          ]
+        },
+        {
+          "id": "legal_references",
+          "title": "法律依据引用记录",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "legal_references[].title",
+            "legal_references[].source_version",
+            "legal_references[].locator",
+            "legal_references[].verbatim"
+          ]
+        },
+        {
+          "id": "analysis_input",
+          "title": "行为分析复核输入",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "conduct_ref",
+            "conduct_outcome",
+            "conduct_summary",
+            "defense_summary"
+          ]
+        },
+        {
+          "id": "human_note",
+          "title": "内部复核补充说明",
+          "condition": {
+            "operator": "PRESENT",
+            "sourcePath": "review.comment",
+            "expected": null
+          },
+          "fields": [
+            "review_comment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ENF14-BUILTIN-PENALTY_INPUT_REVIEW",
+      "revision": 1,
+      "classification": "NON_OFFICIAL",
+      "documentType": "PENALTY_INPUT_REVIEW",
+      "title": "处罚输入复核草稿",
+      "effectiveFrom": "2026-10-02T00:00:00+08:00",
+      "effectiveUntil": null,
+      "regions": [
+        "*"
+      ],
+      "stages": [
+        "*"
+      ],
+      "fields": [
+        {
+          "id": "case_ref",
+          "label": "关联案件标识",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "task_ref",
+          "label": "关联任务标识",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "party_name",
+          "label": "相关主体",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "recorded_date",
+          "label": "记录日期",
+          "type": "DATE",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "region",
+          "label": "适用地区记录",
+          "type": "STRING",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "stage",
+          "label": "业务阶段记录",
+          "type": "STRING",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "summary",
+          "label": "事实整理摘要",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": true
+        },
+        {
+          "id": "materials[].ref",
+          "label": "材料编号及版本",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "materials[].note",
+          "label": "材料定位说明",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].title",
+          "label": "引用标题",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].source_version",
+          "label": "法律来源版本",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].locator",
+          "label": "原文定位",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "legal_references[].verbatim",
+          "label": "所选原文",
+          "type": "LONG_TEXT",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "review_comment",
+          "label": "内部复核补充说明",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": true
+        },
+        {
+          "id": "conduct_ref",
+          "label": "已审核行为分析版本",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "penalty_ref",
+          "label": "处罚建议版本",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": false,
+          "editableText": false
+        },
+        {
+          "id": "options[].basis",
+          "label": "方案依据及引用",
+          "type": "LONG_TEXT",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "options[].amount",
+          "label": "方案金额输入",
+          "type": "DECIMAL",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "options[].currency",
+          "label": "币种",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "options[].status",
+          "label": "方案确认状态",
+          "type": "STRING",
+          "requiredForReview": true,
+          "repeated": true,
+          "editableText": false
+        },
+        {
+          "id": "adjustment_summary",
+          "label": "方案调整及理由",
+          "type": "LONG_TEXT",
+          "requiredForReview": false,
+          "repeated": false,
+          "editableText": false
+        }
+      ],
+      "defaultMappings": [
+        {
+          "fieldId": "case_ref",
+          "sourcePath": "case.id",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "task_ref",
+          "sourcePath": "task.ref",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "party_name",
+          "sourcePath": "party.name",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "recorded_date",
+          "sourcePath": "record.recordedDate",
+          "schemaVersion": "1",
+          "mode": "DETERMINISTIC",
+          "transform": "ISO_DATE",
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "region",
+          "sourcePath": "case.region",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "stage",
+          "sourcePath": "case.stage",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "summary",
+          "sourcePath": "analysis.summary",
+          "schemaVersion": "1",
+          "mode": "AUXILIARY_DRAFT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "materials[].ref",
+          "sourcePath": "materials[].ref",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "materials[].note",
+          "sourcePath": "materials[].note",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "legal_references[].title",
+          "sourcePath": "legal.references[].title",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "legal_references[].source_version",
+          "sourcePath": "legal.references[].sourceVersion",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "legal_references[].locator",
+          "sourcePath": "legal.references[].locator",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "legal_references[].verbatim",
+          "sourcePath": "legal.references[].verbatim",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "review_comment",
+          "sourcePath": "review.comment",
+          "schemaVersion": "1",
+          "mode": "AUXILIARY_DRAFT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        },
+        {
+          "fieldId": "conduct_ref",
+          "sourcePath": "conduct.ref",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "penalty_ref",
+          "sourcePath": "penalty.ref",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "options[].basis",
+          "sourcePath": "penalty.options[].basis",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "options[].amount",
+          "sourcePath": "penalty.options[].amount",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "options[].currency",
+          "sourcePath": "penalty.options[].currency",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "options[].status",
+          "sourcePath": "penalty.options[].status",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLOCK"
+        },
+        {
+          "fieldId": "adjustment_summary",
+          "sourcePath": "penalty.adjustment",
+          "schemaVersion": "1",
+          "mode": "DIRECT",
+          "transform": null,
+          "missing": "BLANK_WITH_WARNING"
+        }
+      ],
+      "sections": [
+        {
+          "id": "case_context",
+          "title": "关联信息",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "case_ref",
+            "task_ref",
+            "party_name",
+            "recorded_date",
+            "region",
+            "stage"
+          ]
+        },
+        {
+          "id": "facts",
+          "title": "事实与材料整理",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "summary",
+            "materials[].ref",
+            "materials[].note"
+          ]
+        },
+        {
+          "id": "legal_references",
+          "title": "法律依据引用记录",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "legal_references[].title",
+            "legal_references[].source_version",
+            "legal_references[].locator",
+            "legal_references[].verbatim"
+          ]
+        },
+        {
+          "id": "analysis_input",
+          "title": "处罚建议复核输入",
+          "condition": {
+            "operator": "ALWAYS",
+            "sourcePath": null,
+            "expected": null
+          },
+          "fields": [
+            "conduct_ref",
+            "penalty_ref",
+            "options[].basis",
+            "options[].amount",
+            "options[].currency",
+            "options[].status",
+            "adjustment_summary"
+          ]
+        },
+        {
+          "id": "human_note",
+          "title": "内部复核补充说明",
+          "condition": {
+            "operator": "PRESENT",
+            "sourcePath": "review.comment",
+            "expected": null
+          },
+          "fields": [
+            "review_comment"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -169,4 +169,30 @@ public final class ProductIdentityController {
     @ExceptionHandler(DataAccessException.class)
     @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
     void unavailableState() { }
+
+    @PostMapping("/subjects/{id}/activation-recovery")
+    public java.util.Map<String, Object> recoverActivation(@PathVariable String id, @RequestBody String body,
+            @RequestHeader("Idempotency-Key") String requestId, HttpServletRequest request,
+            jakarta.servlet.http.HttpServletResponse response) {
+        response.setHeader("Cache-Control", "no-store");
+        String actor = maintenance.require(request, ProductMaintenanceProof.Role.SUBJECTS);
+        com.fasterxml.jackson.databind.JsonNode input;
+        try {
+            if (body == null || body.length() > 128) throw new IllegalArgumentException("Invalid recovery request");
+            input = mapper.reader().with(com.fasterxml.jackson.core.JsonParser.Feature.STRICT_DUPLICATE_DETECTION)
+                    .with(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_TRAILING_TOKENS).readTree(body);
+        } catch (JsonProcessingException invalid) { throw new IllegalArgumentException("Invalid recovery request"); }
+        if (input == null || !input.isObject() || input.size() != 1
+                || !input.has("expectedCredentialVersion") || !input.get("expectedCredentialVersion").isIntegralNumber()
+                || !input.get("expectedCredentialVersion").canConvertToLong())
+            throw new IllegalArgumentException("Invalid recovery request");
+        var result = subjects.recoverActivation(id, input.get("expectedCredentialVersion").longValue(), actor, requestId);
+        java.util.Map<String, Object> view = new java.util.LinkedHashMap<>();
+        view.put("subjectId", result.subjectId()); view.put("requestId", result.requestId());
+        view.put("credentialVersion", result.credentialVersion()); view.put("expiresAt", result.expiresAt());
+        view.put("delivery", result.delivery());
+        if (result.oneTimeActivation() != null) view.put("oneTimeActivation", result.oneTimeActivation());
+        return view;
+    }
+
 }

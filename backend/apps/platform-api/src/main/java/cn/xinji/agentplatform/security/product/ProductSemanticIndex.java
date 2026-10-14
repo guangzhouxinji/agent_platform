@@ -1,5 +1,4 @@
 package cn.xinji.agentplatform.security.product;
-
 import cn.xinji.agentplatform.consultation.patenttask.source.PatentEmbeddingProvider;
 import cn.xinji.agentplatform.consultation.patenttask.source.PatentLexicalQuery;
 import java.sql.Timestamp;
@@ -10,9 +9,12 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.support.TransactionTemplate;
-
 /** Builds and reads an immutable, model-versioned semantic index for admitted source fields. */
 final class ProductSemanticIndex {
+    static final class Unavailable extends IllegalStateException {
+        Unavailable(String reason) { super(reason); }
+        Unavailable(String reason, Throwable cause) { super(reason, cause); }
+    }
     record Receipt(String buildId, String sourceId, String field, String modelVersion,
                    int documentCount, int embeddedCount, int reusedCount, String buildSha) { }
     record Match(String sourceId, String documentId, String documentVersion,
@@ -20,7 +22,6 @@ final class ProductSemanticIndex {
     private record Stored(String sourceVersion, String rawSha, String locatorRef,
                           String vectorSha, byte[] vector) { }
     private record Pending(PatentLexicalQuery.Document document, byte[] vector, String vectorSha) { }
-
     private final JdbcTemplate db;
     private final TransactionTemplate transactions;
     private final ProductSourceAvailability availability;
@@ -28,7 +29,6 @@ final class ProductSemanticIndex {
     private final ProductCollectedPatentTitles titles;
     private final PatentEmbeddingProvider embeddings;
     private final Clock clock;
-
     ProductSemanticIndex(JdbcTemplate db, TransactionTemplate transactions,
             ProductSourceAvailability availability, ProductSourceWatermark watermark,
             ProductCollectedPatentTitles titles, PatentEmbeddingProvider embeddings, Clock clock) {
@@ -41,35 +41,40 @@ final class ProductSemanticIndex {
         this.clock = clock;
         db.queryForObject("SELECT COUNT(*) FROM con4_embedding_model", Integer.class);
     }
-
+    PatentEmbeddingProvider.Model model() { return embeddings.model(); }
     Receipt build(String sourceId, String requestId, String actor) {
+        return buildField(sourceId,"TITLE",requestId,actor);
+    }
+    Receipt buildField(String sourceId, String field, String requestId, String actor) {
+        field(field);
         require(sourceId, requestId, actor);
-        var active = availability.require(sourceId, "TITLE", "QUERY");
+        var active = availability.require(sourceId, field, "QUERY");
         watermark.assertUnchanged(sourceId, active.epoch());
-        String modelVersion = modelVersion();
+        String modelVersion = modelVersion(field);
         String requestSha = ProductPatentSearchEvidenceCodec.digestValues(sourceId,
                 active.contractVersion(), active.decisionId(), Long.toString(active.epoch()),
-                "TITLE", modelVersion);
+                field, modelVersion);
         List<Receipt> prior = prior(requestId, requestSha);
         if (!prior.isEmpty()) return prior.getFirst();
-        List<PatentLexicalQuery.Document> documents = titles.load(active);
+        List<PatentLexicalQuery.Document> documents = documents(active,field);
+        if (documents.isEmpty()) throw new IllegalStateException("Source has no content for the selected field");
         List<Pending> pending = new ArrayList<>();
         int reused = 0;
         for (var document : documents) {
-            List<Stored> stored = stored(document, modelVersion);
+            List<Stored> stored = stored(document, modelVersion,field);
             if (!stored.isEmpty()) {
                 if (stored.size() != 1 || !sameEvidence(stored.getFirst(), document))
                     throw new IllegalStateException("Existing semantic vector conflicts with source bytes");
                 reused++;
                 continue;
             }
-            List<Stored> reusable = reusable(document, modelVersion);
+            List<Stored> reusable = reusable(document, modelVersion,field);
             if (!reusable.isEmpty()) {
                 if (reusable.size() != 1)
                     throw new IllegalStateException("Existing semantic vector conflicts with source bytes");
                 String vectorSha = reusable.getFirst().vectorSha();
                 if (!reusable.getFirst().rawSha().equals(document.rawSha())) {
-                    float[] candidate = embeddings.embed(List.of(document.fields().get("TITLE"))).getFirst();
+                    float[] candidate = embedding(field,document.fields().get(field));
                     byte[] candidateBytes = ProductVectorCodec.encode(candidate, embeddings.model().dimension());
                     if (!ProductVectorCodec.sha(candidateBytes).equals(vectorSha))
                         throw new IllegalStateException("Existing semantic vector conflicts with source bytes");
@@ -78,33 +83,54 @@ final class ProductSemanticIndex {
                 reused++;
                 continue;
             }
-            float[] vector = embeddings.embed(List.of(document.fields().get("TITLE"))).getFirst();
+            float[] vector = embedding(field,document.fields().get(field));
             byte[] bytes = ProductVectorCodec.encode(vector, embeddings.model().dimension());
             pending.add(new Pending(document, bytes, ProductVectorCodec.sha(bytes)));
         }
         watermark.assertUnchanged(sourceId, active.epoch());
         int reusedCount = reused;
-        return transactions.execute(status -> persist(active, requestId, requestSha, actor,
+        return transactions.execute(status -> persist(active, field,requestId, requestSha, actor,
                 modelVersion, documents.size(), reusedCount, pending));
     }
 
+    void validate(ProductSourceAvailability.Active expected) {
+        validateField(expected,"TITLE");
+    }
+
+    void validateField(ProductSourceAvailability.Active expected, String field) {
+        field(field);
+        var current = availability.require(expected.sourceId(), field, "QUERY");
+        if (!current.equals(expected))
+            throw new IllegalStateException("Current semantic source snapshot changed");
+        watermark.assertUnchanged(current.sourceId(), current.epoch());
+        String version = modelVersion(field);
+        var material = documents(current,field);
+        var vectors = ProductSemanticVectors.loadField(db,current.sourceId(),current.sourceVersion(),material,
+                version,embeddings.model().dimension(),field);
+        requireBuild(current,field,version,material,vectors);
+        watermark.assertUnchanged(current.sourceId(), current.epoch());
+    }
+
     List<Match> search(String sourceId, String query, int limit) {
+        return searchField(sourceId,"TITLE",query,limit);
+    }
+
+    List<Match> searchField(String sourceId, String field, String query, int limit) {
+        field(field);
         if (query == null || query.isBlank() || limit < 1) throw new IllegalArgumentException("Query and limit required");
-        var active = availability.require(sourceId, "TITLE", "QUERY");
-        List<PatentLexicalQuery.Document> documents = titles.load(active);
-        String modelVersion = modelVersion();
-        float[] queryVector = embeddings.embed(List.of(query)).getFirst();
+        var active = availability.require(sourceId, field, "QUERY");
+        List<PatentLexicalQuery.Document> documents = documents(active,field);
+        String modelVersion = modelVersion(field);
+        var vectors=ProductSemanticVectors.loadField(db,active.sourceId(),active.sourceVersion(),documents,
+                modelVersion,embeddings.model().dimension(),field);
+        requireBuild(active,field,modelVersion,documents,vectors);
+        float[] queryVector = embedding(field,query);
         List<Match> matches = new ArrayList<>();
         for (var document : documents) {
-            List<Stored> stored = stored(document, modelVersion);
-            if (stored.size() != 1 || !sameEvidence(stored.getFirst(), document))
-                throw new IllegalStateException("Semantic index is incomplete or stale");
-            Stored vector = stored.getFirst();
-            if (!ProductVectorCodec.sha(vector.vector()).equals(vector.vectorSha()))
-                throw new IllegalStateException("Semantic vector digest changed");
+            float[] vector = vectors.get(document.documentId());
             matches.add(new Match(document.sourceId(), document.documentId(), document.documentVersion(),
                     document.sourceVersion(), document.rawSha(), document.locatorRef(), cosine(queryVector,
-                            ProductVectorCodec.decode(vector.vector(), embeddings.model().dimension()))));
+                            vector)));
         }
         watermark.assertUnchanged(sourceId, active.epoch());
         return matches.stream().sorted(Comparator.comparingDouble(Match::semanticScore).reversed()
@@ -112,7 +138,27 @@ final class ProductSemanticIndex {
                         .thenComparing(Match::documentVersion)).limit(limit).toList();
     }
 
-    private Receipt persist(ProductSourceAvailability.Active active, String requestId, String requestSha,
+    /** Reused bytes do not imply a build under the current admission tuple. No automatic rebuilding. */
+    private void requireBuild(ProductSourceAvailability.Active active, String field, String version,
+            List<PatentLexicalQuery.Document> documents, java.util.Map<String,float[]> vectors) {
+        record Build(String sha, int count) { }
+        var builds = db.query("SELECT DISTINCT build_sha,document_count FROM con4_vector_build "
+                        + "WHERE source_id=? AND contract_version=? AND decision_id=? AND source_epoch=? "
+                        + "AND field_name=? AND model_version=? AND completed_at<=?",
+                (rs,row) -> new Build(rs.getString(1),rs.getInt(2)), active.sourceId(),
+                active.contractVersion(),active.decisionId(),active.epoch(),field,version,
+                Timestamp.from(clock.instant()));
+        if (documents.isEmpty() || builds.size()!=1 || builds.getFirst().count()!=documents.size())
+            throw new Unavailable("Semantic build receipt is missing or inconsistent for current admission");
+        String sha = ProductPatentSearchEvidenceCodec.digestValues(documents.stream()
+                .map(doc -> ProductVectorCodec.sha(ProductVectorCodec.encode(
+                        vectors.get(doc.documentId()),embeddings.model().dimension())))
+                .toArray(String[]::new));
+        if (!sha.equals(builds.getFirst().sha()))
+            throw new Unavailable("Semantic build receipt digest differs from current vector snapshot");
+    }
+
+    private Receipt persist(ProductSourceAvailability.Active active, String field,String requestId, String requestSha,
             String actor, String modelVersion, int documentCount, int reused, List<Pending> pending) {
         watermark.assertUnchanged(active.sourceId(), active.epoch());
         registerModel(modelVersion);
@@ -122,17 +168,17 @@ final class ProductSemanticIndex {
             if (item.vector() != null)
                 db.update("INSERT INTO con4_document_vector(source_id,document_id,document_version,field_name,"
                                 + "model_version,source_version,raw_sha,locator_ref,vector_sha,vector_data,created_at) "
-                                + "VALUES(?,?,?,'TITLE',?,?,?,?,?,?,?)", document.sourceId(), document.documentId(),
-                        document.documentVersion(), modelVersion, document.sourceVersion(), document.rawSha(),
+                                + "VALUES(?,?,?,?,?,?,?,?,?,?,?)", document.sourceId(), document.documentId(),
+                        document.documentVersion(), field,modelVersion, document.sourceVersion(), document.rawSha(),
                         document.locatorRef(), item.vectorSha(), item.vector(), now);
             db.update("INSERT INTO con4_document_vector_binding(source_id,document_id,document_version,field_name,"
                             + "model_version,source_version,raw_sha,locator_ref,vector_sha,created_at) "
-                            + "VALUES(?,?,?,'TITLE',?,?,?,?,?,?)", document.sourceId(), document.documentId(),
-                    document.documentVersion(), modelVersion, document.sourceVersion(), document.rawSha(),
+                            + "VALUES(?,?,?,?,?,?,?,?,?,?)", document.sourceId(), document.documentId(),
+                    document.documentVersion(), field,modelVersion, document.sourceVersion(), document.rawSha(),
                     document.locatorRef(), item.vectorSha(), now);
         }
-        List<String> vectorShas = documents(active).stream().map(document -> {
-            List<Stored> stored = stored(document, modelVersion);
+        List<String> vectorShas = documents(active,field).stream().map(document -> {
+            List<Stored> stored = stored(document, modelVersion,field);
             if (stored.size() != 1 || !sameEvidence(stored.getFirst(), document))
                 throw new IllegalStateException("Semantic index cardinality changed");
             return stored.getFirst().vectorSha();
@@ -142,11 +188,11 @@ final class ProductSemanticIndex {
         int embedded = (int) pending.stream().filter(item -> item.vector() != null).count();
         db.update("INSERT INTO con4_vector_build(build_id,request_id,request_sha,source_id,contract_version,"
                         + "decision_id,source_epoch,field_name,model_version,document_count,embedded_count,"
-                        + "reused_count,build_sha,actor_ref,completed_at) VALUES(?,?,?,?,?,?,?,'TITLE',?,?,?,?,?,?,?)",
+                        + "reused_count,build_sha,actor_ref,completed_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 buildId, requestId, requestSha, active.sourceId(), active.contractVersion(), active.decisionId(),
-                active.epoch(), modelVersion, documentCount, embedded, reused, buildSha, actor,
+                active.epoch(), field,modelVersion, documentCount, embedded, reused, buildSha, actor,
                 Timestamp.from(clock.instant()));
-        return new Receipt(buildId, active.sourceId(), "TITLE", modelVersion, documentCount,
+        return new Receipt(buildId, active.sourceId(), field, modelVersion, documentCount,
                 embedded, reused, buildSha);
     }
 
@@ -166,31 +212,41 @@ final class ProductSemanticIndex {
                 model.licenseId(), Timestamp.from(clock.instant()));
     }
 
-    private List<Stored> stored(PatentLexicalQuery.Document document, String modelVersion) {
+    private List<Stored> stored(PatentLexicalQuery.Document document, String modelVersion,String field) {
         return db.query("SELECT b.source_version,b.raw_sha,b.locator_ref,b.vector_sha,v.vector_data "
                         + "FROM con4_document_vector_binding b JOIN con4_document_vector v "
                         + "ON v.source_id=b.source_id AND v.document_id=b.document_id "
                         + "AND v.document_version=b.document_version AND v.field_name=b.field_name "
-                        + "AND v.model_version=b.model_version WHERE b.source_id=? "
-                        + "AND b.document_id=? AND b.document_version=? AND b.field_name='TITLE' "
+                        + "AND v.model_version=b.model_version AND v.vector_sha=b.vector_sha WHERE b.source_id=? "
+                        + "AND b.document_id=? AND b.document_version=? AND b.field_name=? "
                         + "AND b.model_version=? AND b.source_version=?",
                 (rs, row) -> new Stored(rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getBytes(5)), document.sourceId(),
-                document.documentId(), document.documentVersion(), modelVersion, document.sourceVersion());
+                document.documentId(), document.documentVersion(), field,modelVersion, document.sourceVersion());
     }
 
-    private List<Stored> reusable(PatentLexicalQuery.Document document, String modelVersion) {
+    private List<Stored> reusable(PatentLexicalQuery.Document document, String modelVersion,String field) {
         return db.query("SELECT source_version,raw_sha,locator_ref,vector_sha,vector_data "
                         + "FROM con4_document_vector WHERE source_id=? AND document_id=? "
-                        + "AND document_version=? AND field_name='TITLE' AND model_version=?",
+                        + "AND document_version=? AND field_name=? AND model_version=?",
                 (rs, row) -> new Stored(rs.getString(1), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getBytes(5)), document.sourceId(), document.documentId(),
-                document.documentVersion(), modelVersion);
+                document.documentVersion(), field,modelVersion);
     }
 
-    private List<PatentLexicalQuery.Document> documents(ProductSourceAvailability.Active active) {
-        return titles.load(active).stream().sorted(Comparator.comparing(PatentLexicalQuery.Document::documentId)
+    private List<PatentLexicalQuery.Document> documents(ProductSourceAvailability.Active active,String field) {
+        var documents = "TITLE".equals(field) ? titles.load(active) : titles.loadField(active,field);
+        if (documents == null || documents.stream().anyMatch(doc -> doc == null || doc.fields() == null
+                || !doc.fields().keySet().equals(java.util.Set.of(field)) || doc.fields().get(field) == null
+                || doc.fields().get(field).isBlank()))
+            throw new IllegalStateException("Exact selected source field content required");
+        return documents.stream().sorted(Comparator.comparing(PatentLexicalQuery.Document::documentId)
                 .thenComparing(PatentLexicalQuery.Document::documentVersion)).toList();
+    }
+
+    private static void field(String field) {
+        if (field == null) throw new IllegalArgumentException("Exact semantic field required");
+        ProductCapturedPatentFields.validate(java.util.Set.of(field));
     }
 
     private static boolean sameEvidence(Stored stored, PatentLexicalQuery.Document document) {
@@ -212,9 +268,19 @@ final class ProductSemanticIndex {
         return rows;
     }
 
-    private String modelVersion() {
+    private float[] embedding(String field,String text) {
+        return ("TITLE".equals(field) ? embeddings.embed(List.of(text)) : embeddings.embedComplete(List.of(text))).getFirst();
+    }
+
+    private String modelVersion(String field) {
         var model = embeddings.model();
-        return model.modelId() + "@" + model.modelRevision() + "/" + model.normalization();
+        String base = model.modelId() + "@" + model.modelRevision() + "/" + model.normalization();
+        return "TITLE".equals(field) ? base : base + "/" + PatentEmbeddingProvider.COMPLETE_REPRESENTATION_VERSION
+                + "/W" + model.maxTokens() + "/D" + model.dimension();
+    }
+    String fieldModelVersion(String field) {
+        field(field);
+        return modelVersion(field);
     }
 
     private static double cosine(float[] left, float[] right) {

@@ -1,0 +1,31 @@
+{
+  "version": "ADJ_CASE_REPORT/v2",
+  "method": "CONFIRMED_CLAIM_EXACT_ELEMENT_EVIDENCE_REVIEW",
+  "accountableRole": "裁决业务规则维护人员",
+  "sourceReferences": [
+    "CNIPA-ORDER-81/2024-12-30/art38-40/page17-18",
+    "ADJ_PUBLIC_LEGAL_CAPTURE/v1:2f2c40727172401007bcdade238fc3e951574e9615e53a36f76dad4ec9ec8656"
+  ],
+  "mandatoryRules": [
+    "CASE_CONTEXT",
+    "CONFIRMED_CLAIM",
+    "CONFLICT_RESOLUTION",
+    "ELEMENT_CORRESPONDENCE",
+    "EXACT_ORIGINAL",
+    "EXACT_REPORT_VERSION",
+    "INDEPENDENT_REVIEW",
+    "LEGAL_CITATION",
+    "PARTY_MATERIALS",
+    "UNCERTAINTY_RESOLUTION"
+  ],
+  "sectionOrder": [
+    "case",
+    "materials",
+    "claim",
+    "analysis",
+    "law",
+    "limitations"
+  ],
+  "maxTextLength": 100000,
+  "opposingRequiresResolution": false
+}

@@ -1,0 +1,3 @@
+# 首轮源码来源字段说明
+
+full-round02-exit.json的sourceSnapshot字段来自复用命令模板，实际指向仅供准备器使用的编译目录，不是完整源码快照。真实执行目录为当前工作区；source-inputs.json列出2459个输入的SHA，run.ps1在Maven前后逐项核对，full-round02-input-check.json记录实际工作区与开始时间。没有将准备器编译目录当成产品源代码证据。原退出原件保持不改；最终轮命令改用sourceManifest与fixturePreparationClasses的明确字段。

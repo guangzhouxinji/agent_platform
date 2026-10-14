@@ -1,0 +1,11 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {prepareContainerFence} from '../../../../../scripts/lib/single-database-native-fence-container.mjs';
+import {runNativeCommand} from '../../../../../scripts/lib/single-database-lifecycle-native.mjs';
+import {hash} from '../../../../../scripts/lib/single-database-lifecycle-runtime.mjs';
+const c=JSON.parse(await readFile(new URL('source-snapshot-config46.json',import.meta.url)));
+const commands=[];const read=async (cmd,args,options)=>{commands.push({executable:cmd,args,readOnly:true});return runNativeCommand(cmd,args,options);};
+const invocation=await prepareContainerFence(c,read);
+const sources=['single-database-native-fence-container.mjs','single-database-native-fence-container.test.mjs'];
+const sourceSha256=Object.fromEntries(await Promise.all(sources.map(async n=>[n,hash(await readFile(new URL('../../../../../scripts/lib/'+n,import.meta.url)))])));
+const r={format:'ACTUAL_OWNED_NATIVE_FENCE_METADATA_PREFLIGHT/v1',taskId:'FIX-SINGLE-DB-FENCE-DNS-NAMES-01',capturedAt:new Date().toISOString(),passed:true,targetId:c.targetId,toolId:c.native.fence.dockerFence.containerId,networkId:c.native.fence.dockerFence.networkId,classSha256:c.native.fence.dockerFence.classSha256,commands,sourceSha256,returnedCommand:invocation.command,returnedInvocationNotExecuted:true,javaProcessStarted:false,jdbcConnected:false,shareFenceHeld:false,nativeExportStarted:false,modelCalls:0};
+await writeFile(new URL('actual-fence-metadata-preflight46.json',import.meta.url),JSON.stringify(r,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({passed:true,commands:commands.length,returnedInvocationNotExecuted:true}));

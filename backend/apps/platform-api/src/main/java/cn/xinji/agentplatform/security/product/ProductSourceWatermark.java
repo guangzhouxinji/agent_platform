@@ -1,9 +1,5 @@
 package cn.xinji.agentplatform.security.product;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.HexFormat;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -14,6 +10,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 /** The independent source epoch prevents an older primary snapshot from reviving a source. */
 public final class ProductSourceWatermark {
+    private final ProductObservedTables tables;
     public record Current(long epoch, String status, long rowVersion,
                           String contractVersion, String decisionId) { }
     public record Intent(String id, String beforeHistorySha) { }
@@ -30,9 +27,10 @@ public final class ProductSourceWatermark {
 
     private ProductSourceWatermark(JdbcTemplate primary, JdbcTemplate authority,
             TransactionTemplate transactions, boolean checkStartup) {
-        this.primary = primary;
+        this.primary = ProductWatermarkJdbc.buffered(primary);
         this.authority = authority;
         this.transactions = transactions;
+        this.tables = new ProductObservedTables(this.primary);
         if (checkStartup) assertAllCurrent();
     }
 
@@ -124,16 +122,18 @@ public final class ProductSourceWatermark {
 
     public Current current(String sourceId) {
         State state = state(sourceId);
-        Current primaryState = primaryState(sourceId);
-        if (state == null || primaryState == null || state.intent() != null
-                || !state.status().equals("READY") && !state.status().equals("WITHDRAWN")
+        if (state == null || state.intent() != null
+                || !state.status().equals("READY") && !state.status().equals("WITHDRAWN"))
+            throw new IllegalStateException("Source authority is unavailable or unresolved");
+        var snapshot = ProductSourceHistoryBatch.read(primary, sourceId, productDecisionTablePresent());
+        Current primaryState = snapshot.current();
+        State after = state(sourceId);
+        if (primaryState == null || !state.equals(after)
                 || state.epoch() != primaryState.epoch()
                 || !state.status().equals("ACTIVE".equals(primaryState.status()) ? "READY" : "WITHDRAWN"))
             throw new IllegalStateException("Source authority is unavailable or unresolved");
-        String digest = digest(sourceId);
-        List<String> stored = primary.queryForList("SELECT history_sha FROM con4_source_current "
-                + "WHERE source_id=?", String.class, sourceId);
-        if (stored.size() != 1 || !digest.equals(stored.getFirst()) || !digest.equals(state.digest()))
+        String digest = snapshot.digest();
+        if (!digest.equals(snapshot.storedDigest()) || !digest.equals(state.digest()))
             throw new IllegalStateException("Source history differs from independent authority");
         return primaryState;
     }
@@ -216,84 +216,10 @@ public final class ProductSourceWatermark {
     }
 
     private String digest(String sourceId) {
-        try {
-            MessageDigest hash = MessageDigest.getInstance("SHA-256");
-            primary.query("SELECT source_id,contract_version,decision_id,source_epoch,status,row_version "
-                    + "FROM con4_source_current WHERE source_id=?", rs -> {
-                        for (int i = 1; i <= 6; i++) field(hash, rs.getString(i));
-                    }, sourceId);
-            primary.query("SELECT c.contract_version,c.source_version,c.declaration_json,c.request_sha,"
-                    + "c.evidence_ref,c.evidence_sha,c.status,c.row_version,a.decision_id,a.rights_ref,"
-                    + "a.rights_sha,a.capability_ref,a.capability_sha,a.responsible_party,a.maintainer_ref,"
-                    + "a.coverage_sha,a.valid_until,a.decided_at FROM con4_source_current p "
-                    + "JOIN con4_source_contract c "
-                    + "ON c.source_id=p.source_id AND c.contract_version=p.contract_version "
-                    + "JOIN con4_source_admission a ON a.decision_id=p.decision_id WHERE p.source_id=?",
-                    rs -> {
-                        for (int i = 1; i <= 16; i++) field(hash, rs.getString(i));
-                        timestamp(hash, rs.getTimestamp(17));
-                        timestamp(hash, rs.getTimestamp(18));
-                    }, sourceId);
-            primary.query("SELECT f.field_code,f.use_code,f.valid_until FROM con4_source_current p "
-                    + "JOIN con4_source_field_use f ON f.decision_id=p.decision_id "
-                    + "WHERE p.source_id=? ORDER BY f.field_code,f.use_code", rs -> {
-                        for (int i = 1; i <= 2; i++) field(hash, rs.getString(i));
-                        timestamp(hash, rs.getTimestamp(3));
-                    }, sourceId);
-            if (productDecisionTablePresent()) {
-                List<String> decisions = primary.query("SELECT d.decision_id,d.decision_version,"
-                        + "d.decision_ref,d.decision_sha,d.rights_evidence_status,"
-                        + "d.organization_id,d.task_id,d.scope_id,d.retention_ref,"
-                        + "d.retention_version,d.retention_evidence_sha "
-                        + "FROM con4_source_current p JOIN con4_source_product_decision d "
-                        + "ON d.decision_id=p.decision_id WHERE p.source_id=?",
-                        (rs, row) -> {
-                            for (int i = 1; i <= 11; i++) field(hash, rs.getString(i));
-                            return rs.getString(1);
-                        }, sourceId);
-                if (decisions.size() != 1 && primaryState(sourceId) != null)
-                    throw new IllegalStateException("Product-use decision is missing");
-            }
-            primary.query("SELECT v.verification_id,v.source_version,v.candidate_row_version,"
-                    + "v.manifest_ref,v.manifest_sha,v.records_sha,v.inventory_sha,v.record_count,"
-                    + "v.raw_count,v.verifier_ref,v.verified_at FROM con4_source_verification v "
-                    + "JOIN con4_source_current p ON p.source_id=v.source_id "
-                    + "AND p.contract_version=v.contract_version WHERE p.source_id=?",
-                    rs -> {
-                        for (int i = 1; i <= 10; i++) field(hash, rs.getString(i));
-                        timestamp(hash, rs.getTimestamp(11));
-                    }, sourceId);
-            primary.query("SELECT event_id,contract_version,decision_id,operation,before_epoch,after_epoch,"
-                    + "before_version,after_version,intent_id,before_history_sha,actor_ref,request_sha,occurred_at "
-                    + "FROM con4_source_authority_event WHERE source_id=? ORDER BY after_epoch,event_id",
-                    rs -> {
-                        for (int i = 1; i <= 12; i++) field(hash, rs.getString(i));
-                        timestamp(hash, rs.getTimestamp(13));
-                    }, sourceId);
-            return HexFormat.of().formatHex(hash.digest());
-        } catch (NoSuchAlgorithmException impossible) {
-            throw new IllegalStateException(impossible);
-        }
+        return ProductSourceHistoryBatch.digest(primary, sourceId, productDecisionTablePresent());
     }
 
     private boolean productDecisionTablePresent() {
-        try {
-            return primary.execute((org.springframework.jdbc.core.ConnectionCallback<Boolean>) connection -> {
-                try (var tables = connection.getMetaData().getTables(null, connection.getSchema(),
-                        "CON4_SOURCE_PRODUCT_DECISION", new String[] {"TABLE"})) {
-                    return tables.next();
-                }
-            });
-        } catch (Exception failure) {
-            throw new IllegalStateException("Product decision schema is unavailable", failure);
-        }
-    }
-    private static void field(MessageDigest hash, String value) {
-        hash.update((value == null ? "-1:" : value.length() + ":" + value)
-                .getBytes(StandardCharsets.UTF_8));
-    }
-
-    private static void timestamp(MessageDigest hash, java.sql.Timestamp value) {
-        field(hash, value == null ? null : value.toLocalDateTime().toString());
+        return tables.present("CON4_SOURCE_PRODUCT_DECISION");
     }
 }

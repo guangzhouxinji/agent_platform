@@ -21,17 +21,32 @@ final class OnnxPatentReranker implements PatentReranker, AutoCloseable {
     private final Model model;
     private final OrtEnvironment environment;
     private final OrtSession session;
+    private final OrtSession.SessionOptions sessionOptions;
     private final HuggingFaceTokenizer tokenizer;
+    private final HuggingFaceTokenizer completeTokenizer;
+    private final HuggingFaceTokenizer queryTokenizer;
+    private final ProductCompleteRerankCache completeScores = new ProductCompleteRerankCache(1024);
+    private boolean closed;
 
     OnnxPatentReranker(Path modelPath, Path tokenizerPath, Model model) {
+        this(modelPath,tokenizerPath,model,ProductOnnxSessionOptions.current());
+    }
+    OnnxPatentReranker(Path modelPath, Path tokenizerPath, Model model,
+            OrtSession.SessionOptions sessionOptions) {
+        this.sessionOptions=java.util.Objects.requireNonNull(sessionOptions);
         this.model = validate(model);
         verify(modelPath, model.modelSha256());
         verify(tokenizerPath, model.tokenizerSha256());
         try {
             environment = OrtEnvironment.getEnvironment();
-            session = environment.createSession(modelPath.toAbsolutePath().toString());
+            session = environment.createSession(modelPath.toAbsolutePath().toString(),sessionOptions);
             tokenizer = HuggingFaceTokenizer.builder().optTokenizerPath(tokenizerPath.toAbsolutePath())
                     .optAddSpecialTokens(true).optTruncation(true).optMaxLength(model.maxTokens()).build();
+            completeTokenizer = HuggingFaceTokenizer.builder().optTokenizerPath(tokenizerPath.toAbsolutePath())
+                    .optAddSpecialTokens(true).optTruncateSecondOnly().optWithOverflowingTokens(true)
+                    .optStride(0).optMaxLength(model.maxTokens()).build();
+            queryTokenizer = HuggingFaceTokenizer.builder().optTokenizerPath(tokenizerPath.toAbsolutePath())
+                    .optAddSpecialTokens(true).optTruncation(false).build();
             if (!session.getInputNames().containsAll(List.of("input_ids", "attention_mask")))
                 throw new IllegalStateException("Reranker input contract is unsupported");
         } catch (Exception failure) {
@@ -42,6 +57,7 @@ final class OnnxPatentReranker implements PatentReranker, AutoCloseable {
     @Override public Model model() { return model; }
 
     @Override public synchronized List<Score> score(List<Pair> pairs) {
+        if(closed)throw new IllegalStateException("Patent reranker is closed");
         if (pairs == null || pairs.isEmpty() || pairs.stream().anyMatch(pair -> pair == null
                 || blank(pair.candidateId()) || blank(pair.query()) || blank(pair.documentText())))
             throw new IllegalArgumentException("Complete reranker pairs required");
@@ -53,6 +69,30 @@ final class OnnxPatentReranker implements PatentReranker, AutoCloseable {
 
     private double score(String query, String document) {
         Encoding encoding = tokenizer.encode(query, document);
+        return infer(encoding);
+    }
+
+    @Override public synchronized List<Score> scoreComplete(List<Pair> pairs) {
+        if(closed)throw new IllegalStateException("Patent reranker is closed");
+        if (pairs == null || pairs.isEmpty() || pairs.stream().anyMatch(pair -> pair == null
+                || blank(pair.candidateId()) || blank(pair.query()) || blank(pair.documentText())))
+            throw new IllegalArgumentException("Complete reranker pairs required");
+        List<Score> result = new ArrayList<>(pairs.size());
+        for (Pair pair : pairs) {
+            double value=completeScores.score(model,pair,()-> {
+                long[] query = OnnxCompleteReranking.content(queryTokenizer.encode(pair.query()),0);
+                // BERT pair has three special tokens; reserve at least one document token.
+                if (query.length == 0 || query.length > model.maxTokens() - 4)
+                    throw new IllegalStateException("Complete reranking query exceeds pair budget");
+                return OnnxCompleteReranking.score(completeTokenizer.encode(pair.query(),pair.documentText()),
+                        query,model.maxTokens(),this::infer);
+            });
+            result.add(new Score(pair.candidateId(),value));
+        }
+        return List.copyOf(result);
+    }
+
+    private double infer(Encoding encoding) {
         long[] ids = encoding.getIds();
         long[] mask = encoding.getAttentionMask();
         long[] types = encoding.getTypeIds();
@@ -101,11 +141,15 @@ final class OnnxPatentReranker implements PatentReranker, AutoCloseable {
             throw new IllegalStateException("Reranker artifact cannot be verified", failure);
         }
     }
-    @Override public void close() {
+    @Override public synchronized void close() {
+        if(closed)return;
+        closed=true;completeScores.clear();
         tokenizer.close();
+        completeTokenizer.close();
+        queryTokenizer.close();
         try { session.close(); } catch (Exception failure) {
             throw new IllegalStateException("Reranker session could not close", failure);
-        }
+        } finally { sessionOptions.close(); }
     }
     private static boolean sha(String value) { return value != null && value.matches("[0-9a-fA-F]{64}"); }
     private static boolean blank(String value) { return value == null || value.isBlank(); }

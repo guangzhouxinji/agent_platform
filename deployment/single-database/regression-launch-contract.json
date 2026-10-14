@@ -1,0 +1,183 @@
+{
+  "format": "SINGLE_DATABASE_REGRESSION_LAUNCH_CONTRACT/v1",
+  "taskId": "FIX-SINGLE-DB-REGRESSION-LAUNCH-01",
+  "scope": "UNCHANGED_HISTORICAL_REGRESSION_FIXTURE_COMPATIBILITY_NOT_FINAL_PRODUCT_SINGLE_DB_INTEGRATION",
+  "consumers": [
+    {
+      "className": "cn.xinji.agentplatform.enforcement.documentrule.DocumentRuleAttemptRuntimeDm8Test",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/documentrule/DocumentRuleAttemptRuntimeDm8Test.java",
+      "sha256": "9c508b7b25f0225ae3b1767018b986a4a440b7fc79e11cb747c01b58040ba3a5",
+      "requirements": {
+        "ENF_ACCEPTANCE_BUSINESS_PASSWORD": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_PASSWORD",
+        "ENF_ACCEPTANCE_BUSINESS_URL": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_URL",
+        "ENF_ACCEPTANCE_BUSINESS_USER": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_USER",
+        "ENF_DOCUMENT_RULE_ATTEMPT_BROWSER_RESULT": "ENF_DOCUMENT_RULE_ATTEMPT_BROWSER_RESULT",
+        "ENF_DOCUMENT_RULE_ATTEMPT_OUTPUT": "ENF_DOCUMENT_RULE_ATTEMPT_OUTPUT",
+        "ENF_DOCUMENT_RULE_TEMPLATE_ROOT": "ENF_DOCUMENT_RULE_TEMPLATE_ROOT"
+      },
+      "sourceShaMatchesRbc24": true
+    },
+    {
+      "className": "cn.xinji.agentplatform.enforcement.documentrule.DocumentRuleDependencyRuntimeDm8Test",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/documentrule/DocumentRuleDependencyRuntimeDm8Test.java",
+      "sha256": "7a71c6b8ee094270df49ace60691eec337bfa951be2bde0e53c9dc3f87d8763c",
+      "requirements": {
+        "ENF_ACCEPTANCE_BUSINESS_PASSWORD": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_PASSWORD",
+        "ENF_ACCEPTANCE_BUSINESS_URL": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_URL",
+        "ENF_ACCEPTANCE_BUSINESS_USER": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_USER",
+        "ENF_DOCUMENT_RULE_DEPENDENCY_OUTPUT": "ENF_DOCUMENT_RULE_DEPENDENCY_OUTPUT",
+        "ENF_DOCUMENT_RULE_DEPENDENCY_RESULT": "ENF_DOCUMENT_RULE_DEPENDENCY_RESULT",
+        "ENF_DOCUMENT_RULE_TEMPLATE_ROOT": "ENF_DOCUMENT_RULE_TEMPLATE_ROOT"
+      },
+      "sourceShaMatchesRbc24": true
+    },
+    {
+      "className": "cn.xinji.agentplatform.enforcement.documentrule.DocumentRuleFrozenNegativeRuntimeDm8Test",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/documentrule/DocumentRuleFrozenNegativeRuntimeDm8Test.java",
+      "sha256": "0605da7e5ab6a62c60fbf0c30915cdbb216044fdf6d30b0f2a7aab81b83ddf06",
+      "requirements": {
+        "ENF_ACCEPTANCE_BUSINESS_PASSWORD": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_PASSWORD",
+        "ENF_ACCEPTANCE_BUSINESS_URL": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_URL",
+        "ENF_ACCEPTANCE_BUSINESS_USER": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_USER",
+        "ENF_DOCUMENT_RULE_NEGATIVE_MANIFEST": "ENF_DOCUMENT_RULE_NEGATIVE_MANIFEST",
+        "ENF_DOCUMENT_RULE_NEGATIVE_OUTPUT": "ENF_DOCUMENT_RULE_NEGATIVE_OUTPUT",
+        "ENF_DOCUMENT_RULE_TEMPLATE_ROOT": "ENF_DOCUMENT_RULE_TEMPLATE_ROOT"
+      },
+      "sourceShaMatchesRbc24": true
+    },
+    {
+      "className": "cn.xinji.agentplatform.enforcement.documentrule.DocumentRuleNegativeRuntimeDm8Test",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/documentrule/DocumentRuleNegativeRuntimeDm8Test.java",
+      "sha256": "a78232710f7c3b72ac8f626e8be95976caa9b4445ea957e7ea23cc9954b48617",
+      "requirements": {
+        "ENF_ACCEPTANCE_BUSINESS_PASSWORD": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_PASSWORD",
+        "ENF_ACCEPTANCE_BUSINESS_URL": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_URL",
+        "ENF_ACCEPTANCE_BUSINESS_USER": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_USER",
+        "ENF_DOCUMENT_RULE_TEMPLATE_ROOT": "ENF_DOCUMENT_RULE_TEMPLATE_ROOT"
+      },
+      "sourceShaMatchesRbc24": true
+    },
+    {
+      "className": "cn.xinji.agentplatform.enforcement.documentrule.DocumentRuleRecoveryRuntimeDm8Test",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/documentrule/DocumentRuleRecoveryRuntimeDm8Test.java",
+      "sha256": "e6a0b92cb385fa2ddd1550d279616aa3c59f5ec464549f22b733ca75a9ed1122",
+      "requirements": {
+        "ENF_ACCEPTANCE_BUSINESS_PASSWORD": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_PASSWORD",
+        "ENF_ACCEPTANCE_BUSINESS_URL": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_URL",
+        "ENF_ACCEPTANCE_BUSINESS_USER": "AGENT_ENF_RULE_ENF_ACCEPTANCE_BUSINESS_USER",
+        "ENF_DOCUMENT_RULE_FINAL_CATALOG": "ENF_DOCUMENT_RULE_FINAL_CATALOG",
+        "ENF_DOCUMENT_RULE_RECOVERY_BASELINE": "ENF_DOCUMENT_RULE_RECOVERY_BASELINE",
+        "ENF_DOCUMENT_RULE_RECOVERY_OUTPUT": "ENF_DOCUMENT_RULE_RECOVERY_OUTPUT",
+        "ENF_DOCUMENT_RULE_TEMPLATE_ROOT": "ENF_DOCUMENT_RULE_TEMPLATE_ROOT"
+      },
+      "sourceShaMatchesRbc24": true
+    },
+    {
+      "className": "cn.xinji.agentplatform.enforcement.documenttemplate.DocumentTemplateDm8IntegrationTest",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/documenttemplate/DocumentTemplateDm8IntegrationTest.java",
+      "sha256": "5c71bc9e4abfef81117e223070f44adb8f6b00994b1802491324e73581e13370",
+      "requirements": {
+        "AGENT_ENF_ENGINEERING_ADMIN_PASSWORD": "AGENT_ENF_ENGINEERING_ADMIN_PASSWORD",
+        "AGENT_ENF_ENGINEERING_ADMIN_URL": "AGENT_ENF_ENGINEERING_ADMIN_URL",
+        "AGENT_ENF_ENGINEERING_ADMIN_USER": "AGENT_ENF_ENGINEERING_ADMIN_USER"
+      },
+      "sourceShaMatchesRbc24": true
+    },
+    {
+      "className": "cn.xinji.agentplatform.enforcement.EnforcementFollowupDm8MigrationTest",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/EnforcementFollowupDm8MigrationTest.java",
+      "sha256": "281767514ad60ab8bfa92fb9fda91366c18197f5394514387983b73ea4b927a2",
+      "requirements": {
+        "AGENT_ENF_ENGINEERING_ADMIN_PASSWORD": "AGENT_ENF_ENGINEERING_ADMIN_PASSWORD",
+        "AGENT_ENF_ENGINEERING_ADMIN_URL": "AGENT_ENF_ENGINEERING_ADMIN_URL",
+        "AGENT_ENF_ENGINEERING_ADMIN_USER": "AGENT_ENF_ENGINEERING_ADMIN_USER"
+      },
+      "sourceShaMatchesRbc24": true
+    },
+    {
+      "className": "cn.xinji.agentplatform.enforcement.jobpack.JobPackDm8IntegrationTest",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/jobpack/JobPackDm8IntegrationTest.java",
+      "sha256": "ed7965591dc3097e956f6866ca89be2de7aaafdfac6f783cc5884cf7e06959c1",
+      "requirements": {
+        "JOB_PACK_DM8_PASSWORD": "AGENT_JOBPACK_JOB_PACK_DM8_PASSWORD",
+        "JOB_PACK_DM8_URL": "AGENT_JOBPACK_JOB_PACK_DM8_URL",
+        "JOB_PACK_DM8_USER": "AGENT_JOBPACK_JOB_PACK_DM8_USER"
+      },
+      "sourceShaMatchesRbc24": true
+    },
+    {
+      "className": "cn.xinji.agentplatform.enforcement.jobpack.RealBusinessCollectionDm8Test",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/jobpack/RealBusinessCollectionDm8Test.java",
+      "sha256": "5c852fc9436d3a8af53296213469f6a4d23c866765062b7455a247641e41e8d4",
+      "requirements": {
+        "JOB_PACK_DM8_PASSWORD": "JOB_PACK_DM8_PASSWORD",
+        "JOB_PACK_DM8_URL": "JOB_PACK_DM8_URL",
+        "JOB_PACK_DM8_USER": "JOB_PACK_DM8_USER",
+        "ENF_TEST_RUN_ID": "ENF_TEST_RUN_ID",
+        "ENF_TEST_CONTAINER": "ENF_TEST_CONTAINER",
+        "ENF_TEST_VOLUME": "ENF_TEST_VOLUME",
+        "ENF_TEST_DB_SCHEMA": "ENF_TEST_DB_SCHEMA",
+        "ENF_TEST_FILE_ROOT": "ENF_TEST_FILE_ROOT"
+      },
+      "sourceShaMatchesRbc24": true
+    },
+    {
+      "className": "cn.xinji.agentplatform.enforcement.legalreference.LegalReferenceDm8IntegrationTest",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/legalreference/LegalReferenceDm8IntegrationTest.java",
+      "sha256": "3afa469923e142d9869087d2f3fb7ff9c3954fe5101235e6018e831c9475a063",
+      "requirements": {
+        "AGENT_ENF_ENGINEERING_ADMIN_PASSWORD": "AGENT_ENF_ENGINEERING_ADMIN_PASSWORD",
+        "AGENT_ENF_ENGINEERING_ADMIN_URL": "AGENT_ENF_ENGINEERING_ADMIN_URL",
+        "AGENT_ENF_ENGINEERING_ADMIN_USER": "AGENT_ENF_ENGINEERING_ADMIN_USER"
+      },
+      "sourceShaMatchesRbc24": true
+    },
+    {
+      "className": "cn.xinji.agentplatform.security.product.EnforcementDocumentRuleFacilityFixtureTest",
+      "sourcePath": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/security/product/EnforcementDocumentRuleFacilityFixtureTest.java",
+      "sha256": "ef41563147266d2f6c9b9a6041f0bfd9094618713930cceef59b1cc5ec3a1c74",
+      "requirements": {
+        "ENF_ACCEPTANCE_BUSINESS_PASSWORD": "ENF_ACCEPTANCE_BUSINESS_PASSWORD",
+        "ENF_ACCEPTANCE_BUSINESS_URL": "ENF_ACCEPTANCE_BUSINESS_URL",
+        "ENF_ACCEPTANCE_BUSINESS_USER": "ENF_ACCEPTANCE_BUSINESS_USER",
+        "ENF_DOCUMENT_RULE_MIGRATION_FILE": "ENF_DOCUMENT_RULE_MIGRATION_FILE"
+      },
+      "sourceShaMatchesRbc24": true
+    }
+  ],
+  "helperSources": [
+    {
+      "path": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/documentrule/DocumentRuleRuntimeEnvironment.java",
+      "sha256": "573e1bcfc80ae13bcd5ce74c6cd1ed20012be643a2b796888e9e42da3b8ede2f"
+    },
+    {
+      "path": "backend/apps/platform-api/src/test/java/cn/xinji/agentplatform/enforcement/testing/FixtureEnvironment.java",
+      "sha256": "5eeb2689929fa086bede387bb4e4877cea4b54ecbef07c50989d8e8a365acb17"
+    }
+  ],
+  "wrapper": {
+    "path": "docs/evidence/enforcement-regression-repair-20261007/Invoke-SafeEnforcementRegressionEnvironment.ps1",
+    "sha256": "f91902a29b74df37e3767139fd29ecc5474b500cedafd9ec8329e8c63bf09696"
+  },
+  "model": {
+    "path": "docs/evidence/enforcement-regression-repair-20261007/safe-full-environment-model.mjs",
+    "sha256": "781d17ed7e09ceb2de9cdc46b6233ecec632653483e4195db9b4f766b804f09b"
+  },
+  "legacyEngineeringTarget": {
+    "containerId": "e318769a540a04b8406eeecf93f47615f1133ef8b035d30cd00bf984635e3b45",
+    "jdbcUrl": "jdbc:dm://127.0.0.1:5491",
+    "owner": "VER-AGENT-SINGLE-DB-ISOLATED-01",
+    "role": "single-db-engineering"
+  },
+  "retainedReadonlyTuple": {
+    "url": "jdbc:dm://127.0.0.1:5311",
+    "user": "ENFACC_BIZ"
+  },
+  "ordinaryJobPackTuple": {
+    "url": "jdbc:dm://127.0.0.1:5491",
+    "user": "ENFREG20261007"
+  },
+  "newFinalTestTargetApprovalDoesNotAuthorizeThisFixture": true,
+  "newRunMustBeUnconsumed": true,
+  "executionAuthorization": false
+}

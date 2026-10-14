@@ -83,6 +83,25 @@ class ProductSourceWatermarkTest {
                 Clock.fixed(NOW, ZoneOffset.UTC));
         assertThat(availability.require(SOURCE, "TITLE", "QUERY").sourceVersion())
                 .isEqualTo("capture-1");
+        boolean[] armed = {false};
+        int[] independentReads = {0};
+        JdbcTemplate concurrentAuthority = new JdbcTemplate(authoritySource) {
+            @Override public <T> java.util.List<T> query(String sql,
+                    org.springframework.jdbc.core.RowMapper<T> mapper, Object... arguments) {
+                if (armed[0] && sql.contains("FROM id4_source_watermark") && ++independentReads[0] == 2)
+                    authority.update("UPDATE id4_source_watermark SET state='PENDING',intent_id=? WHERE source_id=?",
+                            UUID.randomUUID().toString(), SOURCE);
+                return super.query(sql, mapper, arguments);
+            }
+        };
+        var guarded = new ProductSourceWatermark(primary, concurrentAuthority,
+                new TransactionTemplate(new DataSourceTransactionManager(primarySource)));
+        armed[0] = true;
+        assertThatThrownBy(() -> guarded.current(SOURCE)).isInstanceOf(IllegalStateException.class);
+        assertThat(independentReads[0]).isEqualTo(2);
+        authority.update("UPDATE id4_source_watermark SET state='READY',intent_id=NULL WHERE source_id=?", SOURCE);
+        assertThat(watermark.current(SOURCE)).isEqualTo(new ProductSourceWatermark.Current(
+                1, "ACTIVE", 1, "contract-1", DECISION));
         assertThatThrownBy(() -> availability.require(SOURCE, "CLAIMS", "DISPLAY"))
                 .isInstanceOf(IllegalStateException.class);
         primary.update("UPDATE con4_source_verification SET manifest_sha=? WHERE source_id=?",
@@ -102,6 +121,7 @@ class ProductSourceWatermarkTest {
                 new TransactionTemplate(new DataSourceTransactionManager(primarySource)))
                 .recover(SOURCE, interrupted, "source-operator#certificate")).isEqualTo("S1_RELEASE");
         assertThat(watermark.current(SOURCE).epoch()).isEqualTo(1);
+        assertBatchByteContract(primary, watermark);
 
         primary.update("UPDATE con4_source_field_use SET use_code='DISPLAY' WHERE decision_id=?", DECISION);
         assertThatThrownBy(() -> watermark.current(SOURCE)).isInstanceOf(IllegalStateException.class);
@@ -143,6 +163,90 @@ class ProductSourceWatermarkTest {
         assertThatThrownBy(() -> watermark.assertUnchanged(SOURCE, 1)).isInstanceOf(IllegalStateException.class);
         primary.update("UPDATE con4_source_current SET source_epoch=1 WHERE source_id=?", SOURCE);
         assertThatThrownBy(watermark::assertAllCurrent).isInstanceOf(IllegalStateException.class);
+        primary.update("UPDATE con4_source_current SET source_epoch=2 WHERE source_id=?", SOURCE);
+        watermark.current(SOURCE);
+        primary.execute("DROP TABLE con4_source_product_decision");
+        assertThatThrownBy(() -> watermark.current(SOURCE))
+                .isInstanceOf(org.springframework.dao.DataAccessException.class);
+    }
+
+    private static void assertBatchByteContract(JdbcTemplate db, ProductSourceWatermark watermark)
+            throws Exception {
+        String original = db.queryForObject("SELECT declaration_json FROM con4_source_contract "
+                + "WHERE source_id=?", String.class, SOURCE);
+        // Controlled byte-integrity counterexample, not a patent source or admission decision.
+        String longDeclaration = "{\"content\":\"" + "原声明𠮷".repeat(3000) + "\"}";
+        db.update("UPDATE con4_source_contract SET declaration_json=? WHERE source_id=?", longDeclaration, SOURCE);
+        assertThat(ProductSourceHistoryBatch.digest(db, SOURCE, true)).isEqualTo(serialDigest(db));
+        assertThatThrownBy(() -> watermark.current(SOURCE)).isInstanceOf(IllegalStateException.class);
+        db.update("UPDATE con4_source_contract SET declaration_json=? WHERE source_id=?", original, SOURCE);
+        assertThat(ProductSourceHistoryBatch.digest(db, SOURCE, true)).isEqualTo(serialDigest(db));
+        watermark.current(SOURCE);
+        assertSingleSortContract(db, watermark);
+        var decision = db.queryForMap("SELECT decision_id,decision_version,decision_ref,decision_sha,"
+                + "rights_evidence_status,organization_id,task_id,scope_id,retention_ref,retention_version,"
+                + "retention_evidence_sha FROM con4_source_product_decision WHERE decision_id=?", DECISION);
+        db.update("DELETE FROM con4_source_product_decision WHERE decision_id=?", DECISION);
+        assertThatThrownBy(() -> ProductSourceHistoryBatch.digest(db, SOURCE, true))
+                .isInstanceOf(IllegalStateException.class).hasMessage("Product-use decision is missing");
+        db.update("INSERT INTO con4_source_product_decision(decision_id,decision_version,decision_ref,"
+                + "decision_sha,rights_evidence_status,organization_id,task_id,scope_id,retention_ref,"
+                + "retention_version,retention_evidence_sha) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+                decision.get("DECISION_ID"), decision.get("DECISION_VERSION"), decision.get("DECISION_REF"),
+                decision.get("DECISION_SHA"), decision.get("RIGHTS_EVIDENCE_STATUS"),
+                decision.get("ORGANIZATION_ID"), decision.get("TASK_ID"), decision.get("SCOPE_ID"),
+                decision.get("RETENTION_REF"), decision.get("RETENTION_VERSION"), decision.get("RETENTION_EVIDENCE_SHA"));
+        watermark.current(SOURCE);
+    }
+
+    private static void assertSingleSortContract(JdbcTemplate db, ProductSourceWatermark watermark)
+            throws Exception {
+        String before = serialDigest(db);
+        var added = new java.util.ArrayList<String>();
+        for (long epoch : new long[] {100, 2, 10, 10}) {
+            String eventId = UUID.randomUUID().toString();
+            added.add(eventId);
+            db.update("INSERT INTO con4_source_authority_event(event_id,source_id,contract_version,"
+                    + "decision_id,operation,before_epoch,after_epoch,before_version,after_version,"
+                    + "intent_id,before_history_sha,actor_ref,request_sha,occurred_at) "
+                    + "VALUES(?,?,?,?,'WITHDRAW',?,?,?, ?,?,?,?,?,?)", eventId, SOURCE, "contract-1",
+                    DECISION, epoch - 1, epoch, epoch - 1, epoch, UUID.randomUUID().toString(),
+                    HASH, "排序𠮷", HASH, Timestamp.from(NOW.plusNanos(123456000)));
+        }
+        for (String[] pair : new String[][] {{"TITLE", "DISPLAY"}, {"IPC", "QUERY"}, {"IPC", "DISPLAY"}})
+            db.update("INSERT INTO con4_source_field_use VALUES(?,?,?,?)", DECISION, pair[0], pair[1],
+                    Timestamp.from(NOW.plusSeconds(3600)));
+        assertThat(ProductSourceHistoryBatch.digest(db, SOURCE, true))
+                .isEqualTo(serialDigest(db)).isNotEqualTo(before);
+        assertThatThrownBy(() -> watermark.current(SOURCE)).isInstanceOf(IllegalStateException.class);
+        for (String eventId : added)
+            db.update("DELETE FROM con4_source_authority_event WHERE event_id=?", eventId);
+        for (String[] pair : new String[][] {{"TITLE", "DISPLAY"}, {"IPC", "QUERY"}, {"IPC", "DISPLAY"}})
+            db.update("DELETE FROM con4_source_field_use WHERE decision_id=? AND field_code=? AND use_code=?",
+                    DECISION, pair[0], pair[1]);
+        assertThat(ProductSourceHistoryBatch.digest(db, SOURCE, true)).isEqualTo(before);
+        watermark.current(SOURCE);
+    }
+
+    private static String serialDigest(JdbcTemplate db) throws Exception {
+        var hash = java.security.MessageDigest.getInstance("SHA-256");
+        for (int section = 0; section < ProductSourceHistoryBatch.QUERIES.size(); section++) {
+            String sql = ProductSourceHistoryBatch.QUERIES.get(section);
+            int currentSection = section;
+            db.query(sql, rs -> {
+                for (int field = 1; field <= rs.getMetaData().getColumnCount(); field++) {
+                    String value = rs.getString(field);
+                    if (currentSection == 1 && field >= 17 || currentSection == 2 && field == 3
+                            || currentSection == 4 && field == 11 || currentSection == 5 && field == 13) {
+                        var timestamp = rs.getTimestamp(field);
+                        value = timestamp == null ? null : timestamp.toLocalDateTime().toString();
+                    }
+                    hash.update((value == null ? "-1:" : value.length() + ":" + value)
+                            .getBytes(java.nio.charset.StandardCharsets.UTF_8));
+                }
+            }, SOURCE);
+        }
+        return java.util.HexFormat.of().formatHex(hash.digest());
     }
 
     private static void event(JdbcTemplate db, String operation, long beforeEpoch,

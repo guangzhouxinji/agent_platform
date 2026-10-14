@@ -1,0 +1,2229 @@
+{
+  "format": "DM8_NATIVE_PRIVILEGES/v1",
+  "imageReference": "sha256:6409a1d5435e933d8317a4ed141f4c8ef08bbd4ec91d3b4fe05155b8a3a88760",
+  "sourceInventoryPath": "docs/evidence/single-database-installation-20261009/approved-execution/native-public-soi-observation04.json",
+  "sourceInventorySha256": "476c8386540ba218712cb708a1468adaa45f3ae5b6783afeda9682ea0b361e6d",
+  "officialSourcePath": "docs/evidence/single-database-installation-20261009/approved-execution/dm8-native-role-rule-source01.json",
+  "definitions": {
+    "PUBLIC": {
+      "system": [
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "ALTER CONTEXT INDEX"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "ALTER INDEX"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "ALTER MATERIALIZED VIEW"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "ALTER SEQUENCE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "ALTER TABLE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "ALTER TRIGGER"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "ALTER VIEW"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DELETE TABLE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DELETE VIEW"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP CONTEXT INDEX"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP DOMAIN"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP INDEX"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP LINK"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP MATERIALIZED VIEW"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP OPERATOR"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP PACKAGE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP PARTITION GROUP"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP PROCEDURE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP SCHEMA"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP SEQUENCE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP SYNONYM"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP TABLE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP TRIGGER"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DROP VIEW"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "DUMP TABLE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "EXECUTE PACKAGE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "EXECUTE PROCEDURE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "GRANT DOMAIN"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "GRANT PACKAGE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "GRANT PROCEDURE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "GRANT SEQUENCE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "GRANT TABLE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "GRANT VIEW"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "INSERT TABLE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "INSERT VIEW"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "REFERENCES TABLE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "SELECT MATERIALIZED VIEW"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "SELECT SEQUENCE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "SELECT TABLE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "SELECT VIEW"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "UPDATE TABLE"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "UPDATE VIEW"
+        },
+        {
+          "ADMIN_OPTION": "NO",
+          "PRIVILEGE": "USAGE DOMAIN"
+        }
+      ],
+      "roles": [
+        {
+          "ADMIN_OPTION": "Y",
+          "GRANTED_ROLE": "SVI"
+        }
+      ],
+      "tables": [
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "ALTER",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_BLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "ALTER",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_CLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "ALTER",
+          "TABLE_NAME": "AQ$_QUEUES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "ALTER",
+          "TABLE_NAME": "AQ$_QUEUE_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "ALTER",
+          "TABLE_NAME": "REG$"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "DELETE",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_BLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "DELETE",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_CLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "DELETE",
+          "TABLE_NAME": "AQ$_QUEUES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "DELETE",
+          "TABLE_NAME": "AQ$_QUEUE_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "DELETE",
+          "TABLE_NAME": "REG$"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "AQ$_AGENT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "AQ$_DESCRIPTOR"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "AQ$_RECIPIENT_LIST_T"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "AQ$_REG_INFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "AQ$_REG_INFO_LIST"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "AQ$_SIG_PROP"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "AQ$_SUBSCRIBERS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_ADVANCED_REWRITE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_APPLICATION_INFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_AQ"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_AQADM"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_AW"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_BINARY"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_CRYPTO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_DDL"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_ERRLOG"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_JSON"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_LDAP"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_LOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_LOCK"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_LOGMNR"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_METADATA"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_OBFUSCATION_TOOLKIT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_OUTPUT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_PARALLEL_EXECUTE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_PROFILER"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_RANDOM"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_ROWID"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_SPACE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_SQL"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_STATS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_TRANSACTION"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_TYPES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_UTILITY"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_XA"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_XA_XID"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_XA_XID_ARRAY"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_XMLDOM"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_XMLGEN"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_XMLPARSER"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "DBMS_XSLPROCESSOR"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "HTF"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "JDOM_T"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "JSON_ARRAY_T"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "JSON_ELEMENT_T"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "JSON_KEY_LIST"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "JSON_OBJECT_T"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "JSON_SCALAR_T"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "ODCICONST"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "OWA_PATTERN"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "OWA_TEXT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "SP_GET_MV_DEPEND_COLS_INFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "SP_GET_TABLE_GROUP_INFO_BY_ROWS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "SP_LOB_INFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "SP_TABLEDEF"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "SP_VIEWDEF"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "UTL_COMPRESS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "UTL_ENCODE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "UTL_FILE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "UTL_I18N"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "UTL_INADDR"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "UTL_MATCH"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "UTL_RAW"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "UTL_SMTP"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "UTL_TCP"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "UTL_URL"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "XCOL"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "XCSR"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "FLASHBACK",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_BLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "FLASHBACK",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_CLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "FLASHBACK",
+          "TABLE_NAME": "AQ$_QUEUES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "FLASHBACK",
+          "TABLE_NAME": "AQ$_QUEUE_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "FLASHBACK",
+          "TABLE_NAME": "REG$"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "INDEX",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_BLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "INDEX",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_CLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "INDEX",
+          "TABLE_NAME": "AQ$_QUEUES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "INDEX",
+          "TABLE_NAME": "AQ$_QUEUE_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "INDEX",
+          "TABLE_NAME": "REG$"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "INSERT",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_BLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "INSERT",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_CLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "INSERT",
+          "TABLE_NAME": "AQ$_QUEUES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "INSERT",
+          "TABLE_NAME": "AQ$_QUEUE_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "INSERT",
+          "TABLE_NAME": "REG$"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "REFERENCES",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_BLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "REFERENCES",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_CLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "REFERENCES",
+          "TABLE_NAME": "AQ$_QUEUES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "REFERENCES",
+          "TABLE_NAME": "AQ$_QUEUE_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "REFERENCES",
+          "TABLE_NAME": "REG$"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT FOR DUMP",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_BLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT FOR DUMP",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_CLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT FOR DUMP",
+          "TABLE_NAME": "AQ$_QUEUES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT FOR DUMP",
+          "TABLE_NAME": "AQ$_QUEUE_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT FOR DUMP",
+          "TABLE_NAME": "REG$"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "##PLAN_TABLE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_BLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_CLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_ALL_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_ARGUMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_AUTOSTAT_TABLE_INFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_COL_COMMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_COL_PRIVS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_CONSTRAINTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_CONS_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_DB_LINKS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_DEPENDENCIES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_DIRECTORIES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_ENCRYPTED_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_INDEXES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_IND_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_IND_EXPRESSIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_IND_PARTITIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_IND_SUBPARTITIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_INT_DEQUEUE_QUEUES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_JSON_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_MVIEWS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_OBJECTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_PART_KEY_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_PART_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_PROCEDURES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_SEQUENCES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_SOURCE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_SOURCE_AE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_SUBPART_KEY_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_SUBPART_KEY_COLUMNS2"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_SYNONYMS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TABLES_DIS_INFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TAB_COLS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TAB_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TAB_COMMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TAB_MODIFICATIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TAB_PARTITIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TAB_PRIVS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TAB_STATISTICS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TAB_SUBPARTITIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TAB_SUBPARTITIONS2"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TRIGGERS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TRIGGER_COLS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TYPES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_TYPE_ATTRS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_USERS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "ALL_VIEWS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "AQ$_QUEUES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "AQ$_QUEUE_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "REG$"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SESSION_PRIVS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SESSION_ROLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSUSERINI"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSUSERS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_ADVISOR_ACTIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_ADVISOR_LOG"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_ALL_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_ARGUMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_AUTOSTAT_TABLE_INFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_COL_COMMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_COL_PRIVS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_CONSTRAINTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_CONS_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_DB_LINKS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_DEPENDENCIES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_ENCRYPTED_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_FREE_SPACE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_INDEXES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_IND_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_IND_EXPRESSIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_IND_PARTITIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_IND_SUBPARTITIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_JSON_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_MVIEWS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_OBJECTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_PARALLEL_EXECUTE_CHUNKS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_PARALLEL_EXECUTE_TASKS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_PART_KEY_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_PART_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_PROCEDURES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_PROXIES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_RECYCLEBIN"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_ROLE_PRIVS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_SEGMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_SEQUENCES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_SOURCE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_SOURCE_AE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_SUBPART_KEY_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_SUBPART_KEY_COLUMNS2"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_SYNONYMS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_SYS_PRIVS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TABLESPACES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TAB_COLS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TAB_COLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TAB_COMMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TAB_MODIFICATIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TAB_PARTITIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TAB_PRIVS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TAB_STATISTICS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TAB_SUBPARTITIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TAB_SUBPARTITIONS2"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TRIGGERS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TRIGGER_COLS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TS_QUOTAS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TYPES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_TYPE_ATTRS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_USERS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "USER_VIEWS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "V$OPEN_CURSOR"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "V$PKGPROCINFOS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "V$PKGPROCPARAMS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "V$PKGPROCS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "V$RESOURCE_LIMIT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "UPDATE",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_BLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "UPDATE",
+          "TABLE_NAME": "##TMP_TBL_FOR_DBMS_LOB_CLOB"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "UPDATE",
+          "TABLE_NAME": "AQ$_QUEUES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "UPDATE",
+          "TABLE_NAME": "AQ$_QUEUE_TABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "UPDATE",
+          "TABLE_NAME": "REG$"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYSDBA",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "SP_ARCH_BAKSET_REMOVE_BATCH"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYSDBA",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "SP_DB_BAKSET_REMOVE_BATCH"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYSDBA",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "SP_TAB_BAKSET_REMOVE_BATCH"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYSDBA",
+          "PRIVILEGE": "EXECUTE",
+          "TABLE_NAME": "SP_TS_BAKSET_REMOVE_BATCH"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYSDBA",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "##HISTOGRAMS_TABLE"
+        }
+      ],
+      "columns": []
+    },
+    "SVI": {
+      "system": [],
+      "roles": [],
+      "tables": [
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSACCHISTORIES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSCOLCYT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSCOLINFOS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSCOLUMNCOMMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSCOLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSCONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSCONTEXTINDEXES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSCONTEXTLIBS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSDEPENDENCIES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSDISTABLEINFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSFCOLDEFAULT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSFREQROOTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSGRANTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSHPARTTABLEINFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSINDEXES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSINJECTHINT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSMODIFICATIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSMSTATS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOBJCONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOBJECTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOBJINDEXES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOBJINFOS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOBJPKGS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOBJPROCS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOBJTABLES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOBJTRIGS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOBJVIEWS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOPARGS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSOPENHISTORY"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSPKGPROCINFOS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSPKGPROCPARAMS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSPROFILES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSPWDCHGS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSRESOURCES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSSQLPROFILE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSSTATPREFS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSSTATS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSSTATTABLEIDU"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSTABLECOMMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSTEXTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSTUNINGEXECUTION"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSTUNINGREPORT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSTUNINGTASK"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSTYPEINFOS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYSUSERPROFILES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "VSYS_REWRITE_EQUIVALENCES"
+        }
+      ],
+      "columns": []
+    },
+    "SOI": {
+      "system": [],
+      "roles": [],
+      "tables": [
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "CTISYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSCONTEXTINDEXES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "COL_USAGE$"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSACCHISTORIES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSCLASSES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSCOLBYUSER"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSCOLCYT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSCOLINFOS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSCOLUMNCOMMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSCOLUMNS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSCONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSCONTEXTLIBS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSCRASHTRXS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSDEPENDENCIES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSDISTABLEINFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSDUAL"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSERRORPAGES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSFCOLDEFAULT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSFECKS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSFECOLS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSFREQROOTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSGRANTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSHPARTTABLEINFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSINDEXES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSINJECTHINT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSMODIFICATIONS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSMSTATS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSOBJECTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSOBJINFOS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSOIDS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSOPARGS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSOPENHISTORY"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSPKGPROCINFOS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSPKGPROCPARAMS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSPLANHIST"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSPLNINFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSPLNOBJID"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSPROFILES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSPWDCHGS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSREDEFDERROR"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSREDEFOBJECT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSREDEFSTATUS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSRESOURCES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSSQLPROFILE"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSSTATPREFS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSSTATS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSSTATTABLEIDU"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTABLECOMMENTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTEMPLATEHUGEAUX"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTEMPLATEHUGEDAUX"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTEMPLATEHUGEUAUX"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTEXTS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTSGROUPS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTUNINGEXECUTION"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTUNINGREPORT"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTUNINGTASK"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTYPEATTRINFO"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSTYPEINFOS"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSUSERPROFILES"
+        },
+        {
+          "GRANTABLE": "NO",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYS_REWRITE_EQUIVALENCES"
+        },
+        {
+          "GRANTABLE": "YES",
+          "OWNER": "SYS",
+          "PRIVILEGE": "SELECT",
+          "TABLE_NAME": "SYSDUAL2"
+        }
+      ],
+      "columns": []
+    }
+  },
+  "accountCreationDefaults": {
+    "systemPrivileges": [
+      "CREATE SESSION"
+    ],
+    "roles": [
+      "PUBLIC"
+    ],
+    "schemaObjectType": "SCH"
+  },
+  "accountDefaultsSourcePath": "docs/evidence/single-database-installation-20261009/approved-execution/primary-bootstrap-journal04/bootstrap-failure-0.json",
+  "accountDefaultsSourceSha256": "1c90cb89f33f2b4bd2bd15cc717f2b925a2e2f117329a78fd9325e6ed410633b"
+}

@@ -15,7 +15,10 @@ describe("enforcement navigation", () => {
       { path: "/enforcement/procedure", label: "程序逐项校验 V2", group: "辅助分析" },
       { path: "/enforcement/conduct", label: "行为逐要件分析 V2", group: "辅助分析" },
       { path: "/enforcement/legal-references", label: "法律依据追溯 V2", group: "辅助分析" },
+      { path: "/enforcement/document-rules", label: "文书字段映射 V2", group: "辅助分析" },
+      { path: "/enforcement/penalty", label: "处罚规则与建议 V2", group: "辅助分析" },
       { path: "/enforcement/document-templates", label: "文书模板 V2", group: "文书" },
+      { path: "/enforcement/document-drafts", label: "文书草稿 V2", group: "文书" },
       { path: "/enforcement/job-pack", label: "真实任务包采集", group: "真实集成" },
       { path: "/enforcement/rules", label: "线索规则配置", group: "设置" }
     ]);

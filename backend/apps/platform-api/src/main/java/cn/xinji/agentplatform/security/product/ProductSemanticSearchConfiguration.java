@@ -39,7 +39,8 @@ public class ProductSemanticSearchConfiguration {
                 watermark, titles, embeddings, Clock.systemUTC());
     }
 
-    @Bean(destroyMethod = "close") PatentReranker patentReranker(
+    @Bean(destroyMethod = "close") @org.springframework.context.annotation.Primary
+    PatentReranker patentReranker(
             @Value("${product.source.reranker.model.path:}") String modelPath,
             @Value("${product.source.reranker.tokenizer.path:}") String tokenizerPath,
             @Value("${product.source.reranker.model.id:cross-encoder/ms-marco-MiniLM-L-6-v2}") String modelId,
@@ -51,5 +52,19 @@ public class ProductSemanticSearchConfiguration {
         return new OnnxPatentReranker(Path.of(modelPath), Path.of(tokenizerPath),
                 new PatentReranker.Model("ONNX_RUNTIME", modelId, revision, modelSha,
                         tokenizerSha, maxTokens, license));
+    }
+    @Bean(destroyMethod = "close")
+    @ConditionalOnProperty(name="product.source.field-reranker.enabled",havingValue="true")
+    PatentReranker patentFieldReranker(
+            @Value("${product.source.field-reranker.model.path:}") String modelPath,
+            @Value("${product.source.field-reranker.tokenizer.path:}") String tokenizerPath,
+            @Value("${product.source.field-reranker.model.id:}") String modelId,
+            @Value("${product.source.field-reranker.model.revision:}") String revision,
+            @Value("${product.source.field-reranker.model.sha256:}") String modelSha,
+            @Value("${product.source.field-reranker.tokenizer.sha256:}") String tokenizerSha,
+            @Value("${product.source.field-reranker.max-tokens:512}") int maxTokens,
+            @Value("${product.source.field-reranker.license:}") String license) {
+        return new OnnxPatentReranker(Path.of(modelPath),Path.of(tokenizerPath),
+                new PatentReranker.Model("ONNX_RUNTIME",modelId,revision,modelSha,tokenizerSha,maxTokens,license));
     }
 }

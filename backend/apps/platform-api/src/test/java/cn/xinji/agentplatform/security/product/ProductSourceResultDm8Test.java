@@ -47,6 +47,21 @@ class ProductSourceResultDm8Test {
                 script(connection, "V072__product_search_metadata_filters.sql");
                 script(connection, "V073__product_search_filter_evidence.sql");
                 script(connection, "V074__product_search_confidence.sql");
+                script(connection, "V079__product_search_digest_version.sql");
+                script(connection, "V084__product_search_field_evidence.sql");
+                for(String table:List.of("con4_search_field_scope","con4_result_field_evidence")) {
+                    try(var command=connection.createStatement();var rows=command.executeQuery("SELECT COUNT(*) FROM "+table)) {
+                        assertThat(rows.next()).isTrue(); assertThat(rows.getInt(1)).isZero();
+                    }
+                }
+                script(connection, "V076__product_search_selection.sql");
+                script(connection, "V077__product_execution_attempt_history.sql");
+                script(connection, "V078__product_search_attempt_history_binding.sql");
+                try (var query = connection.createStatement();
+                     var rows = query.executeQuery("SELECT COUNT(*) FROM con4_selection_revision")) {
+                    assertThat(rows.next()).isTrue();
+                    assertThat(rows.getInt(1)).isZero();
+                }
                 try (var query = connection.createStatement();
                      var rows = query.executeQuery("SELECT candidate_count FROM con4_result_set")) {
                     assertThat(rows.next()).isFalse();
@@ -60,7 +75,12 @@ class ProductSourceResultDm8Test {
                      var rows = query.executeQuery("SELECT page_size FROM con4_result_cursor")) {
                     assertThat(rows.next()).isFalse();
                 }
+                script(connection, "U084__product_search_field_evidence.sql");
+                script(connection, "U076__product_search_selection.sql");
+                script(connection, "U078__product_search_attempt_history_binding.sql");
+                script(connection, "U077__product_execution_attempt_history.sql");
                 script(connection, "U074__product_search_confidence.sql");
+                script(connection, "U079__product_search_digest_version.sql");
                 script(connection, "U073__product_search_filter_evidence.sql");
                 script(connection, "U072__product_search_metadata_filters.sql");
                 script(connection, "U071__product_search_rerank_evidence.sql");
@@ -78,10 +98,12 @@ class ProductSourceResultDm8Test {
                     assertThat(rows.getInt(1)).isZero();
                 }
             } finally {
-                for (String table : List.of("con4_document_vector_binding", "con4_vector_build", "con4_document_vector",
+                for (String table : List.of("con4_result_field_evidence","con4_search_field_scope",
+                        "con4_selection_member", "con4_selection_revision",
+                        "con4_document_vector_binding", "con4_vector_build", "con4_document_vector",
                         "con4_embedding_model", "con4_search_request", "con4_result_cursor",
                         "con4_result_member", "con4_result_set", "con4_search_source",
-                        "con4_search_attempt", "con3_execution_checkpoint", "con3_execution_lease",
+                        "con4_search_attempt", "con3_execution_checkpoint", "con3_execution_attempt", "con3_execution_lease",
                         "con3_command_receipt", "con3_search_input", "con3_goal_current",
                         "con3_goal_revision", "con3_message", "con3_session",
                         "con4_source_verification_request",

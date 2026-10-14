@@ -1,0 +1,2 @@
+import java.sql.*;
+public class EnfOwnedReady {public static void main(String[] a)throws Exception{DriverManager.setLoginTimeout(3);for(int i=0;i<45;i++){try(var c=DriverManager.getConnection(System.getenv("ENFP_URL"),"SYSDBA",System.getenv("ENFP_ADMIN_PASSWORD"));var s=c.createStatement();var r=s.executeQuery("SELECT 1")){r.next();System.out.println("OWNED_JDBC_READY EXIT=0");return;}catch(SQLException e){if(i==44)throw new IllegalStateException("Owned DM8 readiness failed, code="+e.getErrorCode());Thread.sleep(1500);}}}}

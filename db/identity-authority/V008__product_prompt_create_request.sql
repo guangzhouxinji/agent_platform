@@ -1,0 +1,51 @@
+CREATE TABLE idp_prompt_request (
+    request_id VARCHAR(36) PRIMARY KEY,
+    workspace_id VARCHAR(36) NOT NULL,
+    issuer VARCHAR(300) NOT NULL,
+    subject_id VARCHAR(200) NOT NULL,
+    operation VARCHAR(16) NOT NULL,
+    key_sha CHAR(64) NOT NULL,
+    prompt_id VARCHAR(36) NOT NULL,
+    kind VARCHAR(16) NOT NULL,
+    target_revision_id VARCHAR(36) NOT NULL,
+    expected_generation BIGINT NOT NULL,
+    expected_revision_id VARCHAR(36),
+    target_generation BIGINT NOT NULL,
+    receipt_id VARCHAR(36) NOT NULL,
+    prepared_format VARCHAR(40) NOT NULL,
+    request_format VARCHAR(40) NOT NULL,
+    request_sha CHAR(64) NOT NULL,
+    content_sha CHAR(64) NOT NULL,
+    record_sha CHAR(64) NOT NULL,
+    result_sha CHAR(64) NOT NULL,
+    before_sha CHAR(64) NOT NULL,
+    expected_after_sha CHAR(64) NOT NULL,
+    prepared_sha CHAR(64) NOT NULL,
+    prepared_at TIMESTAMP NOT NULL,
+    body_until TIMESTAMP NOT NULL,
+    audit_until TIMESTAMP NOT NULL,
+    intent_until TIMESTAMP NOT NULL,
+    container_until TIMESTAMP NOT NULL,
+    control_until TIMESTAMP NOT NULL,
+    scope_version BIGINT NOT NULL,
+    registry_sha CHAR(64) NOT NULL,
+    approval_ref VARCHAR(500) NOT NULL,
+    approval_sha CHAR(64) NOT NULL,
+    policy_ref VARCHAR(500) NOT NULL,
+    policy_sha CHAR(64) NOT NULL,
+    input_permission_ref VARCHAR(500) NOT NULL,
+    input_permission_sha CHAR(64) NOT NULL,
+    generation_source_ref VARCHAR(500) NOT NULL,
+    state VARCHAR(16) NOT NULL,
+    CONSTRAINT uq_idp_request_key UNIQUE(workspace_id,issuer,subject_id,operation,key_sha),
+    CONSTRAINT uq_idp_request_receipt UNIQUE(receipt_id),
+    CONSTRAINT uq_idp_request_revision UNIQUE(target_revision_id),
+    CONSTRAINT fk_idp_request_workspace FOREIGN KEY(workspace_id) REFERENCES idp_workspace(workspace_id),
+    CONSTRAINT ck_idp_request CHECK(operation='CREATE' AND kind IN ('GUIDE','SYSTEM')
+        AND expected_generation=0 AND expected_revision_id IS NULL AND target_generation=1
+        AND scope_version>0 AND state IN ('PENDING','READY')
+        AND prepared_format='PROMPT_PREPARED_SCALARS/v1' AND request_format='PROMPT_CREATE_COMMAND/v1'
+        AND body_until>prepared_at AND audit_until>=body_until
+        AND intent_until>prepared_at AND intent_until<=body_until
+        AND container_until=body_until AND control_until=audit_until)
+);

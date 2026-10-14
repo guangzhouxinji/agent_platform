@@ -44,7 +44,24 @@ final class ProductSourceRecoveryFiles {
     private Set<String> verify(Verification row) {
         try {
             Set<String> references = new LinkedHashSet<>();
-            JsonNode manifest = mapper.readTree(files.verified(row.manifest(), row.manifestSha()));
+            byte[] manifestBytes = files.verified(row.manifest(), row.manifestSha());
+            JsonNode manifest = mapper.readTree(manifestBytes);
+            if (ProductPatentsViewSourceInventory.FORMAT.equals(manifest.path("schemaVersion").asText())) {
+                var capture = new ProductPatentsViewSourceInventory(files,mapper).inspect(row.manifest(),manifestBytes);
+                if (!row.source().equals(capture.sourceId()) || !row.version().equals(capture.sourceVersion())
+                        || !row.recordsSha().equals(capture.recordsSha()) || !row.inventorySha().equals(capture.inventorySha())
+                        || row.records() != capture.records() || row.originals() != capture.originals())
+                    throw new IllegalStateException("Restored native source inventory differs");
+                return capture.references();
+            }
+            if (ProductHupdSourceInventory.FORMAT.equals(manifest.path("schemaVersion").asText())) {
+                var nativeCapture = new ProductHupdSourceInventory(files, mapper).inspect(row.manifest(), manifestBytes);
+                if (!row.source().equals(nativeCapture.sourceId()) || !row.version().equals(nativeCapture.sourceVersion())
+                        || !row.recordsSha().equals(nativeCapture.recordsSha()) || !row.inventorySha().equals(nativeCapture.inventorySha())
+                        || row.records() != nativeCapture.records() || row.originals() != nativeCapture.originals())
+                    throw new IllegalStateException("Restored native source inventory differs");
+                return nativeCapture.references();
+            }
             references.add(row.manifest());
             String batchVersion = text(manifest.path("datasetId")) + ":"
                     + text(manifest.path("generatedAt"));

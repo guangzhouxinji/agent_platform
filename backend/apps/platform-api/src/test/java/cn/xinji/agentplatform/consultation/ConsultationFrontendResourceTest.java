@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 class ConsultationFrontendResourceTest {
     @Autowired MockMvc mvc;
 
-    @Test void servesReactWorkbenchFromTheOnlyFrontendEntry() throws Exception {
+    @Test void disabledFinalConsultationNeverFallsBackToTheOldWorkbench() throws Exception {
         mvc.perform(get("/"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/app/consultation"));
@@ -27,8 +27,7 @@ class ConsultationFrontendResourceTest {
                 .andExpect(status().isOk())
                 .andExpect(forwardedUrl("/app/index.html"));
         mvc.perform(get("/app/consultation"))
-                .andExpect(status().isOk())
-                .andExpect(forwardedUrl("/app/index.html"));
+                .andExpect(status().isNotFound());
         mvc.perform(get("/app/consultation/intents"))
                 .andExpect(status().isOk())
                 .andExpect(forwardedUrl("/app/index.html"));

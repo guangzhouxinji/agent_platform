@@ -46,6 +46,19 @@ class EnforcementFollowupAcceptanceGrantFixtureTest {
         String subject = required("ENF_ACCEPTANCE_SUBJECT");
         String organization = required("ENF_ACCEPTANCE_ORGANIZATION");
         String template = required("ENF_ACCEPTANCE_TEMPLATE_ID");
+        if ("true".equals(cn.xinji.agentplatform.enforcement.testing.FixtureEnvironment.optional("ENF_ACCEPTANCE_REVOKE_TEMPLATE_DOWNLOAD", "AGENT_GRANT_", System.getenv()))) {
+            var selected = business.queryForMap("SELECT g.grant_id,g.grant_version FROM id2_grant g "
+                    + "JOIN id2_current_epoch c ON c.current_grant_id=g.grant_id WHERE g.issuer=? "
+                    + "AND g.subject_id=? AND g.organization=? AND g.resource_type='DOCUMENT_TEMPLATE' "
+                    + "AND g.resource_id=? AND g.action_code='DOWNLOAD' AND g.purpose='DOCUMENT_TEMPLATE'",
+                    required("ENF_ACCEPTANCE_ISSUER"), subject, organization, template);
+            String grantId = String.valueOf(selected.get("GRANT_ID"));
+            long version = ((Number) selected.get("GRANT_VERSION")).longValue();
+            var receipt = watermark.change(() -> grants.revoke(grantId, version,
+                    "codex-functional-validation", UUID.randomUUID().toString(), "d".repeat(64)));
+            assertThat(receipt.status()).isEqualTo("REVOKED");
+            return;
+        }
         List<Grant> expected = List.of(
                 new Grant("*", 1, "READ"), new Grant(template, 1, "CREATE"),
                 new Grant(template, 1, "READ"), new Grant(template, 1, "PREVIEW"),
@@ -77,17 +90,31 @@ class EnforcementFollowupAcceptanceGrantFixtureTest {
                         + "AND purpose='DOCUMENT_TEMPLATE'",
                 (rs, row) -> new Epoch(rs.getLong(1), rs.getString(2)), issuer, subject, organization,
                 grant.resourceId(), grant.action());
-        if (!rows.isEmpty() && rows.getFirst().currentGrantId() != null) return;
+        if (!rows.isEmpty() && rows.getFirst().currentGrantId() != null) {
+            Integer usable = db.queryForObject("SELECT COUNT(*) FROM id2_grant WHERE grant_id=? "
+                    + "AND status='ACTIVE' AND expires_at>?", Integer.class, rows.getFirst().currentGrantId(),
+                    java.sql.Timestamp.from(Instant.now().plusSeconds(600)));
+            if (usable != null && usable == 1) return;
+        }
         long epoch = rows.isEmpty() ? 0 : rows.getFirst().epoch();
+        if (!rows.isEmpty() && rows.getFirst().currentGrantId() != null) {
+            String expiredGrant = rows.getFirst().currentGrantId();
+            Long version = db.queryForObject("SELECT grant_version FROM id2_grant WHERE grant_id=?",
+                    Long.class, expiredGrant);
+            var revoked = watermark.change(() -> grants.revoke(expiredGrant, version,
+                    "codex-functional-validation", UUID.randomUUID().toString(), "e".repeat(64)));
+            epoch = revoked.epoch();
+        }
+        long issueEpoch = epoch;
         watermark.change(() -> grants.issue(new ProductGrants.Scope(issuer, subject, organization,
                 "ENFORCEMENT", "ENF-V2-FOLLOWUP", "FUNCTIONAL_VALIDATION", "DOCUMENT_TEMPLATE",
                 grant.resourceId(), grant.version(), grant.action(), "DOCUMENT_TEMPLATE"),
-                Instant.now().plusSeconds(7200), epoch, "codex-functional-validation",
+                Instant.now().plusSeconds(7200), issueEpoch, "codex-functional-validation",
                 UUID.randomUUID().toString(), "f".repeat(64)));
     }
 
     private static String required(String name) {
-        String value = System.getenv(name);
+        String value = cn.xinji.agentplatform.enforcement.testing.FixtureEnvironment.optional(name, "AGENT_GRANT_", System.getenv());
         if (value == null || value.isBlank()) throw new IllegalStateException(name + " is required");
         return value;
     }

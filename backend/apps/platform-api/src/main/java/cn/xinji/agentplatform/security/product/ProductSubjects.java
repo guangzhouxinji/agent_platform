@@ -125,4 +125,88 @@ public final class ProductSubjects {
     }
 
     private static boolean blank(String value) { return value == null || value.isBlank(); }
+
+    public record Recovery(String subjectId, String requestId, long credentialVersion, Instant expiresAt,
+                           String delivery, String oneTimeActivation) {
+        @Override public String toString() { return "Recovery[subjectId=" + subjectId + ",delivery=" + delivery + "]"; }
+    }
+    private record Pending(String status, String kind, String password, String digest, Instant until, long version) { }
+
+    public Recovery recoverActivation(String subjectId, long expectedVersion, String actor, String requestId) {
+        uuid(subjectId); uuid(requestId);
+        if (blank(actor) || expectedVersion < 1 || expectedVersion == Long.MAX_VALUE)
+            throw new IllegalArgumentException("Valid recovery request required");
+        try {
+            return transactions.execute(tx -> {
+                List<Pending> rows = db.query("SELECT status,subject_kind,password_hash,activation_sha,"
+                                + "activation_expires_at,credential_version FROM id2_subject "
+                                + "WHERE issuer=? AND subject_id=? FOR UPDATE", (rs, n) -> new Pending(
+                                rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+                                rs.getTimestamp(5) == null ? null : rs.getTimestamp(5).toInstant(), rs.getLong(6)),
+                        issuer, subjectId);
+                if (rows.size() != 1) throw new IllegalStateException("Recovery unavailable");
+                requireRegistrar(subjectId, actor);
+                Recovery prior = recoveryReceipt(subjectId, expectedVersion, actor, requestId);
+                if (prior != null) return prior;
+                Pending pending = rows.getFirst(); Instant now = clock.instant();
+                if (!"HUMAN".equals(pending.kind()) || !"PENDING".equals(pending.status())
+                        || pending.password() != null || pending.digest() == null || pending.until() == null
+                        || pending.until().isAfter(now) || pending.version() != expectedVersion)
+                    throw new IllegalStateException("Recovery unavailable");
+                Instant until = now.plus(activationLifetime);
+                byte[] secret = new byte[32]; random.nextBytes(secret);
+                String activation = Base64.getUrlEncoder().withoutPadding().encodeToString(secret);
+                int changed = db.update("UPDATE id2_subject SET activation_sha=?,activation_expires_at=?,"
+                                + "credential_version=credential_version+1 WHERE issuer=? AND subject_id=? "
+                                + "AND subject_kind='HUMAN' AND status='PENDING' AND password_hash IS NULL "
+                                + "AND credential_version=? AND activation_expires_at<=?",
+                        sha(activation), Timestamp.from(until), issuer, subjectId, expectedVersion, Timestamp.from(now));
+                if (changed != 1) throw new IllegalStateException("Recovery changed");
+                event(subjectId, "REISSUE", expectedVersion, expectedVersion + 1, actor, now);
+                db.update("INSERT INTO id2_activation_recovery_receipt(issuer,actor_ref,request_id,subject_id,"
+                                + "expected_version,result_version,activation_expires_at,occurred_at) VALUES(?,?,?,?,?,?,?,?)",
+                        issuer, actor, requestId, subjectId, expectedVersion, expectedVersion + 1,
+                        Timestamp.from(until), Timestamp.from(now));
+                // Return persisted timestamp precision so first and replay metadata agree.
+                Instant persistedUntil = recoveryReceipt(subjectId, expectedVersion, actor, requestId).expiresAt();
+                return new Recovery(subjectId, requestId, expectedVersion + 1, persistedUntil, "FIRST_RESPONSE", activation);
+            });
+        } catch (org.springframework.dao.DataIntegrityViolationException failedTransaction) {
+            // execute has already rolled back: never continue a rollback-only transaction.
+            Recovery prior = transactions.execute(tx -> {
+                requireRegistrar(subjectId, actor);
+                return recoveryReceipt(subjectId, expectedVersion, actor, requestId);
+            });
+            if (prior != null) return prior;
+            throw failedTransaction;
+        }
+    }
+
+    private void requireRegistrar(String subjectId, String actor) {
+        List<String> registrars = db.query("SELECT actor_ref FROM id2_subject_event WHERE issuer=? "
+                        + "AND subject_id=? AND operation='REGISTER' AND before_version=0 AND after_version=1",
+                (rs, n) -> rs.getString(1), issuer, subjectId);
+        Integer count = db.queryForObject("SELECT COUNT(*) FROM id2_subject_event WHERE issuer=? "
+                + "AND subject_id=? AND operation='REGISTER'", Integer.class, issuer, subjectId);
+        if (count == null || count != 1 || registrars.size() != 1 || !actor.equals(registrars.getFirst()))
+            throw new IllegalStateException("Recovery unavailable");
+    }
+
+    private Recovery recoveryReceipt(String subjectId, long expected, String actor, String requestId) {
+        List<Recovery> receipts = db.query("SELECT subject_id,expected_version,result_version,"
+                        + "activation_expires_at FROM id2_activation_recovery_receipt "
+                        + "WHERE issuer=? AND actor_ref=? AND request_id=?", (rs, n) -> {
+                    if (!subjectId.equals(rs.getString(1)) || expected != rs.getLong(2))
+                        throw new IllegalStateException("Recovery request conflict");
+                    return new Recovery(subjectId, requestId, rs.getLong(3), rs.getTimestamp(4).toInstant(),
+                            "NOT_REDELIVERED", null);
+                }, issuer, actor, requestId);
+        return receipts.isEmpty() ? null : receipts.getFirst();
+    }
+
+    private static void uuid(String value) {
+        if (value == null || !value.equals(UUID.fromString(value).toString()))
+            throw new IllegalArgumentException("Canonical identifier required");
+    }
+
 }

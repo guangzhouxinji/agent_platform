@@ -1,0 +1,1 @@
+import {observeOwnedDm8Startup} from '../../../../../scripts/lib/single-database-dm8-startup-observation.mjs';let raw='';for await(const chunk of process.stdin){raw+=chunk;if(raw.length>65536)throw Error('BOUNDED_START_CAPTURE_REQUIRED');}const x=JSON.parse(raw);console.log(JSON.stringify(observeOwnedDm8Startup(x.capture,x.options)));

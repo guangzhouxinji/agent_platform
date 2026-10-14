@@ -290,14 +290,23 @@ class ProductSourceScopeGrantTest {
                 .isInstanceOf(IllegalStateException.class);
     }
 
-    private static void admit(JdbcTemplate db, Instant expiry, String taskId, String scopeId,
+    static void admit(JdbcTemplate db, Instant expiry, String taskId, String scopeId,
             ProductSourceWatermark.Intent intent) {
         admit(db, expiry, taskId, scopeId, intent, true);
     }
 
+    static void admit(JdbcTemplate db, Instant expiry, String taskId, String scopeId,
+            ProductSourceWatermark.Intent intent, Clock clock) {
+        admit(db, expiry, taskId, scopeId, intent, true, clock.instant());
+    }
+
     private static void admit(JdbcTemplate db, Instant expiry, String taskId, String scopeId,
             ProductSourceWatermark.Intent intent, boolean display) {
-        Instant now = Instant.now();
+        admit(db, expiry, taskId, scopeId, intent, display, Instant.now());
+    }
+
+    private static void admit(JdbcTemplate db, Instant expiry, String taskId, String scopeId,
+            ProductSourceWatermark.Intent intent, boolean display, Instant now) {
         db.update("INSERT INTO con4_source_contract(source_id,contract_version,source_version,"
                         + "declaration_json,request_sha,evidence_ref,evidence_sha,retention_ref,retention_version,"
                         + "retention_evidence_sha,collected_at,valid_until,status,row_version,created_at) "
@@ -328,13 +337,13 @@ class ProductSourceScopeGrantTest {
                 "maintainer", HASH, Timestamp.from(now));
     }
 
-    private static JdbcDataSource database() {
+    static JdbcDataSource database() {
         JdbcDataSource source = new JdbcDataSource();
         source.setURL("jdbc:h2:mem:source-scope-grant-" + UUID.randomUUID() + ";DB_CLOSE_DELAY=-1");
         return source;
     }
 
-    private static void script(JdbcDataSource source, String path) throws Exception {
+    static void script(JdbcDataSource source, String path) throws Exception {
         try (var connection = source.getConnection()) {
             ScriptUtils.executeSqlScript(connection, new FileSystemResource(Path.of(path)));
         }

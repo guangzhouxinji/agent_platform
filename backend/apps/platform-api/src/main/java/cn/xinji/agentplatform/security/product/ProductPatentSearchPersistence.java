@@ -1,5 +1,6 @@
 package cn.xinji.agentplatform.security.product;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
@@ -22,7 +23,7 @@ final class ProductPatentSearchPersistence {
 
     void persist(ProductWorkerAccess.Authorized worker, String organization, long taskVersion,
             String inputSha, String originalQuery, List<String> sourceIds,
-            List<ProductSourceAvailability.Active> activeSources,
+            List<ProductSourceAvailability.Active> activeSources, java.util.Map<String,String> sourceFailures,
             String filtersJson, String filterVersion,
             String requestId, String requestSha, String attemptId, long fencingToken,
             String resultSetId, List<ProductPatentSearchExecution.Member> members,
@@ -41,22 +42,25 @@ final class ProductPatentSearchPersistence {
                         + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 attemptId, worker.taskId(), organization, taskVersion, worker.inputId(), inputSha,
                 worker.serviceSubject(), requestSha, originalQuery, normalizedQuery, scopeSha,
-                method, "SUCCEEDED", retention.reference(), retention.version(), retention.evidenceSha256(),
+                method, sourceFailures.isEmpty() ? "SUCCEEDED" : "PARTIAL",
+                retention.reference(), retention.version(), retention.evidenceSha256(),
                 Timestamp.from(now), Timestamp.from(expiresAt), fencingToken, queryPlan.version(),
                 evidence.json(queryPlan.expansions()),
                 evidence.digest(queryPlan.version(), evidence.json(queryPlan.expansions())),
                 rerankModelVersion, rerankStatus, filterVersion, filtersJson,
                 evidence.digest(filterVersion, filtersJson));
         for (var source : activeSources)
-            db.update("INSERT INTO con4_search_source VALUES(?,?,?,?,?,?,?,NULL)", attemptId,
+            db.update("INSERT INTO con4_search_source VALUES(?,?,?,?,?,?,?,?)", attemptId,
                     source.sourceId(), source.contractVersion(), source.decisionId(), source.epoch(),
-                    evidence.digest(source.manifestSha(), source.recordsSha()), "SUCCEEDED");
+                    evidence.digest(source.manifestSha(), source.recordsSha()),
+                    sourceFailures.containsKey(source.sourceId()) ? "FAILED" : "SUCCEEDED",
+                    sourceFailures.get(source.sourceId()));
         db.update("INSERT INTO con4_result_set(result_set_id,attempt_id,ordering_version,truncated,"
                         + "total_reliability,result_sha,candidate_count,confidence_status,"
-                        + "confidence_rule_version,confidence_reason) VALUES(?,?,?,?,?,?,?,?,?,?)",
+                        + "confidence_rule_version,confidence_reason,digest_version) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
                 resultSetId, attemptId, ordering, truncated ? 1 : 0,
-                truncated ? "LOWER_BOUND" : "EXACT", resultSha, candidateCount,
-                confidence.status().name(), confidence.ruleVersion(), confidence.reason());
+                truncated || !sourceFailures.isEmpty() ? "LOWER_BOUND" : "EXACT", resultSha, candidateCount,
+                confidence.status().name(), confidence.ruleVersion(), confidence.reason(),"RESULT_DIGEST_DECIMAL_12/v2");
         for (var member : members)
             db.update("INSERT INTO con4_result_member(result_set_id,attempt_id,member_id,ordinal,source_id,"
                             + "contract_version,document_id,document_version,source_version,raw_sha,locator_ref,"
@@ -65,7 +69,8 @@ final class ProductPatentSearchPersistence {
                             + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", resultSetId, attemptId,
                     member.memberId(), member.ordinal(), member.sourceId(), contract(activeSources, member.sourceId()),
                     member.documentId(), member.documentVersion(), member.sourceVersion(), member.rawSha(),
-                    member.locatorRef(), "TITLE", evidence.digest(member.documentId(), member.documentVersion(), "TITLE"),
+                    member.locatorRef(), matchFields(member),
+                    evidence.digest(member.documentId(), member.documentVersion(), matchFields(member)),
                     member.lexicalScore(), evidence.json(member.matchedTerms()), evidence.json(member.fieldScores()),
                     member.lexicalRank(), member.semanticScore(), member.semanticRank(), member.fusionScore(),
                     member.rerankScore(), member.rerankRank());
@@ -77,5 +82,37 @@ final class ProductPatentSearchPersistence {
         return sources.stream().filter(source -> source.sourceId().equals(sourceId)).findFirst()
                 .orElseThrow(() -> new IllegalStateException("Result source escaped approved scope"))
                 .contractVersion();
+    }
+    void persistFields(ProductWorkerAccess.Authorized worker,String organization,long taskVersion,String inputSha,
+            String originalQuery,List<String> sourceIds,List<ProductSourceAvailability.Active> activeSources,
+            java.util.Map<String,String> sourceFailures,String filtersJson,String filterVersion,
+            String requestId,String requestSha,String attemptId,long fencingToken,String resultSetId,
+            ProductPatentFieldSearchRanking.Result fieldResult,ProductPatentSearchFieldScope scope,
+            Instant now,Instant expiresAt,ObjectMapper mapper) {
+        if(!org.springframework.transaction.support.TransactionSynchronizationManager.isActualTransactionActive())
+            throw new IllegalStateException("Field result requires the fenced business transaction");
+        if(scope.legacyTitle()) throw new IllegalArgumentException("Legacy TITLE cannot publish field v3");
+        var store=new ProductPatentFieldEvidencePersistence(db,mapper);
+        var rank=fieldResult.ranking();
+        var bundle=ProductPatentFieldResultEvidence.from(fieldResult,scope.textFields());
+        String scopeSha=scope.scopeSha(evidence,sourceIds,filterVersion,filtersJson);
+        String resultSha=ProductPatentFieldResultEvidence.digest(evidence,bundle,rank.members(),rank.truncated());
+        var confidence=sourceFailures.isEmpty()?rank.confidence():new PatentRetrievalConfidence.Assessment(
+                PatentRetrievalConfidence.Status.LOW_CONFIDENCE,"PARTIAL_SOURCE_CONFIDENCE/v1","PARTIAL_SOURCE_COVERAGE");
+        persist(worker,organization,taskVersion,inputSha,originalQuery,sourceIds,activeSources,sourceFailures,
+                filtersJson,filterVersion,requestId,requestSha,attemptId,fencingToken,resultSetId,rank.members(),
+                rank.candidateCount(),rank.normalizedQuery(),fieldResult.queryPlan().expansion(),rank.method(),rank.ordering(),
+                rank.rerankModelVersion(),rank.rerankStatus(),confidence,rank.truncated(),
+                evidence.resultDigest(rank.members(),rank.truncated()),now,expiresAt);
+        if(db.update("UPDATE con4_search_attempt SET scope_sha=? WHERE attempt_id=?",scopeSha,attemptId)!=1
+                || db.update("UPDATE con4_result_set SET digest_version=?,result_sha=? WHERE result_set_id=? AND attempt_id=?",
+                        ProductPatentFieldResultEvidence.DIGEST_VERSION,resultSha,resultSetId,attemptId)!=1)
+            throw new IllegalStateException("Field result publication root missing");
+        store.save(attemptId,resultSetId,scopeSha,bundle,rank.members(),rank.truncated());
+    }
+
+    private static String matchFields(ProductPatentSearchExecution.Member member) {
+        return member.matchFields().isEmpty() ? "TITLE"
+                : String.join(",",new java.util.TreeSet<>(member.matchFields()));
     }
 }

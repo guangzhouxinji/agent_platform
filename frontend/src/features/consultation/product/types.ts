@@ -1,0 +1,9 @@
+export type Citation={memberId:string;sourceId:string;documentId:string;documentVersion:string;sourceVersion:string;sourceUrl:string;rawSha:string;locatorRef:string;fieldLocators?:Record<string,string>};
+export type Turn={turnId:string;taskVersion:number;kind:"PROPOSAL"|"EXPLANATION";modelId:string;resultSetId:string|null;output:{query?:string;questions?:string[];answer?:string};citations:Citation[]};
+export type Member={memberId:string;ordinal:number;sourceId:string;documentId:string;documentVersion:string;sourceVersion:string;matchedTerms:string[];matchFields:string[];rerankScore:number|null};
+export type ResultPage={resultSetId:string;resultSha:string;methodVersion:string;candidateCount:number;truncated:boolean;confidenceStatus:string;confidenceReason:string;status:string;nextCursor:string|null;members:Member[];citations:Citation[]};
+export type Source={sourceId:string;fields:string[];expiresAt:string};
+export type Goal={expiresAt?:string;taskVersion:number;inputId:string;queryObject:string;messageText:string;sourceIds:string[];requestedFields:string[]};
+export type Workspace={task:{id:string;version:number;state:string;expiresAt:string};goal:Goal|null;sources:Source[];result:ResultPage|null;retentionRef:string;retentionVersion:number;selectionRevision:number;dialogue:Turn[]};
+export type SelectionMember={memberId:string;ordinal:number;sourceId:string;documentId:string;documentVersion:string;sourceVersion:string;rawSha:string;locatorRef:string};
+export type Selection={selectionId:string;taskId:string;revision:number;taskVersion:number;resultSetId:string;resultSetVersion:number;resultSha:string;actorSubject:string;createdAt:string;expiresAt:string;members:SelectionMember[]};

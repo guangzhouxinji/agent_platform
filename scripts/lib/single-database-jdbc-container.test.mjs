@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {validateJdbcContainerPort} from './single-database-jdbc-container.mjs';
+function fixture(){const p={containerId:'b'.repeat(64),targetId:'a'.repeat(64),networkId:'c'.repeat(64),ownerTask:'IMP-SINGLE-DB-FINAL-BASELINE-01',java:'/opt/java/openjdk/bin/java',classpath:'/app/classes:/app/lib/dm.jar',classFile:'/app/classes/SingleDatabaseLifecycleJdbc.class',classSha256:'d'.repeat(64)};const network={owned:{NetworkID:p.networkId}};return {p,tool:{Id:p.containerId,State:{Running:true},Config:{User:'1000:1000',Labels:{task:p.ownerTask,'agent-platform.target-id':p.targetId}},HostConfig:{Privileged:false,ReadonlyRootfs:true,Memory:536870912,NanoCpus:250000000},NetworkSettings:{Networks:network}},db:{Id:p.targetId,State:{Running:true},Config:{Labels:{task:p.ownerTask}},NetworkSettings:{Networks:network}}};}
+test('container adapter metadata contract only; no Docker execution or permission created',()=>{const f=fixture();assert.equal(validateJdbcContainerPort(f.p,f.tool,f.db),f.p);});
+for(const [name,change] of [['wrong target',f=>f.db.Id='e'.repeat(64)],['unowned tool',f=>f.tool.Config.Labels.task='OLD'],['stopped tool',f=>f.tool.State.Running=false],['root tool',f=>f.tool.Config.User='0:0'],['privileged tool',f=>f.tool.HostConfig.Privileged=true],['unbounded memory',f=>f.tool.HostConfig.Memory=0],['network mismatch',f=>f.db.NetworkSettings={Networks:{}}],['classpath redirect',f=>f.p.classpath='/wrong:/app/lib/dm.jar'],['traversal path',f=>f.p.java='/app/../bin/java']])test(name,()=>{const f=fixture();change(f);assert.throws(()=>validateJdbcContainerPort(f.p,f.tool,f.db));});
+
+for(const field of ['Memory','NanoCpus'])test('tool refuses missing '+field,()=>{const f=fixture();delete f.tool.HostConfig[field];assert.throws(()=>validateJdbcContainerPort(f.p,f.tool,f.db));});
+
+for(const field of ['Privileged','ReadonlyRootfs'])test('tool requires explicit '+field,()=>{const f=fixture();delete f.tool.HostConfig[field];assert.throws(()=>validateJdbcContainerPort(f.p,f.tool,f.db));});

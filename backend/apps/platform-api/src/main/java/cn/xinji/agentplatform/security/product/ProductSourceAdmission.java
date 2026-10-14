@@ -26,7 +26,8 @@ public final class ProductSourceAdmission {
     public record Receipt(String decisionId, String sourceId, String contractVersion,
             String productStatus, String rightsEvidenceStatus, long sourceEpoch) { }
 
-    private static final Set<String> USES = Set.of("QUERY", "SAVE", "INDEX", "DISPLAY");
+    private static final Set<String> USES = Set.of("QUERY", "SAVE", "INDEX", "DISPLAY", "MODEL", "COMPARISON");
+    static boolean allowedUse(String use) { return use != null && USES.contains(use); }
     private final JdbcTemplate db;
     private final ProductSourceCandidates candidates;
     private final ProductSourceEvidenceFiles evidence;

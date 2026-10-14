@@ -4,6 +4,7 @@ import java.util.List;
 
 /** Versioned query-document scoring port used only after candidate retrieval. */
 public interface PatentReranker {
+    String COMPLETE_SCORING = "ALL_DOCUMENT_WINDOWS_MAX_LOGIT/v1";
     record Model(String provider, String modelId, String revision, String modelSha256,
                  String tokenizerSha256, int maxTokens, String licenseId) { }
     record Pair(String candidateId, String query, String documentText) { }
@@ -11,4 +12,7 @@ public interface PatentReranker {
 
     Model model();
     List<Score> score(List<Pair> pairs);
+    default List<Score> scoreComplete(List<Pair> pairs) {
+        throw new IllegalStateException("Complete patent reranking is unsupported");
+    }
 }

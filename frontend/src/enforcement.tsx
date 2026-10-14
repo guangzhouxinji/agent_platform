@@ -1,0 +1,4 @@
+import React from 'react';import ReactDOM from 'react-dom/client';import {ConfigProvider} from 'antd';import zhCN from 'antd/locale/zh_CN';import 'antd/dist/reset.css';import './styles/global.css';import {theme} from './app/theme';import {ErrorBoundary} from './shared/ui/ErrorBoundary';import EnforcementProductApp from './features/enforcement-product/EnforcementProductApp';import {pages,type PageKey} from './features/enforcement-product/contract';
+const selected=(import.meta.env.VITE_ENFORCEMENT_ENABLED_PAGES as string|undefined)?.split(',').map(p=>p.trim())??[];
+if(!selected.includes('job-pack')||selected.some(p=>!pages.includes(p as PageKey)))throw Error('EXPLICIT_ENFORCEMENT_PAGE_ADMISSION_REQUIRED');
+ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><ErrorBoundary><ConfigProvider locale={zhCN} theme={theme}><EnforcementProductApp enabledPages={selected as PageKey[]}/></ConfigProvider></ErrorBoundary></React.StrictMode>);

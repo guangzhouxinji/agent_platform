@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { agentBoundaryViolations } from "./lib/agent-boundaries.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const policy = JSON.parse(readFileSync(path.join(root, "governance/structure-policy.json"), "utf8"));
@@ -26,6 +27,8 @@ function filesUnder(relativeRoot) {
   const files = [];
   const visit = (directory) => {
     for (const name of readdirSync(directory)) {
+      // Maven outputs are not repository source and may be replaced during another build.
+      if (name === "target" && existsSync(path.join(directory, "pom.xml"))) continue;
       const candidate = path.join(directory, name);
       statSync(candidate).isDirectory() ? visit(candidate) : files.push(candidate);
     }
@@ -87,6 +90,17 @@ for (const file of productionJavaUnder("backend/apps/mock-center-api")) {
   const source = readFileSync(file, "utf8");
   if (/^import\s+cn\.xinji\.agentplatform\./m.test(source)) {
     failures.push(`${path.relative(root, file)}: mock center must not import formal platform domain packages`);
+  }
+}
+
+// Keep three independently owned Agents and a domain-free shared kernel.
+for (const owner of ["kernel", "consultation", "enforcement", "adjudication"]) {
+  const modulePath = `backend/${owner}`;
+  for (const violation of agentBoundaryViolations(owner, "", dependencyArtifacts(modulePath)))
+    failures.push(`${modulePath}: ${violation}`);
+  for (const file of productionJavaUnder(modulePath)) {
+    for (const violation of agentBoundaryViolations(owner, readFileSync(file, "utf8")))
+      failures.push(`${path.relative(root, file)}: ${violation}`);
   }
 }
 

@@ -1,0 +1,4 @@
+DROP TABLE enf12_document_draft_event;
+DROP TABLE enf12_document_draft_receipt;
+DROP TABLE enf12_document_draft_revision;
+DROP TABLE enf12_document_draft_lock;

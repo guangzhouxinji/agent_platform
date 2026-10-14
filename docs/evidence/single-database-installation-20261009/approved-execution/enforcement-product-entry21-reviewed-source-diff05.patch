@@ -1,0 +1,82 @@
+diff --git "a/D:\\daima\\xinji\\agent_platform\\frontend\\src\\features\\workflows\\EnforcementJobPackV2Page.tsx" "b/D:\\daima\\xinji\\agent_platform_enforcement_entry_20261009\\frontend\\src\\features\\workflows\\EnforcementJobPackV2Page.tsx"
+index cea0de9..44d5b0d 100644
+--- "a/D:\\daima\\xinji\\agent_platform\\frontend\\src\\features\\workflows\\EnforcementJobPackV2Page.tsx"
++++ "b/D:\\daima\\xinji\\agent_platform_enforcement_entry_20261009\\frontend\\src\\features\\workflows\\EnforcementJobPackV2Page.tsx"
+@@ -12,14 +12,14 @@ export default function EnforcementJobPackV2Page() {
+   const [token, setToken] = useState<string | null>(null);
+   const [identity, setIdentity] = useState<EnforcementIdentity | null>(null);
+   const [pack, setPack] = useState<Snapshot | null>(null);
+-  const [packId, setPackId] = useState("");
++  const [packId, setPackId] = useState(() => new URLSearchParams(window.location.search).get("package") ?? "");
+   const [activeType, setActiveType] = useState<FactType>("TASK");
+   const [tasks, setTasks] = useState<CollectionTask[]>([]);
+   const [organizations, setOrganizations] = useState<Record<string, string>>({});
+   const [busy, setBusy] = useState(false);
+   const [error, setError] = useState("");
+   const pending = useRef<{ fingerprint: string; key: string } | null>(null);
+-  useEffect(() => { void completeEnforcementLogin("job-pack").then(value => value && setToken(value)).catch(show); }, []);
++  useEffect(() => { void completeEnforcementLogin("job-pack").then(value => { if (value) { setPackId(new URLSearchParams(window.location.search).get("package") ?? ""); setToken(value); } }).catch(show); }, []);
+   useEffect(() => { if (token) void run(async () => {
+     const current = await readEnforcementIdentity(token); setIdentity(current);
+     setOrganizations(Object.fromEntries(current.grants.filter(grant => grant.domain === "ENFORCEMENT"
+@@ -52,12 +52,13 @@ export default function EnforcementJobPackV2Page() {
+     catch (failure) { if (failure instanceof EnforcementAccessDenied) clear(); throw failure; }
+     finally { setBusy(false); }
+   }
+-  async function load(id = packId) { const value = await request<Snapshot>(`/job-packs/${encodeURIComponent(id)}`); setPack(value); setPackId(value.id); }
++  function admitPack(value: Snapshot) { if (!["REAL_INTEGRATION", "REAL_BUSINESS_COLLECTION"].includes(value.purpose)) { setPack(null); throw new Error("当前任务包用途不可用于本工作入口"); } return value; }
++  async function load(id = packId) { const value = admitPack(await request<Snapshot>(`/job-packs/${encodeURIComponent(id)}`)); setPack(value); setPackId(value.id); }
+   async function loadTasks() { const value = await request<CollectionTask[]>("/job-packs/collection-tasks"); setTasks(value); }
+   async function openTask(task: CollectionTask) { setPackId(task.packageId); await load(task.packageId); }
+   async function claim(task: CollectionTask) {
+     const result = await request<{ task: CollectionTask; jobPack: Snapshot }>(`/job-packs/collection-tasks/${encodeURIComponent(task.taskId)}/claim`, { organization: organizations[task.packageId] });
+-    setPack(result.jobPack); setPackId(result.jobPack.id); setActiveType("ACTOR_POSITION"); await loadTasks();
++    admitPack(result.jobPack); setPack(result.jobPack); setPackId(result.jobPack.id); setActiveType("ACTOR_POSITION"); await loadTasks();
+   }
+   async function run(action: () => Promise<void>) { try { await action(); } catch (failure) { show(failure); } }
+   async function submit(type: FactType, values: Record<string, unknown>) {
+@@ -76,7 +77,7 @@ export default function EnforcementJobPackV2Page() {
+       { expectedRevision: pack!.revision, accepted, reason }); await load(pack!.id);
+   }
+   return <main className="enf-job-pack">
+-    <header><div><Typography.Title level={2}>执法任务包</Typography.Title><span>执法 V2 · 功能验证与真实业务采集</span></div>
++    <header><div><Typography.Title level={2}>执法任务包</Typography.Title><span>执法任务与业务采集</span></div>
+       {token ? <Button icon={<LogOut size={16} aria-hidden="true" />} onClick={() => void run(async () => {
+         await endEnforcementLogin(token); clear();
+       })}>退出</Button>
+@@ -107,10 +108,7 @@ export default function EnforcementJobPackV2Page() {
+         })}>
+           <Form.Item name="id" label="任务包 ID" rules={[{ required: true }]}><Input /></Form.Item>
+           <Form.Item name="title" label="任务名称" rules={[{ required: true }]}><Input /></Form.Item>
+-          <Form.Item name="purpose" label="验证用途" initialValue="FUNCTIONAL_VALIDATION" rules={[{ required: true }]}><Select options={[
+-            { value: "FUNCTIONAL_VALIDATION", label: "功能验证（测试，不是正式业务验收）" },
+-            { value: "REAL_BUSINESS_COLLECTION", label: "正式业务采集" }
+-          ]} /></Form.Item>
++          <Form.Item name="purpose" initialValue="REAL_BUSINESS_COLLECTION" hidden><Input /></Form.Item>
+           <Button type="primary" htmlType="submit" loading={busy}>开始采集</Button>
+         </Form></section> : <>
+         <section className="enf-job-pack-status"><div><Tag color={pack.state.startsWith("WAITING_") ? "gold" : pack.state === "FAILED" ? "red" : "blue"}>{stateLabel[pack.state] ?? pack.state}</Tag>
+@@ -119,11 +117,10 @@ export default function EnforcementJobPackV2Page() {
+           <Progress percent={Math.round(completed / (activeSections.length + (pack.publicInput ? 1 : 0)) * 100)} format={() => `${completed}/${activeSections.length + (pack.publicInput ? 1 : 0)}`} />
+           <Steps size="small" current={stateIndex[pack.state] ?? 0} status={pack.state === "FAILED" ? "error" : "process"}
+             items={["设计完成", "采集中", pack.publicInput ? "等待真人操作" : "等待数据", "已就绪",
+-              pack.purpose === "FUNCTIONAL_VALIDATION" ? "功能联调" : "真实集成", "结果"].map(title => ({ title }))} />
++              "业务集成", "结果"].map(title => ({ title }))} />
+         </section>
+-        {pack.purpose === "FUNCTIONAL_VALIDATION" && <Alert type="info" showIcon title="功能验证任务包" description="使用测试身份和测试输入验证同一产品链；结果不代表正式业务验收。" />}
+-        {pack.findings.length > 0 && <Alert type="warning" showIcon title="尚未满足 READY" description={pack.purpose === "FUNCTIONAL_VALIDATION"
+-          ? "以下向导会显示尚未提交或复核的功能验证输入。" : "以下向导会逐项显示缺失、失效或尚未核验的真实事实。系统不会自动补齐真实性内容。"} />}
++        
++        {pack.findings.length > 0 && <Alert type="warning" showIcon title="尚未满足 READY" description="以下向导会逐项显示缺失、失效或尚未核验的真实事实。系统不会自动补齐真实性内容。" />}
+         {pack.publicInput && <Descriptions className="enf-job-pack-operator" size="small" bordered column={{ xs: 1, md: 2 }} items={[
+           { key: "operator", label: "当前操作者", children: pack.publicInput.claimedBy },
+           { key: "organization", label: "授权组织", children: pack.organization },
+@@ -181,7 +178,7 @@ export default function EnforcementJobPackV2Page() {
+             </Form>}
+         </section>
+         {pack.trigger && <Alert type="success" showIcon role="status"
+-          title={pack.purpose === "FUNCTIONAL_VALIDATION" ? "已自动触发功能联调" : "已自动触发真实集成"}
++          title={"已自动触发业务集成"}
+           description={`${pack.trigger.taskId} · ${pack.trigger.requestId}`} />}
+         <Descriptions size="small" bordered column={1} items={[{ key: "id", label: "任务包", children: `${pack.id} v${pack.revision}` },
+           { key: "org", label: "组织 / 目的", children: `${pack.organization} · ${pack.purpose}` }, { key: "sha", label: "组包 SHA-256", children: pack.sha256 }]} />

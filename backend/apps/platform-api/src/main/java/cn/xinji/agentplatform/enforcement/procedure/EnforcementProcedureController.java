@@ -104,7 +104,7 @@ public final class EnforcementProcedureController {
                 input.caseRef(), input.caseVersion(), input.ruleId(), input.ruleVersion(),
                 input.calendarRef(), input.calendarVersion()));
     }
-    private ProcedureService service(Jwt jwt) {
+    public ProcedureService service(Jwt jwt) {
         if (jwt == null) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         var access = new ProductEnforcementAccess(db, watermark.independentDatabase(), watermark,
                 jwt, issuer, Clock.systemUTC());

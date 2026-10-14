@@ -40,11 +40,12 @@ final class ProductPatentSearchRanking {
 
     Result rank(List<String> sources, PatentQueryExpansion.Plan queryPlan,
             List<PatentLexicalQuery.Document> documents, PatentBm25fQuery.Result lexical) {
-        if (semantic == null)
+        if (semantic == null || lexical.methodVersion().equals("EXACT_PUBLICATION/v1"))
             return new Result(evidence.members(lexical.matches().stream().limit(maxResults).toList()),
                     lexical.candidateCount(), lexical.normalizedQuery(),
-                    lexical.candidateCount() > maxResults, PatentBm25fQuery.METHOD_VERSION,
-                    LEXICAL_ORDERING, null, null,
+                    lexical.candidateCount() > maxResults, lexical.methodVersion(),
+                    lexical.methodVersion().equals("EXACT_PUBLICATION/v1")
+                            ? "EXACT_PUBLICATION_DOCUMENT_KEY/v1" : LEXICAL_ORDERING, null, null,
                     confidence.lexicalOnly(lexical.matches().isEmpty()));
         List<PatentHybridQuery.SemanticMatch> semanticMatches = new ArrayList<>();
         Set<String> allowedDocuments = documents.stream().map(document -> document.sourceId() + '\0'
@@ -57,6 +58,11 @@ final class ProductPatentSearchRanking {
                     semanticMatches.add(new PatentHybridQuery.SemanticMatch(match.sourceId(),
                             match.documentId(), match.documentVersion(), match.sourceVersion(),
                             match.rawSha(), match.locatorRef(), match.semanticScore()));
+        semanticMatches.sort(java.util.Comparator.comparingDouble(PatentHybridQuery.SemanticMatch::semanticScore)
+                .reversed().thenComparing(PatentHybridQuery.SemanticMatch::sourceId)
+                .thenComparing(PatentHybridQuery.SemanticMatch::documentId)
+                .thenComparing(PatentHybridQuery.SemanticMatch::documentVersion));
+        if(semanticMatches.size()>1000) semanticMatches.subList(1000,semanticMatches.size()).clear();
         if (lexical.matches().isEmpty() && semanticMatches.isEmpty()) {
             String modelVersion = reranker == null ? null
                     : reranker.model().modelId() + "@" + reranker.model().revision();
@@ -83,10 +89,11 @@ final class ProductPatentSearchRanking {
                 selected.put(PatentRerankedQuery.key(candidate),
                         texts.get(PatentRerankedQuery.key(candidate)));
             var ranked = new PatentRerankedQuery().rerank(queryPlan.retrievalQuery(),
-                    hybrid, selected, reranker, maxResults);
+                    hybrid, selected, reranker, semantic.model(), maxResults);
             return new Result(evidence.rerankedMembers(ranked.matches()), hybrid.candidateCount(),
                     hybrid.normalizedQuery(), ranked.truncated(), ranked.methodVersion(),
-                    RERANK_ORDERING, modelVersion, "SUCCEEDED", confidence.assess(hybrid.matches()));
+                    RERANK_ORDERING, modelVersion, "SUCCEEDED",
+                    confidence.assess(ranked.matches().isEmpty() ? List.of() : hybrid.matches()));
         } catch (RuntimeException unavailable) {
             return new Result(evidence.hybridMembers(hybrid.matches().stream().limit(maxResults).toList()),
                     hybrid.candidateCount(), hybrid.normalizedQuery(),

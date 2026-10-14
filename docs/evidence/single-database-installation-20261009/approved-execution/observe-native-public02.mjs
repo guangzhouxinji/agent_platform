@@ -1,0 +1,26 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import path from 'node:path';import {execFileSync} from 'node:child_process';
+import {hash,canonical,jdbcRequest} from '../../../../scripts/lib/single-database-lifecycle-runtime.mjs';
+import {deploymentAccounts,validateDeploymentConfiguration} from '../../../../scripts/lib/single-database-lifecycle.mjs';
+import {assertLiveOwnedTarget} from '../../../../scripts/lib/single-database-lifecycle-target.mjs';
+import {compileInstallation} from '../../../../scripts/lib/single-database-installation.mjs';
+const root=process.cwd(),out=path.resolve(root,'docs/evidence/single-database-installation-20261009/approved-execution');
+const save=async(n,v)=>writeFile(path.join(out,n),JSON.stringify(v,null,2)+'\n',{flag:'wx'});
+const read=async p=>JSON.parse(await readFile(p,'utf8'));
+const request=await read(path.join(out,'resource-request-original01.json'));
+const approval=await read(path.join(out,'resource-approval01.json'));
+if(!approval.approvalGranted||Date.now()<Date.parse(request.operationWindowBeijing.from)||Date.now()>=Date.parse(request.operationWindowBeijing.until))throw Error('APPROVAL_WINDOW_REQUIRED');
+const inspect=(kind,name)=>JSON.parse(execFileSync('docker',[...kind,'inspect',name],{encoding:'utf8'}))[0];
+const db=inspect([],request.targets[0].name),tool=inspect([],request.managedJdbcExecution.primaryToolName),network=inspect(['network'],request.newNetwork);
+const profile=await read('deployment/single-database/installation-profile.json');
+const url=request.managedJdbcExecution.primaryUrl;
+const deployment={schema:'SINGLE_DM8_DEPLOYMENT/v2',database:{containerId:db.Id,volume:request.targets[0].newVolume,ownerTask:request.taskId,jdbcUrl:url,memoryLimitBytes:request.limits.dm8MemoryBytes,nanoCpuLimit:request.limits.dm8NanoCpuLimit},domains:profile.bindings.map(b=>({domain:b.domain,issuer:request.dnsAndTlsRequested.find(d=>d.domain===b.domain).issuer,business:{...b.business,jdbcUrl:url},authority:{...b.authority,jdbcUrl:url},writerContainerIds:[]}))};
+validateDeploymentConfiguration(deployment);
+const runtime=path.join(out,'jdbc-runtime01'),libs=['jackson-annotations-2.17.2.jar','jackson-core-2.17.2.jar','jackson-databind-2.17.2.jar','DmJdbcDriver18-8.1.3.140.jar'];
+const source=path.resolve('scripts/java/SingleDatabaseLifecycleJdbc.java'),classFile=path.join(runtime,'SingleDatabaseLifecycleJdbc.class');
+const port={java:'D:/software/jdk-21/bin/java.exe',classpath:[runtime,...libs.map(l=>path.join(runtime,l))].join(path.delimiter),mainClass:'SingleDatabaseLifecycleJdbc',url,user:'SYSDBA',passwordEnv:'SINGLE_DB_ADMIN_PASSWORD',dockerJdbc:{containerId:tool.Id,targetId:db.Id,networkId:network.Id,ownerTask:request.taskId,java:'/opt/java/openjdk/bin/java',classpath:['/jdbc',...libs.map(l=>'/jdbc/'+l)].join(':'),classFile:'/jdbc/SingleDatabaseLifecycleJdbc.class',classSha256:hash(await readFile(classFile))}};
+const base={workspaceRoot:root,targetId:db.Id,deployment,schemas:deployment.domains.flatMap(d=>[d.business.schema,d.authority.schema]),accounts:deploymentAccounts(deployment),inventoryJdbc:port,adminJdbc:port,jdbcSourcePath:source,jdbcClassPath:classFile};
+await assertLiveOwnedTarget(base);
+const inventory=await jdbcRequest(port,{action:'bootstrap-inventory',targetId:db.Id,accounts:base.accounts});
+await save('native-public-observation02.json',await jdbcRequest(port,{action:'bootstrap-inventory',targetId:db.Id,accounts:['PUBLIC','SVI']}));console.log(JSON.stringify({readOnly:true}));
+

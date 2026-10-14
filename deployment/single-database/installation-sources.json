@@ -1,0 +1,1771 @@
+{
+  "format": "SINGLE_DATABASE_SOURCE_REVIEW/v2",
+  "entries": [
+    {
+      "path": "db/dm8/V001__consultation_mvp_v0.sql",
+      "sha256": "ef866fe022f6f689453cd8281236ddf97a931a0924d4478ad638ac100c20ca1b",
+      "version": "V001",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V002__enforcement_mvp_v0.sql",
+      "sha256": "42cc9a6f56241a03ca4de27502f92c844e35666f72d03061a679335b9eaba2ff",
+      "version": "V002",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V003__adjudication_mvp_v0.sql",
+      "sha256": "c4ddc868b9dcd5d297fc5790d82dd28342f28ce49a69b818d4d9d5937f0ad3d4",
+      "version": "V003",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V004__case_annotation_v0.sql",
+      "sha256": "96f9601765f6508abdeab910f4f78c512fdb2a954df924029bc77698bcf5bff2",
+      "version": "V004",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V005__patent_comparison_v0.sql",
+      "sha256": "596adee344f0e1c675fe15425547706b0ba18910333dd46e291bf8e8cb45dae8",
+      "version": "V005",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V006__trademark_comparison_v0.sql",
+      "sha256": "aa1a984647848111c95226147c4555335a979b00c2d55ae53f789d7baaba7826",
+      "version": "V006",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V007__mock_center_public_patent_catalog.sql",
+      "sha256": "1bf22cfce6e3c089e3d9f61c2fbb4233e5ff9939de137291e45a1adf775aaa26",
+      "version": "V007",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V008__local_public_knowledge_base_v1.sql",
+      "sha256": "4a973ce78d3a7d5efe36b03b82527d82b35b846a0ea8f848e26e4d5c23ed2c85",
+      "version": "V008",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V009__enforcement_local_source_v1.sql",
+      "sha256": "92fe0aa74d66e070a329fd75738240f496f97fccd5ffdd250498ba8eee7f6d7a",
+      "version": "V009",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V010__adjudication_local_source_v1.sql",
+      "sha256": "ef197bcddd53dd2a6acc9d0a2b2b254f8ef0423d90538f182660305b6ab43dcb",
+      "version": "V010",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V011__enforcement_public_reference_catalog_v1.sql",
+      "sha256": "04f7afef2282146cd6df9b0053ecc27d0a56853513e1eca54f395cb00dce2077",
+      "version": "V011",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V012__adjudication_public_reference_catalog_v1.sql",
+      "sha256": "943389559470ffd428736238051dff2abc2482699a3ada37ad377176dcecab21",
+      "version": "V012",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V013__enforcement_authorized_local_v1.sql",
+      "sha256": "a76ffcccdeb9c7f74c25cff88c5f22533141fab97c19ff5faeb1156037c3c5e3",
+      "version": "V013",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V014__enforcement_retention_policy_v1.sql",
+      "sha256": "1188b4bdb70759226bdcdf74e2539ddd3aab65053fc45dd7ed4ec9e5110eeaa4",
+      "version": "V014",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V015__enforcement_rule_effectivity_v1.sql",
+      "sha256": "d39b69b7011a2337c90b32d7e6fc4474b3eb8feaa601b6476802d4e93084b49d",
+      "version": "V015",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V016__enforcement_public_historical_case_category_v1.sql",
+      "sha256": "bdd74e0c74c4f6529e8cfa06c7e9e2bd4c2365ea084183ad5c6a88fb36a8821b",
+      "version": "V016",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V017__consultation_model_configuration_v1.sql",
+      "sha256": "8703735a19d6a61892d4a95b54efc4e0238e86832c0f299fdc243a0c805a9602",
+      "version": "V017",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V018__enforcement_source_management_v1.sql",
+      "sha256": "59a573720959b51f56d3c45ecc2e93c12c58a6a7f2f0942eeecf8dc3893b04a8",
+      "version": "V018",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V019__enforcement_discovery_rule_v1.sql",
+      "sha256": "9b0eff262c50c1e8fd0b27d7a5e103ab0ac5ccf2f9289c0974d7ca6eb0112011",
+      "version": "V019",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V020__enforcement_clue_discovery_v1.sql",
+      "sha256": "464b4162f450fff1556e94348a659d2bf773175692b65e2489f80edd9f259505",
+      "version": "V020",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V021__enforcement_clue_parsing_v1.sql",
+      "sha256": "ac597adc6ad188eb26db92c0a8db5018aedfbf0ab5965a1344a2f8ffbec5acd6",
+      "version": "V021",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V022__enforcement_evidence_management_v1.sql",
+      "sha256": "79a2bbfa0281a0b087ca48eac16a0954e271360a2cc3a088aea3c011afef7894",
+      "version": "V022",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V023__consultation_v2_dev_task_core.sql",
+      "sha256": "51f29f5b8a463404c979b75e791b43deee568ba114adba1cc1d170be0097d78d",
+      "version": "V023",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V024__consultation_v2_text_results.sql",
+      "sha256": "f13fd233beccb54e3e49bb6774d049c679ea5996ea4dc6846a95fb6fa4dd041e",
+      "version": "V024",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V025__consultation_v2_feature_confirmations.sql",
+      "sha256": "c2107a3b3887c2cd45a03e1188f6f4430a300e2a7de11a9849bf0f71b89ec707",
+      "version": "V025",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V026__consultation_v2_human_requests.sql",
+      "sha256": "00083592b1db54db34efc8d54ede750ab339bc8bb8e3b49bbacbfac676df6c54",
+      "version": "V026",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V027__consultation_v2_human_acceptance.sql",
+      "sha256": "0adfe21d6effb4cbf0f144e73ea6fe1271ae6649f93e10e010004d921a4888cb",
+      "version": "V027",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V028__consultation_v2_human_opinions.sql",
+      "sha256": "8f8d9a42d774cdf5238dfa4620aa11bc2678a5ebbf3ab0e53c4d8857afb79ab0",
+      "version": "V028",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V029__consultation_v2_human_returns.sql",
+      "sha256": "c51f14668c632a6b3400dd52d4dd8ecabab16a4065987e85a8b9769fa007c0d7",
+      "version": "V029",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V030__consultation_v2_dev_corrections.sql",
+      "sha256": "aad287f63bc31f226ec28e44f3c0fdb3d560cab2d234df0d9efaf810f8eea0ca",
+      "version": "V030",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V031__consultation_v2_dev_purpose_selection.sql",
+      "sha256": "d49edeee9add445142f7afa404d6d1ed96b8e7327346b51b732824a1789d750f",
+      "version": "V031",
+      "decision": "excluded",
+      "reason": "历史V0/DEV或历史开发目录装配，不是本次三正式产品应用结构来源；保留原件SHA，不执行，不替代既有能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ]
+    },
+    {
+      "path": "db/dm8/V032__product_identity.sql",
+      "sha256": "7a025bd04bdf8b73a22e503148fc38e901b9ca1ed33bf412363992417c26aded",
+      "version": "V032",
+      "decision": "selected",
+      "reason": "三正式Issuer的身份/OAuth/工作负载/客户端数据实际位于各域business schema；显式三域安装，不给只存责任水位的authority复制无消费身份表。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        },
+        {
+          "schema": "ADJPROD",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V033__product_oauth2.sql",
+      "sha256": "83e3135e05bea0e550e3c8547ded60e37ef1aa98113876c52a98e73fa37eae4e",
+      "version": "V033",
+      "decision": "selected",
+      "reason": "三正式Issuer的身份/OAuth/工作负载/客户端数据实际位于各域business schema；显式三域安装，不给只存责任水位的authority复制无消费身份表。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        },
+        {
+          "schema": "ADJPROD",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V034__product_consultation_initial_task.sql",
+      "sha256": "6ba27d5438f9f47f9b57db74d77f6296a1a93539cec9bbd7cd7cecfb8c5528c0",
+      "version": "V034",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V035__enforcement_v2_material.sql",
+      "sha256": "db764106267f411c7bfe3396fa06d935eb3bf9fc9ab00ec2d8a3f5f907481fc8",
+      "version": "V035",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V036__product_source_candidates.sql",
+      "sha256": "200d08291e28a221af09adc738b1591e900000761858f423e491c375d75ad9bc",
+      "version": "V036",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V037__product_source_admission.sql",
+      "sha256": "481a34f039ad6c12981036b7dde2f84f39f01d08053c6e363d509ce8d9e6fd1f",
+      "version": "V037",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V038__product_task_source_scope.sql",
+      "sha256": "e2ec1e3952655390d949851fd3e931fddc93cb50a0e4a5aa27cb35789c6f3165",
+      "version": "V038",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V039__product_source_verification.sql",
+      "sha256": "a329648aaa21d0b68250523082e8f9cf656702469cd4662eba90ad68e9496e27",
+      "version": "V039",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V040__product_source_results.sql",
+      "sha256": "6da292b1a40a74960e26962646c130be92c30562d278548b97c9284ef612f7bb",
+      "version": "V040",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V041__product_task_authorization_version.sql",
+      "sha256": "15b9a4711a7f3a56b7e2c70237f9a5366419cac73c94be89a9db0059ba20fa0a",
+      "version": "V041",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V042__product_consultation_goal.sql",
+      "sha256": "898b60c54a539d9fd2691ed127f4f21cd5ecade8d7c0742e847f4294c0605ec6",
+      "version": "V042",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V043__product_task_cancel_epoch.sql",
+      "sha256": "6e6c8d27465b65966a6e39e2b8d39446e097660261b58abb06b02e68fe7fd658",
+      "version": "V043",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V044__product_task_session_resume.sql",
+      "sha256": "9eba613b70ca7111f36c8b1f395d7766b288b8ce3691c203530f6b12c2622b41",
+      "version": "V044",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V045__product_task_execution_fence.sql",
+      "sha256": "c0fe98776cb061f71e9a8f1a354b1b21b4f9415f1ae37bfaddcd9310fc8525e9",
+      "version": "V045",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V046__product_workload_subject.sql",
+      "sha256": "da746a24b53fb458523cef825122d643212b711c8f0163d7f744d88a7d6400d4",
+      "version": "V046",
+      "decision": "selected",
+      "reason": "三正式Issuer的身份/OAuth/工作负载/客户端数据实际位于各域business schema；显式三域安装，不给只存责任水位的authority复制无消费身份表。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        },
+        {
+          "schema": "ADJPROD",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V047__product_task_worker_delegation.sql",
+      "sha256": "e4b3b720390f854bb2129078b5cfe1207fe9a0d6ac70507f9068701567926251",
+      "version": "V047",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V048__product_task_execution_reconciliation.sql",
+      "sha256": "8248d2524019a7232f270c6626b560f4fab1659f9af9b227db71a3418d509607",
+      "version": "V048",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V050__enforcement_v2_evidence_rules.sql",
+      "sha256": "75c4e720e7231e2784953ce5b076b41cd6991fa28fe2721024ca3fb14b9e766f",
+      "version": "V050",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V051__enforcement_v2_evidence_publication.sql",
+      "sha256": "9a22642bb86feafc150e8fdd69854e83d7240d142f50a189c35acf0458c8b4dc",
+      "version": "V051",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V052__enforcement_v2_evidence_organizations.sql",
+      "sha256": "d56a964a7e5bdcf2c95be32a7b56f8f36e18146e9ed866d4c26ffc6631a2d1f2",
+      "version": "V052",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V053__product_source_use_decision.sql",
+      "sha256": "aa3d00638db57119f07949595aaf4c0209590e40ca20e1a24bc2815adbc1b497",
+      "version": "V053",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V054__enforcement_v2_handoff.sql",
+      "sha256": "229eb191e70ff22788d324fb9bcec52b7b1e15cc8a536bdf2f08e7aecfce1936",
+      "version": "V054",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V055__enforcement_v2_handoff_event_reason.sql",
+      "sha256": "8941cae5764ab4f6617f8f1d38c92ccafa2541b40b36fed40c785b0fe7f81dae",
+      "version": "V055",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V056__product_query_only_source_scope.sql",
+      "sha256": "ce411a62002c785d79af657ae1f678384d44e4c2b682c7295abbe6950037c5f6",
+      "version": "V056",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V057__product_oauth_client_control.sql",
+      "sha256": "007aaddac6a0e0e17eebe2758273a081464a63e61951cd93ab089e91f8b62eb4",
+      "version": "V057",
+      "decision": "selected",
+      "reason": "三正式Issuer的身份/OAuth/工作负载/客户端数据实际位于各域business schema；显式三域安装，不给只存责任水位的authority复制无消费身份表。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        },
+        {
+          "schema": "ADJPROD",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V058__product_task_organization_create.sql",
+      "sha256": "51dd9fe2bcab09226700487b89c8522badee9c872363416b9e7b2a936cb2e5f6",
+      "version": "V058",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V059__enforcement_v2_procedure.sql",
+      "sha256": "7590d13862acba38b2560683bca1fbff00903be9eeac65042253178321a30a60",
+      "version": "V059",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V060__enforcement_v2_conduct.sql",
+      "sha256": "65ee83d4b801d8d0e0a4ee90e72625ff767d8c0c1bd46cec7301a97d97823694",
+      "version": "V060",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V061__product_worker_execution_request.sql",
+      "sha256": "ee06b6670649794567cbc03d4a02c7638c603e817718f3b4b716de01d0dcc810",
+      "version": "V061",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V062__enforcement_v2_job_pack.sql",
+      "sha256": "9132162985aa1c81839e2ab9b5e52fc8ebacbd6fbeb3d0ef60865e709f9aa5c9",
+      "version": "V062",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V063__product_search_execution_binding.sql",
+      "sha256": "abdf83ee22ddb083ccddbd57c3cc8182f52bd0c59ff56c62b51a4d2ee89729af",
+      "version": "V063",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V064__product_search_ranking_evidence.sql",
+      "sha256": "49a4e4b2a22c747ac055ec76305baf5900ad286cd2a8eedc3bfaebf53d054480",
+      "version": "V064",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V065__product_search_stable_cursor.sql",
+      "sha256": "e9b9b195c6aaba6eabf4329863dc31906b1545b2d5630baeb367a8c3ac56d2db",
+      "version": "V065",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V066__enforcement_real_business_collection.sql",
+      "sha256": "677f1ea0d362db496ee3b6cb1e811a2ed1fe2a8af8533697bcc69c82bc108c83",
+      "version": "V066",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V067__product_search_semantic_index.sql",
+      "sha256": "c42bfc227df3b82c12ebc0a136510530d948069eaaf1eaaad338495cfb6eeb64",
+      "version": "V067",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V068__product_search_hybrid_evidence.sql",
+      "sha256": "12aab1b42afafd1f3d3c1c8a1114ac9ffc99ea273c969ff5840bbdf504ec8f1f",
+      "version": "V068",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V069__product_search_query_expansion.sql",
+      "sha256": "3efdc515fe6d9adccfde69b6d0e0a32ca0358d68ed6e84dc5d0180dd106382fa",
+      "version": "V069",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V070__product_semantic_vector_snapshot_binding.sql",
+      "sha256": "08e0c885c6044cd14faf931a74fb316836a2273b2126a5e6c084ef5a62f6273a",
+      "version": "V070",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V071__product_search_rerank_evidence.sql",
+      "sha256": "41228b2b023aeb922e2ad4d617783863c57a17a6f78f615da8e0436079d43343",
+      "version": "V071",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V072__product_search_metadata_filters.sql",
+      "sha256": "6eae353b09515297c66fcf09aa8d67e23bb5e8a0c4e35830f3398a0ef1df5ba5",
+      "version": "V072",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V073__product_search_filter_evidence.sql",
+      "sha256": "6f433f383eacb2c51f8fe8afab609a3fc8644fcd1f9aff2a470f19c35b54437e",
+      "version": "V073",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V074__enforcement_document_template.sql",
+      "sha256": "ab2ad037fbbe9f49ad6baa0de879b89def62ef161a08fa6819474957f4745893",
+      "version": "V074",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V074__product_search_confidence.sql",
+      "sha256": "5b17ef189cab7b5e0d535276a8382c33dacd4ceb6f3ad304458df3cf660180fa",
+      "version": "V074",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V075__enforcement_v2_legal_reference.sql",
+      "sha256": "172ccb2fe2f851d8a641b0bbfdf6c005ca202daed52ee979d2bcb607b5be6f4e",
+      "version": "V075",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V076__product_search_selection.sql",
+      "sha256": "4dcdd8c5517ca4b0c40b41af15e00d9de8605865ea9defcf70bb60d132b32b6b",
+      "version": "V076",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V077__product_execution_attempt_history.sql",
+      "sha256": "7476b642d2ac2c07e65c39ddecd532dd13ff25b8450b379ec65b7ad30ec4a19b",
+      "version": "V077",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V078__product_search_attempt_history_binding.sql",
+      "sha256": "d1a3171624c52ffb404d15b82b159a42576b565edead248b97dfcb2957152013",
+      "version": "V078",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V079__product_search_digest_version.sql",
+      "sha256": "c0889cf13af43e45112c4866043e63dbd40701308cf57236622f4894215dd946",
+      "version": "V079",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V080__enforcement_v2_document_rule.sql",
+      "sha256": "4f3f74eddb26030eae2389812f0d25321a0c938d6bf06f6727ee3bb96e663f5f",
+      "version": "V080",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V081__enforcement_document_rule_attempt.sql",
+      "sha256": "54020ad89c7a89a76eccc40e117753630ff843c1c9d7ff9dac113c3d3feb8ae8",
+      "version": "V081",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V082__enforcement_v2_penalty.sql",
+      "sha256": "926ab09b6845d965fc03f6eb3db9cd96d9a504e8f6c9a9b46c0b8f2a3c7492f8",
+      "version": "V082",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V083__enforcement_document_draft.sql",
+      "sha256": "f45047f2b562da16698cb6daf8f0a34d9bc8afa3eac706aef5795bca43377488",
+      "version": "V083",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V084__product_search_field_evidence.sql",
+      "sha256": "e15d8f886878f7593875ea0d2d11a46dc0dddd11f01ce7bef06fc9b46397a473",
+      "version": "V084",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V085__enforcement_document_draft_workflow.sql",
+      "sha256": "4e865700e2564ab290d8d588ca83f4e40c9c28e9638ad226f334ee372c4bf287",
+      "version": "V085",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V086__adjudication_case_work.sql",
+      "sha256": "f8eac0d41075c74fb30655bae06245e0e723decb0b72f80432075814da30a662",
+      "version": "V086",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ADJPROD",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V087__enforcement_document_draft_export.sql",
+      "sha256": "ae89fd245c091f6e5b2ae89beb1c5cdeb269303eae6a2b0fdd5e37c3e95ae031",
+      "version": "V087",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V088__product_source_capture_identity.sql",
+      "sha256": "f470e69ba06521509007a46c46eef83b0b89af09f683da7146627c824c7e48ce",
+      "version": "V088",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V089__product_consultation_model_turn.sql",
+      "sha256": "6cdf038d297ee7bf47b69b9396f5b7f75acff66423b7a19009b4f17a738fb7dc",
+      "version": "V089",
+      "decision": "selected",
+      "reason": "执法正式应用导入共享Goal/Task控制器实际访问CON3_MODEL_TURN；保留依赖结构但无模型准入保持零外呼。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V090__adjudication_material_model_run.sql",
+      "sha256": "95e45ab70db2c64d9c5a123d5f911d20f51fb8e0a3416cd534fffba81aa88ec5",
+      "version": "V090",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ADJPROD",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V091__adjudication_model_approval_binding.sql",
+      "sha256": "524bc69804a6e55b8c3579216a1a7e8aff9626f8de3d56e350831748e1cc33a9",
+      "version": "V091",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ADJPROD",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V092__product_source_comparison_use.sql",
+      "sha256": "83d3643eaa7e4a729899c927b4b0495954f39aa17909782efd1fba0ea398dd77",
+      "version": "V092",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V093__adjudication_material_decisions.sql",
+      "sha256": "2960d88f0d07231d37d7f942d251140ff725ce7e9ad058e9dc33d3a112159ced",
+      "version": "V093",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ADJPROD",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V094__product_comparison_feature_confirmation.sql",
+      "sha256": "d076171d17a5201ef5ca61b6ba03255c50a12a43c306721ec385bf73459acee8",
+      "version": "V094",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V095__product_comparison_input.sql",
+      "sha256": "7d84594ed353c17731ef2a94dfbdb49b1a5fff8268dbf079ebb8b10661de1c3d",
+      "version": "V095",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V096__agent_runtime_checkpoint.sql",
+      "sha256": "25c5902e759cf22672b44962be089afe515e4d1351b7169f8b30136961647ecd",
+      "version": "V096",
+      "decision": "selected",
+      "reason": "三应用实际导入ProductConsultationTaskConfiguration/Runtime或本域身份与Task合法性FK依赖；共享原件显式多schema安装。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFPROD",
+          "domain": "enforcement"
+        },
+        {
+          "schema": "ADJPROD",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V097__consultation_model_invocation.sql",
+      "sha256": "d7b492440817cc883211b09831622177b53c677ff9040e8fc4d4a289bf414ae6",
+      "version": "V097",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V098__product_comparison_worker_delegation.sql",
+      "sha256": "83f525db3215addff9345b046c71943d1ca35e5e5373e8c98b36e4b1bcbb0bca",
+      "version": "V098",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V099__product_comparison_candidate_lease.sql",
+      "sha256": "43b5df74b170173e1d29606ba0369a29c502c8872e9b54d68530a3459ae715d6",
+      "version": "V099",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V100__product_comparison_matrix.sql",
+      "sha256": "d0fcf5ecb09336b59285b04bc5979321b1a2d6c961a8c940778e05444b113d26",
+      "version": "V100",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V101__product_comparison_prepare_request.sql",
+      "sha256": "4a9da6f9cdffb57e6bc8d209fdf12381daf4949ab51aeb8427f5f355ecc6a2cb",
+      "version": "V101",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V102__product_comparison_start_command.sql",
+      "sha256": "228bd052bbdd819a2c992ea855dfeaf2708cdc4350240ff4972b6b6370b59106",
+      "version": "V102",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V103__comparison_start_fence_presence.sql",
+      "sha256": "4920e0603b888690142b9a11c53f07101c8386bcfbe183f2f0447b49adb9daf2",
+      "version": "V103",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V104__product_title_result_build_provenance.sql",
+      "sha256": "68ccc9a3407553924ed946fbe09799eb1e86f5524ade317e18e4acbc21d4d7ba",
+      "version": "V104",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V105__comparison_start_handoff_receipt.sql",
+      "sha256": "808b56d748290a1a774e81282da775536b6894d1319620cccb31be52ea58303f",
+      "version": "V105",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V106__product_display_only_source_scope.sql",
+      "sha256": "0bc141cc3340a22e6e776418f0122b76e8fdf2ba58b04f70e709821c9ffd2e5c",
+      "version": "V106",
+      "decision": "selected",
+      "reason": "当前正式领域装配的持久化原件及其前向结构依赖；模型表可安装但无预算时不启用模型执行，不删应交付能力。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/identity-authority/V001__grant_watermark.sql",
+      "sha256": "b5490c1f0ff01c7b9a077a9405c3a5403ee424de8da05f800c994e03da39a221",
+      "version": "V001",
+      "decision": "selected",
+      "reason": "独立Issuer授权及本域来源/删除/恢复水位正式持久化依赖；不合并authority。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONAUTH",
+          "domain": "consultation"
+        },
+        {
+          "schema": "ENFAUTH",
+          "domain": "enforcement"
+        },
+        {
+          "schema": "ADJAUTH",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/identity-authority/V002__enforcement_source_watermark.sql",
+      "sha256": "519fa34d09275607996fef4c8f07b12892a624574fe8bc7d8575bbe16df4e0c0",
+      "version": "V002",
+      "decision": "selected",
+      "reason": "独立Issuer授权及本域来源/删除/恢复水位正式持久化依赖；不合并authority。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFAUTH",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/identity-authority/V003__consultation_source_watermark.sql",
+      "sha256": "a7270582f7b6572287c31c0f974db68cd5d28847fcb3caebbc56bc014a85de1a",
+      "version": "V003",
+      "decision": "selected",
+      "reason": "仅咨询正式来源水位与来源恢复消费；执法/裁决分别使用自己的水位与A001，不把扫描其它域恢复工具作为运行依赖。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONAUTH",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/identity-authority/V004__consultation_source_recovery.sql",
+      "sha256": "5acca61cf80879e7428630d5ae719d132ab05fd6ce684430869727a9822309c2",
+      "version": "V004",
+      "decision": "selected",
+      "reason": "仅咨询正式来源水位与来源恢复消费；执法/裁决分别使用自己的水位与A001，不把扫描其它域恢复工具作为运行依赖。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "CONAUTH",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/identity-authority/V005__enforcement_delete_watermark.sql",
+      "sha256": "98d86a9c1267149b9ab3204f63267a0cd6047c31f3412264488e98c23f266141",
+      "version": "V005",
+      "decision": "selected",
+      "reason": "独立Issuer授权及本域来源/删除/恢复水位正式持久化依赖；不合并authority。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ENFAUTH",
+          "domain": "enforcement"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/adjudication_source_authority.sql",
+      "sha256": "f0ff3a6ded31bebf608f81eae2b83b700974ced4a681332a6a86a23ff30a3a0f",
+      "version": "A001",
+      "decision": "selected",
+      "reason": "03B正式来源代际/用途/撤回持久化已有原件；A001仅空目标singleton初始化。",
+      "designReferences": [
+        "docs/adr/single-database-recovery-assessment-20261007.md#9.14"
+      ],
+      "bindings": [
+        {
+          "schema": "ADJAUTH",
+          "domain": "adjudication"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V109__product_human_request.sql",
+      "sha256": "20764e9c88ac65d60d0b81508e3355194a2ec4e48403fd1a2c0c3ff09eb9d668",
+      "version": "V109",
+      "decision": "selected",
+      "reason": "普通人工请求及新Task专属清理scope的已准入产品结构；仅咨询绑定，不授权物理执行或默认启用。",
+      "designReferences": [
+        "docs/adr/consultation-product-human-handoff-20261009.md#1014-普通人工请求发行元数据2026-10-13"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V110__product_human_cleanup_scope.sql",
+      "sha256": "3c8e85150cec43bf628fbd7972b58c85167fc70c39c4578c5ad43029738bbbfb",
+      "version": "V110",
+      "decision": "selected",
+      "reason": "普通人工请求及新Task专属清理scope的已准入产品结构；仅咨询绑定，不授权物理执行或默认启用。",
+      "designReferences": [
+        "docs/adr/consultation-product-human-handoff-20261009.md#1014-普通人工请求发行元数据2026-10-13"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/dm8/V111__product_human_body_access_deadline.sql",
+      "sha256": "835bdc757a9ddd3904b71aba58085b685cf6070b5fd5809f76e696bd9c8e6351",
+      "version": "V111",
+      "decision": "selected",
+      "reason": "普通人工请求及新Task专属清理scope的已准入产品结构；仅咨询绑定，不授权物理执行或默认启用。",
+      "designReferences": [
+        "docs/adr/consultation-product-human-handoff-20261009.md#1014-普通人工请求发行元数据2026-10-13"
+      ],
+      "bindings": [
+        {
+          "schema": "CONPROD",
+          "domain": "consultation"
+        }
+      ]
+    },
+    {
+      "path": "db/identity-authority/V006__consultation_human_cleanup_scope.sql",
+      "sha256": "fcb8494789cfdb26bc2caf3d86eb5a3366bfe3010f351129b3ac13619d9c1f7e",
+      "version": "V006",
+      "decision": "selected",
+      "reason": "普通人工请求及新Task专属清理scope的已准入产品结构；仅咨询绑定，不授权物理执行或默认启用。",
+      "designReferences": [
+        "docs/adr/consultation-product-human-handoff-20261009.md#1014-普通人工请求发行元数据2026-10-13"
+      ],
+      "bindings": [
+        {
+          "schema": "CONAUTH",
+          "domain": "consultation"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Attempt stopped after fixture snapshot failures: H2 Blob.toString contains changing handle IDs. Not a production mutation. The full run is incomplete; raw log retained. Correct snapshot extracts Blob bytes. Next attempt keeps only self-owned file-H2 stores open between JDBC calls to avoid reopening on every query. No shared build or current DB affected.

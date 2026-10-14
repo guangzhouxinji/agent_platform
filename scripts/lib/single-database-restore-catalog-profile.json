@@ -1,0 +1,214 @@
+{
+  "format": "DM8_RESTORE_CATALOG_PROFILE/v1",
+  "profileId": "DM8_8_1_4_170_RESTORE_MINIMAL_01",
+  "databaseVersion": "8.1.4.170",
+  "schemas": [
+    "CONPROD",
+    "CONAUTH",
+    "ENFPROD",
+    "ENFAUTH",
+    "ADJPROD",
+    "ADJAUTH"
+  ],
+  "categories": {
+    "nativeObjects": {
+      "fields": [
+        "CRTDATE",
+        "ID",
+        "INFO1",
+        "INFO2",
+        "INFO3",
+        "INFO4",
+        "INFO5",
+        "INFO6",
+        "INFO7",
+        "INFO8",
+        "NAME",
+        "PID",
+        "SCHEMA_NAME",
+        "SCHID",
+        "SUBTYPE$",
+        "TYPE$",
+        "VALID",
+        "VERSION"
+      ],
+      "maxRows": 10000
+    },
+    "nativeConstraints": {
+      "fields": [
+        "CHECKINFO",
+        "COLID",
+        "CONSTRAINT_NAME",
+        "FACTION",
+        "FINDEXID",
+        "ID",
+        "INDEXID",
+        "SCHEMA_NAME",
+        "TABLEID",
+        "TRIGID",
+        "TYPE$",
+        "VALID"
+      ],
+      "maxRows": 10000
+    },
+    "nativeIndexes": {
+      "fields": [
+        "FLAG",
+        "INDEX_ID",
+        "INDEX_NAME",
+        "ISUNIQUE",
+        "KEYNUM",
+        "SCHEMA_NAME",
+        "TABLE_ID",
+        "TABLE_NAME",
+        "XTYPE"
+      ],
+      "maxRows": 10000
+    },
+    "hiddenColumns": {
+      "fields": [
+        "COLID",
+        "DEFVAL",
+        "ID",
+        "INFO1",
+        "INFO2",
+        "LENGTH$",
+        "NAME",
+        "NULLABLE$",
+        "SCALE",
+        "SCHEMA_NAME",
+        "TABLE_NAME",
+        "TYPE$"
+      ],
+      "maxRows": 10000
+    },
+    "hiddenTexts": {
+      "fields": [
+        "ID",
+        "SEQNO",
+        "TXT"
+      ],
+      "maxRows": 10000
+    },
+    "tables": {
+      "fields": [
+        "AVG_ROW_LEN",
+        "AVG_SPACE",
+        "AVG_SPACE_FREELIST_BLOCKS",
+        "BACKED_UP",
+        "BLOCKS",
+        "BUFFER_POOL",
+        "CACHE",
+        "CELL_FLASH_CACHE",
+        "CHAIN_CNT",
+        "CLUSTER_NAME",
+        "CLUSTER_OWNER",
+        "COMPRESSION",
+        "COMPRESS_FOR",
+        "DEGREE",
+        "DEPENDENCIES",
+        "DROPPED",
+        "DURATION",
+        "EMPTY_BLOCKS",
+        "FLASH_CACHE",
+        "FREELISTS",
+        "FREELIST_GROUPS",
+        "GLOBAL_STATS",
+        "INITIAL_EXTENT",
+        "INI_TRANS",
+        "INSTANCES",
+        "IOT_NAME",
+        "IOT_TYPE",
+        "LAST_ANALYZED",
+        "LOGGING",
+        "LONG_ROW",
+        "MAX_EXTENTS",
+        "MAX_TRANS",
+        "MIN_EXTENTS",
+        "MONITORING",
+        "NESTED",
+        "NEXT_EXTENT",
+        "NUM_FREELIST_BLOCKS",
+        "NUM_ROWS",
+        "OWNER",
+        "PARTITIONED",
+        "PCT_FREE",
+        "PCT_INCREASE",
+        "PCT_USED",
+        "READ_ONLY",
+        "RESULT_CACHE",
+        "ROW_MOVEMENT",
+        "SAMPLE_SIZE",
+        "SECONDARY",
+        "SEGMENT_CREATED",
+        "SKIP_CORRUPT",
+        "STATUS",
+        "TABLESPACE_NAME",
+        "TABLE_LOCK",
+        "TABLE_NAME",
+        "TEMPORARY",
+        "USER_STATS"
+      ],
+      "maxRows": 10000
+    },
+    "indexExpressions": {
+      "fields": [
+        "COLUMN_EXPRESSION",
+        "COLUMN_POSITION",
+        "INDEX_NAME",
+        "INDEX_OWNER",
+        "TABLE_NAME",
+        "TABLE_OWNER"
+      ],
+      "maxRows": 10000
+    },
+    "hiddenDependencyCount": {
+      "fields": [
+        "ROW_COUNT"
+      ],
+      "maxRows": 1,
+      "requiredCount": "0"
+    },
+    "hiddenObjectInfoCount": {
+      "fields": [
+        "ROW_COUNT"
+      ],
+      "maxRows": 1,
+      "requiredCount": "0"
+    },
+    "viewDefinitions": {
+      "fields": [
+        "OWNER",
+        "TEXT",
+        "VIEW_NAME"
+      ],
+      "maxRows": 20
+    },
+    "hiddenTableCounts": {
+      "fields": [
+        "ROW_COUNT",
+        "SCHEMA_NAME",
+        "TABLE_NAME"
+      ],
+      "maxRows": 10000,
+      "allCounts": "0"
+    }
+  },
+  "scalarContract": {
+    "null": "JSON null, never empty string",
+    "integer": "canonical signed decimal string, never JSON number",
+    "decimal": "BigDecimal.toPlainString, never double",
+    "boolean": "JSON boolean",
+    "text": "exact string, no trimming or case folding",
+    "binary": "object with sole binaryBase64 key",
+    "timestamp": "exact JDBC string with fractional precision; no host timezone conversion",
+    "metadata": "each label includes original JDBC type integer and type name; duplicate or unknown label/type refused"
+  },
+  "limits": {
+    "queryTimeoutSeconds": 15,
+    "maxRows": 10000,
+    "maxCellBytes": 2097152,
+    "maxCatalogBytes": 16777216
+  },
+  "unsupportedPolicy": "Reject query failure, truncation, nonzero hidden dependency/info, unknown version/label/type, unsafe JSON numeric scalar, missing graph/link/column or ambiguous identity. No empty fallback."
+}

@@ -15,7 +15,13 @@ public final class PatentHybridQuery {
 
     public record SemanticMatch(String sourceId, String documentId, String documentVersion,
                                 String sourceVersion, String rawSha, String locatorRef,
-                                double semanticScore) { }
+                                double semanticScore, Set<String> semanticFields) {
+        public SemanticMatch { semanticFields = Set.copyOf(semanticFields); }
+        public SemanticMatch(String sourceId, String documentId, String documentVersion,
+                String sourceVersion, String rawSha, String locatorRef, double semanticScore) {
+            this(sourceId,documentId,documentVersion,sourceVersion,rawSha,locatorRef,semanticScore,Set.of());
+        }
+    }
     public record Match(String sourceId, String documentId, String documentVersion,
                         String sourceVersion, String rawSha, String locatorRef,
                         Set<String> matchFields, List<String> matchedTerms,
@@ -26,7 +32,14 @@ public final class PatentHybridQuery {
                          int candidateCount, boolean truncated) { }
 
     public Result fuse(PatentBm25fQuery.Result lexical, List<SemanticMatch> semantic, int maxResults) {
-        if (lexical == null || semantic == null || semantic.isEmpty() || maxResults < 1)
+        return fuse(lexical,semantic,maxResults,false);
+    }
+    public Result fuseFields(PatentBm25fQuery.Result lexical, List<SemanticMatch> semantic, int maxResults) {
+        return fuse(lexical,semantic,maxResults,true);
+    }
+    private Result fuse(PatentBm25fQuery.Result lexical, List<SemanticMatch> semantic,
+            int maxResults, boolean fieldMode) {
+        if (lexical == null || semantic == null || (!fieldMode && semantic.isEmpty()) || maxResults < 1)
             throw new IllegalArgumentException("Both retrieval paths and a result bound are required");
         Map<String, Mutable> union = new HashMap<>();
         for (int index = 0; index < lexical.matches().size(); index++) {
@@ -38,6 +51,10 @@ public final class PatentHybridQuery {
         }
         for (int index = 0; index < semantic.size(); index++) {
             var match = semantic.get(index);
+            if (fieldMode == match.semanticFields().isEmpty())
+                throw new IllegalArgumentException("Semantic field provenance does not match hybrid method");
+            if (fieldMode && !Set.of("TITLE","ABSTRACT","CLAIMS","DESCRIPTION").containsAll(match.semanticFields()))
+                throw new IllegalArgumentException("Unsupported semantic field provenance");
             if (!Double.isFinite(match.semanticScore()))
                 throw new IllegalArgumentException("Finite semantic score required");
             Mutable item = union.computeIfAbsent(key(match.sourceId(), match.documentId(),
@@ -53,7 +70,7 @@ public final class PatentHybridQuery {
                 .thenComparing(Match::sourceId).thenComparing(Match::documentId)
                 .thenComparing(Match::documentVersion));
         boolean truncated = matches.size() > maxResults;
-        return new Result(METHOD_VERSION, lexical.normalizedQuery(),
+        return new Result(fieldMode ? "HYBRID_FIELD_RRF/v1" : METHOD_VERSION, lexical.normalizedQuery(),
                 List.copyOf(matches.subList(0, Math.min(maxResults, matches.size()))),
                 matches.size(), truncated);
     }
@@ -107,6 +124,9 @@ public final class PatentHybridQuery {
             double fusion = (lexicalRank == null ? 0 : 1.0 / (RRF_K + lexicalRank))
                     + (semanticRank == null ? 0 : 1.0 / (RRF_K + semanticRank));
             Set<String> fields = lexical == null ? Set.of() : new LinkedHashSet<>(lexical.matchFields());
+            if (semantic != null && !semantic.semanticFields().isEmpty()) {
+                fields = new LinkedHashSet<>(fields); fields.addAll(semantic.semanticFields());
+            }
             return new Match(sourceId, documentId, documentVersion, sourceVersion, rawSha, locatorRef,
                     Set.copyOf(fields), lexical == null ? List.of() : lexical.matchedTerms(),
                     lexical == null ? null : lexical.lexicalScore(),

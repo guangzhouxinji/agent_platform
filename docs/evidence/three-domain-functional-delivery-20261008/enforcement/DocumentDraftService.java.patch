@@ -1,0 +1,22 @@
+--- original/DocumentDraftService.java
++++ D:\daima\xinji\agent_platform\backend\enforcement\src\main\java\cn\xinji\agentplatform\enforcement\documentdraft\DocumentDraftService.java
+@@ -117,13 +117,18 @@
+         access.require(actor,draft.manifest().organization(),id,revision,"READ");
+         inputs.assertReadable(actor,draft.manifest());
+         if(!sha(draft.contentJson()).equals(draft.contentSha256()))throw new IllegalStateException("Draft content SHA mismatch");
++        // Original/source verification must not freeze the document's earlier READ decision.
++        access.require(actor,draft.manifest().organization(),id,revision,"READ");
+         return draft;
+     }
+     public List<Draft> history(String actor,String id) {
+         var history=store.history(id);
+         if(history.isEmpty())throw new IllegalArgumentException("Draft not found");
+         for(var draft:history)read(actor,id,draft.revision());
+-        return List.copyOf(history);
++        var result=List.copyOf(history);
++        // Later revision reads may outlive READ authority for an earlier retained revision.
++        for(var draft:result)access.require(actor,draft.manifest().organization(),id,draft.revision(),"READ");
++        return result;
+     }
+     private String encode(Object value) {
+         try{return json.writeValueAsString(value);}catch(Exception failure){throw new IllegalArgumentException("Document serialization failed",failure);}

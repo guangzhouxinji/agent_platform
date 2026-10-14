@@ -1,0 +1,2 @@
+DROP TABLE con3_execution_attempt;
+ALTER TABLE con3_search_input DROP CONSTRAINT uq_con3_input_task_version;

@@ -1,0 +1,7 @@
+$ErrorActionPreference='Stop';$vault=Join-Path $env:LOCALAPPDATA 'AgentPlatform/consultation-product';$evidence=Join-Path (Get-Location).Path 'docs/evidence/consultation-agent-native-20261006';$configFile=Join-Path $vault 'container-deployment-agent-dns-20261006-01.json';$config=Get-Content -LiteralPath $configFile -Raw|ConvertFrom-Json -AsHashtable
+$current=(docker inspect 'agent-platform-consultation-api'|ConvertFrom-Json)[0];if(-not $current.Id.StartsWith('40f8efdff24f') -or $current.State.Running){throw 'Preserve original stopped container'}
+& './scripts/start-consultation-container.ps1' -Configuration $configFile -ReplaceContainerId $current.Id *> (Join-Path $evidence 'publish-dns-ready-corrected.log');if(-not $?){throw 'Controlled retry failed; original and failed artifacts preserved'}
+$active=(docker inspect 'agent-platform-consultation-api'|ConvertFrom-Json)[0];if(-not $active.State.Running){throw 'Candidate not resident'}
+Copy-Item -LiteralPath $configFile -Destination (Join-Path $vault 'container-deployment.json')
+[ordered]@{publishedAt=[DateTimeOffset]::Now.ToString('o');id=$active.Id;name=$active.Name;running=[bool]$active.State.Running;port=5443;jarSha=$config.jarSha;runtimeEnabled=$true;privateImmutableRuntimeRoot=$config.runtimeRoot;currentPointerUpdated=$true;currentTaskGrantCreated=$false;currentSourceDecisionCreated=$false;existingWorkerExpiresNotChanged=$true}|ConvertTo-Json|Set-Content -LiteralPath (Join-Path $evidence 'resident-product.json')
+Write-Output "CONSULTATION_NATIVE_PUBLISHED=$($active.Id) port=5443"

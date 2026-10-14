@@ -8,7 +8,7 @@ const AgentWorkspacePage = lazy(() => import("../features/workspace/AgentWorkspa
 const PatentLibraryPage = lazy(() => import("../features/libraries/LibraryWorkspace").then((module) => ({ default: module.PatentLibraryPage })));
 const TrademarkLibraryPage = lazy(() => import("../features/libraries/LibraryWorkspace").then((module) => ({ default: module.TrademarkLibraryPage })));
 const CaseLibraryPage = lazy(() => import("../features/libraries/LibraryWorkspace").then((module) => ({ default: module.CaseLibraryPage })));
-const ConsultationPage = lazy(() => import("../features/consultation/ConsultationPage"));
+const ConsultationPage = lazy(() => import("../features/consultation/product/ConsultationProductPage"));
 const ConsultationFlowPage = lazy(() => import("../features/consultation/ConsultationFlowPage"));
 const IntentTestPage = lazy(() => import("../features/consultation/IntentTestPage"));
 const AgentConfigurationPage = lazy(() => import("../features/consultation/AgentConfigurationPage"));
@@ -29,7 +29,10 @@ const EnforcementJobPackPage = lazy(() => import("../features/workflows/Enforcem
 const EnforcementMaterialV2Page = lazy(() => import("../features/workflows/EnforcementMaterialV2Page"));
 const EnforcementDocumentTemplatePage = lazy(() => import("../features/workflows/EnforcementDocumentTemplateV2Page"));
 const EnforcementLegalReferencePage = lazy(() => import("../features/workflows/EnforcementLegalReferenceV2Page"));
-const AdjudicationPage = lazy(() => import("../features/workflows/BusinessWorkspaces").then((module) => ({ default: module.AdjudicationPage })));
+const EnforcementDocumentRulePage = lazy(() => import("../features/workflows/EnforcementDocumentRuleV2Page"));
+const EnforcementDocumentDraftPage = lazy(() => import("../features/workflows/EnforcementDocumentDraftV2Page"));
+const EnforcementPenaltyPage = lazy(() => import("../features/workflows/EnforcementPenaltyV2Page"));
+const AdjudicationPage = lazy(() => import("../features/adjudication/AdjudicationWorkspace"));
 
 const loading = <div className="route-loading"><Spin size="large" /></div>;
 
@@ -58,6 +61,9 @@ const migratedRoutes: Record<string, React.ReactNode> = {
   "/enforcement/material": <Suspense fallback={loading}><EnforcementMaterialV2Page /></Suspense>,
   "/enforcement/document-templates": <Suspense fallback={loading}><EnforcementDocumentTemplatePage /></Suspense>,
   "/enforcement/legal-references": <Suspense fallback={loading}><EnforcementLegalReferencePage /></Suspense>,
+  "/enforcement/document-rules": <Suspense fallback={loading}><EnforcementDocumentRulePage /></Suspense>,
+  "/enforcement/document-drafts": <Suspense fallback={loading}><EnforcementDocumentDraftPage /></Suspense>,
+  "/enforcement/penalty": <Suspense fallback={loading}><EnforcementPenaltyPage /></Suspense>,
   "/adjudication": <Suspense fallback={loading}><AdjudicationPage /></Suspense>
 };
 

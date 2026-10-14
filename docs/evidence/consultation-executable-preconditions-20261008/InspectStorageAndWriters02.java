@@ -1,0 +1,10 @@
+import java.sql.*;import java.nio.file.*;import java.time.*;import java.util.*;import com.fasterxml.jackson.databind.ObjectMapper;
+/** Only allocation/session metadata. Never query SQL text or business bodies. */
+public class InspectStorageAndWriters02 {
+ public static void main(String[]a)throws Exception {if(a.length!=2||Files.exists(Path.of(a[1])))throw new IllegalArgumentException("FRESH_METADATA_OUTPUT_REQUIRED");var out=new LinkedHashMap<String,Object>();out.put("at",Instant.now().toString());String url,user,sql;
+ if(a[0].equals("target")){url="jdbc:dm://127.0.0.1:5494";user="SYSDBA";sql="SELECT OWNER,SUM(BYTES) AS ALLOCATED_BYTES,COUNT(*) AS SEGMENT_COUNT FROM DBA_SEGMENTS WHERE OWNER='CONREL2' GROUP BY OWNER";}
+ else if(a[0].equals("source")){url="jdbc:dm://127.0.0.1:5301";user="CONPROD";sql="SELECT USER_NAME,APPNAME,CLNT_IP,STATE FROM V$SESSIONS WHERE USER_NAME IN ('CONPROD','CONPROD_BKP','CONPROD_SVC')";}else throw new IllegalArgumentException("EXACT_SCOPE_REQUIRED");
+ try(var c=DriverManager.getConnection(url,user,System.getenv("FACTS_METADATA_PASSWORD"))){c.setReadOnly(true);c.setAutoCommit(false);if(a[0].equals("source")){try(var q=c.prepareStatement("SELECT * FROM V$SESSIONS WHERE 1=0");var r=q.executeQuery()){var names=new ArrayList<String>();for(int i=1;i<=r.getMetaData().getColumnCount();i++)names.add(r.getMetaData().getColumnLabel(i));out.put("viewColumnNamesOnly",names);}}var rows=new ArrayList<Map<String,Object>>();try(var s=c.prepareStatement(sql)){s.setQueryTimeout(15);try(var r=s.executeQuery()){var m=r.getMetaData();while(r.next()){var row=new LinkedHashMap<String,Object>();for(int i=1;i<=m.getColumnCount();i++)row.put(m.getColumnLabel(i),r.getObject(i));rows.add(row);}}}out.put("rows",rows);c.rollback();}
+ catch(SQLException e){out.put("sqlState",String.valueOf(e.getSQLState()));out.put("errorCode",e.getErrorCode());out.put("permissionNotEscalated",true);}
+ out.put("scope",a[0]);out.put("metadataOnly",true);out.put("writes",0);out.put("oldProtectedDataRead",false);new ObjectMapper().writerWithDefaultPrettyPrinter().writeValue(Path.of(a[1]).toFile(),out); }
+}

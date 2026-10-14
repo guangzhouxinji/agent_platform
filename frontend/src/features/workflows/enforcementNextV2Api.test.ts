@@ -45,3 +45,18 @@ describe("enforcement V2 product request", () => {
       .rejects.toThrow("上游日历不可用");
   });
 });
+
+describe("request failure status contract",()=>{
+  it.each([400,404,422,429,500,503])("preserves real status %i and message",async status=>{
+    vi.stubGlobal("fetch",vi.fn().mockResolvedValue(new Response(JSON.stringify({error:{message:"原产品错误"}}),{status})));
+    await expect(enforcementRequest("token","/document-drafts/draft/revisions",{},"key")).rejects.toMatchObject({status,message:"原产品错误"});
+  });
+  it.each([401,403])("preserves access denied status %i",async status=>{
+    vi.stubGlobal("fetch",vi.fn().mockResolvedValue(new Response(null,{status})));
+    await expect(enforcementRequest("token","/document-drafts/draft/history")).rejects.toMatchObject({status,message:"当前授权不可用，请重新登录"});
+  });
+  it("does not turn broken success JSON into a receipt",async()=>{
+    vi.stubGlobal("fetch",vi.fn().mockResolvedValue(new Response("broken",{status:200})));
+    await expect(enforcementRequest("token","/document-drafts/draft/generate",{},"key")).rejects.toBeInstanceOf(SyntaxError);
+  });
+});

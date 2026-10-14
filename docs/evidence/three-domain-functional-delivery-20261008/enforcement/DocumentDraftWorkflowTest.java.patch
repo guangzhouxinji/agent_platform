@@ -1,0 +1,35 @@
+--- original/DocumentDraftWorkflowTest.java
++++ D:\daima\xinji\agent_platform\backend\enforcement\src\test\java\cn\xinji\agentplatform\enforcement\documentdraft\DocumentDraftWorkflowTest.java
+@@ -53,6 +53,32 @@
+         assertTrue(workflow.reviews("actor","draft",2).isEmpty());assertEquals(2,workflow.reviews("actor","draft",1).size());
+         assertThrows(IllegalArgumentException.class,()->workflow.submit("actor","stale-submit","draft",1,base.contentSha256()));
+     }
++    @Test void confirmedReviewRecoveryReadsHistoricalRevisionWithoutReplayingWrites() {
++        var base=generated();workflow.submit("actor","submit","draft",1,base.contentSha256());
++        var receipt=workflow.review("reviewer","approve","draft",1,base.contentSha256(),"APPROVED","Technical review");
++        var original=java.util.List.copyOf(f.reviews);
++        f.service.revise("actor","edit","draft",1,base.contentSha256(),Map.of("party_name","Human edit"),"reason");
++        f.changed=true;f.deniedReadRevisions.add(2L);f.readCoordinates.clear();
++        var retained=f.retainedState();
++        assertEquals(original,workflow.reviews("reader",receipt.draftId(),receipt.revision()));
++        assertEquals(java.util.List.of("reader|org|draft|1","reader|org|draft|1","reader|org|draft|1"),f.readCoordinates);
++        assertEquals(retained,f.retainedState());
++    }
++    @Test void reviewReadRevokedDuringRecordReadCannotReturnConfirmedReview() {
++        var base=generated();workflow.submit("actor","submit","draft",1,base.contentSha256());
++        var receipt=workflow.review("reviewer","approve","draft",1,base.contentSha256(),"APPROVED","Technical review");
++        var retained=f.retainedState();f.readCoordinates.clear();
++        f.afterReviewsRead=()->f.deniedReadRevisions.add(receipt.revision());
++        assertThrows(SecurityException.class,()->workflow.reviews("reader",receipt.draftId(),receipt.revision()));
++        assertEquals(java.util.List.of("reader|org|draft|1","reader|org|draft|1","reader|org|draft|1"),f.readCoordinates);
++        assertEquals(retained,f.retainedState());
++    }
++    @Test void emptyReviewReadAlsoFailsClosedWhenReadRevokedDuringRecordRead() {
++        var base=generated();var retained=f.retainedState();
++        f.afterReviewsRead=()->f.deniedReadRevisions.add(base.revision());
++        assertThrows(SecurityException.class,()->workflow.reviews("reader",base.id(),base.revision()));
++        assertEquals(retained,f.retainedState());
++    }
+     @Test void returnedRevisionCanBeResubmittedWithoutOverwritingPriorReviews() {
+         var base=generated();workflow.submit("actor","submit","draft",1,base.contentSha256());
+         workflow.review("reviewer","return","draft",1,base.contentSha256(),"RETURNED","Explicit return");

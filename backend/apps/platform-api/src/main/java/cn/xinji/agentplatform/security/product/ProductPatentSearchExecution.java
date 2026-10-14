@@ -17,7 +17,9 @@ import org.springframework.web.server.ResponseStatusException;
 final class ProductPatentSearchExecution {
     record Receipt(String attemptId, long fencingToken, String resultSetId, String methodVersion, int resultCount,
                    int candidateCount, boolean truncated, String resultSha,
-                   String confidenceStatus, String confidenceRuleVersion, String confidenceReason) { }
+                   String confidenceStatus, String confidenceRuleVersion, String confidenceReason,
+                   String status, String totalReliability,
+                   List<ProductPatentSearchSourceBatch.Outcome> sourceOutcomes, String digestVersion) { }
     record Member(String memberId, long ordinal, String sourceId, String documentId,
                   String documentVersion, String sourceVersion, String rawSha,
                   String locatorRef, Set<String> matchFields, List<String> matchedTerms,
@@ -27,7 +29,21 @@ final class ProductPatentSearchExecution {
     record Page(String resultSetId, String attemptId, String methodVersion, String resultSha, boolean truncated,
                 int candidateCount, int pageSize, String nextCursor,
                 String confidenceStatus, String confidenceRuleVersion, String confidenceReason,
-                List<Member> members) { }
+                List<Member> members, String status, String totalReliability,
+                List<ProductPatentSearchSourceBatch.Outcome> sourceOutcomes,
+                List<ProductPatentSearchCitations.Citation> citations, String digestVersion,
+                @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+                ProductPatentFieldResultEvidence.Bundle fieldEvidence) {
+        Page(String resultSetId,String attemptId,String methodVersion,String resultSha,boolean truncated,
+                int candidateCount,int pageSize,String nextCursor,String confidenceStatus,String confidenceRuleVersion,
+                String confidenceReason,List<Member> members,String status,String totalReliability,
+                List<ProductPatentSearchSourceBatch.Outcome> sourceOutcomes,
+                List<ProductPatentSearchCitations.Citation> citations,String digestVersion) {
+            this(resultSetId,attemptId,methodVersion,resultSha,truncated,candidateCount,pageSize,nextCursor,
+                    confidenceStatus,confidenceRuleVersion,confidenceReason,members,status,totalReliability,
+                    sourceOutcomes,citations,digestVersion,null);
+        }
+    }
     private record Input(String organization, long taskVersion, String inputSha, String query,
                          List<String> sources, List<String> fields, String filtersJson,
                          Instant expiresAt) { }
@@ -46,7 +62,7 @@ final class ProductPatentSearchExecution {
     private final ProductPatentSearchCursor cursors;
     private final ProductSemanticIndex semantic;
     private final PatentReranker reranker;
-    private final PatentQueryExpansion expansion = new PatentQueryExpansion();
+    private final PatentReranker fieldReranker;
     private final ObjectMapper mapper;
     private final Clock clock;
     private final int maxResults;
@@ -57,7 +73,7 @@ final class ProductPatentSearchExecution {
             ProductRetentionPolicy retention, ObjectMapper mapper, ProductPatentSearchCursor cursors,
             Clock clock, int maxResults) {
         this(db, workers, execution, titles, availability, sourceWatermark, tasks,
-                consultationAccess, retention, mapper, cursors, null, null, clock, maxResults);
+                consultationAccess, retention, mapper, cursors, null, null, null, clock, maxResults);
     }
     ProductPatentSearchExecution(JdbcTemplate db, ProductWorkerAccess workers,
             ProductTaskWorkerExecution execution, ProductCollectedPatentTitles titles,
@@ -66,14 +82,14 @@ final class ProductPatentSearchExecution {
             ProductRetentionPolicy retention, ObjectMapper mapper, ProductPatentSearchCursor cursors,
             ProductSemanticIndex semantic, Clock clock, int maxResults) {
         this(db, workers, execution, titles, availability, sourceWatermark, tasks,
-                consultationAccess, retention, mapper, cursors, semantic, null, clock, maxResults);
+                consultationAccess, retention, mapper, cursors, semantic, null, null, clock, maxResults);
     }
     ProductPatentSearchExecution(JdbcTemplate db, ProductWorkerAccess workers,
             ProductTaskWorkerExecution execution, ProductCollectedPatentTitles titles,
             ProductSourceAvailability availability, ProductSourceWatermark sourceWatermark,
             ProductTaskDirectory tasks, ProductConsultationAccess consultationAccess,
             ProductRetentionPolicy retention, ObjectMapper mapper, ProductPatentSearchCursor cursors,
-            ProductSemanticIndex semantic, PatentReranker reranker, Clock clock, int maxResults) {
+            ProductSemanticIndex semantic, PatentReranker reranker, PatentReranker fieldReranker, Clock clock, int maxResults) {
         if (maxResults < 1) throw new IllegalArgumentException("Positive search result limit required");
         this.db = db;
         this.workers = workers;
@@ -89,6 +105,7 @@ final class ProductPatentSearchExecution {
         this.cursors = cursors;
         this.semantic = semantic;
         this.reranker = reranker;
+        this.fieldReranker = fieldReranker;
         this.mapper = mapper;
         this.clock = clock;
         this.maxResults = maxResults;
@@ -96,80 +113,137 @@ final class ProductPatentSearchExecution {
     }
     Receipt execute(HttpServletRequest request, String taskId, String inputId, String delegationId,
             String attemptId, long fencingToken, String requestId) {
+        try (var observation = new ProductPatentSearchObservation(mapper,taskId,inputId,attemptId,requestId)) {
+            Receipt result=executeObserved(request,taskId,inputId,delegationId,attemptId,fencingToken,requestId,observation);
+            observation.success(result);
+            return result;
+        }
+    }
+    private Receipt executeObserved(HttpServletRequest request, String taskId, String inputId, String delegationId,
+            String attemptId, long fencingToken, String requestId, ProductPatentSearchObservation observation) {
+        observation.stage(ProductPatentSearchObservation.Stage.AUTHORIZE);
         requireIdentity(taskId, inputId, delegationId, attemptId, fencingToken, requestId);
         ProductWorkerAccess.Authorized worker = workers.require(request, taskId, inputId, delegationId);
         Input input = input(taskId, inputId);
         ProductPatentSearchFilters filters = ProductPatentSearchFilters.parse(mapper, input.filtersJson());
-        var requiredFields = new java.util.LinkedHashSet<String>();
-        requiredFields.add("TITLE");
-        requiredFields.addAll(filters.requiredSourceFields());
-        if (worker.taskVersion() != input.taskVersion()
-                || input.fields().size() != requiredFields.size()
-                || !requiredFields.equals(new java.util.LinkedHashSet<>(input.fields())))
+        ProductPatentSearchFieldScope fieldScope;
+        try { fieldScope=ProductPatentSearchFieldScope.from(input.fields(),filters); }
+        catch (IllegalArgumentException invalid) {
+            throw new IllegalStateException("Persisted search fields do not match the current query plan",invalid);
+        }
+        if (worker.taskVersion() != input.taskVersion())
             throw new IllegalStateException("Search fields do not match the current query plan");
         String requestSha = evidence.digest(taskId, inputId, delegationId, attemptId,
                 Long.toString(fencingToken), requestId, input.inputSha());
+        observation.stage(ProductPatentSearchObservation.Stage.REPLAY_CHECK);
         List<Prior> prior = prior(requestId);
         if (!prior.isEmpty()) {
+            observation.replay();
             Prior stored = prior.getFirst();
             if (prior.size() != 1 || !stored.requestSha().equals(requestSha)
                     || !stored.attemptId().equals(attemptId) || stored.token() != fencingToken)
                 throw new IllegalStateException("Search request conflicts with prior input");
+            var scopes=db.query("SELECT scope_sha,filters_json,filter_version,filter_sha FROM con4_search_attempt WHERE attempt_id=?",
+                    (rs,row)->new String[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)},stored.attemptId());
+            if(scopes.size()!=1 || !filters.version().equals(scopes.getFirst()[2])
+                    || !filters.equals(ProductPatentSearchFilters.parse(mapper,scopes.getFirst()[1]))
+                    || !evidence.digest(scopes.getFirst()[2],scopes.getFirst()[1]).equals(scopes.getFirst()[3])
+                    || !scopes.getFirst()[0].equals(fieldScope.scopeSha(evidence,input.sources(),
+                    scopes.getFirst()[2],scopes.getFirst()[1])))
+                throw new IllegalStateException("Search request scope conflicts with committed input");
+            observation.stage(ProductPatentSearchObservation.Stage.CURRENT_CHECK);
             assertSourcesCurrent(stored.attemptId());
             workers.require(request, taskId, inputId, delegationId);
             return receipt(stored.resultSetId());
         }
-        var documents = new ArrayList<PatentLexicalQuery.Document>();
-        var activeSources = new ArrayList<ProductSourceAvailability.Active>();
-        for (String sourceId : input.sources()) {
-            var active = availability.require(sourceId, "TITLE", "QUERY");
-            filters.requireAuthorized(availability, active);
-            activeSources.add(active);
-            documents.addAll(titles.load(active, filters));
-        }
-        var queryPlan = expansion.expand(input.query());
-        PatentBm25fQuery.Result lexical = new PatentBm25fQuery().search(documents,
-                queryPlan.retrievalQuery(), Set.of("TITLE"), Math.max(1000, maxResults));
-        var ranked = new ProductPatentSearchRanking(evidence, semantic, reranker, maxResults)
-                .rank(input.sources(), queryPlan, documents, lexical);
+        observation.fresh();
+        observation.stage(ProductPatentSearchObservation.Stage.SOURCE_CONTENT);
+        var batches = new ProductPatentSearchSourceBatch();
+        var loaded = fieldScope.legacyTitle() ? batches.load(input.sources(), filters, availability, titles)
+                : batches.loadFields(input.sources(),filters,availability,titles,fieldScope.textFields());
+        boolean exact = fieldScope.syntax(input.query()).exactNumber();
+        if(semantic!=null && !exact) observation.stage(ProductPatentSearchObservation.Stage.SOURCE_INDEX);
+        if(semantic!=null && !exact && fieldScope.legacyTitle())ProductTitleBuildProvenance.requireSchema(db);
+        var batch = semantic == null || exact ? loaded : fieldScope.legacyTitle()
+                ? batches.validateIndexes(loaded,semantic) : batches.validateIndexesFields(loaded,semantic,fieldScope.textFields());
+        observation.sources(input.sources().size(),batch.successfulSources().size(),batch.failures().size());
+        observation.sourceSnapshots(batch);
+        observation.stage(ProductPatentSearchObservation.Stage.QUERY_PLAN);
+        var fieldResult=fieldScope.legacyTitle()?null:new ProductPatentFieldSearchRanking(evidence,semantic,fieldReranker,maxResults)
+                .rank(batch.snapshots().stream().filter(source->!batch.failures().containsKey(source.sourceId())).toList(),
+                        input.query(),batch.fieldEvidence(),fieldScope.textFields());
+        var prepared = fieldResult!=null ? fieldResult.queryPlan()
+                : new cn.xinji.agentplatform.consultation.patenttask.source.PatentQueryRetrieval()
+                        .prepare(input.query(), batch.documents(), Math.max(1000, maxResults));
+        var queryPlan = prepared.expansion();
+        observation.queryPlan(queryPlan.version());
+        observation.stage(ProductPatentSearchObservation.Stage.RETRIEVE_RANK);
+        var ranked = fieldResult!=null?fieldResult.ranking():new ProductPatentSearchRanking(evidence, semantic, reranker, maxResults)
+                .rank(batch.successfulSources(), queryPlan, prepared.documents(), prepared.lexical());
+        observation.ranking(batch.documents().size(),prepared.lexical().candidateCount(),ranked);
         List<Member> members = ranked.members();
         String resultSetId = UUID.randomUUID().toString();
         String resultSha = evidence.resultDigest(members, ranked.truncated());
         Instant now = clock.instant();
         Instant expiresAt = min(input.expiresAt(), now.plus(retention.maxAge()));
+        var titleWitnesses=fieldScope.legacyTitle() && semantic!=null && !exact ? ProductTitleBuildProvenance.capture(db,batch.snapshots(),batch.failures(),semantic.fieldModelVersion("TITLE"),now) : List.<ProductTitleBuildProvenance.Witness>of();
+        observation.stage(ProductPatentSearchObservation.Stage.COMMIT);
         var lease = lease(taskId, inputId, attemptId, fencingToken);
         List<Member> committedMembers = members; execution.publish(request, taskId, inputId, delegationId, lease,
-            () -> persistence.persist(worker,
-                input.organization(), input.taskVersion(), input.inputSha(), input.query(), input.sources(), activeSources,
+            () -> { if(!titleWitnesses.isEmpty() && !titleWitnesses.equals(ProductTitleBuildProvenance.capture(db,batch.snapshots(),batch.failures(),semantic.fieldModelVersion("TITLE"),clock.instant())))throw new IllegalStateException("TITLE_BUILD_CHANGED_BEFORE_COMMIT");
+            if(fieldResult!=null) persistence.persistFields(worker,input.organization(),input.taskVersion(),input.inputSha(),
+                input.query(),input.sources(),batch.snapshots(),batch.failures(),evidence.json(filters.evidence()),filters.version(),
+                requestId,requestSha,attemptId,fencingToken,resultSetId,fieldResult,fieldScope,now,expiresAt,mapper);
+            else persistence.persist(worker,
+                input.organization(), input.taskVersion(), input.inputSha(), input.query(), input.sources(),
+                batch.snapshots(), batch.failures(),
                 evidence.json(filters.evidence()), filters.version(),
                 requestId, requestSha, attemptId, fencingToken,
                 resultSetId, committedMembers, ranked.candidateCount(), ranked.normalizedQuery(), queryPlan,
                  ranked.method(), ranked.ordering(), ranked.rerankModelVersion(), ranked.rerankStatus(),
-                 ranked.confidence(),
-                 ranked.truncated(), resultSha, now, expiresAt));
+                 batch.confidence(ranked.confidence()),
+                 ranked.truncated(), resultSha, now, expiresAt);
+            ProductTitleBuildProvenance.store(db,resultSetId,titleWitnesses); });
+        observation.committed(resultSetId);
+        observation.stage(ProductPatentSearchObservation.Stage.CURRENT_CHECK);
         workers.require(request, taskId, inputId, delegationId);
         assertSourcesCurrent(attemptId);
         return receipt(resultSetId);
     }
     Page read(String taskId, String resultSetId, int pageSize, String cursor, Jwt jwt) {
+        try (var observation = new ProductPatentSearchObservation(mapper,taskId,null,null,null)) {
+        observation.pageRead(resultSetId,pageSize);
+        observation.stage(ProductPatentSearchObservation.Stage.AUTHORIZE);
         if (jwt == null) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         ProductTaskDirectory.Task task = tasks.find(taskId).orElseThrow(ProductPatentSearchExecution::notFound);
+        var facts = new ProductConsultationAccess.ResourceFacts(task.organization(), task.id(), task.dataScope(),
+                "TASK", task.id(), task.authorizationVersion());
         if (!task.expiresAt().isAfter(clock.instant()) || !consultationAccess.permits(jwt,
-                new ProductConsultationAccess.ResourceFacts(task.organization(), task.id(), task.dataScope(),
-                        "TASK", task.id(), task.authorizationVersion()), ProductAccessPolicy.Action.READ))
+                facts, ProductAccessPolicy.Action.READ))
             throw notFound();
+        observation.stage(ProductPatentSearchObservation.Stage.RESULT_BINDING);
         List<String> attempts = db.query("SELECT a.attempt_id FROM con4_search_attempt a "
                         + "JOIN con4_result_set r ON r.attempt_id=a.attempt_id "
-                        + "WHERE r.result_set_id=? AND a.task_id=? AND a.task_version=? AND a.expires_at>?",
+                        + "WHERE r.result_set_id=? AND a.task_id=? AND a.task_version<=? AND a.expires_at>?",
                 (rs, row) -> rs.getString(1), resultSetId, taskId, task.version(),
                 Timestamp.from(clock.instant()));
         if (attempts.size() != 1) throw notFound();
-        assertSourcesCurrent(attempts.getFirst());
+        observation.stage(ProductPatentSearchObservation.Stage.SOURCE_CURRENT);
+        var currentSources = assertSourcesCurrent(attempts.getFirst());
         ProductTaskDirectory.Task after = tasks.find(taskId).orElseThrow(ProductPatentSearchExecution::notFound);
         if (!task.equals(after)) throw notFound();
-        ProductPatentSearchCursor.Context context = cursorContext(resultSetId, jwt.getSubject());
-        long nextOrdinal = cursors.resolve(cursor, context, pageSize);
-        return page(resultSetId, pageSize, nextOrdinal, context);
+        observation.stage(ProductPatentSearchObservation.Stage.PAGE_CONTENT);
+        var pages = new ProductPatentSearchPages(db, evidence, cursors, titles, currentSources);
+        var prepared = pages.prepare(resultSetId, jwt.getSubject());
+        long nextOrdinal = cursors.resolve(cursor, prepared.context(), pageSize);
+        Page result = pages.read(resultSetId, pageSize, nextOrdinal, prepared);
+        observation.stage(ProductPatentSearchObservation.Stage.CURRENT_CHECK);
+        assertSourcesCurrent(attempts.getFirst());
+        if (!task.equals(tasks.find(taskId).orElse(null))
+                || !consultationAccess.permits(jwt, facts, ProductAccessPolicy.Action.READ)) throw notFound();
+        observation.pageSuccess(result.members().size());
+        return result;
+        }
     }
     private Input input(String taskId, String inputId) {
         List<Input> rows = db.query("SELECT t.organization_id,t.version,i.content_sha,i.query_text,"
@@ -197,24 +271,8 @@ final class ProductPatentSearchExecution {
         if (rows.size() != 1) throw new IllegalStateException("Current execution fence missing");
         return rows.getFirst();
     }
-    private void assertSourcesCurrent(String attemptId) {
-        List<String> filterRows = db.query("SELECT filters_json FROM con4_search_attempt WHERE attempt_id=?",
-                (rs, row) -> rs.getString(1), attemptId);
-        if (filterRows.size() != 1) throw new IllegalStateException("Persisted search filter evidence missing");
-        ProductPatentSearchFilters filters = ProductPatentSearchFilters.parse(mapper, filterRows.getFirst());
-        List<Object[]> rows = db.query("SELECT source_id,contract_version,decision_id,source_epoch "
-                        + "FROM con4_search_source WHERE attempt_id=? AND status='SUCCEEDED'",
-                (rs, row) -> new Object[] {rs.getString(1), rs.getString(2), rs.getString(3), rs.getLong(4)},
-                attemptId);
-        if (rows.isEmpty()) throw new IllegalStateException("Persisted search has no successful source");
-        for (Object[] row : rows) {
-            var active = availability.require((String) row[0], "TITLE", "QUERY");
-            filters.requireAuthorized(availability, active);
-            if (!active.contractVersion().equals(row[1]) || !active.decisionId().equals(row[2])
-                    || active.epoch() != (long) row[3])
-                throw new IllegalStateException("Persisted search source is stale");
-            sourceWatermark.assertUnchanged(active.sourceId(), active.epoch());
-        }
+    private Map<String,ProductSourceAvailability.Active> assertSourcesCurrent(String attemptId) {
+        return ProductPatentSearchCurrentSources.require(db,mapper,evidence,availability,sourceWatermark,attemptId);
     }
     private List<Prior> prior(String requestId) {
         return db.query("SELECT r.request_sha,r.attempt_id,a.fencing_token,r.result_set_id "
@@ -223,71 +281,9 @@ final class ProductPatentSearchExecution {
                                 rs.getLong(3), rs.getString(4)), requestId);
     }
     private Receipt receipt(String resultSetId) {
-        List<Receipt> rows = db.query("SELECT a.attempt_id,a.fencing_token,r.result_set_id,a.method_version,"
-                        + "COUNT(m.member_id),r.candidate_count,r.truncated,r.result_sha,r.confidence_status,"
-                        + "r.confidence_rule_version,r.confidence_reason FROM con4_result_set r "
-                        + "JOIN con4_search_attempt a ON a.attempt_id=r.attempt_id "
-                        + "LEFT JOIN con4_result_member m ON m.result_set_id=r.result_set_id "
-                        + "WHERE r.result_set_id=? GROUP BY a.attempt_id,a.fencing_token,r.result_set_id,"
-                        + "a.method_version,r.candidate_count,r.truncated,r.result_sha,"
-                        + "r.confidence_status,r.confidence_rule_version,r.confidence_reason",
-                (rs, row) -> new Receipt(rs.getString(1), rs.getLong(2), rs.getString(3),
-                        rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(7) == 1,
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11)), resultSetId);
-        if (rows.size() != 1) throw new IllegalStateException("Committed search receipt missing");
-        return rows.getFirst();
-    }
-    private Page page(String resultSetId, int pageSize, long nextOrdinal,
-            ProductPatentSearchCursor.Context context) {
-        Receipt receipt = receipt(resultSetId);
-        List<Member> rows = db.query("SELECT member_id,ordinal,source_id,document_id,document_version,"
-                        + "source_version,raw_sha,locator_ref,match_fields,matched_terms_json,lexical_score,"
-                        + "field_scores_json,lexical_rank,semantic_score,semantic_rank,fusion_score,"
-                        + "rerank_score,rerank_rank "
-                        + "FROM con4_result_member "
-                        + "WHERE result_set_id=? ORDER BY ordinal",
-                (rs, row) -> new Member(rs.getString(1), rs.getLong(2), rs.getString(3),
-                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),
-                        rs.getString(8), Set.of(rs.getString(9)), evidence.stringList(rs.getString(10)),
-                        nullableDouble(rs, 11), evidence.scoreMap(rs.getString(12)), nullableInt(rs, 13),
-                        nullableDouble(rs, 14), nullableInt(rs, 15), nullableDouble(rs, 16),
-                        nullableDouble(rs, 17), nullableInt(rs, 18)), resultSetId);
-        int start = Math.toIntExact(Math.min(nextOrdinal, rows.size()));
-        int end = Math.min(rows.size(), start + pageSize);
-        String nextCursor = end < rows.size() ? cursors.issue(context, pageSize, end) : null;
-        return new Page(resultSetId, receipt.attemptId(), receipt.methodVersion(), receipt.resultSha(),
-                receipt.truncated(), receipt.candidateCount(), pageSize, nextCursor,
-                receipt.confidenceStatus(), receipt.confidenceRuleVersion(), receipt.confidenceReason(),
-                List.copyOf(rows.subList(start, end)));
-    }
-    private ProductPatentSearchCursor.Context cursorContext(String resultSetId, String subjectId) {
-        List<ProductPatentSearchCursor.Context> rows = db.query("SELECT r.result_set_id,a.method_version,"
-                        + "a.task_version,a.input_revision,a.scope_sha,a.expires_at FROM con4_result_set r "
-                        + "JOIN con4_search_attempt a ON a.attempt_id=r.attempt_id WHERE r.result_set_id=?",
-                (rs, row) -> new ProductPatentSearchCursor.Context(rs.getString(1), rs.getString(2),
-                        subjectId, rs.getLong(3), rs.getString(4), rs.getString(5),
-                        sourceEpochSha(rs.getString(1)), rs.getTimestamp(6).toInstant()), resultSetId);
-        if (rows.size() != 1) throw notFound();
-        return rows.getFirst();
-    }
-    private String sourceEpochSha(String resultSetId) {
-        List<String> values = db.query("SELECT s.source_id,s.contract_version,s.decision_id,s.source_epoch "
-                        + "FROM con4_search_source s JOIN con4_result_set r ON r.attempt_id=s.attempt_id "
-                        + "WHERE r.result_set_id=? ORDER BY s.source_id", (rs, row) -> rs.getString(1)
-                                + "\u0000" + rs.getString(2) + "\u0000" + rs.getString(3)
-                                + "\u0000" + rs.getLong(4), resultSetId);
-        if (values.isEmpty()) throw new IllegalStateException("Result source evidence missing");
-        return evidence.digest(values.toArray(String[]::new));
+        return new ProductPatentSearchReceipts(db).read(resultSetId);
     }
     private static Instant min(Instant left, Instant right) { return left.isBefore(right) ? left : right; }
-    private static Double nullableDouble(java.sql.ResultSet rows, int column) throws java.sql.SQLException {
-        double value = rows.getDouble(column);
-        return rows.wasNull() ? null : value;
-    }
-    private static Integer nullableInt(java.sql.ResultSet rows, int column) throws java.sql.SQLException {
-        int value = rows.getInt(column);
-        return rows.wasNull() ? null : value;
-    }
     private static ResponseStatusException notFound() { return new ResponseStatusException(HttpStatus.NOT_FOUND); }
     private static void requireIdentity(String taskId, String inputId, String delegationId,
             String attemptId, long token, String requestId) {
@@ -297,3 +293,4 @@ final class ProductPatentSearchExecution {
     }
     private static boolean blank(String value) { return value == null || value.isBlank(); }
 }
+

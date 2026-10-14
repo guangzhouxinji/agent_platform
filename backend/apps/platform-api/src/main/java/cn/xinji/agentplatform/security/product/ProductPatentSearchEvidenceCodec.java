@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HexFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 /** Encodes immutable search evidence without owning execution or authorization decisions. */
@@ -19,6 +20,10 @@ final class ProductPatentSearchEvidenceCodec {
 
     ProductPatentSearchEvidenceCodec(ObjectMapper mapper) {
         this.mapper = mapper;
+    }
+
+    ProductPatentFieldEvidencePersistence fieldStore(org.springframework.jdbc.core.JdbcTemplate db) {
+        return new ProductPatentFieldEvidencePersistence(db,mapper);
     }
 
     List<String> nonEmptyStringList(String json) {
@@ -57,14 +62,30 @@ final class ProductPatentSearchEvidenceCodec {
 
     String resultDigest(List<ProductPatentSearchExecution.Member> members, boolean truncated) {
         List<String> values = new ArrayList<>();
+        values.add("RESULT_DIGEST_DECIMAL_12/v2");
         values.add(Boolean.toString(truncated));
         for (var member : members) values.add(member.sourceId() + "\u0000" + member.documentId()
-                + "\u0000" + member.documentVersion() + "\u0000" + member.rawSha() + "\u0000"
-                + String.valueOf(member.lexicalScore()) + "\u0000" + String.valueOf(member.semanticScore())
-                + "\u0000" + String.valueOf(member.fusionScore()) + "\u0000"
-                + String.valueOf(member.rerankScore()) + "\u0000"
-                + String.join("\u0001", member.matchedTerms()));
+                + "\u0000" + member.documentVersion() + "\u0000" + member.sourceVersion() + "\u0000"
+                + member.rawSha() + "\u0000" + member.locatorRef() + "\u0000" + member.ordinal() + "\u0000"
+                + String.join(",",new java.util.TreeSet<>(member.matchFields().isEmpty()?Set.of("TITLE"):member.matchFields())) + "\u0000"
+                + storedScore(member.lexicalScore()) + "\u0000" + storedScore(member.semanticScore())
+                + "\u0000" + storedScore(member.fusionScore()) + "\u0000"
+                + storedScore(member.rerankScore()) + "\u0000"
+                + String.join("\u0001", member.matchedTerms()) + "\u0000"
+                + fieldScores(member.fieldScores()) + "\u0000" + member.lexicalRank() + "\u0000"
+                + member.semanticRank() + "\u0000" + member.rerankRank());
         return digest(values.toArray(String[]::new));
+    }
+    private static String storedScore(Double score) {
+        if(score==null) return "null";
+        if(!Double.isFinite(score)) throw new IllegalStateException("Nonfinite search score");
+        return java.math.BigDecimal.valueOf(score).setScale(12,java.math.RoundingMode.HALF_UP)
+                .stripTrailingZeros().toPlainString();
+    }
+    private String fieldScores(Map<String,Double> scores) {
+        var values=new java.util.TreeMap<String,String>();
+        scores.forEach((field,score)->values.put(field,storedScore(score)));
+        return json(values);
     }
 
     List<ProductPatentSearchExecution.Member> members(List<PatentBm25fQuery.Match> matches) {
@@ -86,7 +107,7 @@ final class ProductPatentSearchEvidenceCodec {
             result.add(new ProductPatentSearchExecution.Member(UUID.randomUUID().toString(), index,
                     match.sourceId(), match.documentId(), match.documentVersion(), match.sourceVersion(),
                     match.rawSha(), match.locatorRef(), match.matchFields(), match.matchedTerms(),
-                    match.lexicalScore(), match.fieldScores(), match.lexicalRank(), match.semanticScore(),
+                    match.lexicalScore(), match.fieldScores(), match.lexicalRank(), match.semanticRank() == null ? null : match.semanticScore(),
                     match.semanticRank(), match.fusionScore(), null, null));
         }
         return List.copyOf(result);
@@ -100,7 +121,7 @@ final class ProductPatentSearchEvidenceCodec {
             result.add(new ProductPatentSearchExecution.Member(UUID.randomUUID().toString(), index,
                     match.sourceId(), match.documentId(), match.documentVersion(), match.sourceVersion(),
                     match.rawSha(), match.locatorRef(), match.matchFields(), match.matchedTerms(),
-                    match.lexicalScore(), match.fieldScores(), match.lexicalRank(), match.semanticScore(),
+                    match.lexicalScore(), match.fieldScores(), match.lexicalRank(), match.semanticRank() == null ? null : match.semanticScore(),
                     match.semanticRank(), match.fusionScore(), ranked.rerankScore(), ranked.rerankRank()));
         }
         return List.copyOf(result);

@@ -1,0 +1,2949 @@
+{
+  "format": "SINGLE_DATABASE_APPLICATION_SETTINGS_TEMPLATE/v1",
+  "applications": [
+    {
+      "domain": "consultation",
+      "mainClass": "cn.xinji.agentplatform.security.product.ProductConsultationApplication",
+      "fields": [
+        {
+          "property": "agent-platform.runtime.checkpoint-key",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_AGENT_PLATFORM_RUNTIME_CHECKPOINT_KEY",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "agent-platform.runtime.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_AGENT_PLATFORM_RUNTIME_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.calculation.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_CALCULATION_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.start.configuration-version",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_START_CONFIGURATION_VERSION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.start.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_START_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductComparisonStartConfiguration.java",
+              "sha256": "051b1fbca03d93abcfc59c0847e137feabd60bf649ea399257ca5be7d1541153",
+              "line": 18
+            },
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductComparisonStartController.java",
+              "sha256": "b10ff646f58028ccf325567b98589054aa126348bf9ca04527a6889e5f9965b1",
+              "line": 13
+            },
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductComparisonHandoffController.java",
+              "sha256": "89509c318bfcb498e427812485424c106c09ab7eca673661e1306a2964a2f5b5",
+              "line": 12
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.start.lease-millis",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_START_LEASE_MILLIS",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.start.product-origin",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_START_PRODUCT_ORIGIN",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.start.truststore",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_START_TRUSTSTORE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.start.truststore-password",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_START_TRUSTSTORE_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.start.worker-keystore",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_START_WORKER_KEYSTORE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.start.worker-password",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_START_WORKER_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.comparison.start.worker-subject",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_COMPARISON_START_WORKER_SUBJECT",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.goal-retention.evidence-sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_GOAL_RETENTION_EVIDENCE_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.goal-retention.max-age",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_GOAL_RETENTION_MAX_AGE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.goal-retention.max-bytes",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_GOAL_RETENTION_MAX_BYTES",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.goal-retention.ref",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_GOAL_RETENTION_REF",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.goal-retention.version",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_GOAL_RETENTION_VERSION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.model.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_MODEL_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.retention.evidence-sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_RETENTION_EVIDENCE_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.retention.max-age",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_RETENTION_MAX_AGE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.retention.ref",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_RETENTION_REF",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.retention.version",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_RETENTION_VERSION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.workspace.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_WORKSPACE_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.activation-lifetime",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_ACTIVATION_LIFETIME",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.audience",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_AUDIENCE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.jdbc-url",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_AUTHORITY_JDBC_URL",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.password",
+          "referenceEnvironment": "SINGLE_DB_CONAUTH_SVC_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.schema",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_AUTHORITY_SCHEMA",
+          "valueSource": "deployment-config",
+          "fixedValue": "CONAUTH",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.topology",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_AUTHORITY_TOPOLOGY",
+          "valueSource": "deployment-config",
+          "fixedValue": "shared-instance",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.username",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_AUTHORITY_USERNAME",
+          "valueSource": "deployment-config",
+          "fixedValue": "CONAUTH_SVC",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.issuer",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_ISSUER",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.master-key",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_MASTER_KEY",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.minimum-password-length",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_MINIMUM_PASSWORD_LENGTH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.token-verification-window",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_IDENTITY_TOKEN_VERIFICATION_WINDOW",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.engine.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_ENGINE_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.evidence.max-bytes",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_EVIDENCE_MAX_BYTES",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.evidence.root",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_EVIDENCE_ROOT",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.field-reranker.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_FIELD_RERANKER_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.field-reranker.license",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_FIELD_RERANKER_LICENSE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.field-reranker.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.field-reranker.max-tokens",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_FIELD_RERANKER_MAX_TOKENS",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.field-reranker.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.field-reranker.model.id",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_FIELD_RERANKER_MODEL_ID",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.field-reranker.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.field-reranker.model.path",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_FIELD_RERANKER_MODEL_PATH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.field-reranker.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.field-reranker.model.revision",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_FIELD_RERANKER_MODEL_REVISION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.field-reranker.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.field-reranker.model.sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_FIELD_RERANKER_MODEL_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.field-reranker.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.field-reranker.tokenizer.path",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_FIELD_RERANKER_TOKENIZER_PATH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.field-reranker.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.field-reranker.tokenizer.sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_FIELD_RERANKER_TOKENIZER_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.field-reranker.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.registry.retention.evidence-sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_REGISTRY_RETENTION_EVIDENCE_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.registry.retention.max-age",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_REGISTRY_RETENTION_MAX_AGE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.registry.retention.ref",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_REGISTRY_RETENTION_REF",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.registry.retention.version",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_REGISTRY_RETENTION_VERSION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.reranker.license",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RERANKER_LICENSE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.reranker.max-tokens",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RERANKER_MAX_TOKENS",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.reranker.model.id",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RERANKER_MODEL_ID",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.reranker.model.path",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RERANKER_MODEL_PATH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.reranker.model.revision",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RERANKER_MODEL_REVISION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.reranker.model.sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RERANKER_MODEL_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.reranker.tokenizer.path",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RERANKER_TOKENIZER_PATH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.reranker.tokenizer.sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RERANKER_TOKENIZER_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.results.cursor.hmac-key-base64",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RESULTS_CURSOR_HMAC_KEY_BASE64",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.results.retention.evidence-sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RESULTS_RETENTION_EVIDENCE_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.results.retention.max-age",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RESULTS_RETENTION_MAX_AGE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.results.retention.ref",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RESULTS_RETENTION_REF",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.results.retention.version",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_RESULTS_RETENTION_VERSION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.semantic.dimension",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_SEMANTIC_DIMENSION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.semantic.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_SEMANTIC_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.semantic.license",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_SEMANTIC_LICENSE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.semantic.max-tokens",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_SEMANTIC_MAX_TOKENS",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.semantic.model.id",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_SEMANTIC_MODEL_ID",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.semantic.model.path",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_SEMANTIC_MODEL_PATH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.semantic.model.revision",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_SEMANTIC_MODEL_REVISION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.semantic.model.sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_SEMANTIC_MODEL_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.semantic.tokenizer.path",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_SEMANTIC_TOKENIZER_PATH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.semantic.tokenizer.sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_SOURCE_SEMANTIC_TOKENIZER_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.source.semantic.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.port",
+          "referenceEnvironment": null,
+          "valueSource": "deployment-config",
+          "fixedValue": 8443
+        },
+        {
+          "property": "server.ssl.client-auth",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SERVER_SSL_CLIENT_AUTH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SERVER_SSL_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.key-store",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SERVER_SSL_KEY_STORE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.key-store-password",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SERVER_SSL_KEY_STORE_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.key-store-type",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SERVER_SSL_KEY_STORE_TYPE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.trust-store",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SERVER_SSL_TRUST_STORE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.trust-store-password",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SERVER_SSL_TRUST_STORE_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.trust-store-type",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SERVER_SSL_TRUST_STORE_TYPE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.driver-class-name",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SPRING_DATASOURCE_DRIVER_CLASS_NAME",
+          "valueSource": "deployment-config",
+          "fixedValue": "dm.jdbc.driver.DmDriver",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.hikari.schema",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SPRING_DATASOURCE_HIKARI_SCHEMA",
+          "valueSource": "deployment-config",
+          "fixedValue": "CONPROD",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.password",
+          "referenceEnvironment": "SINGLE_DB_CONPROD_SVC_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.url",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SPRING_DATASOURCE_URL",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.username",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SPRING_DATASOURCE_USERNAME",
+          "valueSource": "deployment-config",
+          "fixedValue": "CONPROD_SVC",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.flyway.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SPRING_FLYWAY_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.liquibase.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SPRING_LIQUIBASE_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.sql.init.mode",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_SPRING_SQL_INIT_MODE",
+          "valueSource": "deployment-config",
+          "fixedValue": "never",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductConsultationApplication.java",
+              "sha256": "16cadcba81d5e2a731c360cae92d35dde68c21836ed972b320362aafcab2847d",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.human-request.enabled",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_HUMAN_REQUEST_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductHumanRequestConfiguration.java",
+              "sha256": "fb954712c252bef33d3ae23a0b2112f88f104a83e2b5dc2bc6cdfef7ecc51ec6",
+              "line": 18
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.human-request.retention.ref",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_HUMAN_REQUEST_RETENTION_REF",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.consultation.human-request.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductHumanRequestConfiguration.java",
+              "sha256": "fb954712c252bef33d3ae23a0b2112f88f104a83e2b5dc2bc6cdfef7ecc51ec6",
+              "line": 34
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.human-request.retention.version",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_HUMAN_REQUEST_RETENTION_VERSION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.consultation.human-request.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductHumanRequestConfiguration.java",
+              "sha256": "fb954712c252bef33d3ae23a0b2112f88f104a83e2b5dc2bc6cdfef7ecc51ec6",
+              "line": 35
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.human-request.retention.evidence-sha256",
+          "referenceEnvironment": "SINGLE_DB_CONSULTATION_PRODUCT_CONSULTATION_HUMAN_REQUEST_RETENTION_EVIDENCE_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "product.consultation.human-request.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductHumanRequestConfiguration.java",
+              "sha256": "fb954712c252bef33d3ae23a0b2112f88f104a83e2b5dc2bc6cdfef7ecc51ec6",
+              "line": 36
+            }
+          ]
+        }
+      ],
+      "dynamicDeploymentBindings": {
+        "spring.datasource.url": "database.jdbcUrl",
+        "product.identity.authority.jdbc-url": "database.jdbcUrl",
+        "product.identity.issuer": "domain.issuer"
+      },
+      "identityBootstrapClass": "cn.xinji.agentplatform.security.product.ProductIdentityBootstrapSharedInstance",
+      "managedBootstrapManifestReference": "SINGLE_DB_CONSULTATION_IDENTITY_BOOTSTRAP_MANIFEST",
+      "managedTrustShaReference": "SINGLE_DB_CONSULTATION_IDENTITY_TRUST_SHA256",
+      "optionalBranches": [
+        {
+          "name": "external-retrieval-model",
+          "enableWhen": {
+            "all": {
+              "product.consultation.model.enabled": true
+            }
+          },
+          "enabledInThisSlice": false,
+          "configurationProperties": [
+            "product.consultation.model.api-key",
+            "product.consultation.model.endpoint",
+            "product.consultation.model.model-id",
+            "product.consultation.model.input-policy"
+          ],
+          "noModelSecretRequiredInThisSlice": true
+        },
+        {
+          "name": "comparison-calculation",
+          "enableWhen": {
+            "all": {
+              "product.consultation.comparison.calculation.enabled": true
+            }
+          },
+          "enabledInThisSlice": false,
+          "configurationProperties": [
+            "product.consultation.comparison.approval.ref",
+            "product.consultation.comparison.approval.sha256",
+            "product.consultation.model.api-key"
+          ],
+          "noModelSecretRequiredInThisSlice": true
+        },
+        {
+          "name": "local-semantic-model",
+          "enableWhen": {
+            "all": {
+              "product.source.semantic.enabled": true
+            }
+          },
+          "enabledInThisSlice": true,
+          "configurationProperties": [
+            "product.source.semantic.model.path",
+            "product.source.semantic.tokenizer.path",
+            "product.source.semantic.model.id",
+            "product.source.semantic.model.revision",
+            "product.source.semantic.model.sha256",
+            "product.source.semantic.tokenizer.sha256",
+            "product.source.semantic.dimension",
+            "product.source.semantic.max-tokens",
+            "product.source.semantic.license"
+          ],
+          "notExternalModelBudget": true
+        },
+        {
+          "name": "local-reranker",
+          "enableWhen": {
+            "all": {
+              "product.source.semantic.enabled": true
+            }
+          },
+          "enabledInThisSlice": true,
+          "configurationProperties": [
+            "product.source.reranker.model.path",
+            "product.source.reranker.tokenizer.path",
+            "product.source.reranker.model.id",
+            "product.source.reranker.model.revision",
+            "product.source.reranker.model.sha256",
+            "product.source.reranker.tokenizer.sha256",
+            "product.source.reranker.max-tokens",
+            "product.source.reranker.license"
+          ],
+          "notExternalModelBudget": true,
+          "declaredBeanUnconditionalWithinSemanticConfiguration": true
+        },
+        {
+          "name": "local-field-reranker",
+          "enableWhen": {
+            "all": {
+              "product.source.semantic.enabled": true,
+              "product.source.field-reranker.enabled": true
+            }
+          },
+          "enabledInThisSlice": true,
+          "configurationProperties": [
+            "product.source.field-reranker.model.path",
+            "product.source.field-reranker.tokenizer.path",
+            "product.source.field-reranker.model.id",
+            "product.source.field-reranker.model.revision",
+            "product.source.field-reranker.model.sha256",
+            "product.source.field-reranker.tokenizer.sha256",
+            "product.source.field-reranker.max-tokens",
+            "product.source.field-reranker.license"
+          ],
+          "notExternalModelBudget": true
+        },
+        {
+          "name": "ordinary-human-request",
+          "enableWhen": {
+            "all": {
+              "product.consultation.human-request.enabled": true
+            }
+          },
+          "enabledInThisSlice": false,
+          "configurationProperties": [
+            "product.consultation.human-request.retention.ref",
+            "product.consultation.human-request.retention.version",
+            "product.consultation.human-request.retention.evidence-sha256"
+          ],
+          "capabilities": [
+            "fresh-task-human-scope",
+            "ordinary-request-and-original-key-read"
+          ],
+          "runtimeAdmissionRequired": [
+            "current-human-and-task-write",
+            "approved-task-source-retention",
+            "waiting-package-protection-and-expiry-cleanup"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "enforcement",
+      "mainClass": "cn.xinji.agentplatform.security.product.ProductEnforcementApplication",
+      "fields": [
+        {
+          "property": "agent-platform.runtime.checkpoint-key",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_AGENT_PLATFORM_RUNTIME_CHECKPOINT_KEY",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "agent-platform.runtime.enabled",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_AGENT_PLATFORM_RUNTIME_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "enforcement.document-template.file-root",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_ENFORCEMENT_DOCUMENT_TEMPLATE_FILE_ROOT",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "enforcement.v2.cleanup.enabled",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_ENFORCEMENT_V2_CLEANUP_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "enforcement.v2.document-draft.file-root",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_ENFORCEMENT_V2_DOCUMENT_DRAFT_FILE_ROOT",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "enforcement.v2.enabled",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_ENFORCEMENT_V2_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "enforcement.v2.file-root",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_ENFORCEMENT_V2_FILE_ROOT",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "enforcement.v2.penalty.file-root",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_ENFORCEMENT_V2_PENALTY_FILE_ROOT",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.goal-retention.evidence-sha256",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_GOAL_RETENTION_EVIDENCE_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.goal-retention.max-age",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_GOAL_RETENTION_MAX_AGE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.goal-retention.max-bytes",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_GOAL_RETENTION_MAX_BYTES",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.goal-retention.ref",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_GOAL_RETENTION_REF",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.goal-retention.version",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_GOAL_RETENTION_VERSION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.model.enabled",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_MODEL_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.retention.evidence-sha256",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_RETENTION_EVIDENCE_SHA256",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.retention.max-age",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_RETENTION_MAX_AGE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.retention.ref",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_RETENTION_REF",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.retention.version",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_RETENTION_VERSION",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.workspace.enabled",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_CONSULTATION_WORKSPACE_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.activation-lifetime",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_ACTIVATION_LIFETIME",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.audience",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_AUDIENCE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.jdbc-url",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_AUTHORITY_JDBC_URL",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.password",
+          "referenceEnvironment": "SINGLE_DB_ENFAUTH_SVC_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.schema",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_AUTHORITY_SCHEMA",
+          "valueSource": "deployment-config",
+          "fixedValue": "ENFAUTH",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.topology",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_AUTHORITY_TOPOLOGY",
+          "valueSource": "deployment-config",
+          "fixedValue": "shared-instance",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.username",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_AUTHORITY_USERNAME",
+          "valueSource": "deployment-config",
+          "fixedValue": "ENFAUTH_SVC",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.enabled",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.issuer",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_ISSUER",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.master-key",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_MASTER_KEY",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.minimum-password-length",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_MINIMUM_PASSWORD_LENGTH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.token-verification-window",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_IDENTITY_TOKEN_VERIFICATION_WINDOW",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.engine.enabled",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_PRODUCT_SOURCE_ENGINE_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.client-auth",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SERVER_SSL_CLIENT_AUTH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.enabled",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SERVER_SSL_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.key-store",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SERVER_SSL_KEY_STORE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.key-store-password",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SERVER_SSL_KEY_STORE_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.key-store-type",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SERVER_SSL_KEY_STORE_TYPE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.trust-store",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SERVER_SSL_TRUST_STORE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.trust-store-password",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SERVER_SSL_TRUST_STORE_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.trust-store-type",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SERVER_SSL_TRUST_STORE_TYPE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.driver-class-name",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SPRING_DATASOURCE_DRIVER_CLASS_NAME",
+          "valueSource": "deployment-config",
+          "fixedValue": "dm.jdbc.driver.DmDriver",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.hikari.schema",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SPRING_DATASOURCE_HIKARI_SCHEMA",
+          "valueSource": "deployment-config",
+          "fixedValue": "ENFPROD",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.password",
+          "referenceEnvironment": "SINGLE_DB_ENFPROD_SVC_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.url",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SPRING_DATASOURCE_URL",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.username",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SPRING_DATASOURCE_USERNAME",
+          "valueSource": "deployment-config",
+          "fixedValue": "ENFPROD_SVC",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.flyway.enabled",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SPRING_FLYWAY_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.liquibase.enabled",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SPRING_LIQUIBASE_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.sql.init.mode",
+          "referenceEnvironment": "SINGLE_DB_ENFORCEMENT_SPRING_SQL_INIT_MODE",
+          "valueSource": "deployment-config",
+          "fixedValue": "never",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/security/product/ProductEnforcementApplication.java",
+              "sha256": "4a40b92eaea2ff8f58255ae270e6d66f1e9d672ec0c96a47ef0e79899989bcb7",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.port",
+          "referenceEnvironment": null,
+          "valueSource": "deployment-config",
+          "fixedValue": 8443
+        }
+      ],
+      "dynamicDeploymentBindings": {
+        "spring.datasource.url": "database.jdbcUrl",
+        "product.identity.authority.jdbc-url": "database.jdbcUrl",
+        "product.identity.issuer": "domain.issuer"
+      },
+      "identityBootstrapClass": "cn.xinji.agentplatform.security.product.ProductIdentityBootstrapSharedInstance",
+      "managedBootstrapManifestReference": "SINGLE_DB_ENFORCEMENT_IDENTITY_BOOTSTRAP_MANIFEST",
+      "managedTrustShaReference": "SINGLE_DB_ENFORCEMENT_IDENTITY_TRUST_SHA256",
+      "optionalBranches": [
+        {
+          "name": "document-draft-profile-catalog",
+          "enableWhen": {
+            "nonBlank": "enforcement.v2.document-draft.profile-catalog"
+          },
+          "configurationProperties": [
+            "enforcement.v2.document-draft.profile-catalog"
+          ],
+          "defaultBehavior": "Existing DocumentProfileCatalog.builtin; no startup request for a catalog if absent"
+        },
+        {
+          "name": "document-rule-current-connection",
+          "enableWhen": {
+            "nonBlank": "enforcement.v2.document-rule.current-dependency-url"
+          },
+          "configurationProperties": [
+            "enforcement.v2.document-rule.current-dependency-url",
+            "enforcement.v2.document-rule.current-dependency-user",
+            "enforcement.v2.document-rule.current-dependency-password"
+          ],
+          "defaultBehavior": "Same business JdbcTemplate; absent is not independent connection fallback"
+        },
+        {
+          "name": "penalty-current-connection",
+          "enableWhen": {
+            "nonBlank": "enforcement.v2.penalty.current-db-url"
+          },
+          "configurationProperties": [
+            "enforcement.v2.penalty.current-db-url",
+            "enforcement.v2.penalty.current-db-user",
+            "enforcement.v2.penalty.current-db-password",
+            "enforcement.v2.penalty.current-file-root"
+          ],
+          "defaultBehavior": "Same business JdbcTemplate/current file root; nonblank branch needs approved exact target"
+        }
+      ]
+    },
+    {
+      "domain": "adjudication",
+      "mainClass": "cn.xinji.agentplatform.adjudication.casework.ProductAdjudicationApplication",
+      "fields": [
+        {
+          "property": "DEEPSEEK_API_KEY",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_DEEPSEEK_API_KEY",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "adjudication.v2.materials.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "adjudication.v2.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_ADJUDICATION_V2_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "adjudication.v2.materials.decisions.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_ADJUDICATION_V2_MATERIALS_DECISIONS_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "adjudication.v2.materials.decisions.key-directory",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_ADJUDICATION_V2_MATERIALS_DECISIONS_KEY_DIRECTORY",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "adjudication.v2.materials.decisions.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "adjudication.v2.materials.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_ADJUDICATION_V2_MATERIALS_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "adjudication.v2.materials.key-directory",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_ADJUDICATION_V2_MATERIALS_KEY_DIRECTORY",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "adjudication.v2.materials.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "adjudication.v2.materials.policy-file",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_ADJUDICATION_V2_MATERIALS_POLICY_FILE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": {
+            "property": "adjudication.v2.materials.enabled",
+            "equals": true
+          },
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "agent-platform.runtime.checkpoint-key",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_AGENT_PLATFORM_RUNTIME_CHECKPOINT_KEY",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "agent-platform.runtime.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_AGENT_PLATFORM_RUNTIME_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "platform.model-gateway.deepseek.endpoint",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PLATFORM_MODEL_GATEWAY_DEEPSEEK_ENDPOINT",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.model.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_CONSULTATION_MODEL_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.consultation.workspace.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_CONSULTATION_WORKSPACE_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.activation-lifetime",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_ACTIVATION_LIFETIME",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.audience",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_AUDIENCE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.jdbc-url",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_AUTHORITY_JDBC_URL",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.password",
+          "referenceEnvironment": "SINGLE_DB_ADJAUTH_SVC_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.schema",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_AUTHORITY_SCHEMA",
+          "valueSource": "deployment-config",
+          "fixedValue": "ADJAUTH",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.topology",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_AUTHORITY_TOPOLOGY",
+          "valueSource": "deployment-config",
+          "fixedValue": "shared-instance",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.authority.username",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_AUTHORITY_USERNAME",
+          "valueSource": "deployment-config",
+          "fixedValue": "ADJAUTH_SVC",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.issuer",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_ISSUER",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.master-key",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_MASTER_KEY",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.minimum-password-length",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_MINIMUM_PASSWORD_LENGTH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.identity.token-verification-window",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_IDENTITY_TOKEN_VERIFICATION_WINDOW",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "product.source.engine.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_PRODUCT_SOURCE_ENGINE_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.client-auth",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SERVER_SSL_CLIENT_AUTH",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SERVER_SSL_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": true,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.key-store",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SERVER_SSL_KEY_STORE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.key-store-password",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SERVER_SSL_KEY_STORE_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.key-store-type",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SERVER_SSL_KEY_STORE_TYPE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.trust-store",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SERVER_SSL_TRUST_STORE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.trust-store-password",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SERVER_SSL_TRUST_STORE_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.ssl.trust-store-type",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SERVER_SSL_TRUST_STORE_TYPE",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.driver-class-name",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SPRING_DATASOURCE_DRIVER_CLASS_NAME",
+          "valueSource": "deployment-config",
+          "fixedValue": "dm.jdbc.driver.DmDriver",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.hikari.schema",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SPRING_DATASOURCE_HIKARI_SCHEMA",
+          "valueSource": "deployment-config",
+          "fixedValue": "ADJPROD",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.password",
+          "referenceEnvironment": "SINGLE_DB_ADJPROD_SVC_PASSWORD",
+          "valueSource": "managed-secret",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.url",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SPRING_DATASOURCE_URL",
+          "valueSource": "deployment-config",
+          "fixedValue": null,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.datasource.username",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SPRING_DATASOURCE_USERNAME",
+          "valueSource": "deployment-config",
+          "fixedValue": "ADJPROD_SVC",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.flyway.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SPRING_FLYWAY_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.liquibase.enabled",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SPRING_LIQUIBASE_ENABLED",
+          "valueSource": "deployment-config",
+          "fixedValue": false,
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "spring.sql.init.mode",
+          "referenceEnvironment": "SINGLE_DB_ADJUDICATION_SPRING_SQL_INIT_MODE",
+          "valueSource": "deployment-config",
+          "fixedValue": "never",
+          "requiredWhen": null,
+          "sourceReferences": [
+            {
+              "path": "backend/apps/platform-api/src/main/java/cn/xinji/agentplatform/adjudication/casework/ProductAdjudicationApplication.java",
+              "sha256": "579683349b3ae8395a12c6d7a473a08c72a41f6da804f6acdd5a4050e2d6b58f",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "property": "server.port",
+          "referenceEnvironment": null,
+          "valueSource": "deployment-config",
+          "fixedValue": 8443
+        }
+      ],
+      "dynamicDeploymentBindings": {
+        "spring.datasource.url": "database.jdbcUrl",
+        "product.identity.authority.jdbc-url": "database.jdbcUrl",
+        "product.identity.issuer": "domain.issuer"
+      },
+      "identityBootstrapClass": "cn.xinji.agentplatform.security.product.ProductIdentityBootstrapSharedInstance",
+      "managedBootstrapManifestReference": "SINGLE_DB_ADJUDICATION_IDENTITY_BOOTSTRAP_MANIFEST",
+      "managedTrustShaReference": "SINGLE_DB_ADJUDICATION_IDENTITY_TRUST_SHA256",
+      "optionalBranches": [
+        {
+          "name": "case-report-policy-override",
+          "enableWhen": {
+            "nonBlank": "adjudication.v2.report-policy-file"
+          },
+          "configurationProperties": [
+            "adjudication.v2.report-policy-file"
+          ],
+          "defaultBehavior": "Released classpath adjudication/report-policy-v2.json; policy version stamps remain, no arbitrary requirement for an external file"
+        },
+        {
+          "name": "material-model-managed-execution",
+          "enableWhen": {
+            "all": {
+              "adjudication.v2.materials.enabled": true
+            }
+          },
+          "enabledInThisSlice": true,
+          "configurationProperties": [
+            "adjudication.v2.materials.policy-file",
+            "adjudication.v2.materials.key-directory",
+            "DEEPSEEK_API_KEY",
+            "platform.model-gateway.deepseek.endpoint"
+          ],
+          "existingImplementedBeanPreserved": true,
+          "newModelCallsAuthorized": false
+        },
+        {
+          "name": "03B-material-decisions",
+          "enableWhen": {
+            "all": {
+              "adjudication.v2.materials.enabled": true,
+              "adjudication.v2.materials.decisions.enabled": true
+            }
+          },
+          "enabledInThisSlice": true,
+          "configurationProperties": [
+            "adjudication.v2.materials.decisions.key-directory"
+          ],
+          "not03C": true
+        }
+      ]
+    }
+  ],
+  "containsSecretValues": false,
+  "executionAuthorized": false,
+  "existingEnvironmentChanged": false
+}

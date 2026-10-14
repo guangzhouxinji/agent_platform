@@ -11,7 +11,7 @@ public class ReactFrontendController {
     }
 
     @GetMapping({
-            "/app", "/app/", "/app/consultation", "/app/consultation/flow", "/app/consultation/intents",
+            "/app", "/app/", "/app/consultation/flow", "/app/consultation/intents",
             "/app/consultation/agent-configuration", "/app/search/patents", "/app/search/trademarks",
             "/app/compare/patents", "/app/compare/trademarks", "/app/libraries/patents",
             "/app/libraries/trademarks", "/app/libraries/cases", "/app/enforcement",
@@ -22,4 +22,5 @@ public class ReactFrontendController {
     String app() {
         return "forward:/app/index.html";
     }
+
 }

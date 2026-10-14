@@ -1,4 +1,7 @@
+import { readJavaRunEvidence } from "./lib/java-run-evidence.mjs";
 import fs from "node:fs";
+import { createHash } from "node:crypto";
+import { parseDependencies, parseTaskRows, completedStatuses, executionEligibility, reverseDependencies } from "./lib/plan-dependencies.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -43,13 +46,6 @@ function existing(relativePath) {
   return fs.existsSync(path.join(rootDir, relativePath));
 }
 
-function knownRefs(text, allTasks) {
-  const value = String(text ?? "");
-  return allTasks.filter((candidate) => {
-    const escaped = candidate.id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    return new RegExp(`(^|[^A-Z0-9-])${escaped}(?![A-Z0-9-])`).test(value);
-  }).map((candidate) => candidate.id);
-}
 
 function taskDomain(task) {
   if (task.id.includes("-CON")) return "consultation";
@@ -132,7 +128,7 @@ function actualEvidence() {
     return !latest || modified > latest ? modified : latest;
   }, null);
   return {
-    java: { ...testTotals, reportCount: reports.length, latestAt: latestJavaTestAt?.toISOString() ?? null },
+    java: { ...readJavaRunEvidence(rootDir, markdown), localInventory: { ...testTotals, reportCount: reports.length, latestAt: latestJavaTestAt?.toISOString() ?? null } },
     latestBusinessChangeAt: latestBusinessChangeAt?.toISOString() ?? null,
     browser,
     checkedFiles: {
@@ -156,7 +152,7 @@ const stages = rowsAsObjects(parseTable(sectionBetween("#### 7.8.1", "#### 7.8.2
 const milestones = rowsAsObjects(parseTable(sectionBetween("#### 7.8.2", "#### 7.8.3"))).map((row) => ({
   id: clean(row["里程碑"]), phase: clean(row["所属阶段"]), name: clean(row["名称"]), tasks: clean(row["主要 L3 任务"]), status: clean(row["状态"])
 }));
-const tasks = rowsAsObjects(parseTable(sectionBetween("#### 7.8.3", "#### 7.8.4"))).map((row) => ({
+const tasks = parseTaskRows(markdown).map((row) => ({
   id: clean(row.taskId), name: clean(row["任务名称"]), path: clean(row["阶段/里程碑"]), status: clean(row["状态"]), priority: clean(row["优先级"]), predecessors: clean(row["前置任务"]), successors: clean(row["后续任务"]), parallel: clean(row["可并行"]), acceptance: clean(row["验收标准"]), completedAt: clean(row["实际完成时间"]), notes: clean(row["备注"]), risk: clean(row["风险"]), blocker: clean(row["阻塞原因"])
 }));
 const logs = rowsAsObjects(parseTable(sectionBetween("#### 7.8.4", "## 8."))).map((row) => ({
@@ -175,7 +171,7 @@ if (!stages.length || !milestones.length || !tasks.length || !requirementRows.le
 const planVersion = markdown.match(/^计划版本：([^\s]+)/m)?.[1] ?? "unknown";
 const baselineDate = markdown.match(/^基线日期：([^\s]+)/m)?.[1] ?? null;
 const currentPhaseName = markdown.match(/^当前阶段：(.+)$/m)?.[1]?.trim() ?? null;
-const completedStatuses = new Set(["已完成", "已验证", "已验收", "跳过"]);
+
 const taskMap = new Map(tasks.map((task) => [task.id, task]));
 const hasRequirementEvidence = (value) => Boolean(value && value !== "-" && !/^(未执行|未验收|未开始|待确认)$/.test(value));
 const acceptedRequirement = (value) => hasRequirementEvidence(value) && !/^未验收/.test(value);
@@ -199,15 +195,16 @@ const requirementMaturity = {
   pilotRequirementId: tasks.find((task) => /-PILOT-/.test(task.id))?.id.match(/^[A-Z]+-\d+/)?.[0] ?? null
 };
 for (const task of tasks) {
-  task.predecessorIds = knownRefs(task.predecessors, tasks);
-  task.declaredSuccessorIds = knownRefs(task.successors, tasks);
+  const dependency = parseDependencies(task.predecessors, new Set(taskMap.keys()), { allowGates: true, notes: task.notes });
+  task.predecessorIds = dependency.ids;
+  task.dependencyGates = dependency.gates;
+  task.declaredSuccessorIds = parseDependencies(task.successors, new Set(taskMap.keys())).ids;
   task.domain = taskDomain(task);
   task.modules = taskModules(task);
   task.resources = taskResources(task);
 }
 
-const successorMap = new Map(tasks.map((task) => [task.id, new Set(task.declaredSuccessorIds)]));
-for (const task of tasks) for (const dependencyId of task.predecessorIds) successorMap.get(dependencyId)?.add(task.id);
+const successorMap = reverseDependencies(tasks);
 for (const task of tasks) task.successorIds = [...(successorMap.get(task.id) ?? [])];
 const currentTask = taskMap.get(currentTaskId);
 if (!currentTask) throw new Error(`Current task ${currentTaskId} is absent from the L3 ledger`);
@@ -362,11 +359,11 @@ for (const [taskId, checks] of Object.entries(completedArtifactChecks)) {
   const task = taskMap.get(taskId);
   if (task?.status === "已完成" && checks.some((key) => !evidence.checkedFiles[key])) issue("error", "IMPLEMENTATION_EVIDENCE_MISSING", taskId, "计划完成状态与实际文件证据不一致");
 }
-if (evidence.java.failures || evidence.java.errors) issue("error", "TESTS_FAILING", null, `最近 Java 报告含 ${evidence.java.failures} 个失败、${evidence.java.errors} 个错误`);
+if (evidence.java.exitCode !== 0 || evidence.java.failures || evidence.java.errors) issue("error", "TESTS_FAILING", null, `主计划指定的未筛选 Java 回归实际退出 ${evidence.java.exitCode}：${evidence.java.failures} 个失败、${evidence.java.errors} 个错误；范围 ${evidence.java.scope}，非本地混合报告累加`);
 if (!evidence.java.latestAt && tasks.some((task) => task.status === "已完成" && /实现|验证/.test(task.name))) {
   issue("error", "TEST_EVIDENCE_MISSING", null, "存在已完成实现任务，但没有可读取的 Java 测试报告");
 } else if (evidence.java.latestAt && evidence.latestBusinessChangeAt && new Date(evidence.java.latestAt) < new Date(evidence.latestBusinessChangeAt)) {
-  issue("error", "TEST_EVIDENCE_STALE", null, "业务代码或数据库脚本晚于最近 Java 测试报告，计划状态尚未由当前代码验证");
+  issue("error", "TEST_EVIDENCE_STALE", null, "业务代码或数据库脚本晚于主计划指定的未筛选 Java 回归；新专项不能替代全量证据");
 }
 
 const ready = [];
@@ -376,15 +373,8 @@ for (const task of tasks) {
   const eligibleStatus = ["未开始", "准备中", "就绪"].includes(task.status);
   const explicitlyBlocked = task.status === "阻塞";
   task.stageGate = stageGateFor(task);
-  task.executionState = completedStatuses.has(task.status)
-    ? "DONE"
-    : task.status === "进行中"
-      ? "RUNNING"
-      : explicitlyBlocked
-        ? "BLOCKED"
-        : eligibleStatus && !unfinished.length && task.stageGate.satisfied
-          ? "READY"
-          : "WAITING";
+  const admission = executionEligibility(task, taskMap, task.stageGate.satisfied);
+  task.executionState = admission.state;
   if (task.executionState === "READY") {
     task.readinessReasons = [
       "全部已登记前置任务已完成",
@@ -401,6 +391,7 @@ for (const task of tasks) {
   } else {
     task.readinessReasons = [
       ...(unfinished.length ? [`等待前置：${unfinished.join("、")}`] : []),
+      ...task.dependencyGates.map(gate => `等待门禁 ${gate.id}：${gate.condition}`),
       ...(!task.stageGate.satisfied ? [task.stageGate.reason] : []),
       ...(!eligibleStatus ? [`当前状态：${task.status}`] : []),
       ...(task.blocker && task.blocker !== "-" ? [`等待说明：${task.blocker}`] : [])
@@ -493,6 +484,7 @@ const now = new Intl.DateTimeFormat("zh-CN", {
 const projectPlan = {
   schemaVersion: 1,
   sourceOfTruth: "docs/08-总开发实现计划.md",
+  sourceSha256: createHash("sha256").update(fs.readFileSync(planPath)).digest("hex"),
   planVersion,
   baselineDate,
   currentPhaseName,
@@ -532,7 +524,7 @@ const html = `<!doctype html>
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 Inter,"Microsoft YaHei",system-ui,sans-serif;letter-spacing:0}button,select,input{font:inherit}button,select{min-height:36px}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid rgba(18,107,84,.25);outline-offset:2px}
 .shell{min-height:100vh}.topbar{background:#173e32;color:#fff;padding:22px max(22px,calc((100% - 1480px)/2));display:grid;grid-template-columns:minmax(280px,1fr) auto;gap:24px;align-items:end}.brand h1{margin:0 0 5px;font-size:24px;font-weight:500}.brand p{margin:0;color:#c8d7d1}.stamp{text-align:right;color:#c8d7d1;font-size:12px}.stamp strong{display:block;color:#fff;font-size:14px;font-weight:500}
 .layout{max-width:1480px;margin:0 auto;padding:22px;display:grid;gap:18px}.overview{display:grid;grid-template-columns:1.6fr repeat(4,minmax(110px,.65fr));background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}.overview>div{padding:18px;border-right:1px solid var(--line)}.overview>div:last-child{border-right:0}.overview .progress-cell{display:grid;gap:10px}.metric-label{color:var(--muted);font-size:12px}.metric-value{font-size:24px;font-weight:500;line-height:1.1}.metric-value.small{font-size:18px}.progress-track{height:9px;background:var(--grey-soft);overflow:hidden}.progress-fill{height:100%;background:var(--accent);transition:width .3s ease}.truth-note{border-left:4px solid var(--amber);background:var(--amber-soft);padding:13px 16px}.truth-note strong{font-weight:600}.truth-note p{margin:3px 0 0;color:#664506}
-.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.summary-card{background:var(--surface);border:1px solid var(--line);padding:18px;min-width:0}.summary-card h2{font-size:16px;font-weight:500;margin:3px 0 12px}.summary-card.current{border-top:4px solid var(--blue)}.summary-card.warning{border-top:4px solid var(--amber)}.summary-list{margin:0;padding-left:18px;display:grid;gap:10px}.summary-list li{padding-left:2px}.summary-list strong,.summary-list span{display:block}.summary-list span{margin-top:2px;color:var(--muted);font-size:12px}.advanced{border:1px solid var(--line);background:transparent}.advanced>summary{cursor:pointer;background:var(--surface);padding:15px 18px;font-weight:500;list-style:none}.advanced>summary::-webkit-details-marker{display:none}.advanced>summary::after{content:"展开";float:right;color:var(--accent);font-size:12px;font-weight:400}.advanced[open]>summary{border-bottom:1px solid var(--line)}.advanced[open]>summary::after{content:"收起"}.advanced-body{padding:18px;display:grid;gap:18px}
+.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.summary-card{background:var(--surface);border:1px solid var(--line);padding:18px;min-width:0;overflow-wrap:anywhere}.summary-card h2{font-size:16px;font-weight:500;margin:3px 0 12px}.summary-card.current{border-top:4px solid var(--blue)}.summary-card.warning{border-top:4px solid var(--amber)}.summary-list{margin:0;padding-left:18px;display:grid;gap:10px}.summary-list li{padding-left:2px}.summary-list strong,.summary-list span{display:block}.summary-list span{margin-top:2px;color:var(--muted);font-size:12px}.advanced{border:1px solid var(--line);background:transparent}.advanced>summary{cursor:pointer;background:var(--surface);padding:15px 18px;font-weight:500;list-style:none}.advanced>summary::-webkit-details-marker{display:none}.advanced>summary::after{content:"展开";float:right;color:var(--accent);font-size:12px;font-weight:400}.advanced[open]>summary{border-bottom:1px solid var(--line)}.advanced[open]>summary::after{content:"收起"}.advanced-body{padding:18px;display:grid;gap:18px}
 .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.panel{background:var(--surface);border:1px solid var(--line);padding:18px;min-width:0}.panel h2{font-size:16px;font-weight:500;margin:0 0 14px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.section-head h2{margin:0}.eyebrow{color:var(--accent);font-weight:500;font-size:12px}.current-task{border-left:4px solid var(--accent);padding:2px 0 2px 16px}.current-task h3{font-size:20px;font-weight:500;margin:3px 0}.current-task p{margin:4px 0;color:var(--muted)}.meta-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.tag{display:inline-flex;align-items:center;min-height:26px;padding:2px 8px;border:1px solid var(--line);background:var(--bg);font-size:12px}.tag.status-进行中{color:var(--blue);background:var(--blue-soft);border-color:transparent}.tag.status-阻塞{color:var(--red);background:var(--red-soft);border-color:transparent}.tag.status-已完成{color:var(--accent);background:var(--accent-soft);border-color:transparent}
 .queue{display:grid;gap:8px}.queue-item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}.queue-item:first-child{border-top:0}.dot{width:9px;height:9px;background:var(--accent);margin-top:6px}.queue-item.blocked .dot{background:var(--red)}.queue-item strong{font-weight:500}.queue-item small{display:block;color:var(--muted)}
 .queue-item.waiting .dot{background:var(--amber)}.queue-item.conflict .dot{background:var(--red)}.reason-list{margin:4px 0 0;padding-left:18px;color:var(--muted)}.reason-list li{margin:2px 0}.health-summary{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}.health-score{font-size:30px;font-weight:500}.health-ok{color:var(--accent)}.health-warning{color:var(--amber)}.health-error{color:var(--red)}.health-list{display:grid;gap:8px}.health-item{border-left:3px solid var(--amber);padding-left:10px}.health-item.error{border-color:var(--red)}.health-item p{margin:2px 0;color:var(--muted)}.critical-node{min-width:170px;border-top:4px solid var(--line);background:var(--bg);padding:10px}.critical-node.active{border-color:var(--blue);background:var(--blue-soft)}
@@ -618,11 +610,11 @@ const esc=s=>String(s??"").replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const current=DATA.tasks.find(t=>t.id===DATA.currentTaskId)||DATA.tasks.find(t=>t.status==="进行中");
 const currentPhase=current?.path.split("/")[0]||"-";
 const currentPhaseData=DATA.stages.find(p=>p.id===currentPhase);
-document.getElementById("current-task").innerHTML=current?'<span class="metric-label">'+esc(currentPhase)+' · '+esc(currentPhaseData?.name)+'</span><h3>'+esc(current.id)+' · '+esc(current.name)+'</h3><p>先补齐正式试点详细设计并通过 D 门。</p><div class="meta-row"><span class="tag status-'+esc(current.status)+'">'+esc(current.status)+'</span><span class="tag">优先级 '+esc(current.priority)+'</span></div>':"<p class='empty'>当前没有进行中的任务</p>";
+document.getElementById("current-task").innerHTML=current?'<span class="metric-label">'+esc(currentPhase)+' · '+esc(currentPhaseData?.name)+'</span><h3>'+esc(current.id)+' · '+esc(current.name)+'</h3><p>'+esc(current.notes||current.acceptance)+'</p><div class="meta-row"><span class="tag status-'+esc(current.status)+'">'+esc(current.status)+'</span><span class="tag">优先级 '+esc(current.priority)+'</span></div>':"<p class='empty'>当前没有进行中的任务</p>";
 const localProofIds=["MVP-CON-V0-05","CON-04-SYNTH-VERIFY","MVP-ENF-V0-05"];
 const localProofs=localProofIds.map(id=>taskById.get(id)).filter(Boolean);
 document.getElementById("local-proof").innerHTML=localProofs.length?'<ul class="summary-list">'+localProofs.map(task=>'<li><strong>'+esc(task.id)+'：'+esc(task.name)+'</strong><span>'+esc(task.notes)+'</span></li>').join("")+"</ul>":"<p class='empty'>尚无已登记的本地技术闭环。</p>";
-document.getElementById("current-blocker").innerHTML=current?.blocker&&current.blocker!=="-"?'<strong>当前需要确认</strong><p>'+esc(current.blocker)+'</p>':"<p>当前任务未登记外部阻塞；请按验收标准继续推进。</p>";
+document.getElementById("current-blocker").innerHTML=current?.blocker&&current.blocker!=="-"?'<strong>当前交付缺口与边界</strong><p>'+esc(current.blocker)+'</p>':"<p>当前任务未登记阻塞；继续按任务退出条件实施。</p>";
 
 function phaseTasks(id){return DATA.tasks.filter(t=>t.path.startsWith(id+"/"))}
 document.getElementById("roadmap").innerHTML=DATA.stages.map(stage=>{const list=phaseTasks(stage.id), done=list.filter(t=>doneStatuses.has(t.status)).length, pct=list.length?Math.round(done/list.length*100):0;const cls=stage.id===currentPhase?"active":pct===100?"done":"";return '<article class="phase '+cls+'"><div class="phase-stat"><span>'+esc(stage.id)+'</span><span>'+pct+'%</span></div><h3>'+esc(stage.name)+'</h3><div class="mini-track"><span style="width:'+pct+'%"></span></div><p>'+done+'/'+list.length+' 个任务完成</p><span class="metric-label">'+esc(stage.prerequisite==="-"?"无前置阶段":"前置 "+stage.prerequisite)+'</span></article>'}).join("");

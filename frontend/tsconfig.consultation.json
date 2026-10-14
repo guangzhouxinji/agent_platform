@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.app.json","include":["src/consultation.tsx","src/features/consultation/product","src/vite-env.d.ts"]}

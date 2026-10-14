@@ -26,9 +26,9 @@ class DocumentTemplateDm8IntegrationTest {
     @TempDir Path files;
 
     @Test void realDm8AndOriginalFilesCloseTemplateTransactionAndFailureSemantics() throws Exception {
-        String adminUrl = required("DM8_JDBC_URL");
-        String admin = required("DM8_JDBC_USER");
-        String password = required("DM8_JDBC_PASSWORD");
+        String adminUrl = required("AGENT_ENF_ENGINEERING_ADMIN_URL");
+        String admin = required("AGENT_ENF_ENGINEERING_ADMIN_USER");
+        String password = required("AGENT_ENF_ENGINEERING_ADMIN_PASSWORD");
         String schema = random("DT");
         String schemaPassword = "T9a" + schema.toLowerCase() + "K7z";
         create(adminUrl, admin, password, schema, schemaPassword);
@@ -108,3 +108,4 @@ class DocumentTemplateDm8IntegrationTest {
         }
     }
 }
+

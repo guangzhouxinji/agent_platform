@@ -1,0 +1,16 @@
+--- original/DocumentDraftWorkflow.java
++++ D:\daima\xinji\agent_platform\backend\enforcement\src\main\java\cn\xinji\agentplatform\enforcement\documentdraft\DocumentDraftWorkflow.java
+@@ -69,7 +69,12 @@
+             throw new IllegalArgumentException("Explicit review outcome and reason required");
+         return reviewCommand(actor,key,id,revision,contentSha,outcome,reason,"REVIEW");
+     }
+-    public List<Review> reviews(String actor,String id,long revision) {drafts.read(actor,id,revision);return List.copyOf(store.reviews(id,revision));}
++    public List<Review> reviews(String actor,String id,long revision) {
++        var base=drafts.read(actor,id,revision);
++        var result=List.copyOf(store.reviews(id,revision));
++        // Confirmed review history is consumed under current READ, not the pre-query decision.
++        require(actor,base,"READ");return result;
++    }
+     private Receipt reviewCommand(String actor,String key,String id,long revision,String expectedSha,String outcome,String reason,String action) {
+         var base=drafts.read(actor,id,revision);require(actor,base,action);inputs.assertCurrent(actor,base.manifest());
+         if(!base.contentSha256().equals(expectedSha))throw new IllegalArgumentException("Review version SHA mismatch");

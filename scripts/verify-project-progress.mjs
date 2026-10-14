@@ -68,6 +68,21 @@ try {
     await page.locator("#truth-note").getByText("合成 V0 ≠ 正式需求完成").waitFor();
     await page.locator("#local-proof").getByText("MVP-CON-V0-05").waitFor();
     await page.locator("#current-blocker").waitFor();
+    // Task IDs, table names and source digests are unbounded tokens, not prose to clip.
+    const longToken = "SOURCE_SHA256_" + "a".repeat(256);
+    await page.locator("#current-blocker").evaluate((element, token) => {
+      const probe = document.createElement("p");
+      probe.dataset.wrapProbe = "true";
+      probe.textContent = token;
+      element.append(probe);
+    }, longToken);
+    const tokenProof = await page.locator('[data-wrap-probe="true"]').evaluate(element => ({
+      text: element.textContent, scroll: element.scrollWidth, client: element.clientWidth,
+      wrap: getComputedStyle(element).overflowWrap
+    }));
+    if (tokenProof.text !== longToken || tokenProof.scroll > tokenProof.client + 1 || tokenProof.wrap !== "anywhere") throw new Error(`Long source token clipped or overflows at ${viewport.width}px`);
+    await page.locator('[data-wrap-probe="true"]').evaluate(element => element.remove());
+
     if (await page.locator("details.advanced").evaluate((element) => element.open)) throw new Error("Detailed dashboard sections should be collapsed initially");
     await page.locator("details.advanced").evaluate((element) => { element.open = true; });
     await page.locator(`#dependency-chain [data-task="${currentTaskId}"]`).waitFor();

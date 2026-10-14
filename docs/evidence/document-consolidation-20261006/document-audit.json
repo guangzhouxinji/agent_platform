@@ -1,0 +1,12 @@
+{
+  "scope": "documentation migration only; not business or full-repository verification",
+  "originalSourcesVerified": 220,
+  "removedRedundantFiles": 13,
+  "preservedTasks": 693,
+  "currentTasks": 694,
+  "preservedRequirementRows": 41,
+  "checkedLocalLinks": 1301,
+  "preExistingMissingTargets": 0,
+  "remainingMissingLinks": [],
+  "errors": []
+}

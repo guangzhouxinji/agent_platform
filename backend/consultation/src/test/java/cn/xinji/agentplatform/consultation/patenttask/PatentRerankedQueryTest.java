@@ -23,7 +23,7 @@ class PatentRerankedQueryTest {
         var result = new PatentRerankedQuery().rerank("battery", hybrid, Map.of(
                 PatentRerankedQuery.key(first), "battery holder",
                 PatentRerankedQuery.key(second), "lithium battery"), scorer, 2);
-        assertThat(result.methodVersion()).isEqualTo("HYBRID_RRF_CE/v1");
+        assertThat(result.methodVersion()).isEqualTo(PatentRerankedQuery.METHOD_VERSION);
         assertThat(result.matches()).extracting(item -> item.candidate().documentId())
                 .containsExactly("b", "a");
         assertThat(result.matches()).extracting(PatentRerankedQuery.Match::rerankRank)

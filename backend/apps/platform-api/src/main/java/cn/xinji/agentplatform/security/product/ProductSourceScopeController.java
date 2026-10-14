@@ -21,11 +21,27 @@ import org.springframework.web.bind.annotation.RestController;
 public final class ProductSourceScopeController {
     public record Authorize(String taskId, String memberSubject, long taskVersion,
                             long sourceRowVersion, Instant expiresAt) { }
+    public record Reauthorize(String taskId, String memberSubject, long taskVersion,
+                              long sourceRowVersion, Instant expiresAt, long expectedScopeVersion) { }
 
     private final ProductSourceScopeGrants scopes;
+    private final ProductSourceScopeRebinding rebinding;
 
-    public ProductSourceScopeController(ProductSourceScopeGrants scopes) {
+    public ProductSourceScopeController(ProductSourceScopeGrants scopes,org.springframework.jdbc.core.JdbcTemplate db,
+            ProductMaintenanceProof maintenance) {
         this.scopes = scopes;
+        this.rebinding = new ProductSourceScopeRebinding(db,scopes,maintenance);
+    }
+
+    public record Rebind(String taskId,String memberSubject,long taskVersion,long sourceRowVersion,
+                         java.time.Instant expiresAt,long expectedScopeVersion,String previousQueryGrantId) { }
+    @PostMapping("/{sourceId}/rebind")
+    public ProductSourceScopeGrants.Receipt rebind(@PathVariable String sourceId,@RequestBody Rebind body,
+            @RequestHeader("Idempotency-Key") String requestId,HttpServletRequest request) {
+        if(body==null)throw new IllegalArgumentException("Exact source continuation required");
+        return rebinding.rebind(new ProductSourceScopeGrants.Input(body.taskId(),body.memberSubject(),sourceId,
+                body.taskVersion(),body.sourceRowVersion(),body.expiresAt(),requestId,body.expectedScopeVersion()),
+                body.previousQueryGrantId(),request);
     }
 
     @PostMapping("/{sourceId}/authorize")
@@ -35,6 +51,17 @@ public final class ProductSourceScopeController {
         if (body == null) throw new IllegalArgumentException("Exact scope request required");
         return scopes.authorize(new ProductSourceScopeGrants.Input(body.taskId(), body.memberSubject(),
                 sourceId, body.taskVersion(), body.sourceRowVersion(), body.expiresAt(), requestId), request);
+    }
+
+    @PostMapping("/{sourceId}/reauthorize")
+    public ProductSourceScopeGrants.Receipt reauthorize(@PathVariable String sourceId,
+            @RequestBody Reauthorize body, @RequestHeader("Idempotency-Key") String requestId,
+            HttpServletRequest request) {
+        if (body == null || body.expectedScopeVersion() < 1)
+            throw new IllegalArgumentException("Exact previous source scope required");
+        return scopes.authorize(new ProductSourceScopeGrants.Input(body.taskId(), body.memberSubject(),
+                sourceId, body.taskVersion(), body.sourceRowVersion(), body.expiresAt(), requestId,
+                body.expectedScopeVersion()), request);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

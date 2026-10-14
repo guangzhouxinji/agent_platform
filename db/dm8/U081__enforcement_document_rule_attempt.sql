@@ -1,0 +1,2 @@
+DROP TABLE enf10_document_rule_attempt_event;
+DROP TABLE enf10_document_rule_attempt;

@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Applies a real pairwise scorer without changing candidate membership or evidence. */
+/** Real pairwise ranking with conservative, calibrated whole-query abstention. */
 public final class PatentRerankedQuery {
-    public static final String METHOD_VERSION = "HYBRID_RRF_CE/v1";
+    public static final String METHOD_VERSION = "HYBRID_RRF_CE_SEMANTIC_ABSTAIN/v3";
 
     public record Match(PatentHybridQuery.Match candidate, double rerankScore, int rerankRank) { }
     public record Result(String methodVersion, String modelVersion, List<Match> matches,
@@ -16,6 +16,12 @@ public final class PatentRerankedQuery {
 
     public Result rerank(String query, PatentHybridQuery.Result hybrid,
             Map<String, String> documentTexts, PatentReranker reranker, int maxResults) {
+        return rerank(query, hybrid, documentTexts, reranker, null, maxResults);
+    }
+
+    public Result rerank(String query, PatentHybridQuery.Result hybrid,
+            Map<String, String> documentTexts, PatentReranker reranker,
+            PatentEmbeddingProvider.Model embedding, int maxResults) {
         if (query == null || query.isBlank() || hybrid == null || documentTexts == null
                 || reranker == null || maxResults < 1)
             throw new IllegalArgumentException("Complete rerank input required");
@@ -34,6 +40,10 @@ public final class PatentRerankedQuery {
         }
         if (scores.size() != pairs.size() || !scores.keySet().equals(documentTexts.keySet()))
             throw new IllegalStateException("Reranker score cardinality changed");
+        if (new PatentQueryAbstention().abstains(reranker.model(), embedding,
+                hybrid.matches(), scores.values()))
+            return new Result(METHOD_VERSION, version(reranker.model()), List.of(),
+                    hybrid.candidateCount(), hybrid.candidateCount() > maxResults);
         List<PatentHybridQuery.Match> ordered = new ArrayList<>(hybrid.matches());
         ordered.sort(Comparator.<PatentHybridQuery.Match>comparingDouble(
                         candidate -> scores.get(key(candidate))).reversed()
@@ -55,7 +65,7 @@ public final class PatentRerankedQuery {
         return match.sourceId() + '\0' + match.documentId() + '\0' + match.documentVersion();
     }
 
-    private static String version(PatentReranker.Model model) {
+    static String version(PatentReranker.Model model) {
         if (model == null || blank(model.provider()) || blank(model.modelId()) || blank(model.revision())
                 || !sha(model.modelSha256()) || !sha(model.tokenizerSha256()) || model.maxTokens() < 1
                 || blank(model.licenseId()))

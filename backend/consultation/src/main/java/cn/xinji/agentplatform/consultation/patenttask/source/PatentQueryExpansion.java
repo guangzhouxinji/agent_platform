@@ -24,7 +24,16 @@ public final class PatentQueryExpansion {
 
     public Plan expand(String query) {
         if (query == null || query.isBlank()) throw new IllegalArgumentException("Query required");
-        String normalized = Normalizer.normalize(query, Normalizer.Form.NFC)
+        var syntax = new PatentQuerySyntax().parse(query, java.util.Set.of("TITLE"));
+        return expand(query, syntax, false);
+    }
+
+    public Plan expandFields(String query, java.util.Set<String> admittedFields) {
+        return expand(query, new PatentQuerySyntax().parseFields(query, admittedFields), true);
+    }
+
+    private Plan expand(String query, PatentQuerySyntax.Plan syntax, boolean fieldAware) {
+        String normalized = Normalizer.normalize(syntax.positiveText(), Normalizer.Form.NFC)
                 .toLowerCase(Locale.ROOT).strip();
         List<Term> expansions = new ArrayList<>();
         for (var entry : TERMS.entrySet())
@@ -34,7 +43,10 @@ public final class PatentQueryExpansion {
         expansions.forEach(term -> additions.add(term.expansion()));
         String retrieval = additions.isEmpty() ? normalized
                 : normalized + " " + String.join(" ", additions);
-        return new Plan(VERSION, query, retrieval, List.copyOf(expansions));
+        if (retrieval.getBytes(java.nio.charset.StandardCharsets.UTF_8).length > 4000)
+            throw new PatentQuerySyntax.InvalidQuery("Expanded query exceeds persisted query capacity");
+        return new Plan(syntax.explicit() || fieldAware ? VERSION + "+" + syntax.version() : VERSION,
+                query, retrieval, List.copyOf(expansions));
     }
 
     private static boolean containsTerm(String query, String term) {

@@ -1,0 +1,1156 @@
+{
+  "date": "2026-10-06",
+  "purpose": "Immutable pre-consolidation source backup, not a task/status ledger",
+  "sources": [
+    {
+      "path": "docs/00-设计文档索引.md",
+      "sha256": "18fdfcc51c2d3dc4c7eea85a22f5b80eaa88f0b6d931127fbc7231f4fa9792d9",
+      "bytes": 9021
+    },
+    {
+      "path": "docs/01-总体需求与架构方案.md",
+      "sha256": "0ad2afeb458629ffc44f8bede27f003534a469a39f9c8c40efdeefb34f2dc382",
+      "bytes": 9677
+    },
+    {
+      "path": "docs/02-待确认事项清单.md",
+      "sha256": "b6e3f9b641edef6f53a9a538e070dbc56370ab1be1ccf1c44ea5792e092640e7",
+      "bytes": 189551
+    },
+    {
+      "path": "docs/03-分期实施与里程碑.md",
+      "sha256": "ba832c8836e457d0889515f6b0986b090f2d0e93eb7d9fc62d44e3d4cd720e8f",
+      "bytes": 6292
+    },
+    {
+      "path": "docs/04-原需求功能归并矩阵.md",
+      "sha256": "741994be4a623fd2e90eb8259d5900789106b802b92c6f9be09f85f7015abf40",
+      "bytes": 9840
+    },
+    {
+      "path": "docs/05-角色权限与职责矩阵.md",
+      "sha256": "0b2fe04c1c99ad1a1f4fc272b6d20368a283215da7a713c46dadbb10be3c5d80",
+      "bytes": 6610
+    },
+    {
+      "path": "docs/06-三个MVP闭环与状态机.md",
+      "sha256": "9aa633fdb0aeb9f85865b4c6964007b76ed8a7a4392b4b14ada879955b95eb8b",
+      "bytes": 15254
+    },
+    {
+      "path": "docs/07-高风险技术验证计划.md",
+      "sha256": "3e29b29abc8dbcccf156471346dfb829a8bd45dff1404be61cb10fdfb7b27d40",
+      "bytes": 5648
+    },
+    {
+      "path": "docs/08-总开发实现计划.md",
+      "sha256": "78e0ca8fd6af28e1d0b8b7baf9ee49f7ca8edf320512f4b06132c78072083a0d",
+      "bytes": 1748632
+    },
+    {
+      "path": "docs/09-开发治理与需求追踪规范.md",
+      "sha256": "416c486a97e917ab651146d18343e9a8df87af61808de4492acf2432e1d36079",
+      "bytes": 7322
+    },
+    {
+      "path": "docs/10-领域边界与上下文映射.md",
+      "sha256": "bd6f4690ef523aa448fa12115d172560a35ace858ace21111260f5a85bcb3c0d",
+      "bytes": 13204
+    },
+    {
+      "path": "docs/11-咨询MVP-V0产品样例基线.md",
+      "sha256": "9ea9cfeb08945457926e5afad46e8498f8185a2e68983c135a6486a92cbc27dd",
+      "bytes": 14275
+    },
+    {
+      "path": "docs/12-咨询MVP最小领域模型.md",
+      "sha256": "43d2de29bfad1d25069b7298e3e1899162b1c6f292e27561a6bd7cc4705cfd17",
+      "bytes": 13144
+    },
+    {
+      "path": "docs/13-咨询MVP领域行为与不变量.md",
+      "sha256": "97c4f96ce6dbbb7218cea0d67a6f629f643752a2b0a2f4e0d4f6e4fc0947b998",
+      "bytes": 9005
+    },
+    {
+      "path": "docs/14-咨询MVP用例与服务设计.md",
+      "sha256": "e8164243c635250191518132d16952c25e21dd6465e00cce51ff1a3bacd2ef02",
+      "bytes": 9380
+    },
+    {
+      "path": "docs/15-咨询MVP最小API设计.md",
+      "sha256": "ad39a1afe128831dcdbd09b609f066a1dbc182d9dc7ff50a25d96ee9b7d40e32",
+      "bytes": 8205
+    },
+    {
+      "path": "docs/16-咨询MVP逻辑持久化设计.md",
+      "sha256": "a8eea42f023ae4aa949053a7a6b964c580fe356c6c9efe679b0715b21bb8ab55",
+      "bytes": 6308
+    },
+    {
+      "path": "docs/17-咨询MVP-V0实现任务设计.md",
+      "sha256": "683c19c8cbff6e8df1ef42ecef52f6bf26d6b50b731e0962bd11d1bbb9ebe3e2",
+      "bytes": 4796
+    },
+    {
+      "path": "docs/18-咨询MVP-DM8物理持久化设计.md",
+      "sha256": "64fd35d383822e7b158bcdef207d15b88a40548757eefa520d313b0bbc06927f",
+      "bytes": 4391
+    },
+    {
+      "path": "docs/19-咨询MVP-DM8仓储实现任务设计.md",
+      "sha256": "00570cf4931ad4bb6551c5c63fc5d7f5dd3f24818a34b19ad3ea661f62f6d466",
+      "bytes": 3516
+    },
+    {
+      "path": "docs/20-执法MVP-V0产品样例基线.md",
+      "sha256": "c49defd9470d815259a79982e02d1986466f48d9977c4e37889244e91e5cbd91",
+      "bytes": 17189
+    },
+    {
+      "path": "docs/21-执法MVP最小领域模型.md",
+      "sha256": "7d81b930ae25a27a9c9823e42f9c1a407a80623d883b98992cf20b00cce50e22",
+      "bytes": 17808
+    },
+    {
+      "path": "docs/22-执法MVP领域行为与不变量.md",
+      "sha256": "fef1390020993aac6cab728af05257bdf054712e4ca41f443682ef7fd44b68e6",
+      "bytes": 15784
+    },
+    {
+      "path": "docs/23-执法MVP用例与服务设计.md",
+      "sha256": "d2f3aad4622dba3929c06266dee233b72f9a1b5c06714b6391e79fb83a3d468f",
+      "bytes": 17631
+    },
+    {
+      "path": "docs/24-执法MVP最小API设计.md",
+      "sha256": "1cd37ea95a4b188d86b277c3215577b1b3fa5acc481372a7275ee04c118d9098",
+      "bytes": 15750
+    },
+    {
+      "path": "docs/25-执法MVP逻辑持久化设计.md",
+      "sha256": "33d98d479c4f57ecf66a4b39e8465989c3a18419f06ef1af56303e2610d44f05",
+      "bytes": 14668
+    },
+    {
+      "path": "docs/26-执法MVP-V0实现任务设计.md",
+      "sha256": "f678bf7753199b06470b167fb914a0c17fb5f6a5a0ea5aa5b1b503c44047416a",
+      "bytes": 10653
+    },
+    {
+      "path": "docs/27-执法MVP-DM8物理持久化设计.md",
+      "sha256": "b59c5b0ff78176844e099bb6d36a86112756dea3a8d6566d6aeb9a6320770054",
+      "bytes": 9956
+    },
+    {
+      "path": "docs/28-执法MVP-HTTP与DM8仓储实现任务设计.md",
+      "sha256": "34e9db7231637338674588f8830af12622a3efe6780ac1b57ac5ca0b7a4962a5",
+      "bytes": 12919
+    },
+    {
+      "path": "docs/29-咨询助手需求深度分析.md",
+      "sha256": "b563a9a1c8ef4aa6ec2c7cbb0d37c500922e3f1f043126461f9a843bbd4bb00d",
+      "bytes": 20205
+    },
+    {
+      "path": "docs/29-裁决MVP-V0产品样例基线.md",
+      "sha256": "d9b5156ead77f8395439f5635d4e768beb9f6b7d6b68aaf3ca77133d08862866",
+      "bytes": 7897
+    },
+    {
+      "path": "docs/30-智能体真实性验收报告.md",
+      "sha256": "14c3c784e3f8174e7962076a2b285ac68393e5de0705303cbbd6a9baa5e0ccee",
+      "bytes": 25081
+    },
+    {
+      "path": "docs/30-裁决MVP最小领域模型.md",
+      "sha256": "fe7fbe00e37339cadf9267f282cefa0d9af1ec72a7dd429cd93a694567bc0b40",
+      "bytes": 4632
+    },
+    {
+      "path": "docs/31-咨询智能体调用链审计报告.md",
+      "sha256": "b7122ef1a30d63fe6757831c9de78155a23d2189705f20f7280f2af85a9a2f11",
+      "bytes": 27388
+    },
+    {
+      "path": "docs/31-裁决MVP用例与服务设计.md",
+      "sha256": "eb52ffaee4a3bb019a0ec2c654c2b5dde6f1683da51b0cdf4ed01f15a5ee23cf",
+      "bytes": 3875
+    },
+    {
+      "path": "docs/32-裁决MVP最小API设计.md",
+      "sha256": "13939fc38b990bbf1485f7752474f9b003fcc232e2a3c2ff7f1e621180024c24",
+      "bytes": 12101
+    },
+    {
+      "path": "docs/33-裁决MVP逻辑持久化设计.md",
+      "sha256": "68cb77858071082db5cda3d0c964d60eba89aec361471812beedb3fb0a550364",
+      "bytes": 9102
+    },
+    {
+      "path": "docs/34-咨询智能体需求适配性审查.md",
+      "sha256": "6c02f501ac274c842c8b52932953804ac0d0ef7029783053855b375d211e0317",
+      "bytes": 34567
+    },
+    {
+      "path": "docs/34-裁决MVP-V0实现任务设计.md",
+      "sha256": "b69c669581f3ec030a45d29cf7e0874b2c0ad71eed632170a771cc93bd53c592",
+      "bytes": 7113
+    },
+    {
+      "path": "docs/35-咨询智能体产品行为待确认清单.md",
+      "sha256": "defd7da685aad98eb5e8966336128d63e959d8372b6f597248e61910802b2821",
+      "bytes": 21139
+    },
+    {
+      "path": "docs/35-裁决MVP-DM8物理持久化设计.md",
+      "sha256": "cb025204c4bc17e6bad69f10047522a268e08fb0e12a38b4f13f92a7041b7c10",
+      "bytes": 5770
+    },
+    {
+      "path": "docs/36-咨询智能体R门需求变化影响评审.md",
+      "sha256": "bcadb84c5cff49a438052f2ea212681fc10a9afafbfaf492013caf80836be6ab",
+      "bytes": 29933
+    },
+    {
+      "path": "docs/36-裁决MVP-HTTP与DM8仓储实现任务设计.md",
+      "sha256": "ce18c91f166c0d7fc2a7edee40d578b91b04b0d58b2057ac5d2140e31a7711af",
+      "bytes": 5773
+    },
+    {
+      "path": "docs/37-合成中心只读API实现任务设计.md",
+      "sha256": "7694eb0b22f12762b1643203eccd03c8d869bbd8e8f4b9c351798736d8053b7a",
+      "bytes": 2178
+    },
+    {
+      "path": "docs/37-咨询智能体契约重基线.md",
+      "sha256": "8f86ffab48055d8a82afe5b94043052f974a22f7de7df0b1d506b4d324ce0fde",
+      "bytes": 64124
+    },
+    {
+      "path": "docs/38-合成中心执法裁决来源API实现任务设计.md",
+      "sha256": "486c677e7f3e6f2c232ee523a85ac042ec9d73c23f15ecf78259b24cffbfe6b7",
+      "bytes": 1091
+    },
+    {
+      "path": "docs/38-咨询智能体专利任务详细设计.md",
+      "sha256": "934e910d84ce8aa982243aae05892c39deb65a52b9172479d1d3a67d662a69b7",
+      "bytes": 79005
+    },
+    {
+      "path": "docs/39-合成中心数据工作台实现任务设计.md",
+      "sha256": "71bf2fb85e41f75ecdc030fd0b15f9a4db75079b4696cef628cb873c56547e53",
+      "bytes": 667
+    },
+    {
+      "path": "docs/39-咨询智能体专利任务D门评审报告.md",
+      "sha256": "31df47843358d4b82edee6baa432c18c141b6a356a0f20b3e2ff4e85dcb32f76",
+      "bytes": 29087
+    },
+    {
+      "path": "docs/40-三域拟真合成数据V1任务设计.md",
+      "sha256": "9f99e4692a25acfce2a726adbf2e8b74f06c301ed410dc571959620a7f93d19f",
+      "bytes": 2527
+    },
+    {
+      "path": "docs/40-咨询智能体专利任务D门问题修正记录.md",
+      "sha256": "1fdbd18729ef3d423520ab1a206d7fc557af507ebf53696bde4e85e23d81e073",
+      "bytes": 13189
+    },
+    {
+      "path": "docs/41-咨询助手第一版产品蓝图.md",
+      "sha256": "447e5ab4530e239fe399c87d5a07ee9ebd52a753827fcbaafafd907cc83eab37",
+      "bytes": 6589
+    },
+    {
+      "path": "docs/41-咨询智能体专利任务D门复评报告.md",
+      "sha256": "d592508ce644fa0341c4badc00e5ead972bdf9377c026c150520e08222fef985",
+      "bytes": 15361
+    },
+    {
+      "path": "docs/42-咨询智能体专利任务焦点转换修正记录.md",
+      "sha256": "8dcf68a4a62167eb2953d77706254366785ebd7c855de979bc83d83381a0b12a",
+      "bytes": 11091
+    },
+    {
+      "path": "docs/42-正式试点外部输入统一提供指南.md",
+      "sha256": "7d90020b3384eaa8dd14283a3de4815ee6f3f09238337f6bfcb91eb4cf1657c4",
+      "bytes": 31279
+    },
+    {
+      "path": "docs/43-咨询智能体专利任务D门最终复评报告.md",
+      "sha256": "f456b66ecc05162a511cc8763b6f5e5d2b1a2759bc2c94c3ed600886654e9d02",
+      "bytes": 10388
+    },
+    {
+      "path": "docs/43-平台代码结构重整架构决定.md",
+      "sha256": "053f87b000000fd4834cd95286aa5c4678c64eb1be94541c4a2db70bf30f0d22",
+      "bytes": 4642
+    },
+    {
+      "path": "docs/44-咨询智能体专利任务实现准入评审.md",
+      "sha256": "7c72eff3d380cde8f7193ce116baecce914388ffbae57114e309fde87f692017",
+      "bytes": 29643
+    },
+    {
+      "path": "docs/44-数据库替代中心检索ADR.md",
+      "sha256": "8f21ed00ef1b25a8057f958310fd1e1116ab66fffef7392d6bb96f06c13982d9",
+      "bytes": 929
+    },
+    {
+      "path": "docs/45-咨询智能体首批核心实现一致性验收.md",
+      "sha256": "a32e8d4e95010e366228abf091d443da8b2fc3bf80b38e69955b681ea9a750a9",
+      "bytes": 15105
+    },
+    {
+      "path": "docs/45-对外调用方APIKey鉴权ADR.md",
+      "sha256": "59ac3025a4d567407fea46f88a09e18111cea9fe19bcb26fd5b65eacfc711faf",
+      "bytes": 1489
+    },
+    {
+      "path": "docs/46-咨询智能体首批核心实现P1修复报告.md",
+      "sha256": "741d9db6072d2e6a8106d3664ff3529c3d1bd5b6e2f20332ece27a5b56741e8d",
+      "bytes": 8746
+    },
+    {
+      "path": "docs/46-咨询模型后台管理ADR.md",
+      "sha256": "e6bb569eab20ce96bd6e9b01a7aab13c1a44d9516e919b901c369f847dbd0f3e",
+      "bytes": 1239
+    },
+    {
+      "path": "docs/47-咨询首批核心修复独立复验记录.md",
+      "sha256": "46a6b53d2ca50bba2514b0a029f9813ab3b77aa74427e22ef2c680b40e661f37",
+      "bytes": 2226
+    },
+    {
+      "path": "docs/48-存量产品止损建议.md",
+      "sha256": "f6db4786e3e137b481f7839875288ea2b2108467ac2080f0067434b15d75a729",
+      "bytes": 3962
+    },
+    {
+      "path": "docs/49-原始需求驱动的产品重定义建议.md",
+      "sha256": "996988f59f8a8764d60cf71bb5a229e446d7feb1ffacf5c76766237be70b9676",
+      "bytes": 15874
+    },
+    {
+      "path": "docs/50-Product Freeze Decision.md",
+      "sha256": "81176fd38d9f0d131f858526cd9be0a858dcf46a671e6debffd66d7d878f1ad7",
+      "bytes": 18180
+    },
+    {
+      "path": "docs/51-Product Freeze低成本预检与同类方案核查.md",
+      "sha256": "1940b34ea3b90d8580eb6c7749338a4fa9cb3c7853313d4c48d0c5b467d59385",
+      "bytes": 9792
+    },
+    {
+      "path": "docs/52-三智能体交付路径重排建议.md",
+      "sha256": "13e8b4b4cd66e8ab7e54444013939aa1a0616d548ff64a683c6999914e1af16a",
+      "bytes": 7549
+    },
+    {
+      "path": "docs/53-三智能体优化需求评审稿.md",
+      "sha256": "7cab8b0dcf66842e90926162952dd3e2f1f2430ef05c527ebc38d387c27635fd",
+      "bytes": 25777
+    },
+    {
+      "path": "docs/54-三智能体与数据服务边界ADR.md",
+      "sha256": "eb65067fbd9fdb95e925c64eebe5508004b87f7bcfbc67ab2dbc4c17e04ea9c3",
+      "bytes": 13021
+    },
+    {
+      "path": "docs/55-V2业务数据服务与运行恢复详细设计.md",
+      "sha256": "2da8c87120ab1ec0dc0fab5d3bd2638596408215d499e6ce505f6aeab9e12bef",
+      "bytes": 17762
+    },
+    {
+      "path": "docs/56-V2咨询全能力详细设计.md",
+      "sha256": "22895399b6c7116b758ed46386bb63caa29e29064c77f099cadbcab0c14fccf5",
+      "bytes": 25625
+    },
+    {
+      "path": "docs/57-V2执法全能力详细设计.md",
+      "sha256": "ae7dd078498b48b7c436998a4281c6775c99a47a9ba5b1087d0ba555ae98d49b",
+      "bytes": 166343
+    },
+    {
+      "path": "docs/58-V2裁决全能力详细设计.md",
+      "sha256": "0decf91bb71f717d45e6a84d5da8ae054a0eaa69f7a9e2777f1c493c13f4895f",
+      "bytes": 105963
+    },
+    {
+      "path": "docs/59-V2详细设计验证与迁移方案.md",
+      "sha256": "fa124a629efb0df35a4e6633513e3ded40ec400e4674b1a05fcd9c7bc0fa420b",
+      "bytes": 17740
+    },
+    {
+      "path": "docs/60-中国公开专业规则与文书样式开发资料清单.md",
+      "sha256": "557168a44fdcb0df823f3685b2096311f4863bab37ed1e6cae6017d8141550be",
+      "bytes": 5754
+    },
+    {
+      "path": "docs/61-咨询首任务开发期公共边界与独立验收设计.md",
+      "sha256": "45c582a8c26754fcb7842ccfe62234544bec46e451f5cf4963327ff7833e6a32",
+      "bytes": 209796
+    },
+    {
+      "path": "docs/62-咨询纯文本结果集纵向切片ADR.md",
+      "sha256": "866e28da01b8b1d2e9337e8608cd3512b6af73697e192a8535b1523b6e375679",
+      "bytes": 2294
+    },
+    {
+      "path": "docs/63-咨询只读证据准备切片ADR.md",
+      "sha256": "f0fc799a6fd9d18e99ca03b5a46e65a0e138407e8cdde706af8c68c106dcc867",
+      "bytes": 1853
+    },
+    {
+      "path": "docs/64-咨询签入特征显式确认切片ADR.md",
+      "sha256": "41ea67a857d9e4dc6f70a7b069b9f6f31588c7f6954e48b793c2025baefe675c",
+      "bytes": 1958
+    },
+    {
+      "path": "docs/65-咨询目标正文读取用途守卫ADR.md",
+      "sha256": "c1983c73e9d683673e58a14adb13970d410b6f9972fb47dd57e377d10d863eb2",
+      "bytes": 12885
+    },
+    {
+      "path": "docs/66-V2开发期两域共享入口与撤回恢复技术ADR.md",
+      "sha256": "0fc2c1de9a18351fe70c8495dfdf574e4284f1185290dae0a5cc0a794bedaaa0",
+      "bytes": 30569
+    },
+    {
+      "path": "docs/67-咨询开发期只读核查视图ADR.md",
+      "sha256": "ad5e0e458bc92d75eb9b03bb2eddc9d4ddce503ef09ccfb8bd074a2f5dd00816",
+      "bytes": 1826
+    },
+    {
+      "path": "docs/68-执法ENF-RULE-V1开发规则基线ADR.md",
+      "sha256": "757af27f52f6e8f828de7a8019398b8abdd6610e79fc6c0d44e13264c9f597b7",
+      "bytes": 9092
+    },
+    {
+      "path": "docs/69-最终产品五项基础协议ADR.md",
+      "sha256": "1eff00590f9e75ea14f987bf86fe34cfef2b4cdda60e2087b2d8ef0021b34946",
+      "bytes": 137531
+    },
+    {
+      "path": "docs/70-专利相似度检索最终实现标准.md",
+      "sha256": "e11596d718c187120ae5c3743d3405c298dc1f7ad8b57e19bda1e48e5ca5351a",
+      "bytes": 154912
+    },
+    {
+      "path": "docs/70-执法HANDOFF最终产品接收边界ADR.md",
+      "sha256": "a177a788b562a729ee52a4572d6860c269e64fb483a69db49bba499e80b128d1",
+      "bytes": 2340
+    },
+    {
+      "path": "docs/71-真实模型咨询检索闭环最小设计.md",
+      "sha256": "1a43466ef7d3584c6a152a1d380e3f6ac123dce3b225dc6975c509d684742900",
+      "bytes": 31824
+    },
+    {
+      "path": "docs/adr/adjudication-03a-exit-scope-20261004.md",
+      "sha256": "f0602495baf7954f5fcb057b83b515114d65f4bc105a13b44409bfaffcdbbefb",
+      "bytes": 4984
+    },
+    {
+      "path": "docs/adr/adjudication-api-persistence-20261002.md",
+      "sha256": "7c48e7e0365b527f3a8c880d7698818237a6cec46c7c670d2abf135271a95f57",
+      "bytes": 7193
+    },
+    {
+      "path": "docs/adr/adjudication-final-product-20261003.md",
+      "sha256": "ff8e92f2e6c426b5f814fc3c003c646bcf337903d2b438a235d610b927a16baa",
+      "bytes": 4387
+    },
+    {
+      "path": "docs/adr/adjudication-llm-materials-20261003.md",
+      "sha256": "5a3d7b21b91ed8b69cd78fef549c514ecf6c5ca609bfccd959ee2fec5b3250e7",
+      "bytes": 30234
+    },
+    {
+      "path": "docs/adr/adjudication-material-decisions-20261004.md",
+      "sha256": "5932426f4a620c3f960c93eb6e93e4c05e324f044d0f5793b2b150562e713eda",
+      "bytes": 13019
+    },
+    {
+      "path": "docs/adr/adjudication-product-validation-20261002.md",
+      "sha256": "12ee5110e55eb7f4ebc6788aae6ba6ac39662bdba75e39f17e5a7e104c24ac91",
+      "bytes": 1845
+    },
+    {
+      "path": "docs/adr/adjudication-report-editor-20261003.md",
+      "sha256": "dc0ccb6453adbcf9683f94a240726c0b913014489d2a01354d44049fc91e256a",
+      "bytes": 3237
+    },
+    {
+      "path": "docs/adr/adjudication-task-first-loop-20261002.md",
+      "sha256": "772576df3e247e18fb5086a3db5adfa8e73083b19bccbedc34e06b917bf7c25c",
+      "bytes": 7076
+    },
+    {
+      "path": "docs/adr/adjudication-workspace-20261002.md",
+      "sha256": "1be44f4ce849406a344749b7a63459da070770dec2bed96169065772058215b9",
+      "bytes": 4621
+    },
+    {
+      "path": "docs/adr/ADR-ENF-14-FACT-INCOMPLETE-01.md",
+      "sha256": "50436569f9907d7b03c74d028acb07193cf30988b01acd53f14548276531d73e",
+      "bytes": 2048
+    },
+    {
+      "path": "docs/adr/ADR-ENF-CONDUCT-PUBLICATION-01.md",
+      "sha256": "ad4d6ed8c3ef14f8d56cbf5dbaf678cd8feda30dd1e2ea42b5343e91b6f57df0",
+      "bytes": 2164
+    },
+    {
+      "path": "docs/adr/agent-runtime-kernel-20261005.md",
+      "sha256": "78ff0fc57a84be95064f701e0186fe7881459d16c2e88fdc1cd95c310411d286",
+      "bytes": 5064
+    },
+    {
+      "path": "docs/adr/agent-runtime-product-binding-20261005.md",
+      "sha256": "386506b605a28eea4ae5ddbfa30a1a64c221f85c3d185250b57fe4fde4fc67a3",
+      "bytes": 7779
+    },
+    {
+      "path": "docs/adr/consultation-comparison-input-20261005.md",
+      "sha256": "06c5d33ffc117d8b494a101ed6b2e955951c8417fa84f1ac52d68a7ab3e9b0f3",
+      "bytes": 3088
+    },
+    {
+      "path": "docs/adr/consultation-prepare-feature-20261005.md",
+      "sha256": "20eccf69d79319036fa746d43bd0acdf87f98ea2f78f78d9d7edaca8db6b82a3",
+      "bytes": 5658
+    },
+    {
+      "path": "docs/adr/consultation-product-comparison-20261002.md",
+      "sha256": "d291912095df90cdac978e3509c4f1c9bc80e13937daea1d89e0b3c0d8c9801a",
+      "bytes": 22879
+    },
+    {
+      "path": "docs/adr/enforcement-document-template-baseline-20261002.md",
+      "sha256": "ea322a37a595df031a2293dd948321a9a89a7a6480dd50ea0b147a1b3a7f56fc",
+      "bytes": 4211
+    },
+    {
+      "path": "docs/evidence/adjudication-api-20261002/verification.md",
+      "sha256": "fe3fd73957b28ee874a11182f820cfb7e926e13ba6dcb63a7d6fac14db79d2bf",
+      "bytes": 13716
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261003/approval-review.md",
+      "sha256": "ae58f815f0a3f1ad216dc22bb52f02254c76b0f1ab3761172931ef5fed0f39cd",
+      "bytes": 4255
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261003/authorization-preparation.md",
+      "sha256": "5bc520f38af3baa88a635f9ee093fc0d95aeac14c5eaf01dc12201ba5511c768",
+      "bytes": 7731
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261003/implementation-verification-03a.md",
+      "sha256": "7a353204e2c47962955bbe98a474bfccaefc5f31a57869b4814f6293fd267ea7",
+      "bytes": 6868
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261003/reconnaissance.md",
+      "sha256": "b5eb46ea4b48f0bf660f4b80bb8e3b2e9e2ca3236c8b80b03007178073890b2f",
+      "bytes": 2150
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261004/current-permission-request-audit.md",
+      "sha256": "6638eafe1733919778b58358ec7cb90b0cf8562c27bc9991c381f2325f23b4ab",
+      "bytes": 3574
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261004/exit-contract-02/03b-c1-implementation.md",
+      "sha256": "80071895ca68c89460b763237cf8f6c266dd73b7b2a65f7b40fe235ed53dfba4",
+      "bytes": 4446
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261004/exit-contract-02/exit-conclusion.md",
+      "sha256": "e2f353c19675ffd4ede5510b84d9193c90e50554dd8156353eccd2ba1fd4a907",
+      "bytes": 1233
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261004/exit-scope-01/exit-scope-review.md",
+      "sha256": "c39ae736062f1050f8501fc8372439f95cfff2446a11a455df399461478af9a9",
+      "bytes": 7263
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261004/exit-scope-01/regression-error-scope.md",
+      "sha256": "e151e51b0ccf0b2782dd740421cbbf191d9bb9b8434e29af4f85a62eee25f1d4",
+      "bytes": 16802
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261004/implementation-verification.md",
+      "sha256": "0ceec7ac22469612ef54c250fe51adf54eac66d93895706f7fe08b21dc405eff",
+      "bytes": 6116
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261004/subject-initialization-01/implementation-http-verification.md",
+      "sha256": "66a0b5ac7139be9a565d228489f4265ec77bc080eae8c5e3340503f6fa68889f",
+      "bytes": 7720
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261005/c2/implementation.md",
+      "sha256": "76216c4dd66d260025a6ac9ce5fdbfa59258353eca18b7f266a1030f5873c9f8",
+      "bytes": 5638
+    },
+    {
+      "path": "docs/evidence/adjudication-llm-materials-20261005/c2/runtime-validation-prerequisites.md",
+      "sha256": "23fd93abe347ff56010a85d1fefc24fe0ee5fe857f4cdf04d37e20d395c8c29a",
+      "bytes": 1952
+    },
+    {
+      "path": "docs/evidence/adjudication-product-20261003/verification.md",
+      "sha256": "13392bfcfd7966a9338d77f23a34cd29cdcdc66ff432120f0f2a14516a715aa5",
+      "bytes": 11885
+    },
+    {
+      "path": "docs/evidence/adjudication-report-editor-20261003/verification.md",
+      "sha256": "30e6950d39cbc2b01ae8f3a82d5eb956362922b62161c0467a10e5ae5136d208",
+      "bytes": 8436
+    },
+    {
+      "path": "docs/evidence/adjudication-task-20261002/implementation-verification.md",
+      "sha256": "913361f0f7001c30a544643c9e4c2d3a423b27df119c8255b6c984ed7f108772",
+      "bytes": 6003
+    },
+    {
+      "path": "docs/evidence/adjudication-workspace-20261002/recovery-verification.md",
+      "sha256": "f61a3f1f2f6dc1cea5aa701eaa0245bff531b1c7bfb6889525e7868bace3c78b",
+      "bytes": 3282
+    },
+    {
+      "path": "docs/evidence/adjudication-workspace-20261002/verification.md",
+      "sha256": "0e957bf2b939f8ab0e53f2e48972e6fab9d05b7737f052f99edbb35b1092ca1a",
+      "bytes": 8018
+    },
+    {
+      "path": "docs/evidence/agent-runtime-20261005/round-01/verification.md",
+      "sha256": "6a8c888523b144e556c0e44b5ccb8d7045ce40036f861a8d1fe0cbf395e7676c",
+      "bytes": 4135
+    },
+    {
+      "path": "docs/evidence/agent-runtime-20261005/round-03/verification.md",
+      "sha256": "81f6925c938583a0ce3e52fe17664eea68a21a097d8a23c5f04fb9f076fa370f",
+      "bytes": 15134
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/cipo-source-candidate-review.md",
+      "sha256": "35fd2b21bc22a7bbdc63f0a1f38bb1b2ec8cda6a8b7e33ea8a9f68e6c54d4f09",
+      "bytes": 2219
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/comparison-core-authority-v843.md",
+      "sha256": "873ee587be2122472b8e0fd5f98bed1712483aa61bf60770c9b2b406c5c1f524",
+      "bytes": 4785
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/comparison-input-v882.md",
+      "sha256": "263feb9e635071a8fb494d8dabe8461787f00d607c8b9e5e3fe8ff78d594d399",
+      "bytes": 4317
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/comparison-mainchain-v854.md",
+      "sha256": "393332186c9566c0f12e3cc90657b6b3b42000c33b364270303e0dd9c51f831d",
+      "bytes": 4582
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/comparison-prepare-feature-v872.md",
+      "sha256": "880a502598aaee65d47262ba086349773cd6d72dca7ee6a2392b1ad55164c817",
+      "bytes": 4967
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/comparison-source-dependency-review-v835.md",
+      "sha256": "abfaf11e3c8a99f6ce6df80e1e8e2ae59bc92f65b47d46cd6ebf6d066ae3404c",
+      "bytes": 3653
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/complete-embedding-verification.md",
+      "sha256": "67ca131d52a0272eda269f6ee4bb262e705dadb1e603b085565b6351c24a70b8",
+      "bytes": 2187
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/complete-reranking-verification.md",
+      "sha256": "e5de60c57cbf4c6e693f1338fb578e0218901d59b31dbc77c0cdc53e2d1c9469",
+      "bytes": 1773
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/current-product-verification.md",
+      "sha256": "52f7c591f3aacb61a1c2d9171995e643ca6733a85a7fd206aea28a6ebcbe73fb",
+      "bytes": 6407
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-citations-verification.md",
+      "sha256": "8ba9e6276b49a537f83aaf060c4c55b02fa9a336a3cfa91839ea71a169c4f07c",
+      "bytes": 1654
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-complete-rerank-verification.md",
+      "sha256": "4d63953011c18c1ca7b10a2fd5a809625854c0d2d608805b7fae19bc77af4f2f",
+      "bytes": 974
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-execution-verification.md",
+      "sha256": "7138e4409d42d4c58c586443cbd928c19789df7a78974d0e8eb6d89d86793b6b",
+      "bytes": 1561
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-goal-physical-verification.md",
+      "sha256": "d0dbc80931e3b821fbf800e9cb685f1c07ef87cef1aaf91e9c5fe0a6e111eedc",
+      "bytes": 1874
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-pages-verification.md",
+      "sha256": "f0138824f033e4b6179b95370d7a8a25fba34718905bb711d0355fb0ba95a064",
+      "bytes": 1276
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-ranking-connection-verification.md",
+      "sha256": "0f9491e2970292851298aee7f7b4db4234582fd78d8d28fdc06587d274a60927",
+      "bytes": 1539
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-recovery-verification.md",
+      "sha256": "492765ed16fc72048966b031f0841671f45bcb6ca9d39c80d311c7a73e19e75f",
+      "bytes": 2351
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-result-contract-verification.md",
+      "sha256": "d1a607ff1f932b47973a6bf558a511dbb7dc4180085d95ef41f50828b14d35d9",
+      "bytes": 1535
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-semantic-fusion-verification.md",
+      "sha256": "a19956b4ca97ae592278cfccf95fa4c7f18998bc5d3789396336995b3e59b3dd",
+      "bytes": 1319
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-source-batch-verification.md",
+      "sha256": "c707adbb626ff1f383d8522eb1ec0975a0da5f6b447eec289f635b4215ee441e",
+      "bytes": 1275
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-storage-verification.md",
+      "sha256": "ebbd11b314cd85638a8b361629d7381c31f842768738506693ae4feb14c01002",
+      "bytes": 1778
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/field-submit-verification.md",
+      "sha256": "0f5678a64fa6d5599f9c990f04098de88392e2c6c6a162b5fa211544cb16e7ac",
+      "bytes": 1680
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/golden-human-observation-v789.md",
+      "sha256": "f8cde2263ae51780683a9a9a01628efe5d690a904b7b1bae3c1c2d13216374f4",
+      "bytes": 10647
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/golden-human-record-v789.md",
+      "sha256": "e66f77877f6b223008be728e6d996abe5d7b0a7e6cfa21631eeac282fc5716bc",
+      "bytes": 3723
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/hupd-fields-verification.md",
+      "sha256": "e778171d0d621c29b5aa788fbaf3547830eb1a6c3cfb66e38478f5185f0d954c",
+      "bytes": 2755
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/hupd-formal-verification.md",
+      "sha256": "57eea304a8e068b502b423a4794564be8d6197e74c3b20b1ce138a9d4463b68f",
+      "bytes": 2695
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/hupd-real-candidate-verification.md",
+      "sha256": "3933fc49a2a4be5b4bca86459b60e5eee45012b084c4561fad24639a0be24ac0",
+      "bytes": 4412
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/hupd-registry-verification.md",
+      "sha256": "c6bbe832a48aad338a14c21620a6feb414b6525ee018d76e01dfe0895ae9e592",
+      "bytes": 3419
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/hupd-title-verification.md",
+      "sha256": "51eefb542b7f8257eb8a683c56c7040e1e77dfe201a87013d18ffff1b5e9602a",
+      "bytes": 2482
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/patentsview-native-verification.md",
+      "sha256": "f0f6c4686c67168b55a77551241e28cfaa98bd88e6dd7f70d05b926160491e4e",
+      "bytes": 3288
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/patentsview-source-capture.md",
+      "sha256": "3839b700ce4c8d1bbf6b001b6fdee84d2b3202e95b42edc286ec72dd92d56083",
+      "bytes": 3307
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/release-field-guards-verification.md",
+      "sha256": "24616063fe5606266529e4946e0632a9951ea67846c72cef3079eb1e479efb0b",
+      "bytes": 2553
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/search-field-core-verification.md",
+      "sha256": "52e3deb628787ed64eb227fdc50a8b63bd74f93a70809e14d6a52f17a5a22a68",
+      "bytes": 2866
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/search-product-release-v410.md",
+      "sha256": "2808cfd199f5b15710472bdd226e16e84e357eef18a0cd7b9fc6bed2c31ae21e",
+      "bytes": 27904
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/semantic-field-index-verification.md",
+      "sha256": "269fcf1216443cc6ff6a37462ba336ae40d61203eac5b64a10557c89cd81f51f",
+      "bytes": 1812
+    },
+    {
+      "path": "docs/evidence/consultation-search-20261002/semantic-fields-verification.md",
+      "sha256": "fa2e4ac756e8af9a543c1871a058fcc5ecd1c3a37b3eb2e83f194bda7322ea7d",
+      "bytes": 1972
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-CLAIM-RESTART-SAFETY-20261004-95/claim-slice-design.md",
+      "sha256": "9448d40811f9871b9ef84b1e949af4eb0e3e0d1857b47c8aa5f2d79c684d1e0f",
+      "bytes": 1166
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-CLAIM-RESTART-SAFETY-20261004-95/technical-review.md",
+      "sha256": "e722b47236630c3ce0af029d84dac452cc539858c5718e250115f28ed8894cb6",
+      "bytes": 2174
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-CONTROLLED-READ-DESIGN-20261004-98/ADR-ENF-CONTROLLED-READ-98-01.md",
+      "sha256": "9c56d10553138e04a76868c0d13007bec01ce1ba289f38d51b23ee376ad37bae",
+      "bytes": 1760
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-CONTROLLED-READ-DESIGN-20261004-98/controlled-read-design.md",
+      "sha256": "a14518b24f439b60ec6fdb44e89bdda4cdc22653ddd9d98c474bbd995c1dafc5",
+      "bytes": 13156
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-CONTROLLED-READ-IMPLEMENTATION-20261004-99/technical-review.md",
+      "sha256": "e6e01a1fad8c71f270b5fed2d66c7b0502216bc54c1a983aa9acd55b72582636",
+      "bytes": 5402
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-CONTROLLED-READ-PREFLIGHT-20261004-97/preflight-review.md",
+      "sha256": "8f878afeb43de15623741edb2ea967fb450cbacd0c7b8d462c36c8faaba598ce",
+      "bytes": 4062
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-ENV-REGRESSION-20261003-79/recovery-audit-20261003-82/recovery-boundary.md",
+      "sha256": "1218f21e53ddfacd4a4a47276cb6c07598cd997818deea77fe2902192254e13a",
+      "bytes": 2881
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-ENV-REGRESSION-20261003-79/recovery-audit-20261003-83/recovery-design.md",
+      "sha256": "7c53e6f2c8a499eae88e887ad781b76ef817061f8cc7a98c209b4dd1816357de",
+      "bytes": 6217
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-FACT-WORKFLOW-DM8-20261004-91/isolated-workflow-design.md",
+      "sha256": "30faa058b768506426b13ad7c252b3aeae39a62600c6813a1ae3d895f4c0dc94",
+      "bytes": 1374
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-FACT-WORKFLOW-DM8-20261004-93/technical-review.md",
+      "sha256": "28ff32a56185ee9e654dc6c6563f2ec47013d0e71ffafbe8d0a7de543caad8c9",
+      "bytes": 2251
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-FACT-WORKFLOW-NEGATIVES-20261004-94/negative-slice-design.md",
+      "sha256": "7d18cd9f6b285bf1376629beccdba00e4e9fc4b58fb79632f6db2a1e7f942088",
+      "bytes": 1133
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-FACT-WORKFLOW-NEGATIVES-20261004-94/technical-review.md",
+      "sha256": "7ba191b2488ab9ebb973098346f664d21d04a941326f731cc2a350a5edce63ce",
+      "bytes": 1622
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-FACT-WORKFLOW-SAFETY-20261004-90/startup-importer-claim-readonly-review.md",
+      "sha256": "7eb19733e121b92ccaa9b3ee19c4afb7279a66e64b837572ea8ddd1f39a73ec6",
+      "bytes": 3943
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-RESTART-DECISION-20261004-96/controlled-restart-and-continuation.md",
+      "sha256": "d2a6ca9f814f4714b2f310c55a3ec38f5c59855b7b5d6d71ffa155a3acb35aa8",
+      "bytes": 16138
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-20261002/ENF14-TEST-ISOLATION-20261004-88/test-isolation-design.md",
+      "sha256": "27a6f575d599c8627574a1ad21eaf144f6c98b7105cfde0e6fd6709fd8687d9a",
+      "bytes": 1910
+    },
+    {
+      "path": "docs/evidence/enforcement-document-draft-execution-20261002.md",
+      "sha256": "53affbe2c7839d4a02017b3f63b2c52f80cd9e59c7a196e81deef21a03a566d9",
+      "bytes": 118750
+    },
+    {
+      "path": "docs/evidence/enforcement-evidence-v2-d-20260928.md",
+      "sha256": "6557b1ced6316dffe64d7f19bb80adb80db547c82637ce585f22c7d5daa44f61",
+      "bytes": 32401
+    },
+    {
+      "path": "docs/evidence/enforcement-followup-v2-d-20260929.md",
+      "sha256": "bcc4f2a16f2fd7e537ac48d2e539af48676822244fc17b3e29987f45afe463c9",
+      "bytes": 12445
+    },
+    {
+      "path": "docs/evidence/enforcement-followup-v2-implementation-20260930.md",
+      "sha256": "4971cc4e4876cd87653b6f565e04726ed133def77fa537e50ee33b5b0c26fcc6",
+      "bytes": 72501
+    },
+    {
+      "path": "docs/evidence/enforcement-functional-readiness-d-20260929.md",
+      "sha256": "a8d7546098e3914eacaf79930aa2961e30ae4395ab44c10a97209206ad1cd762",
+      "bytes": 8052
+    },
+    {
+      "path": "docs/evidence/enforcement-handoff-v2-d-20260928.md",
+      "sha256": "ee87908fa62a3b0baeac4808101946cd4700cfc8b422de6346536bfee1460148",
+      "bytes": 18617
+    },
+    {
+      "path": "docs/evidence/enforcement-human-acceptance-site-d-20260929.md",
+      "sha256": "0b0003ce655335923f1d765482d66d80d6af4e04d2ff1b26893060e0031efec0",
+      "bytes": 2231
+    },
+    {
+      "path": "docs/evidence/enforcement-human-acceptance-site-implementation-20260929.md",
+      "sha256": "355ae2ff40e403f5d9143366841028468a1ec2ec4cf0ca256f916034c781e752",
+      "bytes": 9473
+    },
+    {
+      "path": "docs/evidence/enforcement-independent-i-20260929/FINAL-RUN-MANIFEST.md",
+      "sha256": "d2e4dee5e494351ec10057f57b748402768d5b95312416b3bda99f039a7e6580",
+      "bytes": 4526
+    },
+    {
+      "path": "docs/evidence/enforcement-job-pack-collection-d-20260929.md",
+      "sha256": "cdd42ddc95e26526fcdd83b1b84cca97035e3049ba2cbd34ba5efb40b046e9a6",
+      "bytes": 10491
+    },
+    {
+      "path": "docs/evidence/enforcement-material-dev-execution-20260927.md",
+      "sha256": "144c41548055c9b350e987eb5216f15f1461637fdc9b15a80003ab083090870e",
+      "bytes": 67741
+    },
+    {
+      "path": "docs/evidence/enforcement-next-v2-d-input-20260928.md",
+      "sha256": "a6202e09b9aec7f3e9bb94488347ec0470d4ea1641a528ad07235ac68b6ff5d6",
+      "bytes": 4919
+    },
+    {
+      "path": "docs/evidence/enforcement-next-v2-imp-20260928.md",
+      "sha256": "1c82f633863ebd503cdda5c36e9dd6f875d6e69ea21e561cff458e28843efa91",
+      "bytes": 32187
+    },
+    {
+      "path": "docs/evidence/enforcement-public-collection-allow-d-20260929.md",
+      "sha256": "b8957d3df5de782c220a65e9cf57c7796d08d36743572f60277140c4ece21bbc",
+      "bytes": 3859
+    },
+    {
+      "path": "docs/evidence/enforcement-public-collection-allow-implementation-20260929.md",
+      "sha256": "d781abd93f90214212c4f809fb1f89292e1516d4df162f2c306aa25d78d41494",
+      "bytes": 3573
+    },
+    {
+      "path": "docs/evidence/enforcement-public-job-pack-d-20260929.md",
+      "sha256": "7faae948c7353316f3e66689d9a4788bd3a2f78cc3f910bc9d706701a0400af3",
+      "bytes": 4545
+    },
+    {
+      "path": "docs/evidence/enforcement-public-job-pack-implementation-20260929.md",
+      "sha256": "09dc845abe3f56e70388ab4ed43b6a505cebf70600cd9b000f160dd3d16026c3",
+      "bytes": 5666
+    },
+    {
+      "path": "docs/evidence/enforcement-real-business-collection-d-20260929.md",
+      "sha256": "3ddeec0d39903365062e7c5d755810bd296b8b3dd502ca78b5b6ba060bc34d8a",
+      "bytes": 6297
+    },
+    {
+      "path": "docs/evidence/enforcement-real-business-collection-implementation-20260929.md",
+      "sha256": "214d995eb539c4f966f799c457ef29d664d0d90a28bad79dc0152e3517a81fb9",
+      "bytes": 5380
+    },
+    {
+      "path": "docs/evidence/enforcement-v2-job-closure-20260929.md",
+      "sha256": "4617319b0e003a1651bba4736880132911f31fa7e091e1cc0ad66065203a7f3f",
+      "bytes": 4673
+    },
+    {
+      "path": "docs/evidence/v2-contract-detail-20260924/consultation-core-semantic-review.md",
+      "sha256": "524893171989b219901e13a3dae7ab8a99ee70d8ff1ec1e645b1f1fbb03c77fe",
+      "bytes": 8864
+    },
+    {
+      "path": "docs/evidence/v2-contract-detail-20260924/remaining-34-semantic-review.md",
+      "sha256": "47756a7b76f2206ac7a4e9291c11222352e5dee97916ed482f61ef9c2c8a12f2",
+      "bytes": 11599
+    },
+    {
+      "path": "docs/v2/00-redesign-summary-v2.md",
+      "sha256": "cc42e288284bc13e0b56a6619a4a519d1536e3dcf6ad184b7fa816a49253aebb",
+      "bytes": 6291
+    },
+    {
+      "path": "docs/v2/01-product-requirements-v2.md",
+      "sha256": "627bfce1365aed626537a3c7bfc1e215ff223614de17408170c32e30ac11ab1b",
+      "bytes": 14026
+    },
+    {
+      "path": "docs/v2/02-product-blueprint-v2.md",
+      "sha256": "36e08b97487157d7f49d1383f8910646c6928e295a54576ed07714923b478acf",
+      "bytes": 12792
+    },
+    {
+      "path": "docs/v2/03-agent-runtime-spec-v2.md",
+      "sha256": "809e37fb23842321318f3686df800a9d7579fa9007ca05f3b0811d7d82b21d7b",
+      "bytes": 8174
+    },
+    {
+      "path": "docs/v2/04-domain-workflows-v2.md",
+      "sha256": "dcfa17b5eff41a633e3526ba46169317fe1f5914828ae64d5434e6babce7c235",
+      "bytes": 8179
+    },
+    {
+      "path": "docs/v2/05-domain-model-v2.md",
+      "sha256": "1ec13b469053d56d9b53267c48ac45b33951ab96315702a87078d9ed2da64c1a",
+      "bytes": 6596
+    },
+    {
+      "path": "docs/v2/06-skill-tool-spec-v2.md",
+      "sha256": "aa3df462a308edd28052716150a28a128179784c807517b1c665ba4881815148",
+      "bytes": 6510
+    },
+    {
+      "path": "docs/v2/07-context-memory-rag-v2.md",
+      "sha256": "7f831f6b74d92b76e6fc0721aaf76f4f5cf8e27026e4aad64af204b2474b06d4",
+      "bytes": 4249
+    },
+    {
+      "path": "docs/v2/08-human-collaboration-v2.md",
+      "sha256": "66f1ae9d466c1577964f7c8b26dd225955278bf19bd7a3ef1b68a8a4fd7e8954",
+      "bytes": 3639
+    },
+    {
+      "path": "docs/v2/09-workbench-ux-v2.md",
+      "sha256": "13cf3e8a16be008e4af6515d17c3684ea0c3e4205d5ecac4a3db113948edd6c5",
+      "bytes": 4127
+    },
+    {
+      "path": "docs/v2/10-model-routing-v2.md",
+      "sha256": "dd9e91712b79d5209d47bb12381e875a9f5aa11cb4f93ad4cdd200b8c9ba392f",
+      "bytes": 2173
+    },
+    {
+      "path": "docs/v2/11-security-safety-v2.md",
+      "sha256": "2cfab54b45b48f0bf44c8dfb2a37dcdab9866d088029bf375753ed0764e3b1ba",
+      "bytes": 3720
+    },
+    {
+      "path": "docs/v2/12-observability-v2.md",
+      "sha256": "6b6aef5c3e28d7cb4946ff0a0dbc1ecf7a5690f7c241567a566114602db5cd7a",
+      "bytes": 2664
+    },
+    {
+      "path": "docs/v2/13-evaluation-v2.md",
+      "sha256": "01a768a5a9a88157d8a87214cd67600b6dcb51d1dd961f13871d857d3be7485c",
+      "bytes": 4238
+    },
+    {
+      "path": "docs/v2/14-roadmap-v2.md",
+      "sha256": "f255eaafe5e2e9d3b3ad809c500253d85d3c80ec4be78126a34be40c3d39ab4b",
+      "bytes": 6113
+    },
+    {
+      "path": "docs/v2/15-requirement-traceability-v2.md",
+      "sha256": "81265d78e375dc3081870873e1b643fccbde389c83178876390bbb688b8793f7",
+      "bytes": 36067
+    },
+    {
+      "path": "docs/V2-项目整体评估报告.md",
+      "sha256": "3d7819ca317725cd400a0941f85902c326ef53a4fc0c76afb2a9c0c4d45f749a",
+      "bytes": 80288
+    },
+    {
+      "path": "docs/阶段一-知识产权产品与架构独立探索报告.md",
+      "sha256": "f2e052a9b1d241de07f503509458dca9eceb1c4d152f4370d04684ea78924407",
+      "bytes": 30043
+    },
+    {
+      "path": "docs/阶段二-首条专利任务验证准备与预注册方案.md",
+      "sha256": "fc5ada6c8e54711c9d80f429e174342a81014a567f09b5655b3b702eb070f4ea",
+      "bytes": 21512
+    },
+    {
+      "path": "docs/project-plan.json",
+      "sha256": "a55665ecb6b48f2c45b2afcb42b4a386b32e82c00b7ffc058edc643cff57262b",
+      "bytes": 1547397
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "5e48aad28f99bc893068bbbad8a1649519ff6e89542e2c00f6a78cc573385dcf",
+      "bytes": 5086
+    }
+  ],
+  "zipSha256": "698f10cd210ed000c81806bec2977b90e4bdda0033b1d001f751916748781d55",
+  "requirementDigests": {
+    "requirements/知识产权咨询助手/专利库管理需求文档.md": "5e295da3d1f11bf71f8a72ebd3369598f92f5584717db4503300422ed91c0770",
+    "requirements/知识产权咨询助手/专利相似度判断需求文档.md": "70d50051b6022b05e44c4f2536c7c9bb296a3f27b35c248b383dbc3d717b654a",
+    "requirements/知识产权咨询助手/专利相似度检索需求文档.md": "b2136efb65b7ff2f81621b3a1fe98dad6835c8a2652ee62a00c1520dae8b5fe4",
+    "requirements/知识产权咨询助手/商标库管理需求文档.md": "0bf6834dcec865fec5fbbc4f25c5b2b85125b3c9ea5a98dc064c19a8dced1301",
+    "requirements/知识产权咨询助手/商标相似度判断需求文档.md": "e6f79c6c4e05f1d9b78a53d157120fe5c919ab620e835336a97ca2ae8502f58c",
+    "requirements/知识产权咨询助手/商标相似度检索需求文档.md": "c4e57d19694742b371150cf3dd38f2bbe0f01366aa658cbfa8879e234fdf2bb4",
+    "requirements/知识产权咨询助手/条文要点管理需求文档.md": "90ec6740f3e3b4229f509d92eb7b9f19267c2f94a727c107e369b22d2b7d1c12",
+    "requirements/知识产权咨询助手/条文解析管理需求文档.md": "83be8c0ac243906c6b54ef4e6e3265a8495ae237b5ad8e8b70f4dad351ef88c3",
+    "requirements/知识产权咨询助手/案例库管理需求文档.md": "f6932bc13e986ba6343b46cccda6a21b58892820f1182535ca9786d6a916620e",
+    "requirements/知识产权咨询助手/法律法规管理需求文档.md": "f4d0afedb7bb0a969ea531f99685285d2fa38893df39b088e958d8deb6656bdb",
+    "requirements/知识产权咨询助手/相似案例检索需求文档.md": "defb85600e08997f878cccda6c391153a2e06b5ae70e9bc4e546deda801712f9",
+    "requirements/知识产权咨询助手/知识产权咨询助手需求文档总目录.md": "23746b825561aac0e3cf79f89a350c15764d678e402d7a4757706e3ac9b15dee",
+    "requirements/知识产权咨询助手/知识产权咨询对话流管理需求文档.md": "fc252383a9a4af34b49e722dd6e2e8a768ad93db2be97bf377d261c6bc3e809d",
+    "requirements/知识产权咨询助手/知识产权咨询意图管理需求文档.md": "cf5de743f119e0b256dc16c93fe0b1411f0e37bdf075d8f49b664dac1a4daa41",
+    "requirements/知识产权咨询助手/知识产权咨询提示词管理需求文档.md": "aaf278a2b3c8dd263541431baf951369354bfd8234e5fe91d3786499a70353e5",
+    "requirements/知识产权咨询助手/知识产权咨询智能体管理需求文档.md": "0fa680e63b12b5199c7a023dadf3692f4e550602960b20070c4e7a308b5720bf",
+    "requirements/知识产权执法助手/00-需求总览与通用约定.md": "9c6ad890a6873f9a6afa303200048bac7be2914ff12018d527b361a7f4a95512",
+    "requirements/知识产权执法助手/01-违法线索数据源管理需求文档.md": "f3f6200f420f3af00d7539e722eb06d7aea93acf1735e8810a2e1bbee2b96257",
+    "requirements/知识产权执法助手/02-违法线索发现规则管理需求文档.md": "9b6b94f5bb8ca7513e889736c8d38cd16ee15e4666968aea77a744575dd70b47",
+    "requirements/知识产权执法助手/03-违法线索发现需求文档.md": "ac774a2e00e78896abdd09d03c58fbb114094a1868056a95f321a355ecf6f042",
+    "requirements/知识产权执法助手/04-违法线索解析需求文档.md": "3f418dede2841208e3f7a3fdacaaa0c63795a38458b2994d6d8df69816d54b20",
+    "requirements/知识产权执法助手/05-违法证据管理需求文档.md": "3c819aa9a3c75f7c8bc44a299198b2c50ea8512483dd7fd91cd2962a6194b463",
+    "requirements/知识产权执法助手/06-违法证据链整理规则管理需求文档.md": "72f1480b53a17d1bbc31a9b25e3526f52732df833157ec9e0c0ea67ed2c1487c",
+    "requirements/知识产权执法助手/07-违法证据链自动整理需求文档.md": "c56b75e81bdd5bfbda9b024736b2cc7fb8d8d3ef4c27217104ef53adfd861667",
+    "requirements/知识产权执法助手/08-执法流程合规性校验规则配置需求文档.md": "bd3b12aa55732e7f9e43f7934721f67a9d4aabdb2710b23a5889c2c8f9765171",
+    "requirements/知识产权执法助手/09-执法流程合规性校验需求文档.md": "68a3c59eca60d3fa9bb876223ff6012d10067f99b7b7641470d649adada1863f",
+    "requirements/知识产权执法助手/10-侵权行为分析规则配置需求文档.md": "680768968af5d322881dcf72ba944bcd719370ad938eab33d9d0b274ba8eb2e4",
+    "requirements/知识产权执法助手/11-侵权行为分析需求文档.md": "5823ecfd71581d83d62c624f280bafbee9e6f0a7b542d3596de7d01b34ec9f44",
+    "requirements/知识产权执法助手/12-执法文书模板配置需求文档.md": "885f1e276413d11dc569681e1cee971af14a6b90f2169df2a635845795afbe5d",
+    "requirements/知识产权执法助手/13-执法文书生成规则配置需求文档.md": "d1a16c5c9c6929fb13223f6a5d21a273794461edd76cfabec81d58b19af599c9",
+    "requirements/知识产权执法助手/14-执法文书自动生成需求文档.md": "8a29caa91be4f8b948c66ca7b88c301edd4ffd0312f7d6282aa44d5b3ed28333",
+    "requirements/知识产权执法助手/15-处罚建议规则配置需求文档.md": "e7aed1d6fe27b8e0f337aa00f409f63ae22970e8b937ee1e1a2b4c69094fd889",
+    "requirements/知识产权执法助手/16-处罚建议生成需求文档.md": "6ef4d66074915d72ccb4bb2b94537bdb51b4666e398b32ad6b040ed344606b9e",
+    "requirements/知识产权执法助手/17-法律依据引用需求文档.md": "499e938a36e1d72404e8d624d5154bb5a43410226e06c92b61b098a7f1616e69",
+    "requirements/知识产权裁决助手/00-需求总览与通用约定.md": "3312e093cc9164bac0af8adb1e7bea36982cb1c37fd47d56772c87a322a39c27",
+    "requirements/知识产权裁决助手/01-法律法规管理需求文档.md": "30cc22ea536bde89cf027e7238099fc2502dc549e43e8e621dc07771707a2200",
+    "requirements/知识产权裁决助手/02-条文解析需求文档.md": "427bcb14a59d7e69f8343e92582af959ed2e8aeb190010b84c49e8be7ae87378",
+    "requirements/知识产权裁决助手/03-条文要点管理需求文档.md": "98bc8509dd29cd71704944d46669f86ae03324df45aa948aa7868d1bfef9e5a3",
+    "requirements/知识产权裁决助手/04-裁决任务管理需求文档.md": "3821e08f6afdfef8818a1a2c626f4c943072b8f9ede1552541a938c9350b43a2",
+    "requirements/知识产权裁决助手/05-法律条文匹配需求文档.md": "34268b74307ce6ae27e5ed1722b2024bd268b6d0f84e228f44387c2351411b70",
+    "requirements/知识产权裁决助手/06-法律条文引用需求文档.md": "8d5437ee21df11ac2ba4520a7f268bbad5e7d14cf00c3f3ed43bf487a159f44a",
+    "requirements/知识产权裁决助手/07-专利解析需求文档.md": "e955e1530324b9b0cf2997a5f0606b107fe630f992a28b7c4bbe02553acbf2ac",
+    "requirements/知识产权裁决助手/08-专利有效性分析需求文档.md": "ff1efb86fa1d48278d5864d3f87afb751861ca2ce819a68bd1f816c4222ade85",
+    "requirements/知识产权裁决助手/09-专利侵权证据分析需求文档.md": "5ba05bd3261bafc7a6f205c5ea01804cfddd0a72576ead5aec65778ba0ecdb54",
+    "requirements/知识产权裁决助手/10-专利裁决报告模板配置需求文档.md": "435a005f3c49ecb6379799a187148eb56f66851bb3756509756788d02647ba7c",
+    "requirements/知识产权裁决助手/11-专利裁决报告生成需求文档.md": "e725f9c11b23e757bda63264860745911afa24df66c4fb4a811f02a694bd0776",
+    "requirements/知识产权裁决助手/12-人工复核需求文档.md": "af7d803c37430efe22e148281862dbcbf0179558dee7b478291d0ba24a5ad9ef"
+  }
+}

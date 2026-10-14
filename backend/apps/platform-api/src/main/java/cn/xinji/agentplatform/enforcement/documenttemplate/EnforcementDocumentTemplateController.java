@@ -31,7 +31,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/v2/enforcement/document-templates")
@@ -128,7 +127,21 @@ public final class EnforcementDocumentTemplateController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, ContentDisposition.attachment().filename(name).build().toString())
                 .body(new ByteArrayResource(bytes));
     }
-    @ExceptionHandler(SecurityException.class) void forbidden(SecurityException failure) { throw new ResponseStatusException(org.springframework.http.HttpStatus.FORBIDDEN, failure.getMessage()); }
-    @ExceptionHandler(IllegalArgumentException.class) void badRequest(IllegalArgumentException failure) { throw new ResponseStatusException(org.springframework.http.HttpStatus.BAD_REQUEST, failure.getMessage()); }
-    @ExceptionHandler(IllegalStateException.class) void conflict(IllegalStateException failure) { throw new ResponseStatusException(org.springframework.http.HttpStatus.CONFLICT, failure.getMessage()); }
+    @ExceptionHandler(SecurityException.class)
+    ResponseEntity<?> forbidden() { return problem(403, "Current template authorization unavailable"); }
+    @ExceptionHandler(IllegalArgumentException.class)
+    ResponseEntity<?> badRequest(IllegalArgumentException failure) {
+        String message = String.valueOf(failure.getMessage());
+        if (message.contains("integrity")) return problem(503, "Template file integrity failure");
+        if (message.contains("Stale") || message.contains("conflict")) return problem(409, "Template version or request conflict");
+        return problem(400, "Invalid document template input");
+    }
+    @ExceptionHandler({IllegalStateException.class, org.springframework.dao.DataAccessException.class})
+    ResponseEntity<?> unavailable(RuntimeException failure) {
+        if (String.valueOf(failure.getMessage()).contains("conflict")) return problem(409, "Template request conflict");
+        return problem(503, "Document template storage or authority unavailable");
+    }
+    private static ResponseEntity<?> problem(int status, String message) {
+        return ResponseEntity.status(status).body(java.util.Map.of("message", message));
+    }
 }

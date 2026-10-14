@@ -115,3 +115,12 @@ knowledge-base:
   provider: ${KNOWLEDGE_BASE_PROVIDER:dm8}
   import:
     enabled: ${KNOWLEDGE_BASE_IMPORT_ENABLED:false}
+
+agent-platform:
+  runtime:
+    enabled: ${AGENT_RUNTIME_ENABLED:false}
+    checkpoint-key: ${AGENT_RUNTIME_CHECKPOINT_KEY:}
+platform:
+  model-gateway:
+    deepseek:
+      endpoint: ${DEEPSEEK_API_URL:https://api.deepseek.com/chat/completions}

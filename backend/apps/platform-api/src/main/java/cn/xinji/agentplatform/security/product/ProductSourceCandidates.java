@@ -36,7 +36,7 @@ public final class ProductSourceCandidates {
             String operation, long resultingVersion) { }
 
     private static final Set<String> USES = Set.of("QUERY", "SAVE", "INDEX", "DISPLAY",
-            "DOWNLOAD", "MODEL", "SHARE");
+            "DOWNLOAD", "MODEL", "SHARE", "COMPARISON");
     private static final String ID = "[A-Za-z0-9][A-Za-z0-9._:-]{0,199}";
     private final JdbcTemplate db;
     private final TransactionTemplate transactions;
@@ -64,6 +64,7 @@ public final class ProductSourceCandidates {
                 if (replay != null) return replay(replay, hash, "REGISTER");
                 if (find(input.sourceId(), input.contractVersion()) != null)
                     throw conflict();
+                ProductSourceCaptureIdentity.lock(db,mapper,input,json);
                 Instant now = clock.instant();
                 db.update("INSERT INTO con4_source_contract(source_id,contract_version,source_version,"
                         + "declaration_json,request_sha,evidence_ref,evidence_sha,retention_ref,retention_version,"
@@ -172,7 +173,7 @@ public final class ProductSourceCandidates {
         if (value == null) throw invalid();
         validateKey(value.sourceId(), value.contractVersion(), requestId, actor);
         Instant now = clock.instant();
-        if (!valid(value.sourceVersion(), ID) || !nonBlank(value.provenance()) || !nonBlank(value.owner())
+        if (!valid(value.sourceVersion(), "[A-Za-z0-9][A-Za-z0-9._:-]{0,99}") || !nonBlank(value.provenance()) || !nonBlank(value.owner())
                 || !nonBlank(value.licenseEvidenceRef()) || !valid(value.licenseEvidenceSha256(), "[0-9a-fA-F]{64}")
                 || value.collectedAt() == null || value.validUntil() == null
                 || value.collectedAt().isAfter(now) || !value.validUntil().isAfter(now)

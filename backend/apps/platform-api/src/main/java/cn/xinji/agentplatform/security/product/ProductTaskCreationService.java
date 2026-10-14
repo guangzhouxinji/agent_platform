@@ -14,12 +14,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.transaction.support.TransactionTemplate;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 import org.springframework.web.server.ResponseStatusException;
 
 /** Creates subsequent consultation tasks under a current organization-level grant. */
 public final class ProductTaskCreationService {
     public record Input(String organizationId, Instant expiresAt, String retentionRef, long retentionVersion) { }
     public record Result(String taskId, String organizationId, String dataScope, long version, String grantId) { }
+    interface CreationObserver {
+        void requireCurrent(Instant now);
+        default void requireOwnedCurrent(Instant now, ProductGrantWatermark.OwnedChange owned) {
+            requireCurrent(now);
+        }
+        void created(CreationFact fact);
+    }
+    record CreationFact(ProductTaskDirectory.Task task, ProductTaskDirectory.Creation creation, String grantId) { }
+    private record Outcome(Result result, CreationFact fresh) { }
 
     private final JdbcTemplate db;
     private final ProductTaskDirectory directory;
@@ -49,6 +59,31 @@ public final class ProductTaskCreationService {
     }
 
     public Result create(Jwt jwt, String requestId, Input input) {
+        return create(jwt, requestId, input, null);
+    }
+
+    void requireBinding(javax.sql.DataSource primary, javax.sql.DataSource independent) {
+        if (primary == null || independent == null || db.getDataSource() != primary
+                || watermark.mainDataSource() != primary || watermark.independentDatabase().getDataSource() != independent)
+            throw new IllegalArgumentException("Matching creation and cleanup databases required");
+    }
+
+    Result createObserved(Jwt jwt, String requestId, Input input, CreationObserver observer) {
+        Objects.requireNonNull(observer, "Explicit creation observer required");
+        if (!(transactions.getTransactionManager() instanceof org.springframework.jdbc.datasource.DataSourceTransactionManager manager)
+                || manager.getDataSource() != db.getDataSource()
+                || transactions.getPropagationBehavior() != org.springframework.transaction.TransactionDefinition.PROPAGATION_REQUIRED)
+            throw new IllegalStateException("Observed creation requires the bound primary REQUIRED transaction");
+        if (TransactionSynchronizationManager.isActualTransactionActive()
+                || TransactionSynchronizationManager.isSynchronizationActive()
+                || TransactionSynchronizationManager.hasResource(db.getDataSource())
+                || TransactionSynchronizationManager.hasResource(watermark.independentDatabase().getDataSource()))
+            throw new IllegalStateException("Observed creation requires a standalone transaction");
+        observer.requireCurrent(clock.instant());
+        return create(jwt, requestId, input, observer);
+    }
+
+    private Result create(Jwt jwt, String requestId, Input input, CreationObserver observer) {
         if (jwt == null || jwt.getIssuer() == null || !issuer.equals(jwt.getIssuer().toString())
                 || blank(jwt.getSubject())) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         if (input == null || blank(input.organizationId()) || blank(requestId) || requestId.length() > 200
@@ -67,16 +102,17 @@ public final class ProductTaskCreationService {
             watermark.assertUnchanged(generation);
             return result;
         }
-        return watermark.change(() -> transactions.execute(status -> {
+        Outcome outcome = watermark.changeOwned(owned -> transactions.execute(status -> {
             long version = organizationVersion(input.organizationId(), true);
             if (version != authorizedVersion) throw new ResponseStatusException(HttpStatus.CONFLICT);
             if (!grantCoversExpiry(jwt, input.organizationId(), version, input.expiresAt()))
                 throw new ResponseStatusException(HttpStatus.FORBIDDEN);
             var prior = directory.creationReceipt(requestId);
-            if (prior.isPresent()) return replay(prior.get(), hash, jwt);
+            if (prior.isPresent()) return new Outcome(replay(prior.get(), hash, jwt), null);
             var creation = new ProductTaskDirectory.Creation(input.organizationId(), issuer, jwt.getSubject(),
                     retention.reference(), retention.version(), retention.evidenceSha256(), input.expiresAt(),
                     requestId, hash);
+            if (observer != null) observer.requireOwnedCurrent(clock.instant(), owned);
             var task = directory.insert(creation);
             var scope = new ProductGrants.Scope(issuer, jwt.getSubject(), task.organization(),
                     "CONSULTATION", task.id(), task.dataScope(), "TASK", task.id(),
@@ -84,8 +120,15 @@ public final class ProductTaskCreationService {
             var grant = grants.issue(scope, task.expiresAt(), 0, jwt.getSubject(),
                     "task-create-grant:" + requestId, hash);
             directory.recordCreationReceipt(creation, task, grant.grantId());
-            return result(task, grant.grantId());
+            if (observer != null) observer.requireOwnedCurrent(clock.instant(), owned);
+            return new Outcome(result(task, grant.grantId()), observer == null ? null : new CreationFact(task, creation, grant.grantId()));
         }));
+        // afterCommit alone is too early: the independent authorization watermark must also be READY.
+        if (outcome.fresh() != null) {
+            observer.requireCurrent(clock.instant());
+            observer.created(outcome.fresh());
+        }
+        return outcome.result();
     }
 
     private boolean grantCoversExpiry(Jwt jwt, String organization, long version, Instant expiry) {

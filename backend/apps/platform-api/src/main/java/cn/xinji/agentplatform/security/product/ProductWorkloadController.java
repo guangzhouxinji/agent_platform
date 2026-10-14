@@ -67,11 +67,29 @@ public final class ProductWorkloadController {
     public ProductGrants.Receipt grantTask(@PathVariable String subject, @RequestBody GrantTask body,
             @RequestHeader("Idempotency-Key") String requestId, HttpServletRequest request) {
         String actor = maintainer(request);
-        String organization = maintenance.requireOrganization(request, ProductMaintenanceProof.Role.GRANTS);
+        String organization = grantOrganization(request);
         String digest = sha(actor, subject, organization, body.taskId(),
                 String.valueOf(body.expiresAt()), Long.toString(body.expectedEpoch()));
         return watermark.change(() -> grants.issueWorkload(issuer, subject, organization,
                 body.taskId(), body.expiresAt(), body.expectedEpoch(), actor, requestId, digest));
+    }
+
+    @PostMapping("/{subject}/comparison-task-grants")
+    public ProductGrants.Receipt grantComparisonTask(@PathVariable String subject, @RequestBody GrantTask body,
+            @RequestHeader("Idempotency-Key") String requestId, HttpServletRequest request) {
+        String actor = maintainer(request);
+        String organization = grantOrganization(request);
+        String digest = sha("COMPARE_TASK_GRANT", actor, subject, organization, body.taskId(),
+                String.valueOf(body.expiresAt()), Long.toString(body.expectedEpoch()));
+        return watermark.change(() -> grants.issueComparisonWorkload(issuer, subject, organization,
+                body.taskId(), body.expiresAt(), body.expectedEpoch(), actor, requestId, digest));
+    }
+
+    private String grantOrganization(HttpServletRequest request) {
+        String subjects = maintenance.requireOrganization(request, ProductMaintenanceProof.Role.SUBJECTS);
+        String grants = maintenance.requireOrganization(request, ProductMaintenanceProof.Role.GRANTS);
+        if (!subjects.equals(grants)) throw new IllegalStateException("Maintenance organization changed");
+        return grants;
     }
 
     private static String sha(String... fields) {

@@ -138,9 +138,14 @@ public final class ConductRuleService {
                 rule.behavior() != example.input().behavior())
             throw new IllegalArgumentException("Invalid publication example");
         var actual = evaluator.evaluate(rule, example.input());
+        // Publication tests deterministic coverage, not a final defense decision.
+        // Keep the evaluator's complete gaps/outcome in the example and in all case reports.
+        boolean configuredDefenses = !rule.noDefensesConfirmed() && !rule.defenses().isEmpty();
+        boolean coverageGap = actual.gaps().stream().anyMatch(gap -> !configuredDefenses ||
+                (!"DEFENSE_UNASSESSED".equals(gap) && !"DEFENSE_REVIEW_REQUIRED".equals(gap)));
         if (actual.outcome() != example.outcome() ||
                 !new HashSet<>(actual.gaps()).equals(new HashSet<>(example.gaps())) ||
-                (positive && !actual.gaps().isEmpty()) || (!positive && actual.gaps().isEmpty()))
+                (positive && coverageGap) || (!positive && !coverageGap))
             throw new IllegalArgumentException("Publication example mismatch");
     }
 

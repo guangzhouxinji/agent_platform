@@ -1,0 +1,99 @@
+{
+  "format": "SINGLE_DATABASE_REPRESENTATIVE_INPUT_SET/v1",
+  "taskId": "IMP-SINGLE-DB-FINAL-BASELINE-01",
+  "setId": "SINGLE-FINAL-SELF-AUTHORED-20261009-V1",
+  "approvalGranted": false,
+  "files": [
+    {
+      "id": "consultation-technical-disclosure",
+      "domain": "consultation",
+      "version": "1",
+      "path": "deployment/single-database/representative-inputs-v1/consultation-technical-disclosure.txt",
+      "sha256": "b06bf7e3e1bbb72aed96945c672f51b7ea1d3487770fc427d154c9f7daea350e",
+      "bytes": 741,
+      "encoding": "UTF-8",
+      "mediaType": "text/plain",
+      "authorship": "本次工程会话自编；非采集历史业务材料",
+      "purposeRequested": "技术材料原文选区、人工确认与不可变输入保存",
+      "sourceUseApprovalGranted": false,
+      "licenseReferenceRequested": "单库本批确切四文件的内部工程功能验证许可；不授权专业或正式用途",
+      "retentionUntilRequested": "2026-10-14T18:00:00+08:00",
+      "normalInputContractRequired": true
+    },
+    {
+      "id": "consultation-candidate-claims",
+      "domain": "consultation",
+      "version": "1",
+      "path": "deployment/single-database/representative-inputs-v1/consultation-candidate-claims.txt",
+      "sha256": "ef3e24bc78b9652b537fe47bcba26847ebb88a4c1df845c7b31c0527917fb62d",
+      "bytes": 757,
+      "encoding": "UTF-8",
+      "mediaType": "text/plain",
+      "authorship": "本次工程会话自编；非采集历史业务材料",
+      "purposeRequested": "经确切来源字段/用途准入后作为唯一候选原文及无模型交接输入",
+      "sourceUseApprovalGranted": false,
+      "licenseReferenceRequested": "单库本批确切四文件的内部工程功能验证许可；不授权专业或正式用途",
+      "retentionUntilRequested": "2026-10-14T18:00:00+08:00",
+      "normalInputContractRequired": true
+    },
+    {
+      "id": "enforcement-factual-material",
+      "domain": "enforcement",
+      "version": "1",
+      "path": "deployment/single-database/representative-inputs-v1/enforcement-factual-material.txt",
+      "sha256": "a451600fef65a958ed999c3b081afdde5eb747bf6813ef857d472ada4bd99a50",
+      "bytes": 786,
+      "encoding": "UTF-8",
+      "mediaType": "text/plain",
+      "authorship": "本次工程会话自编；非采集历史业务材料",
+      "purposeRequested": "原R/D范围内材料文件、已有草稿/版本/复核入口及回执持久性验证",
+      "sourceUseApprovalGranted": false,
+      "licenseReferenceRequested": "单库本批确切四文件的内部工程功能验证许可；不授权专业或正式用途",
+      "retentionUntilRequested": "2026-10-14T18:00:00+08:00",
+      "normalInputContractRequired": true
+    },
+    {
+      "id": "adjudication-material",
+      "domain": "adjudication",
+      "version": "1",
+      "path": "deployment/single-database/representative-inputs-v1/adjudication-material.txt",
+      "sha256": "5d66bb64abe745c5b6cc95fa9e4e170e6ef0309e285c083ceaf770e1a4af0695",
+      "bytes": 767,
+      "encoding": "UTF-8",
+      "mediaType": "text/plain",
+      "authorship": "本次工程会话自编；非采集历史业务材料",
+      "purposeRequested": "03B既有材料/报告输入与确切版本交接、原键恢复验证",
+      "sourceUseApprovalGranted": false,
+      "licenseReferenceRequested": "单库本批确切四文件的内部工程功能验证许可；不授权专业或正式用途",
+      "retentionUntilRequested": "2026-10-14T18:00:00+08:00",
+      "normalInputContractRequired": true
+    }
+  ],
+  "consultationCandidateFieldUseRequested": {
+    "fileId": "consultation-candidate-claims",
+    "fields": [
+      "CLAIMS"
+    ],
+    "uses": [
+      "DISPLAY",
+      "COMPARISON"
+    ],
+    "noTitleInference": true,
+    "normalSourceOwnerScopeEpochAndRevocationRequired": true
+  },
+  "modelExternalCallsAllowed": 0,
+  "calculationAttemptsAllowed": 0,
+  "matrixSubmissionsAllowed": 0,
+  "productBehaviorChanged": false,
+  "requirementsModified": false,
+  "historicalInputsRead": false,
+  "excluded": [
+    "真实专利号、真实当事人、真实案件或正式签发",
+    "过期来源/数据包、现行历史结果及三份隔离结果",
+    "把本集合作为RBC回归原件续期或重放批准",
+    "虚构人工确认/复核/裁决",
+    "法源/正式模板/专业金标/评分/模型预算替代",
+    "开发专用路由、固定候选产品分支或身份绕过"
+  ],
+  "derivedFilesRule": "仅批准后经正式入口真实形成的不可变Input、已有受许可模板派生草稿或人工编辑报告与回执；逐文件SHA和当前权利/用途登记，整体保护前冻结精确文件映射。不预制运行结果。"
+}

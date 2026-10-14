@@ -1,0 +1,20 @@
+import java.sql.*;import java.util.*;import java.io.*;
+public class ReadEnforcementBootstrap44 {
+ static String env(String k){String v=System.getenv(k);if(v==null||v.isBlank())throw new IllegalStateException("MISSING_MANAGED_REFERENCE");return v;}
+ static List<Map<String,Object>> query(Connection c,String sql)throws Exception{var rows=new ArrayList<Map<String,Object>>();try(var s=c.prepareStatement(sql)){s.setQueryTimeout(30);try(var rs=s.executeQuery()){var md=rs.getMetaData();while(rs.next()){var row=new LinkedHashMap<String,Object>();for(int i=1;i<=md.getColumnCount();i++){Object v=rs.getObject(i);if(v!=null&&!(v instanceof Number)&&!(v instanceof Boolean))v=v.toString();row.put(md.getColumnLabel(i).toUpperCase(Locale.ROOT),v);}rows.add(row);}}}return rows;}
+ static void require(boolean yes){if(!yes)throw new IllegalStateException("POSTCONDITION_MISMATCH");}
+ @SuppressWarnings("unchecked") public static void main(String[] args)throws Exception{
+ var cls=Class.forName("com.fasterxml.jackson.databind.ObjectMapper");var mapper=cls.getConstructor().newInstance();var manifest=(Map<String,Object>)cls.getMethod("readValue",File.class,Class.class).invoke(mapper,new File("/jdbc/enforcement44/identity-bootstrap.json"),Map.class);
+ Class.forName("dm.jdbc.driver.DmDriver");var report=new LinkedHashMap<String,Object>();
+ try(var a=DriverManager.getConnection(env("PRODUCT_IDENTITY_AUTHORITY_DB_URL"),env("PRODUCT_IDENTITY_AUTHORITY_DEPLOY_USER"),env("PRODUCT_IDENTITY_AUTHORITY_DEPLOY_PASSWORD"));var p=DriverManager.getConnection(env("PRODUCT_IDENTITY_DB_URL"),env("PRODUCT_IDENTITY_DB_DEPLOY_USER"),env("PRODUCT_IDENTITY_DB_DEPLOY_PASSWORD"))){
+ require(a.getMetaData().getUserName().equalsIgnoreCase("ENFAUTH")&&p.getMetaData().getUserName().equalsIgnoreCase("ENFPROD"));
+ var maintainers=query(a,"SELECT SINGLETON_KEY,SUBJECT_REF,ORGANIZATION,CERTIFICATE_SHA,ALLOWED_ROLES,STATUS,VERSION FROM ENFAUTH.ID2_MAINTAINER");require(maintainers.size()==1);var m=maintainers.get(0);require(m.get("SUBJECT_REF").equals(manifest.get("subject"))&&m.get("ORGANIZATION").equals(manifest.get("organization"))&&m.get("CERTIFICATE_SHA").equals(manifest.get("certificateSha256"))&&m.get("ALLOWED_ROLES").equals(String.join(",",(List<String>)manifest.get("roles")))&&m.get("STATUS").equals("ACTIVE")&&((Number)m.get("VERSION")).longValue()==1&&((Number)m.get("SINGLETON_KEY")).longValue()==1);
+ var watermarks=query(a,"SELECT ISSUER,GENERATION,STATE,INTENT_ID,HISTORY_SHA FROM ENFAUTH.ID2_AUTHORITY_WATERMARK");require(watermarks.size()==1);var w=watermarks.get(0);require(w.get("ISSUER").equals(manifest.get("issuer"))&&((Number)w.get("GENERATION")).longValue()==0&&w.get("STATE").equals("READY")&&w.get("INTENT_ID")==null&&w.get("HISTORY_SHA").equals("e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"));
+ var audit=query(a,"SELECT AUDIT_ID,SUBJECT_REF,CERTIFICATE_SHA,ROLE_CODE,DECISION,OCCURRED_AT FROM ENFAUTH.ID2_MAINTENANCE_AUDIT");require(audit.size()==1);var b=audit.get(0);require(b.get("SUBJECT_REF").equals(manifest.get("subject"))&&b.get("CERTIFICATE_SHA").equals(manifest.get("certificateSha256"))&&b.get("ROLE_CODE").equals("BOOTSTRAP")&&b.get("DECISION").equals("BOOTSTRAP"));
+ var counts=new LinkedHashMap<String,Object>();for(String t:List.of("ID2_SUBJECT","ID2_SUBJECT_EVENT","ID2_KEY_CONTROL","ID2_SESSION","ID2_GRANT","ID2_GRANT_EVENT","ID2_CURRENT_EPOCH")){var row=query(p,"SELECT COUNT(*) AS ROW_COUNT FROM ENFPROD."+t).get(0);require(((Number)row.get("ROW_COUNT")).longValue()==0);counts.put(t,row.get("ROW_COUNT"));}
+ report.put("format","ACTUAL_ENFORCEMENT_BOOTSTRAP_READ_ONLY_POSTCONDITIONS/v1");report.put("capturedAt",java.time.Instant.now().toString());report.put("actualJdbc",true);report.put("postconditionsPassed",true);report.put("maintainers",maintainers);report.put("watermarks",watermarks);report.put("bootstrapAudit",audit);report.put("primaryIdentityRowCounts",counts);report.put("executedWrites",0);report.put("executedDcl",0);report.put("scope","enforcement only; not complete global identity bootstrap");
+ }
+ System.out.println(cls.getMethod("writeValueAsString",Object.class).invoke(mapper,report));
+ }
+}
+

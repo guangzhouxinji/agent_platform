@@ -55,6 +55,30 @@ class ProductTaskBackupRetentionTest {
                 now.plus(Duration.ofMinutes(40)))).isInstanceOf(IllegalStateException.class);
     }
 
+    @Test void standaloneExpiredModelPolicyMustBeCoveredAndItsOriginalMustMatch() throws Exception {
+        var db = database();
+        db.execute("CREATE TABLE con3_model_turn(retention_ref VARCHAR(100),retention_evidence_sha VARCHAR(64))");
+        db.update("INSERT INTO con3_organization VALUES('org')");
+        String modelSha = save("model-retention-v1.json", "historical model retention original");
+        db.update("INSERT INTO con3_model_turn VALUES(?,?)", "model-retention-v1.json", modelSha);
+        Instant now = Instant.now();
+        var retention = new ProductTaskBackupRetention(new ProductSourceEvidenceFiles(root.toAbsolutePath(),
+                1_000_000), mapper, Clock.systemUTC());
+        var missing = new ProductTaskBackupRetention.Decision(1, "accountable-backup-operator",
+                List.of("org"), Duration.ofHours(2), now.plus(Duration.ofHours(3)), Map.of(), true, true);
+        String missingSha = save("missing-model-policy.json", mapper.writeValueAsString(missing));
+        assertThatThrownBy(() -> retention.require(db, "missing-model-policy.json", missingSha, 1,
+                now.plus(Duration.ofMinutes(40)))).isInstanceOf(IllegalStateException.class);
+        var covered = new ProductTaskBackupRetention.Decision(1, "accountable-backup-operator",
+                List.of("org"), Duration.ofHours(2), now.plus(Duration.ofHours(3)),
+                Map.of("model-retention-v1.json", modelSha), true, true);
+        String coveredSha = save("covered-model-policy.json", mapper.writeValueAsString(covered));
+        retention.require(db, "covered-model-policy.json", coveredSha, 1, now.plus(Duration.ofMinutes(40)));
+        Files.writeString(root.resolve("model-retention-v1.json"), "tampered");
+        assertThatThrownBy(() -> retention.require(db, "covered-model-policy.json", coveredSha, 1,
+                now.plus(Duration.ofMinutes(40)))).isInstanceOf(IllegalStateException.class);
+    }
+
     private JdbcTemplate database() {
         var source = new JdbcDataSource();
         source.setURL("jdbc:h2:mem:" + UUID.randomUUID() + ";DB_CLOSE_DELAY=-1");

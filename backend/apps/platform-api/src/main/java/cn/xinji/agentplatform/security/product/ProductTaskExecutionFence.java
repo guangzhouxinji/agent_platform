@@ -25,6 +25,7 @@ final class ProductTaskExecutionFence {
         this.db = db;
         this.transactions = transactions;
         this.clock = clock;
+        db.queryForObject("SELECT COUNT(*) FROM con3_execution_attempt", Long.class);
     }
 
     Lease acquire(String taskId, String inputId, long expectedVersion, String worker, Duration duration) {
@@ -36,6 +37,7 @@ final class ProductTaskExecutionFence {
             currentInput(task, inputId, expectedVersion);
             Instant now = clock.instant().truncatedTo(ChronoUnit.MILLIS);
             List<Slot> slots = slot(taskId);
+            long token = 1;
             if (!slots.isEmpty()) {
                 Slot previous = slots.getFirst();
                 if ("ACTIVE".equals(previous.status()) && !previous.until().isAfter(now)) {
@@ -43,14 +45,24 @@ final class ProductTaskExecutionFence {
                             + "AND status='ACTIVE' AND fencing_token=?", taskId, previous.token());
                     return null;
                 }
-                throw new IllegalStateException("Existing execution requires completion or reconciliation");
+                if (!"COMMITTED".equals(previous.status()) || inputId.equals(previous.inputId())
+                        || previous.version() >= task.version() || previous.epoch() != task.epoch()
+                        || previous.token() == Long.MAX_VALUE)
+                    throw new IllegalStateException("Existing execution requires completion or reconciliation");
+                token = previous.token() + 1;
             }
             Instant until = now.plus(duration);
             String attempt = UUID.randomUUID().toString();
-            db.update("INSERT INTO con3_execution_lease VALUES(?,?,?,?,?,1,?,'ACTIVE',?,?)",
-                    taskId, attempt, inputId, task.version(), task.epoch(), worker,
+            if (slots.isEmpty()) db.update("INSERT INTO con3_execution_lease VALUES(?,?,?,?,?,?,?,'ACTIVE',?,?)",
+                    taskId, attempt, inputId, task.version(), task.epoch(), token, worker,
                     Timestamp.from(until), Timestamp.from(now));
-            return new Lease(attempt, 1, until);
+            else if (db.update("UPDATE con3_execution_lease SET attempt_id=?,input_id=?,task_version=?,"
+                    + "cancel_epoch=?,fencing_token=?,worker_ref=?,status='ACTIVE',lease_until=?,updated_at=? "
+                    + "WHERE task_id=? AND fencing_token=? AND status='COMMITTED'", attempt, inputId,
+                    task.version(), task.epoch(), token, worker, Timestamp.from(until), Timestamp.from(now),
+                    taskId, token-1) != 1) throw new IllegalStateException("Completed slot changed");
+            recordAttempt(taskId);
+            return new Lease(attempt, token, until);
         });
         if (acquired == null) throw new ReconciliationRequired();
         return acquired;
@@ -132,6 +144,7 @@ final class ProductTaskExecutionFence {
                 nextAttempt, nextToken, authorized.serviceSubject(), Timestamp.from(until),
                 Timestamp.from(now), taskId, old.attempt(), old.token()) != 1)
             throw new IllegalStateException("Execution slot changed");
+        recordAttempt(taskId);
         return new Lease(nextAttempt, nextToken, until);
     }
 
@@ -193,6 +206,12 @@ final class ProductTaskExecutionFence {
     }
 
     private static boolean blank(String text) { return text == null || text.isBlank(); }
+    private void recordAttempt(String taskId) {
+        if (db.update("INSERT INTO con3_execution_attempt(attempt_id,task_id,input_id,task_version,cancel_epoch,"
+                + "fencing_token,worker_ref,lease_until,issued_at) SELECT attempt_id,task_id,input_id,task_version,"
+                + "cancel_epoch,fencing_token,worker_ref,lease_until,updated_at FROM con3_execution_lease "
+                + "WHERE task_id=?", taskId) != 1) throw new IllegalStateException("Execution identity missing");
+    }
     private record Task(String id, long version, long epoch, String state, Instant expiresAt) { }
     private record Slot(String attempt, String inputId, long version, long epoch, long token,
                         String status, Instant until) { }

@@ -42,6 +42,20 @@ public final class EnforcementJobPackController {
     private final JobPackEvidenceStore evidenceStore;
     private final RealBusinessCollectionTaskStore collectionTasks;
     private final String issuer;
+    private boolean finalProductPurpose;
+
+    @org.springframework.beans.factory.annotation.Autowired(required=false)
+    public void finalProductAdmission(cn.xinji.agentplatform.enforcement.deployment.entry.ProductEnforcementEntryPolicy policy) {
+        java.util.Objects.requireNonNull(policy); finalProductPurpose=true;
+    }
+    private static boolean realPurpose(String purpose) {
+        return "REAL_INTEGRATION".equals(purpose) || "REAL_BUSINESS_COLLECTION".equals(purpose);
+    }
+    private void requireFinalPurpose(String id) {
+        if (!finalProductPurpose) return;
+        var pack=store.latest(id).orElseThrow(() -> new SecurityException("Package unavailable"));
+        if (!realPurpose(pack.purpose())) throw new SecurityException("Package unavailable");
+    }
 
     public EnforcementJobPackController(JobPackStore store, JdbcTemplate db, ProductGrantWatermark watermark,
                                         MaterialFiles files, JobPackEvidenceStore evidenceStore,
@@ -60,7 +74,10 @@ public final class EnforcementJobPackController {
     @PostMapping
     public Receipt create(@AuthenticationPrincipal Jwt jwt, @RequestHeader("Idempotency-Key") String key,
                           @RequestBody Create input) {
-        return service(jwt).create(actor(jwt), key, input);
+        String actor=actor(jwt);
+        if (finalProductPurpose && (input==null || !realPurpose(input.purpose())))
+            throw new SecurityException("Package purpose unavailable");
+        return service(jwt).create(actor, key, input);
     }
 
     public record ClaimResult(RealBusinessCollectionTask task, Snapshot jobPack) { }
@@ -95,6 +112,7 @@ public final class EnforcementJobPackController {
         String actor = actor(jwt);
         var task = collectionTasks.find(taskId)
                 .orElseThrow(() -> new SecurityException("Collection task unavailable"));
+        if (finalProductPurpose && store.latest(task.packageId()).isPresent()) requireFinalPurpose(task.packageId());
         var access = access(jwt);
         for (String action : List.of("CREATE", "COLLECT", "READ"))
             access.require(actor, input.organization(), "ENFORCEMENT_JOB_PACK", task.packageId(), 1, action, "JOB_PACK");
@@ -117,19 +135,21 @@ public final class EnforcementJobPackController {
 
     @GetMapping("/{id}")
     public Snapshot read(@AuthenticationPrincipal Jwt jwt, @PathVariable String id) {
+        actor(jwt); requireFinalPurpose(id);
         return service(jwt).read(actor(jwt), id);
     }
 
     @PostMapping("/{id}/facts/{type}")
     public Receipt submit(@AuthenticationPrincipal Jwt jwt, @RequestHeader("Idempotency-Key") String key,
                           @PathVariable String id, @PathVariable FactType type, @RequestBody FactInput input) {
+        actor(jwt); requireFinalPurpose(id);
         return service(jwt).submit(actor(jwt), key, id, type, input);
     }
 
     @PostMapping(value = "/{id}/evidence", consumes = org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE)
     public Evidence upload(@AuthenticationPrincipal Jwt jwt, @PathVariable String id,
                            @RequestParam String evidenceRef, @RequestParam MultipartFile file) throws java.io.IOException {
-        String actor = actor(jwt);
+        String actor = actor(jwt); requireFinalPurpose(id);
         var snapshot = store.latest(id).orElseThrow(() -> new SecurityException("Package unavailable"));
         var access = access(jwt);
         access.require(actor, snapshot.organization(), "ENFORCEMENT_JOB_PACK", id, 1, "COLLECT", "JOB_PACK");
@@ -151,12 +171,14 @@ public final class EnforcementJobPackController {
     public Receipt verify(@AuthenticationPrincipal Jwt jwt, @RequestHeader("Idempotency-Key") String key,
                           @PathVariable String id, @PathVariable FactType type,
                           @RequestBody VerificationInput input) {
+        actor(jwt); requireFinalPurpose(id);
         return service(jwt).verify(actor(jwt), key, id, type, input);
     }
 
     @PostMapping("/{id}/integration-result")
     public Receipt complete(@AuthenticationPrincipal Jwt jwt, @RequestHeader("Idempotency-Key") String key,
                             @PathVariable String id, @RequestBody Completion input) {
+        actor(jwt); requireFinalPurpose(id);
         return service(jwt).complete(actor(jwt), key, id, input);
     }
 

@@ -1,0 +1,2 @@
+import java.sql.*;
+class GrantAdjudicationSourceReferences {public static void main(String[] a)throws Exception {Class.forName("dm.jdbc.driver.DmDriver");try(var c=DriverManager.getConnection("jdbc:dm://127.0.0.1:5370","ADJAUTH20261004",System.getenv("ADJ_AUTH_OWNER_PASSWORD"));var s=c.createStatement()){s.execute("GRANT REFERENCES ON adj2_source_use TO ADJAUTH_SVC");System.out.println("MINIMUM_ADJ_SOURCE_FK_REFERENCE_DCL_GRANTED_NO_BUSINESS_ROW_CHANGE");}}}

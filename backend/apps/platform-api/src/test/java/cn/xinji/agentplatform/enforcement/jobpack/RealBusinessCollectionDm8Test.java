@@ -9,6 +9,7 @@ import cn.xinji.agentplatform.enforcement.adapter.out.dm8.LocalMaterialFiles;
 import cn.xinji.agentplatform.enforcement.jobpack.JobPackContract.PublicInput;
 import cn.xinji.agentplatform.enforcement.jobpack.JobPackContract.Evidence;
 import cn.xinji.agentplatform.enforcement.jobpack.JobPackContract.FactType;
+import cn.xinji.agentplatform.enforcement.testing.EnforcementDm8IsolationGuard;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.file.Files;
 import java.time.Clock;
@@ -22,17 +23,19 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 class RealBusinessCollectionDm8Test {
     @Test void realDm8PersistsOneClaimPublicPackageAndNoFalseTrigger() throws Exception {
+        var isolation = EnforcementDm8IsolationGuard.beforeConnect(required("JOB_PACK_DM8_URL"), required("JOB_PACK_DM8_USER"));
         var source = new DriverManagerDataSource(required("JOB_PACK_DM8_URL"), required("JOB_PACK_DM8_USER"),
                 required("JOB_PACK_DM8_PASSWORD"));
         source.setDriverClassName("dm.jdbc.driver.DmDriver");
         var db = new JdbcTemplate(source);
+        isolation.assertFreshSchema(db);
         migrate(db, "db/dm8/V062__enforcement_v2_job_pack.sql");
         migrate(db, "db/dm8/V066__enforcement_real_business_collection.sql");
         var tx = new TransactionTemplate(new DataSourceTransactionManager(source));
         var json = new ObjectMapper().findAndRegisterModules();
         var tasks = new Dm8RealBusinessCollectionTaskStore(db, tx, json, Clock.systemUTC());
         var packs = new Dm8JobPackStore(db, tx, json, Clock.systemUTC());
-        var fileRoot = Files.createTempDirectory("enf-real-business-i-");
+        var fileRoot = isolation.fileRoot();
         var files = new LocalMaterialFiles(fileRoot);
         new PublicCollectionTaskImporter(tasks, files, json,
                 "data/enforcement/public-job-pack-candidates-v1/candidates.json")
@@ -41,7 +44,7 @@ class RealBusinessCollectionDm8Test {
         String taskId = "ENF-RBC-CNIPA-GUIDANCE-CASE-1";
         String packageId = "ENF-JOB-CNIPA-GUIDANCE-CASE-1";
         var input = tasks.find(taskId).orElseThrow().publicInput();
-        try {
+        {
             var claimed = tasks.claim(taskId, "mechanism-operator", "ORG-I", "claim-real-public", "a".repeat(64));
             var claimedInput = new PublicInput(input.candidateId(), input.sourceUrl(), input.sourceName(), input.publishedAt(),
                     input.capturedAt(), input.rawSha256(), input.rawFileKey(), input.originalName(), input.collectionBatchId(),
@@ -87,17 +90,18 @@ class RealBusinessCollectionDm8Test {
                     Integer.class, taskId)).isEqualTo(1);
             assertThatThrownBy(() -> tasks.claim(taskId, "other-operator", "ORG-I", "other-real-public",
                     "b".repeat(64))).isInstanceOf(IllegalArgumentException.class);
-        } finally {
-            db.update("DELETE FROM enf8_integration_trigger WHERE package_id=?", packageId);
-            db.update("DELETE FROM enf8_job_pack_event WHERE package_id=?", packageId);
-            db.update("DELETE FROM enf8_job_pack_receipt WHERE package_id=?", packageId);
-            db.update("DELETE FROM enf8_job_pack_revision WHERE package_id=?", packageId);
-            db.update("DELETE FROM enf8_real_business_task_event WHERE task_id=?", taskId);
-            db.update("DELETE FROM enf8_real_business_task WHERE collection_batch_id=?", input.collectionBatchId());
-            try (var paths = Files.walk(fileRoot)) {
-                for (var path : paths.sorted(java.util.Comparator.reverseOrder()).toList()) Files.deleteIfExists(path);
-            }
+            var beforeReimport = tasks.list();
+            Integer beforeReceipts = db.queryForObject("SELECT COUNT(*) FROM enf8_job_pack_receipt", Integer.class);
+            Integer beforeEvents = db.queryForObject("SELECT COUNT(*) FROM enf8_job_pack_event", Integer.class);
+            new PublicCollectionTaskImporter(tasks, files, json,
+                    "data/enforcement/public-job-pack-candidates-v1/candidates.json")
+                    .run(new org.springframework.boot.DefaultApplicationArguments(new String[0]));
+            assertThat(tasks.list()).isEqualTo(beforeReimport);
+            assertThat(db.queryForObject("SELECT COUNT(*) FROM enf8_job_pack_receipt", Integer.class)).isEqualTo(beforeReceipts);
+            assertThat(db.queryForObject("SELECT COUNT(*) FROM enf8_job_pack_event", Integer.class)).isEqualTo(beforeEvents);
+            assertThat(files.read(input.rawFileKey())).isNotEmpty();
         }
+        // Keep the owned isolated database and originals as evidence, including on assertion failure.
     }
 
     private static void submitAndVerify(JobPackService service, String packageId, String submitter, String verifier,

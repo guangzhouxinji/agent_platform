@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,8 +28,9 @@ public final class ProductSemanticIndexController {
 
     @PostMapping("/{sourceId}/semantic-index")
     public ProductSemanticIndex.Receipt build(@PathVariable String sourceId,
+            @RequestParam(required = false) String field,
             @RequestHeader("Idempotency-Key") String requestId, HttpServletRequest request) {
-        return index.build(sourceId, requestId,
+        return index.buildField(sourceId, field == null ? "TITLE" : field, requestId,
                 maintenance.require(request, ProductMaintenanceProof.Role.SOURCES));
     }
 

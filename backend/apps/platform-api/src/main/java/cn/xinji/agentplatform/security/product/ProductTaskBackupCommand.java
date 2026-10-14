@@ -82,6 +82,7 @@ public final class ProductTaskBackupCommand {
     }
 
     private static List<String> references(JdbcTemplate db, Path root, long maxBytes) {
+        ProductSourceCaptureIdentity.verify(db,new com.fasterxml.jackson.databind.ObjectMapper());
         var originals = new ProductSourceRecoveryFiles(db, root, maxBytes).references();
         Map<String, String> refs = new LinkedHashMap<>();
         var files = new ProductSourceEvidenceFiles(root, maxBytes);
@@ -103,6 +104,7 @@ public final class ProductTaskBackupCommand {
                     throw new IllegalStateException("Conflicting retained evidence digest");
             });
         }
+        ProductModelTurnRetentionReferences.collect(db, refs);
         for (var item : refs.entrySet()) files.verified(item.getKey(), item.getValue());
         var all = new ArrayList<>(originals);
         all.addAll(refs.keySet());

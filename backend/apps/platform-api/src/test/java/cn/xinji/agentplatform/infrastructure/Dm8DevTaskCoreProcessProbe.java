@@ -355,7 +355,7 @@ final class Dm8DevTaskCoreProcessProbe {
                 .filter(line -> !line.isBlank()).toList();
         String causes = lines.stream()
                 .filter(line -> line.contains("Caused by:") || line.contains("APPLICATION FAILED")
-                        || line.contains("Error creating bean") || line.contains("Description:"))
+                        || line.contains("Error creating bean") || line.contains("Description:") || line.contains("required a bean") || line.contains("could not be found") || line.contains("already defined"))
                 .map(line -> line.replace(password, "[redacted]"))
                 .map(line -> line.substring(0, Math.min(line.length(), 300)))
                 .limit(8).reduce((first, next) -> first + " | " + next).orElse("");

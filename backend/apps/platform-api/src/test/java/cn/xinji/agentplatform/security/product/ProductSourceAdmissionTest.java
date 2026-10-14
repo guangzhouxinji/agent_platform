@@ -38,14 +38,15 @@ class ProductSourceAdmissionTest {
         JdbcDataSource main = database();
         JdbcDataSource independent = database();
         for (String name : List.of("V032__product_identity.sql",
-                "V034__product_consultation_initial_task.sql", "V036__product_source_candidates.sql",
+                "V034__product_consultation_initial_task.sql", "V036__product_source_candidates.sql", "V088__product_source_capture_identity.sql",
                 "V037__product_source_admission.sql", "V039__product_source_verification.sql",
                 "V041__product_task_authorization_version.sql",
                 "V042__product_consultation_goal.sql", "V043__product_task_cancel_epoch.sql",
                 "V044__product_task_session_resume.sql", "V045__product_task_execution_fence.sql",
                 "V046__product_workload_subject.sql", "V047__product_task_worker_delegation.sql",
                 "V048__product_task_execution_reconciliation.sql",
-                "V053__product_source_use_decision.sql")) script(main, "db/dm8/" + name);
+                "V053__product_source_use_decision.sql",
+                "V077__product_execution_attempt_history.sql")) script(main, "db/dm8/" + name);
         script(independent, "db/identity-authority/V001__grant_watermark.sql");
         script(independent, "db/identity-authority/V003__consultation_source_watermark.sql");
         JdbcTemplate db = new JdbcTemplate(main);

@@ -36,35 +36,43 @@ public final class ProductGrants {
 
     Receipt issueWorkload(String issuer, String subject, String organization, String taskId,
             Instant expiresAt, long expectedEpoch, String maintainer, String requestId, String requestSha) {
+        return issueWorkloadTask(issuer, subject, organization, taskId, expiresAt, expectedEpoch,
+                maintainer, requestId, requestSha, "WRITE");
+    }
+
+    Receipt issueComparisonWorkload(String issuer, String subject, String organization, String taskId,
+            Instant expiresAt, long expectedEpoch, String maintainer, String requestId, String requestSha) {
+        return issueWorkloadTask(issuer, subject, organization, taskId, expiresAt, expectedEpoch,
+                maintainer, requestId, requestSha, "COMPARE");
+    }
+
+    private Receipt issueWorkloadTask(String issuer, String subject, String organization, String taskId,
+            Instant expiresAt, long expectedEpoch, String maintainer, String requestId, String requestSha,
+            String action) {
         if (blank(issuer) || blank(subject) || blank(organization) || blank(taskId)
                 || blank(maintainer) || blank(requestId) || requestSha == null
                 || !requestSha.matches("[0-9a-fA-F]{64}") || expiresAt == null
                 || !expiresAt.isAfter(clock.instant()))
             throw new IllegalArgumentException("Exact workload task grant required");
         return transactions.execute(status -> {
-        List<String> locked = db.query("SELECT task_id FROM con3_task WHERE task_id=? FOR UPDATE",
-                (rs, row) -> rs.getString(1), taskId);
-        if (locked.size() != 1) throw new IllegalStateException("Workload task unavailable");
-        List<Scope> current = db.query("SELECT t.authorization_version,s.scope_id,s.scope_version "
-                        + "FROM con3_task t JOIN con3_organization o "
-                        + "ON o.organization_id=t.organization_id JOIN con3_data_scope s "
-                        + "ON s.task_id=t.task_id AND s.organization_id=t.organization_id "
-                        + "JOIN id2_workload w ON w.issuer=? AND w.subject_id=? "
-                        + "AND w.organization=t.organization_id JOIN id2_subject u "
-                        + "ON u.issuer=w.issuer AND u.subject_id=w.subject_id "
-                        + "WHERE t.task_id=? AND t.organization_id=? AND t.state='IN_PROGRESS' "
-                        + "AND o.status='ACTIVE' AND s.kind='TASK_METADATA' "
-                        + "AND w.status='ACTIVE' AND w.allowed_purpose='TASK_WORK' "
-                        + "AND w.workload_kind='AGENT' AND w.expires_at>=? "
-                        + "AND u.status='ACTIVE' AND u.subject_kind='SERVICE' AND u.password_hash IS NULL "
-                        + "AND t.expires_at>=?",
-                (rs, row) -> new Scope(issuer, subject, organization, "CONSULTATION", taskId,
-                        rs.getString(2) + ":" + rs.getLong(3), "TASK", taskId, rs.getLong(1),
-                        "WRITE", "TASK_WORK"), issuer, subject, taskId, organization,
-                Timestamp.from(expiresAt), Timestamp.from(expiresAt));
-        if (current.size() != 1) throw new IllegalStateException("Workload or task scope unavailable");
-        return issueExact(current.getFirst(), expiresAt, expectedEpoch, maintainer,
-                requestId, requestSha, false, true);
+            Scope scope = ProductWorkloadTaskGrantScope.current(db, issuer, subject, organization,
+                    taskId, expiresAt, action);
+            require(scope, maintainer, requestId, requestSha);
+            Receipt receipt = issueExact(scope, expiresAt, expectedEpoch, maintainer,
+                    requestId, requestSha, false, true);
+            List<String> exact = db.query("SELECT grant_id FROM id2_grant WHERE grant_id=? "
+                            + "AND issuer=? AND subject_id=? AND organization=? AND domain_code=? "
+                            + "AND task_scope=? AND data_scope=? AND resource_type=? AND resource_id=? "
+                            + "AND resource_version=? AND action_code=? AND purpose=? AND expires_at>?",
+                    (rs, row) -> rs.getString(1), receipt.grantId(), scope.issuer(), scope.subject(),
+                    scope.organization(), scope.domain(), scope.taskScope(), scope.dataScope(),
+                    scope.resourceType(), scope.resourceId(), scope.resourceVersion(), scope.action(),
+                    scope.purpose(), Timestamp.from(clock.instant()));
+            if (exact.size() != 1) throw new IllegalStateException("Workload grant scope is no longer current");
+            if (!scope.equals(ProductWorkloadTaskGrantScope.current(db, issuer, subject, organization,
+                    taskId, expiresAt, action)))
+                throw new IllegalStateException("Workload task scope changed during grant issuance");
+            return receipt;
         });
     }
 
@@ -74,7 +82,8 @@ public final class ProductGrants {
         if (watermark == null) throw new IllegalArgumentException("Independent source authority is required");
         if (!"CONSULTATION".equals(scope.domain()) || !"SOURCE_SCOPE".equals(scope.resourceType())
                 || !("QUERY".equals(scope.action()) && "SOURCE_QUERY".equals(scope.purpose())
-                    || "DISPLAY".equals(scope.action()) && "SOURCE_DISPLAY".equals(scope.purpose())))
+                    || "DISPLAY".equals(scope.action()) && "SOURCE_DISPLAY".equals(scope.purpose())
+                    || "COMPARE".equals(scope.action()) && ("COMPARISON".equals(scope.purpose()) || "MODEL_INPUT".equals(scope.purpose()))))
             throw new IllegalArgumentException("Only exact consultation source actions can be issued");
         List<String> sourceIds = db.queryForList("SELECT source_id FROM con4_task_source_scope "
                 + "WHERE scope_id=? AND scope_version=?", String.class,
@@ -139,7 +148,12 @@ public final class ProductGrants {
     private void requireCurrentSourceScope(Scope scope, Instant expiresAt) {
         if (!scope.dataScope().equals(scope.resourceId() + ":" + scope.resourceVersion()))
             throw new IllegalArgumentException("Source scope version does not match the grant");
-        String use = "QUERY".equals(scope.action()) ? "QUERY" : "DISPLAY";
+        String use = switch (scope.action()) {
+            case "QUERY" -> "QUERY";
+            case "DISPLAY" -> "DISPLAY";
+            case "COMPARE" -> "MODEL_INPUT".equals(scope.purpose())?"MODEL":"COMPARISON";
+            default -> throw new IllegalArgumentException("Unsupported source scope action");
+        };
         List<Boolean> rows = db.query("SELECT tg.data_scope,ds.scope_id,ds.scope_version,"
                         + "tg.grant_generation,tc.authorization_epoch FROM con4_task_source_scope s "
                         + "JOIN con4_task_source_current sc ON sc.scope_id=s.scope_id "

@@ -61,6 +61,6 @@ public final class ProductPatentSearchController {
     @ExceptionHandler({IllegalStateException.class, DataAccessException.class})
     @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
     void unavailable(RuntimeException failure) {
-        LOG.warn("Patent search request unavailable: {}", failure.getMessage(), failure);
+        LOG.warn("Patent search request unavailable; failureType={}", failure.getClass().getSimpleName());
     }
 }

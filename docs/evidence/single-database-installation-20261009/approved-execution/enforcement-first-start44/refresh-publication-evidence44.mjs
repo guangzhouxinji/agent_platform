@@ -1,0 +1,12 @@
+import{readFile,writeFile}from'node:fs/promises';import path from'node:path';import{hash,canonical}from'../../../../../scripts/lib/single-database-lifecycle-runtime.mjs';
+const a=path.resolve('docs/evidence/single-database-installation-20261009/approved-execution/enforcement-first-start44'),p=path.join(a,'publisher44');
+const json=async f=>JSON.parse((await readFile(f,'utf8')).replace(/^\uFEFF/,''));const ref=async f=>({path:f,sha256:hash(await readFile(f))});const save=async(f,v)=>{await writeFile(f,JSON.stringify(v,null,2)+'\n',{flag:'wx'});return ref(f)};
+const c=await json(path.join(a,'enforcement-deployment44.json')),before=await json(c.installationRequest.path),i=await json(path.join(a,'fresh-prepublication44.json')),r=await json(path.join(a,'fresh-prepublication44-result.json'));
+if(r.exitCode!==0||!i.actualJdbc||!i.complete||i.targetId!==before.inventory.targetId)throw Error('ACTUAL_CURRENT_INVENTORY_REQUIRED');
+for(const k of ['schemas','accounts','nativePrivileges','foreignKeyDependencies'])if(canonical(i[k])!==canonical(before.inventory[k]))throw Error('POSTSTART_DRIFT:'+k);
+const receipt=await json(c.inventoryReceipt.path);Object.assign(receipt,{capturedAt:r.finishedAt,inventorySha256:hash(canonical(i)),rawInventory:await ref(path.join(a,'fresh-prepublication44.json'))});
+c.inventoryReceipt=await save(path.join(a,'application-inventory-receipt44-prepublish.json'),receipt);
+const config=await save(path.join(a,'enforcement-deployment44-prepublish.json'),c);
+const pub=await json(path.join(p,'publication44.json'));pub.originalPublication=await ref(path.join(p,'publication44.json'));pub.deployment=config;
+await save(path.join(p,'publication44-prepublish.json'),pub);
+console.log(JSON.stringify({freshInventoryUnchanged:true,storageProbeNotRestarted:true,actualStorageTimestampNotChanged:true,publishProfileImmutable:true}));

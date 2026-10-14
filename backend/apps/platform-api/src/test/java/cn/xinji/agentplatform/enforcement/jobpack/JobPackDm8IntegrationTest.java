@@ -112,7 +112,7 @@ class JobPackDm8IntegrationTest {
     }
 
     private static String required(String name) {
-        String value = System.getenv(name);
+        String value = cn.xinji.agentplatform.enforcement.testing.FixtureEnvironment.optional(name, "AGENT_JOBPACK_", System.getenv());
         if (value == null || value.isBlank()) throw new IllegalStateException(name + " must be injected for real DM8 I");
         return value;
     }

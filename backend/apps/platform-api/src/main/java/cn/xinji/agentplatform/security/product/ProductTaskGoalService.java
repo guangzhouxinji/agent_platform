@@ -78,6 +78,18 @@ public final class ProductTaskGoalService {
                 ? ProductPatentSearchFilters.none() : ProductPatentSearchFilters.validated(
                         input.filters().publicationFrom(), input.filters().publicationTo(),
                         input.filters().ipcPrefixes(), input.filters().cpcPrefixes());
+        try {
+            if (List.of("QUERY", "SEARCH").contains(input.purpose())) {
+                var scope=ProductPatentSearchFieldScope.from(input.requestedFields(),filters);
+                scope.syntax(input.queryObject()); scope.expansion(input.queryObject());
+            } else {
+                new cn.xinji.agentplatform.consultation.patenttask.source.PatentQuerySyntax()
+                        .parse(input.queryObject(),new java.util.HashSet<>(input.requestedFields()));
+                new cn.xinji.agentplatform.consultation.patenttask.source.PatentQueryExpansion().expand(input.queryObject());
+            }
+        } catch (IllegalArgumentException invalid) {
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY,invalid.getMessage());
+        }
         String filterJson = json(filters.evidence());
         String features = json(input.requiredFeatures());
         String payload = json(input);
@@ -86,12 +98,14 @@ public final class ProductTaskGoalService {
         String requestSha = sha(payload);
         ProductTaskDirectory.Task task = currentTask(taskId, jwt);
         Result result = transactions.execute(status -> {
+            if (db.query("SELECT task_id FROM con3_task WHERE task_id=? FOR UPDATE",
+                    (rs, row) -> rs.getString(1), taskId).size() != 1) throw conflict();
             ProductTaskDirectory.Task locked = currentTask(taskId, jwt);
             List<Result> old = db.query("SELECT r.result_id,r.result_version,m.message_id,i.input_id,"
                             + "g.expires_at,r.request_sha FROM con3_command_receipt r "
-                            + "JOIN con3_goal_revision g ON g.goal_id=r.result_id AND g.revision=1 "
+                            + "JOIN con3_goal_revision g ON g.goal_id=r.result_id AND g.task_id=r.task_id "
                             + "JOIN con3_search_input i ON i.task_id=r.task_id AND i.goal_id=g.goal_id "
-                            + "AND i.goal_revision=g.revision "
+                            + "AND i.goal_revision=g.revision AND i.task_version=r.result_version "
                             + "JOIN con3_message m ON m.task_id=r.task_id AND m.message_id=g.source_message_id "
                             + "WHERE r.task_id=? AND r.actor_issuer=? AND r.actor_subject=? "
                             + "AND r.operation='GOAL_CONFIRMED' AND r.request_id=?",
@@ -106,36 +120,40 @@ public final class ProductTaskGoalService {
                         || !"IN_PROGRESS".equals(locked.state())) throw conflict();
                 return replay;
             }
-            if (!"AWAITING_GOAL".equals(locked.state())
-                    || locked.version() != input.expectedTaskVersion()) throw conflict();
+            var next = new ProductTaskGoalContinuation(db, mapper).next(taskId, locked.state(),
+                    locked.version(), input, filters);
             Instant now = clock.instant().truncatedTo(ChronoUnit.MILLIS);
             Instant expiry = now.plus(retention.maxAge()).isBefore(locked.expiresAt())
                     ? now.plus(retention.maxAge()) : locked.expiresAt();
             if (!expiry.isAfter(now)) throw new ResponseStatusException(HttpStatus.GONE);
             long nextVersion = locked.version() + 1;
             if (db.update("UPDATE con3_task SET state='IN_PROGRESS',version=? "
-                    + "WHERE task_id=? AND version=? AND state='AWAITING_GOAL' AND expires_at>?",
-                    nextVersion, taskId, locked.version(), Timestamp.from(now)) != 1) throw conflict();
+                    + "WHERE task_id=? AND version=? AND state=? AND expires_at>?",
+                    nextVersion, taskId, locked.version(), locked.state(), Timestamp.from(now)) != 1) throw conflict();
             String sessionId = UUID.randomUUID().toString();
             String messageId = UUID.randomUUID().toString();
-            String goalId = UUID.randomUUID().toString();
+            String goalId = next.goalId();
             String inputId = UUID.randomUUID().toString();
+            db.update("UPDATE con3_session SET status='ENDED' WHERE task_id=? AND status='ACTIVE'", taskId);
             db.update("INSERT INTO con3_session VALUES(?,?,'ACTIVE',?,?)",
                     sessionId, taskId, Timestamp.from(now), Timestamp.from(expiry));
             db.update("INSERT INTO con3_message VALUES(?,?,?,?,?,?,?,?,?,? ,?,?,?)",
                     messageId, taskId, sessionId, 1, jwt.getIssuer().toString(), jwt.getSubject(),
                     input.messageText(), sha(input.messageText()), Timestamp.from(now), Timestamp.from(expiry),
                     retention.reference(), retention.version(), retention.evidenceSha256());
-            db.update("INSERT INTO con3_goal_revision VALUES(?,1,?,?,?,'CONFIRMED',?,?,?,?,?,?,?,?,?,?,?,?)",
-                    goalId, taskId, locked.organization(), input.purpose(), input.queryObject(), sources,
+            db.update("INSERT INTO con3_goal_revision VALUES(?,?,?,?,?,'CONFIRMED',?,?,?,?,?,?,?,?,?,?,?,?)",
+                    goalId, next.revision(), taskId, locked.organization(), input.purpose(), input.queryObject(), sources,
                     features, messageId, jwt.getIssuer().toString(), jwt.getSubject(), Timestamp.from(now),
                     Timestamp.from(expiry), requestSha, retention.reference(), retention.version(),
                     retention.evidenceSha256());
-            db.update("INSERT INTO con3_goal_current VALUES(?,?,1,?)", taskId, goalId, nextVersion);
+            if (next.revision() == 1) db.update("INSERT INTO con3_goal_current VALUES(?,?,1,?)", taskId, goalId, nextVersion);
+            else if (db.update("UPDATE con3_goal_current SET revision=?,task_version=? "
+                    + "WHERE task_id=? AND goal_id=? AND revision=? AND task_version=?", next.revision(),
+                    nextVersion, taskId, goalId, next.revision()-1, locked.version()) != 1) throw conflict();
             db.update("INSERT INTO con3_search_input(input_id,task_id,goal_id,goal_revision,task_version,"
                             + "query_text,source_scope_json,requested_fields_json,content_sha,confirmed_at,"
-                            + "expires_at,filters_json) VALUES(?,?,?,1,?,?,?,?,?,?,?,?)", inputId,
-                    taskId, goalId, nextVersion, input.queryObject(), sources, fields, requestSha,
+                            + "expires_at,filters_json) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)", inputId,
+                    taskId, goalId, next.revision(), nextVersion, input.queryObject(), sources, fields, requestSha,
                     Timestamp.from(now), Timestamp.from(expiry), filterJson);
             db.update("INSERT INTO con3_command_receipt VALUES(?,?,?,'GOAL_CONFIRMED',?,?,?,?,?)",
                     taskId, jwt.getIssuer().toString(), jwt.getSubject(), requestId, requestSha,
@@ -143,6 +161,9 @@ public final class ProductTaskGoalService {
             db.update("INSERT INTO con3_event VALUES(?,?,'GOAL_CONFIRMED',?,?,?,?)",
                     UUID.randomUUID().toString(), taskId, jwt.getSubject(), nextVersion, requestSha,
                     Timestamp.from(now));
+            ProductTaskDirectory.Task authorized = currentTask(taskId, jwt);
+            if (authorized.version() != nextVersion
+                    || authorized.authorizationVersion() != locked.authorizationVersion()) throw conflict();
             return new Result(taskId, messageId, goalId, inputId, nextVersion, expiry);
         });
         ProductTaskDirectory.Task current = currentTask(taskId, jwt);

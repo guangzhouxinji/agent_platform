@@ -1,0 +1,13 @@
+import type { EnforcementManifest } from './enforcementAgentStart';
+export type Manifest=EnforcementManifest;
+export type Issue={field:string;code:string;blocking:boolean};
+export type InputCheck={category:string;objectId:string;revision:number;status:string;code:string;reason:string;sha256?:string};
+export type InputAudit={organization:string;type:string;checkedAt:string;inputs:Manifest[];checks:InputCheck[]};
+export type Field={definition:{id:string;label:string;editableText:boolean;repeated:boolean};value:unknown;missing:boolean;source?:{sourceRef:string;sourceVersion:number;sourceSha256:string;locator:string;value:unknown}};
+export type Content={profile:{title:string;classification:string;revision:number};sections:Array<{id:string;visibility:string;fields:Field[]}>};
+export type Draft={id:string;revision:number;manifest:Manifest;contentJson:string;contentSha256:string;inputManifestHash:string;reviewState:string;missingItems:Issue[];author:string;createdAt:string};
+export type Prepared={inputManifestHash:string;ready:boolean;diagnostics:Issue[]};
+export type Receipt={operation:string;draftId:string;revision:number;contentSha256:string;candidateId?:string;requestId:string};
+export type Candidate={id:string;baseRevision:number;baseContentSha256:string;contentSha256:string;differences:Array<{field:string;beforeJson:string;afterJson:string}>};
+export type Review={revision:number;outcome:string;actor:string;reason:string;createdAt:string;contentSha256:string};
+export type Baseline={id:string;revision:number;title:string;documentType:string;classification:string};

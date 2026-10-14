@@ -1,0 +1,1 @@
+import {fileURLToPath} from 'node:url';import {stageEnforcementAssets} from './lib/enforcement-product-assets.mjs';console.log(JSON.stringify(stageEnforcementAssets(fileURLToPath(new URL('../',import.meta.url))),null,2));

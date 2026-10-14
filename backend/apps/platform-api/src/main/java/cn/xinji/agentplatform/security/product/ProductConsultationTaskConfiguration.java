@@ -15,6 +15,13 @@ import org.springframework.transaction.support.TransactionTemplate;
 @Configuration
 @ConditionalOnProperty(name = "product.identity.enabled", havingValue = "true")
 public class ProductConsultationTaskConfiguration {
+    @Bean ProductHumanTaskTransaction productHumanTaskTransaction(JdbcTemplate db,
+            PlatformTransactionManager manager, ProductGrantWatermark watermark,
+            ProductConsultationAccess access, org.springframework.security.oauth2.jwt.JwtDecoder decoder,
+            @Value("${product.identity.issuer:}") String issuer) {
+        return new ProductHumanTaskTransaction(db, manager, watermark, access, decoder, issuer, Clock.systemUTC());
+    }
+
     @Bean ProductWorkerDelegations productWorkerDelegations(JdbcTemplate db,
             ProductGrantWatermark watermark, ProductConsultationAccess access,
             ProductTaskDirectory directory, PlatformTransactionManager manager,
